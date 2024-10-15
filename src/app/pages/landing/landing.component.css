@@ -1,0 +1,75 @@
+/* Landing Page Styles */
+.landing-container {
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, white, #f0f0f0);
+    min-height: 90vh;
+  }
+  
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 3em;
+    color: #3f51b5;
+  }
+  
+  .welcome-section p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .destinations-section {
+    text-align: center;
+  }
+  
+  .destinations-section h2 {
+    font-size: 2.5em;
+    color: #1976d2;
+    margin-bottom: 30px;
+  }
+  
+  .destination-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .destination-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 30%;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .destination-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .destination-info {
+    padding: 20px;
+  }
+  
+  .destination-info h3 {
+    font-size: 1.8em;
+    color: #3f51b5;
+  }
+  
+  .destination-info p {
+    font-size: 1.1em;
+    color: #666;
+  }
+  

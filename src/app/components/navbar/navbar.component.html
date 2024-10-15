@@ -1,0 +1,62 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="push" class="sidenav">
+    <mat-toolbar class="sidenav-toolbar" color="primary">
+      <span class="toolbar-title">Menú</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item [routerLink]="['']" (click)="sidenav.toggle()" class="menu-item">
+        <mat-icon class="large-icon">home</mat-icon>
+        <span class="large-text">Inicio</span>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <mat-expansion-panel *ngFor="let item of sidebarItems" class="continent-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="large-icon">{{ item.icon }}</mat-icon>
+            <span class="large-text">{{ item.label }}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list-item *ngFor="let subItem of item.subItems" 
+            [routerLink]="subItem.url" 
+            class="sublabel-text" 
+            (click)="sidenav.toggle()">
+          <mat-icon class="destination-icon">{{ subItem.icon }}</mat-icon>
+          <span>{{ subItem.label }}</span>
+        </mat-list-item>
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="main-toolbar" [ngClass]="{'fixed-toolbar': !sidenav.opened}">
+    <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="toolbar-title">Explora el Mundo</span>
+    
+    <!-- Spacer para empujar los elementos hacia la derecha -->
+    <span class="spacer_info"></span>
+
+    <!-- Botón de información, colocado a la derecha -->
+    <button mat-icon-button class="nav-button" routerLink="/about" aria-label="Info">
+      <mat-icon>help_outline</mat-icon>
+    </button>
+
+    <button mat-icon-button class="nav-button" routerLink="/contact" aria-label="Contact">
+      <mat-icon>person</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+
+  <app-footer></app-footer>
+
+</mat-sidenav-container>

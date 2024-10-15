@@ -1,0 +1,58 @@
+<!-- Main Content -->
+<div class="landing-container">
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <h1>Bienvenido a Tu Aventura de Viajes</h1>
+    <p>
+      Explora el mundo a través de nuestras guías de viaje cuidadosamente seleccionadas.
+      Descubre destinos emocionantes, sumérgete en experiencias únicas y deja que tu
+      viaje comience aquí.
+    </p>
+  </section>
+
+  <!-- Destinations Section -->
+  <section class="destinations-section">
+    <h2>Explora Nuestros Destinos Destacados</h2>
+    
+    <div class="destination-cards">
+      <!-- Destination: Japan -->
+      <a [routerLink]="['./destinations/japan']" class="destination-card">
+        <img src="/assets/japan/landing_card_japan.jpg" alt="Japan" class="destination-image">
+        <div class="destination-info">
+          <h3>Japón</h3>
+          <p>
+            Embárcate en un viaje inolvidable por la tierra del sol naciente.
+            Experimenta la mezcla de modernidad y tradición en ciudades como Tokio y Kioto.
+          </p>
+        </div>
+      </a>
+
+      <!-- Destination: Hungary -->
+      <a [routerLink]="['./destinations/pragabudapest']" class="destination-card">
+        <img src="assets/budapest/landing_card_praga.jpg" alt="Hungary" class="destination-image">
+        <div class="destination-info">
+          <h3>Hungría</h3>
+          <p>
+            Descubre el encanto de Europa del Este. Explora la belleza de Budapest,
+            donde la arquitectura impresionante se encuentra con una rica historia a lo largo del Danubio.
+          </p>
+        </div>
+      </a>
+
+      <!-- Destination: Copenhagen -->
+      <a [routerLink]="['./destinations/copenhague']" class="destination-card">
+        <img src="assets/copenhagen.jpg" alt="Copenhagen" class="destination-image">
+        <div class="destination-info">
+          <h3>Copenhague</h3>
+          <p>
+            Sumérgete en la vibrante cultura de la capital de Dinamarca.
+            Desde el colorido distrito de Nyhavn hasta la cocina innovadora, Copenhague es una ciudad de inspiración.
+          </p>
+        </div>
+      </a>
+
+      <!-- Placeholder for more destinations -->
+      <div class="destination-placeholder"></div>
+    </div>
+  </section>
+</div>

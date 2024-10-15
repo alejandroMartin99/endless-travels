@@ -1,0 +1,123 @@
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Evita que el sidenav-container se desplace */
+}
+
+.main-toolbar {
+  position: fixed; /* Fija la barra de herramientas */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que la barra esté por encima del contenido */
+ /* Color de fondo */
+  color: white;
+}
+
+.mat-sidenav-container {
+  padding-top: 64px; /* Deja espacio para la barra de herramientas fija */
+}
+
+.mat-sidenav-content {
+  overflow-y: auto; /* Permite el scroll del contenido */
+  height: calc(100vh - 64px); /* Ajusta la altura para no incluir la barra de herramientas */
+}
+
+.sidenav {
+  background-color: #ffffff; /* Fondo del sidenav */
+  padding: 15px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Spacer for flexible layout */
+.spacer_info {
+  flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Title in the toolbar */
+.toolbar-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3f51b5; /* Dark blue for the title */
+}
+
+/* Menu items */
+.menu-item {
+  display: flex;
+  align-items: center; /* Align icon and text */
+  font-size: 18px;
+  font-weight: 500;
+  color: #3f51b5; /* Medium blue for menu items */
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #bbdefb; /* Light blue on hover for interactivity */
+  color: #3f51b5; /* Darker blue text on hover */
+  cursor: pointer;
+}
+
+/* Large icons for menu items */
+.large-icon {
+  margin-right: 12px;
+  font-size: 22px; /* Slightly larger icons for a modern look */
+  color: #3f51b5; /* Same blue as menu items */
+  display: inline-flex; /* Ensure icon stays aligned with text */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text for menu items */
+.large-text {
+  font-weight: bold;
+  color: #3f51b5; /* Darker blue to differentiate text */
+}
+
+/* Icon specific for destinations */
+.destination-icon {
+  margin-right: 12px;
+  font-size: 20px; /* Slightly smaller icon for distinction */
+  color: #3f51b5; /* Lighter blue for destination icons */
+}
+
+/* Panel for continents and destinations */
+.continent-panel {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #e3f2fd; /* Light blue background for continent panels */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.continent-panel:hover {
+  background-color: #bbdefb; /* Lighter blue on hover */
+  color: #3f51b5; /* Darker blue text on hover */
+}
+
+
+
