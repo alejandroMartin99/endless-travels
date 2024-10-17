@@ -5,6 +5,8 @@ mat-expansion-panel {
     border-left: 5px solid;
     border-radius: 8px;
   }
+
+  
   
   /* Bordes de colores personalizados */
   .border-blue {
@@ -19,25 +21,38 @@ mat-expansion-panel {
     border-left-color: #f44336;
   }
 
-  
   .border-pink {
     border-left-color: #e571f0;
   }
+
+  .border-yellow{
+    border-left-color: #e9da68;
+  }
+
+  .border-purple {
+    border-left-color: #9315ad;
+  }
+
+  .border-dark-purple {
+    border-left-color: #480556;
+  }
+
+
   
   /* Contenedor de actividades */
   .activity-container {
     display: flex;
     justify-content: space-between;
-    height: 600px; /* Aumenta la altura total del contenedor */
-    padding: 20px; /* Padding que evita el colapso del contenido con los bordes */
+    height: 550px; /* Aumenta la altura total del contenedor */
+    padding: 1px; /* Padding que evita el colapso del contenido con los bordes */
     box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
-    gap: 20px; /* Espaciado entre las secciones de la actividad */
+    gap: 10px; /* Espaciado entre las secciones de la actividad */
   }
   
   /* Descripción e imagen */
   .activity-description, .activity-image {
-    flex-basis: 30%; /* Se reduce un poco el espacio para descripción e imagen */
-    padding: 10px;
+    flex-basis: 33%; /* Se reduce un poco el espacio para descripción e imagen */
+    padding: 5px;
     box-sizing: border-box;
   }
   
@@ -69,7 +84,7 @@ mat-expansion-panel {
     justify-content: flex-start;
     margin-top: 10px;
   }
-  
+
   .activity-indicator {
     width: 12px;
     height: 12px;

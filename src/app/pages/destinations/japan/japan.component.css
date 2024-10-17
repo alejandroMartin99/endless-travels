@@ -3,22 +3,9 @@
     padding: 0px 200px;
     background: linear-gradient(to bottom, white, #f0f0f0);
     min-height: 90vh;
-  }
-
-mat-expansion-panel {
-    max-width: 800px; /* Establece un ancho máximo para los paneles */
-    margin: 0 auto 15px auto; /* Centra los paneles y añade un margen inferior */
-    border-left: 500px solid;
-    padding: 600px; /* Añade un pequeño padding al contenido */
-    border-radius: 8px;
 }
-  
 
-.custom-tabs {
-width: 100%;
-margin: 0 auto;
-}
-  
+
 .mat-tab-label {
 display: flex;
 align-items: center;
@@ -28,63 +15,6 @@ padding: 12px;
 transition: color 0.3s ease;
 }
   
-.mat-tab-label-active {
-color: #007acc;
-font-weight: 700;
-}
-  
-.mat-tab-label:hover {
-color: #005ea6;
-}
-  
-  /* Estilos de la sección del contenido */
-.tab-section {
-padding: 40px;
-background: white;
-border-radius: 8px;
-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-  
-.section-title {
-font-size: 60px;
-font-weight: 700;
-color: #333;
-margin-bottom: 20px;
-}
-  
-.section-text {
-font-size: 18px;
-color: #666;
-line-height: 1.6;
-margin-bottom: 40px;
-}
-
-  /* Estilos para la lista de recomendaciones */
-.recommendations-list {
-list-style: none;
-padding: 0;
-}
-  
-.recommendations-list li {
-font-size: 18px;
-padding: 10px 0;
-border-bottom: 1px solid #e0e0e0;
-}
-  
-
-  
-.border-green {
-border-left: 5px solid #28a745;
-}
-
-.border-blue {
-border-left: 5px solid #007bff;
-}
-
-.border-pink {
-    border-left: 5px solid #e571f0;
-    }
-
 
 .custom-tab-label {
     display: flex;
@@ -96,11 +26,7 @@ border-left: 5px solid #007bff;
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
 }
 
-.custom-tab-label:hover {
-    background-color: #3f51b5; /* Fondo al pasar el ratón */
-    color: #ffffff; /* Color del texto al pasar el ratón */
-    transform: scale(1.05); /* Efecto de crecimiento al pasar el ratón */
-}
+
 
 .custom-icon {
     font-size: 25px; /* Tamaño del icono */
@@ -114,6 +40,4 @@ border-left: 5px solid #007bff;
 }
 
 /* Si quieres cambiar el color del texto al pasar el ratón */
-.custom-tab-label:hover .custom-tab-text {
-    color: #badfef; /* Color del texto al pasar el ratón */
-}
+
