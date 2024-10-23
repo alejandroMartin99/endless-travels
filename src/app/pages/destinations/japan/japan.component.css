@@ -20,7 +20,7 @@ transition: color 0.3s ease;
     display: flex;
     align-items: center; /* Centra el icono y el texto verticalmente */
     padding: 10px 20px; /* Añade espacio alrededor del contenido */
-    background-color: #e0e0e0; /* Fondo por defecto */
+    background-color: #ffffff; /* Fondo por defecto */
     border-radius: 8px; /* Bordes redondeados */
     transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
     cursor: pointer; /* Cambia el cursor al pasar el ratón */

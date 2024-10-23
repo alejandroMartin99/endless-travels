@@ -6,7 +6,8 @@
           <mat-icon class="custom-icon">home</mat-icon>
           <span class="custom-tab-text">Inicio</span>
       </ng-template>
-        <p>Bienvenido a la guía de viaje de Japón.</p>
+        <p>Bienvenido a la guía de viaje de Praga - Bratislava - Budapest.</p>
+        <p>Por ahora solo esta disponible el itinerario.</p>
       </mat-tab>
   
       <!-- Tab Recomendaciones -->
@@ -33,27 +34,124 @@
                 activities: [
                 {
                     name: 'Vuelo a Praga',
-                    description: 'Salimos en el vuelo a las 9:35h y llegamos a Praga a las 12:25h. Recogemos el coche de alquiler sobre las 13:30.',
+                    description: 'Salimos en el vuelo a las 9:35h y llegamos a Praga a las 12:25h. Preferimos un vuelo de mañana ya que no existiían muchas otras ofertas y además así aprobechamos toda la tarde en el destino.\n\n El precio del billete fue de 91€ por persona. La duración del mismo son 3h.',
                     images: [],
-                    longitude: 14.2567,
-                    latitude: 50.10408,
+                    longitude: -3.56804,
+                    latitude: 40.48401,
+                    mapUrl: ''
+                },
+                {
+                    name: 'Aeropurto de Praga - Coche alquiler',
+                    description: 'Aterrizamos sobre las 12:25 en el aeropuerto de Praga(PRG). Lo primero que haremos será cambiar algo de dinero en alguna máquina ATM para poder disponer de moneda local, la corona checa (Kc). En nuestro caso a fecha del 10/2024 el cambio era de 4€ equivalen a 100 Kc.\n\n Tras realizar el cambio de divisa nos dispondremos a recoger el coche de alquiler. Tras consultar numerosas páginas web y comaprar precios, llegamso a la conclusión que la mejor opción es recogerlo y devolverlo en el aeropuerto, ya que si lo quisieramos devolver en alguna oficina del centro (cercana al hotel) elevaba el precio. Utilizamos el comparador de precios de rentalcars y reservamos un Volkswagen Polo por 21€/día + 20€ de seguro.\n\nWeb comparadora de coches: https://www.rentalcars.com/en/',
+                    images: ['/assets/budapest/Dia01/capturaCocheAlquiler.jpg'],
+                    longitude: 14.26317037953236,
+                    latitude: 50.10195610543177,
                     mapUrl: ''
                 },
                 {
                     name: 'Kutná Hora - Osario de Sedlec',
-                    description: 'Visitamos el Osario de Sedlec entre las 15:00 y las 16:00. Es uno de los sitios más emblemáticos de la región, y la entrada cuesta 7€.',
-                    images: ['/assets/europa/osario_sedlec.jpg'],
-                    longitude: 15.2885,
-                    latitude: 49.9596,
+                    description: 'Tras recoger el coche nos dispondremos para ir a Kutná Hora, el trayecto es de 1:30 horas.\n\n Una vez allí visitamos el Osario de Sedlec entre las 15:00 y las 16:00. Este osario es uno de los sitios más emblemáticos e impresionantes de la región de Kutná Hora, situado en la iglesia del Cementerio de Todos los Santos. Lo que lo hace único es que sus interiores están decorados con huesos humanos, organizados artísticamente para formar candelabros, cruces y otras estructuras, lo que le otorga una atmósfera solemne pero fascinante. \n\n El horario del Osario es de 9:00 a 17:00h y el precio de la entrada es de 7€, en nuestro caso la adquirimos online en la web: https://tickets.sedlec.info/',
+                    images: ['/assets/budapest/Dia01/.jpg'],
+                    longitude:  15.288720505888634,
+                    latitude:49.96039308374713,
                     mapUrl: 'map-sedlec'
                 },
                 {
                     name: 'Kutná Hora - Iglesia de Santa Bárbara',
-                    description: 'A las 16:30 visitamos la Iglesia de Santa Bárbara, que cierra a las 18:00. Este monumento es parte del Patrimonio Mundial de la UNESCO.',
-                    images: ['/assets/europa/iglesia_santa_barbara.jpg'],
-                    longitude: 15.2682,
-                    latitude: 49.9454,
+                    description: 'Sobre las 16:30 visitamos la Iglesia de Santa Bárbara, que cierra a las 18:00. este trayecto desde el Osario lo haremos en coche ya que vamos algo justos de tiempo. \n\nEste monumento gótico, declarado Patrimonio Mundial de la UNESCO, es uno de los ejemplos más importantes de la arquitectura gótica en Europa Central. Su construcción comenzó en 1388 y fue completada varios siglos después, lo que explica la mezcla de estilos arquitectónicos que se pueden observar. La iglesia está dedicada a Santa Bárbara, la patrona de los mineros, lo que refleja la rica historia minera de Kutná Hora, una ciudad conocida por sus minas de plata.',
+                    images: ['/assets/budapest/Dia01/.jpg'],
+                    longitude: 15.263233774755731,
+                    latitude: 49.945228547050945, 
                     mapUrl: 'map-santa-barbara'
+                },
+                {
+                    name: 'Kutná Hora - Praga: Check In',
+                    description: 'Tras realizar toda la visita a Kutná Hora, nuetsra intención es volver con el coche al hotel y realizar el Check-In, de esta forma podemos dejar las maletas e ir posteriormente a la devolución del coche al aeropuerto en el mismo.',
+                    images: ['/assets/budapest/Dia01/.jpg'],
+                    longitude: 14.418228656633708,
+                    latitude: 50.08246157856821, 
+                    mapUrl: 'map-santa-barbara'
+                },
+                {
+                    name: 'Praga - Cena y paseo nocturno',
+                    description: 'Una vez realizada la devolución del coche en el aeropuerto de Praga tenemos que volver en transporte públio  hasta el centro de la ciudad y aprovecharemos tanto para cenar como para un paseo nocturno.\n\nLa vuelta desde el aeropuerto se puede realizar de muchas formas, pero casi todas constan de un primer tramo en bus y un segundo tramo en tren. Una opción sería tomar un bus , Capolinea Bus 119, hasta Nádraží Veleslavín (8 paradas - 15 min) y posteriormente un tren hasta Můstek(6 paradas - 10 min).',
+                    images: ['/assets/budapest/Dia01/.jpg'],
+                    longitude: 14.423587297844866,
+                    latitude: 50.0842193941157, 
+                    mapUrl: 'map-santa-barbara'
+                }
+                ]
+            }">
+        </app-itinerary-day-card>
+
+        <app-itinerary-day-card 
+            [borderClass]="'border-purple'"
+            [day]="{
+                title: 'Día 02 - Praga: Castillo de Praga y Torre de Petrín',
+                activities: [
+                {
+                    name: 'Castillo de Praga',
+                    description: 'Explora el majestuoso Castillo de Praga, la fortaleza más grande del mundo según el Libro Guinness de los Récords. Fundado en el siglo IX, este imponente complejo es una mezcla de estilos arquitectónicos que reflejan la historia checa. La entrada exterior es gratuita, pero para acceder al interior y visitar las distintas secciones del castillo, el precio es de 15€. Abierto todos los días de 6:00 a 22:00h. \n\n En nuestro caso lo que realizamos es un Free Tour donde nos mostraron todos los monumentos (por fuera) de 10-12:30h, de todas formas, realices Free Tour o no, te recomendamos llegar temprano para evitar las multitudes y disfruta de la vista panorámica de la ciudad desde los jardines del castillo.',
+                    images: ['/assets/europa/castillo_praga.jpg'],
+                    longitude: 14.3995,
+                    latitude: 50.0900,
+                    mapUrl: 'map-castillo-praga'
+                },
+                {
+                    name: 'Catedral de San Vito',
+                    description: 'Admira la imponente Catedral de San Vito, una joya de la arquitectura gótica. Es el lugar donde se coronaron los reyes de Bohemia y alberga las reliquias de San Vito, San Venceslao y San Adalberto. Entrada gratuita para acceder a las áreas principales, pero algunas secciones requieren ticket (parte de la entrada del Castillo). La catedral alberga la Capilla de San Wenceslao, cuya decoración es en gran parte de oro y piedras preciosas. Se puede subir a la torre pero cuesta unos 10€, sin embargo, las vistas desde arriba son espectaculares. \n\n Horarios: Lunes a Sábado de 9:00 a 18:00h, y Domingos de 12:00 a 18:00h. ',
+                    images: ['/assets/europa/catedral_san_vito.jpg'],
+                    longitude: 14.4004,
+                    latitude: 50.0908,
+                    mapUrl: 'map-catedral-san-vito'
+                },
+                {
+                    name: 'Palacio Antiguo Real',
+                    description: 'Visita el Palacio Antiguo Real, residencia de los reyes checos hasta el siglo XVI. Destaca por la Sala Vladislao, una de las más grandes de la época, con un techo de bóveda impresionante y el lugar donde se celebraban torneos de caballería en interiores. Incluido en la entrada del Castillo de Praga. La sala Vladislao fue diseñada para que los caballos pudieran subir las escaleras y participar en las ceremonias. No te pierdas la vista desde las ventanas, que ofrece una perspectiva única del complejo del castillo y el paisaje de Praga.\n\n Horario: 9:00 a 17:00h.',
+                    images: ['/assets/europa/palacio_antiguo_real.jpg'],
+                    longitude: 14.4008,
+                    latitude: 50.0906,
+                    mapUrl: 'map-palacio-antiguo-real'
+                },
+                {
+                    name: 'Basílica de San Jorge',
+                    description: 'Descubre la Basílica de San Jorge, el templo románico más antiguo de Praga, fundado en el siglo X. Con su imponente fachada de ladrillo rojo, destaca por su interior sencillo pero fascinante. Incluido en la entrada del Castillo. La luz del sol de la tarde ilumina la fachada de una manera espectacular, así que planifica tu visita en ese horario si quieres hacer fotografías memorables.\n\n  Horario: 9:00 a 17:00h.',
+                    images: ['/assets/europa/basilica_san_jorge.jpg'],
+                    longitude: 14.4011,
+                    latitude: 50.0903,
+                    mapUrl: 'map-basilica-san-jorge'
+                },
+                {
+                    name: 'Palacio Lobkowitz',
+                    description: 'El Palacio Lobkowitz, una joya barroca dentro del complejo del Castillo de Praga, alberga una increíble colección privada de la familia Lobkowitz. El museo incluye obras de arte, instrumentos musicales históricos y manuscritos originales de Beethoven y Mozart. En nuestro caso no llegamo a entrar. \n\n Entrada: 12€. Horario: 10:00 a 18:00h. ',
+                    images: ['/assets/europa/palacio_lobkowitz.jpg'],
+                    longitude: 14.4020,
+                    latitude: 50.0902,
+                    mapUrl: 'map-palacio-lobkowitz'
+                },
+                {
+                    name: 'Callejón del Oro',
+                    description: 'Pasea por el pintoresco Callejón del Oro, famoso por sus pequeñas casas de colores brillantes que datan del siglo XVI. Según la leyenda, aquí vivían los alquimistas que intentaban convertir metales en oro. Hoy, las casas albergan pequeñas tiendas y exposiciones. Entrada: Incluida en el ticket del Castillo. Horario: 9:00 a 17:00h. Curiosidad: El escritor Franz Kafka vivió brevemente en una de las casas del Callejón del Oro. Consejo: Visítalo al final del día para disfrutar del ambiente tranquilo, ya que suele llenarse de turistas por la mañana.',
+                    images: ['/assets/europa/callejon_oro.jpg'],
+                    longitude: 14.4025,
+                    latitude: 50.0909,
+                    mapUrl: 'map-callejon-del-oro'
+                },
+                {
+                    name: 'Isla Kampa y Muro de John Lennon',
+                    description: 'Visitamos la Isla Kampa y el Muro de John Lennon, seguido por un paseo por los jardines de Petřín.',
+                    images: ['/assets/europa/muro_john_lennon.jpg'],
+                    longitude: 14.4052,
+                    latitude: 50.0810,
+                    mapUrl: 'map-isla-kampa'
+                },
+                {
+                    name: 'Torre de Petřín',
+                    description: 'Subimos a la Torre de Petřín para disfrutar de vistas panorámicas, utilizando el funicular (1€) y pagando la entrada (12€).',
+                    images: ['/assets/europa/torre_petrin.jpg'],
+                    longitude: 14.3920,
+                    latitude: 50.0800,
+                    mapUrl: 'map-torre-petrin'
                 }
                 ]
             }">
@@ -87,39 +185,6 @@
                     longitude: 14.4289,
                     latitude: 50.0873,
                     mapUrl: 'map-torre-polvora'
-                }
-                ]
-            }">
-        </app-itinerary-day-card>
-
-        <app-itinerary-day-card 
-            [borderClass]="'border-purple'"
-            [day]="{
-                title: 'Día 03 - Praga: Castillo de Praga y Torre de Petrín',
-                activities: [
-                {
-                    name: 'Castillo de Praga',
-                    description: 'Exploramos el Castillo de Praga, incluyendo la Catedral de San Vito, el Palacio Antiguo Real y la Basílica de San Jorge.',
-                    images: ['/assets/europa/castillo_praga.jpg'],
-                    longitude: 14.3995,
-                    latitude: 50.0900,
-                    mapUrl: 'map-castillo-praga'
-                },
-                {
-                    name: 'Isla Kampa y Muro de John Lennon',
-                    description: 'Visitamos la Isla Kampa y el Muro de John Lennon, seguido por un paseo por los jardines de Petřín.',
-                    images: ['/assets/europa/muro_john_lennon.jpg'],
-                    longitude: 14.4052,
-                    latitude: 50.0810,
-                    mapUrl: 'map-isla-kampa'
-                },
-                {
-                    name: 'Torre de Petřín',
-                    description: 'Subimos a la Torre de Petřín para disfrutar de vistas panorámicas, utilizando el funicular (1€) y pagando la entrada (12€).',
-                    images: ['/assets/europa/torre_petrin.jpg'],
-                    longitude: 14.3920,
-                    latitude: 50.0800,
-                    mapUrl: 'map-torre-petrin'
                 }
                 ]
             }">
