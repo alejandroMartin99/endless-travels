@@ -18,7 +18,7 @@ export class NavbarComponent {
       label: 'Europa',
       icon: 'place',
       subItems: [
-        { label: 'Hungría', url: './destinations/pragabudapest', icon: 'flag' },
+        { label: 'Praga - Budapest', url: './destinations/pragabudapest', icon: 'flag' },
         { label: 'Copenhague', url: './destinations/copenhague', icon: 'flag' }
       ]
     }
