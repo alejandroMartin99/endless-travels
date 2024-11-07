@@ -50,8 +50,16 @@ mat-expansion-panel {
   }
   
   /* Descripción e imagen */
-  .activity-description, .activity-image {
-    flex-basis: 33%; /* Se reduce un poco el espacio para descripción e imagen */
+  .activity-description {
+    flex-basis: 33%; /* Mantiene el espacio proporcional para la descripción */
+    padding: 5px;
+    box-sizing: border-box;
+    max-height: 550px; /* Altura fija para la descripción */
+    overflow-y: auto; /* Muestra la barra de desplazamiento si el contenido excede la altura */
+  }
+  
+  .activity-image {
+    flex-basis: 33%; /* Mantiene el espacio proporcional para la imagen */
     padding: 5px;
     box-sizing: border-box;
   }
@@ -132,37 +140,4 @@ mat-expansion-panel {
     margin-left: auto;
   }
   
-  /* Estilos para dispositivos móviles */
-  @media (max-width: 768px) {
-    .activity-container {
-      flex-direction: column;
-      height: auto; /* Ajuste dinámico en pantallas pequeñas */
-      padding: 15px;
-    }
-  
-    .activity-description, .activity-image, .activity-map {
-      flex-basis: 100%;
-      height: auto; /* Asegura que se ajusten las alturas dinámicamente */
-      padding: 10px 0;
-    }
-  
-    .controls-container {
-      flex-wrap: nowrap;
-    }
-  
-    .carousel-control {
-      flex: 1;
-      justify-content: flex-start;
-    }
-  
-    .carousel-control button {
-      padding: 0 8px;
-      font-size: 0.8em;
-    }
-  
-    .rescale-control {
-      padding: 0 8px;
-      font-size: 0.8em;
-    }
-  }
   
