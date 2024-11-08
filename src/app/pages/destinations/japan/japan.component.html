@@ -310,9 +310,25 @@
           ]
               }">
         </app-itinerary-day-card>
+
+        <app-itinerary-day-card 
+        [borderClass]="'border-green'"
+        [day]="{
+          title: 'Día 05 - KYOTO: Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove',
+          activities: [
+            {
+              name: 'Hotel -> Castillo Nijo',
+              description: '',
+              images: ['/assets/japan/shinjuku.jpg'],
+              longitude: 139.7016,
+              latitude: 35.6895,
+              mapUrl: 'map-shinjuku'
+            }
+          ]
+              }">
+        </app-itinerary-day-card>
   
         <!-- Día 1: Tokio -->
-  
         <app-itinerary-day-card 
         [borderClass]="'border-blue'"
         [day]="{
@@ -388,22 +404,7 @@
       </app-itinerary-day-card>
 
 
-    <app-itinerary-day-card 
-        [borderClass]="'border-green'"
-        [day]="{
-          title: 'Día 05 - KYOTO: Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove',
-          activities: [
-            {
-              name: 'Hotel -> Castillo Nijo',
-              description: '',
-              images: ['/assets/japan/shinjuku.jpg'],
-              longitude: 139.7016,
-              latitude: 35.6895,
-              mapUrl: 'map-shinjuku'
-            }
-          ]
-              }">
-        </app-itinerary-day-card>
+    
   
   
         <!-- Día 2: Tokio -->
