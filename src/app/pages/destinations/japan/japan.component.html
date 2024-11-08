@@ -49,7 +49,7 @@
           activities: [
             {
               name: 'Viaje en Shinkansen - Barrio de Shinjuku',
-              description: 'Comenzamos el día con un trayecto a bordo del Shinkansen. Desde Kioto, llegamos a Tokio en poco más de dos horas, lo que nos deja tiempo suficiente para instalarnos en el Sotetsu Fresa Inn y prepararnos para explorar el Barrio de Shinjuku.\n\n El corazón financiero y comercial de Tokio, Shinjuku, es uno de los distritos más vibrantes de la ciudad. Con más de tres millones de pasajeros utilizando la estación de tren de Shinjuku diariamente, es uno de los hubs de transporte más transitados del mundo. Caminamos entre rascacielos, luces de neón y tiendas que ofrecen todo tipo de productos, desde lo más tecnológico hasta lo tradicional.',
+              description: '',
               images: ['/assets/japan/shinjuku.jpg'],
               longitude: 139.7016,
               latitude: 35.6895,
@@ -62,7 +62,7 @@
         <app-itinerary-day-card 
         [borderClass]="'border-green'"
         [day]="{
-          title: 'Día 03 - KYOTO: Fushimi Inari, río Kamo, Gion, Pontocho y Miyagawacho',
+          title: 'Día 03 - KYOTO: Fushimi Inari, Sanjūsangen-dō, Kiyomizu-dera y barrio de Gion',
           activities: [
           {
               name: 'Hotel -> Fushimi Inari',
@@ -94,7 +94,8 @@
                 '/assets/japan/Kyoto/Dia02/FushimiInari_Alex.JPEG',
                 '/assets/japan/Kyoto/Dia02/FushimiInari_Lu.JPEG',
                 '/assets/japan/Kyoto/Dia02/FushimiInari_templo.JPEG',
-                '/assets/japan/Kyoto/Dia02/FushimiInari_escaleras.JPEG'
+                '/assets/japan/Kyoto/Dia02/FushimiInari_escaleras.JPEG',
+                '/assets/japan/Kyoto/Dia02/FushimiInari_Banderas.JPEG'  
               ],
               longitude: 135.77936036054174,
               latitude: 34.969931335098416, 
@@ -102,8 +103,13 @@
             },
             {
               name: 'Río Kamo',
-              description: '',
-              images: ['/assets/japan/shinjuku.jpg'],
+              description: 'Tras dejar atrás el <strong>Templo Fushimi Inari</strong>, nos dirigimos hacia el centro de Kyoto, cruzando el icónico <strong>Río Kamo</strong>. Este río atraviesa barrios importantes como <strong>Gion</strong> y <strong>Shimogamo</strong>, y es el lugar perfecto para una breve pausa antes de llegar al <strong>Templo Sanjūsangen-dō</strong>. Pasear por sus márgenes permite disfrutar de las vistas urbanas y naturales de la ciudad. Sus puentes y orillas, siempre animados, reflejan el contraste entre la vida moderna y la tradición de Kyoto.',
+              images: [
+                '/assets/japan/Kyoto/Dia02/rioKamo_puente.JPG',
+                '/assets/japan/Kyoto/Dia02/rioKamo_puenteAlex.JPEG'
+
+                
+              ],
               longitude: 135.76611645792494,
               latitude: 34.983685418122256, 
               mapUrl: 'map-shinjuku'
@@ -114,7 +120,8 @@
               description: 'El Templo Sanjūsangen-dō, fundado en 1164 y reconstruido en 1266 tras un incendio, es famoso por albergar 1,001 estatuas de Kannon, la diosa de la misericordia, cada una de las cuales representa los múltiples aspectos de la compasión. Las estatuas, talladas en madera de ciprés japonés, han sido cuidadosamente preservadas y distribuidas en filas a lo largo del pasillo de 120 metros, considerado uno de los más largos de la arquitectura japonesa de templos. Además de su valor artístico, el templo utiliza clavos de ruiseñor en su suelo, una técnica arquitectónica única en la que los clavos emiten un sonido similar al canto de los pájaros cuando se pisa sobre ellos. Este sistema servía como una alarma para proteger el templo, alertando a los monjes de cualquier intruso mientras añade un sonido envolvente y místico al recorrido.',
               images: [ 
                 '/assets/japan/Kyoto/Dia02/TemploSanjusangen_estatuas.jpg',
-                '/assets/japan/Kyoto/Dia02/TemploSanjusangen_entrada.JPEG',       
+                '/assets/japan/Kyoto/Dia02/TemploSanjusangen_entrada.JPEG',
+                '/assets/japan/Kyoto/Dia02/TemploSanjusangen_farolillos.JPG',    
             ],
               longitude: 135.77172333174187,
               latitude: 34.98798113388826,
@@ -131,6 +138,7 @@
                 '/assets/japan/Kyoto/Dia02/Kiyomizudera_pagoda.JPEG',
                 '/assets/japan/Kyoto/Dia02/Kiyomizudera_alex.JPEG',
                 '/assets/japan/Kyoto/Dia02/Kiyomizudera_lu.JPEG',
+                '/assets/japan/Kyoto/Dia02/Kiyomizudera_fuente.JPG',
                 
               ],
               longitude: 135.78467485628167,
@@ -143,7 +151,8 @@
             description: 'La <strong>Famosa cuesta Ninenzaka</strong> es uno de los lugares más emblemáticosde Kioto. Tras disfrutar de todo el complejo en el templo de Kiyomizu-dera bajaremos por ella.\n\n Construida en el siglo XVII, es una cuesta empinada y sinuosa que desciende suavemente entre <strong>edificios de madera</strong> y <strong>tiendas tradicionales</strong>. El suelo de adoquines  y los <strong>faroles antiguos</strong> crean una atmósfera única que te transporta a la Kioto del pasado. Mientras recorres la Ninenzaka, podrás admirar los hermosos detalles arquitectónicos de las casas y los negocios, <strong>muchos de ellos con más de 100 años de antigüedad</strong>. Aquí se concentra una gran variedad de <strong>tiendas tradicionales</strong> donde podrás encontrar <strong>objetos, artesanía y dulces típicos</strong> de la región.',
             images: [
               '/assets/japan/Kyoto/Dia02/Ninenzaka_cuesta.JPEG',
-              '/assets/japan/Kyoto/Dia02/Ninenzaka_alex.JPEG'
+              '/assets/japan/Kyoto/Dia02/Ninenzaka_alex.JPEG',
+              '/assets/japan/Kyoto/Dia02/Ninenzaka_lu.JPG',
             ],
             longitude: 135.78083629038903,
             latitude: 34.99833136067663,
@@ -155,8 +164,9 @@
                 description: 'El <strong>Templo Chion-in</strong>, uno de los templos más grandes de Kyoto, es famoso por su <strong>puerta Sanmon</strong>, la más grande de Japón, y su <strong>campana gigante</strong> que suena profundamente para marcar el paso del tiempo. Fundado en el siglo XIII, es el centro principal de la escuela Jodo del budismo japonés. Las <strong>escaleras</strong> hacia el templo ofrecen una experiencia única, ¡y las vistas desde allí son impresionantes! No dejes de explorar sus tranquilos jardines y sentir la espiritualidad de este lugar lleno de historia y serenidad.',
                 images: [
                   '/assets/japan/Kyoto/Dia02/ChionIn_entrada.JPEG',
+                  '/assets/japan/Kyoto/Dia02/ChionIn_juntos.JPEG',
                   '/assets/japan/Kyoto/Dia02/ChionIn_alex.JPEG',
-                  '/assets/japan/Kyoto/Dia02/ChionIn_escaleras.JPEG'
+                  '/assets/japan/Kyoto/Dia02/ChionIn_escaleras.JPEG',
                 ],
                 longitude: 135.78342561983118,
                 latitude: 35.00533935274613, 
@@ -178,8 +188,10 @@
 
             {
               name: 'Cementerio Higashi Otani',
-              description: '',
-              images: ['/assets/japan/shinjuku.jpg'],
+              description: 'El <strong>Cementerio Higashi Otani</strong> es un lugar de descanso y reflexión en Kyoto, conocido por su atmósfera serena y sus tumbas de formas únicas. A diferencia de los cementerios occidentales, las tumbas en Japón tienen un diseño particular: suelen ser <strong>columnas de piedra verticales</strong>, que simbolizan la conexión entre el cielo y la tierra, y muchas están adornadas con inscripciones cuidadosas. Es común ver ofrendas de <strong>incienso y flores</strong>, que representan respeto hacia los antepasados. Este cementerio no solo es un lugar de descanso, sino también una oportunidad para conocer una parte importante de la <strong>cultura japonesa</strong>, donde la espiritualidad y el respeto por la memoria son elementos centrales.',
+              images: [
+                '/assets/japan/Kyoto/Dia02/cementerio.JPEG'
+              ],
               longitude: 135.78324930201137,
               latitude: 35.0014409529402, 
               mapUrl: 'map-shinjuku'
@@ -192,16 +204,109 @@
         <app-itinerary-day-card 
         [borderClass]="'border-green'"
         [day]="{
-          title: 'Día 04 - KYOTO: Bosque de bambú, Toji-in, Ginkaku-Ji, Paseo del filósofo y Kawaramachi',
+          title: 'Día 04 - KYOTO: Templos del Noroeste y paseo del filósofo',
           activities: [
             {
-              name: 'Viaje en Shinkansen - Barrio de Shinjuku',
-              description: 'Comenzamos el día con un trayecto a bordo del Shinkansen. Desde Kioto, llegamos a Tokio en poco más de dos horas, lo que nos deja tiempo suficiente para instalarnos en el Sotetsu Fresa Inn y prepararnos para explorar el Barrio de Shinjuku.\n\n El corazón financiero y comercial de Tokio, Shinjuku, es uno de los distritos más vibrantes de la ciudad. Con más de tres millones de pasajeros utilizando la estación de tren de Shinjuku diariamente, es uno de los hubs de transporte más transitados del mundo. Caminamos entre rascacielos, luces de neón y tiendas que ofrecen todo tipo de productos, desde lo más tecnológico hasta lo tradicional.',
+              name: 'Hotel -> Ginkaku-ji',
+              description: 'Bueeenoos días !!! Tras los casi 30 km de ayer, hoy de nuevo caminaremos y madrugaremos otro montón.\n\n Nos tendremos que levantar a las 7h para salir del hotel sobre las 08:00h y tomar un bus hacia nuestra primera parada Ginkaku-ji. El bus es el 32 desde la parada de Shijo Karasuma (muy cerquita del hotel) en un trayecto de 40 minutos. \n\nEn el día de hoy nos centraremos en la zona Este de Kyoto. Vamos a visitar templos emblemáticos como el Ginkaku-ji, descenderemos por el paseo del filósofo descubriendo una gran cantidad de templos como el Honen-in, Kounji, Santuario Kumano Nyakuoki... hasta el Nanzen-ji. Continuaremos con el Santuario Heian y finalizaremos el día cenando en la zona de Kawaramachi, vamos un día muy completo !!!',
               images: ['/assets/japan/shinjuku.jpg'],
-              longitude: 139.7016,
-              latitude: 35.6895,
+              longitude: 135.75896619907707,
+              latitude: 35.01090902739731,
               mapUrl: 'map-shinjuku'
-            }
+            },
+
+            {
+              name: 'Templo Ginkaku-ji',
+              description: 'El <strong>Templo Ginkaku-ji</strong>, conocido también como el <strong>Pabellón de Plata</strong>, es uno de los templos más emblemáticos de Kyoto, construido en 1482 por el shogun Ashikaga Yoshimasa como lugar de retiro. Aunque el pabellón nunca fue cubierto de plata como se planeó, su belleza se encuentra en la simplicidad de su diseño y su armonía con los jardines que lo rodean.\n\nEs famoso por sus jardines Zen, especialmente el jardín de arena llamado <strong>Ginshadan</strong>, una representación de olas de arena plateada, y el <strong>Kogetsudai</strong>, un cono de arena blanca que simboliza el Monte Fuji. \n\n<strong>Horarios:</strong> 8:30 - 17:00 (de marzo a noviembre) y de 9:00 - 16:30 (de diciembre a febrero).\n\n<strong>Precio:</strong> 500 yenes (3€) para adultos y 300 yenes (2€) para estudiantes.',
+              images: [
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_templo.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_olas2.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_interior.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_arbol.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_alex.JPEG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_piedras.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_olas.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_natura.JPG',
+              '/assets/japan/Kyoto/Dia03/Ginkakuji_juntos.JPG',
+              ],
+              longitude: 135.79824871813423,
+              latitude: 35.02710910126953, 
+              mapUrl: 'map-shinjuku'
+            },
+            {
+              name: 'Templo Honen-in',
+              description: 'El <strong>Templo Honen-in</strong> es un lugar de paz y serenidad escondido en las colinas del este de Kyoto. Este templo fue fundado en honor a <strong>Honen</strong>, el fundador de la secta budista Jodo-shu, en el siglo XVII. Es conocido por su entrada única y jardines de musgo que cambian de color con las estaciones, ofreciendo un entorno perfecto para la reflexión.\n\n  La entrada al templo cuenta con dos montículos de arena blanca llamados <strong>Byakusadan</strong>, que simbolizan la purificación y la bienvenida a los visitantes. En su interior, el ambiente es tranquilo y espiritual, alejado de la multitud de turistas. Honen-in es un lugar ideal para quienes buscan un templo menos conocido y muy valorado entre los habitantes locales por su belleza natural y el cambio estacional de sus jardines. En primavera, el musgo y los cerezos en flor crean una atmósfera mística que transforma la visita en una experiencia única.\n\n<strong>Horarios:</strong> de 6:00 a 16:00.\n\n<strong>Precio:</strong> gratis.',
+              images: [
+              '/assets/japan/Kyoto/Dia03/Honen_entrada.JPG',
+              '/assets/japan/Kyoto/Dia03/Honen_torre.JPG',
+              '/assets/japan/Kyoto/Dia03/Honen_paseo.JPG',
+              '/assets/japan/Kyoto/Dia03/Honen_arena.JPG',
+              ],
+              longitude: 135.79735318549336,
+              latitude: 35.024242230003395,
+              mapUrl: 'map-shinjuku'
+            },
+            {
+              name: 'Paseo del Filósofo',
+              description: 'Después de explorar el <strong>Templo Ginkaku-ji</strong> y el sereno <strong>Templo Honen-in</strong>, iniciamos el <strong>Paseo del Filósofo</strong>, un recorrido icónico que nos guiará hacia otros templos emblemáticos de Kyoto. Este sendero, de unos 2 kilómetros, serpentea junto a un canal bordeado de cerezos, cuyo esplendor es particularmente notable en primavera.\n\nA lo largo del Paseo, encontrarás pequeñas cafeterías, tiendas de té y galerías que invitan a detenerse y disfrutar del entorno. Este trayecto filosófico conecta con varios templos y santuarios, como el famoso <strong>Templo Eikan-dō</strong>, conocido por sus espléndidos colores otoñales; el pintoresco <strong>Templo Nanzen-ji</strong>, con su acueducto único; y el <strong>Santuario Heian</strong>, famoso por sus jardines expansivos. El paseo también nos llevará cerca del <strong>Santuario Kumano</strong> y el <strong>Templo Konkai Kōmyō-ji</strong>.\n\nCada parada a lo largo del Paseo del Filósofo permite experimentar la calma y la espiritualidad de Kyoto, brindando un momento para reflexionar y absorber la belleza de cada estación.',
+              images: [
+                '/assets/japan/Kyoto/Dia03/paseoFilosofo_natura.JPG',
+                '/assets/japan/Kyoto/Dia03/paseoFilosofo_lu.JPEG',
+                '/assets/japan/Kyoto/Dia03/paseoFilosofo_alex.JPG',
+                '/assets/japan/Kyoto/Dia03/paseoFilosofo_puente.JPG'
+              ],
+              longitude: 135.79573590697115,
+              latitude: 35.023017062206996,
+              mapUrl: 'map-shinjuku'
+            },
+            {
+              name: 'Templo Eikando',
+              description: 'Continuamos nuestro recorrido en el <strong>Templo Eikando</strong>, una joya de Kyoto situada a lo largo del <strong>Paseo del Filósofo</strong>. Este complejo templario, conocido formalmente como <strong>Eikando Zenrin-ji</strong>, data del siglo IX y destaca por sus impresionantes jardines y estructuras históricas. Eikando es famoso por sus espectaculares vistas otoñales, cuando sus arces se visten de rojo intenso y crean una atmósfera mágica y envolvente.\n\nAl explorar el complejo, encontraremos la icónica estatua de <strong>Amitabha</strong>, conocida como el <em>Buda Mirando Hacia Atrás</em>, que representa una figura de Buda única que mira por encima del hombro, un detalle raro en la iconografía budista. A lo largo del recorrido, también se puede disfrutar de un pintoresco puente, estanques llenos de carpas koi y un mirador que permite vistas panorámicas de Kyoto.\n\n<strong>Horario:</strong> Abierto de 9:00 a 17:00. <strong>Entrada:</strong> 600 yenes.\n\nEste templo es una parada obligatoria para quienes buscan la belleza serena de Kyoto en su máxima expresión. A cada paso, Eikando ofrece rincones ocultos y paisajes que capturan la esencia de la espiritualidad y naturaleza japonesa.',
+              images: [
+                '/assets/japan/Kyoto/Dia03/Eikando_subida.JPG',
+                '/assets/japan/Kyoto/Dia03/Eikando_lu.JPEG',
+                '/assets/japan/Kyoto/Dia03/Eikando_alex.JPEG',
+                '/assets/japan/Kyoto/Dia03/Eikando_puente.JPG',
+                '/assets/japan/Kyoto/Dia03/Eikando_koi.JPG',
+                '/assets/japan/Kyoto/Dia03/Eikando_alex2.JPEG'
+              ],
+              longitude: 135.79436068849535,
+              latitude: 35.014686630336925,
+              mapUrl: 'map-shinjuku'
+            },
+
+            {
+              name: 'Templo Nanzen-ji',
+              description: 'El <strong>Templo Nanzen-ji</strong>, uno de los templos zen más importantes de Japón, data del siglo XIII y está situado a los pies de las montañas Higashiyama en Kyoto. Este complejo incluye la icónica puerta Sanmon, que ofrece vistas espectaculares de la ciudad a aquellos que suben sus escaleras de madera, y el Acueducto de Suirokaku, un elegante arco de ladrillo rojo construido durante la era Meiji, que continúa transportando agua a los jardines de Nanzen-ji.\n\nEl templo alberga varios subtemplos, cada uno con jardines tradicionales japoneses de estilo seco, o <em>karesansui</em>, que presentan cuidadas composiciones de rocas y arena. Entre ellos, destaca el jardín Hojo, ideal para la meditación, con una extensión minimalista y rodeado de naturaleza.\n\n<strong>Horario:</strong> Abierto todos los días de 8:40 a 17:00. <strong>Entrada:</strong> Gratuita para los terrenos principales; algunas áreas requieren una tarifa entre 300 y 500 yenes.',
+              images: [
+                '/assets/japan/Kyoto/Dia03/Nanzen_exterior.JPEG',
+                '/assets/japan/Kyoto/Dia03/Nanzen_faroles.JPG',
+                '/assets/japan/Kyoto/Dia03/Nanzen_alex.JPG',
+
+              ],
+              longitude: 135.79444118754472,
+              latitude: 35.01151919451996,
+              mapUrl: 'map-shinjuku'
+            },
+
+            {
+              name: 'Santuario Heian',
+              description: 'Después de recargar energías con una buena comida, nos dirigimos al majestuoso <strong>Santuario Heian</strong>, uno de los santuarios sintoístas más emblemáticos de Kyoto. Este santuario destaca por su imponente <strong>torii</strong>, una de las puertas más grandes de Japón, que da acceso a un vasto complejo de edificios decorados en un estilo que evoca la antigua arquitectura del periodo Heian.\n\nTras recorrer el santuario, nos adentramos en los <strong>jardines del Santuario Heian</strong>, diseñados a principios del siglo XX, un lugar tranquilo de más de 33.000 metros cuadrados. Este espacio cuenta con estanques rodeados de cerezos y arces, que lo convierten en uno de los puntos más bellos de Kyoto para ver tanto la floración en primavera como los colores otoñales. Entre los elementos técnicos que destacan están los estanques conectados por puentes de piedra y madera, incluyendo el elegante <em>Puente Taihei-kaku</em>, que brinda vistas panorámicas sobre el agua.\n\n<strong>Horario:</strong> El santuario está abierto todos los días de 8:30 a 17:00. <strong>Entrada:</strong> Gratuita para el santuario; acceso a los jardines por 600 yenes. (4€)',
+              images: [
+                '/assets/japan/Kyoto/Dia03/Heian_arco.JPEG',
+                '/assets/japan/Kyoto/Dia03/Heian_fondo.JPG',
+                '/assets/japan/Kyoto/Dia03/Heian_decor.JPG',
+                '/assets/japan/Kyoto/Dia03/Heian_lu.JPEG',
+                '/assets/japan/Kyoto/Dia03/Heian_estanque.JPEG',
+                '/assets/japan/Kyoto/Dia03/Heian_alexParque.JPG',
+                '/assets/japan/Kyoto/Dia03/Heian_lago.JPEG',
+                '/assets/japan/Kyoto/Dia03/Heian_alex.JPEG',
+                '/assets/japan/Kyoto/Dia03/Heian_luRio.JPEG'
+              ],
+              longitude: 135.78199785719323,
+              latitude: 35.01672751739716,
+              mapUrl: 'map-shinjuku'
+            },
           ]
               }">
         </app-itinerary-day-card>
@@ -279,8 +384,26 @@
               mapUrl: 'map-nishi-shinjuku' 
             }
           ],
-        }">
-  </app-itinerary-day-card>
+            }">
+      </app-itinerary-day-card>
+
+
+    <app-itinerary-day-card 
+        [borderClass]="'border-green'"
+        [day]="{
+          title: 'Día 05 - KYOTO: Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove',
+          activities: [
+            {
+              name: 'Hotel -> Castillo Nijo',
+              description: '',
+              images: ['/assets/japan/shinjuku.jpg'],
+              longitude: 139.7016,
+              latitude: 35.6895,
+              mapUrl: 'map-shinjuku'
+            }
+          ]
+              }">
+        </app-itinerary-day-card>
   
   
         <!-- Día 2: Tokio -->
