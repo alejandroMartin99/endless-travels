@@ -16,6 +16,10 @@ mat-expansion-panel {
   .border-green {
     border-left-color: #4caf50;
   }
+
+  .border-dark-green {
+    border-left-color: #08700c;
+  }
   
   .border-red {
     border-left-color: #f44336;

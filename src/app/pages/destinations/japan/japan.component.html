@@ -1,5 +1,5 @@
 <div class="content-container">
-    <mat-tab-group>
+    <mat-tab-group [selectedIndex]="2">
       <!-- Tab Inicio -->
       <mat-tab>
         <ng-template mat-tab-label class="custom-tab-label">
@@ -325,17 +325,33 @@
             mapUrl: 'map-shinjuku'
         },
         {
-            name: 'Castillo Nijo',
-            description: '<strong>Horario:</strong> 8:45 - 17:00 h (última entrada a las 16:00 h).<br><strong>Precio:</strong> 1,030 yenes (aprox. 6.50 €).<br><br>El <strong>Castillo Nijo</strong> es un histórico castillo del período Edo y una de las antiguas residencias de los poderosos shogunes Tokugawa. Este complejo consta de dos círculos de defensa con murallas y fosos. Su interior alberga el <strong>Palacio Ninomaru</strong>, decorado con espectaculares pinturas y esculturas en madera.<br><br><strong>Curiosidad:</strong> Los suelos de ruiseñor en las salas del palacio fueron diseñados para emitir un sonido de canto al caminar, una medida de seguridad que alertaba de intrusos. No te pierdas los jardines de Ninomaru, repletos de árboles de ciruelo y pino, que embellecen el lugar y representan la armonía con la naturaleza.',
-            images: ['/assets/japan/Kyoto/Dia05/.JPEG'],
-            longitude: 135.74851163735127,
-            latitude: 35.01428388103323, 
-            mapUrl: 'map-shinjuku'
-        },
+          name: 'Castillo Nijo',
+          description: 
+              '<strong>Horario:</strong> 8:45 - 17:00 h<br><strong>Precio:</strong> 1,030 yenes (aprox. 6.50 €).<br><br>El <strong>Castillo Nijo</strong> es uno de los ejemplos mejor preservados de la arquitectura de los castillos japoneses del período Edo y fue construido en 1603 bajo las órdenes de Tokugawa Ieyasu, el fundador del shogunato Tokugawa. El castillo es famoso por su papel como residencia de los poderosos shogunes y es un símbolo de su dominio y riqueza. <br><br>Este complejo se compone de dos áreas principales: el <strong>Honmaru</strong> (circulo de defensa principal) y el <strong>Ninomaru</strong> (segundo círculo de defensa). Ambos están rodeados de murallas y fosos, que servían para proteger el castillo de ataques y reflejan la importancia estratégica del sitio en el Japón feudal. <br><br>Otro elemento destacado son los <strong>Jardines de Ninomaru</strong>, cuidadosamente diseñados con una mezcla de pinos, ciruelos, y árboles de arce que cambian de aspecto según la estación. Este diseño paisajístico busca representar la armonía entre el hombre y la naturaleza, un concepto muy valorado en la cultura japonesa. Durante la primavera, los ciruelos florecen y embellecen el paisaje con tonos rosados y blancos, mientras que en otoño, el colorido follaje de los arces crea una vista impresionante.',
+          images: [
+              '/assets/japan/Kyoto/Dia05/castilloNijo_mapa.JPG',
+              '/assets/japan/Kyoto/Dia05/castilloNijo_jardin.JPG',
+              '/assets/japan/Kyoto/Dia05/castilloNijo_lu.JPG',
+              '/assets/japan/Kyoto/Dia05/castilloNijo_altura.JPG',
+              '/assets/japan/Kyoto/Dia05/castilloNijo_templo.JPG',
+              '/assets/japan/Kyoto/Dia05/castilloNijo_alex.JPG'
+              
+          ],
+          longitude: 135.74851163735127,
+          latitude: 35.01428388103323,
+          mapUrl: 'map-nijo-castle'
+      },
         {
             name: 'Templo Daitoki‐ji',
-            description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> 400 yenes (aprox. 2.50 €).<br><br>El <strong>Templo Daitoki-ji</strong> es un <strong>importante complejo de templos zen</strong> en Kioto, fundado en el siglo XIV. Es un lugar de meditación y estudio, compuesto por diversos templos secundarios, cada uno con su propio estilo y propósito espiritual.<br><br><ul><li><strong>Ryoan-ji</strong>: Destaca por su jardín zen de piedras, un símbolo de la serenidad y la simplicidad estética japonesa, ideal para la meditación y el autoconocimiento.</li><li><strong>Kotoin</strong>: Rodeado de arces, es especialmente hermoso en otoño, cuando los colores de las hojas transforman el paisaje en un espectáculo visual.</li><li><strong>Daisen-in</strong>: Famoso por su jardín seco, el cual representa un paisaje en miniatura de montañas, ríos y mares; es un ejemplo perfecto del diseño zen.</li></ul><br><strong>Curiosidades:</strong> Daitoki-ji ha sido un punto clave del budismo zen en Japón durante siglos. Hoy en día, el complejo sigue ofreciendo una atmósfera de paz para quienes buscan conexión espiritual y reflexión.',
-            images: ['/assets/japan/shinjuku.jpg'],
+            description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> 400 yenes (aprox. 2.50 €).<br><br>El <strong>Templo Daitoki-ji</strong> es un <strong>importante complejo de templos zen</strong> en Kioto, fundado en el siglo XIV. Es un lugar de meditación y estudio, compuesto por diversos templos secundarios, cada uno con su propio estilo y propósito espiritual.<br><br><ul><li><strong>Ryoan-ji</strong>: Destaca por su jardín zen de piedras, un símbolo de la serenidad y la simplicidad estética japonesa, ideal para la meditación y el autoconocimiento.<br><br></li><li><strong>Kotoin</strong>: Rodeado de arces, es especialmente hermoso en otoño, cuando los colores de las hojas transforman el paisaje en un espectáculo visual.<br><br></li><li><strong>Daisen-in</strong>: Famoso por su jardín seco, el cual representa un paisaje en miniatura de montañas, ríos y mares; es un ejemplo perfecto del diseño zen.</li></ul><br><strong>Curiosidades:</strong> Daitoki-ji ha sido un punto clave del budismo zen en Japón durante siglos. Hoy en día, el complejo sigue ofreciendo una atmósfera de paz para quienes buscan conexión espiritual y reflexión.',
+            images: [
+            '/assets/japan/Kyoto/Dia05/Daitokiji_arena.JPG',
+            '/assets/japan/Kyoto/Dia05/Daitokiji_alex.JPG',
+            '/assets/japan/Kyoto/Dia05/Daitokiji_interior.JPG',
+            '/assets/japan/Kyoto/Dia05/castilloNijo_altura.JPG',
+            '/assets/japan/Kyoto/Dia05/castilloNijo_templo.JPG',
+            '/assets/japan/Kyoto/Dia05/castilloNijo_alex.JPG'
+            ],
             longitude: 135.74602617958274,
             latitude: 35.0439557840308, 
             mapUrl: 'map-shinjuku'
@@ -363,11 +379,156 @@
             longitude: 135.67131202885042,
             latitude: 35.016915354163075, 
             mapUrl: 'map-shinjuku'
+        },]}">
+        </app-itinerary-day-card>
+
+      <app-itinerary-day-card 
+      [borderClass]="'border-dark-green'"
+      [day]="{
+        title: 'Día 06 - OSAKA : ',
+        activities: [
+        {
+            name: 'Hotel -> St Shin Osaka',
+            description: '<strong>Horario:</strong> 8:00 - 9:00 h.<br><strong>Precio:</strong> Incluido en el pase de tren.<br><br>Comienza tu día con un cómodo traslado desde el hotel hasta la <strong>Estación Shin-Osaka</strong>, un hub ferroviario estratégico que conecta Osaka con otras ciudades. Esta estación es conocida por su modernidad, su eficiencia y por albergar una gran variedad de tiendas y cafeterías donde podrás adquirir un buen café para iniciar el día.',
+            images: ['/assets/japan/Osaka/hotel_shin_osaka.jpg'],
+            longitude: 135.5007,
+            latitude: 34.7333,
+            mapUrl: 'map-shin-osaka'
+          },
+          {
+            name: 'St Shin Osaka -> St Osaka',
+            description: '<strong>Horario:</strong> 9:30 - 9:45 h.<br><strong>Precio:</strong> Incluido en el pase de tren.<br><br>Una corta travesía te lleva de <strong>Shin-Osaka</strong> a la <strong>Estación Osaka</strong>, conocida por su imponente arquitectura y conexiones a los principales puntos turísticos de la ciudad. Aprovecha para explorar su impresionante diseño que combina elementos tradicionales y modernos, y descubre sus tiendas únicas en el camino.',
+            images: ['/assets/japan/Osaka/shin_osaka_station.jpg'],
+            longitude: 135.4983,
+            latitude: 34.7025,
+            mapUrl: 'map-osaka-station'
         },
 
-          ]
-              }">
-        </app-itinerary-day-card>
+          {
+            name: 'Umeda Sky y Gate Tower Building',
+            description: '<strong>Horario:</strong> 10:00 - 11:30 h.<br><strong>Precio:</strong> 1,500 yenes (aprox. 9.50 €).<br><br>Prepárate para una experiencia en altura en el <strong>Umeda Sky Building</strong>. Este rascacielos, de diseño futurista, te ofrece una vista espectacular desde su plataforma de observación, donde podrás admirar Osaka en todo su esplendor. La estructura conecta dos torres con un impresionante puente suspendido en el aire. <strong>Curiosidad:</strong> ¡Este edificio es uno de los 20 rascacielos más espectaculares del mundo!',
+            images: ['/assets/japan/Osaka/umeda_sky.jpg'],
+            longitude: 135.4901,
+            latitude: 34.7056,
+            mapUrl: 'map-umeda-sky'
+          },
+
+          {
+            name: 'Santuario Tsuyuten Jinja',
+            description: '<strong>Horario:</strong> 12:00 - 12:30 h.<br><strong>Precio:</strong> Gratis.<br><br>Visita el <strong>Santuario Tsuyuten Jinja</strong>, también conocido como Ohatsu Tenjin. Este lugar es un remanso de paz en medio de la bulliciosa ciudad y es especialmente popular entre las parejas debido a su leyenda romántica. En este santuario, los visitantes buscan fortuna y éxito en el amor. Es una parada obligada para empaparte de la espiritualidad japonesa en un ambiente único.',
+            images: ['/assets/japan/Osaka/tsuyuten_jinja.jpg'],
+            longitude: 135.4985,
+            latitude: 34.7027,
+            mapUrl: 'map-tsuyuten-jinja'
+          },
+
+          {
+            name: 'Parque Nakanoshima',
+            description: '<strong>Horario:</strong> 13:00 - 14:00 h.<br><strong>Precio:</strong> Gratis.<br><br>Disfruta de un paseo relajante por el <strong>Parque Nakanoshima</strong>, un oasis verde en el corazón de Osaka. Rodeado por el río, este parque es perfecto para descansar y disfrutar de un picnic, o para contemplar los bellos edificios históricos que lo rodean. Es especialmente bonito en primavera, cuando los cerezos en flor le dan un toque mágico al paisaje.',
+            images: ['/assets/japan/Osaka/nakanoshima_park.jpg'],
+            longitude: 135.5046,
+            latitude: 34.6939,
+            mapUrl: 'map-nakanoshima-park'
+          },
+
+          {
+            name: 'Castillo de Osaka',
+            description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> 600 yenes (aprox. 4 €).<br><br>Descubre la historia de Japón en el majestuoso <strong>Castillo de Osaka</strong>, uno de los castillos más icónicos y hermosos de Japón. Dentro, encontrarás un museo que cuenta la historia del castillo y de sus reconstrucciones. Sube a su plataforma de observación para obtener una vista increíble de Osaka. <strong>Dato curioso:</strong> El castillo se ha reconstruido varias veces desde el siglo XVI.',
+            images: ['/assets/japan/Osaka/osaka_castle.jpg'],
+            longitude: 135.5258,
+            latitude: 34.6873,
+            mapUrl: 'map-osaka-castle'
+          },
+
+          {
+            name: 'Templos Isshinji y Shitenno-ji',
+            description: '<strong>Horario:</strong> 9:00 - 16:30 h.<br><strong>Precio:</strong> Entrada gratuita al recinto (algunas áreas: 300 yenes, aprox. 2 €).<br><br>Explora dos de los templos más significativos de Osaka. El <strong>Shitenno-ji</strong> es el templo budista más antiguo de Japón y destaca por su arquitectura clásica. En el <strong>Isshinji</strong>, podrás observar sus estatuas y estructuras únicas. Un lugar perfecto para sentir la tranquilidad y admirar el arte tradicional japonés.',
+            images: ['/assets/japan/Osaka/shitennoji_temple.jpg'],
+            longitude: 135.5166,
+            latitude: 34.6554,
+            mapUrl: 'map-shitennoji'
+          },
+
+          {
+            name: 'Torre Tsutenkaku',
+            description: '<strong>Horario:</strong> 10:00 - 20:30 h.<br><strong>Precio:</strong> 800 yenes (aprox. 5.20 €).<br><br>La <strong>Torre Tsutenkaku</strong> es un símbolo de Osaka, situada en el distrito de entretenimiento Shinsekai. Desde su mirador se puede apreciar la ciudad desde las alturas. <strong>Dato curioso:</strong> La torre se inspiró en la Torre Eiffel y fue reconstruida tras ser destruida durante la Segunda Guerra Mundial.',
+            images: ['/assets/japan/Osaka/tsutenkaku_tower.jpg'],
+            longitude: 135.5065,
+            latitude: 34.6525,
+            mapUrl: 'map-tsutenkaku'
+          },
+
+          {
+            name: 'Comercial Shinsekai Hondori',
+            description: '<strong>Horario:</strong> Todo el día.<br><strong>Precio:</strong> Gratis.<br><br>Un colorido distrito comercial que conserva el espíritu retro de Osaka. La calle <strong>Shinsekai Hondori</strong> está llena de restaurantes, tiendas y establecimientos con encanto que transportan a otra época. Es el lugar perfecto para probar el famoso <strong>kushikatsu</strong>, un plato de pinchos empanizados característico de la zona.',
+            images: ['/assets/japan/Osaka/shinsekai_hondori.jpg'],
+            longitude: 135.5067,
+            latitude: 34.6532,
+            mapUrl: 'map-shinsekai'
+          },
+
+          {
+            name: 'Denden Town',
+            description: '<strong>Horario:</strong> 10:00 - 19:00 h.<br><strong>Precio:</strong> Gratis.<br><br>Si eres fan de la tecnología y el manga, <strong>Denden Town</strong> es el lugar para ti. Esta zona, similar a Akihabara en Tokio, está llena de tiendas especializadas en productos electrónicos, manga y anime. Es un paraíso para los amantes de la cultura pop japonesa.',
+            images: ['/assets/japan/Osaka/denden_town.jpg'],
+            longitude: 135.5031,
+            latitude: 34.6643,
+            mapUrl: 'map-denden-town'
+          },
+          {
+            name: 'Santuario Yasaka',
+            description: '<strong>Horario:</strong> 8:00 - 18:00 h.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Santuario Yasaka</strong> es un hermoso santuario sintoísta rodeado de árboles y naturaleza, perfecto para relajarse. Los visitantes suelen venir aquí a pedir buena suerte y salud. Durante la temporada de festivales, el santuario se llena de vida con desfiles y eventos tradicionales.',
+            images: ['/assets/japan/Osaka/yasaka_shrine.jpg'],
+            longitude: 135.49670548455953,
+            latitude: 34.661585622814954, 
+            mapUrl: 'map-yasaka-shrine'
+          },
+          {
+            name: 'Templo Hozenji',
+            description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Templo Hozenji</strong>, conocido por su estatua de Fudo Myoo cubierta de musgo, es uno de los lugares más tranquilos de Osaka. Los visitantes lanzan agua sobre la estatua como símbolo de respeto y para atraer la buena suerte. Este templo, ubicado en una calle pintoresca, es un sitio ideal para apreciar la tradición en un ambiente íntimo.',
+            images: ['/assets/japan/Osaka/hozenji.jpg'],
+            longitude: 135.5044,
+            latitude: 34.6674,
+            mapUrl: 'map-hozenji'
+          },
+          {
+            name: 'Calle Dotonbori',
+            description: '<strong>Horario:</strong> Abierta todo el día.<br><strong>Precio:</strong> Gratis.<br><br>La <strong>Calle Dotonbori</strong> es el corazón vibrante de Osaka, famosa por sus enormes letreros de neón, tiendas y restaurantes. Aquí puedes probar el <strong>takoyaki</strong> (bolas de pulpo) y el <strong>okonomiyaki</strong>, dos de los platos más emblemáticos de la región. No olvides tomarte una foto con el famoso cartel de Glico Running Man.',
+            images: ['/assets/japan/Osaka/dotonbori.jpg'],
+            longitude: 135.5045,
+            latitude: 34.6687,
+            mapUrl: 'map-dotonbori'
+          },
+          {
+            name: 'Ebisu Bashi-Suji',
+            description: '<strong>Horario:</strong> 10:00 - 22:00 h.<br><strong>Precio:</strong> Gratis.<br><br><strong>Ebisu Bashi-Suji</strong> es una popular calle comercial cubierta donde puedes encontrar de todo, desde ropa y souvenirs hasta deliciosos bocados locales. Este distrito, uno de los más antiguos de Osaka, es ideal para sumergirse en el ambiente animado de la ciudad.',
+            images: ['/assets/japan/Osaka/ebisu_bashi_suji.jpg'],
+            longitude: 135.5048,
+            latitude: 34.6685,
+            mapUrl: 'map-ebisu-bashi-suji'
+          }
+
+        ]}">
+      </app-itinerary-day-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
         <!-- Día 1: Tokio -->
         <app-itinerary-day-card 
@@ -443,6 +604,9 @@
           ],
             }">
       </app-itinerary-day-card>
+
+
+
 
 
     
