@@ -1,7 +1,7 @@
 /* General del panel */
 mat-expansion-panel {
     margin-bottom: 15px;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     border-left: 5px solid;
     border-radius: 8px;
   }
