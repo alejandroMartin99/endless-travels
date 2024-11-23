@@ -32,10 +32,11 @@ export class ItineraryDayCardComponent implements OnInit, AfterViewInit, OnDestr
   private resizeObserver!: ResizeObserver;
 
   ngOnInit(): void {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+    
   }
 
   ngAfterViewInit(): void {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
     this.initializeMap();
     this.setupResizeObserver();
   }
