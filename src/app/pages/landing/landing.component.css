@@ -1,75 +1,116 @@
 /* Landing Page Styles */
 .landing-container {
-    padding: 40px 20px;
-    background: linear-gradient(to bottom, white, #f0f0f0);
-    min-height: 90vh;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, white, #f0f0f0);
+  min-height: 90vh;
+}
+
+/* Bienvenida */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.welcome-section h1 {
+  font-size: 3em;
+  color: #3f51b5;
+}
+
+.welcome-section p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* Sección de destinos */
+.destinations-section {
+  text-align: center;
+}
+
+.destinations-section h2 {
+  font-size: 2.5em;
+  color: #1976d2;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de tarjetas */
+.destination-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Tarjetas individuales */
+.destination-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 30%;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.destination-image {
+  width: 100%;
+  height: auto;
+}
+
+.destination-info {
+  padding: 20px;
+}
+
+.destination-info h3 {
+  font-size: 1.8em;
+  color: #3f51b5;
+}
+
+.destination-info p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 20px 10px; /* Reduce el padding en pantallas más pequeñas */
   }
-  
-  .welcome-section {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
+
   .welcome-section h1 {
-    font-size: 3em;
-    color: #3f51b5;
+    font-size: 2.5em; /* Reduce el tamaño del título */
   }
-  
+
   .welcome-section p {
-    font-size: 1.2em;
-    color: #666;
+    font-size: 1em; /* Ajusta el tamaño del texto de bienvenida */
   }
-  
-  .destinations-section {
-    text-align: center;
-  }
-  
+
   .destinations-section h2 {
-    font-size: 2.5em;
-    color: #1976d2;
-    margin-bottom: 30px;
+    font-size: 2em; /* Reduce el tamaño del título de destinos */
   }
-  
+
   .destination-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column; /* Cambia el diseño a columna */
+    gap: 20px; /* Ajusta el espacio entre tarjetas */
+    align-items: center; /* Centra las tarjetas */
   }
-  
+
   .destination-card {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 30%;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
+    max-width: 350px; /* Tamaño máximo para evitar estiramientos excesivos */
   }
-  
-  .destination-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .destination-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .destination-info {
-    padding: 20px;
-  }
-  
+
   .destination-info h3 {
-    font-size: 1.8em;
-    color: #3f51b5;
+    font-size: 1.5em; /* Reduce el tamaño del título en la tarjeta */
   }
-  
+
   .destination-info p {
-    font-size: 1.1em;
-    color: #666;
+    font-size: 1em; /* Reduce el tamaño del texto en la tarjeta */
   }
-  
+}

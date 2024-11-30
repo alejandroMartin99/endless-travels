@@ -7,59 +7,37 @@ mat-expansion-panel {
 }
 
 /* Bordes de colores personalizados */
-.border-blue {
-  border-left-color: #3f51b5;
-}
-
-.border-green {
-  border-left-color: #4caf50;
-}
-
-.border-dark-green {
-  border-left-color: #08700c;
-}
-
-.border-red {
-  border-left-color: #f44336;
-}
-
-.border-pink {
-  border-left-color: #e571f0;
-}
-
-.border-yellow {
-  border-left-color: #e9da68;
-}
-
-.border-purple {
-  border-left-color: #9315ad;
-}
-
-.border-dark-purple {
-  border-left-color: #480556;
-}
+.border-blue { border-left-color: #3f51b5; }
+.border-green { border-left-color: #4caf50; }
+.border-dark-green { border-left-color: #08700c; }
+.border-red { border-left-color: #f44336; }
+.border-pink { border-left-color: #e571f0; }
+.border-yellow { border-left-color: #e9da68; }
+.border-purple { border-left-color: #9315ad; }
+.border-dark-purple { border-left-color: #480556; }
 
 /* Contenedor de actividades */
 .activity-container {
   display: flex;
   justify-content: space-between;
-  height: 550px; /* Aumenta la altura total del contenedor */
-  padding: 1px; /* Padding que evita el colapso del contenido con los bordes */
-  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
-  gap: 10px; /* Espaciado entre las secciones de la actividad */
+  height: 550px; /* Altura para pantallas grandes */
+  padding: 1px;
+  box-sizing: border-box;
+  gap: 10px;
 }
 
-/* Descripción e imagen */
+/* Descripción */
 .activity-description {
-  flex-basis: 33%; /* Mantiene el espacio proporcional para la descripción */
+  flex-basis: 33%;
   padding: 5px;
   box-sizing: border-box;
-  max-height: 550px; /* Altura fija para la descripción */
-  overflow-y: auto; /* Muestra la barra de desplazamiento si el contenido excede la altura */
+  max-height: 550px;
+  overflow-y: auto;
 }
 
+/* Imagen */
 .activity-image {
-  flex-basis: 33%; /* Mantiene el espacio proporcional para la imagen */
+  flex-basis: 33%;
   padding: 5px;
   box-sizing: border-box;
 }
@@ -67,23 +45,25 @@ mat-expansion-panel {
 .activity-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+  object-fit: cover;
   border-radius: 8px;
 }
 
 /* Mapa */
 .activity-map {
-  flex-basis: 40%; /* Se asigna más espacio al mapa */
-  padding: 10px;
-  height: 100%; /* El mapa ocupará todo el alto disponible */
+  flex-basis: 40%;
+  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
+  min-height: 300px; /* Establece un mínimo razonable */
+  max-height: 550px; /* Asegura un máximo en pantallas grandes */
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .activity-map iframe {
   width: 100%;
-  height: 100%; /* El iframe del mapa ocupará todo el espacio del contenedor */
+  height: 100%;
   border: none;
-  border-radius: 8px; /* Elimina los bordes */
+  border-radius: 8px;
 }
 
 /* Indicadores de navegación */
@@ -130,7 +110,6 @@ mat-expansion-panel {
   width: 100%;
 }
 
-/* Controles del carrusel */
 .carousel-control {
   display: flex;
   gap: 10px;
@@ -140,34 +119,33 @@ mat-expansion-panel {
   margin-left: auto;
 }
 
-/* Ajustes en móvil para eliminar margen y padding */
-body.container {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  body.container {
-      margin: 0; /* Elimina el margen en pantallas pequeñas */
-      padding: 0; /* Elimina el padding en pantallas pequeñas */
-      width: 100%; /* Asegura que el body ocupe todo el ancho */
-  }
-
+/* Ajustes responsivos */
+@media (max-width: 1200px) {
   .activity-container {
-      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-      height: auto; /* Ajusta la altura para que no esté fija */
-      gap: 20px; /* Espaciado entre las secciones */
+    flex-direction: column; /* Cambia el diseño a columna */
+    height: auto; /* Ajusta automáticamente la altura */
+    gap: 20px; /* Espaciado entre secciones */
   }
 
   .activity-description,
   .activity-image,
-  .activity-map {
-      flex-basis: 100%; /* Hace que cada sección ocupe el 100% del ancho disponible */
-      padding: 0; /* Ajusta el padding en pantallas pequeñas */
-  }
+  .activity-map,
 
   .activity-image img {
-      height: auto; /* Ajusta la altura de las imágenes en pantallas pequeñas */
+    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
+    height: auto; /* Ajusta la altura proporcionalmente */
+    object-fit: cover; /* Evita recortes */
+  }
+
+  .activity-map {
+    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
+    height: auto; /* Ajusta la altura proporcionalmente */
+    object-fit: cover;/* Asigna una altura específica al contenedor del mapa */
+  }
+
+  .activity-map iframe {
+    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
+    height: auto; /* Ajusta la altura proporcionalmente */
+    object-fit: cover; /* Asegura que el iframe ocupe todo el contenedor */
   }
 }

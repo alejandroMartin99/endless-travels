@@ -3,41 +3,80 @@
     padding: 0px 200px;
     background: linear-gradient(to bottom, white, #f0f0f0);
     min-height: 90vh;
-}
-
-
-.mat-tab-label {
-display: flex;
-align-items: center;
-font-size: 18px;
-font-weight: 600;
-padding: 12px;
-transition: color 0.3s ease;
-}
+  }
   
-
-.custom-tab-label {
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 0px 20px; /* Reduce el padding para pantallas más pequeñas */
+    }
+  }
+  
+  /* Etiquetas de pestañas */
+  .mat-tab-label {
     display: flex;
-    align-items: center; /* Centra el icono y el texto verticalmente */
-    padding: 10px 20px; /* Añade espacio alrededor del contenido */
-    background-color: #ffffff; /* Fondo por defecto */
-    border-radius: 8px; /* Bordes redondeados */
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
-}
-
-
-
-.custom-icon {
-    font-size: 25px; /* Tamaño del icono */
-    margin-right: 8px; /* Espacio entre el icono y el texto */
-}
-
-.custom-tab-text {
-    font-size: 25px; /* Tamaño del texto */
-    font-weight: 600; /* Peso de la fuente */
-    transition: color 0.3s; /* Transición suave para el color del texto */
-}
-
-/* Si quieres cambiar el color del texto al pasar el ratón */
-
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Etiquetas de pestañas personalizadas */
+  .custom-tab-label {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Asegura que el contenido esté centrado */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+  
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .custom-tab-label {
+      padding: 8px 10px; /* Reduce el padding en dispositivos pequeños */
+    }
+  }
+  
+  /* Iconos personalizados */
+  .custom-icon {
+    font-size: 25px;
+    margin-right: 8px;
+  }
+  
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .custom-icon {
+      font-size: 20px; /* Reduce el tamaño del icono */
+      margin-right: 5px;
+    }
+  }
+  
+  /* Texto de pestañas personalizado */
+  .custom-tab-text {
+    font-size: 25px;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .custom-tab-text {
+      font-size: 18px; /* Reduce el tamaño del texto */
+    }
+  }
+  
+  /* Cambia el color del texto al pasar el ratón */
+  .custom-tab-label:hover .custom-tab-text {
+    color: #1976d2;
+  }
+  
+  /* Cambia el color del fondo y agrega un efecto de escala al pasar el ratón */
+  .custom-tab-label:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.05); /* Amplía ligeramente el tamaño */
+  }
+  

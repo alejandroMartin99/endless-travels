@@ -1,33 +1,37 @@
+/* General sidenav container adjustments */
 .sidenav-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Evita que el sidenav-container se desplace */
+  overflow: hidden; /* Evita desplazamiento horizontal */
 }
 
+/* Toolbar adjustments */
 .main-toolbar {
-  position: fixed; /* Fija la barra de herramientas */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Asegura que la barra esté por encima del contenido */
- /* Color de fondo */
+  z-index: 1000;
   color: white;
+  padding: 0 10px; /* Ajusta el padding en móviles */
 }
 
+/* Mat sidenav container */
 .mat-sidenav-container {
-  padding-top: 64px; /* Deja espacio para la barra de herramientas fija */
+  padding-top: 64px; /* Espacio para la barra de herramientas fija */
 }
 
 .mat-sidenav-content {
   overflow-y: auto; /* Permite el scroll del contenido */
-  height: calc(100vh - 64px); /* Ajusta la altura para no incluir la barra de herramientas */
+  height: calc(100vh - 64px); /* Ajusta la altura excluyendo la barra */
 }
 
+/* Sidenav adjustments */
 .sidenav {
-  background-color: #ffffff; /* Fondo del sidenav */
-  padding: 15px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background-color: #ffffff;
+  padding: 10px; /* Reduce padding para pantallas pequeñas */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Spacer for flexible layout */
@@ -35,89 +39,114 @@
   flex: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Title in the toolbar */
+/* Toolbar title */
 .toolbar-title {
-  font-size: 22px;
+  font-size: 20px; /* Reduce tamaño en móviles */
   font-weight: bold;
-  color: #3f51b5; /* Dark blue for the title */
+  color: #3f51b5;
 }
 
-/* Menu items */
+/* Menu items adjustments */
 .menu-item {
   display: flex;
-  align-items: center; /* Align icon and text */
-  font-size: 18px;
+  align-items: center;
+  font-size: 16px; /* Reduce tamaño de texto en móviles */
   font-weight: 500;
-  color: #3f51b5; /* Medium blue for menu items */
-  padding: 10px 15px;
-  border-radius: 8px;
+  color: #3f51b5;
+  padding: 8px 12px; /* Reduce padding */
+  border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-item:hover {
-  background-color: #bbdefb; /* Light blue on hover for interactivity */
-  color: #3f51b5; /* Darker blue text on hover */
+  background-color: #bbdefb;
+  color: #3f51b5;
   cursor: pointer;
 }
 
-/* Large icons for menu items */
+/* Icon adjustments */
 .large-icon {
-  margin-right: 12px;
-  font-size: 22px; /* Slightly larger icons for a modern look */
-  color: #3f51b5; /* Same blue as menu items */
-  display: inline-flex; /* Ensure icon stays aligned with text */
-  align-items: center;
-  justify-content: center;
+  margin-right: 10px;
+  font-size: 18px; /* Ajusta tamaño del icono */
+  color: #3f51b5;
 }
 
-/* Text for menu items */
 .large-text {
   font-weight: bold;
-  color: #3f51b5; /* Darker blue to differentiate text */
+  color: #3f51b5;
 }
 
-/* Icon specific for destinations */
+/* Destination icon adjustments */
 .destination-icon {
-  margin-right: 12px;
-  font-size: 20px; /* Slightly smaller icon for distinction */
-  color: #3f51b5; /* Lighter blue for destination icons */
+  margin-right: 10px;
+  font-size: 18px; /* Reduce tamaño del icono */
+  color: #3f51b5;
 }
 
-/* Panel for continents and destinations */
+/* Continent panel adjustments */
 .continent-panel {
-  margin: 15px 0;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #e3f2fd; /* Light blue background for continent panels */
+  margin: 10px 0; /* Reduce márgenes */
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #e3f2fd;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .continent-panel:hover {
-  background-color: #bbdefb; /* Lighter blue on hover */
-  color: #3f51b5; /* Darker blue text on hover */
+  background-color: #bbdefb;
+  color: #3f51b5;
 }
 
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .sidenav-container {
+    height: auto; /* Permite que el contenedor crezca dinámicamente */
+  }
 
+  .mat-sidenav-container {
+    padding-top: 56px; /* Reduce el espacio para la barra en móviles */
+  }
 
+  .main-toolbar {
+    padding: 0 8px; /* Reduce padding lateral */
+  }
+
+  .menu-item {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 6px 10px; /* Reduce el padding */
+  }
+
+  .large-icon {
+    font-size: 16px; /* Ajusta tamaño del icono */
+    margin-right: 8px; /* Reduce el espacio entre icono y texto */
+  }
+
+  .toolbar-title {
+    font-size: 18px; /* Reduce el tamaño del título */
+  }
+
+  .continent-panel {
+    padding: 6px; /* Reduce padding interno */
+    margin: 8px 0; /* Reduce margen */
+  }
+}
+
+/* Additional adjustments for very small screens (e.g., phones) */
+@media (max-width: 480px) {
+  .menu-item {
+    font-size: 12px; /* Reduce aún más el tamaño de texto */
+    padding: 4px 8px; /* Ajusta el padding */
+  }
+
+  .toolbar-title {
+    font-size: 16px; /* Reduce el título aún más */
+  }
+
+  .large-icon {
+    font-size: 14px; /* Ajusta el tamaño del icono */
+  }
+
+  .continent-panel {
+    padding: 4px; /* Ajusta padding para pantallas pequeñas */
+  }
+}
