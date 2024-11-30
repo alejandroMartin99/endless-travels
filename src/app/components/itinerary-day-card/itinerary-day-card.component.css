@@ -120,7 +120,7 @@ mat-expansion-panel {
 }
 
 /* Ajustes responsivos */
-@media (max-width: 1200px) {
+@media (max-width: 800px) {
   .activity-container {
     flex-direction: column; /* Cambia el diseño a columna */
     height: auto; /* Ajusta automáticamente la altura */
