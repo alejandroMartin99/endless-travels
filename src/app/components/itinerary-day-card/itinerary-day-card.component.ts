@@ -28,12 +28,11 @@ export class ItineraryDayCardComponent implements OnInit, AfterViewInit, OnDestr
   panelOpenState = false;
   currentActivityIndex = 0;
   currentImageIndex = 0;
+  private markers: mapboxgl.Marker[] = []; 
   private map!: mapboxgl.Map;
   private resizeObserver!: ResizeObserver;
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
@@ -47,7 +46,7 @@ export class ItineraryDayCardComponent implements OnInit, AfterViewInit, OnDestr
   }
 
   private initializeMap(): void {
-    
+    // Inicializa el mapa solo una vez
     this.map = new mapboxgl.Map({
       container: this.mapContainer.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v12',
@@ -62,56 +61,61 @@ export class ItineraryDayCardComponent implements OnInit, AfterViewInit, OnDestr
   }
 
   getBorderColorClass(location: string): string {
-    switch (location.toLowerCase()) {
-      case 'norte':
-        return 'border-blue';
-      case 'sur':
-        return 'border-green';
-      case 'este':
-        return 'border-red';
-      case 'oeste':
-        return 'border-purple';
-      default:
-        return 'border-blue'; // Color por defecto
-    }
+    const borderColors: { [key: string]: string } = {
+      norte: 'border-blue',
+      sur: 'border-green',
+      este: 'border-red',
+      oeste: 'border-purple',
+    };
+    return borderColors[location.toLowerCase()] || 'border-blue';  // Valor por defecto
   }
 
   private setupResizeObserver(): void {
-    this.resizeObserver = new ResizeObserver(this.debounce(() => {
+    // Utiliza ResizeObserver para manejar el redimensionado de forma eficiente
+    this.resizeObserver = new ResizeObserver(() => this.debounce(() => {
       this.map.resize();
       this.adjustBounds();
     }, 100));
-    
     this.resizeObserver.observe(this.mapContainer.nativeElement);
   }
+
 
   private addMarkers(): void {
     this.day.activities.forEach((activity, index) => {
       const color = index === this.currentActivityIndex ? 'red' : 'blue';
-      new mapboxgl.Marker({ color })
+  
+      // Eliminar los marcadores anteriores si ya existen
+      if (this.markers[index]) {
+        this.markers[index].remove();
+      }
+  
+      const marker = new mapboxgl.Marker({ color })
         .setLngLat([activity.longitude, activity.latitude])
         .addTo(this.map);
+  
+      // Almacenar el marcador en el arreglo local
+      this.markers[index] = marker;
     });
   }
 
   private adjustBounds(): void {
     const bounds = new mapboxgl.LngLatBounds();
-    this.day.activities.forEach(activity => {
-      bounds.extend([activity.longitude, activity.latitude]);
-    });
-    this.map.fitBounds(bounds, { padding: 50, duration: 2000 , animate: true});
+    this.day.activities.forEach(activity => bounds.extend([activity.longitude, activity.latitude]));
+    this.map.fitBounds(bounds, { padding: 50, duration: 2000, animate: true });
   }
 
   selectActivity(index: number): void {
-    this.currentActivityIndex = index;
-    this.currentImageIndex = 0;
-    const activity = this.day.activities[index];
-    this.map.flyTo({
-      center: [activity.longitude, activity.latitude],
-      essential: true,
-      zoom: 15
-    });
-    this.addMarkers();
+    if (this.currentActivityIndex !== index) {
+      this.currentActivityIndex = index;
+      this.currentImageIndex = 0;
+      const activity = this.day.activities[index];
+      this.map.flyTo({
+        center: [activity.longitude, activity.latitude],
+        essential: true,
+        zoom: 15
+      });
+      this.addMarkers();
+    }
   }
 
   changeActivity(delta: number): void {

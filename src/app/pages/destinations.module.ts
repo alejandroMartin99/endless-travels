@@ -8,13 +8,16 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../components/shared.module';
 import { LandingComponent } from './landing/landing.component';
+import { RecomendationsComponent } from './destinations/japan/components/recomendations/recomendations.component'; 
 
 @NgModule({
   declarations: [
     JapanComponent,
     PragabudapestComponent,
     CopenhagueComponent,
-    LandingComponent
+    LandingComponent,
+    RecomendationsComponent
+    
   ],
   imports: [
     CommonModule,
@@ -23,6 +26,7 @@ import { LandingComponent } from './landing/landing.component';
     MaterialModule,
     SharedModule,
     RouterLink,
+
   ],
   exports:[
     RouterModule,
