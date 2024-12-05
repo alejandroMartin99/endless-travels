@@ -5,13 +5,6 @@
   min-height: 90vh;
 }
 
-/* Ajustes en pantallas pequeñas */
-@media (max-width: 768px) {
-  .content-container {
-      padding: 0px 20px; /* Reduce el padding en dispositivos pequeños */
-  }
-}
-
 /* Etiquetas de pestañas */
 .mat-tab-label {
   display: flex;
@@ -35,25 +28,10 @@
   cursor: pointer;
 }
 
-/* Ajustes en pantallas pequeñas */
-@media (max-width: 768px) {
-  .custom-tab-label {
-      padding: 8px 10px; /* Reduce el padding en dispositivos pequeños */
-  }
-}
-
 /* Iconos personalizados */
 .custom-icon {
   font-size: 25px;
   margin-right: 8px;
-}
-
-/* Ajustes en pantallas pequeñas */
-@media (max-width: 768px) {
-  .custom-icon {
-      font-size: 20px; /* Reduce el tamaño del icono */
-      margin-right: 5px;
-  }
 }
 
 /* Texto de pestañas personalizado */
@@ -61,13 +39,6 @@
   font-size: 25px;
   font-weight: 600;
   transition: color 0.3s;
-}
-
-/* Ajustes en pantallas pequeñas */
-@media (max-width: 768px) {
-  .custom-tab-text {
-      font-size: 18px; /* Reduce el tamaño del texto */
-  }
 }
 
 /* Cambia el color del texto al pasar el ratón */
@@ -88,8 +59,25 @@
   justify-content: center; /* Centra las pestañas en pantallas pequeñas */
 }
 
-/* Evita problemas de desbordamiento en dispositivos pequeños */
+/* Agrupación de estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
+  .content-container {
+      padding: 0px 20px; /* Reduce el padding en dispositivos pequeños */
+  }
+
+  .custom-tab-label {
+      padding: 8px 10px; /* Reduce el padding en dispositivos pequeños */
+  }
+
+  .custom-icon {
+      font-size: 20px; /* Reduce el tamaño del icono */
+      margin-right: 5px;
+  }
+
+  .custom-tab-text {
+      font-size: 18px; /* Reduce el tamaño del texto */
+  }
+
   .mat-tab-labels {
       overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
   }
