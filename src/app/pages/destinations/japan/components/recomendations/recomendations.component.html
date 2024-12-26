@@ -1,5 +1,6 @@
 <div class="recommendations-container">
   <mat-accordion>
+
     <!-- Transporte -->
     <mat-expansion-panel class="section-card">
       <mat-expansion-panel-header>
@@ -9,129 +10,149 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <!-- Sub-sección: General -->
-      <div class="section-content">
-        <h3>General</h3>
-        <div class="recommendation-item">
-          <strong>Japan Rail Pass (JR Pass)</strong>
-          <p>Indispensable para viajar entre ciudades. Permite uso ilimitado de trenes JR, incluidos los Shinkansen.</p>
-          <img src="assets/maps/japan-rail-pass.jpg" alt="Mapa JR Pass" class="recommendation-image" />
+      <div>
+        <!-- Botones de las pestañas -->
+        <div class="tabs">
+          <button *ngFor="let tab of tabs"
+                  class="tab-button"
+                  [class.active]="tab.active"
+                  (click)="openTab(tab.id)">
+              {{tab.name}}
+          </button>
         </div>
-        <div class="recommendation-item">
-          <strong>Tarjeta IC (PASMO/SUICA)</strong>
-          <p>Ideal para transporte urbano en metro, autobuses y tiendas de conveniencia.</p>
-          <img src="assets/maps/ic-card.jpg" alt="Mapa IC Cards" class="recommendation-image" />
-        </div>
-      </div>
 
-      <!-- Sub-sección: Kioto -->
-      <div class="section-content">
-        <h3>Kioto</h3>
-        <div class="recommendation-item">
-          <strong>Autobuses y Metro</strong>
-          <p>El autobús es la forma más eficiente de moverse entre los templos. El metro cubre menos zonas, pero es rápido.</p>
-          <img src="assets/maps/kyoto-bus.jpg" alt="Mapa Autobuses Kioto" class="recommendation-image" />
-        </div>
-        <div class="recommendation-item">
-          <strong>Bicicletas</strong>
-          <p>Kioto es una ciudad plana y amigable para ciclistas. Alquila una bicicleta para explorar a tu ritmo.</p>
-        </div>
-      </div>
+        <div id="general" class="tab-content" [class.active]="isTabActive('general')">
+          <div class="recommendation-item">
+            <strong>Japan Rail Pass (JR Pass)</strong>
+            <p></p>
+            <a href="https://www.jrailpass.com/es/jr-pass?_gl=1*58bve*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAmrS7BhBJEiwAei59i3oBbaRDGthhuLXRVagJtY9GSEpbbhi58KAP-LW1Tr-aWBEvpwkiyxoCygQQAvD_BwE">Link de compra</a>
 
-      <!-- Sub-sección: Tokio -->
-      <div class="section-content">
-        <h3>Tokio</h3>
-        <div class="recommendation-item">
-          <strong>Metro y JR Yamanote Line</strong>
-          <p>La línea JR Yamanote conecta las principales zonas turísticas como Shibuya, Shinjuku y Akihabara.</p>
-          <img src="assets/maps/tokyo-metro.jpg" alt="Mapa Metro Tokio" class="recommendation-image" />
+            <div class="section">
+              <h1>¿Qué incluye el Japan Rail Pass?</h1>
+              <div class="image-container">
+                  <div class="image-card">
+                      <ul>
+                          <li>✅ Todos los trenes trenes bala (Shinkansen) (Tokaido, Sanyo, Hokuriku, Hokkaido ...  )</li>
+                          <li>✅ Trenes rápidos y locales </li>
+                            <ul>
+                              <li>Tokio: Línea Yamanote, Chuo-Sobu, Keihin-Tohoku ... </li>
+                              <li>Kioto: Línea Nara, Sagano a Arashiyama</li>
+                            </ul>
+                          <li>✅ Buses locales operados por JR</li>
+                          <li>✅ Ferry JR a Miyajima</li>
+                          <li>✅ Traslados al aeropuerto (Narita Express,Haruka Express,Haruka Express) </li>
+                          
+                          <li>❌ Trenes de compañías privadas</li>
+                          <li>❌ Shinkansen Nozomi y Mizuho</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="section">
+            <h1>¿Siempre debo comprar el Japan Rail Pass?</h1>
+            <div class="image-container">
+              <div class="image-card">
+                <p><strong>Esta pregunta hasta 2023, la respuesta era fácil, Sí </strong>. Esto se debe a que el precio del ticket para 14 días era de 300€ por persona. Sin embargo este precio se ha visto incrementado considerablemente en el último año pasando a valer 504,38€ por persona el mismo pase. Ante esta casuística, la respuesta no es fácil ya que en ciertos itinerarios puede llegar a no compensar.</p>
+                <p></p>
+                <p>En el siguiente <a href="https://www.japan-guide.com/railpass/">link</a>, podeis insertar vuestro itinerario y la página os calcula si debeis comprar o no el JR PASS, o por el contrario os conviene mejor otra opción.</p>
+                
+                <p></p>
+                <p>Para ayudaros un poco más, os dejamos desglosados los trayectos que nosotros realizamos así como el precio de cada uno de ellos si se obtuviera por separado.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ruta</th>
+                            <th>Precio (ida y vuelta)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kyoto-Tokyo</td>
+                            <td>26,000¥ (13,000¥ × 2) -> (~158€)</td>
+                        </tr>
+                        <tr>
+                            <td>Tokyo-Nikko</td>
+                            <td>6,000¥ (3,000¥ × 2) -> (~37€)</td>
+                        </tr>
+                        <tr>
+                            <td>Tokyo-Kamakura</td>
+                            <td>2,000¥ (1,000¥ × 2) -> (~12€)</td>
+                        </tr>
+                        <tr>
+                            <td>Kyoto-Nara</td>
+                            <td>3,000¥ (1,500¥ × 2) -> (~18€)</td>
+                        </tr>
+                        <tr>
+                            <td>Kyoto-Osaka</td>
+                            <td>1,000¥ (500¥ × 2) -> (~6€)</td>
+                        </tr>
+                        <tr>
+                            <td>Kyoto-Hiroshima</td>
+                            <td>22,000¥ (11,000¥ × 2) -> (~134€)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total aproximado</strong></td>
+                            <td><strong>30,000¥ (~365€)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+              <p>Como se puede ver, cuando nosotros hicimos le viaje nos compensaba enormemente el JR Pass ya que no solo nos ahorraba dinero sino que nos daba la tranquilidad de que copn ese ticket no ns teníamos que volver a preocupar por sacar tickets. A su vez al precio indicado nos entraban la mayoría de líenas de metro de Tokio. Sin embargo <strong>a fecha de hoy no nos compensa comprar el JR Pass </strong>, de hecho, en el link anterior, nos recomiendan obtenerlos por separado.</p>
+
+            </div>
+            </div>
+          </div>
+        
+          <div class="section">
+            <h2>Alternativas al JR Pass</h2>
+            <div class="image-container">
+              <div class="image-card">
+                  <div class="alternative">
+                      <h3>1. Pases Regionales JR</h3>
+                      <p>Ideales para explorar una región específica. Ejemplos: JR Kansai Pass (Osaka, Kyoto, Nara), JR East Pass (Tokyo y alrededores)</p>
+                      <p>Un pase de tren regional es una buena inversión para los visitantes que solo planean viajar dentro de un área limitada de Japón, ya que elimina la necesidad de pagar un JR Pass para todo el país. Los pases regionales también ofrecen diferentes períodos de validez con días flexibles.</p>
+                  </div>
+      
+                  <div class="alternative">
+                      <h3>2. Buses Nocturnos</h3>
+                      <p>Opción económica para largas distancias. Precios desde 3,000¥ a 10,000¥ por trayecto. Incluye ahorro en una noche de hotel.</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+              
+          </div>
+
+          <div class="recommendation-item">
+            <strong>Tarjeta IC (PASMO/SUICA)</strong>
+            <p>Ideal para transporte urbano en metro, autobuses y tiendas de conveniencia.</p>
+            <img src="assets/maps/ic-card.jpg" alt="Mapa IC Cards" class="recommendation-image" />
+          </div>
         </div>
-        <div class="recommendation-item">
-          <strong>Tarjeta SUICA/PASMO</strong>
-          <p>Facilita el pago en el transporte público sin necesidad de comprar boletos individuales.</p>
+
+        <div id="tokyo" class="tab-content" [class.active]="isTabActive('tokyo')">
+          <div class="recommendation-item">
+              <strong>Líneas JR principales en Kyoto</strong>
+              <ul>
+                  <li>Línea JR Nara</li>
+                  <li>Línea JR Sagano (hacia Arashiyama)</li>
+                  <li>Línea Principal de JR Sanin</li>
+                  <li>Haruka Express (hacia/desde el Aeropuerto de Kansai)</li>
+              </ul>
+          </div>
         </div>
+
+        <div id="kyoto" class="tab-content" [class.active]="isTabActive('kyoto')">
+          <!-- Contenido de la pestaña Kyoto -->
+        </div>
+
       </div>
+      
     </mat-expansion-panel>
 
-    <!-- Restaurantes -->
-    <mat-expansion-panel class="section-card">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon class="panel-icon">restaurant</mat-icon>
-          Restaurantes
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="section-content">
-        <!-- Izakaya -->
-        <div class="recommendation-item">
-          <mat-icon class="recommendation-icon">local_bar</mat-icon>
-          <div>
-            <strong>Izakaya</strong>
-            <p>Bares tradicionales japoneses con amplia variedad de platos para compartir.</p>
-          </div>
-        </div>
-        <!-- Restaurantes de Ramen -->
-        <div class="recommendation-item">
-          <mat-icon class="recommendation-icon">ramen_dining</mat-icon>
-          <div>
-            <strong>Restaurantes de Ramen</strong>
-            <p>Imprescindibles para probar el auténtico ramen japonés. Busca las largas filas: suelen ser señal de calidad.</p>
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
+    
 
-    <!-- Alojamiento -->
-    <mat-expansion-panel class="section-card">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon class="panel-icon">hotel</mat-icon>
-          Alojamiento
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="section-content">
-        <!-- Ryokan -->
-        <div class="recommendation-item">
-          <mat-icon class="recommendation-icon">spa</mat-icon>
-          <div>
-            <strong>Ryokan</strong>
-            <p>Alojamiento tradicional japonés con tatami, futón y baños termales. Una experiencia cultural única.</p>
-          </div>
-        </div>
-        <!-- Hoteles Cápsula -->
-        <div class="recommendation-item">
-          <mat-icon class="recommendation-icon">bed</mat-icon>
-          <div>
-            <strong>Hoteles Cápsula</strong>
-            <p>Opción económica y típicamente japonesa, perfecta para estancias cortas.</p>
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
+   
 
-    <!-- Pagos y moneda -->
-    <mat-expansion-panel class="section-card">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon class="panel-icon">payments</mat-icon>
-          Pagos y moneda
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="section-content">
-        <!-- Efectivo -->
-        <div class="recommendation-item">
-          <mat-icon class="recommendation-icon">money</mat-icon>
-          <div>
-            <strong>Efectivo es Rey</strong>
-            <p>Japón sigue siendo una sociedad basada en efectivo. Lleva siempre yenes contigo.</p>
-          </div>
-        </div>
-        <!-- Consejo 7-Bank -->
-        <div class="tip-box">
-          <mat-icon>lightbulb</mat-icon>
-          <strong>Consejo:</strong> Busca los cajeros 7-Bank en los Seven-Eleven para retirar dinero con tarjetas internacionales.
-        </div>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
+

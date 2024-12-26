@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -41,6 +42,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSnackBarModule,
     MatTabsModule,
     MatToolbarModule,
+    MatChipsModule,
     // Agrega aquí otros módulos de Angular Material
   ],
   exports: [
@@ -62,6 +64,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSidenavModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatChipsModule
     // Agrega aquí otros módulos de Angular Material que desees exportar
   ]
 })
