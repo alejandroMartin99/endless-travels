@@ -1,13 +1,137 @@
 <div class="recommendations-container">
-  <h2 class="section-title">Transporte</h2>
+  <mat-accordion>
+    <!-- Transporte -->
+    <mat-expansion-panel class="section-card">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon class="panel-icon">directions_railway</mat-icon>
+          Transporte
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-  <h2 class="section-title">Alojamiento</h2>
+      <!-- Sub-sección: General -->
+      <div class="section-content">
+        <h3>General</h3>
+        <div class="recommendation-item">
+          <strong>Japan Rail Pass (JR Pass)</strong>
+          <p>Indispensable para viajar entre ciudades. Permite uso ilimitado de trenes JR, incluidos los Shinkansen.</p>
+          <img src="assets/maps/japan-rail-pass.jpg" alt="Mapa JR Pass" class="recommendation-image" />
+        </div>
+        <div class="recommendation-item">
+          <strong>Tarjeta IC (PASMO/SUICA)</strong>
+          <p>Ideal para transporte urbano en metro, autobuses y tiendas de conveniencia.</p>
+          <img src="assets/maps/ic-card.jpg" alt="Mapa IC Cards" class="recommendation-image" />
+        </div>
+      </div>
 
-  <h2 class="section-title">Restaurantes</h2>
+      <!-- Sub-sección: Kioto -->
+      <div class="section-content">
+        <h3>Kioto</h3>
+        <div class="recommendation-item">
+          <strong>Autobuses y Metro</strong>
+          <p>El autobús es la forma más eficiente de moverse entre los templos. El metro cubre menos zonas, pero es rápido.</p>
+          <img src="assets/maps/kyoto-bus.jpg" alt="Mapa Autobuses Kioto" class="recommendation-image" />
+        </div>
+        <div class="recommendation-item">
+          <strong>Bicicletas</strong>
+          <p>Kioto es una ciudad plana y amigable para ciclistas. Alquila una bicicleta para explorar a tu ritmo.</p>
+        </div>
+      </div>
 
-  <h2 class="section-title">Pagos y moneda</h2>
+      <!-- Sub-sección: Tokio -->
+      <div class="section-content">
+        <h3>Tokio</h3>
+        <div class="recommendation-item">
+          <strong>Metro y JR Yamanote Line</strong>
+          <p>La línea JR Yamanote conecta las principales zonas turísticas como Shibuya, Shinjuku y Akihabara.</p>
+          <img src="assets/maps/tokyo-metro.jpg" alt="Mapa Metro Tokio" class="recommendation-image" />
+        </div>
+        <div class="recommendation-item">
+          <strong>Tarjeta SUICA/PASMO</strong>
+          <p>Facilita el pago en el transporte público sin necesidad de comprar boletos individuales.</p>
+        </div>
+      </div>
+    </mat-expansion-panel>
 
-  <h2 class="section-title">Costumbres y tradiciones</h2>
+    <!-- Restaurantes -->
+    <mat-expansion-panel class="section-card">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon class="panel-icon">restaurant</mat-icon>
+          Restaurantes
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="section-content">
+        <!-- Izakaya -->
+        <div class="recommendation-item">
+          <mat-icon class="recommendation-icon">local_bar</mat-icon>
+          <div>
+            <strong>Izakaya</strong>
+            <p>Bares tradicionales japoneses con amplia variedad de platos para compartir.</p>
+          </div>
+        </div>
+        <!-- Restaurantes de Ramen -->
+        <div class="recommendation-item">
+          <mat-icon class="recommendation-icon">ramen_dining</mat-icon>
+          <div>
+            <strong>Restaurantes de Ramen</strong>
+            <p>Imprescindibles para probar el auténtico ramen japonés. Busca las largas filas: suelen ser señal de calidad.</p>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
 
-  
+    <!-- Alojamiento -->
+    <mat-expansion-panel class="section-card">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon class="panel-icon">hotel</mat-icon>
+          Alojamiento
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="section-content">
+        <!-- Ryokan -->
+        <div class="recommendation-item">
+          <mat-icon class="recommendation-icon">spa</mat-icon>
+          <div>
+            <strong>Ryokan</strong>
+            <p>Alojamiento tradicional japonés con tatami, futón y baños termales. Una experiencia cultural única.</p>
+          </div>
+        </div>
+        <!-- Hoteles Cápsula -->
+        <div class="recommendation-item">
+          <mat-icon class="recommendation-icon">bed</mat-icon>
+          <div>
+            <strong>Hoteles Cápsula</strong>
+            <p>Opción económica y típicamente japonesa, perfecta para estancias cortas.</p>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+    <!-- Pagos y moneda -->
+    <mat-expansion-panel class="section-card">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon class="panel-icon">payments</mat-icon>
+          Pagos y moneda
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="section-content">
+        <!-- Efectivo -->
+        <div class="recommendation-item">
+          <mat-icon class="recommendation-icon">money</mat-icon>
+          <div>
+            <strong>Efectivo es Rey</strong>
+            <p>Japón sigue siendo una sociedad basada en efectivo. Lleva siempre yenes contigo.</p>
+          </div>
+        </div>
+        <!-- Consejo 7-Bank -->
+        <div class="tip-box">
+          <mat-icon>lightbulb</mat-icon>
+          <strong>Consejo:</strong> Busca los cajeros 7-Bank en los Seven-Eleven para retirar dinero con tarjetas internacionales.
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
