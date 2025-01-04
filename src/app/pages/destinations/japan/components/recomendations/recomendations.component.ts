@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./recomendations.component.css'],
 })
 export class RecomendationsComponent {
+
+  panelOpenState = true;
   // Tabs disponibles
   tabs = [
     { id: 'general', name: 'General', active: true },
