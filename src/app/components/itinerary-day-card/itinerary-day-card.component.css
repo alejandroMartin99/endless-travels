@@ -51,20 +51,21 @@ mat-expansion-panel {
 
 /* Mapa */
 .activity-map {
-  flex-basis: 40%;
-  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
-  min-height: 300px; /* Establece un mínimo razonable */
-  max-height: 550px; /* Asegura un máximo en pantallas grandes */
-  box-sizing: border-box;
-  overflow: hidden;
+  flex: 1; /* Esto hace que el mapa ocupe todo el espacio disponible */
+  height: 100%; /* Asegura que el mapa tenga el 100% de la altura disponible */
+  min-height: 500px; /* Establece una altura mínima para el mapa */
+  position: relative;
+  overflow: hidden; /* Evita que el mapa se desborde */
 }
 
 .activity-map iframe {
   width: 100%;
-  height: 100%;
+  height: 100%; /* Ocupa todo el alto del contenedor */
   border: none;
   border-radius: 8px;
+  display: block;
 }
+
 
 /* Indicadores de navegación */
 .activity-navigation {

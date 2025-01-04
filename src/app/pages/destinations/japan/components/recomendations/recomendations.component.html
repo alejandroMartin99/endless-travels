@@ -12,8 +12,7 @@
 
   
 
-  <div 
-    id="general" 
+  <div id="general" 
     class="tab-content" 
     [class.active]="isTabActive('general')">
 
@@ -36,8 +35,8 @@
       </mat-expansion-panel-header>
 
       <div class="japan-rail-pass-item">
-        <p>Es</p>
-        <a href="https://www.jrailpass.com/es/jr-pass?_gl=1*58bve*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAmrS7BhBJEiwAei59i3oBbaRDGthhuLXRVagJtY9GSEpbbhi58KAP-LW1Tr-aWBEvpwkiyxoCygQQAvD_BwE">Link de compra</a>
+        <p>Es un pase exclusivo para turistas extranjeros que permite viajar de forma ilimitada en la mayoría de los trenes operados por Japan Railways (JR) durante 7, 14 o 21 días. Este pase incluye los trenes bala (Shinkansen), líneas locales y rápidas, autobuses y ferris seleccionados, siendo una opción eficiente y económica para recorrer Japón. Sin embargo, su conveniencia depende de la ruta y la duración del viaje. Este es el <a href="https://www.jrailpass.com/es/jr-pass?_gl=1*58bve*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAmrS7BhBJEiwAei59i3oBbaRDGthhuLXRVagJtY9GSEpbbhi58KAP-LW1Tr-aWBEvpwkiyxoCygQQAvD_BwE">Link de compra</a></p>
+        
 
         <div class="japan-rail-pass-section">
           <h1>¿Qué incluye el Japan Rail Pass?</h1>
@@ -163,13 +162,37 @@
             class="suica-image" />
         </div>
       </div>
-
-      
-
     </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon class="panel-icon">local_taxi</mat-icon>
+          Taxi
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="japan-rail-pass-item">
+        <p>
+          Los taxis en Japón son una opción cómoda y segura para moverse por la ciudad. Sin embargo, son más caros que el transporte público y no son recomendables para trayectos largos. 
+        </p>
+        <p>
+        En nuestro caso tomamos solamente dos taxis, el priemro fue para ir desde el aeropuerto de Haneda hasta el hotel, un trayecto de aproximadamente 15 minutos, y el segundo fue en la ciudad de Osaka, el cual nos ahorraba bastante tiempo y el precio era asequible. Algunos consejos para tomar un taxi en Japón:
+        </p>
+        <ul>
+          <li>Usa la app <strong>Uber</strong> para pedir un taxi en castellano. Funciona igual que en España/Europa y te aseguras d etener un precio aproximada antes d einiciar el trayecto</li>
+          <li>Sino lo has pedido a través de una app como Uber lleva una captura en tu móvil google de maps a poder ser en Japonés ya que algunos conductores son de mediana edad y no saben leer el alfabeto occidental.</li>
+          <li> <strong>Al igual que en todo Japón no hay que propina </strong> al conductor.</li>
+        </ul>
+      </div>
+    </mat-expansion-panel>
+
+
+
   </div>
 
-  <div id="tokyo" class="tab-content" [class.active]="isTabActive('tokyo')">
+  <div id="tokyo" 
+  class="tab-content" [class.active]="isTabActive('tokyo')">
     <div class="tabs">
       <button *ngFor="let tab of tabs"
               class="tab-button"
@@ -179,7 +202,7 @@
       </button>
     </div>
     
-    <div class="recommendation-item">
+    <div class="japan-rail-pass-item">
         <strong>Líneas JR principales en Kyoto</strong>
         <ul>
             <li>Línea JR Nara</li>
@@ -190,7 +213,8 @@
     </div>
   </div>
 
-  <div id="kyoto" class="tab-content" [class.active]="isTabActive('kyoto')">
+  <div id="kyoto" 
+  class="tab-content" [class.active]="isTabActive('kyoto')">
     <div class="tabs">
       <button *ngFor="let tab of tabs"
               class="tab-button"
@@ -199,6 +223,56 @@
           {{tab.name}}
       </button>
     </div>
+
+    <div class="japan-rail-pass-item">
+      <p>
+        En Kyoto, el transporte público es una opción eficiente y económica para moverse por la ciudad. Los autobuses y trenes son los medios de transporte más utilizados por los turistas para visitar los principales lugares de interés.La ciudad de Kyoto es bastante grande sin embargo se encuentra muy bien comunicada.A continuación, te presentamos las opciones de transporte público en Kyoto:
+      </p>
+      
+
+      <div class="japan-rail-pass-section">
+        <h1>Metro en Kioto</h1>
+        <div class="japan-rail-pass-subsection">
+          <p>
+            El metro de Kioto tiene dos líneas principales: Karasuma y Tozai. Aunque su alcance es limitado en comparación con otras ciudades como Tokio, sigue siendo una opción eficiente para moverse por la ciudad. Las líneas operan de 5:30 a 23:30 horas.
+          </p>
+          <ul>
+            <li>✅ Day Pass ilimitado disponible por 600 JPY al día.Ideal si planeas realizar al menos 3 viajes diarios.</li>
+            <li>✅ Billetes sencillos disponibles entre 210-350 JPY según la distancia.</li>
+            <li>✅ Fácil de usar y menos afectado por el tráfico en comparación con los autobuses.</li>
+            <li>❌ No cubre todas las áreas turísticas importantes.</li> 
+          </ul>
+        </div>
+      
+        <h1>Bus en Kioto</h1>
+        <div class="japan-rail-pass-subsection">
+          <p>
+            Los autobuses son una de las mejores opciones para explorar Kioto, ya que conectan los principales puntos turísticos de forma frecuente y puntual. Aunque el JR Pass no es válido, puedes adquirir un pase diario que incluye buses y metro.
+          </p>
+          <ul>
+            <li>✅ Pase diario ilimitado para buses y metro por 1,100 JPY.Compensa fácilmente si haces al menos 5 viajes al día. (En nuestro caso no lo compramos)</li>
+            <li>✅ Google Maps permite planificar rutas y horarios en tiempo real. A su vez en las paradas hay información en inglés y japonés.</li>
+            <li>✅ La tarjeta SUICA es más cómoda para viajes individuales.</li>
+            <li>✅ Muchos autobuses cuentan con máquinas para cambiar billetes por monedas.</li>
+            <li>✅ Perfecto para llegar a puntos turísticos como el Pabellón Dorado o el Castillo de Nijo.</li>
+            <li>❌ El JR Pass no es válido para autobuses en Kioto.</li>
+            <li>❌ Los autobuses suelen estar llenos en horas pico.</li>
+            <li>❌ Puede ser lento para destinos más lejanos como Arashiyama.</li>
+            
+            
+          </ul>
+          <p>
+            Recuerda: en Japón se sube a los autobuses por la puerta trasera y se baja por la delantera, mostrando el pase o pagando al conductor al salir.
+          </p>
+        </div>
+
+
+
+    </div>
+
+  </div>
+
+
   </div>
 
 </mat-expansion-panel>
@@ -212,13 +286,46 @@
       Restaurantes
     </mat-panel-title>
   </mat-expansion-panel-header>
+
+  <div 
+  id="general" 
+  class="tab-content" 
+  [class.active]="isTabActive('general')">
+
+    <!-- Botones de las pestañas -->
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+  </div>
+
+  <p>
+    text
+  </p>
+
 </mat-expansion-panel>
 
-  <!-- Comida -->
+  
+
+<!-- Móvil y Conectividad -->
 <mat-expansion-panel class="section-card">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <mat-icon class="panel-icon">directions_railway</mat-icon>
+      <mat-icon class="panel-icon">phone_iphone</mat-icon>
+      Móvil y Conectividad
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>
+
+  <!-- Moneda -->
+<mat-expansion-panel class="section-card">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon class="panel-icon">paid</mat-icon>
       Moneda
     </mat-panel-title>
   </mat-expansion-panel-header>

@@ -60,15 +60,6 @@ export class ItineraryDayCardComponent implements OnInit, AfterViewInit, OnDestr
     });
   }
 
-  getBorderColorClass(location: string): string {
-    const borderColors: { [key: string]: string } = {
-      norte: 'border-blue',
-      sur: 'border-green',
-      este: 'border-red',
-      oeste: 'border-purple',
-    };
-    return borderColors[location.toLowerCase()] || 'border-blue';  // Valor por defecto
-  }
 
   private setupResizeObserver(): void {
     // Utiliza ResizeObserver para manejar el redimensionado de forma eficiente
