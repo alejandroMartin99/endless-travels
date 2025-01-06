@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import mapboxgl from 'mapbox-gl';
 
 interface Activity {
@@ -18,56 +25,63 @@ interface Day {
 @Component({
   selector: 'app-itinerary-day-card',
   templateUrl: './itinerary-day-card.component.html',
-  styleUrls: ['./itinerary-day-card.component.css']
+  styleUrls: ['./itinerary-day-card.component.css'],
 })
-export class ItineraryDayCardComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ItineraryDayCardComponent implements AfterViewInit, OnDestroy {
   @Input() day!: Day;
   @Input() borderClass: string = '';
-  @ViewChild('map', { static: false }) mapContainer!: ElementRef<HTMLElement>;
+  @ViewChild('map', { static: false }) mapContainer!: ElementRef;
 
   panelOpenState = false;
   currentActivityIndex = 0;
   currentImageIndex = 0;
-  private markers: mapboxgl.Marker[] = []; 
   private map!: mapboxgl.Map;
-  private resizeObserver!: ResizeObserver;
-
-  ngOnInit(): void { }
+  private markers: mapboxgl.Marker[] = [];
+  private isMapInitialized = false;
 
   ngAfterViewInit(): void {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-    this.initializeMap();
-    this.setupResizeObserver();
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
   }
 
   ngOnDestroy(): void {
-    this.resizeObserver?.disconnect();
-    this.map?.remove();
+    // Limpia el mapa al destruir el componente
+    if (this.map) {
+      this.map.remove();
+    }
+  }
+
+  onPanelStateChange(isOpen: boolean): void {
+    console.log('Estado del panel:', isOpen);
+    if (isOpen) {
+      this.initializeMap();
+    }
   }
 
   private initializeMap(): void {
-    // Inicializa el mapa solo una vez
+    if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
+      return;
+    }
+
+    const firstActivity = this.day.activities[0];
+    if (!firstActivity) {
+      console.error('No hay actividades para inicializar el mapa.');
+      return;
+    }
+
     this.map = new mapboxgl.Map({
       container: this.mapContainer.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [this.day.activities[0].longitude, this.day.activities[0].latitude],
+      center: [firstActivity.longitude, firstActivity.latitude],
       zoom: 12,
     });
 
     this.map.on('load', () => {
       this.addMarkers();
-      this.adjustBounds();
+      this.rescaleMap();
     });
-  }
 
-
-  private setupResizeObserver(): void {
-    // Utiliza ResizeObserver para manejar el redimensionado de forma eficiente
-    this.resizeObserver = new ResizeObserver(() => this.debounce(() => {
-      this.map.resize();
-      this.adjustBounds();
-    }, 100));
-    this.resizeObserver.observe(this.mapContainer.nativeElement);
+    this.isMapInitialized = true;
   }
 
 

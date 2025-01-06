@@ -1,4 +1,8 @@
-<mat-expansion-panel [(expanded)]="panelOpenState" class="{{ borderClass }}">
+<mat-expansion-panel 
+  [(expanded)]="panelOpenState" 
+  (opened)="onPanelStateChange(true)" 
+  (closed)="onPanelStateChange(false)"
+  class="{{ borderClass }}">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{ day.title }}
