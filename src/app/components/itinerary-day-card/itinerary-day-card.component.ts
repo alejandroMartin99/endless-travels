@@ -62,7 +62,7 @@ export class ItineraryDayCardComponent implements AfterViewInit, OnDestroy {
     if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
       return;
     }
-
+    
     const firstActivity = this.day.activities[0];
     if (!firstActivity) {
       console.error('No hay actividades para inicializar el mapa.');

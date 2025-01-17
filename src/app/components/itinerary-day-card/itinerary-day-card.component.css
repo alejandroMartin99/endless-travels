@@ -20,7 +20,7 @@ mat-expansion-panel {
 .activity-container {
   display: flex;
   justify-content: space-between;
-  height: 100%; /* Ensure the container takes full height */
+  height: 550px; /* Altura para pantallas grandes */
   padding: 1px;
   box-sizing: border-box;
   gap: 10px;
@@ -31,7 +31,7 @@ mat-expansion-panel {
   flex-basis: 33%;
   padding: 5px;
   box-sizing: border-box;
-  max-height: 500px;
+  max-height: 550px;
   overflow-y: auto;
 }
 
@@ -40,7 +40,6 @@ mat-expansion-panel {
   flex-basis: 33%;
   padding: 5px;
   box-sizing: border-box;
-  max-height: 500px;
 }
 
 .activity-image img {
@@ -52,24 +51,20 @@ mat-expansion-panel {
 
 /* Mapa */
 .activity-map {
-  flex: 1;
-  height: 100%;
-  min-height: 500px;
-  max-height: 500px;
-  position: relative;
+  flex-basis: 40%;
+  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
+  min-height: 300px; /* Establece un mínimo razonable */
+  max-height: 550px; /* Asegura un máximo en pantallas grandes */
+  box-sizing: border-box;
   overflow: hidden;
-  width: 100%; /* Asegurarse de que tiene un ancho definido */
 }
 
 .activity-map iframe {
-
-  height: 100%; /* Ocupa todo el alto del contenedor */
-  min-height: 500px;
+  width: 100%;
+  height: 100%;
   border: none;
   border-radius: 8px;
-  display: block;
 }
-
 
 /* Indicadores de navegación */
 .activity-navigation {
@@ -127,19 +122,30 @@ mat-expansion-panel {
 /* Ajustes responsivos */
 @media (max-width: 800px) {
   .activity-container {
-    flex-direction: column; /* Cambia el diseño a columna */
-    height: auto; /* Ajusta automáticamente la altura */
-    gap: 20px; /* Espaciado entre secciones */
+    display: flex;
+    flex-direction: column; /* Estructura en columna */
+    height: 90vh; /* Ocupa el 90% de la pantalla */
+    max-height: 90vh;
+    overflow: hidden; /* Evita el desbordamiento */
   }
 
-  .activity-description,
-  .activity-image,
-  .activity-map,
+  .activity-description{
+    flex: 0 0 20%;
+    padding: 0;
+  }
 
+  .activity-image {
+    flex: 0 0 30%; /* Ocupa el 30% del espacio vertical */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+  .activity-map,
+  .image-controls,
   .activity-image img {
-    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
-    height: auto; /* Ajusta la altura proporcionalmente */
-    object-fit: cover; /* Evita recortes */
+    object-fit: cover; /* Ajusta la imagen sin distorsión */
+    border-radius: 4px;
   }
 
   .activity-map {
@@ -150,7 +156,59 @@ mat-expansion-panel {
 
   .activity-map iframe {
     width: 100%; /* Asegura que la imagen ocupe el ancho completo */
-    height: auto; /* Ajusta la altura proporcionalmente */
-    object-fit: cover; /* Asegura que el iframe ocupe todo el contenedor */
+    height: auto; /* Ajusta la altura proporcionalmente */ /* Asegura que el iframe ocupe todo el contenedor */
+  }
+
+  /* Controles de navegación para imágenes */
+  .gallery-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+
+
+  }
+  
+  .btn {
+    background: rgba(26, 2, 2, 0.8);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .btn:hover {
+    background: rgb(46, 3, 3);
+    transform: scale(1.1);
+  }
+  
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+  }
+
+  /* Indicadores de las imágenes (bullets) */
+  .activity-navigation {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .activity-indicator {
+    width: 15px;
+    height: 15px;
+    margin: 0 10px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+  }
+
+  .activity-indicator.active {
+    background-color: #3f51b5;
   }
 }
