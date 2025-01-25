@@ -196,7 +196,6 @@ th {
   transition: all 0.3s ease;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -214,8 +213,10 @@ th {
 .kyoto-metro-image-container {
   flex: 0 0 40%;
   display: flex;
-  align-items: flex-end;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
 }
+
 
 .kyoto-metro-item strong {
   font-size: 1.1rem;
@@ -228,9 +229,9 @@ th {
 }
 
 .kyoto-metro-image {
-  max-width: 100%;
-  height: auto;
-  
+  max-width: 100%; /* Ajustar el ancho máximo de la imagen */
+  height: auto; /* Mantener la proporción */
+  border-radius: 8px; /* Bordes redondeados (opcional) */
 }
 
 
