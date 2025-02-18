@@ -211,4 +211,19 @@ mat-expansion-panel {
   .activity-indicator.active {
     background-color: #3f51b5;
   }
+
+  /* Estilo específico para el header de expansión en móviles */
+  mat-expansion-panel-header {
+    display: flex;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste */
+    width: 100%;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  }
+
+  mat-expansion-panel-header mat-panel-title {
+    flex: 1;
+    padding: 0; /* Quita el padding del título */
+    word-wrap: break-word; /* Asegura que el texto se ajuste a la línea */
+    text-align: left;
+  }
 }
