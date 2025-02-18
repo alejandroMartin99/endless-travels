@@ -117,7 +117,7 @@ export class ItineraryDayCardComponent implements AfterViewInit, OnDestroy {
       this.map.flyTo({
         center: [activity.longitude, activity.latitude],
         essential: true,
-        zoom: 15
+        zoom: 13
       });
       this.addMarkers();
     }
