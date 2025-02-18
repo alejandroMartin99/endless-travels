@@ -234,6 +234,21 @@ th {
   border-radius: 8px; /* Bordes redondeados (opcional) */
 }
 
+@media (max-width: 768px) {
+  .kyoto-metro-item {
+    display: block; /* Cambia el display a block para apilar los elementos */
+  }
+
+  .kyoto-metro-content {
+    margin-right: 0; /* Elimina el margen a la derecha */
+  }
+
+  .kyoto-metro-image-container {
+    margin-top: 1rem; /* Añade espacio entre el contenido y la imagen */
+    flex: none; /* Asegura que la imagen ocupe el espacio completo en dispositivos pequeños */
+  }
+}
+
 
 
 
