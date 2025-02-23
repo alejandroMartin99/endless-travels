@@ -1,14 +1,30 @@
 /* Landing Page Styles */
 .landing-container {
-  padding: 40px 20px;
+  padding: 0px 0px 10px 0px;
   background: linear-gradient(to bottom, white, #f0f0f0);
-  min-height: 90vh;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #e3e3e3);
 }
+
+
+.welcome-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('/assets/landing/landing_main.webp') no-repeat center center/cover;
+  color: white;
+  padding: 0px;
+  animation: fadeIn 1.5s ease;
+}
+
 
 /* Bienvenida */
 .welcome-section {
   text-align: center;
-  margin-bottom: 50px;
+
 }
 
 .welcome-section h1 {
@@ -16,14 +32,79 @@
   color: #3f51b5;
 }
 
-.welcome-section p {
-  font-size: 1.2em;
-  color: #666;
+
+
+
+.destinations-marquee {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
+
+.destinations-marquee::before,
+.destinations-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  z-index: 2;
+}
+
+.destinations-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.destinations-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 4rem;
+  padding: 0 2rem;
+}
+
+.marquee-content span {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.marquee-content span:hover {
+  color: #1976d2;
+  transform: scale(1.1);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 /* Sección de destinos */
 .destinations-section {
   text-align: center;
+  padding: 10px;
 }
 
 .destinations-section h2 {
@@ -112,5 +193,17 @@
 
   .destination-info p {
     font-size: 1em; /* Reduce el tamaño del texto en la tarjeta */
+  }
+
+  .marquee-content span {
+    font-size: 1.8rem;
+  }
+  
+  .destinations-marquee {
+    padding: 1.5rem 0;
+  }
+  
+  .marquee-content {
+    gap: 2rem;
   }
 }

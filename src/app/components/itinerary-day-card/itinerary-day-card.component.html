@@ -19,7 +19,7 @@
       </div>
       <div class="activity-image">
         <img [src]="day.activities[currentActivityIndex].images[currentImageIndex]" 
-             [alt]="day.activities[currentActivityIndex].name">
+              [alt]="day.activities[currentActivityIndex].name">
         <!-- Controles de imagen -->
         <div class="gallery-controls" *ngIf="day.activities[currentActivityIndex].images.length > 1">
           <button mat-icon-button (click)="changeImage(-1)" [disabled]="currentImageIndex === 0" class="btn">

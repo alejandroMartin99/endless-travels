@@ -59,6 +59,7 @@
   justify-content: center; /* Centra las pestañas en pantallas pequeñas */
 }
 
+
 /* Agrupación de estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
   .content-container {
