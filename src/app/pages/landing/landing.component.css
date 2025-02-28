@@ -22,7 +22,7 @@
 
 .hero-content {
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -30,13 +30,13 @@
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .hero-subtitle {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
@@ -93,7 +93,7 @@
 /* Marquee de destinos - bajado significativamente */
 .destinations-marquee {
   background: rgba(0, 0, 0, 0.5);
-  padding: 2rem 0;
+  padding: 1rem 1;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -175,7 +175,7 @@
   margin-bottom: 30px;
 }
 .destinations-section p {
-  font-size: 2em;
+  font-size: 1.8em;
   margin-left: 30px;
 }
 
@@ -220,16 +220,18 @@
 }
 
 .destination-info p {
-  font-size: 1.1em;
+  font-size: 1.5em;
   color: #666;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
 
-  .hero-content {
-    top: 10%; /* Ajustado para móviles */
+  .hero-container {
+    color: #3f51b5;
+
   }
+  
 
   .hero-title {
     font-size: 2.2rem;
