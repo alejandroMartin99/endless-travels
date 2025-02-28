@@ -232,7 +232,6 @@
 
   }
   
-
   .hero-title {
     font-size: 2.2rem;
   }
@@ -252,7 +251,7 @@
   .destinations-section {
   
     padding: 0 25px;
-    scroll-margin-top: 80px;
+ 
   }
 
   .destinations-section h2 {
