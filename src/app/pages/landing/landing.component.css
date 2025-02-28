@@ -1,7 +1,7 @@
+
 /* Landing Page Styles */
 .landing-container {
   padding: 0px 0px 10px 0px;
-  background: linear-gradient(to bottom, white, #f0f0f0);
   font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom, #ffffff, #e3e3e3);
 }
@@ -14,33 +14,99 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('/assets/landing/landing_blue_minimal.jpg') no-repeat center center/cover;
+  background: url('/assets/landing/minimal_japan.jpg') no-repeat center center/cover;
   color: white;
   padding: 0px;
-  animation: fadeIn 1.5s ease;
+  position: relative;
 }
 
-
-/* Bienvenida */
-.welcome-section {
+.hero-content {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-
-}
-
-.welcome-section h1 {
-  font-size: 3em;
   color: #3f51b5;
 }
 
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  background: #3f51b5;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+  animation: pulse 1.5s infinite ease-in-out; /* Animación continua */
+  transition: all 0.3s ease;
+}
+
+.cta-button::after {
+
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Aumenta el tamaño del botón */
+  }
+  100% {
+    transform: scale(1); /* Vuelve al tamaño original */
+  }
+}
+
+.cta-button:hover {
+  background: #3f51b5; /* Color de fondo más claro al hacer hover */
+  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.5);
+}
+
+.cta-button:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+}
 
 
 
+
+/* Marquee de destinos - bajado significativamente */
 .destinations-marquee {
   background: rgba(0, 0, 0, 0.5);
   padding: 2rem 0;
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin-top: 500px; /* Ajuste significativo para bajar el wrapper más */
+}
+
+/* Wrapper del marquee - espacio adicional */
+.marquee-wrapper {
+  display: flex;
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+  margin-top: 20px; /* Espacio adicional en la parte superior */
+  margin-bottom: 20px; /* Espacio adicional en la parte inferior */
 }
 
 .destinations-marquee::before,
@@ -61,12 +127,6 @@
 .destinations-marquee::after {
   right: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
-}
-
-.marquee-wrapper {
-  display: flex;
-  width: fit-content;
-  animation: scroll 30s linear infinite;
 }
 
 .marquee-content {
@@ -101,10 +161,12 @@
 }
 
 
+
 /* Sección de destinos */
 .destinations-section {
   text-align: center;
   padding: 10px;
+  scroll-margin-top: 80px;
 }
 
 .destinations-section h2 {
@@ -161,38 +223,50 @@
 /* Responsividad */
 @media (max-width: 768px) {
   .landing-container {
-    padding: 20px 10px; /* Reduce el padding en pantallas más pequeñas */
+    padding: 20px 10px;
+  }
+
+  .hero-content {
+    top: 20%; /* Ajustado para móviles */
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
   }
 
   .welcome-section h1 {
-    font-size: 2.5em; /* Reduce el tamaño del título */
+    font-size: 2.5em;
   }
 
   .welcome-section p {
-    font-size: 1em; /* Ajusta el tamaño del texto de bienvenida */
+    font-size: 1em;
   }
 
   .destinations-section h2 {
-    font-size: 2em; /* Reduce el tamaño del título de destinos */
+    font-size: 2em;
   }
 
   .destination-cards {
-    flex-direction: column; /* Cambia el diseño a columna */
-    gap: 20px; /* Ajusta el espacio entre tarjetas */
-    align-items: center; /* Centra las tarjetas */
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
   }
 
   .destination-card {
-    width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
-    max-width: 350px; /* Tamaño máximo para evitar estiramientos excesivos */
+    width: 100%;
+    max-width: 350px;
   }
 
   .destination-info h3 {
-    font-size: 1.5em; /* Reduce el tamaño del título en la tarjeta */
+    font-size: 1.5em;
   }
 
   .destination-info p {
-    font-size: 1em; /* Reduce el tamaño del texto en la tarjeta */
+    font-size: 1em;
   }
 
   .marquee-content span {
@@ -201,9 +275,14 @@
   
   .destinations-marquee {
     padding: 1.5rem 0;
+    margin-top: 80px; /* Ajustado para móviles */
   }
   
   .marquee-content {
     gap: 2rem;
+  }
+
+  .scroll-indicator {
+    bottom: 40px;
   }
 }
