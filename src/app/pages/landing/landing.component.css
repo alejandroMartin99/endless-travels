@@ -1,48 +1,44 @@
 /* Landing Page Styles */
 .landing-container {
-  padding: 0px 0px 10px 0px;
+  padding: 0px 0px 0px 0px;
   background: linear-gradient(to bottom, white, #f0f0f0);
-  font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom, #ffffff, #e3e3e3);
 }
-
-
 .welcome-section {
   height: 100vh;
+  text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /* Esto hace que se ponga en filas */
   justify-content: center;
-  align-items: center;
-  text-align: center;
   background: url('/assets/landing/minimal_japan.jpg') no-repeat center center/cover;
-  color: white;
-  padding: 0px;
   animation: fadeIn 1.5s ease;
-}
-
-
-/* Bienvenida */
-.welcome-section {
-  text-align: center;
-
-}
-
-.welcome-section h1 {
-  font-size: 3em;
-  color: #3f51b5;
-}
-
-
-
-
-.destinations-marquee {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2rem 0;
-  width: 100%;
-  overflow: hidden;
   position: relative;
 }
-
+.welcome-section h1 {
+  font-size: 5em;
+  color: #3f51b5;
+  margin-bottom: 10px;
+}
+.welcome-section p {
+  font-size: 2em;
+  color: #3f51b5;
+  width: 70%;
+  margin: auto;
+}
+.hero-container {
+  margin-top: -500px;
+  gap: 0;
+}
+.destinations-marquee {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 0;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0; /* Lo coloca al final de la sección welcome */
+  left: 0;
+  transform: translateY(-100px); /* Lo mueve 100px hacia arriba */
+}
 .destinations-marquee::before,
 .destinations-marquee::after {
   content: "";
@@ -52,29 +48,24 @@
   height: 100%;
   z-index: 2;
 }
-
 .destinations-marquee::before {
   left: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
 }
-
 .destinations-marquee::after {
   right: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
 }
-
 .marquee-wrapper {
   display: flex;
   width: fit-content;
   animation: scroll 30s linear infinite;
 }
-
 .marquee-content {
   display: flex;
   gap: 4rem;
   padding: 0 2rem;
 }
-
 .marquee-content span {
   font-size: 2.5rem;
   font-weight: 700;
@@ -84,7 +75,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
-
 .marquee-content span:hover {
   color: #1976d2;
   transform: scale(1.1);
@@ -99,6 +89,24 @@
     transform: translateX(-50%);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Sección de destinos */
@@ -160,17 +168,18 @@
 
 /* Responsividad */
 @media (max-width: 768px) {
-  .landing-container {
-    padding: 20px 10px; /* Reduce el padding en pantallas más pequeñas */
-  }
+
 
   .welcome-section h1 {
-    font-size: 2.5em; /* Reduce el tamaño del título */
+    font-size: 2.8em; /* Reduce el tamaño del título */
   }
 
   .welcome-section p {
-    font-size: 1em; /* Ajusta el tamaño del texto de bienvenida */
+    font-size: 1.5em; /* Ajusta el tamaño del texto de bienvenida */
+    margin-bottom: 20px;
   }
+
+
 
   .destinations-section h2 {
     font-size: 2em; /* Reduce el tamaño del título de destinos */
@@ -184,7 +193,7 @@
 
   .destination-card {
     width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
-    max-width: 350px; /* Tamaño máximo para evitar estiramientos excesivos */
+/* Tamaño máximo para evitar estiramientos excesivos */
   }
 
   .destination-info h3 {
@@ -199,9 +208,8 @@
     font-size: 1.8rem;
   }
   
-  .destinations-marquee {
-    padding: 1.5rem 0;
-  }
+
+
   
   .marquee-content {
     gap: 2rem;

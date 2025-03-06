@@ -1,5 +1,5 @@
 <div class="content-container">
-    <mat-tab-group [selectedIndex]="0">
+    <mat-tab-group [selectedIndex]="2">
       <!-- Tab Inicio -->
       <mat-tab>
         <ng-template mat-tab-label class="custom-tab-label">
@@ -37,7 +37,34 @@
           <mat-icon class="custom-icon">route</mat-icon>
           <span class="custom-tab-text">Itinerario</span>
         </ng-template>
+        <mat-accordion>
         
+          <div class="zone-header">
+            <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
+            <h2 class="zone-title">Kyoto</h2>
+            
+            <div class="zone-info">
+              <div class="info-item">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Dias 1 - 8</span>
+              </div>
+              
+              <div class="info-item">
+                <i class="fa-solid fa-torii-gate"></i>
+                <span>Conecta con lo tradicional</span>
+              </div>
+              <div class="info-item">
+                <mat-icon class="custom-icon">temple_buddhist</mat-icon>
+                <span>Capital de los templos</span>
+              </div>
+              
+            </div>
+            <!-- <div class="progress-container">
+              <div class="progress-bar"></div>
+              <span>Dias 1 - 8</span>
+            </div> -->
+          </div>
+
         <app-itinerary-day-card 
         [borderClass]="'border-pink'"
         [day]="{
@@ -98,6 +125,12 @@
               }">
         </app-itinerary-day-card>
         
+        <div class="subzone-container">
+          <div class="subzone-content">
+            <h3>Descubre la Ciudad de Kyoto</h3>
+          </div>
+        </div>
+
         <app-itinerary-day-card 
         [borderClass]="'border-green'"
         [day]="{
@@ -122,8 +155,9 @@
           activities: [
           {
               name: 'Hotel -> Fushimi Inari',
-              description: 'Comenzamos la aventura por Japón. Este día es muy importante madrugar, mínimo 5am. Si se llega más tarde de las 8h lo encontraremos colapsado. No os preocupeis por el sol, en Japón suele amanecer bastante pronto por lo que ya habrá luz y no será de noche. ',
-              images: ['/assets/japan/shinjuku.webp'],
+              description: 'Comenzamos la aventura por Japón. Este día es muy importante madrugar, mínimo 5am. Si se llega más tarde de las 8h lo encontraremos colapsado. No os preocupeis por el sol, en Japón suele amanecer bastante pronto por lo que ya habrá luz y no será de noche. \n\n Será un día completísimo. Por la mañana iremos a Fushimi Inari, donde recorreremos todos lo toris en un recorrido de aprox 2h. Posteriormente subiremos dando un paseo jutno al río Kamo hasta el templo Sanjūsangen-dō. A continuación exploraremos el majestuoso Templo Kiyomizu-dera, comeremos en las calles cercanas a la cuesta Ninenzaka. Acabaremos el día visitando el Templo Chion-in, Santuario Yasaka y Cementerio Higashi Otani. Como podeis ver un día completito!!!',
+              images: [
+              '/assets/japan/Kyoto/Dia03/intro.webp'],
               longitude: 135.75896619907707,
               latitude: 35.01090902739731, 
               mapUrl: 'map-shinjuku'
@@ -143,7 +177,7 @@
             },
             {
               name: 'Templo Fushimi Inari',
-              description: 'Tras andar unos 40 minutos por las calles de Kyoto llegaremos al majestuoso Fushimi Inari, conocido como el Santuario de las Mil Puertas Torii y antes que nadie. \n\n Este templo es un camino místico de más de 4 kilómetros hasta la cima del monte repleto de toris naranjas. Cada una de estas puertas es una donación de empresas y particulares como ofrenda a Inari, el kami (deidad) del arroz y la prosperidad. El precio de donar un torii puede oscilar entre 2500-6000€.Lo más fascinante es que este santuario milenario, fundado en el año 711 esta abierto las 24 horas del día, aunque la experiencia más mágica es al amanecer (ya que esta vacío y es cuando los rayos del sol se filtran entre las puertas creando juegos de luz únicos).Los zorros (kitsune) que encontrarás por todo el recinto no son simple decoración, son considerados los mensajeros de Inari, y suelen representarse con una llave en su boca, simbolizando su papel como guardianes de los graneros de arroz.',
+              description: '<strong>Horario:</strong> Abierto las 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Tras andar unos 40 minutos por las calles de Kyoto llegaremos al majestuoso Fushimi Inari, conocido como el Santuario de las Mil Puertas Torii y antes que nadie. \n\n Este templo es un camino místico de más de 4 kilómetros hasta la cima del monte repleto de toris naranjas. Cada una de estas puertas es una donación de empresas y particulares como ofrenda a Inari, el kami (deidad) del arroz y la prosperidad. El precio de donar un torii puede oscilar entre 2500-6000€.Lo más fascinante es que este santuario milenario, fundado en el año 711 esta abierto las 24 horas del día, aunque la experiencia más mágica es al amanecer (ya que esta vacío y es cuando los rayos del sol se filtran entre las puertas creando juegos de luz únicos).Los zorros (kitsune) que encontrarás por todo el recinto no son simple decoración, son considerados los mensajeros de Inari, y suelen representarse con una llave en su boca, simbolizando su papel como guardianes de los graneros de arroz.',
 
               images: [
                 '/assets/japan/Kyoto/Dia03/FushimiInari_Entrada.webp',
@@ -159,7 +193,7 @@
             },
             {
               name: 'Río Kamo',
-              description: 'Tras dejar atrás el <strong>Templo Fushimi Inari</strong>, nos dirigimos hacia el centro de Kyoto, cruzando el icónico <strong>Río Kamo</strong>. Este río atraviesa barrios importantes como <strong>Gion</strong> y <strong>Shimogamo</strong>, y es el lugar perfecto para una breve pausa antes de llegar al <strong>Templo Sanjūsangen-dō</strong>. Pasear por sus márgenes permite disfrutar de las vistas urbanas y naturales de la ciudad. Sus puentes y orillas, siempre animados, reflejan el contraste entre la vida moderna y la tradición de Kyoto.',
+              description: '<strong>Horario:</strong> Abierto las 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Tras dejar atrás el <strong>Templo Fushimi Inari</strong>, nos dirigimos hacia el centro de Kyoto, cruzando el icónico <strong>Río Kamo</strong>. Este río atraviesa barrios importantes como <strong>Gion</strong> y <strong>Shimogamo</strong>, y es el lugar perfecto para una breve pausa antes de llegar al <strong>Templo Sanjūsangen-dō</strong>. Pasear por sus márgenes permite disfrutar de las vistas urbanas y naturales de la ciudad. Sus puentes y orillas, siempre animados, reflejan el contraste entre la vida moderna y la tradición de Kyoto.',
               images: [
                 '/assets/japan/Kyoto/Dia03/rioKamo_puente.webp',
                 '/assets/japan/Kyoto/Dia03/rioKamo_puenteAlex.webp'
@@ -173,7 +207,7 @@
 
             {
               name: 'Templo Budista Sanjūsangen-dō',
-              description: 'El Templo Sanjūsangen-dō, fundado en 1164 y reconstruido en 1266 tras un incendio, es famoso por albergar 1,001 estatuas de Kannon, la diosa de la misericordia, cada una de las cuales representa los múltiples aspectos de la compasión. Las estatuas, talladas en madera de ciprés japonés, han sido cuidadosamente preservadas y distribuidas en filas a lo largo del pasillo de 120 metros, considerado uno de los más largos de la arquitectura japonesa de templos. Además de su valor artístico, el templo utiliza clavos de ruiseñor en su suelo, una técnica arquitectónica única en la que los clavos emiten un sonido similar al canto de los pájaros cuando se pisa sobre ellos. Este sistema servía como una alarma para proteger el templo, alertando a los monjes de cualquier intruso mientras añade un sonido envolvente y místico al recorrido.',
+              description: '<strong>Horario:</strong> 8:00 a 17:00<br><strong>Precio:</strong> 600 yenes (aprox. 4.50 €).<br><br>El Templo Sanjūsangen-dō, fundado en 1164 y reconstruido en 1266 tras un incendio, es famoso por albergar 1,001 estatuas de Kannon, la diosa de la misericordia, cada una de las cuales representa los múltiples aspectos de la compasión. Las estatuas, talladas en madera de ciprés japonés, han sido cuidadosamente preservadas y distribuidas en filas a lo largo del pasillo de 120 metros, considerado uno de los más largos de la arquitectura japonesa de templos. Además de su valor artístico, el templo utiliza clavos de ruiseñor en su suelo, una técnica arquitectónica única en la que los clavos emiten un sonido similar al canto de los pájaros cuando se pisa sobre ellos. Este sistema servía como una alarma para proteger el templo, alertando a los monjes de cualquier intruso mientras añade un sonido envolvente y místico al recorrido.',
               images: [ 
                 '/assets/japan/Kyoto/Dia03/TemploSanjusangen_estatuas.webp',
                 '/assets/japan/Kyoto/Dia03/TemploSanjusangen_entrada.webp',
@@ -186,7 +220,7 @@
 
             {
               name: 'Templo Kiyomizu-dera',
-              description: 'Fundado en <strong>778</strong> y reconstruido en <strong>1633</strong>, el Templo Kiyomizu-dera es uno de los templos más antiguos y representativos de Japón. Reconocido como Patrimonio de la Humanidad, destaca por su arquitectura única y sus impresionantes vistas panorámicas de Kioto. En el se encuentran:\n\nUna plataforma de madera denominada <strong>Butai</strong>  elevada a <strong>13 metros</strong> sobre el suelo, está construida sin un solo clavo, lo que es un testimonio de la maestría en la carpintería tradicional japonesa. Desde aquí, los visitantes pueden disfrutar de vistas espectaculares de Kioto y sus alrededores. A su vez para acceder al reciento se encuentra la <strong>Puerta Nio-mon</strong> es la entrada principal del templo y está protegida por imponentes figuras de las deidades Nio, guardianes que simbolizan la protección y fuerza espiritual.\n\n Y por último destacaremos su <strong>Pagoda de Tres Pisos</strong>. Una de las estructuras más emblemáticas de Kiyomizu-dera, que destaca por su arquitectura armoniosa y su color rojo bermellón. Representa la conexión entre lo terrenal y lo espiritual.\n\n Otras curiosidades no tan turístcias que podemos ver es la <strong>Cascada Otowa</strong> conocida por sus tres flujos de agua que simbolizan salud, longevidad y éxito académico.
+              description: '<strong>Horario:</strong> 6:00 - 18:00<br><strong>Precio:</strong> 400 yenes (aprox. 3 €).<br><br>Fundado en <strong>778</strong> y reconstruido en <strong>1633</strong>, el Templo Kiyomizu-dera es uno de los templos más antiguos y representativos de Japón. Reconocido como Patrimonio de la Humanidad, destaca por su arquitectura única y sus impresionantes vistas panorámicas de Kioto. En el se encuentran:\n\nUna plataforma de madera denominada <strong>Butai</strong>  elevada a <strong>13 metros</strong> sobre el suelo, está construida sin un solo clavo, lo que es un testimonio de la maestría en la carpintería tradicional japonesa. Desde aquí, los visitantes pueden disfrutar de vistas espectaculares de Kioto y sus alrededores. A su vez para acceder al reciento se encuentra la <strong>Puerta Nio-mon</strong> es la entrada principal del templo y está protegida por imponentes figuras de las deidades Nio, guardianes que simbolizan la protección y fuerza espiritual.\n\n Y por último destacaremos su <strong>Pagoda de Tres Pisos</strong>. Una de las estructuras más emblemáticas de Kiyomizu-dera, que destaca por su arquitectura armoniosa y su color rojo bermellón. Representa la conexión entre lo terrenal y lo espiritual.\n\n Otras curiosidades no tan turístcias que podemos ver es la <strong>Cascada Otowa</strong> conocida por sus tres flujos de agua que simbolizan salud, longevidad y éxito académico.
 
               ',
               images: [
@@ -204,7 +238,7 @@
 
             {
             name: 'Famosa cuesta Ninenzaka',
-            description: 'La <strong>Famosa cuesta Ninenzaka</strong> es uno de los lugares más emblemáticosde Kioto. Tras disfrutar de todo el complejo en el templo de Kiyomizu-dera bajaremos por ella.\n\n Construida en el siglo XVII, es una cuesta empinada y sinuosa que desciende suavemente entre <strong>edificios de madera</strong> y <strong>tiendas tradicionales</strong>. El suelo de adoquines  y los <strong>faroles antiguos</strong> crean una atmósfera única que te transporta a la Kioto del pasado. Mientras recorres la Ninenzaka, podrás admirar los hermosos detalles arquitectónicos de las casas y los negocios, <strong>muchos de ellos con más de 100 años de antigüedad</strong>. Aquí se concentra una gran variedad de <strong>tiendas tradicionales</strong> donde podrás encontrar <strong>objetos, artesanía y dulces típicos</strong> de la región.',
+            description: '<strong>Horario:</strong> Abierto las 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>La <strong>Famosa cuesta Ninenzaka</strong> es uno de los lugares más emblemáticosde Kioto. Tras disfrutar de todo el complejo en el templo de Kiyomizu-dera bajaremos por ella.\n\n Construida en el siglo XVII, es una cuesta empinada y sinuosa que desciende suavemente entre <strong>edificios de madera</strong> y <strong>tiendas tradicionales</strong>. El suelo de adoquines  y los <strong>faroles antiguos</strong> crean una atmósfera única que te transporta a la Kioto del pasado. Mientras recorres la Ninenzaka, podrás admirar los hermosos detalles arquitectónicos de las casas y los negocios, <strong>muchos de ellos con más de 100 años de antigüedad</strong>. Aquí se concentra una gran variedad de <strong>tiendas tradicionales</strong> donde podrás encontrar <strong>objetos, artesanía y dulces típicos</strong> de la región.',
             images: [
               '/assets/japan/Kyoto/Dia03/Ninenzaka_cuesta.webp',
               '/assets/japan/Kyoto/Dia03/Ninenzaka_alex.webp',
@@ -217,7 +251,7 @@
 
             {
                 name: 'Templo Chion-in',
-                description: 'El <strong>Templo Chion-in</strong>, uno de los templos más grandes de Kyoto, es famoso por su <strong>puerta Sanmon</strong>, la más grande de Japón, y su <strong>campana gigante</strong> que suena profundamente para marcar el paso del tiempo. Fundado en el siglo XIII, es el centro principal de la escuela Jodo del budismo japonés. Las <strong>escaleras</strong> hacia el templo ofrecen una experiencia única, ¡y las vistas desde allí son impresionantes! No dejes de explorar sus tranquilos jardines y sentir la espiritualidad de este lugar lleno de historia y serenidad.',
+                description: '<strong>Horario:</strong> 9:00-16:30<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Templo Chion-in</strong>, uno de los templos más grandes de Kyoto, es famoso por su <strong>puerta Sanmon</strong>, la más grande de Japón, y su <strong>campana gigante</strong> que suena profundamente para marcar el paso del tiempo. Fundado en el siglo XIII, es el centro principal de la escuela Jodo del budismo japonés. Las <strong>escaleras</strong> hacia el templo ofrecen una experiencia única, ¡y las vistas desde allí son impresionantes! No dejes de explorar sus tranquilos jardines y sentir la espiritualidad de este lugar lleno de historia y serenidad.',
                 images: [
                   '/assets/japan/Kyoto/Dia03/ChionIn_entrada.webp',
                   '/assets/japan/Kyoto/Dia03/ChionIn_juntos.webp',
@@ -232,7 +266,7 @@
 
               {
                   name: 'Santuario Yasaka',
-                  description: 'El <strong>Santuario Yasaka</strong>, también conocido como <strong>Gion Shrine</strong>, es un santuario sintoísta destacado en Kyoto. Famoso por su <strong>puerta torii roja</strong>, está ubicado en el histórico barrio de <strong>Gion</strong>. Durante tu visita, es común ver <strong>linternas de papel</strong> colgadas por todo el santuario, especialmente durante el <strong>Gion Matsuri</strong>, iluminando el lugar con una atmósfera única. Este santuario es un lugar clave para experimentar la cultura y tradición japonesa, y una parada obligada para los viajeros interesados en la historia espiritual de Kyoto.',
+                  description: '<strong>Horario:</strong> Abierto las 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Santuario Yasaka</strong>, también conocido como <strong>Gion Shrine</strong>, es un santuario sintoísta destacado en Kyoto. Famoso por su <strong>puerta torii roja</strong>, está ubicado en el histórico barrio de <strong>Gion</strong>. Durante tu visita, es común ver <strong>linternas de papel</strong> colgadas por todo el santuario, especialmente durante el <strong>Gion Matsuri</strong>, iluminando el lugar con una atmósfera única. Este santuario es un lugar clave para experimentar la cultura y tradición japonesa, y una parada obligada para los viajeros interesados en la historia espiritual de Kyoto.',
                   images: [
                   '/assets/japan/Kyoto/Dia03/yasaka_lu.webp'
                   ],
@@ -244,7 +278,7 @@
 
             {
               name: 'Cementerio Higashi Otani',
-              description: 'El <strong>Cementerio Higashi Otani</strong> es un lugar de descanso y reflexión en Kyoto, conocido por su atmósfera serena y sus tumbas de formas únicas. A diferencia de los cementerios occidentales, las tumbas en Japón tienen un diseño particular: suelen ser <strong>columnas de piedra verticales</strong>, que simbolizan la conexión entre el cielo y la tierra, y muchas están adornadas con inscripciones cuidadosas. Es común ver ofrendas de <strong>incienso y flores</strong>, que representan respeto hacia los antepasados. Este cementerio no solo es un lugar de descanso, sino también una oportunidad para conocer una parte importante de la <strong>cultura japonesa</strong>, donde la espiritualidad y el respeto por la memoria son elementos centrales.',
+              description: '<strong>Horario:</strong> Abierto las 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Cementerio Higashi Otani</strong> es un lugar de descanso y reflexión en Kyoto, conocido por su atmósfera serena y sus tumbas de formas únicas. A diferencia de los cementerios occidentales, las tumbas en Japón tienen un diseño particular: suelen ser <strong>columnas de piedra verticales</strong>, que simbolizan la conexión entre el cielo y la tierra, y muchas están adornadas con inscripciones cuidadosas. Es común ver ofrendas de <strong>incienso y flores</strong>, que representan respeto hacia los antepasados. Este cementerio no solo es un lugar de descanso, sino también una oportunidad para conocer una parte importante de la <strong>cultura japonesa</strong>, donde la espiritualidad y el respeto por la memoria son elementos centrales.',
               images: [
                 '/assets/japan/Kyoto/Dia03/cementerio.webp'
               ],
@@ -265,7 +299,7 @@
             {
               name: 'Hotel -> Ginkaku-ji',
               description: 'Bueeenoos días !!! Tras los casi 30 km de ayer, hoy de nuevo caminaremos y madrugaremos otro montón.\n\n Nos tendremos que levantar a las 7h para salir del hotel sobre las 08:00h y tomar un bus hacia nuestra primera parada Ginkaku-ji. El bus es el 32 desde la parada de Shijo Karasuma (muy cerquita del hotel) en un trayecto de 40 minutos. \n\nEn el día de hoy nos centraremos en la zona Este de Kyoto. Vamos a visitar templos emblemáticos como el Ginkaku-ji, descenderemos por el paseo del filósofo descubriendo una gran cantidad de templos como el Honen-in, Kounji, Santuario Kumano Nyakuoki... hasta el Nanzen-ji. Continuaremos con el Santuario Heian y finalizaremos el día cenando en la zona de Kawaramachi, vamos un día muy completo !!!',
-              images: ['/assets/japan/shinjuku.webp'],
+              images: ['/assets/japan/Kyoto/Dia04/intro.png'],
               longitude: 135.75896619907707,
               latitude: 35.01090902739731,
               mapUrl: 'map-shinjuku'
@@ -273,7 +307,7 @@
 
             {
               name: 'Templo Ginkaku-ji',
-              description: 'El <strong>Templo Ginkaku-ji</strong>, conocido también como el <strong>Pabellón de Plata</strong>, es uno de los templos más emblemáticos de Kyoto, construido en 1482 por el shogun Ashikaga Yoshimasa como lugar de retiro. Aunque el pabellón nunca fue cubierto de plata como se planeó, su belleza se encuentra en la simplicidad de su diseño y su armonía con los jardines que lo rodean.\n\nEs famoso por sus jardines Zen, especialmente el jardín de arena llamado <strong>Ginshadan</strong>, una representación de olas de arena plateada, y el <strong>Kogetsudai</strong>, un cono de arena blanca que simboliza el Monte Fuji. \n\n<strong>Horarios:</strong> 8:30 - 17:00 (de marzo a noviembre) y de 9:00 - 16:30 (de diciembre a febrero).\n\n<strong>Precio:</strong> 500 yenes (3€) para adultos y 300 yenes (2€) para estudiantes.',
+              description: '<strong>Horario:</strong> 8:30 -17:00<br><strong>Precio:</strong> 500 yenes (~3.5€).<br><br>El <strong>Templo Ginkaku-ji</strong>, conocido también como el <strong>Pabellón de Plata</strong>, es uno de los templos más emblemáticos de Kyoto, construido en 1482 por el shogun Ashikaga Yoshimasa como lugar de retiro. Aunque el pabellón nunca fue cubierto de plata como se planeó, su belleza se encuentra en la simplicidad de su diseño y su armonía con los jardines que lo rodean.\n\nEs famoso por sus jardines Zen, especialmente el jardín de arena llamado <strong>Ginshadan</strong>, una representación de olas de arena plateada, y el <strong>Kogetsudai</strong>, un cono de arena blanca que simboliza el Monte Fuji. \n\n<strong>Horarios:</strong> 8:30 - 17:00 (de marzo a noviembre) y de 9:00 - 16:30 (de diciembre a febrero).\n\n<strong>Precio:</strong> 500 yenes (3€) para adultos y 300 yenes (2€) para estudiantes.',
               images: [
               '/assets/japan/Kyoto/Dia04/Ginkakuji_templo.webp',
               '/assets/japan/Kyoto/Dia04/Ginkakuji_olas2.webp',
@@ -291,7 +325,7 @@
             },
             {
               name: 'Templo Honen-in',
-              description: 'El <strong>Templo Honen-in</strong> es un lugar de paz y serenidad escondido en las colinas del este de Kyoto. Este templo fue fundado en honor a <strong>Honen</strong>, el fundador de la secta budista Jodo-shu, en el siglo XVII. Es conocido por su entrada única y jardines de musgo que cambian de color con las estaciones, ofreciendo un entorno perfecto para la reflexión.\n\n  La entrada al templo cuenta con dos montículos de arena blanca llamados <strong>Byakusadan</strong>, que simbolizan la purificación y la bienvenida a los visitantes. En su interior, el ambiente es tranquilo y espiritual, alejado de la multitud de turistas. Honen-in es un lugar ideal para quienes buscan un templo menos conocido y muy valorado entre los habitantes locales por su belleza natural y el cambio estacional de sus jardines. En primavera, el musgo y los cerezos en flor crean una atmósfera mística que transforma la visita en una experiencia única.\n\n<strong>Horarios:</strong> de 6:00 a 16:00.\n\n<strong>Precio:</strong> gratis.',
+              description: '<strong>Horario:</strong> 6:00 - 16:00<br><strong>Precio:</strong> Gratuito<br><br>El <strong>Templo Honen-in</strong> es un lugar de paz y serenidad escondido en las colinas del este de Kyoto. Este templo fue fundado en honor a <strong>Honen</strong>, el fundador de la secta budista Jodo-shu, en el siglo XVII. Es conocido por su entrada única y jardines de musgo que cambian de color con las estaciones, ofreciendo un entorno perfecto para la reflexión.\n\n  La entrada al templo cuenta con dos montículos de arena blanca llamados <strong>Byakusadan</strong>, que simbolizan la purificación y la bienvenida a los visitantes. En su interior, el ambiente es tranquilo y espiritual, alejado de la multitud de turistas. Honen-in es un lugar ideal para quienes buscan un templo menos conocido y muy valorado entre los habitantes locales por su belleza natural y el cambio estacional de sus jardines. En primavera, el musgo y los cerezos en flor crean una atmósfera mística que transforma la visita en una experiencia única.\n\n<strong>Horarios:</strong> de 6:00 a 16:00.\n\n<strong>Precio:</strong> gratis.',
               images: [
               '/assets/japan/Kyoto/Dia04/Honen_entrada.webp',
               '/assets/japan/Kyoto/Dia04/Honen_torre.webp',
@@ -304,7 +338,7 @@
             },
             {
               name: 'Paseo del Filósofo',
-              description: 'Después de explorar el <strong>Templo Ginkaku-ji</strong> y el sereno <strong>Templo Honen-in</strong>, iniciamos el <strong>Paseo del Filósofo</strong>, un recorrido icónico que nos guiará hacia otros templos emblemáticos de Kyoto. Este sendero, de unos 2 kilómetros, serpentea junto a un canal bordeado de cerezos, cuyo esplendor es particularmente notable en primavera.\n\nA lo largo del Paseo, encontrarás pequeñas cafeterías, tiendas de té y galerías que invitan a detenerse y disfrutar del entorno. Este trayecto filosófico conecta con varios templos y santuarios, como el famoso <strong>Templo Eikan-dō</strong>, conocido por sus espléndidos colores otoñales; el pintoresco <strong>Templo Nanzen-ji</strong>, con su acueducto único; y el <strong>Santuario Heian</strong>, famoso por sus jardines expansivos. El paseo también nos llevará cerca del <strong>Santuario Kumano</strong> y el <strong>Templo Konkai Kōmyō-ji</strong>.\n\nCada parada a lo largo del Paseo del Filósofo permite experimentar la calma y la espiritualidad de Kyoto, brindando un momento para reflexionar y absorber la belleza de cada estación.',
+              description: '<strong>Horario:</strong> Abierto 24h<br><strong>Precio:</strong> Gratis (espacio al aire libre).<br><br>Después de explorar el <strong>Templo Ginkaku-ji</strong> y el sereno <strong>Templo Honen-in</strong>, iniciamos el <strong>Paseo del Filósofo</strong>, un recorrido icónico que nos guiará hacia otros templos emblemáticos de Kyoto. Este sendero, de unos 2 kilómetros, serpentea junto a un canal bordeado de cerezos, cuyo esplendor es particularmente notable en primavera.\n\nA lo largo del Paseo, encontrarás pequeñas cafeterías, tiendas de té y galerías que invitan a detenerse y disfrutar del entorno. Este trayecto filosófico conecta con varios templos y santuarios, como el famoso <strong>Templo Eikan-dō</strong>, conocido por sus espléndidos colores otoñales; el pintoresco <strong>Templo Nanzen-ji</strong>, con su acueducto único; y el <strong>Santuario Heian</strong>, famoso por sus jardines expansivos. El paseo también nos llevará cerca del <strong>Santuario Kumano</strong> y el <strong>Templo Konkai Kōmyō-ji</strong>.\n\nCada parada a lo largo del Paseo del Filósofo permite experimentar la calma y la espiritualidad de Kyoto, brindando un momento para reflexionar y absorber la belleza de cada estación.',
               images: [
                 '/assets/japan/Kyoto/Dia04/paseoFilosofo_natura.webp',
                 '/assets/japan/Kyoto/Dia04/paseoFilosofo_lu.webp',
@@ -317,7 +351,7 @@
             },
             {
               name: 'Templo Eikando',
-              description: 'Continuamos nuestro recorrido en el <strong>Templo Eikando</strong>, una joya de Kyoto situada a lo largo del <strong>Paseo del Filósofo</strong>. Este complejo templario, conocido formalmente como <strong>Eikando Zenrin-ji</strong>, data del siglo IX y destaca por sus impresionantes jardines y estructuras históricas. Eikando es famoso por sus espectaculares vistas otoñales, cuando sus arces se visten de rojo intenso y crean una atmósfera mágica y envolvente.\n\nAl explorar el complejo, encontraremos la icónica estatua de <strong>Amitabha</strong>, conocida como el <em>Buda Mirando Hacia Atrás</em>, que representa una figura de Buda única que mira por encima del hombro, un detalle raro en la iconografía budista. A lo largo del recorrido, también se puede disfrutar de un pintoresco puente, estanques llenos de carpas koi y un mirador que permite vistas panorámicas de Kyoto.\n\n<strong>Horario:</strong> Abierto de 9:00 a 17:00. <strong>Entrada:</strong> 600 yenes.\n\nEste templo es una parada obligatoria para quienes buscan la belleza serena de Kyoto en su máxima expresión. A cada paso, Eikando ofrece rincones ocultos y paisajes que capturan la esencia de la espiritualidad y naturaleza japonesa.',
+              description: '<strong>Horario:</strong> 9:00 -17:00<br><strong>Precio:</strong> 600 yenes (~4€).<br><br>Continuamos nuestro recorrido en el <strong>Templo Eikando</strong>, una joya de Kyoto situada a lo largo del <strong>Paseo del Filósofo</strong>. Este complejo templario, conocido formalmente como <strong>Eikando Zenrin-ji</strong>, data del siglo IX y destaca por sus impresionantes jardines y estructuras históricas. Eikando es famoso por sus espectaculares vistas otoñales, cuando sus arces se visten de rojo intenso y crean una atmósfera mágica y envolvente.\n\nAl explorar el complejo, encontraremos la icónica estatua de <strong>Amitabha</strong>, conocida como el <em>Buda Mirando Hacia Atrás</em>, que representa una figura de Buda única que mira por encima del hombro, un detalle raro en la iconografía budista. A lo largo del recorrido, también se puede disfrutar de un pintoresco puente, estanques llenos de carpas koi y un mirador que permite vistas panorámicas de Kyoto.\n\n<strong>Horario:</strong> Abierto de 9:00 a 17:00. <strong>Entrada:</strong> 600 yenes.\n\nEste templo es una parada obligatoria para quienes buscan la belleza serena de Kyoto en su máxima expresión. A cada paso, Eikando ofrece rincones ocultos y paisajes que capturan la esencia de la espiritualidad y naturaleza japonesa.',
               images: [
                 '/assets/japan/Kyoto/Dia04/Eikando_subida.webp',
                 '/assets/japan/Kyoto/Dia04/Eikando_lu.webp',
@@ -333,7 +367,7 @@
 
             {
               name: 'Templo Nanzen-ji',
-              description: 'El <strong>Templo Nanzen-ji</strong>, uno de los templos zen más importantes de Japón, data del siglo XIII y está situado a los pies de las montañas Higashiyama en Kyoto. Este complejo incluye la icónica puerta Sanmon, que ofrece vistas espectaculares de la ciudad a aquellos que suben sus escaleras de madera, y el Acueducto de Suirokaku, un elegante arco de ladrillo rojo construido durante la era Meiji, que continúa transportando agua a los jardines de Nanzen-ji.\n\nEl templo alberga varios subtemplos, cada uno con jardines tradicionales japoneses de estilo seco, o <em>karesansui</em>, que presentan cuidadas composiciones de rocas y arena. Entre ellos, destaca el jardín Hojo, ideal para la meditación, con una extensión minimalista y rodeado de naturaleza.\n\n<strong>Horario:</strong> Abierto todos los días de 8:40 a 17:00. <strong>Entrada:</strong> Gratuita para los terrenos principales; algunas áreas requieren una tarifa entre 300 y 500 yenes.',
+              description: '<strong>Horario:</strong> 8:30 -17:00<br><strong>Precio:</strong> 500 yenes (~3.5€).<br><br>El <strong>Templo Nanzen-ji</strong>, uno de los templos zen más importantes de Japón, data del siglo XIII y está situado a los pies de las montañas Higashiyama en Kyoto. Este complejo incluye la icónica puerta Sanmon, que ofrece vistas espectaculares de la ciudad a aquellos que suben sus escaleras de madera, y el Acueducto de Suirokaku, un elegante arco de ladrillo rojo construido durante la era Meiji, que continúa transportando agua a los jardines de Nanzen-ji.\n\nEl templo alberga varios subtemplos, cada uno con jardines tradicionales japoneses de estilo seco, o <em>karesansui</em>, que presentan cuidadas composiciones de rocas y arena. Entre ellos, destaca el jardín Hojo, ideal para la meditación, con una extensión minimalista y rodeado de naturaleza.\n\n<strong>Horario:</strong> Abierto todos los días de 8:40 a 17:00. <strong>Entrada:</strong> Gratuita para los terrenos principales; algunas áreas requieren una tarifa entre 300 y 500 yenes.',
               images: [
                 '/assets/japan/Kyoto/Dia04/Nanzen_exterior.webp',
                 '/assets/japan/Kyoto/Dia04/Nanzen_faroles.webp',
@@ -374,7 +408,7 @@
           activities: [
           {
             name: 'Hotel -> Castillo Nijo',
-            description: '<strong>El día comienza de forma relajada</strong>, ya que nuestra primera parada, el <strong>Castillo Nijo</strong>, abre a las <strong>8:45h</strong>, permitiéndonos salir con calma. <br><br>Hoy exploraremos <strong>la zona norte de Kioto</strong>, conocida por su riqueza histórica y templos impresionantes. Iniciaremos el recorrido en el Castillo Nijo, seguido del <strong>Templo Daitoki-ji</strong>, un <strong>complejo de templos independientes</strong> de gran valor espiritual y arquitectónico. A continuación, visitaremos el famoso <strong>Pabellón Dorado (Kinkaku-ji)</strong>, reflejo de la opulencia y belleza tradicional japonesa. La última parada de templos será el <strong>Templo Toji-in</strong>, otro tesoro cultural. Estos lugares cierran sobre las <strong>16:00h</strong>, por lo que los visitaremos por la mañana y mediodía.<br><br>Para finalizar el día, nos dirigiremos al <strong>Arashiyama Bamboo Grove</strong>, un bosque de bambú en Arashiyama donde pasaremos la tarde. Su atmósfera mística y el susurro de los bambúes al viento ofrecen una experiencia inolvidable.',
+            description: '<strong>Horario:</strong> Abierto las 24 horas.<br><strong>Precio:</strong> Gratis.<br><br><strong>El día comienza de forma relajada</strong>, ya que nuestra primera parada, el <strong>Castillo Nijo</strong>, abre a las <strong>8:45h</strong>, permitiéndonos salir con calma. <br><br>Hoy exploraremos <strong>la zona norte de Kioto</strong>, conocida por su riqueza histórica y templos impresionantes. Iniciaremos el recorrido en el Castillo Nijo, seguido del <strong>Templo Daitoki-ji</strong>, un <strong>complejo de templos independientes</strong> de gran valor espiritual y arquitectónico. A continuación, visitaremos el famoso <strong>Pabellón Dorado (Kinkaku-ji)</strong>, reflejo de la opulencia y belleza tradicional japonesa. La última parada de templos será el <strong>Templo Toji-in</strong>, otro tesoro cultural. Estos lugares cierran sobre las <strong>16:00h</strong>, por lo que los visitaremos por la mañana y mediodía.<br><br>Para finalizar el día, nos dirigiremos al <strong>Arashiyama Bamboo Grove</strong>, un bosque de bambú en Arashiyama donde pasaremos la tarde. Su atmósfera mística y el susurro de los bambúes al viento ofrecen una experiencia inolvidable.',
             images: ['/assets/japan/Kyoto/Dia05/.webp'],
             longitude: 135.75896619907707,
             latitude: 35.01090902739731, 
@@ -454,6 +488,12 @@
             mapUrl: 'map-shinjuku'
         },]}">
         </app-itinerary-day-card>
+
+        <div class="subzone-container">
+          <div class="subzone-content">
+            <h3>Excursiones desde Kyoto</h3>
+          </div>
+        </div>
 
         <app-itinerary-day-card 
         [borderClass]="'border-dark-green'"
@@ -828,582 +868,625 @@
         </app-itinerary-day-card>
 
 
-
-        <!-- Día 1: Tokio -->
-        <app-itinerary-day-card 
-        [borderClass]="'border-blue'"
-        [day]="{
-          title: 'Día 09 - TOKIO: Toma de contacto -> TO DO',
-          activities: [
-            {
-              name: 'Viaje en Shinkansen - Barrio de Shinjuku',
-              description: 'Comenzamos el día con un trayecto a bordo del Shinkansen. Desde Kioto, llegamos a Tokio en poco más de dos horas, lo que nos deja tiempo suficiente para instalarnos en el Sotetsu Fresa Inn y prepararnos para explorar el Barrio de Shinjuku.\n\n El corazón financiero y comercial de Tokio, Shinjuku, es uno de los distritos más vibrantes de la ciudad. Con más de tres millones de pasajeros utilizando la estación de tren de Shinjuku diariamente, es uno de los hubs de transporte más transitados del mundo. Caminamos entre rascacielos, luces de neón y tiendas que ofrecen todo tipo de productos, desde lo más tecnológico hasta lo tradicional.',
-              images: ['/assets/japan/shinjuku.jpg'],
-              longitude: 139.7016,
-              latitude: 35.6895,
-              mapUrl: 'map-shinjuku'
-            }
-            ,
-            { 
-              name: 'Santuario Hanazono', 
-              description: 'El Santuario Hanazono es un santuario sintoísta ubicado en medio de los edificios modernos de Shinjuku. Fundado en el siglo XVII, es un lugar de tranquilidad en una zona agitada, donde los locales vienen a hacer ofrendas por la prosperidad en sus negocios. Este espacio sagrado es una muestra de la armonía entre la tradición y la modernidad que caracteriza a Japón.', 
-              images: ['assets/images/hanazono-shrine.jpg'], 
-              longitude: 139.7064, 
-              latitude: 35.6934, 
-              mapUrl: 'map-hanazono-shrine' 
-            },
-            { 
-              name: 'Golden Gai', 
-              description: 'Golden Gai es una pequeña zona famosa por sus más de 200 bares diminutos, cada uno con una capacidad que raramente supera las diez personas. Este enclave, que sobrevivió a la modernización, es un vestigio del antiguo Tokio y un lugar icónico para experimentar la cultura nocturna local. Cada bar ofrece una atmósfera única, desde jazz hasta literatura, creando un espacio íntimo de conversación y encuentro.', 
-              images: ['assets/images/golden-gai.jpg'], 
-              longitude: 139.7033, 
-              latitude: 35.6939, 
-              mapUrl: 'map-golden-gai' 
-            },
-            { 
-              name: 'Shinjuku TOHO Building', 
-              description: 'El Shinjuku TOHO Building es uno de los símbolos modernos de Shinjuku, conocido por la réplica a gran escala de la cabeza de Godzilla que sobresale de su fachada. Este edificio alberga uno de los cines más grandes de Tokio y es un centro de entretenimiento que combina lo tradicional con lo contemporáneo.', 
-              images: ['assets/images/shinjuku-toho.jpg'], 
-              longitude: 139.7011, 
-              latitude: 35.6944, 
-              mapUrl: 'map-shinjuku-toho' 
-            },
-            { 
-              name: 'Kabukicho', 
-              description: 'Kabukicho es el distrito de entretenimiento más grande de Tokio, conocido por sus neones brillantes y su vida nocturna. Aunque es famoso por sus bares y restaurantes, también alberga teatros y cines, lo que lo convierte en una parada cultural clave en el itinerario. Además, es un excelente lugar para experimentar la energía vibrante de Tokio durante la noche.', 
-              images: ['assets/images/kabukicho.jpg'], 
-              longitude: 139.7012, 
-              latitude: 35.6959, 
-              mapUrl: 'map-kabukicho' 
-            },
-            { 
-              name: 'Shin-Okubo', 
-              description: 'El barrio de Shin-Okubo es conocido como Korea Town, un enclave multicultural donde la influencia coreana es evidente en sus numerosos restaurantes y tiendas. Aquí se puede disfrutar de auténtica gastronomía coreana, lo que lo convierte en un excelente lugar para probar sabores diferentes sin salir de Tokio. Además, la comunidad coreana ha creado un ambiente dinámico y vibrante.', 
-              images: ['assets/images/shin-okubo.jpg'], 
-              longitude: 139.7005, 
-              latitude: 35.7012, 
-              mapUrl: 'map-shin-okubo' 
-            },
-            { 
-              name: 'Omoide Yokocho', 
-              description: 'Omoide Yokocho, también conocido como Memory Lane, es un pequeño callejón lleno de restaurantes tradicionales. Famoso por sus puestos de yakitori (brochetas de pollo), este callejón evoca el Tokio de la posguerra. Es el lugar perfecto para una cena informal mientras se experimenta la autenticidad de la vida local.', 
-              images: ['assets/images/omoide-yokocho.jpg'], 
-              longitude: 139.6984, 
-              latitude: 35.6932, 
-              mapUrl: 'map-omoide-yokocho' 
-            },
-            { 
-              name: 'Nishi-Shinjuku', 
-              description: 'Finalizamos el día en Nishi-Shinjuku, el área de rascacielos de Tokio. Este distrito es el hogar de algunos de los edificios más altos de Japón, y ofrece unas vistas espectaculares de la ciudad, especialmente al atardecer. Es un excelente lugar para reflexionar sobre la combinación única de historia y modernidad que caracteriza a Tokio.', 
-              images: ['assets/images/nishi-shinjuku.jpg'], 
-              longitude: 139.6949, 
-              latitude: 35.6908, 
-              mapUrl: 'map-nishi-shinjuku' 
-            }
-          ]}">
-        </app-itinerary-day-card>
-
-        <!-- Día 10: NIKKO -->
-        <app-itinerary-day-card 
-        [borderClass]="'border-blue'"
-        [day]="{
-          title: 'Día 10 - NIKKO: Santuarios, senderos y cascadas',
-          activities: [
-            {
-              name: 'Nikko St',
-              description: 
-                'Viajaremos desde Tokio a Nikko. Para ir de Tokio a Nikko tardaremos menos de 2h. En nuestro caso primero De St de Kanda (hotel) cogiendo la Yamanote Line hasta St de Tokio: una parada.Posteriormente de St de Tokio cogiendo la JR Tohoku Shinkansen hasta la St de Utsonomiya: 50 min aprox.Y por último de St de Utsonomiya cogiendo JR Nikko hasta St de Nikko: 45 min aprox.<br><br>Comenzaremos en el majestuoso <strong>Santuario Toshogu</strong>, continuaremos hacia el santuario Rinnoji y su <strong>Pagoda de Cinco Pisos</strong>. Después visitaremos el <strong>Santuario Futarasan</strong>, el más antiguo de Nikko. Seguiremos al <strong>Templo Rinnoji</strong> y finalizaremos nuestra jornada en el misterioso <strong>Abismo de Kanmangafuchi</strong>',
-              images: [
-                '/assets/japan/Tokio/Dia10/Nikko_calle.JPG',
-                '/assets/japan/Tokio/Dia10/Nikko_farol.JPG',
-              ],
-              longitude: 139.62198317363237,
-              latitude: 36.74756867713609, 
-              mapUrl: 'map-shinjuku'
-            },
-            {
-              name: 'Shinkyo Bridge',
-              description: 
-              ' <strong>Horario:</strong> Acceso libre las 24 horas<br><strong>Precio:</strong> 360 (aprox. 2,5 €).<br><br> El <strong>Puente Shinkyo</strong> es un puente de color rojo que cruza el río Daiya en Nikko. Es un símbolo de buena suerte y purificación en la cultura japonesa, y es un lugar popular para tomar fotografías y disfrutar de las vistas de los alrededores.<br><br>Realmente se puede observar sin pagar nada, pero si se quiere cruzar es cuando pagaremos los 360 yenes (Existe un paso al lado mucho más moderno y desde nso podremso tirar estupendas fotos con el puente Shinkyo de fondo). Según la tradición, cruzar el puente trae buena suerte y protección contra los malos espíritus. Es parte del Santuario Futarasan, un lugar sagrado en Nikko que combina la belleza natural con la espiritualidad japonesa.<br><br>Tras el puente existe una piedra que muestra el camino del sendero hacia los distintos templos que se encuentran en la zona.'
-              ,
-              images: [
-                '/assets/japan/Tokio/Dia10/Shinkyo_Bridge.JPG',
-                '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_Alex.JPG',
-                '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_juntos.JPG',
-                '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_2.JPG',
-                '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_piedra.JPG.JPG',
-              ],
-              longitude: 139.6038752108455,
-              latitude: 36.75350632047399,
-              mapUrl: 'map-shinjuku'
-            },
-
-            {
-              name: 'Santuario Rinnoji',
-              description: '
-                <strong>Horario:</strong> 8-17h (Abr-Oct) y 8-16h (Nov-Mar)<br><strong>Precio:</strong> 1.300 yenes (aprox. 8 €).<br><br> El <strong>Santuario Rinnoji</strong> es uno de los santuarios más importantes de Nikko, conocido por su arquitectura tradicional y su ambiente espiritual. Fundado en el año 766 por el monje Shodo Shonin. Su importancia radica en ser <strong>el primer templo budista establecido en la región montañosa de Nikko</strong>.El complejo incluye varios tesoros imprescindibles: <br><br> El <strong>Sanbutsudo</strong> (Salón de los Tres Budas), edificio principal que alberga tres impresionantes estatuas doradas de 8 metros de altura que representan a Amida Nyorai (Buda de la Luz Infinita), Senju Kannon (Diosa de la Misericordia) y Bato Kannon (Kannon con cabeza de caballo), todas Tesoros Nacionales de Japón. <br><br>El <strong>Taiyuin</strong>, elaborado mausoleo del tercer shogun Tokugawa, Iemitsu, con decoraciones que simbolizan la transición del espíritu al más allá. <br><br>El famoso <strong>Templo de los Tres Monos Sabios</strong> que no ven, no oyen y no hablan mal. <br><br> La <strong>Fuente de Purificación (Temizuya)</strong> coronada por un imponente dragón tallado en piedra es esencial para el ritual purificador antes de entrar al espacio sagrado: los visitantes deben tomar el cucharón, lavar ambas manos y enjuagar la boca siguiendo un orden específico que simboliza la purificación espiritual. <br><br> El exquisito <strong>Jardín Shoyoen</strong> representa los elementos fundamentales de la cosmología budista, donde cada piedra, árbol y el estanque central tienen significados específicos relacionados con el camino hacia la iluminación. Se recomienda visitar temprano por la mañana para evitar multitudes y experimentar la verdadera tranquilidad de este sitio espiritual, llevar calzado cómodo para recorrer las numerosas escaleras y caminos empedrados, y mantener una actitud respetuosa pues sigue siendo un lugar de culto activo.'
-              ,
-              images: [
-                '/assets/japan/Tokio/Dia10/Rinnoji_templo.JPG',
-                '/assets/japan/Tokio/Dia10/Rinnoji_templo_LU.JPG',
-                '/assets/japan/Tokio/Dia10/Rinnoji_dragon.JPG',
-                '/assets/japan/Tokio/Dia10/Rinnoji_fuente.JPG',
-                '/assets/japan/Tokio/Dia10/Rinnoji_arbol.JPG',
-                '/assets/japan/Tokio/Dia10/Rinnoji_puntas.JPG',
-                '/assets/japan/Tokio/Dia10/Rinnoji_arbol_juntos.JPG',
-              ],
-              longitude: 139.60066035815996,
-              latitude: 36.75523643149734, 
-              mapUrl: 'map-shinjuku'
-            },
-
-            {
-              name: 'Santuario Toshogu',
-              description: '
-                <strong>Horario:</strong> 8-17 (Abr-Oct) y 8-16 (Nov-Mar)<br><strong>Precio:</strong> 2.100 yenes (aprox. 13 €)<br><br>El <strong>Santuario Toshogu</strong> es el más espléndido y visitado de Nikko, declarado Patrimonio de la Humanidad por la UNESCO, construido en 1617 alberga el mausoleo de Tokugawa Ieyasu, fundador del shogunato Tokugawa.<br><br> Al entrar, los visitantes atraviesan la imponente <strong>Puerta Ishidorii</strong>, un torii de piedra que marca la frontera entre el mundo terrenal y el espiritual, flanqueado por dos <strong>komainu</strong> (leones guardianes).<br><br>Los <strong>farolillos de piedra</strong> (toro) que bordean el camino principal fueron donaciones de daimyos (señores feudales) y cada uno presenta elaborados grabados representando diferentes elementos naturales como grullas, flores y paisajes. <br><br> La <strong>Puerta Yomeimon</strong>, conocida como la puerta del sol naciente, es considerada la estructura más bella de todo Japón, con sus 508 figuras talladas representando animales, flores y personajes mitológicos. <br><br> La <strong>Pagoda de Cinco Pisos</strong> (Gojunoto) es uno de los elementos más icónicos y fotogénicos del complejo sagrado de Nikko, ubicada en el recinto del Santuario Toshogu con 36 metros de altura. Representa los cinco elementos fundamentales según la cosmología budista: tierra (base), agua (primer piso), fuego (segundo piso), viento (tercer piso) y vacío/cielo (cuarto piso y pináculo). El exterior está pintado en el característico <strong>bermellón intenso</strong> (shuiro), color que simboliza protección contra el mal y las enfermedades, mientras que los detalles dorados representan la iluminación y la pureza espiritual.',
-              images: [
-                '/assets/japan/Tokio/Dia10/Toshogu_entrada.JPG',
-                '/assets/japan/Tokio/Dia10/Toshogu_arco.JPG',
-                '/assets/japan/Tokio/Dia10/Toshogu_pagoda.JPG',
-                '/assets/japan/Tokio/Dia10/Toshogu_juntos.JPG',
-                '/assets/japan/Tokio/Dia10/Toshogu_arco_lu.JPG',
-                '/assets/japan/Tokio/Dia10/Toshogu_farolillos.JPG',
-              ],
-              longitude: 139.59873597647055,
-              latitude: 36.75823249091268, 
-              mapUrl: 'map-shinjuku'
-            }
-            ,
-
-            {
-              name: 'Santuario Futarasan',
-              description: '
-                <strong>Horario:</strong> 9-17 (Abr-Oct) y 9-16 (Nov-Mar)<br><strong>Precio:</strong> 300 yenes (aprox. 1,9 €) para el recinto principal. El acceso a los jardines exteriores es gratuito.<br><br> El <strong>Santuario Futarasan</strong> es uno de los tres grandes santuarios de Nikko, fundado en el año 782. A diferencia de sus vecinos más ornamentados, este santuario destaca por su elegante sobriedad, siguiendo fielmente la estética sintoísta tradicional. Está dedicado a las tres deidades montañosas (<strong>Oonamuchi</strong>, <strong>Tagorihime</strong> y <strong>Ajisukitakahikone</strong>) que habitan los tres montes sagrados de Nikko: Nantai, Nyoho y Taro. La <strong>puerta principal</strong> (torii) está decorada con tallas de <strong>kirin</strong> (criaturas mitológicas parecidas a unicornios) que actúan como guardianes celestes. En el recinto principal destaca el <strong>Haiden</strong> (salón de ofrendas) con su característica arquitectura <strong>Gongen-zukuri</strong>, donde los fieles pueden realizar sus plegarias tras purificarse en el <strong>chozuya</strong>, fuente ritual decorada con tallas de tortugas (símbolo de longevidad). El recinto alberga también el <strong>Kagura-den</strong>, un escenario para danzas rituales donde se realizan actuaciones de <strong>Kagura</strong> (danzas sintoístas para los dioses) durante festivales importantes como el <strong>Shunki Reitaisai</strong> (festival de primavera) y el <strong>Shuki Reitaisai</strong> (festival de otoño). 
-              ',
-              images: [
-                '/assets/japan/Tokio/Dia10/Futarasan_entrada.JPG',
-                '/assets/japan/Tokio/Dia10/Futarasan_lejos.JPG',
-                '/assets/japan/Tokio/Dia10/Futarasan_lu.JPG',
-                '/assets/japan/Tokio/Dia10/Futarasan_faroles.JPG',
-                '/assets/japan/Tokio/Dia10/Futarasan_templo.JPG',
-              ],
-              longitude: 139.5965114754405,
-              latitude: 36.758597448115005, 
-              mapUrl: 'map-shinjuku'
-            },
-
-            {
-              name: 'Abismo de Kanmangafuchi',
-              description: '
-                <strong>Horario:</strong> Acceso libre las 24 horas<br><strong>Precio:</strong> Gratuito<br><br> El <strong>Abismo de Kanmangafuchi</strong> es uno de los tesoros naturales de Nikko, formado hace aproximadamente 7.000 años tras la erupción del Monte Nantai. Este profundo cañón, tallado por el río Daiya, ofrece un impresionante contraste entre la fuerza bruta de la naturaleza y la serena espiritualidad japonesa. <br><br> El principal atractivo de este lugar es la famosa fila de <strong>estatuas Jizo</strong> (Bake Jizo), más de 70 figuras de piedra que representan a Jizo Bosatsu, deidad protectora de los niños, viajeros y almas en transición. Están cubiertas de musgo y muestran los estragos del tiempo, creando una atmósfera sobrecogedora especialmente al atardecer o en días brumosos. Cada estatua lleva un <strong>gorro rojo</strong> (zukin) y un <strong>babero</strong> (yodarekake) colocados por lugareños como ofrenda para protección de niños fallecidos.<br><br>El sendero que bordea el abismo está flanqueado por majestuosas <strong>criptomerias centenarias</strong> (sugi) que crean un dosel natural, filtrando la luz y acentuando el ambiente místico del lugar. Desde varios miradores estratégicos, los visitantes pueden observar las impresionantes <strong>formaciones basálticas hexagonales</strong> en las paredes del cañón, resultado del enfriamiento rápido de la lava volcánica. Durante todo el recorrido podremos ir viendo numerosas cascadas y pequeños riachuelos que desembocan en el río Daiya.',
-              images: [
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_sendero_lu.JPG',
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_lu.JPG',
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_alex.JPG',
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_estatuas.JPG',
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_juntos.JPG.JPG',
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_puente.JPG',
-                '/assets/japan/Tokio/Dia10/Kanmangafuchi_farol.JPG',
-                
-              ],
-              longitude: 139.589555044921,
-              latitude: 36.74931312624976, 
-              mapUrl: 'map-shinjuku'
-            }
-          ]}">
-        </app-itinerary-day-card>
-
-        <!-- Día 11: Kamakura -->
-        <app-itinerary-day-card 
+        <div class="zone-section">
+          <div class="zone-header">
+            <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
+            <h2 class="zone-title">Tokio</h2>
+            <div class="zone-info">
+              <div class="info-item">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Dias 9 - 14</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-city"></i>
+                <span>Metrópolis moderna</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-utensils"></i>
+                <span>Capital gastronómica</span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+          <!-- Día 1: Tokio -->
+          <app-itinerary-day-card 
           [borderClass]="'border-blue'"
           [day]="{
-            title: 'Día 11 - KAMAKURA: Ruta de templos, miles de escaleras y el Gran Buda',
+            title: 'Día 09 - TOKIO: Toma de contacto -> TO DO',
             activities: [
-            {
-                name: 'Kita Kamakura St',
-                description: 'Hoy exploramos Kamakura, antigua capital samurái, visitando algunos de sus templos más emblemáticos. Para llegar a Kamakura desde Tokio, tomamos la línea JR Yokosuka desde la estación de Tokio hasta Kita Kamakura (~1h). <br><br> Comenzamos en Engaku-ji , hogar de una campana del siglo XIII considerada Tesoro Nacional. Luego, iremos  Tokei-ji, un refugio de paz con jardines y un cementerio histórico. Seguimos con la subida al Kencho-ji, donde las escaleras nos llevan a impresionantes vistas panorámicas. Después, visitamos el Tsuruoka Hachimangu, el santuario más importante de la ciudad, con su majestuosa arquitectura de la era Edo. Haremos una breve parada en la calle Komachi-dori, llena de tiendas y opciones para comer, antes de continuar hacia el Hase-dera, famoso por sus estatuas de Jizo y su entorno espiritual en la ladera. Y por último vistaremos el templo Kotoku‐in y su majestuoso buda de 13 metros de altura.',
+              {
+                name: 'Viaje en Shinkansen - Barrio de Shinjuku',
+                description: 'Comenzamos el día con un trayecto a bordo del Shinkansen. Desde Kioto, llegamos a Tokio en poco más de dos horas, lo que nos deja tiempo suficiente para instalarnos en el Sotetsu Fresa Inn y prepararnos para explorar el Barrio de Shinjuku.\n\n El corazón financiero y comercial de Tokio, Shinjuku, es uno de los distritos más vibrantes de la ciudad. Con más de tres millones de pasajeros utilizando la estación de tren de Shinjuku diariamente, es uno de los hubs de transporte más transitados del mundo. Caminamos entre rascacielos, luces de neón y tiendas que ofrecen todo tipo de productos, desde lo más tecnológico hasta lo tradicional.',
+                images: ['/assets/japan/shinjuku.jpg'],
+                longitude: 139.7016,
+                latitude: 35.6895,
+                mapUrl: 'map-shinjuku'
+              }
+              ,
+              { 
+                name: 'Santuario Hanazono', 
+                description: 'El Santuario Hanazono es un santuario sintoísta ubicado en medio de los edificios modernos de Shinjuku. Fundado en el siglo XVII, es un lugar de tranquilidad en una zona agitada, donde los locales vienen a hacer ofrendas por la prosperidad en sus negocios. Este espacio sagrado es una muestra de la armonía entre la tradición y la modernidad que caracteriza a Japón.', 
+                images: ['assets/images/hanazono-shrine.jpg'], 
+                longitude: 139.7064, 
+                latitude: 35.6934, 
+                mapUrl: 'map-hanazono-shrine' 
+              },
+              { 
+                name: 'Golden Gai', 
+                description: 'Golden Gai es una pequeña zona famosa por sus más de 200 bares diminutos, cada uno con una capacidad que raramente supera las diez personas. Este enclave, que sobrevivió a la modernización, es un vestigio del antiguo Tokio y un lugar icónico para experimentar la cultura nocturna local. Cada bar ofrece una atmósfera única, desde jazz hasta literatura, creando un espacio íntimo de conversación y encuentro.', 
+                images: ['assets/images/golden-gai.jpg'], 
+                longitude: 139.7033, 
+                latitude: 35.6939, 
+                mapUrl: 'map-golden-gai' 
+              },
+              { 
+                name: 'Shinjuku TOHO Building', 
+                description: 'El Shinjuku TOHO Building es uno de los símbolos modernos de Shinjuku, conocido por la réplica a gran escala de la cabeza de Godzilla que sobresale de su fachada. Este edificio alberga uno de los cines más grandes de Tokio y es un centro de entretenimiento que combina lo tradicional con lo contemporáneo.', 
+                images: ['assets/images/shinjuku-toho.jpg'], 
+                longitude: 139.7011, 
+                latitude: 35.6944, 
+                mapUrl: 'map-shinjuku-toho' 
+              },
+              { 
+                name: 'Kabukicho', 
+                description: 'Kabukicho es el distrito de entretenimiento más grande de Tokio, conocido por sus neones brillantes y su vida nocturna. Aunque es famoso por sus bares y restaurantes, también alberga teatros y cines, lo que lo convierte en una parada cultural clave en el itinerario. Además, es un excelente lugar para experimentar la energía vibrante de Tokio durante la noche.', 
+                images: ['assets/images/kabukicho.jpg'], 
+                longitude: 139.7012, 
+                latitude: 35.6959, 
+                mapUrl: 'map-kabukicho' 
+              },
+              { 
+                name: 'Shin-Okubo', 
+                description: 'El barrio de Shin-Okubo es conocido como Korea Town, un enclave multicultural donde la influencia coreana es evidente en sus numerosos restaurantes y tiendas. Aquí se puede disfrutar de auténtica gastronomía coreana, lo que lo convierte en un excelente lugar para probar sabores diferentes sin salir de Tokio. Además, la comunidad coreana ha creado un ambiente dinámico y vibrante.', 
+                images: ['assets/images/shin-okubo.jpg'], 
+                longitude: 139.7005, 
+                latitude: 35.7012, 
+                mapUrl: 'map-shin-okubo' 
+              },
+              { 
+                name: 'Omoide Yokocho', 
+                description: 'Omoide Yokocho, también conocido como Memory Lane, es un pequeño callejón lleno de restaurantes tradicionales. Famoso por sus puestos de yakitori (brochetas de pollo), este callejón evoca el Tokio de la posguerra. Es el lugar perfecto para una cena informal mientras se experimenta la autenticidad de la vida local.', 
+                images: ['assets/images/omoide-yokocho.jpg'], 
+                longitude: 139.6984, 
+                latitude: 35.6932, 
+                mapUrl: 'map-omoide-yokocho' 
+              },
+              { 
+                name: 'Nishi-Shinjuku', 
+                description: 'Finalizamos el día en Nishi-Shinjuku, el área de rascacielos de Tokio. Este distrito es el hogar de algunos de los edificios más altos de Japón, y ofrece unas vistas espectaculares de la ciudad, especialmente al atardecer. Es un excelente lugar para reflexionar sobre la combinación única de historia y modernidad que caracteriza a Tokio.', 
+                images: ['assets/images/nishi-shinjuku.jpg'], 
+                longitude: 139.6949, 
+                latitude: 35.6908, 
+                mapUrl: 'map-nishi-shinjuku' 
+              }
+            ]}">
+          </app-itinerary-day-card>
+
+          <div class="subzone-container">
+              <div class="subzone-content">
+                <h3>Excursiones desde Tokio</h3>
+                <!-- <p>Descubre los alrededores con excursiones de un día a Nikko, con sus santuarios Patrimonio de la Humanidad, y Kamakura, hogar del Gran Buda y playas de arena blanca.</p> -->
+
+            </div>
+
+                <!-- Día 10: NIKKO -->
+              
+          </div>
+
+          <app-itinerary-day-card 
+              [borderClass]="'border-blue'"
+              [day]="{
+                title: 'Día 10 - NIKKO: Santuarios, senderos y cascadas',
+                activities: [
+                  {
+                    name: 'Nikko St',
+                    description: 
+                      'Viajaremos desde Tokio a Nikko. Para ir de Tokio a Nikko tardaremos menos de 2h. En nuestro caso primero De St de Kanda (hotel) cogiendo la Yamanote Line hasta St de Tokio: una parada.Posteriormente de St de Tokio cogiendo la JR Tohoku Shinkansen hasta la St de Utsonomiya: 50 min aprox.Y por último de St de Utsonomiya cogiendo JR Nikko hasta St de Nikko: 45 min aprox.<br><br>Comenzaremos en el majestuoso <strong>Santuario Toshogu</strong>, continuaremos hacia el santuario Rinnoji y su <strong>Pagoda de Cinco Pisos</strong>. Después visitaremos el <strong>Santuario Futarasan</strong>, el más antiguo de Nikko. Seguiremos al <strong>Templo Rinnoji</strong> y finalizaremos nuestra jornada en el misterioso <strong>Abismo de Kanmangafuchi</strong>',
+                    images: [
+                      '/assets/japan/Tokio/Dia10/Nikko_calle.JPG',
+                      '/assets/japan/Tokio/Dia10/Nikko_farol.JPG',
+                    ],
+                    longitude: 139.62198317363237,
+                    latitude: 36.74756867713609, 
+                    mapUrl: 'map-shinjuku'
+                  },
+                  {
+                    name: 'Shinkyo Bridge',
+                    description: 
+                    ' <strong>Horario:</strong> Acceso libre las 24 horas<br><strong>Precio:</strong> 360 (aprox. 2,5 €).<br><br> El <strong>Puente Shinkyo</strong> es un puente de color rojo que cruza el río Daiya en Nikko. Es un símbolo de buena suerte y purificación en la cultura japonesa, y es un lugar popular para tomar fotografías y disfrutar de las vistas de los alrededores.<br><br>Realmente se puede observar sin pagar nada, pero si se quiere cruzar es cuando pagaremos los 360 yenes (Existe un paso al lado mucho más moderno y desde nso podremso tirar estupendas fotos con el puente Shinkyo de fondo). Según la tradición, cruzar el puente trae buena suerte y protección contra los malos espíritus. Es parte del Santuario Futarasan, un lugar sagrado en Nikko que combina la belleza natural con la espiritualidad japonesa.<br><br>Tras el puente existe una piedra que muestra el camino del sendero hacia los distintos templos que se encuentran en la zona.'
+                    ,
+                    images: [
+                      '/assets/japan/Tokio/Dia10/Shinkyo_Bridge.JPG',
+                      '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_Alex.JPG',
+                      '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_juntos.JPG',
+                      '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_2.JPG',
+                      '/assets/japan/Tokio/Dia10/Shinkyo_Bridge_piedra.JPG.JPG',
+                    ],
+                    longitude: 139.6038752108455,
+                    latitude: 36.75350632047399,
+                    mapUrl: 'map-shinjuku'
+                  },
+
+                  {
+                    name: 'Santuario Rinnoji',
+                    description: '
+                      <strong>Horario:</strong> 8-17h (Abr-Oct) y 8-16h (Nov-Mar)<br><strong>Precio:</strong> 1.300 yenes (aprox. 8 €).<br><br> El <strong>Santuario Rinnoji</strong> es uno de los santuarios más importantes de Nikko, conocido por su arquitectura tradicional y su ambiente espiritual. Fundado en el año 766 por el monje Shodo Shonin. Su importancia radica en ser <strong>el primer templo budista establecido en la región montañosa de Nikko</strong>.El complejo incluye varios tesoros imprescindibles: <br><br> El <strong>Sanbutsudo</strong> (Salón de los Tres Budas), edificio principal que alberga tres impresionantes estatuas doradas de 8 metros de altura que representan a Amida Nyorai (Buda de la Luz Infinita), Senju Kannon (Diosa de la Misericordia) y Bato Kannon (Kannon con cabeza de caballo), todas Tesoros Nacionales de Japón. <br><br>El <strong>Taiyuin</strong>, elaborado mausoleo del tercer shogun Tokugawa, Iemitsu, con decoraciones que simbolizan la transición del espíritu al más allá. <br><br>El famoso <strong>Templo de los Tres Monos Sabios</strong> que no ven, no oyen y no hablan mal. <br><br> La <strong>Fuente de Purificación (Temizuya)</strong> coronada por un imponente dragón tallado en piedra es esencial para el ritual purificador antes de entrar al espacio sagrado: los visitantes deben tomar el cucharón, lavar ambas manos y enjuagar la boca siguiendo un orden específico que simboliza la purificación espiritual. <br><br> El exquisito <strong>Jardín Shoyoen</strong> representa los elementos fundamentales de la cosmología budista, donde cada piedra, árbol y el estanque central tienen significados específicos relacionados con el camino hacia la iluminación. Se recomienda visitar temprano por la mañana para evitar multitudes y experimentar la verdadera tranquilidad de este sitio espiritual, llevar calzado cómodo para recorrer las numerosas escaleras y caminos empedrados, y mantener una actitud respetuosa pues sigue siendo un lugar de culto activo.'
+                    ,
+                    images: [
+                      '/assets/japan/Tokio/Dia10/Rinnoji_templo.JPG',
+                      '/assets/japan/Tokio/Dia10/Rinnoji_templo_LU.JPG',
+                      '/assets/japan/Tokio/Dia10/Rinnoji_dragon.JPG',
+                      '/assets/japan/Tokio/Dia10/Rinnoji_fuente.JPG',
+                      '/assets/japan/Tokio/Dia10/Rinnoji_arbol.JPG',
+                      '/assets/japan/Tokio/Dia10/Rinnoji_puntas.JPG',
+                      '/assets/japan/Tokio/Dia10/Rinnoji_arbol_juntos.JPG',
+                    ],
+                    longitude: 139.60066035815996,
+                    latitude: 36.75523643149734, 
+                    mapUrl: 'map-shinjuku'
+                  },
+
+                  {
+                    name: 'Santuario Toshogu',
+                    description: '
+                      <strong>Horario:</strong> 8-17 (Abr-Oct) y 8-16 (Nov-Mar)<br><strong>Precio:</strong> 2.100 yenes (aprox. 13 €)<br><br>El <strong>Santuario Toshogu</strong> es el más espléndido y visitado de Nikko, declarado Patrimonio de la Humanidad por la UNESCO, construido en 1617 alberga el mausoleo de Tokugawa Ieyasu, fundador del shogunato Tokugawa.<br><br> Al entrar, los visitantes atraviesan la imponente <strong>Puerta Ishidorii</strong>, un torii de piedra que marca la frontera entre el mundo terrenal y el espiritual, flanqueado por dos <strong>komainu</strong> (leones guardianes).<br><br>Los <strong>farolillos de piedra</strong> (toro) que bordean el camino principal fueron donaciones de daimyos (señores feudales) y cada uno presenta elaborados grabados representando diferentes elementos naturales como grullas, flores y paisajes. <br><br> La <strong>Puerta Yomeimon</strong>, conocida como la puerta del sol naciente, es considerada la estructura más bella de todo Japón, con sus 508 figuras talladas representando animales, flores y personajes mitológicos. <br><br> La <strong>Pagoda de Cinco Pisos</strong> (Gojunoto) es uno de los elementos más icónicos y fotogénicos del complejo sagrado de Nikko, ubicada en el recinto del Santuario Toshogu con 36 metros de altura. Representa los cinco elementos fundamentales según la cosmología budista: tierra (base), agua (primer piso), fuego (segundo piso), viento (tercer piso) y vacío/cielo (cuarto piso y pináculo). El exterior está pintado en el característico <strong>bermellón intenso</strong> (shuiro), color que simboliza protección contra el mal y las enfermedades, mientras que los detalles dorados representan la iluminación y la pureza espiritual.',
+                    images: [
+                      '/assets/japan/Tokio/Dia10/Toshogu_entrada.JPG',
+                      '/assets/japan/Tokio/Dia10/Toshogu_arco.JPG',
+                      '/assets/japan/Tokio/Dia10/Toshogu_pagoda.JPG',
+                      '/assets/japan/Tokio/Dia10/Toshogu_juntos.JPG',
+                      '/assets/japan/Tokio/Dia10/Toshogu_arco_lu.JPG',
+                      '/assets/japan/Tokio/Dia10/Toshogu_farolillos.JPG',
+                    ],
+                    longitude: 139.59873597647055,
+                    latitude: 36.75823249091268, 
+                    mapUrl: 'map-shinjuku'
+                  }
+                  ,
+
+                  {
+                    name: 'Santuario Futarasan',
+                    description: '
+                      <strong>Horario:</strong> 9-17 (Abr-Oct) y 9-16 (Nov-Mar)<br><strong>Precio:</strong> 300 yenes (aprox. 1,9 €) para el recinto principal. El acceso a los jardines exteriores es gratuito.<br><br> El <strong>Santuario Futarasan</strong> es uno de los tres grandes santuarios de Nikko, fundado en el año 782. A diferencia de sus vecinos más ornamentados, este santuario destaca por su elegante sobriedad, siguiendo fielmente la estética sintoísta tradicional. Está dedicado a las tres deidades montañosas (<strong>Oonamuchi</strong>, <strong>Tagorihime</strong> y <strong>Ajisukitakahikone</strong>) que habitan los tres montes sagrados de Nikko: Nantai, Nyoho y Taro. La <strong>puerta principal</strong> (torii) está decorada con tallas de <strong>kirin</strong> (criaturas mitológicas parecidas a unicornios) que actúan como guardianes celestes. En el recinto principal destaca el <strong>Haiden</strong> (salón de ofrendas) con su característica arquitectura <strong>Gongen-zukuri</strong>, donde los fieles pueden realizar sus plegarias tras purificarse en el <strong>chozuya</strong>, fuente ritual decorada con tallas de tortugas (símbolo de longevidad). El recinto alberga también el <strong>Kagura-den</strong>, un escenario para danzas rituales donde se realizan actuaciones de <strong>Kagura</strong> (danzas sintoístas para los dioses) durante festivales importantes como el <strong>Shunki Reitaisai</strong> (festival de primavera) y el <strong>Shuki Reitaisai</strong> (festival de otoño). 
+                    ',
+                    images: [
+                      '/assets/japan/Tokio/Dia10/Futarasan_entrada.JPG',
+                      '/assets/japan/Tokio/Dia10/Futarasan_lejos.JPG',
+                      '/assets/japan/Tokio/Dia10/Futarasan_lu.JPG',
+                      '/assets/japan/Tokio/Dia10/Futarasan_faroles.JPG',
+                      '/assets/japan/Tokio/Dia10/Futarasan_templo.JPG',
+                    ],
+                    longitude: 139.5965114754405,
+                    latitude: 36.758597448115005, 
+                    mapUrl: 'map-shinjuku'
+                  },
+
+                  {
+                    name: 'Abismo de Kanmangafuchi',
+                    description: '
+                      <strong>Horario:</strong> Acceso libre las 24 horas<br><strong>Precio:</strong> Gratuito<br><br> El <strong>Abismo de Kanmangafuchi</strong> es uno de los tesoros naturales de Nikko, formado hace aproximadamente 7.000 años tras la erupción del Monte Nantai. Este profundo cañón, tallado por el río Daiya, ofrece un impresionante contraste entre la fuerza bruta de la naturaleza y la serena espiritualidad japonesa. <br><br> El principal atractivo de este lugar es la famosa fila de <strong>estatuas Jizo</strong> (Bake Jizo), más de 70 figuras de piedra que representan a Jizo Bosatsu, deidad protectora de los niños, viajeros y almas en transición. Están cubiertas de musgo y muestran los estragos del tiempo, creando una atmósfera sobrecogedora especialmente al atardecer o en días brumosos. Cada estatua lleva un <strong>gorro rojo</strong> (zukin) y un <strong>babero</strong> (yodarekake) colocados por lugareños como ofrenda para protección de niños fallecidos.<br><br>El sendero que bordea el abismo está flanqueado por majestuosas <strong>criptomerias centenarias</strong> (sugi) que crean un dosel natural, filtrando la luz y acentuando el ambiente místico del lugar. Desde varios miradores estratégicos, los visitantes pueden observar las impresionantes <strong>formaciones basálticas hexagonales</strong> en las paredes del cañón, resultado del enfriamiento rápido de la lava volcánica. Durante todo el recorrido podremos ir viendo numerosas cascadas y pequeños riachuelos que desembocan en el río Daiya.',
+                    images: [
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_sendero_lu.JPG',
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_lu.JPG',
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_alex.JPG',
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_estatuas.JPG',
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_juntos.JPG.JPG',
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_puente.JPG',
+                      '/assets/japan/Tokio/Dia10/Kanmangafuchi_farol.JPG',
+                      
+                    ],
+                    longitude: 139.589555044921,
+                    latitude: 36.74931312624976, 
+                    mapUrl: 'map-shinjuku'
+                  }
+                ]}">
+              </app-itinerary-day-card>
+
+              <!-- Día 11: Kamakura -->
+              <app-itinerary-day-card 
+                [borderClass]="'border-blue'"
+                [day]="{
+                  title: 'Día 11 - KAMAKURA: Ruta de templos, miles de escaleras y el Gran Buda',
+                  activities: [
+                  {
+                      name: 'Kita Kamakura St',
+                      description: 'Hoy exploramos Kamakura, antigua capital samurái, visitando algunos de sus templos más emblemáticos. Para llegar a Kamakura desde Tokio, tomamos la línea JR Yokosuka desde la estación de Tokio hasta Kita Kamakura (~1h). <br><br> Comenzamos en Engaku-ji , hogar de una campana del siglo XIII considerada Tesoro Nacional. Luego, iremos  Tokei-ji, un refugio de paz con jardines y un cementerio histórico. Seguimos con la subida al Kencho-ji, donde las escaleras nos llevan a impresionantes vistas panorámicas. Después, visitamos el Tsuruoka Hachimangu, el santuario más importante de la ciudad, con su majestuosa arquitectura de la era Edo. Haremos una breve parada en la calle Komachi-dori, llena de tiendas y opciones para comer, antes de continuar hacia el Hase-dera, famoso por sus estatuas de Jizo y su entorno espiritual en la ladera. Y por último vistaremos el templo Kotoku‐in y su majestuoso buda de 13 metros de altura.',
+                      images: [
+                        '/assets/japan/shinjuku.jpg'
+                      ],
+                      longitude: 139.54533759015214,
+                      latitude: 35.33726439889863, 
+                      mapUrl: 'map-shinjuku'
+                    },
+                    {
+                      name: 'Templo  Engau‐ji',
+                      description: '
+                      <strong>Horario:</strong> 8:00 - 16:30 <br> <strong>Precio:</strong> 300 yenes (aprox. 1,80 €)<br><br> Fundado en 1282 es uno de los cinco grandes templos zen (Gozan) de Kamakura y el segundo en importancia. Rodeado de un exuberante bosque de bambú y arces.<br><br>Entre sus tesoros arquitectónicos destacan su imponente puerta de entrada (Sanmon) de color negro, el salón principal (Butsuden), y la antigua campana de bronce (Ogane) del siglo XIII, considerada Tesoro Nacional de Japón. El templo alberga también el Shariden, un relicario que contiene un diente de Buda, designado como Importante Propiedad Cultural.',
+                      images: [
+                      '/assets/japan/Tokio/Dia11/Engauji_alex.JPG',
+                      '/assets/japan/Tokio/Dia11/Engauji_int.JPG',
+                      '/assets/japan/Tokio/Dia11/Engauji_lu.JPG',
+                      '/assets/japan/Tokio/Dia11/Engauji_juntos.JPG',
+                      ],
+                      longitude: 139.54738562748577,
+                      latitude: 35.33783047384222, 
+                      mapUrl: 'map-shinjuku'
+                    },
+                    {
+                      name: 'Templo  Tokei‐ji',
+                      description: ' <strong>Horario:</strong> 8-17 (Apr-Sep) y de 8-16:30 (Oct-Mar).<br><strong>Precio:</strong> 200 yenes (aprox. 1,20 €).<br><br> Este templo se encuentra a 5 min cruzando las vías del tren. Fundado en 1285, al atravesar su discreta entrada, descubrirás un oasis de tranquilidad con jardines meticulosamente cuidados. El camino principal te lleva entre árboles centenarios y arbustos de hortensias que florecen espectacularmente en junio.<br><br>No te pierdas el cementerio histórico, donde reposan importantes figuras y que transmite una atmósfera de serenidad entre musgo y piedras antiguas.<br><br>',
+                      images: [
+                      '/assets/japan/Tokio/Dia11/Tokeiji_alex.JPG',
+                      '/assets/japan/Tokio/Dia11/Tokeiji_campana.JPG',
+                      '/assets/japan/Tokio/Dia11/Tokeiji_jardin.JPG',
+                      '/assets/japan/Tokio/Dia11/Tokeiji_exterior.JPG',
+                      '/assets/japan/Tokio/Dia11/Tokeiji_templo.JPG',
+                      '/assets/japan/Tokio/Dia11/Tokeiji_puerta.JPG',
+                      ],
+                      longitude: 139.54571676670705,
+                      latitude: 35.33535995361292, 
+                      mapUrl: 'map-shinjuku'
+                    }
+                    ,
+                    {
+                      name: 'Subida al templo Kencho‐ji',
+                      description: '<strong>Horario:</strong> 8:30 a 16:30.<br><strong>Precio:</strong> 500 yenes (aprox. 3 €).<br><br>Fundado en 1253, el Kencho-ji es el templo zen más antiguo de Kamakura y el primero de los Cinco Grandes Templos. La visita inicia al cruzar la imponente puerta Sanmon, la más grande de la ciudad, que sirve como espléndido pórtico hacia este santuario espiritual.<br><br>El ascenso requiere subir miles de escaleras, pero te prometemos que vale la pena. La escalinata de piedra ofrece una experiencia gradual de descubrimiento. Mientras subes, notarás cómo los antiguos pinos y cedros crean un ambiente de serenidad que invita a la contemplación. Cada tramo revela nuevas vistas del complejo, permitiéndote apreciar la disposición armoniosa de los edificios.<br><br>A medio camino, los jardines zen merecen una pausa contemplativa.Si decides continuar hasta Hansobo, el esfuerzo será recompensado con magníficas vistas panorámicas de Kamakura y, en días despejados, el majestuoso Monte Fuji en la distancia.',
+                      images: [
+                      '/assets/japan/Tokio/Dia11/Kenchoji_entrada.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_lu.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_escaleras2.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_subida.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_vistas.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_leon.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_esc_lu.JPG',
+                      '/assets/japan/Tokio/Dia11/Kenchoji_esc_Alex.JPG',
+
+                      ],
+                      longitude: 139.5549461337951,
+                      latitude: 35.33162034857519, 
+                      mapUrl: 'map-shinjuku'
+                    }
+                    ,
+                    {
+                      name: 'Tsuruoka Hachimangu',
+                      description: '<strong>Horario:</strong> 5-21 (recinto); 8-16:30 (museo).<br><strong>Precio:</strong> Entrada gratuita al recinto; 200 yenes para el museo.<br><br>El Tsuruoka Hachimangu, fundado en 1063, es el santuario más imponente de Kamakura y corazón espiritual de la antigua capital samurái (está dedicado al dios de la guerra Hachiman.). La visita comienza cruzando el emblemático puente de madera sobre un estanque de lotos, seguido de un paseo por la amplia avenida ceremonial .<br><br>Al avanzar por el sendero principal, notarás detalles arquitectónicos únicos como las barandillas rojas y los faroles de piedra tradicionales. La estructura principal del santuario, reconstruida en 1828, impresiona por su majestuoso tejado a dos aguas decorado con elementos dorados y tallas elaboradas en vivos colores rojo y verde, representando el estilo arquitectónico de la era Edo.<br><br>Se puede visitar el Museo del Tesoro (a la derecha del santuario principal) que alberga una colección excepcional de espadas ceremoniales, máscaras antiguas y artefactos samurái.',
+                      images: [
+                      '/assets/japan/Tokio/Dia11/Tsuruoka_faroles.JPG',
+                      '/assets/japan/Tokio/Dia11/Tsuruoka_bidones.JPG',
+                      '/assets/japan/Tokio/Dia11/Tsuruoka_alex.JPG',
+                      '/assets/japan/Tokio/Dia11/Tsuruoka_juntos.JPG',
+                      '/assets/japan/Tokio/Dia11/Tsuruoka_salida.JPG',
+                      ],
+                      longitude: 139.55660372399828,
+                      latitude: 35.32662876985529, 
+                      mapUrl: 'map-shinjuku'
+                    }
+                    ,
+                    {
+                      name: 'Calle  comercial  Komachi',
+                      description: '<strong>Horario:</strong> La mayoría de tiendas abren de 10:00 a 18:00; restaurantes hasta 21:00.<br><strong>Precio:</strong> Desde tiendas económicas hasta boutiques exclusivas. Comidas desde 800 yenes (menú del día) hasta 3000+ yenes (restaurantes tradicionales).<br><br>La calle Komachi-dori es el alma comercial de Kamakura, un pintoresco callejón que se extiende por 360 metros desde la estación hasta el santuario Hachimangu. Este bullicioso paseo está repleto de tiendas de artesanía tradicional, donde encontrarás desde cerámica y kimonos hasta modernos souvenirs. <strong>Aquí aprovechamos para hacer una pausa para comer </strong>. Sin embargo no nos podremos demorar mucho ya que nos quedan varios lugares por visitar y la mayoría de los templos cierran a las 16:30.',
+                    
+                      images: ['/assets/japan/shinjuku.jpg'],
+                      longitude: 139.55323205508174,
+                      latitude: 35.32256668382845, 
+                      mapUrl: 'map-shinjuku'
+                    }
+                    ,
+                    {
+                      name: ' Templo  Hase‐dera',
+                      description: '<strong>Horario:</strong> 8:00-17:00 (Mar-Sep); 8:00-16:30 (Oct-Feb).<br><strong>Precio:</strong> 400 yenes (aprox. 2.5€).<br><br>Fundado en 1282 tras la invasión mongola, es uno de los templos zen más importantes de Kamakura. Podremos observar el Butsuden, alberga una imponente estatua de Shaka Nyorai, iluminada de forma natural. La gran puerta Sanmon da paso a un entorno de colinas arboladas que realzan la atmósfera meditativa del lugar. <br><br>A lo largo de los senderos del templo, es común encontrar pequeñas estatuas de Jizo, el protector de los niños y viajeros.Estas figuras de piedra, a menudo cubiertas con gorros y baberos rojos, simbolizan la compasión y la esperanza. Muchas de ellas han sido colocadas por familias en honor a los niños fallecidos, creando un rincón de profunda espiritualidad.',
+                      images: [ 
+                      '/assets/japan/Tokio/Dia11/Hasedera_templo.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_entrada.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_lu.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_estatuas.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_jardin.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_estatuas2.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_alex.JPG',
+                      '/assets/japan/Tokio/Dia11/Hasedera_estatuas3.JPG',
+                      ],
+                      longitude: 139.53306340463843,
+                      latitude: 35.31262203301493, 
+                      mapUrl: 'map-shinjuku'
+                    }
+                    ,
+                    {
+                      name: 'Kotoku‐in y Gran Buda de Kamakura',
+                      description: '
+                        <strong>Horario:</strong> 8-17:30 (Abr-Sep); 8-17 (Oct-Mar).<br> <strong>Precio:</strong> 300 yenes (aprox. 2€).<br><br> El templo Kōtoku-in alberga una de las figuras más icónicas de Japón: <strong>el Gran Buda de Kamakura (Daibutsu)</strong>. Esta imponente estatua de bronce, de 13,35 metros de altura y 93 toneladas, data del siglo XIII y representa a Amida Nyorai en posición de meditación. Originalmente, la imagen se encontraba en un santuario de madera, pero tras varios tsunamis y tifones, ha permanecido al aire libre durante más de 500 años, convirtiéndose en símbolo de resiliencia.<br><br> Una de sus características más sorprendentes es su interior hueco, accesible para los visitantes, lo que permite observar la técnica de fundición medieval utilizada en su construcción. La expresión serena del Buda, combinada con el entorno natural, transmite una sensación de paz y atemporalidad. Aunque la estatua ha sufrido daños a lo largo de los siglos, sigue siendo un lugar de culto activo y un destino turístico popular.',
+                      images: [
+                      '/assets/japan/Tokio/Dia11/Buda.JPG',
+                      '/assets/japan/Tokio/Dia11/Buda2.JPG',
+                      '/assets/japan/Tokio/Dia11/Buda_alex.JPG',
+                      '/assets/japan/Tokio/Dia11/Buda_lu.JPG',
+                      '/assets/japan/Tokio/Dia11/Buda_alex2.JPG',
+                      ],
+                      longitude: 139.53556937653084,
+                      latitude: 35.31706290406371, 
+                      mapUrl: 'map-shinjuku'
+                    }
+                    
+                  ],
+                    }">
+              </app-itinerary-day-card>
+
+          
+
+          <div class="subzone-container">
+            <!-- <div class="subzone-banner">
+              <img src="/assets/landing/minimal_japan.jpg" alt="Tokio Ciudad">
+            </div> -->
+            <div class="subzone-content">
+              <h3>Descubre la Ciudad de Tokio</h3>
+              <!-- <p>Explora los barrios vibrantes de Shinjuku, Shibuya y Akihabara. Disfruta de la mezcla perfecta entre modernidad y tradición en el corazón de Japón.</p> -->
+            </div>
+          </div>
+
+          <!-- Día 12: Tokio: Asakusa, Ueno, Akihabara -->
+          <app-itinerary-day-card 
+          [borderClass]="'border-blue'"
+          [day]="{
+            title: 'Día 12 - TOKIO: Barrio de Asakusa, Ueno y Akihabara',
+            activities: [
+              { 
+                name: 'Asakusa', 
+                description: 'En este segundo día en Tokio, comenzaremos en Asakusa, donde exploraremos el ambiente tradicional y visitaremos templos históricos. Luego, nos dirigiremos a Ueno, un parque que ofrece un respiro natural y varios museos. Finalmente, terminaremos el día en Akihabara, un distrito vibrante conocido por su cultura pop y tecnología, donde disfrutaremos de un ambiente moderno y entretenido.\n\nAsakusa es uno de los distritos más antiguos y tradicionales de Tokio, famoso por su mezcla de cultura antigua y moderna. Aquí podrás disfrutar de la atmósfera vibrante mientras paseas por la calle Nakamise Dori, repleta de tiendas que ofrecen souvenirs y deliciosos snacks japoneses. ',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/TemploIni.JPG',],
+    
+                longitude: 139.79733, 
+                latitude: 35.71016, 
+                mapUrl: 'map-asakusa' 
+              },
+              { 
+                name: 'Templo Senso-ji', 
+                description: 'El templo Senso-ji es el templo budista más antiguo de Tokio, fundado en el año 645 d.C. Su impresionante puerta, conocida como la puerta Hozomon, está flanqueada por dos enormes faroles rojos, convirtiéndose en un símbolo emblemático de la ciudad. Al entrar, los visitantes pueden disfrutar de una variedad de tiendas que venden amuletos de buena suerte y recuerdos.\n \n En su interior podemos encontrar La puerta Hozomon, que significa Puerta del Tesoro, es la entrada principal al templo Senso-ji. Esta imponente estructura de dos pisos alberga una colección de tesoros budistas. Es un lugar perfecto para tomar fotografías y capturar la esencia del Japón antiguo. ',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/TemploSensojijuntos.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/TemploSensoji.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/TemploSensojiCampana.JPG'], 
+                longitude: 139.7967, 
+                latitude: 35.7148, 
+                mapUrl: 'map-sensoji' 
+              },
+              { 
+                name: 'Parque Sumida', 
+                description: 'El parque Sumida es un hermoso espacio verde que ofrece impresionantes vistas del río Sumida y del Tokyo Skytree. Es el lugar ideal para relajarse después de una mañana explorando Asakusa. El parque alberga actividades culturales, incluidos festivales de flor de cerezo en primavera, y está lleno de senderos y áreas de picnic, convirtiéndose en un espacio popular tanto para lugareños como para turistas.\nPosteriormente cruzaremos el puente Kototoi dirección al Tokyo Skytree.',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueSumida.jpg',
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueSumidaView.jpg',], 
+                longitude: 139.80146, 
+                latitude: 35.71406, 
+                mapUrl: 'map-sumida-park' 
+              },
+              { 
+                name: 'Tokyo Skytree', 
+                description: 'El Tokyo Skytree, con 634 metros de altura, es el edificio más alto de Japón y la segunda estructura más alta del mundo. La plataforma de observación ofrece una vista panorámica impresionante de la ciudad y, en días despejados, se puede ver el monte Fuji. Además, la torre alberga un centro comercial y un acuario, lo que la convierte en un destino atractivo para los visitantes.\n\n Una recomendacón es pararse en el puente Kotoko antes de llegar a la torre y podreis disfrutar de uans fotos maravillosas :)',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/TokioSkytree.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeJuntos.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeLu.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeBridge.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeLand.JPG'], 
+                longitude: 139.8028, 
+                latitude: 35.7106, 
+                mapUrl: 'map-tokyo-skytree' 
+              },
+              { 
+                name: 'Oficinas centrales de Asahi', 
+                description: 'El edificio de las oficinas centrales de Asahi es conocido por su diseño innovador, que incluye un gran mojón dorado que se asemeja a una cerveza espumosa. Este edificio es un ícono de la arquitectura moderna en Tokio y ha sido objeto de debates sobre su diseño. Desde aquí, puedes disfrutar de una excelente vista del río y la ciudad.',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/Asahi.JPG',
+                  '/assets/japan/asahi_offices.jpg'], 
+                longitude: 139.80026, 
+                latitude: 35.71007, 
+                mapUrl: 'map-asahi-offices' 
+              },
+              { 
+                name: 'Hoppy Street', 
+                description: 'Hoppy Street es famosa por su ambiente vibrante y sus numerosos izakayas (bares japoneses). Este es el lugar perfecto para probar el Hoppy, una bebida popular entre los locales. \n\n Para terminar en la calle Kappabashi, Conocida como Kitchen Town, famosa por sus tiendas que venden utensilios de cocina y alimentos falsos utilizados para exhibiciones. \n\n En todo esto echaremos la mitad de la mañana. ',
+                images: ['/assets/japan/hoppy_street.jpg'], 
+                longitude: 139.79410, 
+                latitude: 35.71414, 
+                mapUrl: 'map-hoppy-street' 
+              },
+    
+              { 
+                name: 'Parque de Ueno', 
+                description: 'El parque de Ueno es uno de los parques más grandes y populares de Tokio es un lugar ideal para relajarse y disfrutar de la naturaleza en medio del bullicio de la ciudad. Dentro de este parque podremos ver: \n\n El Templo Kaneiji, fundado en 1625, es uno de los más importantes de Tokio. Su Rinnoden alberga las cenizas de Tokugawa Ieyasu, el fundador del shogunato. Ofrece vistas panorámicas de Ueno y un ambiente de tranquilidad en medio de la ciudad. \n\n En el también se encuentra Museo Nacional de Tokio que alberga una vasta colección de arte y antigüedades, destacando espadas samuráis y cerámicas y el Santuario Ueno Toshogu.',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueUenoEntry.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueUeno.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueUenoLu.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueUenoTemple.JPG',
+                  '/assets/japan/Tokio/AsakusaUeno/ParqueUenoPagoda.JPG'],
+                longitude: 139.7757, 
+                latitude: 35.7138, 
+                mapUrl: 'map-ueno-park' 
+              },
+              {
+                name: 'Estanque Shinobazu y Estatua de Saigo Takamori', 
+                description: 'El estanque Shinobazu es una atracción central dentro del Parque de Ueno, conocido por sus hermosas vistas y por las actividades de remo. En el centro del estanque se encuentra una pequeña isla que alberga el Templo Bentendo. A lo largo del estanque se puede ver la estatua de Saigo Takamori, uno de los últimos samuráis, que es un ícono popular de la historia de Japón.',
+                images: [
+                '/assets/japan/Tokio/AsakusaUeno/Estanque.JPG',
+                '/assets/japan/Tokio/AsakusaUeno/EstanqueJuntos.JPG'],
+                longitude:  139.77110, 
+                latitude: 35.71225, 
+                mapUrl: 'map-shinobazu-pond'
+              }
+              ,
+              { 
+                name: 'Akihabara', 
+                description: 'Akihabara es el paraíso de los amantes del anime, los videojuegos y la cultura otaku. Este barrio está lleno de tiendas de electrónica, cafés temáticos y restaurantes que ofrecen experiencias únicas. Si eres un fanático de la cultura pop japonesa, no querrás perderte este vibrante vecindario. Además, Akihabara es conocido por sus eventos especiales y exposiciones, por lo que siempre hay algo nuevo que descubrir.',
+                images: [
+                  '/assets/japan/Tokio/AsakusaUeno/AkihabaraIni.HEIC'], 
+                longitude: 139.77308438287645, 
+                latitude: 35.698485436385894, 
+                mapUrl: 'map-akihabara' 
+              },
+              { 
+                name: 'Akihabara - Otaku', 
+                description: 'En este punto toca sacar el lado más Otaku que llevamso dentro, de toda la selección de opciones os recomendamos dos: \n\n Mandarake Akihabara es un paraíso para los coleccionistas de anime y manga. Es un  complejo de 8 pisos, cada uno está dedicado a diferentes categorías: manga, figuras, cosplay, doujinshi, y más. Por cierto espero que no tengas vértico porque sus escaleras son las típicas escaleras de incendios situadas en la fachada del edificio. \n\n Animate Akihabara tiene 7 pisos repletos de mercancía oficial. La planta baja está dedicada a los últimos lanzamientos de manga y novelas ligeras, mientras que los pisos superiores ofrecen una amplia gama de productos, desde CD dramas y música de anime...',
+                images: [
+                '/assets/japan/Tokio/AsakusaUeno/AkihabaraMandarake.JPG',
+                '/assets/japan/Tokio/AsakusaUeno/AkihabaraFigurasOP.HEIC',
+                '/assets/japan/Tokio/AsakusaUeno/AkihabaraMandarakeLu.JPG',
+                '/assets/japan/Tokio/AsakusaUeno/AkihabaraFigurasSNK.HEIC'
+                ], 
+                longitude: 139.770512888675, 
+                latitude: 35.70039368185262,  
+                mapUrl: 'map-akihabara' 
+              }
+            ]
+          }"></app-itinerary-day-card>
+
+          <!-- Día 13: Tokio: Parque Yoyogi, Shibuya -->
+          <app-itinerary-day-card 
+          [borderClass]="'border-blue'"
+          [day]="{
+            title: 'Día 13 - TOKIO: Parque Yoyogi, Santuario Meiji y barrio de Shibuya, ',
+            activities: [
+              {
+                name: 'St Harajuku',
+                description: 'Este día vamos a visitar los barrios de Harajuku y Shibuya. Es un día que comienza tranquilo de paseo por el parque Yoyogi, descubriendo el santuario Meiji. Posteriormete alcanza un toque urbanita en Takeshita Street y Omotensando Hills. Para acabar el ajetreo y caos del barrio de Shibuya. \n\n Harajuku es conocido por su estilo de moda callejera única y por ser un lugar de encuentro para jóvenes creativos. Aquí encontrarás tiendas de ropa vintage, cafés temáticos y una vibrante escena artística. Uno de los lugares más emblemáticos de Harajuku es Takeshita Street, una calle peatonal llena de tiendas de moda y dulces. El barrio de shibuya es conocido por su cruce peatonal, uno de los más transitados del mundo. Aquí encontrarás tiendas de moda, restaurantes y entretenimiento, lo que lo convierte en un lugar ideal para explorar y disfrutar de la vida nocturna de Tokio.',
+                
+                images: [
+                  '/assets/japan/Tokio/Dia13/TemploIni.JPG'
+                ],
+                longitude: 139.70243400080096,
+                latitude: 35.67022503392733, 
+                mapUrl: 'map-shinjuku'
+              },
+              {
+                name: 'Parque Yoyogi',
+                description: '<strong>Horario:</strong> Abierto 24 horas.<br> <strong>Precio:</strong> Entrada gratuita.<br><br>El Parque Yoyogi es uno de los espacios verdes más grandes y animados de Tokio. Con amplias áreas de césped, senderos para caminar y zonas ideales para picnic, es un lugar perfecto para relajarse y escapar del ajetreo de la ciudad. Durante los fines de semana, el parque se llena de vida con artistas callejeros, grupos de baile y músicos, creando un ambiente vibrante y cultural. En primavera, los cerezos florecen, convirtiéndolo en un lugar ideal para el hanami, mientras que en otoño sus árboles ginkgo tiñen el paisaje de tonos dorados. A su vez en su interior podremos visitar el santuario Meiji',
+                images: [
+                  '/assets/japan/Tokio/Dia13/Yoyogi_arco.JPG',
+                  '/assets/japan/Tokio/Dia13/Yoyogi_alex.JPG',
+                  '/assets/japan/Tokio/Dia13/Yoyogi_lu.JPG',
+                  '/assets/japan/Tokio/Dia13/Yoyogi_juntos.JPG',
+                  '/assets/japan/Tokio/Dia13/Yoyogi_parque.JPG',
+                  '/assets/japan/Tokio/Dia13/Yoyogi_2.JPG',
+                  '/assets/japan/Tokio/Dia13/Yoyogi_arc.JPG',
+                ],
+                longitude: 139.69499778991937,
+                latitude: 35.67017815236712, 
+                mapUrl: 'map-shinjuku'
+              },
+
+              {
+                name: 'Santuario  Meiji',
+                description: ' <strong>Horario:</strong> 5-18h (última entrada a las 17:45).<br> <strong>Precio:</strong> Entrada gratuita.<br><br>El Santuario Meiji es uno de los santuarios más importantes de Tokio, dedicado al emperador Meiji y su esposa, la emperatriz Shōken. Rodeado por un vasto bosque en pleno centro de la ciudad, el santuario ofrece una atmósfera tranquila y espiritual, ideal para escapar del bullicio urbano. Al ingresar, se pasa por una majestuosa puerta torii de madera, y en el interior se pueden realizar ceremonias tradicionales japonesas. Además, el santuario cuenta con un hermoso jardín y una zona donde los visitantes pueden escribir sus deseos en tablillas de madera (ema). Un lugar de gran significado histórico y cultural para Japón.<br><br>La idea es pasar aqui buena parte de la mañana entre el parque Yoyogi y el santuario Meiji.',
+                images: [
+                  '/assets/japan/Tokio/Dia13/Meiji.JPG',
+                  '/assets/japan/Tokio/Dia13/Meiji_puerta.JPG',
+                  '/assets/japan/Tokio/Dia13/Meiji_plaza.JPG',
+                  '/assets/japan/Tokio/Dia13/Meiji_puerta2.JPG'
+                ],
+                longitude: 139.69937418511742,
+                latitude: 35.676567492455035, 
+                mapUrl: 'map-shinjuku'
+              },
+              {
+                name: 'Takeshita Street',
+                description: '<strong>Horario:</strong> Abierto todo el día.<br><strong>Precio:</strong> Entrada gratuita.<br><br> Takeshita Street es una de las calles más emblemáticas de Harajuku, conocida por su vibrante cultura juvenil y su oferta de moda única. A lo largo de esta animada calle peatonal, encontrarás tiendas de ropa alternativa, boutiques de moda, cafeterías temáticas y una gran variedad de tiendas de dulces y accesorios. La zona es un punto de encuentro para los fashionistas y aquellos que buscan las últimas tendencias de la cultura pop japonesa. Además, Takeshita Street es famosa por su ambiente energético y colorido, ideal para los que disfrutan del dinamismo urbano y la innovación creativa. ¡Es un lugar perfecto para explorar, sacar fotos y descubrir lo mejor de la moda de Tokio!',
+                images: [
+                '/assets/japan/Tokio/Dia13/Takeshita.JPG',
+                ],
+                longitude: 139.70325021264617,
+                latitude: 35.671652732485256, 
+                mapUrl: 'map-shinjuku'
+              },
+              {
+                name: 'Santuario Togo',
+                description: '<strong>Horario:</strong> 9:00 - 17:00 (cerrado los lunes).<br><strong>Precio:</strong> Entrada gratuita.<br><br>El Santuario Togo es un pequeño pero significativo lugar de culto situado en el barrio de Harajuku, dedicado a la memoria del almirante Heihachiro Togo, un héroe nacional japonés conocido por sus victorias en la guerra ruso-japonesa. Este santuario ofrece un ambiente tranquilo y relajante, rodeado de árboles y naturaleza, lo que lo convierte en un refugio perfecto del bullicio de la ciudad. Aunque no es tan conocido como el Santuario Meiji, Togo es ideal para quienes buscan un espacio más íntimo y menos turístico para experimentar la espiritualidad japonesa en el corazón de Tokio.',
+                images: [
+                '/assets/japan/Tokio/Dia13/Togo.JPG',
+                '/assets/japan/Tokio/Dia13/Togo_es.JPG',
+                ],
+                longitude: 139.70588681997026,
+                latitude: 35.67187959695022,
+                mapUrl: 'map-shinjuku'
+              },
+              {
+                name: 'Omotensando Hills',
+                description: '<strong>Horario:</strong> Abierto todo el día (tiendas de 10:00 a 20:00 dependiendo de la tienda).<br><strong>Precio:</strong> Entrada gratuita.<br><br> Iniciamos nuestro recorrido con el objetivo de llegar a Omote-Sando Station para tomar el tren hacia Shinjuku, pero en el camino disfrutaremos de todo lo que ofrece esta famosa calle. <br><br>El paseo comienza cerca de la estación de Omote-Sando, a lo largo del camino, veremos algunos de los edificios más impresionantes de Tokio, como el edificio V28, conocido por su diseño vanguardista, el edificio Iceberg, que es una joya de la arquitectura moderna, y el Laforet Museum, donde se fusionan arte y moda en un solo espacio. Mientras avanzamos, podemos hacer una parada en cada tienda que nos atraiga: desde boutiques de lujo hasta tiendas de diseño independiente, todo se encuentra a lo largo de esta sofisticada calle. También podemos aprovechar para hacer una parada para comer en alguno de los muchos restaurantes y cafés que ofrecen opciones tanto japonesas como internacionales. Después de explorar a fondo, nos dirigimos hacia Omote-Sando Station para continuar nuestro camino hacia Shinjuku.',
+                images: [
+                  '/assets/japan/Tokio/Dia13/Omotensando_ed2.JPG',
+                  '/assets/japan/Tokio/Dia13/Omotensando_ed.JPG',
+                  '/assets/japan/Tokio/Dia13/Omotensando_tori.JPG',
+                ],
+                longitude: 139.70858125131375,
+                latitude: 35.66750795953513, 
+                mapUrl: 'map-shinjuku'
+              },
+              {
+                name: 'Shibuya - Cruce peatones',
+                description: '<strong>Horario:</strong> Abierto todo el día.<br>  <strong>Precio:</strong> Gratuito.<br><br>El cruce de Shibuya es un emblema de Tokio, conocido por la cantidad de personas que cruzan las calles en todas direcciones. El espectáculo visual es increíble, especialmente durante las horas punta. Es una parada imprescindible para capturar la esencia del ajetreo urbano de la ciudad. Desde este punto, podemos observar los enormes pantallas publicitarias y el bullicio de la zona, ideal para tomar fotos o simplemente admirar la escena. No olvides la estatua de Hachiko, cerca del cruce, famosa por la lealtad de este perro a su dueño.',
+                images: [
+                  '/assets/japan/Tokio/Dia13/cruce_arriba.JPG',
+                  '/assets/japan/Tokio/Dia13/cruce.JPG',
+                  '/assets/japan/Tokio/Dia13/cruce_ab.JPG',
+                ],
+                longitude: 139.70052524717596,
+                latitude: 35.65965655131027, 
+                mapUrl: 'map-shinjuku'
+              },
+
+              {
+                name: 'Shibuya - Shibuya Sky',
+                description: '<strong>Horario:</strong> 10:00 - 22:00.<br><strong>Precio:</strong> 2,000 yenes (aprox. 13€).<br><br> Shibuya Sky es la plataforma de observación de uno de los edificios más altos del barrio. Desde su cima, se puede disfrutar de una vista de 360 grados de Tokio, incluyendo una vista espectacular de la Torre de Tokio y los rascacielos de Shinjuku. Es un excelente lugar para tomar fotos panorámicas y disfrutar de la ciudad desde una perspectiva diferente. En los días despejados, se puede ver incluso el Monte Fuji a lo lejos.\n\n Nosotros no pudimos subir debido a que es necesario reservar con muchísima antelación, pero si tienes la oportunidad, te lo recomendamos.En el caso de que sea un imprescindible para ti deberás mirarlo con mas de 3 meses de antelación',
+
+                images: [
+                  '/assets/japan/Tokio/Dia13/Shibuya_SKY.webp',
+                  '/assets/japan/Tokio/Dia13/Shibuya_SKY2.JPG',
+                ],
+                longitude: 139.70212330955965 ,
+                latitude: 35.658558968627176, 
+                mapUrl: 'map-shinjuku'
+              },
+
+              {
+                name: 'Shibuya - Actividades Frikis',
+                description: '<strong>Horario:</strong> Varía según las tiendas, generalmente de 10:00 a 22:00.<br><strong>Precio:</strong> Gratuito para las tiendas(Ya depende de cada uno lo que se quiera gastar !!!).<br><br> Shibuya es un paraíso para los fans de la cultura friki, con numerosas tiendas dedicadas al anime, manga y videojuegos. Lugares como el Tower Records, famoso por su colección de música y productos relacionados con el pop japonés, o el Animate Shibuya, un paraíso para los amantes del anime, donde puedes encontrar desde figuras de colección hasta ropa y accesorios temáticos. Si tienes tiempo, también puedes visitar el centro de arcades para disfrutar de una experiencia de videojuegos única y probada, o incluso participar en actividades interactivas relacionadas con tus series o videojuegos favoritos.',
+
+                images: [
+                  '/assets/japan/Tokio/Dia13/friki_eren.JPG',
+                  '/assets/japan/Tokio/Dia13/friki_calle.JPG',
+                  '/assets/japan/Tokio/Dia13/friki_monedas.JPG',
+                  '/assets/japan/Tokio/Dia13/friki_comida.JPG',
+                  '/assets/japan/Tokio/Dia13/friki_comida2.JPG',
+                ],
+                longitude: 139.697764040398 ,
+                latitude: 35.66099938826705, 
+                mapUrl: 'map-shinjuku'
+              },
+            ]
+                }">
+          </app-itinerary-day-card>
+
+          <!-- Día 14: Tokio: Chuo, Ginza y Odaiba -->
+          <app-itinerary-day-card 
+          [borderClass]="'border-blue'"
+          [day]="{
+            title: 'Día 14 - TOKIO: – Barrios de Chuo, Chiyoda, Ginza y Odaiba',
+            activities: [
+              {
+                name: 'TO DO',
+                description: '',
                 images: [
                   '/assets/japan/shinjuku.jpg'
                 ],
-                longitude: 139.54533759015214,
-                latitude: 35.33726439889863, 
-                mapUrl: 'map-shinjuku'
-              },
-              {
-                name: 'Templo  Engau‐ji',
-                description: '
-                <strong>Horario:</strong> 8:00 - 16:30 <br> <strong>Precio:</strong> 300 yenes (aprox. 1,80 €)<br><br> Fundado en 1282 es uno de los cinco grandes templos zen (Gozan) de Kamakura y el segundo en importancia. Rodeado de un exuberante bosque de bambú y arces.<br><br>Entre sus tesoros arquitectónicos destacan su imponente puerta de entrada (Sanmon) de color negro, el salón principal (Butsuden), y la antigua campana de bronce (Ogane) del siglo XIII, considerada Tesoro Nacional de Japón. El templo alberga también el Shariden, un relicario que contiene un diente de Buda, designado como Importante Propiedad Cultural.',
-                images: [
-                '/assets/japan/Tokio/Dia11/Engauji_alex.JPG',
-                '/assets/japan/Tokio/Dia11/Engauji_int.JPG',
-                '/assets/japan/Tokio/Dia11/Engauji_lu.JPG',
-                '/assets/japan/Tokio/Dia11/Engauji_juntos.JPG',
-                ],
-                longitude: 139.54738562748577,
-                latitude: 35.33783047384222, 
-                mapUrl: 'map-shinjuku'
-              },
-              {
-                name: 'Templo  Tokei‐ji',
-                description: ' <strong>Horario:</strong> 8-17 (Apr-Sep) y de 8-16:30 (Oct-Mar).<br><strong>Precio:</strong> 200 yenes (aprox. 1,20 €).<br><br> Este templo se encuentra a 5 min cruzando las vías del tren. Fundado en 1285, al atravesar su discreta entrada, descubrirás un oasis de tranquilidad con jardines meticulosamente cuidados. El camino principal te lleva entre árboles centenarios y arbustos de hortensias que florecen espectacularmente en junio.<br><br>No te pierdas el cementerio histórico, donde reposan importantes figuras y que transmite una atmósfera de serenidad entre musgo y piedras antiguas.<br><br>',
-                images: [
-                '/assets/japan/Tokio/Dia11/Tokeiji_alex.JPG',
-                '/assets/japan/Tokio/Dia11/Tokeiji_campana.JPG',
-                '/assets/japan/Tokio/Dia11/Tokeiji_jardin.JPG',
-                '/assets/japan/Tokio/Dia11/Tokeiji_exterior.JPG',
-                '/assets/japan/Tokio/Dia11/Tokeiji_templo.JPG',
-                '/assets/japan/Tokio/Dia11/Tokeiji_puerta.JPG',
-                ],
-                longitude: 139.54571676670705,
-                latitude: 35.33535995361292, 
+                longitude: 139.7016,
+                latitude: 35.6895,
                 mapUrl: 'map-shinjuku'
               }
-              ,
-              {
-                name: 'Subida al templo Kencho‐ji',
-                description: '<strong>Horario:</strong> 8:30 a 16:30.<br><strong>Precio:</strong> 500 yenes (aprox. 3 €).<br><br>Fundado en 1253, el Kencho-ji es el templo zen más antiguo de Kamakura y el primero de los Cinco Grandes Templos. La visita inicia al cruzar la imponente puerta Sanmon, la más grande de la ciudad, que sirve como espléndido pórtico hacia este santuario espiritual.<br><br>El ascenso requiere subir miles de escaleras, pero te prometemos que vale la pena. La escalinata de piedra ofrece una experiencia gradual de descubrimiento. Mientras subes, notarás cómo los antiguos pinos y cedros crean un ambiente de serenidad que invita a la contemplación. Cada tramo revela nuevas vistas del complejo, permitiéndote apreciar la disposición armoniosa de los edificios.<br><br>A medio camino, los jardines zen merecen una pausa contemplativa.Si decides continuar hasta Hansobo, el esfuerzo será recompensado con magníficas vistas panorámicas de Kamakura y, en días despejados, el majestuoso Monte Fuji en la distancia.',
-                images: [
-                '/assets/japan/Tokio/Dia11/Kenchoji_entrada.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_lu.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_escaleras2.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_subida.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_vistas.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_leon.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_esc_lu.JPG',
-                '/assets/japan/Tokio/Dia11/Kenchoji_esc_Alex.JPG',
 
-                ],
-                longitude: 139.5549461337951,
-                latitude: 35.33162034857519, 
-                mapUrl: 'map-shinjuku'
-              }
-              ,
-              {
-                name: 'Tsuruoka Hachimangu',
-                description: '<strong>Horario:</strong> 5-21 (recinto); 8-16:30 (museo).<br><strong>Precio:</strong> Entrada gratuita al recinto; 200 yenes para el museo.<br><br>El Tsuruoka Hachimangu, fundado en 1063, es el santuario más imponente de Kamakura y corazón espiritual de la antigua capital samurái (está dedicado al dios de la guerra Hachiman.). La visita comienza cruzando el emblemático puente de madera sobre un estanque de lotos, seguido de un paseo por la amplia avenida ceremonial .<br><br>Al avanzar por el sendero principal, notarás detalles arquitectónicos únicos como las barandillas rojas y los faroles de piedra tradicionales. La estructura principal del santuario, reconstruida en 1828, impresiona por su majestuoso tejado a dos aguas decorado con elementos dorados y tallas elaboradas en vivos colores rojo y verde, representando el estilo arquitectónico de la era Edo.<br><br>Se puede visitar el Museo del Tesoro (a la derecha del santuario principal) que alberga una colección excepcional de espadas ceremoniales, máscaras antiguas y artefactos samurái.',
-                images: [
-                '/assets/japan/Tokio/Dia11/Tsuruoka_faroles.JPG',
-                '/assets/japan/Tokio/Dia11/Tsuruoka_bidones.JPG',
-                '/assets/japan/Tokio/Dia11/Tsuruoka_alex.JPG',
-                '/assets/japan/Tokio/Dia11/Tsuruoka_juntos.JPG',
-                '/assets/japan/Tokio/Dia11/Tsuruoka_salida.JPG',
-                ],
-                longitude: 139.55660372399828,
-                latitude: 35.32662876985529, 
-                mapUrl: 'map-shinjuku'
-              }
-              ,
-              {
-                name: 'Calle  comercial  Komachi',
-                description: '<strong>Horario:</strong> La mayoría de tiendas abren de 10:00 a 18:00; restaurantes hasta 21:00.<br><strong>Precio:</strong> Desde tiendas económicas hasta boutiques exclusivas. Comidas desde 800 yenes (menú del día) hasta 3000+ yenes (restaurantes tradicionales).<br><br>La calle Komachi-dori es el alma comercial de Kamakura, un pintoresco callejón que se extiende por 360 metros desde la estación hasta el santuario Hachimangu. Este bullicioso paseo está repleto de tiendas de artesanía tradicional, donde encontrarás desde cerámica y kimonos hasta modernos souvenirs. <strong>Aquí aprovechamos para hacer una pausa para comer </strong>. Sin embargo no nos podremos demorar mucho ya que nos quedan varios lugares por visitar y la mayoría de los templos cierran a las 16:30.',
-              
-                images: ['/assets/japan/shinjuku.jpg'],
-                longitude: 139.55323205508174,
-                latitude: 35.32256668382845, 
-                mapUrl: 'map-shinjuku'
-              }
-              ,
-              {
-                name: ' Templo  Hase‐dera',
-                description: '<strong>Horario:</strong> 8:00-17:00 (Mar-Sep); 8:00-16:30 (Oct-Feb).<br><strong>Precio:</strong> 400 yenes (aprox. 2.5€).<br><br>Fundado en 1282 tras la invasión mongola, es uno de los templos zen más importantes de Kamakura. Podremos observar el Butsuden, alberga una imponente estatua de Shaka Nyorai, iluminada de forma natural. La gran puerta Sanmon da paso a un entorno de colinas arboladas que realzan la atmósfera meditativa del lugar. <br><br>A lo largo de los senderos del templo, es común encontrar pequeñas estatuas de Jizo, el protector de los niños y viajeros.Estas figuras de piedra, a menudo cubiertas con gorros y baberos rojos, simbolizan la compasión y la esperanza. Muchas de ellas han sido colocadas por familias en honor a los niños fallecidos, creando un rincón de profunda espiritualidad.',
-                images: [ 
-                '/assets/japan/Tokio/Dia11/Hasedera_templo.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_entrada.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_lu.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_estatuas.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_jardin.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_estatuas2.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_alex.JPG',
-                '/assets/japan/Tokio/Dia11/Hasedera_estatuas3.JPG',
-                ],
-                longitude: 139.53306340463843,
-                latitude: 35.31262203301493, 
-                mapUrl: 'map-shinjuku'
-              }
-              ,
-              {
-                name: 'Kotoku‐in y Gran Buda de Kamakura',
-                description: '
-                  <strong>Horario:</strong> 8-17:30 (Abr-Sep); 8-17 (Oct-Mar).<br> <strong>Precio:</strong> 300 yenes (aprox. 2€).<br><br> El templo Kōtoku-in alberga una de las figuras más icónicas de Japón: <strong>el Gran Buda de Kamakura (Daibutsu)</strong>. Esta imponente estatua de bronce, de 13,35 metros de altura y 93 toneladas, data del siglo XIII y representa a Amida Nyorai en posición de meditación. Originalmente, la imagen se encontraba en un santuario de madera, pero tras varios tsunamis y tifones, ha permanecido al aire libre durante más de 500 años, convirtiéndose en símbolo de resiliencia.<br><br> Una de sus características más sorprendentes es su interior hueco, accesible para los visitantes, lo que permite observar la técnica de fundición medieval utilizada en su construcción. La expresión serena del Buda, combinada con el entorno natural, transmite una sensación de paz y atemporalidad. Aunque la estatua ha sufrido daños a lo largo de los siglos, sigue siendo un lugar de culto activo y un destino turístico popular.',
-                images: [
-                '/assets/japan/Tokio/Dia11/Buda.JPG',
-                '/assets/japan/Tokio/Dia11/Buda2.JPG',
-                '/assets/japan/Tokio/Dia11/Buda_alex.JPG',
-                '/assets/japan/Tokio/Dia11/Buda_lu.JPG',
-                '/assets/japan/Tokio/Dia11/Buda_alex2.JPG',
-                ],
-                longitude: 139.53556937653084,
-                latitude: 35.31706290406371, 
-                mapUrl: 'map-shinjuku'
-              }
-              
-            ],
-              }">
-        </app-itinerary-day-card>
-
-        <!-- Día 12: Tokio: Asakusa, Ueno, Akihabara -->
-        <app-itinerary-day-card 
-        [borderClass]="'border-blue'"
-        [day]="{
-          title: 'Día 12 - TOKIO: Barrio de Asakusa, Ueno y Akihabara',
-          activities: [
-            { 
-              name: 'Asakusa', 
-              description: 'En este segundo día en Tokio, comenzaremos en Asakusa, donde exploraremos el ambiente tradicional y visitaremos templos históricos. Luego, nos dirigiremos a Ueno, un parque que ofrece un respiro natural y varios museos. Finalmente, terminaremos el día en Akihabara, un distrito vibrante conocido por su cultura pop y tecnología, donde disfrutaremos de un ambiente moderno y entretenido.\n\nAsakusa es uno de los distritos más antiguos y tradicionales de Tokio, famoso por su mezcla de cultura antigua y moderna. Aquí podrás disfrutar de la atmósfera vibrante mientras paseas por la calle Nakamise Dori, repleta de tiendas que ofrecen souvenirs y deliciosos snacks japoneses. ',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/TemploIni.JPG',],
-  
-              longitude: 139.79733, 
-              latitude: 35.71016, 
-              mapUrl: 'map-asakusa' 
-            },
-            { 
-              name: 'Templo Senso-ji', 
-              description: 'El templo Senso-ji es el templo budista más antiguo de Tokio, fundado en el año 645 d.C. Su impresionante puerta, conocida como la puerta Hozomon, está flanqueada por dos enormes faroles rojos, convirtiéndose en un símbolo emblemático de la ciudad. Al entrar, los visitantes pueden disfrutar de una variedad de tiendas que venden amuletos de buena suerte y recuerdos.\n \n En su interior podemos encontrar La puerta Hozomon, que significa Puerta del Tesoro, es la entrada principal al templo Senso-ji. Esta imponente estructura de dos pisos alberga una colección de tesoros budistas. Es un lugar perfecto para tomar fotografías y capturar la esencia del Japón antiguo. ',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/TemploSensojijuntos.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/TemploSensoji.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/TemploSensojiCampana.JPG'], 
-              longitude: 139.7967, 
-              latitude: 35.7148, 
-              mapUrl: 'map-sensoji' 
-            },
-            { 
-              name: 'Parque Sumida', 
-              description: 'El parque Sumida es un hermoso espacio verde que ofrece impresionantes vistas del río Sumida y del Tokyo Skytree. Es el lugar ideal para relajarse después de una mañana explorando Asakusa. El parque alberga actividades culturales, incluidos festivales de flor de cerezo en primavera, y está lleno de senderos y áreas de picnic, convirtiéndose en un espacio popular tanto para lugareños como para turistas.\nPosteriormente cruzaremos el puente Kototoi dirección al Tokyo Skytree.',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/ParqueSumida.jpg',
-                '/assets/japan/Tokio/AsakusaUeno/ParqueSumidaView.jpg',], 
-              longitude: 139.80146, 
-              latitude: 35.71406, 
-              mapUrl: 'map-sumida-park' 
-            },
-            { 
-              name: 'Tokyo Skytree', 
-              description: 'El Tokyo Skytree, con 634 metros de altura, es el edificio más alto de Japón y la segunda estructura más alta del mundo. La plataforma de observación ofrece una vista panorámica impresionante de la ciudad y, en días despejados, se puede ver el monte Fuji. Además, la torre alberga un centro comercial y un acuario, lo que la convierte en un destino atractivo para los visitantes.\n\n Una recomendacón es pararse en el puente Kotoko antes de llegar a la torre y podreis disfrutar de uans fotos maravillosas :)',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/TokioSkytree.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeJuntos.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeLu.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeBridge.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/TokioSkytreeLand.JPG'], 
-              longitude: 139.8028, 
-              latitude: 35.7106, 
-              mapUrl: 'map-tokyo-skytree' 
-            },
-            { 
-              name: 'Oficinas centrales de Asahi', 
-              description: 'El edificio de las oficinas centrales de Asahi es conocido por su diseño innovador, que incluye un gran mojón dorado que se asemeja a una cerveza espumosa. Este edificio es un ícono de la arquitectura moderna en Tokio y ha sido objeto de debates sobre su diseño. Desde aquí, puedes disfrutar de una excelente vista del río y la ciudad.',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/Asahi.JPG',
-                '/assets/japan/asahi_offices.jpg'], 
-              longitude: 139.80026, 
-              latitude: 35.71007, 
-              mapUrl: 'map-asahi-offices' 
-            },
-            { 
-              name: 'Hoppy Street', 
-              description: 'Hoppy Street es famosa por su ambiente vibrante y sus numerosos izakayas (bares japoneses). Este es el lugar perfecto para probar el Hoppy, una bebida popular entre los locales. \n\n Para terminar en la calle Kappabashi, Conocida como Kitchen Town, famosa por sus tiendas que venden utensilios de cocina y alimentos falsos utilizados para exhibiciones. \n\n En todo esto echaremos la mitad de la mañana. ',
-              images: ['/assets/japan/hoppy_street.jpg'], 
-              longitude: 139.79410, 
-              latitude: 35.71414, 
-              mapUrl: 'map-hoppy-street' 
-            },
-  
-            { 
-              name: 'Parque de Ueno', 
-              description: 'El parque de Ueno es uno de los parques más grandes y populares de Tokio es un lugar ideal para relajarse y disfrutar de la naturaleza en medio del bullicio de la ciudad. Dentro de este parque podremos ver: \n\n El Templo Kaneiji, fundado en 1625, es uno de los más importantes de Tokio. Su Rinnoden alberga las cenizas de Tokugawa Ieyasu, el fundador del shogunato. Ofrece vistas panorámicas de Ueno y un ambiente de tranquilidad en medio de la ciudad. \n\n En el también se encuentra Museo Nacional de Tokio que alberga una vasta colección de arte y antigüedades, destacando espadas samuráis y cerámicas y el Santuario Ueno Toshogu.',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/ParqueUenoEntry.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/ParqueUeno.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/ParqueUenoLu.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/ParqueUenoTemple.JPG',
-                '/assets/japan/Tokio/AsakusaUeno/ParqueUenoPagoda.JPG'],
-              longitude: 139.7757, 
-              latitude: 35.7138, 
-              mapUrl: 'map-ueno-park' 
-            },
-            {
-              name: 'Estanque Shinobazu y Estatua de Saigo Takamori', 
-              description: 'El estanque Shinobazu es una atracción central dentro del Parque de Ueno, conocido por sus hermosas vistas y por las actividades de remo. En el centro del estanque se encuentra una pequeña isla que alberga el Templo Bentendo. A lo largo del estanque se puede ver la estatua de Saigo Takamori, uno de los últimos samuráis, que es un ícono popular de la historia de Japón.',
-              images: [
-              '/assets/japan/Tokio/AsakusaUeno/Estanque.JPG',
-              '/assets/japan/Tokio/AsakusaUeno/EstanqueJuntos.JPG'],
-              longitude:  139.77110, 
-              latitude: 35.71225, 
-              mapUrl: 'map-shinobazu-pond'
-            }
-            ,
-            { 
-              name: 'Akihabara', 
-              description: 'Akihabara es el paraíso de los amantes del anime, los videojuegos y la cultura otaku. Este barrio está lleno de tiendas de electrónica, cafés temáticos y restaurantes que ofrecen experiencias únicas. Si eres un fanático de la cultura pop japonesa, no querrás perderte este vibrante vecindario. Además, Akihabara es conocido por sus eventos especiales y exposiciones, por lo que siempre hay algo nuevo que descubrir.',
-              images: [
-                '/assets/japan/Tokio/AsakusaUeno/AkihabaraIni.HEIC'], 
-              longitude: 139.77308438287645, 
-              latitude: 35.698485436385894, 
-              mapUrl: 'map-akihabara' 
-            },
-            { 
-              name: 'Akihabara - Otaku', 
-              description: 'En este punto toca sacar el lado más Otaku que llevamso dentro, de toda la selección de opciones os recomendamos dos: \n\n Mandarake Akihabara es un paraíso para los coleccionistas de anime y manga. Es un  complejo de 8 pisos, cada uno está dedicado a diferentes categorías: manga, figuras, cosplay, doujinshi, y más. Por cierto espero que no tengas vértico porque sus escaleras son las típicas escaleras de incendios situadas en la fachada del edificio. \n\n Animate Akihabara tiene 7 pisos repletos de mercancía oficial. La planta baja está dedicada a los últimos lanzamientos de manga y novelas ligeras, mientras que los pisos superiores ofrecen una amplia gama de productos, desde CD dramas y música de anime...',
-              images: [
-              '/assets/japan/Tokio/AsakusaUeno/AkihabaraMandarake.JPG',
-              '/assets/japan/Tokio/AsakusaUeno/AkihabaraFigurasOP.HEIC',
-              '/assets/japan/Tokio/AsakusaUeno/AkihabaraMandarakeLu.JPG',
-              '/assets/japan/Tokio/AsakusaUeno/AkihabaraFigurasSNK.HEIC'
-              ], 
-              longitude: 139.770512888675, 
-              latitude: 35.70039368185262,  
-              mapUrl: 'map-akihabara' 
-            }
-          ]
-        }"></app-itinerary-day-card>
-
-        <!-- Día 13: Tokio: Parque Yoyogi, Shibuya -->
-        <app-itinerary-day-card 
-        [borderClass]="'border-blue'"
-        [day]="{
-          title: 'Día 13 - TOKIO: Parque Yoyogi, Santuario Meiji y barrio de Shibuya, ',
-          activities: [
-            {
-              name: 'St Harajuku',
-              description: 'Este día vamos a visitar los barrios de Harajuku y Shibuya. Es un día que comienza tranquilo de paseo por el parque Yoyogi, descubriendo el santuario Meiji. Posteriormete alcanza un toque urbanita en Takeshita Street y Omotensando Hills. Para acabar el ajetreo y caos del barrio de Shibuya. \n\n Harajuku es conocido por su estilo de moda callejera única y por ser un lugar de encuentro para jóvenes creativos. Aquí encontrarás tiendas de ropa vintage, cafés temáticos y una vibrante escena artística. Uno de los lugares más emblemáticos de Harajuku es Takeshita Street, una calle peatonal llena de tiendas de moda y dulces. El barrio de shibuya es conocido por su cruce peatonal, uno de los más transitados del mundo. Aquí encontrarás tiendas de moda, restaurantes y entretenimiento, lo que lo convierte en un lugar ideal para explorar y disfrutar de la vida nocturna de Tokio.',
-              
-              images: [
-                '/assets/japan/Tokio/Dia13/TemploIni.JPG'
-              ],
-              longitude: 139.70243400080096,
-              latitude: 35.67022503392733, 
-              mapUrl: 'map-shinjuku'
-            },
-            {
-              name: 'Parque Yoyogi',
-              description: '<strong>Horario:</strong> Abierto 24 horas.<br> <strong>Precio:</strong> Entrada gratuita.<br><br>El Parque Yoyogi es uno de los espacios verdes más grandes y animados de Tokio. Con amplias áreas de césped, senderos para caminar y zonas ideales para picnic, es un lugar perfecto para relajarse y escapar del ajetreo de la ciudad. Durante los fines de semana, el parque se llena de vida con artistas callejeros, grupos de baile y músicos, creando un ambiente vibrante y cultural. En primavera, los cerezos florecen, convirtiéndolo en un lugar ideal para el hanami, mientras que en otoño sus árboles ginkgo tiñen el paisaje de tonos dorados. A su vez en su interior podremos visitar el santuario Meiji',
-              images: [
-                '/assets/japan/Tokio/Dia13/Yoyogi_arco.JPG',
-                '/assets/japan/Tokio/Dia13/Yoyogi_alex.JPG',
-                '/assets/japan/Tokio/Dia13/Yoyogi_lu.JPG',
-                '/assets/japan/Tokio/Dia13/Yoyogi_juntos.JPG',
-                '/assets/japan/Tokio/Dia13/Yoyogi_parque.JPG',
-                '/assets/japan/Tokio/Dia13/Yoyogi_2.JPG',
-                '/assets/japan/Tokio/Dia13/Yoyogi_arc.JPG',
-              ],
-              longitude: 139.69499778991937,
-              latitude: 35.67017815236712, 
-              mapUrl: 'map-shinjuku'
-            },
-
-            {
-              name: 'Santuario  Meiji',
-              description: ' <strong>Horario:</strong> 5-18h (última entrada a las 17:45).<br> <strong>Precio:</strong> Entrada gratuita.<br><br>El Santuario Meiji es uno de los santuarios más importantes de Tokio, dedicado al emperador Meiji y su esposa, la emperatriz Shōken. Rodeado por un vasto bosque en pleno centro de la ciudad, el santuario ofrece una atmósfera tranquila y espiritual, ideal para escapar del bullicio urbano. Al ingresar, se pasa por una majestuosa puerta torii de madera, y en el interior se pueden realizar ceremonias tradicionales japonesas. Además, el santuario cuenta con un hermoso jardín y una zona donde los visitantes pueden escribir sus deseos en tablillas de madera (ema). Un lugar de gran significado histórico y cultural para Japón.<br><br>La idea es pasar aqui buena parte de la mañana entre el parque Yoyogi y el santuario Meiji.',
-              images: [
-                '/assets/japan/Tokio/Dia13/Meiji.JPG',
-                '/assets/japan/Tokio/Dia13/Meiji_puerta.JPG',
-                '/assets/japan/Tokio/Dia13/Meiji_plaza.JPG',
-                '/assets/japan/Tokio/Dia13/Meiji_puerta2.JPG'
-              ],
-              longitude: 139.69937418511742,
-              latitude: 35.676567492455035, 
-              mapUrl: 'map-shinjuku'
-            },
-            {
-              name: 'Takeshita Street',
-              description: '<strong>Horario:</strong> Abierto todo el día.<br><strong>Precio:</strong> Entrada gratuita.<br><br> Takeshita Street es una de las calles más emblemáticas de Harajuku, conocida por su vibrante cultura juvenil y su oferta de moda única. A lo largo de esta animada calle peatonal, encontrarás tiendas de ropa alternativa, boutiques de moda, cafeterías temáticas y una gran variedad de tiendas de dulces y accesorios. La zona es un punto de encuentro para los fashionistas y aquellos que buscan las últimas tendencias de la cultura pop japonesa. Además, Takeshita Street es famosa por su ambiente energético y colorido, ideal para los que disfrutan del dinamismo urbano y la innovación creativa. ¡Es un lugar perfecto para explorar, sacar fotos y descubrir lo mejor de la moda de Tokio!',
-              images: [
-              '/assets/japan/Tokio/Dia13/Takeshita.JPG',
-              ],
-              longitude: 139.70325021264617,
-              latitude: 35.671652732485256, 
-              mapUrl: 'map-shinjuku'
-            },
-            {
-              name: 'Santuario Togo',
-              description: '<strong>Horario:</strong> 9:00 - 17:00 (cerrado los lunes).<br><strong>Precio:</strong> Entrada gratuita.<br><br>El Santuario Togo es un pequeño pero significativo lugar de culto situado en el barrio de Harajuku, dedicado a la memoria del almirante Heihachiro Togo, un héroe nacional japonés conocido por sus victorias en la guerra ruso-japonesa. Este santuario ofrece un ambiente tranquilo y relajante, rodeado de árboles y naturaleza, lo que lo convierte en un refugio perfecto del bullicio de la ciudad. Aunque no es tan conocido como el Santuario Meiji, Togo es ideal para quienes buscan un espacio más íntimo y menos turístico para experimentar la espiritualidad japonesa en el corazón de Tokio.',
-              images: [
-              '/assets/japan/Tokio/Dia13/Togo.JPG',
-              '/assets/japan/Tokio/Dia13/Togo_es.JPG',
-              ],
-              longitude: 139.70588681997026,
-              latitude: 35.67187959695022,
-              mapUrl: 'map-shinjuku'
-            },
-            {
-              name: 'Omotensando Hills',
-              description: '<strong>Horario:</strong> Abierto todo el día (tiendas de 10:00 a 20:00 dependiendo de la tienda).<br><strong>Precio:</strong> Entrada gratuita.<br><br> Iniciamos nuestro recorrido con el objetivo de llegar a Omote-Sando Station para tomar el tren hacia Shinjuku, pero en el camino disfrutaremos de todo lo que ofrece esta famosa calle. <br><br>El paseo comienza cerca de la estación de Omote-Sando, a lo largo del camino, veremos algunos de los edificios más impresionantes de Tokio, como el edificio V28, conocido por su diseño vanguardista, el edificio Iceberg, que es una joya de la arquitectura moderna, y el Laforet Museum, donde se fusionan arte y moda en un solo espacio. Mientras avanzamos, podemos hacer una parada en cada tienda que nos atraiga: desde boutiques de lujo hasta tiendas de diseño independiente, todo se encuentra a lo largo de esta sofisticada calle. También podemos aprovechar para hacer una parada para comer en alguno de los muchos restaurantes y cafés que ofrecen opciones tanto japonesas como internacionales. Después de explorar a fondo, nos dirigimos hacia Omote-Sando Station para continuar nuestro camino hacia Shinjuku.',
-              images: [
-                '/assets/japan/Tokio/Dia13/Omotensando_ed2.JPG',
-                '/assets/japan/Tokio/Dia13/Omotensando_ed.JPG',
-                '/assets/japan/Tokio/Dia13/Omotensando_tori.JPG',
-              ],
-              longitude: 139.70858125131375,
-              latitude: 35.66750795953513, 
-              mapUrl: 'map-shinjuku'
-            },
-            {
-              name: 'Shibuya - Cruce peatones',
-              description: '<strong>Horario:</strong> Abierto todo el día.<br>  <strong>Precio:</strong> Gratuito.<br><br>El cruce de Shibuya es un emblema de Tokio, conocido por la cantidad de personas que cruzan las calles en todas direcciones. El espectáculo visual es increíble, especialmente durante las horas punta. Es una parada imprescindible para capturar la esencia del ajetreo urbano de la ciudad. Desde este punto, podemos observar los enormes pantallas publicitarias y el bullicio de la zona, ideal para tomar fotos o simplemente admirar la escena. No olvides la estatua de Hachiko, cerca del cruce, famosa por la lealtad de este perro a su dueño.',
-              images: [
-                '/assets/japan/Tokio/Dia13/cruce_arriba.JPG',
-                '/assets/japan/Tokio/Dia13/cruce.JPG',
-                '/assets/japan/Tokio/Dia13/cruce_ab.JPG',
-              ],
-              longitude: 139.70052524717596,
-              latitude: 35.65965655131027, 
-              mapUrl: 'map-shinjuku'
-            },
-
-            {
-              name: 'Shibuya - Shibuya Sky',
-              description: '<strong>Horario:</strong> 10:00 - 22:00.<br><strong>Precio:</strong> 2,000 yenes (aprox. 13€).<br><br> Shibuya Sky es la plataforma de observación de uno de los edificios más altos del barrio. Desde su cima, se puede disfrutar de una vista de 360 grados de Tokio, incluyendo una vista espectacular de la Torre de Tokio y los rascacielos de Shinjuku. Es un excelente lugar para tomar fotos panorámicas y disfrutar de la ciudad desde una perspectiva diferente. En los días despejados, se puede ver incluso el Monte Fuji a lo lejos.\n\n Nosotros no pudimos subir debido a que es necesario reservar con muchísima antelación, pero si tienes la oportunidad, te lo recomendamos.En el caso de que sea un imprescindible para ti deberás mirarlo con mas de 3 meses de antelación',
-
-              images: [
-                '/assets/japan/Tokio/Dia13/Shibuya_SKY.webp',
-                '/assets/japan/Tokio/Dia13/Shibuya_SKY2.JPG',
-              ],
-              longitude: 139.70212330955965 ,
-              latitude: 35.658558968627176, 
-              mapUrl: 'map-shinjuku'
-            },
-
-            {
-              name: 'Shibuya - Actividades Frikis',
-              description: '<strong>Horario:</strong> Varía según las tiendas, generalmente de 10:00 a 22:00.<br><strong>Precio:</strong> Gratuito para las tiendas(Ya depende de cada uno lo que se quiera gastar !!!).<br><br> Shibuya es un paraíso para los fans de la cultura friki, con numerosas tiendas dedicadas al anime, manga y videojuegos. Lugares como el Tower Records, famoso por su colección de música y productos relacionados con el pop japonés, o el Animate Shibuya, un paraíso para los amantes del anime, donde puedes encontrar desde figuras de colección hasta ropa y accesorios temáticos. Si tienes tiempo, también puedes visitar el centro de arcades para disfrutar de una experiencia de videojuegos única y probada, o incluso participar en actividades interactivas relacionadas con tus series o videojuegos favoritos.',
-
-              images: [
-                '/assets/japan/Tokio/Dia13/friki_eren.JPG',
-                '/assets/japan/Tokio/Dia13/friki_calle.JPG',
-                '/assets/japan/Tokio/Dia13/friki_monedas.JPG',
-                '/assets/japan/Tokio/Dia13/friki_comida.JPG',
-                '/assets/japan/Tokio/Dia13/friki_comida2.JPG',
-              ],
-              longitude: 139.697764040398 ,
-              latitude: 35.66099938826705, 
-              mapUrl: 'map-shinjuku'
-            },
-          ]
-              }">
-        </app-itinerary-day-card>
-
-        <!-- Día 14: Tokio: Chuo, Ginza y Odaiba -->
-        <app-itinerary-day-card 
-        [borderClass]="'border-blue'"
-        [day]="{
-          title: 'Día 14 - TOKIO: – Barrios de Chuo, Chiyoda, Ginza y Odaiba',
-          activities: [
-            {
-              name: 'TO DO',
-              description: '',
-              images: [
-                '/assets/japan/shinjuku.jpg'
-              ],
-              longitude: 139.7016,
-              latitude: 35.6895,
-              mapUrl: 'map-shinjuku'
-            }
-
-          ]}">
-        </app-itinerary-day-card>
-  
+            ]}">
+          </app-itinerary-day-card>
+        
+      </mat-accordion>
   
       </mat-tab>
   
