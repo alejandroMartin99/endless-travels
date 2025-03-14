@@ -1,0 +1,255 @@
+mat-expansion-panel {
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-left: 5px solid #3f51b5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+  
+mat-expansion-panel:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+  /* Título e iconos */
+.panel-icon {
+  margin-right: 1rem;
+  color: #3f51b5;
+}
+
+/* Tabs iniciales */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #333;
+}
+
+.tab-button.active {
+  color: #3f51b5;
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #3f51b5;
+}
+  
+  
+  
+
+
+
+
+/* Contenido de las secciones */
+.section-content {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+
+
+/* Recomendaciones individuales */
+.japan-rail-pass-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.japan-rail-pass-item strong {
+  font-size: 1.1rem;
+  color: #3f51b5;
+}
+.japan-rail-pass-item p {
+  margin-top: 0.5rem;
+  color: #666;
+}
+.japan-rail-pass-section {
+  margin: 30px 0;
+  flex:auto
+}
+
+.japan-rail-pass-subsection {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+th {
+  background-color: #f4f4f4;
+}
+
+.highlight {
+  background-color: #e8f4f8;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.alternative {
+  border-left: 4px solid #4CAF50;
+  padding-left: 15px;
+  margin: 20px 0;
+}
+
+
+
+.suica-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.suica-item-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.suica-item strong {
+  font-size: 1.1rem;
+  color: #3f51b5;
+}
+.suica-item p {
+  margin-top: 0.5rem;
+  color: #666;
+}
+.suica-section {
+  margin: 30px 0;
+}
+
+.suica-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.setup-instructions ol {
+  margin: 8px 0 0 16px;
+}
+
+.setup-instructions h3 {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
+.kyoto-metro-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.kyoto-metro-content {
+  flex: 1;
+  margin-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  
+}
+
+.kyoto-metro-image-container {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+
+.kyoto-metro-item strong {
+  font-size: 1.1rem;
+  color: #3f51b5;
+}
+
+.kyoto-metro-item p {
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+.kyoto-metro-image {
+  max-width: 100%; /* Ajustar el ancho máximo de la imagen */
+  height: auto; /* Mantener la proporción */
+  border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+@media (max-width: 768px) {
+  .kyoto-metro-item {
+    display: block; /* Cambia el display a block para apilar los elementos */
+  }
+
+  .kyoto-metro-content {
+    margin-right: 0; /* Elimina el margen a la derecha */
+  }
+
+  .kyoto-metro-image-container {
+    margin-top: 1rem; /* Añade espacio entre el contenido y la imagen */
+    flex: none; /* Asegura que la imagen ocupe el espacio completo en dispositivos pequeños */
+  }
+}
+
+
+
+
+

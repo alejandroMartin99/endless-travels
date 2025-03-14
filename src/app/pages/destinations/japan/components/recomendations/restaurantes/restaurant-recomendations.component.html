@@ -1,0 +1,164 @@
+<mat-expansion-panel class="section-card">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon class="panel-icon">restaurant</mat-icon>
+      Restaurantes
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div 
+    id="general" 
+    class="tab-content" 
+    [class.active]="isTabActive('general')">
+
+      <!-- Botones de las pestañas -->
+      <div class="tabs">
+        <button *ngFor="let tab of tabs"
+                class="tab-button"
+                [class.active]="isTabActive(tab.id)"
+                (click)="openTab(tab.id)">
+            {{tab.name}}
+        </button>
+      </div>
+
+      <div class="food-guide-container">
+        <p class="intro-text">La gastronomía japonesa ofrece una experiencia única para el viajero. Aquí encontrarás información esencial para disfrutar de la comida durante tu viaje sin sorpresas.</p>
+        
+        <div class="food-guide-row">
+          <div class="food-guide-column left-column">
+            <div class="guide-section">
+              <h4>¿Cómo es comer en Japón?</h4>
+              <ul class="food-list">
+                <li><strong>Barato</strong>: Es súper barato comer en Japón, sobre todo con opciones locales. Puedes comer un ramen o un bol de arroz por menos de 500 JPY (un poco más de 4 euros).</li>
+                <li><strong>Horarios</strong>: Se come y cena bastante pronto. La comida suele ser entre las 12:00 y las 13:00 horas y la cena alrededor de las 18:00 horas. Esto es importante si pretendes dilatar tus visitas por la tarde.</li>
+                <li><strong>Especialización</strong>: Los restaurantes suelen estar especializados en un tipo de comida: ramen, sushi, okonomiyaki, gyozas...</li>
+                <li><strong>Sin sobremesa</strong>: Los japoneses se sientan, comen (rápido) y se van. La sobremesa no es habitual. A su vez el proceso de espera es distinto a los paises europeos. En la mayoría de establecimientos deberas sacar un ticket con la comanda ne una máquina, posteriormente deberas hacer cola (en el caso d eque esten llenos los sitios del establecimiento) y cuando llegue tu turno te sentaras en l amesa con el plato ya preparado y listo para comer. Un avez terminado deberas salir sin ningún tipo de sobremesa.</li>
+                <!-- <li><strong>Menús concisos</strong>: La carta de los restaurantes locales suelen ser cortas y concisas. Tienen pocas opciones pero todas muy buenas.</li> -->
+                <!-- <li><strong>Nada de postre</strong>: No es típico tomar postre después de comer en el mismo restaurante. Sí que toman café.</li> -->
+                <li><strong>Pago en efectivo</strong>: Algunos restaurantes pequeños, sobre todo fuera de las grandes ciudades, no aceptan tarjetas de crédito. Te recomendamos que siempre lleves dinero en efectivo y por supuesto nunca dejes propina.</li>
+                <!-- <li><strong>Etiqueta con palillos</strong>: Si sabes comer con palillos, recuerda no clavarlos nunca en la comida, está considerado de mal gusto.</li> -->
+                <li><strong>Bebidas gratuitas</strong>: En los restaurantes es muy habitual que el té y el agua sean gratis.</li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="food-guide-column right-column">
+            <div class="tip-box">
+              <div class="tip-header">
+                <span class="tip-icon">💡</span>
+                <h4>Consejos prácticos</h4>
+              </div>
+              <ul class="tip-list">
+                <li>Sorber los fideos del ramen no es de mala educación, de hecho es algo bastante habitual</li>
+                <li>Los combini son la mejor manera de ahorrar en comida con numerosas opciones preparadas, además ofrecen una excelente relación calidad precio.</li>
+                <li>Encontrarás muchas cafeterías en las grandes ciudades para un desayuno occidental</li>
+                <li>En la mayoría de sitios se come con palillos (hasta el ramen), por lo que es un buen momento para aprender jejeje, sin embargo, siempre podrás pedir utensilios. A su vez recuerda nunca clavarlos en la comida, está considerado de mal gusto.</li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <mat-expansion-panel class="section-card">
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="panel-icon">restaurant</mat-icon>
+              Platos típicos que debes probar
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          
+          <div class="guide-section">
+            <div class="platos-container">
+              <div class="platos-content">
+                <ul class="food-list">
+                  <li><strong>Ramen</strong> - Este plato es un must. Es donde más notamos la diferencia en calidad y sabor con los que podemso probar en España. Existe una enorme variedad de caldos y tipos, desde carnes hasta pescados. Nuetsra recomendación es que te dejes sorprender por la receta de cada restaurante. </li>
+
+                  <li><strong>Sushi</strong> - El plato japonés más conocido. Otro de los platos imprescindibles que debes probar. Te recomendamos que busques alguna casa tradicional conocidas como barras de sushi.</li>
+
+                  <li><strong>Takoyaki</strong> - Plato callejero por excelencia. Te recomedamos que pruebes todo lo callejero, suelen tener una enorme calidad y estan genial d eprecio</li>
+
+                  <li><strong>Okonomiyaki</strong> - Plato desconcoido para nosotros en un incio. Nos sorprendió mucho, auqnue es importante acertar en el sitio, en nuestro caso probamos dos y notamos mucha diferencia netre ellos, de todas formas super recomendado.</li>
+
+                  <li><strong>Tempura y Tonkatsu</strong> Rebozados y fritos típicos japoneses. Carnes, vegetales o pescados empanados y fritos. No son nada grasientos como parece. Lo spodrás encontrar en un monton de establecimientos como en puestos callejeros.</li>
+
+                  <li><strong>Gyoza</strong> - Otro imprescindible, pruebalas todas y déjate sorprende rpor los distintos rellenos, podrás salir de las típcias vegetales y de carne. Existen establecimientos que toda su carta son Gyozas, ¡Hasta los postres!</li>
+
+                  <li><strong>Yakitori</strong> - Perfectas para una comida ligera y deliciosa. Otro d elos básicos d ela comida callejera. </li>
+
+
+                  <li><strong>Wagyu</strong> - Este es un artículo más caro, no es para comerlo todos los días. Pero si te invitamos a que lo pruebes, es una de las carnes mejor valoradas del mundo.</li>
+                  
+                </ul>
+              </div>
+              
+
+              <div class="image-carousel">
+                <div class="carousel-container">
+                  <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+                    <div class="carousel-slide" *ngFor="let image of images">
+                      <img [src]="image.src" [alt]="image.alt" />
+                      <p class="caption">{{ image.caption }}</p>
+                    </div>
+                  </div>
+                  <button class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
+                  <button class="carousel-button next" (click)="nextSlide()">&#10095;</button>
+                  <div class="carousel-dots">
+                    <span 
+                      *ngFor="let image of images; let i = index" 
+                      class="dot" 
+                      [class.active]="i === currentIndex"
+                      (click)="goToSlide(i)">
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </mat-expansion-panel>
+        
+        <!-- <div class="guide-section">
+          <h4>Dónde comer según tu presupuesto</h4>
+          <ul class="budget-list">
+            <li><span class="budget-icon low">¥</span> <strong>Económico:</strong> Combini (tiendas de barrio con comida preparada), puestos de takoyaki y otros platos callejeros</li>
+            <li><span class="budget-icon mid">¥¥</span> <strong>Medio:</strong> Restaurantes especializados de ramen, gyozas, yakitori</li>
+            <li><span class="budget-icon high">¥¥¥</span> <strong>Premium:</strong> Restaurantes de wagyu, cenas kaiseki en ryokanes (comida muy elaborada de alta calidad)</li>
+          </ul>
+        </div> -->
+        
+        
+      </div>
+
+  </div>
+
+
+  <div id="tokyo" class="tab-content" [class.active]="isTabActive('tokyo')">
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+    <p>Esto es solo Tokyo</p>
+  </div>
+
+  <div id="kyoto" class="tab-content" [class.active]="isTabActive('kyoto')">
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+
+    <p>Esto es solo Kyoto</p>
+  </div>
+
+  
+
+</mat-expansion-panel>

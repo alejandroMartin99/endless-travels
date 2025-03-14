@@ -8,7 +8,9 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../components/shared.module';
 import { LandingComponent } from './landing/landing.component';
-import { RecomendationsComponent } from './destinations/japan/components/recomendations/recomendations.component'; 
+import { RecomendationsComponent } from './destinations/japan/components/recomendations/recomendations.component';
+import { TransportRecomendationsComponent } from './destinations/japan/components/recomendations/transporte/transport-recomendations.component';
+import { RestaurantRecomendationsComponent } from './destinations/japan/components/recomendations/restaurantes/restaurant-recomendations.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { RecomendationsComponent } from './destinations/japan/components/recomen
     PragabudapestComponent,
     CopenhagueComponent,
     LandingComponent,
-    RecomendationsComponent
+    RecomendationsComponent,
+    TransportRecomendationsComponent,
+    RestaurantRecomendationsComponent
     
   ],
   imports: [
