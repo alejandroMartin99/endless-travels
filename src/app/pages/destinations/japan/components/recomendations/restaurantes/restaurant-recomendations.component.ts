@@ -12,7 +12,10 @@ export class RestaurantRecomendationsComponent  implements OnInit{
   tabs = [
     { id: 'general', name: 'General', active: true },
     { id: 'tokyo', name: 'Tokyo', active: false },
-    { id: 'kyoto', name: 'Kyoto', active: false }
+    { id: 'kyoto', name: 'Kyoto', active: false },
+    { id: 'osaka', name: 'Osaka', active: false },
+    { id: 'hirosima', name: 'Hiroshima', active: false },
+    { id: 'nara', name: 'Nara', active: false },
   ];
 
   // Tab actualmente seleccionada

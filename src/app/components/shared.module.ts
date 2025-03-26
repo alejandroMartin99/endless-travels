@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { ItineraryDayCardComponent } from './itinerary-day-card/itinerary-day-card.component';
 import { StyledButton } from './styledbutton/styled-button.component';
+import { CardServiceComponent } from './card-service/card-service.component';
 
 
 
@@ -16,6 +17,7 @@ import { StyledButton } from './styledbutton/styled-button.component';
     FooterComponent,
     ToolbarComponent,
     ItineraryDayCardComponent,
+    CardServiceComponent,
     StyledButton
     // Agrega aquí otros componentes que quieras agrupar
   ],
@@ -29,6 +31,7 @@ import { StyledButton } from './styledbutton/styled-button.component';
     FooterComponent,
     ToolbarComponent,
     ItineraryDayCardComponent,
+    CardServiceComponent,
     StyledButton
     // Exporta los componentes que quieras usar en otros módulos
   ]

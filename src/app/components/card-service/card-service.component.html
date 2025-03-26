@@ -1,0 +1,52 @@
+
+
+<div
+class="activity-container">
+  <div class="activity-description">
+    <h3>{{ day.activities[currentActivityIndex].name }}</h3>
+    <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
+  </div>
+  <div class="activity-image">
+    <img [src]="day.activities[currentActivityIndex].images[currentImageIndex]" 
+          [alt]="day.activities[currentActivityIndex].name">
+    <!-- Controles de imagen -->
+    <div class="gallery-controls" *ngIf="day.activities[currentActivityIndex].images.length > 1">
+      <button mat-icon-button (click)="changeImage(-1)" [disabled]="currentImageIndex === 0" class="btn">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button (click)="changeImage(1)" 
+              [disabled]="currentImageIndex === day.activities[currentActivityIndex].images.length - 1" class="btn">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="activity-map" #map></div>
+</div>
+
+<!-- Navegación entre actividades (bolitas) -->
+<div class="activity-navigation">
+  <div
+    *ngFor="let activity of day.activities; let i = index"
+    class="activity-indicator"
+    [class.active]="i === currentActivityIndex"
+    (click)="selectActivity(i)">
+  </div>
+</div>
+
+<!-- Botones para moverse entre actividades -->
+<div class="controls-container col-2">
+  <div class="carousel-control">
+    <button mat-button (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
+      Anterior
+    </button>
+    <button mat-button (click)="changeActivity(1)" 
+            [disabled]="currentActivityIndex === day.activities.length - 1">
+      Siguiente
+    </button>
+  </div>
+  
+  <button 
+    class="rescale-control"
+    mat-button (click)="rescaleMap()">Reescalar Mapa</button>
+</div>
+

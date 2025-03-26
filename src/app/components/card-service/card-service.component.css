@@ -1,0 +1,229 @@
+/* General del panel */
+mat-expansion-panel {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-left: 5px solid;
+  border-radius: 8px;
+}
+
+/* Bordes de colores personalizados */
+.border-blue { border-left-color: #3f51b5; }
+.border-green { border-left-color: #4caf50; }
+.border-dark-green { border-left-color: #08700c; }
+.border-red { border-left-color: #f44336; }
+.border-pink { border-left-color: #e571f0; }
+.border-yellow { border-left-color: #e9da68; }
+.border-purple { border-left-color: #9315ad; }
+.border-dark-purple { border-left-color: #480556; }
+
+/* Contenedor de actividades */
+.activity-container {
+  display: flex;
+  justify-content: space-between;
+  height: 450px; /* Altura para pantallas grandes */
+  padding: 1px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+/* Descripción */
+.activity-description {
+  flex-basis: 33%;
+  padding: 5px;
+  box-sizing: border-box;
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+/* Imagen */
+.activity-image {
+  flex-basis: 33%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Mapa */
+.activity-map {
+  flex-basis: 40%;
+  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
+  min-height: 300px; /* Establece un mínimo razonable */
+  max-height: 550px; /* Asegura un máximo en pantallas grandes */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.activity-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Indicadores de navegación */
+.activity-navigation {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.activity-indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activity-indicator.active {
+  background-color: #3f51b5;
+}
+
+.activity-indicator:hover {
+  background-color: #1976d2;
+}
+
+/* Texto de descripción */
+.description-text {
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor de controles */
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.carousel-control {
+  display: flex;
+  gap: 10px;
+}
+
+.rescale-control {
+  margin-left: auto;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 800px) {
+  .activity-container {
+    display: flex;
+    flex-direction: column; /* Estructura en columna */
+    height: 90vh; /* Ocupa el 90% de la pantalla */
+    max-height: 90vh;
+    overflow: hidden; /* Evita el desbordamiento */
+  }
+
+  .activity-description{
+    flex: 0 0 20%;
+    padding: 0;
+  }
+
+  .activity-image {
+    flex: 0 0 30%; /* Ocupa el 30% del espacio vertical */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+  .activity-map,
+  .image-controls,
+  .activity-image img {
+    object-fit: cover; /* Ajusta la imagen sin distorsión */
+    border-radius: 4px;
+  }
+
+  .activity-map {
+    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
+    height: auto; /* Ajusta la altura proporcionalmente */
+    object-fit: cover;/* Asigna una altura específica al contenedor del mapa */
+  }
+
+  .activity-map iframe {
+    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
+    height: auto; /* Ajusta la altura proporcionalmente */ /* Asegura que el iframe ocupe todo el contenedor */
+  }
+
+  /* Controles de navegación para imágenes */
+  .gallery-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+
+
+  }
+  
+  .btn {
+    background: rgba(26, 2, 2, 0.8);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .btn:hover {
+    background: rgb(46, 3, 3);
+    transform: scale(1.1);
+  }
+  
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+  }
+
+  /* Indicadores de las imágenes (bullets) */
+  .activity-navigation {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .activity-indicator {
+    width: 15px;
+    height: 15px;
+    margin: 0 10px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+  }
+
+  .activity-indicator.active {
+    background-color: #3f51b5;
+  }
+
+  /* Estilo específico para el header de expansión en móviles */
+  mat-expansion-panel-header {
+    display: flex;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste */
+    width: 100%;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  }
+
+  mat-expansion-panel-header mat-panel-title {
+    flex: 1;
+    padding: 0; /* Quita el padding del título */
+    word-wrap: break-word; /* Asegura que el texto se ajuste a la línea */
+    text-align: left;
+  }
+}

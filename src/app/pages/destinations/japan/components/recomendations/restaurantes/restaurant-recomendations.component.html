@@ -1,4 +1,4 @@
-<mat-expansion-panel class="section-card">
+<mat-expansion-panel class="section-card" [(expanded)]="panelOpenState">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <mat-icon class="panel-icon">restaurant</mat-icon>
@@ -32,7 +32,7 @@
                 <li><strong>Barato</strong>: Es súper barato comer en Japón, sobre todo con opciones locales. Puedes comer un ramen o un bol de arroz por menos de 500 JPY (un poco más de 4 euros).</li>
                 <li><strong>Horarios</strong>: Se come y cena bastante pronto. La comida suele ser entre las 12:00 y las 13:00 horas y la cena alrededor de las 18:00 horas. Esto es importante si pretendes dilatar tus visitas por la tarde.</li>
                 <li><strong>Especialización</strong>: Los restaurantes suelen estar especializados en un tipo de comida: ramen, sushi, okonomiyaki, gyozas...</li>
-                <li><strong>Sin sobremesa</strong>: Los japoneses se sientan, comen (rápido) y se van. La sobremesa no es habitual. A su vez el proceso de espera es distinto a los paises europeos. En la mayoría de establecimientos deberas sacar un ticket con la comanda ne una máquina, posteriormente deberas hacer cola (en el caso d eque esten llenos los sitios del establecimiento) y cuando llegue tu turno te sentaras en l amesa con el plato ya preparado y listo para comer. Un avez terminado deberas salir sin ningún tipo de sobremesa.</li>
+                <li><strong>Sin sobremesa</strong>: Los japoneses se sientan, comen (rápido) y se van. La sobremesa no es habitual. A su vez el proceso de espera es distinto a los paises europeos. En la mayoría de establecimientos deberas sacar un ticket con la comanda en una máquina, posteriormente deberas hacer cola (en el caso de que esten llenos los sitios del establecimiento) y cuando llegue tu turno te sentaras en la mesa con el plato ya preparado y listo para comer. Una vez terminado deberas salir sin ningún tipo de sobremesa.</li>
                 <!-- <li><strong>Menús concisos</strong>: La carta de los restaurantes locales suelen ser cortas y concisas. Tienen pocas opciones pero todas muy buenas.</li> -->
                 <!-- <li><strong>Nada de postre</strong>: No es típico tomar postre después de comer en el mismo restaurante. Sí que toman café.</li> -->
                 <li><strong>Pago en efectivo</strong>: Algunos restaurantes pequeños, sobre todo fuera de las grandes ciudades, no aceptan tarjetas de crédito. Te recomendamos que siempre lleves dinero en efectivo y por supuesto nunca dejes propina.</li>
@@ -63,7 +63,7 @@
 
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <mat-icon class="panel-icon">restaurant</mat-icon>
+              <mat-icon class="panel-icon">ramen_dining</mat-icon>
               Platos típicos que debes probar
             </mat-panel-title>
           </mat-expansion-panel-header>
@@ -156,8 +156,292 @@
       </button>
     </div>
 
-    <p>Esto es solo Kyoto</p>
+    <p>En esta sección hemos realizado una recopilación de los mejores restaurantes de la ciudad de Kyoto y alrededores. No es una guia que debas seguir, te invitamos a perderte y que tú explores por tu cuenta. Sin embargo, si creemos uqe en caso de que tengas dudas o no tengas el timepo necesario aquí recogemos nuestra selección de restaurantes:</p>
+
+    <app-card-service
+    
+      [day]="{
+        title: 'Restaurantes en Kyoto',
+        activities: [
+        
+          {
+            name: '🍜 Mensho Takamatsu - Main Shop',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Ramen
+              <strong>🕛 Horario:</strong>  11:00 - 23:00h 
+              <strong>⭐ Valoración Google: </strong>4,2 / 5    
+              <strong>💴 Precio:</strong> 1000 Yenes <br> 
+              Tras llegar a Kyoto y pasar por el hotel para realizar las gestiones del check-in, salimos fuera a cenar. Este fue el primer ramen que que tomamos en nuestra visita a Japón. Al ser el primero, nos encantó y recomendamos su visita. Cada local realiza su propio caldo, por lo que la calidad es muy alta, y cada uno sabe muy diferente a los demás. Pedimos un ramen completo con huevo, fideos y carne, todo muy rico y por un precio bastante bajo (algo que nos dimos cuenta que se repetiría el resto de días). Además, cierra bastante tarde para ser Japón, eso nos salvó. 
+              ',
+            images: [
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Mensho_ramen.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Mensho_entrada.jpg',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Mensho_variado.jpg',
+
+            ],
+            longitude: 135.76084710119076 ,
+            latitude: 35.0062697679108, 
+            mapUrl: 'map-shinjuku'
+          }
+          ,
+          {
+            name: '🍜 Hagi Charyo',
+            description: 
+              '<strong>🍙 Especialidad: </strong>Ramen <br><strong>🕛 Horario:</strong>  11:30 - 21:00h <br><strong>⭐ Valoración Google: </strong> 4,1 / 5 <br><strong>💴 Precio:</strong> 2000 - 3000 Yenes <br>https://www.google.es/maps/place/Hagi+Charyo/@35.0001511,135.779886,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOliV-3siS3FFpjekpwl9iucZ0m-_gn8xSBoZy8!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOliV-3siS3FFpjekpwl9iucZ0m-_gn8xSBoZy8%3Dw114-h86-k-no!7i4032!8i3024!4m7!3m6!1s0x600108c53bd3bdfb:0xb8fc9b5ad8cf8eb6!8m2!3d35.0001538!4d135.7798137!10e5!16s%2Fg%2F1tczdt4p?hl=es&entry=ttu&g_ep=EgoyMDI1MDMxOS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D
+
+              ',
+            images: [
+            
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hagi_Charyo.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hagi_Charyo_interior.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hagi_Charyo_2.jpg',
+            ],
+            longitude: 135.77972787370666  ,
+            latitude: 35.00036027800673, 
+            mapUrl: 'map-shinjuku'
+          }
+          ,
+          {
+            name: '🍣 Hatsune Sushi',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Sushi
+              <strong>🕛 Horario:</strong>  11:00 - 19:30h 
+              <strong>⭐ Valoración Google: </strong> 4,8 / 5    
+              <strong>💴 Precio:</strong> 2000 - 3000 Yenes <br> 
+              ',
+            images: [
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hatsune_barra.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hatsune_plato.HEIC',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hatsune.JPG',
+            
+            ],
+            longitude: 135.78084855470368 ,
+            latitude: 35.01035000106624, 
+            mapUrl: 'map-shinjuku'
+          }
+          ,
+          {
+            name: '🍣 Sushi Sei',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Sushi
+              <strong>🕛 Horario:</strong>  11:30 - 21:00h 
+              <strong>⭐ Valoración Google: </strong> 4,1 / 5    
+              <strong>💴 Precio:</strong> 2000 - 3000 Yenes <br>
+
+              https://www.google.es/maps/place/Sushi+Sei/@35.0043394,135.7627103,21z/data=!4m9!1m2!2m1!1sRestaurantes!3m5!1s0x60010890ca8d51d5:0xe90d2ed3124d9cc9!8m2!3d35.0043543!4d135.7628033!16s%2Fg%2F1tghd0y3?hl=es&entry=ttu&g_ep=EgoyMDI1MDMxOS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D
+
+              ',
+            images: [
+            
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Sushi_Sei.jpg',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Sushi_Sei_plato.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Sushi_Sei_postre.jpg',
+            ],
+            longitude: 135.7626989006083 ,
+            latitude: 35.00436548961748, 
+            mapUrl: 'map-shinjuku'
+          }
+          ,
+          {
+            name: '🍜 Hanamakiya',
+            description: 
+              '<strong>🍙 Especialidad: </strong>Ramen 
+              <strong>🕛 Horario:</strong>  11:30 - 16:00h 
+              <strong>⭐ Valoración Google: </strong> 4,5 / 5 
+              <strong>💴 Precio:</strong> 1000 - 2000 Yenes
+
+              https://www.google.es/maps/place/Hanamakiya/@35.0390952,135.7337473,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipORQj5044vXyY1s40Gk6trNhM1KYVwRcRy9Tfu3!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipORQj5044vXyY1s40Gk6trNhM1KYVwRcRy9Tfu3%3Dw114-h86-k-no!7i4032!8i3024!4m7!3m6!1s0x600107f54581b3df:0x546a9b6f478c65a0!4b1!8m2!3d35.0390952!4d135.7337455!16s%2Fg%2F1tmpdv39?hl=es&entry=ttu&g_ep=EgoyMDI1MDMxOS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D
+
+              ',
+            images: [
+            
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hanamakiya_ramen.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hanamakiya_carne.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hanamakiya_entrada.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hanamakiya_sentados.JPG',
+            ],
+            longitude: 135.73374287767365  ,
+            latitude: 35.03910565177847, 
+            mapUrl: 'map-shinjuku'
+          }
+          ,
+          {
+            name: '🥗 kyoto tower sando',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Variedad  
+              <strong>🕛 Horario:</strong>  11:30 - 22:00h 
+              <strong>⭐ Valoración Google: </strong> 4,5 / 5 
+              <strong>💴 Precio:</strong> 1000 - 3000 Yenes
+
+              https://www.google.es/maps/place/WAGYU+STEAK+%26+BURGER,+NICK+STOCK+Kyoto+Tower/@34.9875099,135.7592502,21z/data=!3m1!5s0x600108afa9039257:0x6500bc26383b8a9d!4m15!1m8!2m7!1sRestaurantes!3m5!2sTorre+de+Kioto!3s0x600108afa856da77:0xec2916eeff97bfd4!4m2!1d135.7592518!2d34.9875205!3m5!1s0x6001095c27e347ed:0xf936e7d5e6c96d32!8m2!3d34.9875538!4d135.7593888!16s%2Fg%2F11rcs0l3zw?hl=es&entry=ttu&g_ep=EgoyMDI1MDMxOS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D
+
+              ',
+            images: [
+            
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower_pollo.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower_junto.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower_gyozas.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower_vapor.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower_postre.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/kyototower_3.JPG',
+            ],
+            longitude: 135.75939032031857   ,
+            latitude: 34.98756236457406, 
+            mapUrl: 'map-shinjuku'
+          },
+          {
+            name: '🥗 Comida de puestos locales',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Variedad  
+              <strong>🕛 Horario:</strong>  Variado 
+              <strong>⭐ Valoración Google: </strong> - / 5 
+              <strong>💴 Precio:</strong> -
+
+
+
+              ',
+            images: [
+            
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/callejera.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/callejera_2.JPG',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/callejera_3.JPG'
+            ],
+            longitude: 135.7599032031857   ,
+            latitude: 34.98876236457406, 
+            mapUrl: 'map-shinjuku'
+          }
+          ]}">
+    </app-card-service>
   </div>
+
+
+  <div id="osaka" class="tab-content" [class.active]="isTabActive('osaka')">
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+    
+    <p>En esta sección hemos realizado una recopilación de los mejores restaurantes de la ciudad de Kyoto y alrededores. No es una guia que debas seguir, te invitamos a perderte y que tú explores por tu cuenta. Sin embargo, si creemos uqe en caso de que tengas dudas o no tengas el timepo necesario aquí recogemos nuestra selección de restaurantes:</p>
+
+    <app-card-service
+    
+      [day]="{
+        title: 'Restaurantes en Osaka',
+        activities: [
+        
+          {
+            name: '🍳 Namba Okonomiyaki Ajinoya Honten',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Okonomiyaki
+              <strong>🕛 Horario:</strong>  11:00 - 22:00h 
+              <strong>⭐ Valoración Google: </strong>4,3 / 5    
+              <strong>💴 Precio:</strong> 1000 - 2000 Yenes.
+              
+              Nos decidimos a comer en uno de los restaurantes mas populares  (y orientados para turistas todo hay que decirlo) de Osaka. Tienen el famoso plato de  Okonomiyaki. La verdad es que no nos gustó mucho la experiencia, ya que esta muy orientado a turista y la calidad es más baja que otros Okonomiyaki (el mejor que probamso era en Hirosima). Todo comenzó con una cola de 1h de espera, para posteriormente servirnos a modo de <espectáculo> el plato. Pero la verdad es que nos decepcionó un poco. También pedimos unos Takoyaki y si nos gustaron un poco más.
+              ',
+            images: [
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Osaka1.HEIC',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Osaka2.HEIC',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Osaka3.HEIC',
+
+            ],
+            longitude: 135.5009755146303  ,
+            latitude: 34.66807247532061, 
+            mapUrl: 'map-shinjuku'
+          }
+          ,
+          {
+            name: '🍰 Rikuro Ojisan Namba',
+            description: 
+              '<strong>🍙 Especialidad: </strong>tartas de queso <br><strong>🕛 Horario:</strong>  11:30 - 21:00h <br><strong>⭐ Valoración Google: </strong> 4,1 / 5 <br><strong>💴 Precio:</strong> 2000 - 3000 Yenes
+
+              Para obligatoria para uno de los mejores postres que probamos en todo Japón. En todo el centro de Osaka, podras hacerte con una de las mejores tartas de queso. Este famoso cotton cheesecake se caracteriza por su textura increíblemente esponjosa y ligera, tanto que parece temblar cuando sale recién horneado y es marcado con el sello distintivo de la tienda. 
+              
+              Compeltamente recomendado. Es necesario dejarla reposar un par d ehoras, en nuestro caso, nos la comimos tranquilamente en el hotel a la vuelta y nos duró para varios dias. Puro espectáculo.
+
+              ',
+            images: [
+            
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Rikuro.jpg',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Rikuro_2.jpg',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Rikuro_3.webp',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Rikuro_3.JPG',
+            ],
+            longitude: 135.50157152929953,
+            latitude: 34.66616555303791, 
+            mapUrl: 'map-shinjuku'
+          }
+          ]}">
+    </app-card-service>
+
+    
+  </div>
+
+
+  <div id="hirosima" class="tab-content" [class.active]="isTabActive('hirosima')">
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+
+    <p>En esta sección hemos realizado una recopilación de los mejores restaurantes de la ciudad de Kyoto y alrededores. No es una guia que debas seguir, te invitamos a perderte y que tú explores por tu cuenta. Sin embargo, si creemos uqe en caso de que tengas dudas o no tengas el timepo necesario aquí recogemos nuestra selección de restaurantes:</p>
+
+    <app-card-service
+    
+      [day]="{
+        title: 'Restaurantes en Osaka',
+        activities: [
+        
+          {
+            name: '🍳 Namba Okonomiyaki Ajinoya Honten',
+            description: 
+              '<strong>🍙 Especialidad: </strong> Okonomiyaki
+              <strong>🕛 Horario:</strong>  11:00 - 22:00h 
+              <strong>⭐ Valoración Google: </strong>4,3 / 5    
+              <strong>💴 Precio:</strong> 1000 - 2000 Yenes.
+              
+              ',
+            images: [
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hirosima_oko_2.HEIC',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hirosima_oko_1.HEIC',
+            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Hirosima_oko.HEIC',
+
+            ],
+            longitude: 132.46190764427726 ,
+            latitude: 34.391489746084154, 
+            mapUrl: 'map-shinjuku'
+          }
+          
+          ]}">
+    </app-card-service>
+
+  </div>
+
+
+  <div id="nara" class="tab-content" [class.active]="isTabActive('nara')">
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+    <p>Esto es solo Nara</p>
+  </div>
+
+  
+
+  
 
   
 
