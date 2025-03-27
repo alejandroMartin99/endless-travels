@@ -4,7 +4,9 @@
 class="activity-container">
   <div class="activity-description">
     <h3>{{ day.activities[currentActivityIndex].name }}</h3>
-    <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
+    <p class="description-text" 
+    [innerHTML]="getSafeDescription(day.activities[currentActivityIndex].description)">
+  </p>
   </div>
   <div class="activity-image">
     <img [src]="day.activities[currentActivityIndex].images[currentImageIndex]" 

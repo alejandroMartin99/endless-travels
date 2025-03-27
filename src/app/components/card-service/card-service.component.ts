@@ -7,6 +7,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 interface Activity {
   name: string;
@@ -28,6 +29,9 @@ interface Day {
   styleUrls: ['./card-service.component.css'],
 })
 export class CardServiceComponent implements AfterViewInit, OnDestroy {
+
+  constructor(private sanitizer: DomSanitizer) {}
+
   @Input() day!: Day;
   @Input() borderClass: string = '';
   @ViewChild('map') mapContainer!: ElementRef;
@@ -47,6 +51,15 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.initializeMap();
     }, 100);
+  }
+
+  getSafeDescription(description: string): SafeHtml {
+    // Reemplaza URLs con un enlace que muestra "Link" en lugar de la URL completa
+    const linkifiedDescription = description.replace(
+      /https?:\/\/[^\s]+/g, 
+      (url) => `<a href="${url}" target="_blank">Link</a>`
+    );
+    return this.sanitizer.bypassSecurityTrustHtml(linkifiedDescription);
   }
 
   ngOnDestroy(): void {
