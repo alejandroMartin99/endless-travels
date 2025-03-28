@@ -5,6 +5,8 @@ import {
   ElementRef,
   AfterViewInit,
   OnDestroy,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -62,101 +64,94 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     return this.sanitizer.bypassSecurityTrustHtml(linkifiedDescription);
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['day'] && !changes['day'].firstChange) {
+      this.cleanupMap();  // Limpiar el mapa y marcadores al cambiar de restaurante
+      this.currentActivityIndex = 0;
+      this.currentImageIndex = 0;
+      setTimeout(() => {
+        this.initializeMap();
+      }, 100);
+    }
+  }
+
   ngOnDestroy(): void {
-    // Limpia el mapa al destruir el componente
+    this.cleanupMap();
+  }
+  private cleanupMap(): void {
     if (this.map) {
       this.map.remove();
     }
-    
     if (this.mapResizeObserver) {
       this.mapResizeObserver.disconnect();
       this.mapResizeObserver = null;
     }
+    this.markers.forEach(marker => marker.remove());
+    this.markers = [];
   }
 
   private initializeMap(): void {
-    if (!this.mapContainer?.nativeElement || !this.day?.activities?.length) {
-      console.error('No se puede inicializar el mapa: falta el contenedor o no hay actividades');
-      return;
-    }
-    
+    if (!this.mapContainer?.nativeElement || !this.day?.activities?.length) return;
+
     const firstActivity = this.day.activities[0];
 
-    try {
-      console.log('Inicializando mapa...');
-      
-      // Crear el mapa
-      this.map = new mapboxgl.Map({
-        container: this.mapContainer.nativeElement,
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: [firstActivity.longitude, firstActivity.latitude],
-        zoom: 12,
-      });
+    this.map = new mapboxgl.Map({
+      container: this.mapContainer.nativeElement,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [firstActivity.longitude, firstActivity.latitude],
+      zoom: 12,
+    });
 
-      // Agregar marcadores y ajustar el mapa cuando se cargue
-      this.map.on('load', () => {
-        console.log('Mapa cargado');
-        this.addMarkers();
-        this.adjustBounds();
-        
-        // Configurar un ResizeObserver para manejar cambios de tamaño automáticamente
-        this.setupResizeObserver();
-      });
-      
-      console.log('Mapa inicializado correctamente');
-    } catch (error) {
-      console.error('Error al inicializar el mapa:', error);
-    }
+    this.map.on('load', () => {
+      this.addMarkers();
+      this.adjustBounds();
+      this.setupResizeObserver();
+    });
   }
-  
+
   private setupResizeObserver(): void {
     if (!this.mapContainer?.nativeElement || !this.map) return;
-    
-    // Creamos un observer para detectar cambios en el tamaño del contenedor
+  
+    // Crear un observer para detectar cambios en el tamaño del contenedor
     this.mapResizeObserver = new ResizeObserver(() => {
       if (this.map) {
         this.map.resize();
       }
     });
-    
-    // Observamos el contenedor del mapa
+  
+    // Observar el contenedor del mapa
     this.mapResizeObserver.observe(this.mapContainer.nativeElement);
   }
 
+  
+
   private addMarkers(): void {
-    // Limpiar marcadores anteriores
     this.markers.forEach(marker => marker.remove());
     this.markers = [];
-    
-    // Agregar nuevos marcadores
+
     this.day.activities.forEach((activity, index) => {
       const color = index === this.currentActivityIndex ? 'red' : 'blue';
-  
       const marker = new mapboxgl.Marker({ color })
         .setLngLat([activity.longitude, activity.latitude])
         .addTo(this.map);
-  
       this.markers.push(marker);
     });
   }
 
   private adjustBounds(): void {
     if (!this.map || !this.day?.activities?.length) return;
-    
+
     const bounds = new mapboxgl.LngLatBounds();
     this.day.activities.forEach(activity => {
       bounds.extend([activity.longitude, activity.latitude]);
     });
-    
+
     if (!bounds.isEmpty()) {
-      this.map.fitBounds(bounds, { 
-        padding: 50, 
-        duration: 1000, 
-        animate: true 
-      });
+      this.map.fitBounds(bounds, { padding: 50, duration: 1000, animate: true });
     }
   }
 
+  
   selectActivity(index: number): void {
     if (this.currentActivityIndex !== index) {
       this.currentActivityIndex = index;
