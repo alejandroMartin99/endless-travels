@@ -143,7 +143,35 @@
           {{tab.name}}
       </button>
     </div>
-    <p>Esto es solo Tokyo</p>
+    <p>Tokyo, la gran ciudad, repleta de miles de opciones. A continuación podrás encontrar una lista de restaurante que acudimos nosotros, nuevamente, recomendamos perderse en las calles y dejarse impresionar. Por lo tanto, os recomendamos:</p>
+
+    <app-card-service
+    [day]="{
+      title: 'Restaurantes en Tokyo',
+      activities: [
+
+        {name: '🍜 Ramen Nagi', 
+        description: 
+        '<strong>🍙 Especialidad: </strong> Ramen 
+        <strong>🕛 Horario:</strong>  24h 
+        <strong>⭐ Valoración Google: </strong>4,2 / 5 
+        <strong>💴 Precio:</strong> 1000 - 2000 Yenes. <strong>🌐Sitio web:</strong> https://www.google.es/maps/place/Ramen+Nagi/@35.6935922,139.7042602,19.5z/data=!3m1!5s0x60188cd964ae28b3:0x6328023e3ec7d3bc!4m6!3m5!1s0x60188cd9649e1203:0x8874927a180e8143!8m2!3d35.6937641!4d139.7045255!16s%2Fg%2F1th0mx2r?hl=es&entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D
+        
+        En pleno centro de Shinjuku en la zona del golden gai, encontramos este pequeño restaurante de ramen. Es un local muy pequeño, con una barra y una mesa para 4 personas. Además, es un restaurante muy valorado por lo que suele existir una gran cola (aprox 1h de espera, si quereis saber nuestra opinión, compensa claramente)
+        
+        La especialidad de la casa es el ramen, y la verdad es que es impresionante. Pedimos dos tipos de caldos, uno más típico de carne y uno segundo de pescado con sardinas que estaba IN - CRE -I - BLE, sin duda, <strong>un lugar recomendadísimo para probar un buen ramen en Tokyo. Entra directamente al top 3 de restaurantes</strong>'
+        , 
+        images: [ 
+          '/assets/japan/Recomendations/Comida/Restaurantes_Tokyo/Nagi.HEIC', 
+          '/assets/japan/Recomendations/Comida/Restaurantes_Tokyo/Nagi_2.JPG', 
+        ], 
+        longitude: 139.70451232830032, 
+        latitude: 35.693790429861714, 
+        mapUrl: 'map-shinjuku' },
+
+          ]}">
+    </app-card-service>
+
   </div>
 
   <div id="kyoto" class="tab-content" [class.active]="isTabActive('kyoto')">
@@ -278,7 +306,26 @@
             longitude: 135.73374287767365  ,
             latitude: 35.03910565177847, 
             mapUrl: 'map-shinjuku'
-          }
+          },
+
+          {
+            name: '🍜 Menya Yukou', 
+            description: 
+            '<strong>🍙 Especialidad: </strong> Ramen 
+            <strong>🕛 Horario:</strong>  11:00 - 22:00h 
+            <strong>⭐ Valoración Google: </strong>4,3 / 5 
+            <strong>💴 Precio:</strong> 1000 - 2000 Yenes. <strong>🌐Sitio web:</strong> https://www.google.es/maps/place/Menya+Yukou/@35.0098334,135.7591162,19z/data=!4m6!3m5!1s0x60010885adb25555:0xcaf18551bb99da0a!8m2!3d35.0097807!4d135.7593495!16s%2Fg%2F11fz9hwj7q!5m1!1e4?hl=es&entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D
+            
+            Restaurante tradcionak, como siempre en Japón de tamaño pequeño pero de alta calidad, aunque suene repetitivo, la calidad de los ramen en Japón es muy alta y aun precio muy bajo.Consta de dos plantas y como curiosidad suben el ramen en un ascensor para platos <strong>Recomendado por nuestra parte</strong>'
+            , 
+            images: [ 
+              '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Menya_3.JPG', 
+              '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Menya.JPG',
+              '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Menya_2.JPG', 
+            ], 
+            longitude: 135.75933725133513 , 
+            latitude: 35.00980910425328, 
+            mapUrl: 'map-shinjuku' }
           ,
           {
             name: '🥗 kyoto tower sando',
@@ -539,29 +586,6 @@
       [day]="{
         title: 'Restaurantes en Nara',
         activities: [
-        
-          {
-            name: '🍜 Edificio Okonomimura',
-            description: 
-              '<strong>🍙 Especialidad: </strong> Okonomiyaki
-              <strong>🕛 Horario:</strong>  11:00 - 22:00h 
-              <strong>⭐ Valoración Google: </strong>4,3 / 5    
-              <strong>💴 Precio:</strong> 1000 - 2000 Yenes.
-              <strong>🌐Sitio web:</strong>
-
-              Tras la pequeña decepción del Okonomiyaki que nos sirvieron en Osaka, nos decidimos a probar nuevamente el plato y darle otra oportunidad. Esto se debe a que Hirosima es la capital del Okonomiyaki, de hecho existe un edificio entero lleno de restaurantes de este plato típico, y allí es donden decidimos ir de nuevo.Fue todo un acirto la verdad. En este caso os recomendamos completamente ir al sitio y que os dejeis impresionar por el plato, 100% por 100% recomendado.
-              
-              ',
-            images: [
-            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Nara_ramen.JPG',
-            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Nara_ramen_3.JPG',
-            '/assets/japan/Recomendations/Comida/Restaurantes_Kyoto/Nara_ramen_2.JPG',
-
-            ],
-            longitude: 132.46199796397053  ,
-            latitude: 34.39156694535538, 
-            mapUrl: 'map-shinjuku'
-          },
           {
             name: '🍜 Tenkaippin',
             description: 
@@ -571,8 +595,7 @@
               <strong>💴 Precio:</strong> 1000 - 2000 Yenes.
               <strong>🌐Sitio web:</strong> https://www.google.es/maps/place/Tenkaippin/@34.6822359,135.8288437,17z/data=!4m6!3m5!1s0x60013988094e2aed:0x28fa99921c032d25!8m2!3d34.6822359!4d135.8288437!16s%2Fg%2F1thd6lb9?hl=es&entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoASAFQAw%3D%3D
 
-              <strong>🪧 Este restaurante no lo hemos visitado. Recomendado por otras webs</strong>.
-              Una alternativa más cercana a la zona principal de Nara
+              El restaurante se encuentra al lado del estanque Sarusawa, es decir, en pleno centro turístico d eNara por lo que no tendreis que apenas moveros. Uno de los caldos de ramen más diferentes. Se aleja de la textura típica y es un poco más denso, personalmente fue una d emis favoritas, <strong> Completamente recomendado </strong>
               
               ',
             images: [
@@ -585,7 +608,7 @@
             latitude: 34.682407960052295, 
             mapUrl: 'map-shinjuku'
           }
-          
+      
           ]}">
     </app-card-service>
   </div>
