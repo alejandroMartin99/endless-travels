@@ -12,7 +12,8 @@ export class TransportRecomendationsComponent {
   tabs = [
     { id: 'general', name: 'General', active: true },
     { id: 'tokyo', name: 'Tokyo', active: false },
-    { id: 'kyoto', name: 'Kyoto', active: false }
+    { id: 'kyoto', name: 'Kyoto', active: false },
+    { id: 'excursiones', name: 'Excursiones', active: false }
   ];
 
   // Tab actualmente seleccionada
@@ -41,4 +42,6 @@ export class TransportRecomendationsComponent {
   isTabActive(tabId: string): boolean {
     return this.activeTab === tabId;
   }
+
+  
 }

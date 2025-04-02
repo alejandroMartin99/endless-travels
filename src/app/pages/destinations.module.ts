@@ -11,6 +11,10 @@ import { LandingComponent } from './landing/landing.component';
 import { RecomendationsComponent } from './destinations/japan/components/recomendations/recomendations.component';
 import { TransportRecomendationsComponent } from './destinations/japan/components/recomendations/transporte/transport-recomendations.component';
 import { RestaurantRecomendationsComponent } from './destinations/japan/components/recomendations/restaurantes/restaurant-recomendations.component';
+import { HotelRecomendationsComponent } from './destinations/japan/components/recomendations/hoteles/hotel-recomendations.component';
+import { ConectRecomendationsComponent } from './destinations/japan/components/recomendations/conectividad/conect-recomendations.component';
+import { DineroRecomendationsComponent } from './destinations/japan/components/recomendations/dinero/dinero-recomendations.component';
+import { IdiomaRecomendationsComponent } from './destinations/japan/components/recomendations/idioma/idioma-recomendations.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { RestaurantRecomendationsComponent } from './destinations/japan/componen
     LandingComponent,
     RecomendationsComponent,
     TransportRecomendationsComponent,
-    RestaurantRecomendationsComponent
+    RestaurantRecomendationsComponent,
+    HotelRecomendationsComponent,
+    ConectRecomendationsComponent,
+    DineroRecomendationsComponent,
+    IdiomaRecomendationsComponent
     
   ],
   imports: [

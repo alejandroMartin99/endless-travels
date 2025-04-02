@@ -1,6 +1,6 @@
 
 <!-- Transporte -->
-<mat-expansion-panel >
+<mat-expansion-panel [(expanded)]="panelOpenState">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <mat-icon class="panel-icon">directions_railway</mat-icon>
@@ -23,185 +23,186 @@
       </button>
     </div>
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon class="panel-icon">confirmation_num</mat-icon>
-          Japan Rail Pass (JR Pass)
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+    <mat-accordion>
 
-      <div class="japan-rail-pass-item">
-        <p>Es un pase exclusivo para turistas extranjeros que permite viajar de forma ilimitada en la mayoría de los trenes operados por Japan Railways (JR) durante 7, 14 o 21 días. Este pase incluye los trenes bala (Shinkansen), líneas locales y rápidas, autobuses y ferris seleccionados, siendo una opción eficiente y económica para recorrer Japón. Sin embargo, su conveniencia depende de la ruta y la duración del viaje. Este es el <a href="https://www.jrailpass.com/es/jr-pass?_gl=1*58bve*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAmrS7BhBJEiwAei59i3oBbaRDGthhuLXRVagJtY9GSEpbbhi58KAP-LW1Tr-aWBEvpwkiyxoCygQQAvD_BwE">Link de compra</a></p>
-        
-
-        <div class="japan-rail-pass-section">
-          <h1>¿Qué incluye el Japan Rail Pass?</h1>
-          <div class="japan-rail-pass-subsection">
-            <ul>
-                <li>✅ Todos los trenes trenes bala (Shinkansen) (Tokaido, Sanyo, Hokuriku, Hokkaido ...  )</li>
-                <li>✅ Trenes rápidos y locales </li>
-                  <ul>
-                    <li>Tokio: Línea Yamanote, Chuo-Sobu, Keihin-Tohoku ... </li>
-                    <li>Kioto: Línea Nara, Sagano a Arashiyama</li>
-                  </ul>
-                <li>✅ Buses locales operados por JR</li>
-                <li>✅ Ferry JR a Miyajima</li>
-                <li>✅ Traslados al aeropuerto (Narita Express,Haruka Express,Haruka Express) </li>
-                
-                <li>❌ Trenes de compañías privadas</li>
-                <li>❌ Shinkansen Nozomi y Mizuho</li>
-            </ul>
-          </div>
-      </div>
-
-      <div class="japan-rail-pass-section">
-        <h1>¿Siempre debo comprar el Japan Rail Pass?</h1>
-        
-        <div class="japan-rail-pass-subsection">
-          <p><strong>Esta pregunta hasta 2023, la respuesta era fácil, Sí </strong>. Esto se debe a que el precio del ticket para 14 días era de 300€ por persona. Sin embargo este precio se ha visto incrementado considerablemente en el último año pasando a valer 504,38€ por persona el mismo pase. Ante esta casuística, la respuesta no es fácil ya que en ciertos itinerarios puede llegar a no compensar.</p>
-          <p></p>
-          <p>En el siguiente <a href="https://www.japan-guide.com/railpass/">link</a>, podeis insertar vuestro itinerario y la página os calcula si debeis comprar o no el JR PASS, o por el contrario os conviene mejor otra opción.</p>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="panel-icon">confirmation_num</mat-icon>
+            Japan Rail Pass (JR Pass)
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <div class="japan-rail-pass-item">
+          <p>Es un pase exclusivo para turistas extranjeros que permite viajar de forma ilimitada en la mayoría de los trenes operados por Japan Railways (JR) durante 7, 14 o 21 días. Este pase incluye los trenes bala (Shinkansen), líneas locales y rápidas, autobuses y ferris seleccionados, siendo una opción eficiente y económica para recorrer Japón. Sin embargo, su conveniencia depende de la ruta y la duración del viaje. Este es el <a href="https://www.jrailpass.com/es/jr-pass?_gl=1*58bve*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAmrS7BhBJEiwAei59i3oBbaRDGthhuLXRVagJtY9GSEpbbhi58KAP-LW1Tr-aWBEvpwkiyxoCygQQAvD_BwE">Link de compra</a></p>
           
-          <p></p>
-          <p>Para ayudaros un poco más, os dejamos desglosados los trayectos que nosotros realizamos así como el precio de cada uno de ellos si se obtuviera por separado.</p>
-          <table>
-              <thead>
-                  <tr>
-                      <th>Ruta</th>
-                      <th>Precio (ida y vuelta)</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>Kyoto-Tokyo</td>
-                      <td>26,000¥ (13,000¥ × 2) -> (~158€)</td>
-                  </tr>
-                  <tr>
-                      <td>Tokyo-Nikko</td>
-                      <td>6,000¥ (3,000¥ × 2) -> (~37€)</td>
-                  </tr>
-                  <tr>
-                      <td>Tokyo-Kamakura</td>
-                      <td>2,000¥ (1,000¥ × 2) -> (~12€)</td>
-                  </tr>
-                  <tr>
-                      <td>Kyoto-Nara</td>
-                      <td>3,000¥ (1,500¥ × 2) -> (~18€)</td>
-                  </tr>
-                  <tr>
-                      <td>Kyoto-Osaka</td>
-                      <td>1,000¥ (500¥ × 2) -> (~6€)</td>
-                  </tr>
-                  <tr>
-                      <td>Kyoto-Hiroshima</td>
-                      <td>22,000¥ (11,000¥ × 2) -> (~134€)</td>
-                  </tr>
-                  <tr>
-                      <td><strong>Total aproximado</strong></td>
-                      <td><strong>60,000¥ (~365€)</strong></td>
-                  </tr>
-              </tbody>
-          </table>
-      
-        <p>Como se puede ver, cuando nosotros hicimos le viaje nos compensaba enormemente el JR Pass ya que no solo nos ahorraba dinero sino que nos daba la tranquilidad de que copn ese ticket no ns teníamos que volver a preocupar por sacar tickets. A su vez al precio indicado nos entraban la mayoría de líenas de metro de Tokio. Sin embargo <strong>a fecha de hoy no nos compensa comprar el JR Pass </strong>, de hecho, en el link anterior, nos recomiendan obtenerlos por separado.</p>
-
-      
+  
+          <div class="japan-rail-pass-section">
+            <h1>¿Qué incluye el Japan Rail Pass?</h1>
+            <div class="japan-rail-pass-subsection">
+              <ul>
+                  <li>✅ Todos los trenes trenes bala (Shinkansen) (Tokaido, Sanyo, Hokuriku, Hokkaido ...  )</li>
+                  <li>✅ Trenes rápidos y locales </li>
+                    <ul>
+                      <li>Tokio: Línea Yamanote, Chuo-Sobu, Keihin-Tohoku ... </li>
+                      <li>Kioto: Línea Nara, Sagano a Arashiyama</li>
+                    </ul>
+                  <li>✅ Buses locales operados por JR</li>
+                  <li>✅ Ferry JR a Miyajima</li>
+                  <li>✅ Traslados al aeropuerto (Narita Express,Haruka Express,Haruka Express) </li>
+                  
+                  <li>❌ Trenes de compañías privadas</li>
+                  <li>❌ Shinkansen Nozomi y Mizuho</li>
+              </ul>
+            </div>
         </div>
-      
-      </div>
-    
-      <div class="japan-rail-pass-section">
-        <h2>Alternativas al JR Pass</h2>
+  
+        <div class="japan-rail-pass-section">
+          <h1>¿Siempre debo comprar el Japan Rail Pass?</h1>
+          
+          <div class="japan-rail-pass-subsection">
+            <p><strong>Esta pregunta hasta 2023, la respuesta era fácil, Sí </strong>. Esto se debe a que el precio del ticket para 14 días era de 300€ por persona. Sin embargo este precio se ha visto incrementado considerablemente en el último año pasando a valer 504,38€ por persona el mismo pase. Ante esta casuística, la respuesta no es fácil ya que en ciertos itinerarios puede llegar a no compensar.</p>
+            <p></p>
+            <p>En el siguiente <a href="https://www.japan-guide.com/railpass/">link</a>, podeis insertar vuestro itinerario y la página os calcula si debeis comprar o no el JR PASS, o por el contrario os conviene mejor otra opción.</p>
+            
+            <p></p>
+            <p>Para ayudaros un poco más, os dejamos desglosados los trayectos que nosotros realizamos así como el precio de cada uno de ellos si se obtuviera por separado.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ruta</th>
+                        <th>Precio (ida y vuelta)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kyoto-Tokyo</td>
+                        <td>26,000¥ (13,000¥ × 2) -> (~158€)</td>
+                    </tr>
+                    <tr>
+                        <td>Tokyo-Nikko</td>
+                        <td>6,000¥ (3,000¥ × 2) -> (~37€)</td>
+                    </tr>
+                    <tr>
+                        <td>Tokyo-Kamakura</td>
+                        <td>2,000¥ (1,000¥ × 2) -> (~12€)</td>
+                    </tr>
+                    <tr>
+                        <td>Kyoto-Nara</td>
+                        <td>3,000¥ (1,500¥ × 2) -> (~18€)</td>
+                    </tr>
+                    <tr>
+                        <td>Kyoto-Osaka</td>
+                        <td>1,000¥ (500¥ × 2) -> (~6€)</td>
+                    </tr>
+                    <tr>
+                        <td>Kyoto-Hiroshima</td>
+                        <td>22,000¥ (11,000¥ × 2) -> (~134€)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total aproximado</strong></td>
+                        <td><strong>60,000¥ (~365€)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         
-        <div class="kyoto-metro-item">
-          <div class="kyoto-metro-content">
-              <h3>1. Pases Regionales JR</h3>
-              <p>Ideales para explorar una región específica. Ejemplos: JR Kansai Pass (Osaka, Kyoto, Nara), JR East Pass (Tokyo y alrededores)</p>
-
-                
-              <p>Un pase de tren regional es una buena inversión para los visitantes que solo planean viajar dentro de un área limitada de Japón, ya que elimina la necesidad de pagar un JR Pass para todo el país. Los pases regionales también ofrecen diferentes períodos de validez con días flexibles.</p>
-
-              <p>Analizando nuestro itinerario actualmente el coste sería de 60,000¥ (~365€) por persona. El pase de 7 días no nos permite enlazar los dos principales trayectos de Kyoto a Tokyo. Es por ello que una muy buena alternativa sería el <strong> JR Kansai Pass </strong> que tiene un precio de 17,000¥ por 5 días. De esta forma podemos ahorrarnos todos los viajes de Osaka, Hirosshima y Nara. </p>
+          <p>Como se puede ver, cuando nosotros hicimos le viaje nos compensaba enormemente el JR Pass ya que no solo nos ahorraba dinero sino que nos daba la tranquilidad de que copn ese ticket no ns teníamos que volver a preocupar por sacar tickets. A su vez al precio indicado nos entraban la mayoría de líenas de metro de Tokio. Sin embargo <strong>a fecha de hoy no nos compensa comprar el JR Pass </strong>, de hecho, en el link anterior, nos recomiendan obtenerlos por separado.</p>
+  
+        
           </div>
-
-          <div class="kyoto-metro-image-container">
+        
+        </div>
+      
+        <div class="japan-rail-pass-section">
+          <h2>Alternativas al JR Pass</h2>
+          
+          <div class="kyoto-metro-item">
+            <div class="kyoto-metro-content">
+                <h3>1. Pases Regionales JR</h3>
+                <p>Ideales para explorar una región específica. Ejemplos: JR Kansai Pass (Osaka, Kyoto, Nara), JR East Pass (Tokyo y alrededores)</p>
+  
+                  
+                <p>Un pase de tren regional es una buena inversión para los visitantes que solo planean viajar dentro de un área limitada de Japón, ya que elimina la necesidad de pagar un JR Pass para todo el país. Los pases regionales también ofrecen diferentes períodos de validez con días flexibles.</p>
+  
+                <p>Analizando nuestro itinerario actualmente el coste sería de 60,000¥ (~365€) por persona. El pase de 7 días no nos permite enlazar los dos principales trayectos de Kyoto a Tokyo. Es por ello que una muy buena alternativa sería el <strong> JR Kansai Pass </strong> que tiene un precio de 17,000¥ por 5 días. De esta forma podemos ahorrarnos todos los viajes de Osaka, Hirosshima y Nara. </p>
+            </div>
+  
+            <div class="kyoto-metro-image-container">
+              <img 
+                src="assets/japan/Recomendations/kansai_hiroshima.webp" 
+                alt="Mapa del metro de Kioto" 
+                class="kyoto-metro-image" />
+            </div>
+          </div>
+  
+          <div class="kyoto-metro-item">
+            <div class="kyoto-metro-content">
+              <h3>2. Buses Nocturnos</h3>
+              <p>Opción económica para largas distancias. Precios desde 3,000¥ a 10,000¥ por trayecto. Incluye ahorro en una noche de hotel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="panel-icon">credit_card</mat-icon>
+            Tarjeta IC (PASMO/SUICA)
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <div class="suica-item">
+          <div>
+            <p>
+              La tarjeta SUICA es ideal para transporte urbano (metro, autobuses, trenes) y compras en tiendas de conveniencia o máquinas expendedoras. ¡Haz que tu viaje sea más cómodo usándola directamente desde tu iPhone!
+            </p>
+            <h3>Cómo configurarla:</h3>
+            <ol>
+              <li>Abre la app <strong>Wallet</strong> en tu iPhone.</li>
+              <li>Pulsa el botón "+" y selecciona <strong>Suica Card</strong>.</li>
+              <li>Sigue las instrucciones y recarga saldo directamente desde tu dispositivo.</li>
+            </ol>
+          </div>
+          <div class="suica-item-image-container">
             <img 
-              src="assets/japan/Recomendations/kansai_hiroshima.webp" 
-              alt="Mapa del metro de Kioto" 
-              class="kyoto-metro-image" />
+              src="assets/japan/Recomendations/suica.png" 
+              alt="Suica en iPhone" 
+              class="suica-image" />
           </div>
         </div>
-
-        <div class="kyoto-metro-item">
-          <div class="kyoto-metro-content">
-            <h3>2. Buses Nocturnos</h3>
-            <p>Opción económica para largas distancias. Precios desde 3,000¥ a 10,000¥ por trayecto. Incluye ahorro en una noche de hotel.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon class="panel-icon">credit_card</mat-icon>
-          Tarjeta IC (PASMO/SUICA)
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <div class="suica-item">
-        <div>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="panel-icon">local_taxi</mat-icon>
+            Taxi
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <div class="japan-rail-pass-item">
           <p>
-            La tarjeta SUICA es ideal para transporte urbano (metro, autobuses, trenes) y compras en tiendas de conveniencia o máquinas expendedoras. ¡Haz que tu viaje sea más cómodo usándola directamente desde tu iPhone!
+            Los taxis en Japón son una opción cómoda y segura para moverse por la ciudad. Sin embargo, son más caros que el transporte público y no son recomendables para trayectos largos. 
           </p>
-          <h3>Cómo configurarla:</h3>
-          <ol>
-            <li>Abre la app <strong>Wallet</strong> en tu iPhone.</li>
-            <li>Pulsa el botón "+" y selecciona <strong>Suica Card</strong>.</li>
-            <li>Sigue las instrucciones y recarga saldo directamente desde tu dispositivo.</li>
-          </ol>
+          <p>
+          En nuestro caso tomamos solamente dos taxis, el priemro fue para ir desde el aeropuerto de Haneda hasta el hotel, un trayecto de aproximadamente 15 minutos, y el segundo fue en la ciudad de Osaka, el cual nos ahorraba bastante tiempo y el precio era asequible. Algunos consejos para tomar un taxi en Japón:
+          </p>
+          <ul>
+            <li>Usa la app <strong>Uber</strong> para pedir un taxi en castellano. Funciona igual que en España/Europa y te aseguras d etener un precio aproximada antes d einiciar el trayecto</li>
+            <li>Sino lo has pedido a través de una app como Uber lleva una captura en tu móvil google de maps a poder ser en Japonés ya que algunos conductores son de mediana edad y no saben leer el alfabeto occidental.</li>
+            <li> <strong>Al igual que en todo Japón no hay que propina </strong> al conductor.</li>
+          </ul>
         </div>
-        <div class="suica-item-image-container">
-          <img 
-            src="assets/japan/Recomendations/suica.png" 
-            alt="Suica en iPhone" 
-            class="suica-image" />
-        </div>
-      </div>
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon class="panel-icon">local_taxi</mat-icon>
-          Taxi
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <div class="japan-rail-pass-item">
-        <p>
-          Los taxis en Japón son una opción cómoda y segura para moverse por la ciudad. Sin embargo, son más caros que el transporte público y no son recomendables para trayectos largos. 
-        </p>
-        <p>
-        En nuestro caso tomamos solamente dos taxis, el priemro fue para ir desde el aeropuerto de Haneda hasta el hotel, un trayecto de aproximadamente 15 minutos, y el segundo fue en la ciudad de Osaka, el cual nos ahorraba bastante tiempo y el precio era asequible. Algunos consejos para tomar un taxi en Japón:
-        </p>
-        <ul>
-          <li>Usa la app <strong>Uber</strong> para pedir un taxi en castellano. Funciona igual que en España/Europa y te aseguras d etener un precio aproximada antes d einiciar el trayecto</li>
-          <li>Sino lo has pedido a través de una app como Uber lleva una captura en tu móvil google de maps a poder ser en Japonés ya que algunos conductores son de mediana edad y no saben leer el alfabeto occidental.</li>
-          <li> <strong>Al igual que en todo Japón no hay que propina </strong> al conductor.</li>
-        </ul>
-      </div>
-    </mat-expansion-panel>
-
-
-
+      </mat-expansion-panel>
+      
+    </mat-accordion>
   </div>
 
   <div id="tokyo" 
-  class="tab-content" [class.active]="isTabActive('tokyo')">
+    class="tab-content" [class.active]="isTabActive('tokyo')">
     <div class="tabs">
       <button *ngFor="let tab of tabs"
               class="tab-button"
@@ -364,8 +365,219 @@
 
   </div>
 
-</mat-expansion-panel>
+  <div id="excursiones" 
+  class="tab-content" [class.active]="isTabActive('excursiones')">
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
 
+    <div class="japan-rail-pass-item">
+      
+      <div class="zone-section">
+        <div class="zone-header">
+          <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
+          <h2 class="zone-title">Excursiones desde Kyoto</h2>
+        </div>
+      </div>
+      <p>
+        Durante nuestro tiempo en Kioto, aprovechamos al máximo nuestra ubicación para hacer excursiones a algunas de las ciudades más emblemáticas de Japón. Desde la vibrante Osaka hasta la histórica Hiroshima, pasando por la tranquila Nara, cada uno de estos destinos ofreció una experiencia única. A continuación, te contamos cómo llegar a estos lugares desde Kioto y qué no puedes perderte en cada uno. También te compartimos un extra, como la posible visita a Miyajima, que puedes agregar a tu itinerario si tienes tiempo. ¡Sigue leyendo para conocer más detalles sobre estas excursiones!
+      </p>
+
+      <div class="japan-rail-pass-section">
+        <h1 >OSAKA</h1>
+        <div class="excursion-container">
+          <div class="excursion-container-item">
+            <p>
+              Nuestra primera excursión fue a la ciudad de Osaka. Esta ciudad es la tercera más grande de Japón y se encuentra a tan solo 30 minutos en tren bala desde Kioto. Osaka es conocida por su gastronomía, su castillo y su animada vida nocturna. Te dejamos todo nuetsro recorrido por la ciudad en la pestaña de itinerario día 6.
+            </p>
+            <h3>Cómo llegar a Osaka desde Kioto</h3>
+            <p>
+              La forma más rápida y cómoda de viajar a Osaka es en Shinkansen (tren bala). Nosotros utilizamos esta opción, ya que estaba incluida en el JR Pass.
+            </p>
+              <ul>
+                <li>🚅 Duración del trayecto: 30 minutos</li>
+                <li>💰 Precio sin JR Pass: 1,420¥ (~11€) por trayecto</li>
+              </ul>
+            <p>
+              Los trenes salen con mucha frecuencia desde las estaciones de Kyoto Station y Osaka Station, por lo que no tendrás problemas para encontrar uno disponible. Eso sí, presta atención al tipo de tren, ya que algunos hacen paradas intermedias y pueden alargar el viaje. Si quieres un trayecto directo, elige un tren sin paradas.
+            </p>
+            <h3>Resumen de nuestro caso </h3>    
+              <ul>
+                <li><strong>Karasuma Oike St -> Kioto St (5 min) :</strong> Trayecto necesario desde nuestro hotel en la línea Karasuma Line. Son 3 paradas: Shijō St >> Gojō St >> Kioto St.</li>
+
+                <li><strong>Kioto St -> Osaka St (30 min) :</strong> Tokaido-Sanyo Line (tren bala)
+                Son 3 paradas: Takatsuki St >> Shin-Osaka St >> Osaka St. Dependiendo de la hora existen ciertos trenes que llegan solo hasta Shin-Osaka St, en ese caso debeis tomar otro tren que en 5 minutos os deja en Osaka st.</li>
+
+            </ul>
+          </div>
+        
+          <div class="excursion-image-container">
+            <img 
+              src="assets/japan/Recomendations/transporte/Exc_Osaka.png" 
+              alt="Mapa del metro de Kioto" 
+              class="excursion-image" />
+          </div>
+        </div>
+      
+        <h1 id="nara">NARA</h1>
+        <div class="excursion-container">
+          <div class="excursion-container-item">
+            <p>
+              Nuestra segunda excursión fue a la ciudad de Nara. Conocida por su parque lleno de ciervos en libertad y sus impresionantes templos, Nara es una visita imprescindible desde Kioto. Puedes encontrar nuestro recorrido completo en la pestaña de itinerario del día 7.
+            </p>
+            <h3>Cómo llegar a Nara desde Kioto</h3>
+            <p>
+              Existen dos principales opciones para viajar en tren desde Kioto a Nara:
+            </p>
+            <ul>
+              <li>🚆 <strong>JR Nara Line:</strong> Incluida en el JR Pass. El servicio rápido Miyakoji tarda aproximadamente 45 minutos en llegar a la estación JR Nara. Sin el JR Pass, el billete cuesta 720¥ por trayecto. </li>
+              <li>🚃 <strong>Kintetsu Nara Line:</strong> No está incluida en el JR Pass. Los trenes exprés tardan alrededor de 45 minutos desde la estación de Kioto hasta la estación Kintetsu Nara, con un coste de 760¥ por trayecto.</li>
+            </ul>
+            <p>
+              La estación Kintetsu Nara está más cerca del Parque de Nara y de los principales sitios turísticos que la estación JR Nara. Sin embargo, si posees el JR Pass, la opción más económica es utilizar la JR Nara Line.
+            </p>
+            <h3>Resumen de nuestro caso</h3>    
+            <ul>
+              <li><strong>Karasuma Oike St -> Kioto St (5 min):</strong> Desde nuestro hotel, tomamos la línea Karasuma Line con 3 paradas: Shijō St >> Gojō St >> Kioto St.</li>
+              <li><strong>Kioto St -> Nara St (45 min):</strong> Utilizamos el servicio rápido Miyakoji de la JR Nara Line (incluido en el JR Pass), que nos llevó directamente a la estación JR Nara.</li>
+            </ul>
+          </div>
+
+          <div class="excursion-image-container">
+            <img 
+              src="assets/japan/Recomendations/transporte/Exc_Nara.png" 
+              alt="Mapa del transporte en Nara" 
+              class="excursion-image" />
+          </div>
+        </div>
+
+        <h1>HIROSHIMA</h1>
+        <div class="excursion-container">
+          <div class="excursion-container-item">
+            <p>
+              Nuestra excursión a Hiroshima fue una de las más impactantes del viaje. Esta ciudad, tristemente famosa por el bombardeo atómico de 1945, es hoy un símbolo de paz y resiliencia. Su Parque Conmemorativo de la Paz y la Cúpula de la Bomba Atómica son visitas imprescindibles. Puedes encontrar nuestro recorrido completo en la pestaña de itinerario día 8.
+            </p>
+
+            <h3>Cómo llegar a Hiroshima desde Kioto</h3>
+            <p>
+              La mejor forma de llegar a Hiroshima desde Kioto es en Shinkansen (tren bala). Si tienes el JR Pass, esta es la opción más rápida y cómoda.
+            </p>
+
+            <ul>
+              <li>🚅 <strong>Shinkansen Hikari o Sakura:</strong> Incluido en el JR Pass, con una duración de 1h 40 min.</li>
+              <li>💰 Precio sin JR Pass: 10,570¥ (~70€) por trayecto.</li>
+            </ul>
+
+            <h3>Resumen de nuestro caso</h3>    
+            <ul>
+              <li><strong>Karasuma Oike St -> Kioto St (5 min) :</strong> Desde nuestro hotel, tomamos la línea Karasuma Line con 3 paradas: Shijō St >> Gojō St >> Kioto St.</li>
+              <li><strong>Kioto St -> Hiroshima St (1h 40 min) :</strong> Tomamos el Shinkansen Hikari (incluido en el JR Pass).</li>
+            </ul>
+
+            <h3>Opcional: Visitar la isla de Miyajima</h3>
+            <p>
+              Aunque nosotros no tuvimos tiempo para visitarla, mucha gente combina Hiroshima con una excursión a la isla de Miyajima, famosa por su gran torii flotante y su belleza natural. Si tienes un día completo, puedes hacer esta extensión sin problema.
+            </p>
+            <ul>
+              <li>🚆 <strong>Hiroshima St -> Miyajimaguchi St:</strong> Tren de la JR Sanyo Line (20 min, incluido en el JR Pass).</li>
+              <li>⛴️ <strong>Ferry a Miyajima:</strong> El ferry de JR está incluido en el JR Pass y tarda unos 10 min.</li>
+            </ul>
+          </div>
+
+          <div class="excursion-image-container">
+            <img 
+              src="assets/japan/Recomendations/transporte/Exc_Hiroshima.png" 
+              alt="Mapa del transporte en Hiroshima" 
+              class="excursion-image" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="japan-rail-pass-item">
+      <div class="zone-section">
+        <div class="zone-header">
+          <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
+          <h2 class="zone-title">Excursiones desde Tokyo</h2>
+        </div>
+      </div>
+      <p>
+        En nuestras excursiones desde la capital japonesa, decidimos visitar Nikko, un lugar donde la majestuosidad de sus templos y santuarios se mezcla con la serenidad de la naturaleza, y Kamakura, una ciudad costera conocida por su emblemático Gran Buda y hermosos paisajes.
+      </p>
+      
+      <div class="japan-rail-pass-section">
+        <h1>NIKKO</h1>
+        <div class="excursion-container">
+          <div class="excursion-container-item">
+            <p>
+              Una de las excursiones más impresionantes que realizamos fue a Nikko, una ciudad conocida por sus templos impresionantes, incluida la famosa tumba de Tokugawa Ieyasu. Nikko es un lugar declarado Patrimonio de la Humanidad por la UNESCO y es un destino ideal para un viaje desde Tokio. Puedes encontrar todo el detalle de nuestro recorrido en la pestaña de itinerario día 10.
+            </p>
+            <h3>Cómo llegar a Nikko desde Tokio</h3>
+            <p>
+              La forma más rápida de llegar a Nikko es tomando el JR Tohoku Shinkansen, bien desde la estación de Tokio, o bien desde la de Ueno. En ambos casos,
+              tendremos que llegar hasta Utsunomiya. Desde allí, tendremos que tomar la línea JR Nikko hasta la estación de Nikko. Tardaremos menos de 2h.
+            </p>
+            <ul>
+              <li>🚅 <strong>JR Shinkansen + JR Nikko Line:</strong> Incluido en el JR Pass, el trayecto total dura aproximadamente 2 horas y 20 minutos.</li>
+              <li>💰 Precio sin JR Pass: Aproximadamente 2,800¥ (~20€) por trayecto.</li>
+            </ul>
+            <h3>Resumen de nuestro caso</h3>
+            <ul>
+              <li><strong>Kanda St -> Tokio St (5 min):</strong> Desde nuestro hotel en Kanda, tomamos la línea JR Yamanote hasta Tokio St.</li>
+              <li><strong>Tokio St -> Nikko St (2h 20 min):</strong> Tomamos el Shinkansen hasta Utsunomiya y luego el JR Nikko Line hasta Nikko.</li>
+            </ul>
+          </div>
+          <div class="excursion-image-container">
+            <img 
+              src="assets/japan/Recomendations/transporte/Exc_Nikko.png" 
+              alt="Mapa del transporte en Nikko" 
+              class="excursion-image" />
+          </div>
+        </div>
+
+        <h1>KAMAKURA</h1>
+        <div class="excursion-container">
+          <div class="excursion-container-item">
+            <p>
+              Kamakura, famosa por sus templos y el Gran Buda, es otro destino fascinante cerca de Tokio. Aunque más tranquila que otras ciudades cercanas, Kamakura ofrece una experiencia única, especialmente para los amantes de la historia y la naturaleza. En nuestra visita, disfrutamos de sus templos y la belleza natural. Puedes ver el itinerario completo en la pestaña de itinerario día 11.
+            </p>
+            <h3>Cómo llegar a Kamakura desde Tokio</h3>
+            <p>
+              Kamakura está a solo una hora de Tokio, y puedes llegar en tren fácilmente. La línea JR es una de las opciones más cómodas para este recorrido.
+            </p>
+            <ul>
+              <li>🚆 <strong>JR Yokosuka Line:</strong> Incluida en el JR Pass, con un trayecto de aproximadamente 1 hora.</li>
+              <li>💰 Precio sin JR Pass: Aproximadamente 920¥ (~7€) por trayecto.</li>
+            </ul>
+            <h3>Resumen de nuestro caso</h3>
+            <ul>
+              <li><strong>Kanda St -> Tokio St (5 min):</strong> Desde nuestro hotel en Kanda, tomamos la línea JR Yamanote hasta Tokio St.</li>
+              <li><strong>Tokio St -> Kamakura St (1h):</strong> Tomamos el tren JR Yokosuka Line desde Tokio St hasta Kamakura St.</li>
+            </ul>
+          </div>
+
+          <div class="excursion-image-container">
+            <img 
+              src="assets/japan/Recomendations/transporte/Exc_Kamakura.png" 
+              alt="Mapa del transporte en Kamakura" 
+              class="excursion-image" />
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</mat-expansion-panel>
 
 
 
