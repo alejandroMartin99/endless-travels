@@ -263,6 +263,8 @@ th {
   border-radius: 8px; /* Bordes redondeados (opcional) */
 }
 
+
+
 .zone-header {
   position: relative;
   margin-bottom: 2rem;
@@ -289,6 +291,8 @@ th {
   width: 90%; /* Ajusta el ancho para evitar que el texto se salga */
   max-width: 800px; /* Máximo ancho para evitar líneas demasiado largas */
 }
+
+
 
 
 @media (max-width: 768px) {
