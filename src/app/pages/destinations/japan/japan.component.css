@@ -2,7 +2,16 @@
 .content-container {
   padding: 0px 200px;
   background: linear-gradient(to bottom, white, #f0f0f0);
-  min-height: 90vh;
+}
+
+/* Estilo para mantener el tab header fijo */
+.mat-tab-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 /* Etiquetas de pestañas */
@@ -36,7 +45,7 @@
 
 /* Texto de pestañas personalizado */
 .custom-tab-text {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -59,7 +68,13 @@
   justify-content: center; /* Centra las pestañas en pantallas pequeñas */
 }
 
-
+::ng-deep .mat-tab-header {
+  position: sticky;
+  top: 0; /* Se queda pegado arriba */
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra sutil para separar visualmente */
+}
 
 .zone-header {
   position: relative;
@@ -112,15 +127,11 @@
   font-size: 1.3rem;
 }
 
-
-
-
 /* Espaciado entre secciones principales */
 .zone-header {
   margin-top: 20px;
   margin-bottom: 15px;
 }
-
 
 .subzone-banner {
   width: 60px; /* Controlar el ancho del banner */
@@ -181,7 +192,6 @@
   color: #333;
 }
 
-
 .subzone-container {
   display: flex;
   align-items: center;
@@ -189,29 +199,73 @@
   padding: 5px 0px; /* Ajuste en el padding */
 }
 
-/* Agrupación de estilos responsivos para pantallas pequeñas */
-@media (max-width: 768px) {
+/* Estilos para dispositivos móviles mejorados */
+@media (max-width: 1500px) {
   .content-container {
-      padding: 0px 20px; /* Reduce el padding en dispositivos pequeños */
+    padding: 0px 15px;
   }
 
-  .custom-tab-label {
-      padding: 8px 10px; /* Reduce el padding en dispositivos pequeños */
+  /* Transformación para móviles: Solo mostrar iconos en los tabs */
+  ::ng-deep .mat-tab-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    height: auto;
+    border-radius: 0 0 15px 15px;
   }
 
-  .custom-icon {
-      font-size: 20px; /* Reduce el tamaño del icono */
-      margin-right: 5px;
+  /* Estilo para tabs móviles */
+  .mobile-tab-style .custom-tab-label {
+    padding: 8px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    transition: all 0.3s ease;
   }
 
-  .custom-tab-text {
-      font-size: 18px; /* Reduce el tamaño del texto */
+  /* Cuando está en móvil, oculta el texto y centra el icono */
+  .mobile-tab-style .custom-tab-text {
+    display: none;
   }
 
-  .mat-tab-labels {
-      overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+  .mobile-tab-style .custom-icon {
+    font-size: 24px;
+    margin: 0;
   }
 
+  /* Indicador activo circular para móviles */
+  ::ng-deep .mat-tab-header .mat-ink-bar {
+    height: 0 !important;
+  }
+
+  ::ng-deep .mat-tab-label-active .custom-tab-label {
+    background-color: #1976d2;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  ::ng-deep .mat-tab-label-active .custom-icon {
+    color: white;
+  }
+
+  /* Centro el contenedor de tabs para móviles */
+  ::ng-deep .mat-tab-label-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mejora específica para la navegación móvil */
+  ::ng-deep .mat-tab-labels {
+    justify-content: space-around;
+    padding: 5px 0;
+  }
+
+  /* Resto de estilos responsivos */
   .zone-info {
     flex-direction: column;
     align-items: center;
@@ -222,6 +276,7 @@
 
   .zone-title {
     top: 10%;
+    font-size: 2.5rem;
   }
-  
 }
+

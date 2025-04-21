@@ -1,9 +1,19 @@
 /* General sidenav container adjustments */
+
 .sidenav-container {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Evita desplazamiento horizontal */
+}
+
+.router-outlet-container {
+  flex: 1;
+  overflow-y: auto; /* Este será el único con scroll */
+  position: relative;
 }
 
 /* Toolbar adjustments */
@@ -13,18 +23,25 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  color: white;
+  background-color: #ffffff;
   padding: 0 10px; /* Ajusta el padding en móviles */
 }
 
 /* Mat sidenav container */
 .mat-sidenav-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding-top: 64px; /* Espacio para la barra de herramientas fija */
+  height: 100%; /* Aseguramos que ocupe toda la altura */
+  overflow: hidden; /* Importante: evita scroll aquí */
 }
 
 .mat-sidenav-content {
-  overflow-y: auto; /* Permite el scroll del contenido */
-  height: calc(100vh - 64px); /* Ajusta la altura excluyendo la barra */
+  overflow: hidden !important; /* Forzamos hidden para evitar el scroll aquí */
+  height: 100%; /* Altura completa */
+  display: flex;
+  flex-direction: column; /* Para que router-outlet-container pueda expandirse */
 }
 
 /* Sidenav adjustments */
@@ -97,6 +114,8 @@
   color: #3f51b5;
 }
 
+
+
 /* Responsive styles for mobile */
 @media (max-width: 768px) {
   .sidenav-container {
@@ -150,3 +169,5 @@
     padding: 4px; /* Ajusta padding para pantallas pequeñas */
   }
 }
+
+

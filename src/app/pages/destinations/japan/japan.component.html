@@ -1,9 +1,15 @@
 <div class="content-container">
-    <mat-tab-group [selectedIndex]="2">
+  <!-- Sticky tabs fuera del flujo de scroll -->
+
+
+  <mat-tab-group 
+      [selectedIndex]="2" 
+      class="mobile-tab-style sticky-tabs-group" 
+      style="height: calc(100vh - 64px); overflow: hidden;">
       <!-- Tab Inicio -->
       <mat-tab>
         <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">home</mat-icon>
+          <mat-icon class="custom-icon">travel_explore</mat-icon>
           <span class="custom-tab-text">Inicio</span>
       </ng-template>
         <p>Bienvenido a la guía de viaje de Japón.</p>
@@ -12,10 +18,9 @@
       <!-- Tab Recomendaciones -->
       <mat-tab>
         <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">star</mat-icon>
+          <mat-icon class="custom-icon">thumb_up</mat-icon>
           <span class="custom-tab-text">Recomendaciones</span>
         </ng-template>
-        
         <div class="intro-content">
           <p>
             <strong class="accent-text">Descubre consejos esenciales para que tu viaje sea inolvidable.</strong> 
@@ -81,7 +86,12 @@
               <strong>Comapñía:</strong>Qatar Airways, en un Boeing 787. Indicar que yo soy una persona alta y no tuve problemas de espacio. <strong>El precio fue de 800€ por persona</strong>, con mochila + maleta de 10kg + maleta facturada de 23kg.
               
               <strong>Tip:</strong> Os recomendamos encarecidamnete que tengais en cuenta la diferencia horaria. Japón tiene 8h más que España. En el 1er vuelo intentamos dormirnos nada más salir. Y en el 2o no dormir nada de tal forma, que al aterrizar en Japón como volvía a ser las 23:30h hora local, tubieramos sueño, de esta forma apenas tuvimos jetlag.',
-              images: ['/assets/japan/shinjuku.jpg'],
+              images: [
+              '/assets/japan/Kyoto/Dia01/Intro.PNG',
+              '/assets/japan/Kyoto/Dia01/aeropuerto.jpg',
+
+              
+              ],
               longitude: -3.5670382667894565,
               latitude: 40.49456065157009, 
               mapUrl: 'map-shinjuku'
@@ -91,7 +101,10 @@
               description: 'Tras 7h de vuelo en las que pudimos dormir tranquilamente, nos despertamos aterrizando en Qatar a la vez que amanecía. En nuestro caso Qatar Airlines nos ofreció dos comidas. La cena tras el despegue en Madrid y el desayuno antes de aterrizar en Qatar. Ambas fueron decentes para ser una comida en Avión. <br>La escala fue muy breve, 1h, en la que la propia compañía nos movía las maletas y no nos teníamos que preocupar de nada.<br>
               <strong>Tip: </strong>En esta segunda parte del vuelo podemos aprovechar para rellenar el docuemnto de inmigración de Japón. En el avión nos dieron un papel que debíamos rellenar con nuestros datos personales, dirección en Japón, motivo del viaje, etc. Este papel es muy importante, ya que lo necesitaremos para pasar el control de pasaportes en Japón. Si no lo rellenamos en el avión, lo podemos hacer en el aeropuerto de Japón, pero es más cómodo hacerlo en el avión. <strong>Hemos visto que actualmente se puede llevar relleno en el móvil con mucha más antelación</strong>',
               
-              images: ['/assets/japan/shinjuku.jpg'],
+              images: [
+                '/assets/japan/Kyoto/Dia01/qatar.JPEG',
+                '/assets/japan/Kyoto/Dia01/aeropuerto.jpg'
+              ],
               longitude: 51.602870977387866,
               latitude: 25.270855549837748, 
               mapUrl: 'map-shinjuku'
@@ -967,7 +980,7 @@
             <div class="zone-info">
               <div class="info-item">
                 <i class="fa-solid fa-calendar-days"></i>
-                <span>Dias 9 - 14</span>
+                <span>Dias 9 - 15</span>
               </div>
               <div class="info-item">
                 <i class="fas fa-city"></i>
@@ -1058,7 +1071,6 @@
           <div class="subzone-container">
               <div class="subzone-content">
                 <h3>Excursiones desde Tokyo</h3>
-                <!-- <p>Descubre los alrededores con excursiones de un día a Nikko, con sus santuarios Patrimonio de la Humanidad, y Kamakura, hogar del Gran Buda y playas de arena blanca.</p> -->
             </div>
           </div>
               <!-- Día 10: NIKKO -->
@@ -1181,7 +1193,7 @@
                       name: 'Kita Kamakura St',
                       description: 'Hoy exploramos Kamakura, antigua capital samurái, visitando algunos de sus templos más emblemáticos. Para llegar a Kamakura desde Tokio, tomamos la línea JR Yokosuka desde la estación de Tokio hasta Kita Kamakura (~1h). <br><br> Comenzamos en Engaku-ji , hogar de una campana del siglo XIII considerada Tesoro Nacional. Luego, iremos  Tokei-ji, un refugio de paz con jardines y un cementerio histórico. Seguimos con la subida al Kencho-ji, donde las escaleras nos llevan a impresionantes vistas panorámicas. Después, visitamos el Tsuruoka Hachimangu, el santuario más importante de la ciudad, con su majestuosa arquitectura de la era Edo. Haremos una breve parada en la calle Komachi-dori, llena de tiendas y opciones para comer, antes de continuar hacia el Hase-dera, famoso por sus estatuas de Jizo y su entorno espiritual en la ladera. Y por último vistaremos el templo Kotoku‐in y su majestuoso buda de 13 metros de altura.',
                       images: [
-                        '/assets/japan/shinjuku.jpg'
+                        '/assets/japan/Tokio/Dia11/intro.png'
                       ],
                       longitude: 139.54533759015214,
                       latitude: 35.33726439889863, 
@@ -1302,12 +1314,8 @@
           
 
           <div class="subzone-container">
-            <!-- <div class="subzone-banner">
-              <img src="/assets/landing/minimal_japan.jpg" alt="Tokio Ciudad">
-            </div> -->
             <div class="subzone-content">
               <h3>Descubre la Ciudad de Tokio</h3>
-              <!-- <p>Explora los barrios vibrantes de Shinjuku, Shibuya y Akihabara. Disfruta de la mezcla perfecta entre modernidad y tradición en el corazón de Japón.</p> -->
             </div>
           </div>
 
@@ -1585,7 +1593,9 @@
               name: 'Jardines Kyu-Shiba-rikyu',
               description: '<strong>Horario:</strong> 09:00h - 17:00h.\n<strong>Precio:</strong> 150 yenes (~2€).\n\n🌸 Uno de los jardines tradicionales más antiguos de Tokio, designado como Sitio Histórico Nacional. Construido originalmente en el período Edo como residencia de un señor feudal, estos jardines siguen el estilo tradicional japonés con un estanque central y colinas artificiales diseñadas para recrear paisajes naturales en miniatura. El jardín contiene numerosas variedades de plantas que florecen en diferentes estaciones, asegurando que el paisaje sea hermoso durante todo el año. Los senderos serpenteantes te llevan a través de arces japoneses, cerezos y pinos, con puntos estratégicos que ofrecen vistas perfectamente compuestas, siguiendo los principios del diseño de jardines japoneses.',
               images: [
-              '/assets/japan/Tokio/Dia14/Kyu.webp'
+              '/assets/japan/Tokio/Dia14/Kyu.webp',
+              '/assets/japan/Tokio/Dia14/Kyu02.webp',
+              '/assets/japan/Tokio/Dia14/Kyu03.webp'
               ],
               longitude: 139.7587104843059,
               latitude: 35.65497369808448, 
@@ -1613,7 +1623,6 @@
               description: '<strong>Horario:</strong> Espectáculo a las 12h, 15h, 18h y 20h.\n<strong>Precio:</strong> Gratuito.\n\n⏰ Esta maravilla mecánica ubicada en el edificio Nippon TV en Shiodome es un regalo para los amantes del anime. Diseñado por el legendario Hayao Miyazaki, fundador del Studio Ghibli, este enorme reloj de 12 metros de altura es una obra de arte en movimiento. Cada hora designada, sus figuras metálicas cobran vida en un espectáculo de tres minutos que recrea escenas inspiradas en películas como El castillo ambulante. La estructura incluye figuras de cobre, martillos, ruedas y campanas que se mueven con precisión mediante mecanismos hidráulicos. Esta pieza única combina la ingeniería tradicional japonesa con la imaginación fantástica característica del Studio Ghibli, convirtiéndose en una atracción imperdible para cualquier visitante, incluso para aquellos no familiarizados con las obras del estudio.',
               images: [
                 '/assets/japan/Tokio/Dia14/Ghibli.webp',
-                '/assets/japan/Tokio/Dia14/Ghibli2.webp',
               ],
               longitude: 139.7609844559397,
               latitude: 35.66578248313683,   
@@ -1624,7 +1633,8 @@
               description: '<strong>Horario:</strong> Tiendas generalmente 10:00h - 20:00h (varía según establecimiento).\n<strong>Precio:</strong> Gratuito para pasear.\n\n🛍️ Considerado el distrito comercial más lujoso de Tokio, Ginza es sinónimo de sofisticación y elegancia. Sus amplias avenidas están flanqueadas por boutiques de diseñadores internacionales, grandes almacenes exclusivos como Mitsukoshi e Isetan, y edificios con arquitectura vanguardista. Durante el día, Ginza bulle con compradores en busca de artículos de lujo, mientras que por la noche, sus numerosos restaurantes gourmet, bares de cócteles y locales de entretenimiento atraen a una clientela refinada. Los fines de semana, la avenida principal Chuo-dori se convierte en zona peatonal, permitiendo a los visitantes pasear tranquilamente. No te pierdas el edificio de Ginza Six, el complejo comercial más grande del área con más de 240 tiendas, ni el teatro Kabuki-za, donde puedes experimentar el tradicional teatro kabuki japonés.',
               images: [
                 '/assets/japan/Tokio/Dia14/Ginza.webp',
-                '/assets/japan/Tokio/Dia14/Ginza2.webp',
+                '/assets/japan/Tokio/Dia14/Ginza2.jpg',
+                '/assets/japan/Tokio/Dia14/Ginza3.png',
               ],
               longitude: 139.76677421703  ,
               latitude: 35.669890379104864, 
@@ -1731,7 +1741,7 @@
             ]}">
           </app-itinerary-day-card>
 
-          <!-- Día 14: Tokio: Chuo, Ginza y Odaiba -->
+          <!-- Día 15: -->
           <app-itinerary-day-card 
           [borderClass]="'border-blue'"
           [day]="{
@@ -1767,5 +1777,5 @@
         <p>Aquí encontrarás la información sobre los costos del viaje.</p>
       </mat-tab>
     </mat-tab-group>
-  </div>
+</div>
   

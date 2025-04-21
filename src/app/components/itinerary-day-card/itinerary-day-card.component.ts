@@ -3,7 +3,6 @@ import {
   Input,
   ViewChild,
   ElementRef,
-  AfterViewInit,
   OnDestroy,
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
@@ -27,7 +26,7 @@ interface Day {
   templateUrl: './itinerary-day-card.component.html',
   styleUrls: ['./itinerary-day-card.component.css'],
 })
-export class ItineraryDayCardComponent implements AfterViewInit, OnDestroy {
+export class ItineraryDayCardComponent implements OnDestroy {
   @Input() day!: Day;
   @Input() borderClass: string = '';
   @ViewChild('map', { static: false }) mapContainer!: ElementRef;
@@ -38,11 +37,6 @@ export class ItineraryDayCardComponent implements AfterViewInit, OnDestroy {
   private map!: mapboxgl.Map;
   private markers: mapboxgl.Marker[] = [];
   private isMapInitialized = false;
-
-  ngAfterViewInit(): void {
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-  }
 
   ngOnDestroy(): void {
     // Limpia el mapa al destruir el componente
@@ -62,6 +56,10 @@ export class ItineraryDayCardComponent implements AfterViewInit, OnDestroy {
     if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
       return;
     }
+    
+    // Set the access token
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
     
     const firstActivity = this.day.activities[0];
     if (!firstActivity) {

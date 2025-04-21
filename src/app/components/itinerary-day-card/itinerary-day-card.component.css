@@ -124,8 +124,8 @@ mat-expansion-panel {
   .activity-container {
     display: flex;
     flex-direction: column; /* Estructura en columna */
-    height: 90vh; /* Ocupa el 90% de la pantalla */
-    max-height: 90vh;
+    height: 70vh; /* Ocupa el 90% de la pantalla */
+    max-height: 70vh;
     overflow: hidden; /* Evita el desbordamiento */
   }
 

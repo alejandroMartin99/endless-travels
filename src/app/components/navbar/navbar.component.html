@@ -35,7 +35,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-toolbar color="primary" class="main-toolbar" [ngClass]="{'fixed-toolbar': !sidenav.opened}">
+  <mat-toolbar class="main-toolbar" [ngClass]="{'fixed-toolbar': !sidenav.opened}">
     <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
       <mat-icon>menu</mat-icon>
     </button>
@@ -55,8 +55,10 @@
 
   </mat-toolbar>
 
-  <router-outlet></router-outlet>
+  <div class="router-outlet-container">
+    <router-outlet></router-outlet>
+  </div>
 
-  <app-footer></app-footer>
+  <!-- <app-footer></app-footer> -->
 
 </mat-sidenav-container>

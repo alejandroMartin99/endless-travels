@@ -3,6 +3,8 @@
   padding: 0px 0px 0px 0px;
   background: linear-gradient(to bottom, white, #f0f0f0);
   background: linear-gradient(to bottom, #ffffff, #e3e3e3);
+  
+  
 }
 .welcome-section {
   height: 100vh;
@@ -176,7 +178,7 @@
 
   .welcome-section p {
     font-size: 1.5em; /* Ajusta el tamaño del texto de bienvenida */
-    margin-bottom: 20px;
+    margin-bottom: -20px;
   }
 
 
