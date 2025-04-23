@@ -73,44 +73,28 @@ export class ItineraryDayCardComponent implements OnDestroy {
     }
   }
 
-  private initializeMap(): void {
-
-    if (!this.isBrowser) {
-      return; // No inicializar el mapa en el servidor
-    }
-
-    if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
-      return;
-    }
-
-    if (this.map) {
-      this.markers.forEach(m => m.remove());
-      this.markers = [];
-      this.map.remove();
-    }
-    
-    // Set the access token
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-    
+  private async initializeMap(): Promise<void> {
+    if (!this.isBrowser || this.isMapInitialized || !this.mapContainer?.nativeElement) return;
+  
+    const { default: mapboxgl } = await import('mapbox-gl'); // Lazy load para evitar que lo intente cargar SSR
+  
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+  
     const firstActivity = this.day.activities[0];
-    if (!firstActivity) {
-      console.error('No hay actividades para inicializar el mapa.');
-      return;
-    }
-
+    if (!firstActivity) return;
+  
     this.map = new mapboxgl.Map({
       container: this.mapContainer.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [firstActivity.longitude, firstActivity.latitude],
       zoom: 12,
     });
-
+  
     this.map.on('load', () => {
       this.addMarkers();
       this.rescaleMap();
     });
-
+  
     this.isMapInitialized = true;
   }
 
