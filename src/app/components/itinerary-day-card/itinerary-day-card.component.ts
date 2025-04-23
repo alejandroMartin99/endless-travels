@@ -4,8 +4,11 @@ import {
   ViewChild,
   ElementRef,
   OnDestroy,
+  Inject,
+  PLATFORM_ID
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
+import { isPlatformBrowser } from '@angular/common';
 
 interface Activity {
   name: string;
@@ -38,6 +41,12 @@ export class ItineraryDayCardComponent implements OnDestroy {
   private markers: mapboxgl.Marker[] = [];
   private isMapInitialized = false;
 
+  private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
   ngOnDestroy(): void {
     // Limpia el mapa al destruir el componente
     if (this.map) {
@@ -65,6 +74,11 @@ export class ItineraryDayCardComponent implements OnDestroy {
   }
 
   private initializeMap(): void {
+
+    if (!this.isBrowser) {
+      return; // No inicializar el mapa en el servidor
+    }
+
     if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
       return;
     }
