@@ -4,11 +4,8 @@ import {
   ViewChild,
   ElementRef,
   OnDestroy,
-  Inject,
-  PLATFORM_ID
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
-import { isPlatformBrowser } from '@angular/common';
 
 interface Activity {
   name: string;
@@ -41,12 +38,6 @@ export class ItineraryDayCardComponent implements OnDestroy {
   private markers: mapboxgl.Marker[] = [];
   private isMapInitialized = false;
 
-  private isBrowser: boolean;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
-
   ngOnDestroy(): void {
     // Limpia el mapa al destruir el componente
     if (this.map) {
@@ -54,9 +45,6 @@ export class ItineraryDayCardComponent implements OnDestroy {
     }
   }
 
-  // Variables existentes
-  
-  // Añade esta nueva variable
   isDescriptionVisible = false;
   
   
@@ -66,6 +54,7 @@ export class ItineraryDayCardComponent implements OnDestroy {
     console.log('Descripción visible:', this.isDescriptionVisible);
   }
 
+
   onPanelStateChange(isOpen: boolean): void {
     console.log('Estado del panel:', isOpen);
     if (isOpen) {
@@ -73,28 +62,33 @@ export class ItineraryDayCardComponent implements OnDestroy {
     }
   }
 
-  private async initializeMap(): Promise<void> {
-    if (!this.isBrowser || this.isMapInitialized || !this.mapContainer?.nativeElement) return;
-  
-    const { default: mapboxgl } = await import('mapbox-gl'); // Lazy load para evitar que lo intente cargar SSR
-  
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-  
+  private initializeMap(): void {
+    if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
+      return;
+    }
+    
+    // Set the access token
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+    
     const firstActivity = this.day.activities[0];
-    if (!firstActivity) return;
-  
+    if (!firstActivity) {
+      console.error('No hay actividades para inicializar el mapa.');
+      return;
+    }
+
     this.map = new mapboxgl.Map({
       container: this.mapContainer.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [firstActivity.longitude, firstActivity.latitude],
       zoom: 12,
     });
-  
+
     this.map.on('load', () => {
       this.addMarkers();
       this.rescaleMap();
     });
-  
+
     this.isMapInitialized = true;
   }
 
