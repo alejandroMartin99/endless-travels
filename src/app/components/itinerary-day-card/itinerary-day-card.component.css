@@ -24,6 +24,7 @@ mat-expansion-panel {
   padding: 1px;
   box-sizing: border-box;
   gap: 10px;
+  position: relative; /* Para posicionamiento absoluto interno */
 }
 
 /* Descripción */
@@ -119,44 +120,154 @@ mat-expansion-panel {
   margin-left: auto;
 }
 
+/* Nuevo - Icono de descripción que aparece solo en móviles */
+.description-toggle {
+  display: none; /* Oculto por defecto en desktop */
+}
+
+/* El contenedor de descripción móvil - oculto en desktop */
+.mobile-description-overlay {
+  display: none;
+}
+
 /* Ajustes responsivos */
 @media (max-width: 800px) {
   .activity-container {
     display: flex;
     flex-direction: column; /* Estructura en columna */
-    height: 70vh; /* Ocupa el 90% de la pantalla */
-    max-height: 70vh;
-    overflow: hidden; /* Evita el desbordamiento */
-  }
-
-  .activity-description{
-    flex: 0 0 20%;
+    height: 55vh; /* Altura en móvil */
+    max-height: 55vh;
+    overflow: hidden;
     padding: 0;
   }
 
+  /* Ocultar la descripción original en móviles */
+  .activity-description {
+    display: none;
+  }
+
+  /* Mostrar el contenedor de descripción móvil */
+  .mobile-description-overlay {
+    position: fixed;
+    top: 60px; /* corregido, antes era "top: 10" que no tiene unidad */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+  
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0); /* deja el overlay en su lugar */
+    transition: opacity 0.3s ease;
+  }
+  
+
+  /* Contenedor visible */
+  .mobile-description-overlay.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto; /* Intercepta clics cuando es visible */
+  }
+
+  /* Contenido real de la descripción */
+  .mobile-description-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 70vh;
+    background-color: white;
+    border-radius: 0 0 16px 16px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-description-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Botón debajo del contenido */
+  .close-description {
+    margin-top: 60px; /* Espacio respecto al contenido */
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;
+  }
+  
+  .close-description:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  .close-description mat-icon {
+    color: #3f51b5;
+    font-size: 24px;
+  }
+
+  /* Mostrar el botón de descripción en móviles */
+  .description-toggle {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .description-toggle mat-icon {
+    color: #3f51b5;
+  }
+
   .activity-image {
-    flex: 0 0 30%; /* Ocupa el 30% del espacio vertical */
+    flex: 0 0 40%;
     width: 100%;
     overflow: hidden;
     position: relative;
     padding: 0;
   }
-  .activity-map,
-  .image-controls,
+
   .activity-image img {
-    object-fit: cover; /* Ajusta la imagen sin distorsión */
+    object-fit: cover;
     border-radius: 4px;
+    width: 100%;
+    height: 100%;
   }
 
   .activity-map {
-    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
-    height: auto; /* Ajusta la altura proporcionalmente */
-    object-fit: cover;/* Asigna una altura específica al contenedor del mapa */
+    flex: 0 0 60%;
+    width: 100%;  
+    height: 100%;
   }
 
   .activity-map iframe {
-    width: 100%; /* Asegura que la imagen ocupe el ancho completo */
-    height: auto; /* Ajusta la altura proporcionalmente */ /* Asegura que el iframe ocupe todo el contenedor */
+    width: 100%;
+    height: 100%;
   }
 
   /* Controles de navegación para imágenes */
@@ -168,8 +279,6 @@ mat-expansion-panel {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-
-
   }
   
   .btn {
@@ -181,6 +290,7 @@ mat-expansion-panel {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.2s ease;
+    z-index: 5;
   }
   
   .btn:hover {
@@ -215,15 +325,19 @@ mat-expansion-panel {
   /* Estilo específico para el header de expansión en móviles */
   mat-expansion-panel-header {
     display: flex;
-    flex-wrap: wrap; /* Permite que el contenido se ajuste */
+    flex-wrap: wrap;
     width: 100%;
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    justify-content: flex-start;
   }
 
   mat-expansion-panel-header mat-panel-title {
     flex: 1;
-    padding: 0; /* Quita el padding del título */
-    word-wrap: break-word; /* Asegura que el texto se ajuste a la línea */
+    padding: 0;
+    word-wrap: break-word;
     text-align: left;
   }
+
+
+
+  
 }

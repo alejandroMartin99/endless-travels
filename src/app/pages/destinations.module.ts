@@ -15,6 +15,7 @@ import { HotelRecomendationsComponent } from './destinations/japan/components/re
 import { ConectRecomendationsComponent } from './destinations/japan/components/recomendations/conectividad/conect-recomendations.component';
 import { DineroRecomendationsComponent } from './destinations/japan/components/recomendations/dinero/dinero-recomendations.component';
 import { IdiomaRecomendationsComponent } from './destinations/japan/components/recomendations/idioma/idioma-recomendations.component';
+import { KyotoDaysComponent } from './destinations/japan/components/itinerary/Kyoto-days.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { IdiomaRecomendationsComponent } from './destinations/japan/components/r
     HotelRecomendationsComponent,
     ConectRecomendationsComponent,
     DineroRecomendationsComponent,
-    IdiomaRecomendationsComponent
+    IdiomaRecomendationsComponent,
+    KyotoDaysComponent
     
   ],
   imports: [

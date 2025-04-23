@@ -45,6 +45,18 @@ export class ItineraryDayCardComponent implements OnDestroy {
     }
   }
 
+  // Variables existentes
+  
+  // Añade esta nueva variable
+  isDescriptionVisible = false;
+  
+  
+  // Añade este nuevo método
+  toggleDescription(): void {
+    this.isDescriptionVisible = !this.isDescriptionVisible;
+    console.log('Descripción visible:', this.isDescriptionVisible);
+  }
+
   onPanelStateChange(isOpen: boolean): void {
     console.log('Estado del panel:', isOpen);
     if (isOpen) {
@@ -55,6 +67,12 @@ export class ItineraryDayCardComponent implements OnDestroy {
   private initializeMap(): void {
     if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
       return;
+    }
+
+    if (this.map) {
+      this.markers.forEach(m => m.remove());
+      this.markers = [];
+      this.map.remove();
     }
     
     // Set the access token

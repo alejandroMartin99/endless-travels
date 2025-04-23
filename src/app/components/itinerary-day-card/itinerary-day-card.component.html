@@ -13,10 +13,17 @@
   
     <!-- Contenedor de la actividad actual -->
     <div class="activity-container">
+      <!-- Botón para mostrar/ocultar descripción en móviles -->
+      <div class="description-toggle" (click)="toggleDescription()">
+        <mat-icon>description</mat-icon>
+      </div>
+
+
       <div class="activity-description">
         <h3>{{ day.activities[currentActivityIndex].name }}</h3>
         <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
       </div>
+
       <div class="activity-image">
         <img [src]="day.activities[currentActivityIndex].images[currentImageIndex]" 
               [alt]="day.activities[currentActivityIndex].name">
@@ -60,6 +67,24 @@
       <button 
         class="rescale-control"
         mat-button (click)="rescaleMap()">Reescalar Mapa</button>
+    </div>
+
+    <div class="mobile-description-overlay" [class.visible]="isDescriptionVisible">
+      
+      <div >
+
+        <div class="mobile-description-content">
+          <h3 style="color: black;">{{ day.activities[currentActivityIndex].name }}</h3>
+          <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
+        </div>
+
+        <div class="close-description" (click)="toggleDescription()">
+          <mat-icon>close</mat-icon>
+        </div>
+        
+        
+      </div>
+      
     </div>
     
     
