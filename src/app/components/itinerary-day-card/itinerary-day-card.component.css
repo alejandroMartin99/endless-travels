@@ -216,7 +216,6 @@ mat-expansion-panel {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: background-color 0.2s ease;
     z-index: 1001; /* Asegurar que está por encima del overlay */
-
   }
   
   .close-description:hover {

@@ -115,3 +115,75 @@
   width: 100%; /* Ancho completo del contenedor */
   padding: 5px 0px; /* Ajuste en el padding */
 }
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 0px 20px; /* Reducimos el padding lateral */
+  }
+
+  .zone-banner {
+    height: 150px; /* Menor altura para banners */
+  }
+
+  .zone-title {
+    font-size: 2.2rem; /* Tamaño de fuente más pequeño */
+    top: 0%; /* Alineación más centrada en pantallas pequeñas */
+  }
+
+  .zone-info {
+    flex-direction: flex; /* Apila los ítems en columna */
+    gap: 10px; /* Reduce el espacio entre ítems */
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .info-item {
+    font-size: 0.9rem; /* Tamaño más cómodo para móviles */
+    justify-content: center;
+  }
+
+  .info-item i {
+    font-size: 1rem;
+  }
+  .info-item .custom-icon {
+    font-size: 1.3rem; /* Igual para ambos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: white;
+  }
+
+
+
+  .subzone-container {
+    flex-direction: column; /* Apila imagen y contenido */
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .subzone-banner {
+    width: 100%; /* Ocupar todo el ancho */
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .subzone-banner::after {
+    display: none; /* Oculta la flechita decorativa */
+  }
+
+  .subzone-content {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .subzone-content h3 {
+    font-size: 1rem;
+  }
+
+  .subzone-content p {
+    font-size: 1rem;
+  }
+}
