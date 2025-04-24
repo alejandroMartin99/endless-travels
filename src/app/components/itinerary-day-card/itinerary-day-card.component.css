@@ -135,8 +135,8 @@ mat-expansion-panel {
   .activity-container {
     display: flex;
     flex-direction: column; /* Estructura en columna */
-    height: 50vh; /* Altura en móvil */
-    max-height: 50vh;
+    height: 65vh; /* Altura en móvil */
+    max-height: 65vh;
     overflow: hidden;
     padding: 0;
   }
