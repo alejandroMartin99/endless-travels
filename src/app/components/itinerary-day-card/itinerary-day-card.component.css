@@ -135,10 +135,14 @@ mat-expansion-panel {
   .activity-container {
     display: flex;
     flex-direction: column; /* Estructura en columna */
-    height: 55vh; /* Altura en móvil */
-    max-height: 55vh;
+    height: 50vh; /* Altura en móvil */
+    max-height: 50vh;
     overflow: hidden;
     padding: 0;
+  }
+
+  mat-expansion-panel-header mat-panel-title {
+    font-size: 0.9rem; /* Tamaño ajustado para móviles */
   }
 
   /* Ocultar la descripción original en móviles */
@@ -187,6 +191,14 @@ mat-expansion-panel {
     overflow-y: auto;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   }
+
+  .activity-description h3{
+    color: #1a1a1a;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
 
   .wrapper-pop-up{
     display: flex;
@@ -249,7 +261,6 @@ mat-expansion-panel {
   }
 
   .activity-image {
-    flex: 0 0 40%;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -264,7 +275,7 @@ mat-expansion-panel {
   }
 
   .activity-map {
-    flex: 0 0 60%;
+
     width: 100%;  
     height: 100%;
   }
