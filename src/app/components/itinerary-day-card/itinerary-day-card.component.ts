@@ -55,6 +55,7 @@ export class ItineraryDayCardComponent implements OnDestroy {
   }
 
 
+
   onPanelStateChange(isOpen: boolean): void {
     console.log('Estado del panel:', isOpen);
     if (isOpen) {

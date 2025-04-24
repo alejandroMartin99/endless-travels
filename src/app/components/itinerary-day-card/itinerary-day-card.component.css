@@ -149,26 +149,25 @@ mat-expansion-panel {
   /* Mostrar el contenedor de descripción móvil */
   .mobile-description-overlay {
     position: fixed;
-    top: 60px; /* corregido, antes era "top: 10" que no tiene unidad */
+    top: 20px;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Cambia a columna para tener elementos uno debajo del otro */
+    justify-content: flex-start; /* Alinea desde arriba */
     align-items: center;
-    padding: 20px;
+   
     color: white;
     font-size: 18px;
     text-align: center;
-  
+    
     opacity: 0;
     pointer-events: none;
-    transform: translateY(0); /* deja el overlay en su lugar */
     transition: opacity 0.3s ease;
   }
-  
 
   /* Contenedor visible */
   .mobile-description-overlay.visible {
@@ -179,8 +178,6 @@ mat-expansion-panel {
 
   /* Contenido real de la descripción */
   .mobile-description-content {
-    position: absolute;
-    top: 0;
     left: 0;
     right: 0;
     max-height: 70vh;
@@ -191,17 +188,23 @@ mat-expansion-panel {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   }
 
-  .mobile-description-wrapper {
-    position: relative;
-    width: 100%;
+  .wrapper-pop-up{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: relative;
+    
+  }
+
+  .button-container {
+    margin-top: 25px; /* Espacio exacto de 60px desde el contenido */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
   }
   
   /* Botón debajo del contenido */
   .close-description {
-    margin-top: 60px; /* Espacio respecto al contenido */
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -212,6 +215,8 @@ mat-expansion-panel {
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: background-color 0.2s ease;
+    z-index: 1001; /* Asegurar que está por encima del overlay */
+
   }
   
   .close-description:hover {
@@ -336,8 +341,4 @@ mat-expansion-panel {
     word-wrap: break-word;
     text-align: left;
   }
-
-
-
-  
 }
