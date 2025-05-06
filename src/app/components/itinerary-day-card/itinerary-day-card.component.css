@@ -137,8 +137,11 @@ mat-expansion-panel {
     flex-direction: column; /* Estructura en columna */
     height: 65vh; /* Altura en móvil */
     max-height: 65vh;
-    overflow: hidden;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    overflow-y: auto; /* Mantener desplazamiento vertical */
     padding: 0;
+    width: 100%; /* Asegurar que ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Para que padding no afecte al ancho */
   }
 
   mat-expansion-panel-header mat-panel-title {
@@ -153,7 +156,7 @@ mat-expansion-panel {
   /* Mostrar el contenedor de descripción móvil */
   .mobile-description-overlay {
     position: fixed;
-    top: 20px;
+    top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
