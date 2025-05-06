@@ -132,29 +132,122 @@ mat-expansion-panel {
 
 /* Ajustes responsivos */
 @media (max-width: 800px) {
+
   .activity-container {
     display: flex;
-    flex-direction: column; /* Estructura en columna */
-    height: 65vh; /* Altura en móvil */
+    flex-direction: column;
+    height: 60vh;
     max-height: 65vh;
-    overflow-x: hidden; /* Evitar desplazamiento horizontal */
-    overflow-y: auto; /* Mantener desplazamiento vertical */
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
     padding: 0;
-    width: 100%; /* Asegurar que ocupa todo el ancho disponible */
-    box-sizing: border-box; /* Para que padding no afecte al ancho */
+    box-sizing: border-box;
+  }
+
+  mat-expansion-panel-header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   mat-expansion-panel-header mat-panel-title {
-    font-size: 0.9rem; /* Tamaño ajustado para móviles */
+    flex: 1;
+    padding: 0;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    text-align: left;
   }
 
-  /* Ocultar la descripción original en móviles */
   .activity-description {
     display: none;
   }
 
-  /* Mostrar el contenedor de descripción móvil */
-  .mobile-description-overlay {
+  .activity-image,
+  .activity-map {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0;
+  }
+
+  .activity-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .activity-map iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+
+  .btn {
+    background: rgba(26, 2, 2, 0.8);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .btn:hover {
+    background: rgb(46, 3, 3);
+    transform: scale(1.1);
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+  }
+
+  .activity-navigation {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .activity-indicator {
+    width: 15px;
+    height: 15px;
+    margin: 0 10px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+  }
+
+  .activity-indicator.active {
+    background-color: #3f51b5;
+  }
+
+  .mobile-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+  }
+
+  .mobile-buttons button {
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  /* ------- DESCRIPCIÓN MÓVIL --------- */
+  .mobile-description-overlay,
+  .mobile-gallery-overlay {
     position: fixed;
     top: 80px;
     left: 0;
@@ -163,31 +256,29 @@ mat-expansion-panel {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     display: flex;
-    flex-direction: column; /* Cambia a columna para tener elementos uno debajo del otro */
-    justify-content: flex-start; /* Alinea desde arriba */
     align-items: center;
-   
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    
+    justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
   }
 
-  /* Contenedor visible */
-  .mobile-description-overlay.visible {
-    transform: translateY(0);
+  .mobile-description-overlay.visible,
+  .mobile-gallery-overlay.visible {
     opacity: 1;
-    pointer-events: auto; /* Intercepta clics cuando es visible */
+    pointer-events: auto;
   }
 
-  /* Contenido real de la descripción */
+  .mobile-description-overlay {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
   .mobile-description-content {
-    left: 0;
-    right: 0;
     max-height: 70vh;
+    width: 90%;
     background-color: white;
     border-radius: 0 0 16px 16px;
     padding: 20px;
@@ -195,30 +286,26 @@ mat-expansion-panel {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   }
 
-  .activity-description h3{
+  .activity-description h3 {
     color: #1a1a1a;
     font-size: 0.8rem;
     margin-bottom: 10px;
     text-align: center;
   }
-  
 
-  .wrapper-pop-up{
+  .wrapper-pop-up {
     display: flex;
     flex-direction: column;
     position: relative;
-    
   }
 
   .button-container {
-    margin-top: 25px; /* Espacio exacto de 60px desde el contenido */
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     width: 100%;
-    
   }
-  
-  /* Botón debajo del contenido */
+
   .close-description {
     width: 40px;
     height: 40px;
@@ -230,19 +317,18 @@ mat-expansion-panel {
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: background-color 0.2s ease;
-    z-index: 1001; /* Asegurar que está por encima del overlay */
+    z-index: 1001;
   }
-  
+
   .close-description:hover {
     background-color: rgba(255, 255, 255, 1);
   }
-  
+
   .close-description mat-icon {
     color: #3f51b5;
     font-size: 24px;
   }
 
-  /* Mostrar el botón de descripción en móviles */
   .description-toggle {
     display: flex;
     position: absolute;
@@ -263,130 +349,7 @@ mat-expansion-panel {
     color: #3f51b5;
   }
 
-  .activity-image {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 0;
-  }
-
-  .activity-image img {
-    object-fit: cover;
-    border-radius: 4px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .activity-map {
-
-    width: 100%;  
-    height: 100%;
-  }
-
-  .activity-map iframe {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Controles de navegación para imágenes */
-  .gallery-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-  }
-  
-  .btn {
-    background: rgba(26, 2, 2, 0.8);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.2s ease;
-    z-index: 5;
-  }
-  
-  .btn:hover {
-    background: rgb(46, 3, 3);
-    transform: scale(1.1);
-  }
-  
-  .btn:disabled {
-    opacity: 0.5;
-    cursor: default;
-    transform: none;
-  }
-
-  /* Indicadores de las imágenes (bullets) */
-  .activity-navigation {
-    margin-top: 15px;
-    justify-content: center;
-  }
-
-  .activity-indicator {
-    width: 15px;
-    height: 15px;
-    margin: 0 10px;
-    background-color: #ccc;
-    transition: background-color 0.3s ease;
-  }
-
-  .activity-indicator.active {
-    background-color: #3f51b5;
-  }
-
-  /* Estilo específico para el header de expansión en móviles */
-  mat-expansion-panel-header {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  mat-expansion-panel-header mat-panel-title {
-    flex: 1;
-    padding: 0;
-    word-wrap: break-word;
-    text-align: left;
-  }
-
-  .mobile-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px 0;
-  }
-  
-  .mobile-buttons button {
-    flex: 1;
-    margin: 0 5px;
-  }
-  
-  .mobile-gallery-overlay {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .mobile-gallery-overlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
+  /* GALERÍA MÓVIL */
   .mobile-gallery-content {
     background-color: white;
     border-radius: 8px;
@@ -397,7 +360,7 @@ mat-expansion-panel {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .mobile-gallery-content img {
     max-width: 100%;
     border-radius: 8px;
@@ -409,7 +372,7 @@ mat-expansion-panel {
     gap: 30px;
     margin: 15px 0;
   }
-  
+
   .clean-action-button {
     background: none;
     border: none;
@@ -421,7 +384,7 @@ mat-expansion-panel {
     padding: 5px 10px;
     transition: color 0.3s ease;
   }
-  
+
   .clean-action-button::after {
     content: '';
     position: absolute;
@@ -434,12 +397,13 @@ mat-expansion-panel {
     transform-origin: center;
     transition: transform 0.3s ease;
   }
-  
+
   .clean-action-button:hover {
     color: #1976d2;
   }
-  
+
   .clean-action-button:hover::after {
     transform: scaleX(1);
   }
+
 }
