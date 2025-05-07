@@ -96,11 +96,11 @@
         
         <!-- Controles de imagen -->
         <div class="gallery-controls" *ngIf="day.activities[currentActivityIndex].images.length > 1">
-          <button mat-icon-button (click)="changeImage(-1)" [disabled]="currentImageIndex === 0" class="btn">
+          <button mat-icon-button class="prev-btn" (click)="changeImage(-1)" [disabled]="currentImageIndex === 0">
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button mat-icon-button (click)="changeImage(1)" 
-                  [disabled]="currentImageIndex === day.activities[currentActivityIndex].images.length - 1" class="btn">
+          <button mat-icon-button class="next-btn" (click)="changeImage(1)" 
+                  [disabled]="currentImageIndex === day.activities[currentActivityIndex].images.length - 1">
             <mat-icon>chevron_right</mat-icon>
           </button>
         </div>
