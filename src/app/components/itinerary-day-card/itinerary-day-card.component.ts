@@ -50,7 +50,6 @@ export class ItineraryDayCardComponent implements OnDestroy {
   // Añade este nuevo método
   toggleDescription(): void {
     this.isDescriptionVisible = !this.isDescriptionVisible;
-    console.log('Descripción visible:', this.isDescriptionVisible);
   }
 
   isGalleryVisible = false;

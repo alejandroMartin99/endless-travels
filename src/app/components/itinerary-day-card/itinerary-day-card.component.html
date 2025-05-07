@@ -10,14 +10,38 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
 
+
+
   <!-- Botones de acceso en móvil -->
   <div class="mobile-action-buttons">
     <button mat-raised-button color="primary" (click)="toggleGallery()">Galería</button>
     <button mat-raised-button color="accent" (click)="toggleDescription()">Descripción</button>
   </div>
 
-  <!-- Mapa principal visible siempre -->
-  <div class="activity-map" #map></div>
+  <!-- Contenedor de la actividad actual -->
+  <div class="activity-container">
+    
+    <div class="activity-description">
+      <h3>{{ day.activities[currentActivityIndex].name }}</h3>
+      <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
+    </div>
+
+    <div class="activity-image">
+      <img [src]="day.activities[currentActivityIndex].images[currentImageIndex]" 
+            [alt]="day.activities[currentActivityIndex].name">
+      <!-- Controles de imagen -->
+      <div class="gallery-controls" *ngIf="day.activities[currentActivityIndex].images.length > 1">
+        <button mat-icon-button (click)="changeImage(-1)" [disabled]="currentImageIndex === 0" class="btn">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="changeImage(1)" 
+                [disabled]="currentImageIndex === day.activities[currentActivityIndex].images.length - 1" class="btn">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="activity-map" #map></div>
+  </div>
 
   <!-- Navegación entre actividades -->
   <div class="activity-navigation">
@@ -62,7 +86,7 @@
   </div>
 
   <!-- Popup de galería -->
-  <div class="mobile-gallery-overlay" [class.visible]="isGalleryVisible">
+  <div class="mobile-description-overlay" [class.visible]="isGalleryVisible">
     <div class="wrapper-pop-up">
       <div class="mobile-description-content">
         <img 
