@@ -53,25 +53,30 @@
 @media (max-width: 768px) {
 
   .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: linear-gradient(135deg, #3f51b5, #1976d2);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
-    transition: all 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
-    z-index: 1;
-    margin-top: 15px;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #3f51b5, #1976d2);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+  transition: all 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  z-index: 1;
+  margin-top: 140px;
+
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.8s ease-out forwards, pulse 2.5s ease-in-out 1.2s infinite;
+}
 }
