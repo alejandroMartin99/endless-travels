@@ -29,6 +29,7 @@
 
 /* Mat sidenav container */
 .mat-sidenav-container {
+  min-height: 100dvh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -38,7 +39,7 @@
 }
 
 .mat-sidenav-content {
-  overflow: hidden !important; /* Forzamos hidden para evitar el scroll aquí */
+
   height: 100%; /* Altura completa */
   display: flex;
   flex-direction: column; /* Para que router-outlet-container pueda expandirse */
@@ -49,6 +50,8 @@
   background-color: #ffffff;
   padding: 10px; /* Reduce padding para pantallas pequeñas */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  min-height: 100dvh;
+  z-index: 1001;
 }
 
 /* Spacer for flexible layout */
@@ -167,6 +170,13 @@
 
   .continent-panel {
     padding: 4px; /* Ajusta padding para pantallas pequeñas */
+  }
+
+  .sidenav {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
 
