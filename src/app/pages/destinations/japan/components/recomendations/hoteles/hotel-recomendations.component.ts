@@ -67,14 +67,10 @@ export class HotelRecomendationsComponent  implements OnInit{
     currentIndex = 0;
 
     images: string[] = [
-      '/assets/japan/Recomendations/Comida/Ramen.JPG',
-      '/assets/japan/Recomendations/Comida/Sushi.JPG',
-      '/assets/japan/Recomendations/Comida/takoyaki.jpg',
-      '/assets/japan/Recomendations/Comida/Okonomiyaki.HEIC',
-      '/assets/japan/Recomendations/Comida/Tonkatsu.JPG',
-      '/assets/japan/Recomendations/Comida/Gyoza.JPG',
-      '/assets/japan/Recomendations/Comida/Yakitori.JPG',
-      '/assets/japan/Recomendations/Comida/Wagyu.HEIC'  ]
+      '/assets/japan/Recomendations/Hotel/Hotel1.png',
+      '/assets/japan/Recomendations/Hotel/Hotel1_2.png',
+      '/assets/japan/Recomendations/Hotel/Hotel1_3.png',
+ ]
 
     changeImage(delta: number): void {
       const newIndex = this.currentIndex + delta;
