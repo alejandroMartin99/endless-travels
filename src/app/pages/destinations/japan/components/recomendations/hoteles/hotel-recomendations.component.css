@@ -1,15 +1,20 @@
 mat-expansion-panel {
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    border-left: 5px solid #3f51b5;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-left: 5px solid #3f51b5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-  
+
 mat-expansion-panel:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+
 
   /* Título e iconos */
 .panel-icon {
@@ -50,7 +55,7 @@ mat-expansion-panel:hover {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  
+
 }
 
 .tab-content.active {
@@ -67,231 +72,98 @@ mat-expansion-panel:hover {
   height: 3px;
   background-color: #3f51b5;
 }
-  
-  
-  
 
 
-
-
-
-/* Contenedor de la guía de comida */
-.food-guide-container {
-  padding: 5px 15px 15px;
-}
-
-.intro-text {
-  line-height: 1.5;
-  color: #444;
-  margin-bottom: 12px;
-}
-
-.food-guide-row {
+/* Contenedor principal */
+.hotel-container {
   display: flex;
-  flex-wrap: wrap;
-  margin: -15px; /* Compensar el padding de las columnas */
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.food-guide-column {
-  padding: 15px;
-  box-sizing: border-box;
+.text-image-container {
+  display: flex;
+}
+/* Sección de texto */
+.text-container {
+  flex: 1;
+  height: 400px; /* Altura fija según requisito */
+  overflow-y: auto;
 }
 
-.left-column {
-  flex: 2; /* Columna izquierda ocupa 2/3 del espacio disponible */
-}
-
-.right-column {
-  flex: 1; /* Columna derecha ocupa 1/3 del espacio disponible */
-}
-
-/* Secciones de la guía */
-.guide-section {
-  margin-bottom: 15px;
-}
 
 .guide-section h4 {
-  color: #3f51b5;
   margin: 0 0 8px 0;
-  border-left: 3px solid #3f51b5;
-  padding-left: 8px;
-}
-
-/* Listas de comida y presupuesto */
-.food-list, .budget-list, .tip-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.food-list li, .budget-list li, .tip-list li {
-  line-height: 1.5;
-  margin-bottom: 7px;
-  padding-left: 16px;
-  position: relative;
-  color: #333;
-}
-
-.food-list li::before, .tip-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
   color: #3f51b5;
-  font-weight: bold;
+  font-weight: 500;
+  padding-left: 8px;
+  border-left: 3px solid #3f51b5;
 }
 
-.food-list li strong, .budget-list li strong {
-  color: #222;
+
+/* Contenedor de imagen */
+.excursion-image-container {
+  flex: 1;
+  position: relative;
+  height: 400px; /* Misma altura que el texto */
+  display: flex;
+  flex-direction: column;
 }
 
-
-
-/* Caja de consejos */
-.tip-box {
-  background-color: rgba(63, 81, 181, 0.05);
-  border-radius: 4px;
-  padding: 12px;
-  margin-top: 10px;
+.excursion-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.tip-header {
+/* Controles de galería */
+.gallery-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.gallery-button {
+  background-color: #2563eb;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-}
-
-.tip-header mat-icon {
-  color: #3f51b5;
-  font-size: 18px;
-  height: 18px;
-  width: 18px;
-  margin-right: 6px;
-}
-
-.tip-header h4 {
-  color: #3f51b5;
-  font-size: 15px;
-  margin: 0;
-  font-weight: 500;
-}
-
-
-/* Estilos para el carrusel */
-.platos-container {
-  display: flex;
-  gap: 30px;
-  align-items: stretch;
-  align-items: flex-start; /* Alinea arriba y ajusta a la altura del contenido */
-}
-
-
-.platos-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.image-carousel {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  height: auto; /* Que ocupe todo el alto disponible */
-}
-
-
-.carousel-container {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Que crezca para ocupar el espacio */
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  flex: 1; /* Que el carrusel se expanda */
-}
-
-.carousel-slide {
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  flex: 1; /* Que la imagen ocupe el espacio restante */
-  object-fit: cover; /* Ajustar la imagen sin deformarla */
-}
-
-.caption {
-  background: rgba(62, 103, 144, 0.7);
-  color: white;
-  text-align: center;
-  padding: 10px;
-  margin: 0;
-  font-size: 14px;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.5);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.carousel-button.prev {
-  left: 10px;
-}
-
-.carousel-button.next {
-  right: 10px;
-}
-
-.carousel-dots {
-  display: flex;
   justify-content: center;
-  margin-top: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #ccc;
-  border-radius: 50%;
-  margin: 0 5px;
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(229, 226, 226, 0.2);
 }
 
-.dot.active {
-  background: #3f51b5;
+.gallery-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-
-/* Responsive */
-@media (max-width: 768px) {
-  .food-guide-container {
-    padding: 5px 10px 15px;
-  }
+/* Botón de reserva */
+.booking-section {
+  margin-top: 2rem;
+  text-align: center;
 }
 
+.booking-button {
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
 
-
-
-
-
-
-
+.booking-button:hover {
+  background-color: #1d4ed8;
+}
 

@@ -1,4 +1,4 @@
-<mat-expansion-panel class="section-card">
+<mat-expansion-panel class="section-card" [(expanded)]="panelOpenState">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <mat-icon class="panel-icon">hotel</mat-icon>
@@ -6,8 +6,124 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
 
-  <div>
-    <p class="intro-text">En nuestro viaje utilizamos las ciudades de kYoto y Tokyo como bases principales para dormir. Es por ello que reservamos un hotel en cada una de las mismas.</p>
-  </div> 
+
+  <div 
+  id="resumen" 
+  class="tab-content" 
+  [class.active]="isTabActive('resumen')">
+
+    <!-- Botones de las pestañas -->
+    <div class="tabs">
+      <button *ngFor="let tab of tabs"
+              class="tab-button"
+              [class.active]="isTabActive(tab.id)"
+              (click)="openTab(tab.id)">
+          {{tab.name}}
+      </button>
+    </div>
+
+    <div class="food-guide-container">
+      
+      <div class="food-guide-row">
+        <div class="food-guide-column left-column">
+          <p>Durante nuestra estancia en Japón nos alojamos en tres hoteles diferentes, eligiendo ubicaciones clave que facilitaran nuestros desplazamientos entre ciudades. Cuando empezamos a planear el viaje a Japón, teníamos claro que queríamos descubrir tanto la tradición como la modernidad del país. Pero había algo aún más importante: queríamos sentirnos cómodos, sin ir arrastrando maletas de ciudad en ciudad cada dos días.</p>
+          
+          <div class="guide-section">
+            <h4>Nuestra elección de alojamiento: dos sedes, una experiencia sin maletas a cuestas:</h4>
+            
+            <ul class="food-list">
+              <li><strong>⛩️ Kioto</strong>: para empaparnos de su historia, templos y tranquilidad.nos alojamos en el Tokyu Stay Kyoto Sanjo-Karasuma (29 oct – 5 nov), en pleno centro, lo que nos permitió movernos cómodamente a pie o en transporte público. Desde aqui aprovecharemos para conocer la ciudad en 3 días y hacer 2 excursiones, a Osaka e Hirosima. (Puedes ver una descripción detallada en la sección de itinerario)</li>
+              <li><strong>🗼 Tokio</strong>: para explorar el corazón urbano de Japón. nos quedamos en el Sotetsu Fresa Inn Kanda-Otemachi (5 – 12 nov), una zona muy bien conectada que nos sirvió como base perfecta para recorrer barrios como Shibuya, Asakusa o Akihabara. Al igual que en Kyoto dedicaremos una parte del viaje para conocer la ciudad (4 días) pero a su vez también realizaremos 2 días de excursiones a los pueblos de Nikko y Kamakura</li>
+            </ul>
+
+          </div>
+        </div>
+    
+        
+      </div>
+    </div>
+
+</div>
+
+<div id="flight_night" class="tab-content" [class.active]="isTabActive('flight_night')">
+  <div class="tabs">
+    <button *ngFor="let tab of tabs"
+            class="tab-button"
+            [class.active]="isTabActive(tab.id)"
+            (click)="openTab(tab.id)">
+        {{tab.name}}
+    </button>
+  </div>
+  
+
+  <div class="text-image-container">
+    <!-- Texto a la izquierda -->
+    <div class="text-container">
+      <p>
+        La primera noche (28 – 29 oct) Hotel Kawasaki King Skyfront Tokyu REI Hotel</p>
+      <div class="guide-section">
+        <h4>¿Porqué pasar una noche sólo?</h4>
+        <p>
+          El vuelo llegó a las 23:00h y nuestro itineraario empezaba en Kyoto, e spor eso que necesitabamos descansar lo más cerca posible del aeropuerto ya que es allí donde se activa el Japan Rail Pass y la oficina no estaba abierta a la hora de llegada. Al no alojarnos en Tokyo nos ahorrábamos 1h de ida y vuelta.
+        </p>
+        <h4>Incluye servicio de transporte ida - vuelta gratuito al aeropuerto</h4>
+          <p>Hotel cercano al aeropuerto de Haneda. A su vez cuenta con un servicio de lanzadera de autobuses desde la propia puerta del hotel hasta el aeropuerto. Esto nos permitió levanantarnos a primera hora y en 10 minutos estar en la cola del JRP. Con todo ello pudimos tomar el tren bala y llegar a Kyoto a la hora de comer.</p>
+
+
+      </div>
+      <!-- Botón de reserva -->
+      <div class="booking-section">
+        <a [href]="hotel1_Url" target="_blank" rel="noopener noreferrer" class="booking-button">
+          Ver disponibilidad en Booking
+        </a>
+      </div>
+    </div>
+
+    <!-- Imagen a la derecha -->
+    <div class="excursion-image-container">
+        <img [src]="images[currentIndex]" alt="Hotel" class="excursion-image"/>
+        <div class="gallery-controls" *ngIf="images.length > 1">
+          <button class="gallery-button" mat-icon-button (click)="changeImage(-1)" [disabled]="currentIndex === 0">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <button  class="gallery-button" mat-icon-button (click)="changeImage(1)" [disabled]="currentIndex === images.length - 1">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+      </div>
+  </div>
+  </div>
+
+  
+
+
+
+<div id="kyoto" class="tab-content" [class.active]="isTabActive('tokyo')">
+  <div class="tabs">
+    <button *ngFor="let tab of tabs"
+            class="tab-button"
+            [class.active]="isTabActive(tab.id)"
+            (click)="openTab(tab.id)">
+        {{tab.name}}
+    </button>
+  </div>
+  <p>Tokyo, la gran ciudad, repleta de miles de opciones. A continuación podrás encontrar una lista de restaurante que acudimos nosotros, nuevamente, recomendamos perderse en las calles y dejarse impresionar. Por lo tanto, os recomendamos:</p>
+
+</div>
+
+<div id="tokyo" class="tab-content" [class.active]="isTabActive('kyoto')">
+  <div class="tabs">
+    <button *ngFor="let tab of tabs"
+            class="tab-button"
+            [class.active]="isTabActive(tab.id)"
+            (click)="openTab(tab.id)">
+        {{tab.name}}
+    </button>
+  </div>
+
+  <p>En esta sección hemos realizado una recopilación de los mejores restaurantes de la ciudad de Kyoto y alrededores. No es una guia que debas seguir, te invitamos a perderte y que tú explores por tu cuenta. Sin embargo, si creemos uqe en caso de que tengas dudas o no tengas el timepo necesario aquí recogemos nuestra selección de restaurantes:</p>
+
+</div>
+
 
 </mat-expansion-panel>

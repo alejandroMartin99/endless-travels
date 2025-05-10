@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TransportRecomendationsComponent {
 
-  panelOpenState = true;
+  panelOpenState = false;
   // Tabs disponibles
   tabs = [
     { id: 'general', name: 'General', active: true },
