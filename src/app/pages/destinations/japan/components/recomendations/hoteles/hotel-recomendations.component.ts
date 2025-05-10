@@ -11,7 +11,7 @@ export class HotelRecomendationsComponent  implements OnInit{
   panelOpenState = true;
   // Tabs disponibles
   tabs = [
-    { id: 'resumen', name: 'Resumen Night', active: true },
+    { id: 'resumen', name: 'Resumen', active: true },
     { id: 'flight_night', name: 'Flight Night', active: false },
     { id: 'kyoto', name: 'Kyoto', active: false },
     { id: 'tokyo', name: 'Tokyo', active: false },
