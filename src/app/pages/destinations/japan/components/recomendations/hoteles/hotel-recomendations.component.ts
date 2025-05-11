@@ -70,18 +70,34 @@ export class HotelRecomendationsComponent  implements OnInit{
 
 
     currentIndex = 0;
-
     images: string[] = [
       '/assets/japan/Recomendations/Hotel/Hotel1.png',
       '/assets/japan/Recomendations/Hotel/Hotel1_2.png',
       '/assets/japan/Recomendations/Hotel/Hotel1_3.png',
       '/assets/japan/Recomendations/Hotel/Hotel1_4.png',
- ]
-
+    ]
     changeImage(delta: number): void {
       const newIndex = this.currentIndex + delta;
       if (newIndex >= 0 && newIndex < this.images.length) {
         this.currentIndex = newIndex;
+      }
+    }
+
+    currentIndex_2 = 0;
+    images_2: string[] = [
+      '/assets/japan/Recomendations/Hotel/Hotel2_1.png',
+      '/assets/japan/Recomendations/Hotel/Hotel2_2.png',
+      '/assets/japan/Recomendations/Hotel/Hotel2_3.png',
+      '/assets/japan/Recomendations/Hotel/Hotel2_4.png',
+      '/assets/japan/Recomendations/Hotel/Hotel2_5.png',
+      '/assets/japan/Recomendations/Hotel/Hotel2_6.png',
+      '/assets/japan/Recomendations/Hotel/Hotel2_7.png',
+    ]
+
+    changeImage_2(delta: number): void {
+      const newIndex = this.currentIndex_2 + delta;
+      if (newIndex >= 0 && newIndex < this.images_2.length) {
+        this.currentIndex_2 = newIndex;
       }
     }
 

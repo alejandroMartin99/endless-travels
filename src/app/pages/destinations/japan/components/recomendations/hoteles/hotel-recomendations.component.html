@@ -100,7 +100,7 @@
 
 
 
-<div id="tokyo" class="tab-content" [class.active]="isTabActive('tokyo')">
+<div id="kyoto" class="tab-content" [class.active]="isTabActive('kyoto')">
   <div class="tabs">
     <button *ngFor="let tab of tabs"
             class="tab-button"
@@ -109,13 +109,12 @@
         {{tab.name}}
     </button>
   </div>
-  <p>Tokyo, la gran ciudad, repleta de miles de opciones. A continuación podrás encontrar una lista de restaurante que acudimos nosotros, nuevamente, recomendamos perderse en las calles y dejarse impresionar. Por lo tanto, os recomendamos:</p>
 
   <div class="text-image-container">
     <!-- Texto a la izquierda -->
     <div class="text-container">
-      <p>La primera noche (28 – 29 oct) Hotel Kawasaki King Skyfront Tokyu REI Hotel</p>
-      <p>Precio 78€</p>
+      <p>La primera noche (28 – 29 oct, 7 noches) Hotel Tokyu Stay Kyoto Sanjo-Karasuma</p>
+      <p>Precio 524€ (75 €/noche)</p>
       <div class="guide-section">
         <h4>Alojarse en el centro de Kioto: cómodo, conectado y todo a mano</h4>
         <p>
@@ -132,11 +131,16 @@
           </ul>
           <p>Además, a menos de 10 minutos andando tienes cafeterías, izakayas, supermercados (como 7-Eleven o FamilyMart) y hasta una pequeña galería comercial para cenar algo rápido si estás cansado del día.</p>
 
+          <h4>¿Como es el hotel?</h4>
+            <p>as habitaciones resultaron muy cómodas y funcionales. Disponíamos de dos camas amplias unidas, cada una de 1,35 metros, lo que nos ofreció un descanso excelente. La habitación también contaba con lavadora individual, numerosos armarios y espacios de almacenamiento muy prácticos para organizar el equipaje</p>
+
+            <p>En la zona del lobby había disponible una máquina de café gratuita para los huéspedes, un detalle muy cómodo especialmente por las mañanas. Además, en nuestro caso, el desayuno estuvo incluido durante todos los días de la estancia, lo cual fue un punto a favor para empezar la jornada con energía, auqnue no lo usábamos todos los día sya que nos gustaba empeza rel día madrugando mucho.</p>
+
 
       </div>
       <!-- Botón de reserva -->
       <div class="booking-section">
-        <a [href]="hotel1_Url" target="_blank" rel="noopener noreferrer" class="booking-button">
+        <a [href]="hotel2_Url" target="_blank" rel="noopener noreferrer" class="booking-button">
           Ver disponibilidad en Booking
         </a>
       </div>
@@ -144,12 +148,12 @@
 
     <!-- Imagen a la derecha -->
     <div class="excursion-image-container">
-        <img [src]="images[currentIndex]" alt="Hotel" class="excursion-image"/>
-        <div class="gallery-controls" *ngIf="images.length > 1">
-          <button class="gallery-button" mat-icon-button (click)="changeImage(-1)" [disabled]="currentIndex === 0">
+        <img [src]="images_2[currentIndex_2]" alt="Hotel" class="excursion-image"/>
+        <div class="gallery-controls" *ngIf="images_2.length > 1">
+          <button class="gallery-button" mat-icon-button (click)="changeImage_2(-1)" [disabled]="currentIndex_2 === 0">
             <mat-icon>chevron_left</mat-icon>
           </button>
-          <button  class="gallery-button" mat-icon-button (click)="changeImage(1)" [disabled]="currentIndex === images.length - 1">
+          <button  class="gallery-button" mat-icon-button (click)="changeImage_2(1)" [disabled]="currentIndex_2 === images_2.length - 1">
             <mat-icon>chevron_right</mat-icon>
           </button>
         </div>
