@@ -54,22 +54,21 @@
         {{tab.name}}
     </button>
   </div>
-  
 
   <div class="text-image-container">
     <!-- Texto a la izquierda -->
     <div class="text-container">
       <p>
-        La primera noche (28 – 29 oct) Hotel Kawasaki King Skyfront Tokyu REI Hotel</p>
+        Primera semana (29 oct – 5 nov) Tokyu Stay Kyoto Sanjo-Karasuma</p>
       <div class="guide-section">
         <h4>¿Porqué pasar una noche sólo?</h4>
         <p>
-          El vuelo llegó a las 23:00h y nuestro itinerario empezaba en Kyoto, es por eso que necesitabamos descansar lo más cerca posible del aeropuerto, ya que es allí donde se activa el Japan Rail Pass (JRP) y la oficina no estaba abierta a la hora de llegada. Al no alojarnos en Tokyo nos ahorrábamos 1h de ida y vuelta.
+          Nuestro vuelo llegó a las 23:00 h y el itinerario comenzaba en Kioto. Dado que el JRP solo puede activarse en las oficinas autorizadas, dentro de la terminal 3 del aeropuerto de Haneda se encuentra la que nosotros utilizamos —cerradas a esa hora—, decidimos alojarnos lo más cerca posible del aeropuerto. Este hotel fue una solución perfecta: su proximidad nos ahorró unas 2 horas de trayecto hasta Tokio y nos permitió descansar adecuadamente tras el vuelo.
         </p>
         <h4>Incluye servicio de transporte ida - vuelta gratuito al aeropuerto</h4>
-          <p>Cuenta con un servicio de lanzadera de autobuses desde la propia puerta del hotel hasta el aeropuerto. Esto nos permitió levanantarnos a primera hora y en 20 minutos estar en la cola del JRP. Con todo ello pudimos tomar el tren bala y llegar a Kyoto a la hora de comer.</p>
+          <p>El hotel ofrece un servicio gratuito de lanzadera ida y vuelta al aeropuerto, lo que facilitó enormemente nuestra logística. A primera hora de la mañana, en solo 15 minutos estábamos haciendo cola para activar el JRP. Gracias a esta planificación, pudimos tomar el tren bala sin contratiempos y llegar a Kioto par aprovechar la tarde</p>
         <h4>Calidades</h4>
-          <p>Aunque solo estuvimos una noche, el hotel es moderno y cómodo. Las habitaciones son amplias y están bien equipadas. Teníamos hasta lavadora y tabla de planchar. Además para aquellas personas que puedan teletrabajar presentaba nuemrosas salas destinadas a ello.</p>
+          <p>Aunque fue una estancia breve, el hotel superó nuestras expectativas. Es un establecimiento moderno y confortable, con habitaciones amplias y bien equipadas. Disponíamos incluso de lavadora y tabla de planchar. Además, el hotel cuenta con varias salas de trabajo habilitadas para quienes necesiten teletrabajar, lo que lo convierte en una opción ideal también para viajeros profesionales.</p>
 
       </div>
       <!-- Botón de reserva -->
@@ -91,15 +90,17 @@
             <mat-icon>chevron_right</mat-icon>
           </button>
         </div>
-      </div>
+    </div>
   </div>
-  </div>
+  
 
   
 
+</div>
 
 
-<div id="kyoto" class="tab-content" [class.active]="isTabActive('tokyo')">
+
+<div id="tokyo" class="tab-content" [class.active]="isTabActive('tokyo')">
   <div class="tabs">
     <button *ngFor="let tab of tabs"
             class="tab-button"
@@ -110,9 +111,54 @@
   </div>
   <p>Tokyo, la gran ciudad, repleta de miles de opciones. A continuación podrás encontrar una lista de restaurante que acudimos nosotros, nuevamente, recomendamos perderse en las calles y dejarse impresionar. Por lo tanto, os recomendamos:</p>
 
+  <div class="text-image-container">
+    <!-- Texto a la izquierda -->
+    <div class="text-container">
+      <p>La primera noche (28 – 29 oct) Hotel Kawasaki King Skyfront Tokyu REI Hotel</p>
+      <p>Precio 78€</p>
+      <div class="guide-section">
+        <h4>Alojarse en el centro de Kioto: cómodo, conectado y todo a mano</h4>
+        <p>
+          Elegimos este hotel por su ubicación estratégica en el centro de Kioto, concretamente en Nakagyo-ku Kakimotocho 392. Está situado en una zona tranquila pero muy bien conectada, ideal para moverse por la ciudad sin complicaciones.La parada de metro más cercana es Karasuma Oike, a menos de 5 minutos caminando. Desde ahí puedes llegar en solo 2 estaciones a la estación central de Kioto, lo cual facilita muchísimo los desplazamientos si vienes con el Shinkansen o tienes pensado hacer excursiones a Nara, Osaka o Himeji.
+        </p>
+        <h4>¿Qué tan bien conectado está?</h4>
+          <p>Durante nuestra estancia, notamos que este hotel te deja a tiro de piedra de los principales puntos turísticos de Kioto:</p>
+          <ul>
+            <li>Castillo de Nijō: se puede ir caminando en unos 10-12 minutos, perfecto para una visita matinal tranquila.</li>
+            <li>Gion (el famoso barrio de las geishas): unos 15 minutos en metro o bus. Ideal para ir a última hora de la tarde y ver el ambiente.</li>
+            <li>Fushimi Inari-Taisha (los miles de torii rojos): unos 25 minutos en total en metro + tren desde Karasuma Oike.</li>
+            <li>Templo Kinkaku-ji (Pabellón Dorado): unos 30 minutos en autobús directo desde las paradas cercanas al hotel.</li>
+            <li>Bosque de bambú de Arashiyama: unos 40 minutos combinando metro y tren.</li>
+          </ul>
+          <p>Además, a menos de 10 minutos andando tienes cafeterías, izakayas, supermercados (como 7-Eleven o FamilyMart) y hasta una pequeña galería comercial para cenar algo rápido si estás cansado del día.</p>
+
+
+      </div>
+      <!-- Botón de reserva -->
+      <div class="booking-section">
+        <a [href]="hotel1_Url" target="_blank" rel="noopener noreferrer" class="booking-button">
+          Ver disponibilidad en Booking
+        </a>
+      </div>
+    </div>
+
+    <!-- Imagen a la derecha -->
+    <div class="excursion-image-container">
+        <img [src]="images[currentIndex]" alt="Hotel" class="excursion-image"/>
+        <div class="gallery-controls" *ngIf="images.length > 1">
+          <button class="gallery-button" mat-icon-button (click)="changeImage(-1)" [disabled]="currentIndex === 0">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <button  class="gallery-button" mat-icon-button (click)="changeImage(1)" [disabled]="currentIndex === images.length - 1">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+    </div>
+  </div>
+
 </div>
 
-<div id="tokyo" class="tab-content" [class.active]="isTabActive('kyoto')">
+<div id="tokyo" class="tab-content" [class.active]="isTabActive('tokyo')">
   <div class="tabs">
     <button *ngFor="let tab of tabs"
             class="tab-button"
@@ -122,7 +168,7 @@
     </button>
   </div>
 
-  <p>En esta sección hemos realizado una recopilación de los mejores restaurantes de la ciudad de Kyoto y alrededores. No es una guia que debas seguir, te invitamos a perderte y que tú explores por tu cuenta. Sin embargo, si creemos uqe en caso de que tengas dudas o no tengas el timepo necesario aquí recogemos nuestra selección de restaurantes:</p>
+  
 
 </div>
 
