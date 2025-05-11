@@ -58,8 +58,7 @@
   <div class="text-image-container">
     <!-- Texto a la izquierda -->
     <div class="text-container">
-      <p>
-        Primera semana (29 oct – 5 nov) Tokyu Stay Kyoto Sanjo-Karasuma</p>
+      <p>La primera noche (28 – 29 oct, 7 noches) Hotel Tokyu Stay Kyoto Sanjo-Karasuma</p>
       <div class="guide-section">
         <h4>¿Porqué pasar una noche sólo?</h4>
         <p>
@@ -113,7 +112,7 @@
   <div class="text-image-container">
     <!-- Texto a la izquierda -->
     <div class="text-container">
-      <p>La primera noche (28 – 29 oct, 7 noches) Hotel Tokyu Stay Kyoto Sanjo-Karasuma</p>
+      <p> Primera semana (29 oct – 5 nov) Tokyu Stay Kyoto Sanjo-Karasuma</p>
       <p>Precio 524€ (75 €/noche)</p>
       <div class="guide-section">
         <h4>Alojarse en el centro de Kioto: cómodo, conectado y todo a mano</h4>
@@ -170,6 +169,59 @@
             (click)="openTab(tab.id)">
         {{tab.name}}
     </button>
+  </div>
+
+  <div class="text-image-container">
+    <!-- Texto a la izquierda -->
+    <div class="text-container">
+      <p>Segunda semana: 5 – 12 nov, 7 noches en el Sotetsu Fresa Inn Kanda-Otemachi</p>
+      <p>Precio total: 528 € (75 €/noche)</p>
+  
+      <div class="guide-section">
+        <h4>Ubicación estratégica en pleno centro de Tokio</h4>
+        <p>
+          Para esta segunda parte de nuestra aventura en Tokio, elegimos un hotel más sencillo pero muy bien situado: el <strong>Sotetsu Fresa Inn Kanda-Otemachi</strong>. Está en el distrito de Chiyoda, una zona bastante tranquila pero excelentemente comunicada con el resto de la ciudad. A menos de 5 minutos caminando tienes varias líneas de metro (como la línea Ginza y la línea Chūō), lo cual facilita el acceso a los principales barrios: Shibuya, Shinjuku, Akihabara o Asakusa.
+        </p>
+  
+        <h4>Una elección práctica y económica en una ciudad cara</h4>
+        <p>
+          Tokio no es una ciudad barata para alojarse, especialmente si buscas buena localización. Por eso, decidimos sacrificar algo de espacio y servicios a cambio de una ubicación céntrica a un precio ajustado. Aunque la habitación era más pequeña y básica que en otros hoteles, cumplía su función perfectamente: estaba limpia, bien climatizada y con una cama cómoda.
+        </p>
+  
+        <h4>¿Qué teníamos cerca?</h4>
+        <ul>
+          <li>Akihabara: el barrio otaku, a solo 1 parada de tren o 15 minutos andando.</li>
+          <li>El Palacio Imperial: a menos de 20 minutos caminando, ideal para una visita tranquila al atardecer.</li>
+          <li>Tokyo Station: a un paseo, lo que es muy útil si llegas con Shinkansen o haces excursiones.</li>
+          <li>Restaurantes y konbinis (7-Eleven, Lawson, FamilyMart) en cada esquina: perfecto para cenar algo rápido o desayunar por la mañana.</li>
+        </ul>
+  
+        <h4>¿Repetiríamos?</h4>
+        <p>
+          Sin duda. Si buscas una opción sencilla y céntrica en Tokio sin arruinarte, este hotel es muy recomendable. No es un hotel de lujo, pero está bien pensado para viajeros activos que solo necesitan descansar bien y estar conectados.
+        </p>
+      </div>
+  
+      <!-- Botón de reserva -->
+      <div class="booking-section">
+        <a [href]="hotel3_Url" target="_blank" rel="noopener noreferrer" class="booking-button">
+          Ver disponibilidad en Booking
+        </a>
+      </div>
+    </div>
+  
+    <!-- Imagen a la derecha -->
+    <div class="excursion-image-container">
+      <img [src]="images_3[currentIndex_3]" alt="Hotel" class="excursion-image"/>
+      <div class="gallery-controls" *ngIf="images_3.length > 1">
+        <button class="gallery-button" mat-icon-button (click)="changeImage_3(-1)" [disabled]="currentIndex_3 === 0">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button class="gallery-button" mat-icon-button (click)="changeImage_3(1)" [disabled]="currentIndex_3 === images_3.length - 1">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 
   

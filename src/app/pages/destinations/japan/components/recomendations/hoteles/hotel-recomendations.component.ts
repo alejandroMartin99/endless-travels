@@ -56,6 +56,8 @@ export class HotelRecomendationsComponent  implements OnInit{
 
   hotel2_Url: string =`https://www.booking.com/hotel/jp/tokyu-stay-kyoto-ryogaemachi-dori.es.html?aid=2405612&label=brave_nonbrand_organic_trigger_ef205286-b3e9-46b0-863b-817cac9a3b88_0&sid=5bf532fdc7db13af6869e23c0b013a12&checkin=2025-10-29&checkout=2025-11-05&dest_id=-235402&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1746977857&srpvid=3a596ddd594d04f7&type=total&ucfs=1&#no_availability_msg`
 
+  hotel3_Url: string =`https://www.booking.com/searchresults.es.html?aid=2405612&label=brave_nonbrand_organic_trigger_ef205286-b3e9-46b0-863b-817cac9a3b88_0&highlighted_hotels=6663751&checkin=2025-10-29&redirected=1&city=-246227&hlrd=with_av&source=hotel&checkout=2025-11-05&keep_landing=1&sid=5bf532fdc7db13af6869e23c0b013a12`
+
 
 
 
@@ -98,6 +100,25 @@ export class HotelRecomendationsComponent  implements OnInit{
       const newIndex = this.currentIndex_2 + delta;
       if (newIndex >= 0 && newIndex < this.images_2.length) {
         this.currentIndex_2 = newIndex;
+      }
+    }
+
+
+    currentIndex_3 = 0;
+    images_3: string[] = [
+      '/assets/japan/Recomendations/Hotel/Hotel3_1.png',
+      '/assets/japan/Recomendations/Hotel/Hotel3_2.png',
+      '/assets/japan/Recomendations/Hotel/Hotel3_3.png',
+      '/assets/japan/Recomendations/Hotel/Hotel3_4.png',
+      '/assets/japan/Recomendations/Hotel/Hotel3_5.png',
+      '/assets/japan/Recomendations/Hotel/Hotel3_6.png',
+      '/assets/japan/Recomendations/Hotel/Hotel3_7.png',
+    ]
+
+    changeImage_3(delta: number): void {
+      const newIndex = this.currentIndex_3 + delta;
+      if (newIndex >= 0 && newIndex < this.images_3.length) {
+        this.currentIndex_3 = newIndex;
       }
     }
 
