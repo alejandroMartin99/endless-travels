@@ -8,7 +8,7 @@ import { SharedModule } from './components/shared.module';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DestinationsModule } from './pages/destinations.module';
-
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,9 @@ import { DestinationsModule } from './pages/destinations.module';
     AppRoutingModule,
     DestinationsModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    NgChartsModule,
+    
   ],
   providers: [
     provideClientHydration(),

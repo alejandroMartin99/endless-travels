@@ -1,13 +1,52 @@
-<mat-expansion-panel class="section-card">
+<mat-expansion-panel class="section-card" [(expanded)]="panelOpenState">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <mat-icon class="panel-icon">paid</mat-icon>
-      Dinero y Moneda
+      <mat-icon class="panel-icon">attach_money</mat-icon>
+      Dinero y Moneda en Japón
     </mat-panel-title>
   </mat-expansion-panel-header>
 
-  <div>
-    <p class="intro-text">En nuestro viaje utilizamos las ciudades de kYoto y Tokyo como bases principales para dormir. Es por ello que reservamos un hotel en cada una de las mismas.</p>
-  </div> 
+  <div class="money-row">
+    <div class="money-text">
+      <p>
+        En Japón la moneda oficial es el <strong>yen japonés (JPY)</strong>. Aunque cada vez se aceptan más tarjetas, todavía es habitual pagar en efectivo, especialmente en restaurantes locales, ryokans o templos.
+      </p>
+
+      <h4>Consejos prácticos:</h4>
+      <ul>
+        <li>Saca dinero en los cajeros 7-Eleven o Japan Post, que aceptan tarjetas extranjeras.</li>
+        <li>Evita cambiar dinero en aeropuertos, ya que el tipo de cambio suele ser peor.</li>
+        <li>Considera llevar una tarjeta tipo Revolut o Wise para ahorrar en comisiones.</li>
+      </ul>
+
+      <p>
+        En el último año, el euro ha tenido una tendencia a la baja frente al yen japonés, lo que ha hecho que viajar a Japón sea más caro. Sin embargo, el tipo de cambio puede variar, así que es recomendable consultar antes de viajar.
+      </p>
+
+      <h4>¿Dónde cambiar dinero?</h4>
+      <p>
+        Puedes cambiar dinero en bancos, casas de cambio o aeropuertos. Sin embargo, los mejores tipos de cambio suelen encontrarse en las casas de cambio locales.
+      </p>
+
+      <p>
+        Si necesitas cambiar dinero en Japón, te recomendamos usar <strong>Travelex</strong>, que tiene oficinas en todo el país y ofrece un buen tipo de cambio.
+      </p>
+
+    </div>
+
+    <div class="chart-wrapper">
+      <h4>Evolución reciente del euro frente al yen (EUR → JPY):</h4>
+      
+      <canvas baseChart
+      [datasets]="chartData.datasets"
+      [labels]="chartData.labels"
+      [options]="chartOptions"
+      [type]="'line'">
+    </canvas>
+    </div>
+  </div>
+
+      
+
 
 </mat-expansion-panel>

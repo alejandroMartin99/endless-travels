@@ -16,6 +16,7 @@ import { ConectRecomendationsComponent } from './destinations/japan/components/r
 import { DineroRecomendationsComponent } from './destinations/japan/components/recomendations/dinero/dinero-recomendations.component';
 import { IdiomaRecomendationsComponent } from './destinations/japan/components/recomendations/idioma/idioma-recomendations.component';
 import { KyotoDaysComponent } from './destinations/japan/components/itinerary/Kyoto-days.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { KyotoDaysComponent } from './destinations/japan/components/itinerary/Ky
     MaterialModule,
     SharedModule,
     RouterLink,
+    NgChartsModule,
 
   ],
   exports:[
