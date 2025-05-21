@@ -106,7 +106,7 @@ mat-expansion-panel:hover {
 
 canvas {
   width: 100% !important;
-  max-height: 400px; /* evita que se desborde */
+  max-height: 500px; /* evita que se desborde */
   height: auto;
 }
 
