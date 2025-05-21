@@ -69,7 +69,7 @@ export class DineroRecomendationsComponent implements OnInit {
 
   fetchExchangeRates(): void {
     const endDate = new Date().toISOString().split('T')[0];
-    const startDate = new Date(Date.now() - 365*3 * 24 * 60 * 60 * 1000)
+    const startDate = new Date(Date.now() - 365*5 * 24 * 60 * 60 * 1000)
       .toISOString()
       .split('T')[0];
 
