@@ -157,14 +157,29 @@
         <div class="suica-item">
           <div>
             <p>
-              La tarjeta SUICA es ideal para transporte urbano (metro, autobuses, trenes) y compras en tiendas de conveniencia o máquinas expendedoras. ¡Haz que tu viaje sea más cómodo usándola directamente desde tu iPhone!
+              La tarjeta SUICA (Super Urban Intelligent CArd) es el sistema de pago electrónico más eficiente para el transporte público y compras en Japón. Compatible con JR Lines, Tokyo Metro, autobuses urbanos y más de 50,000 tiendas de conveniencia, restaurantes y máquinas expendedoras en todo el país.
             </p>
+            
+            <p>
+              <strong>Ventajas de la versión digital:</strong> Sin depósito de ¥500 (requerido en tarjeta física), recargas remotas desde ¥1,000 hasta ¥20,000, historial de transacciones detallado, y compatibilidad con 9 sistemas IC regionales (ICOCA, PASMO, TOICA, etc.).
+            </p>
+            
+            <p>
+              <strong>Costos típicos:</strong> Viajes cortos ¥140-160, trayectos medios ¥200-300, distancias largas ¥400-600. Funciona en vending machines, konbini (7-Eleven, FamilyMart, Lawson), Starbucks, McDonald's y grandes almacenes.
+            </p>
+
             <h3>Cómo configurarla:</h3>
             <ol>
-              <li>Abre la app <strong>Wallet</strong> en tu iPhone.</li>
+              <li>Abre la app <strong>Wallet</strong> en tu iPhone (requiere iPhone 8+ con iOS 10.3+).</li>
               <li>Pulsa el botón "+" y selecciona <strong>Suica Card</strong>.</li>
-              <li>Sigue las instrucciones y recarga saldo directamente desde tu dispositivo.</li>
+              <li>Elige crear nueva tarjeta (¥1,000-¥20,000) o transferir una física existente.</li>
+              <li>Vincula una tarjeta de crédito para recargas automáticas.</li>
+              <li>Activa <strong>Express Transit</strong> en Configuración > Wallet para pagos instantáneos sin desbloquear el dispositivo.</li>
             </ol>
+            
+            <p>
+              <strong>Consejo profesional:</strong> El modo Express Transit permite usar SUICA incluso con el iPhone bloqueado o con poca batería. Ideal para el transporte diario y compras rápidas sin complicaciones.
+            </p>
           </div>
           <div class="suica-item-image-container">
             <img 
@@ -400,11 +415,25 @@
           </div>
         
           <div class="kyoto-metro-image-container">
-            <img 
+              <img 
               src="assets/japan/Recomendations/KyotoSubwayRouteMap.webp" 
-              alt="Mapa del metro de Kioto" 
-              class="kyoto-metro-image" />
+              alt="Mapa del metro de Kyoto" 
+              class="excursion-image clickable-image" 
+              (click)="openImagePopup('assets/japan/Recomendations/KyotoSubwayRouteMap.webp', 
+              'Mapa del metro de Kyoto', 
+              'Mapa completo del sistema de metro de Kyoto: incluye las líneas Karasuma y Tozai, mostrando las principales estaciones y puntos de interés')"
+              title="Click para ampliar" />
           </div>
+
+          <app-image-popup
+            [imageSrc]="popupImageSrc"
+            [alt]="popupImageAlt"
+            [title]="popupImageTitle"
+            [description]="popupImageDescription"
+            [isOpen]="showImagePopup"
+            (closed)="closeImagePopup()">
+          </app-image-popup>
+
         </div>
       
         <h1>Bus en Kyoto</h1>
@@ -428,10 +457,24 @@
           </div>
 
           <div class="kyoto-metro-image-container">
-            <img 
+              <img 
               src="assets/japan/Recomendations/Mapa_Bus_Kioto.jpeg" 
-              alt="Mapa del metro de Kioto" 
-              class="kyoto-metro-image" />
+              alt="Mapa del bus de Kyoto" 
+              class="excursion-image clickable-image" 
+              (click)="openImagePopup('assets/japan/Recomendations/Mapa_Bus_Kioto.jpeg', 
+              'Mapa del bus de Kyoto', 
+              'Mapa completo del sistema de autobuses de Kyoto mostrando las principales rutas y puntos de interés')"
+              title="Click para ampliar" />
+          </div>
+
+          <app-image-popup
+            [imageSrc]="popupImageSrc"
+            [alt]="popupImageAlt"
+            [title]="popupImageTitle"
+            [description]="popupImageDescription"
+            [isOpen]="showImagePopup"
+            (closed)="closeImagePopup()">
+          </app-image-popup>
           </div>
         </div>
 
@@ -483,11 +526,25 @@
           </div>
 
           <div class="kyoto-metro-image-container">
-            <img 
+              <img 
               src="assets/japan/Recomendations/KyotoTrainRouteMap.jpg" 
-              alt="Mapa del metro de Kioto" 
-              class="kyoto-metro-image" />
+              alt="Mapa del tren de Kyoto" 
+              class="excursion-image clickable-image" 
+              (click)="openImagePopup('assets/japan/Recomendations/KyotoTrainRouteMap.jpg', 
+              'Mapa del tren de Kyoto', 
+              'Mapa completo del sistema ferroviario de Kyoto mostrando las principales líneas y puntos de interés')"
+              title="Click para ampliar" />
           </div>
+
+          <app-image-popup
+            [imageSrc]="popupImageSrc"
+            [alt]="popupImageAlt"
+            [title]="popupImageTitle"
+            [description]="popupImageDescription"
+            [isOpen]="showImagePopup"
+            (closed)="closeImagePopup()">
+          </app-image-popup>
+
         </div>
 
 
@@ -497,7 +554,7 @@
   </div>
 
 
-  </div>
+
 
   <div id="excursiones" 
   class="tab-content" [class.active]="isTabActive('excursiones')">
