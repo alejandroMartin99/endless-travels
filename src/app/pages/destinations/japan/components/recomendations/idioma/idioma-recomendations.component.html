@@ -1,13 +1,89 @@
-<mat-expansion-panel class="section-card">
+<mat-expansion-panel class="section-card" [(expanded)]="panelOpenState">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <mat-icon class="panel-icon">forum</mat-icon>
-      Idioma y Costumbres
+      Idioma y Costumbres en Japón
     </mat-panel-title>
   </mat-expansion-panel-header>
 
-  <div>
-    <p class="intro-text">En nuestro viaje utilizamos las ciudades de kYoto y Tokyo como bases principales para dormir. Es por ello que reservamos un hotel en cada una de las mismas.</p>
-  </div> 
+  <div class="customs-content">
 
+    <div class="customs-section">
+      <div class="customs-text">
+        <h4>Idioma: ¿cómo comunicarte?</h4>
+        <p>
+          En Japón, el idioma oficial es el <strong>japonés</strong>, y aunque en zonas turísticas se puede encontrar algo de inglés, <strong>no es lo habitual</strong>. Los japoneses suelen ser muy amables e intentarán ayudarte, pero <strong>usar frases básicas en japonés</strong> es un gesto muy valorado:
+        </p>
+        <ul>
+          <li><strong>Hola:</strong> こんにちは (Konnichiwa)</li>
+          <li><strong>Gracias:</strong> ありがとう (Arigatou)</li>
+          <li><strong>Perdón/Lo siento:</strong> ごめんなさい (Gomen nasai)</li>
+          <li><strong>Habla inglés?:</strong> 英語を話せますか？ (Eigo o hanasemasu ka?)</li>
+        </ul>
+
+      <div class="japanese-numbers">
+        <h5>Números básicos en japonés</h5>
+        <table>
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>Japonés</th>
+              <th>Pronunciación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>一</td><td>Ichi</td></tr>
+            <tr><td>2</td><td>二</td><td>Ni</td></tr>
+            <tr><td>3</td><td>三</td><td>San</td></tr>
+            <tr><td>4</td><td>四</td><td>Shi / Yon</td></tr>
+            <tr><td>5</td><td>五</td><td>Go</td></tr>
+            <tr><td>6</td><td>六</td><td>Roku</td></tr>
+            <tr><td>7</td><td>七</td><td>Shichi / Nana</td></tr>
+            <tr><td>8</td><td>八</td><td>Hachi</td></tr>
+            <tr><td>9</td><td>九</td><td>Kyuu / Ku</td></tr>
+            <tr><td>10</td><td>十</td><td>Juu</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="customs-image">
+        <img src="assets/img/japanese-language.jpg" alt="Idioma japonés escrito" />
+      </div>
+    </div>
+
+    <div class="customs-section">
+      <div class="customs-text">
+        <h4>Costumbres sociales: el arte del respeto</h4>
+        <p>
+          La sociedad japonesa se rige por <strong>normas de respeto y cortesía muy marcadas</strong>. Aquí algunas cosas que deberías saber:
+        </p>
+        <ul>
+          <li>Saludar con una <strong>reverencia</strong> en lugar de dar la mano.</li>
+          <li><strong>Descalzarse</strong> al entrar en casas, templos e incluso algunos alojamientos o restaurantes.</li>
+          <li>Evita hablar fuerte en público, especialmente en el transporte.</li>
+          <li><strong>No se deja propina</strong>: puede considerarse grosero.</li>
+        </ul>
+      </div>
+      <div class="customs-image">
+        <img src="assets/img/japanese-customs.jpg" alt="Costumbres japonesas como reverencias" />
+      </div>
+    </div>
+
+    <div class="customs-section">
+      <div class="customs-text">
+        <h4>Curiosidades culturales</h4>
+        <p>Japón es un país fascinante lleno de contrastes. Aquí van algunas curiosidades:</p>
+        <ul>
+          <li>Los <strong>baños públicos (sento)</strong> y las <strong>saunas (onsen)</strong> están muy extendidos y son parte de la vida cotidiana.</li>
+          <li>Los <strong>Ryokan</strong> son alojamientos tradicionales con tatami, futón y baños termales.</li>
+          <li>El silencio en el metro es sagrado. ¡Ni siquiera se atienden llamadas!</li>
+          <li>Verás <strong>máquinas expendedoras en cada esquina</strong>, ¡incluso para comida caliente o paraguas!</li>
+        </ul>
+      </div>
+      <div class="customs-image">
+        <img src="assets/img/ryokan-onsen.jpg" alt="Ryokan japonés tradicional con onsen" />
+      </div>
+    </div>
+
+  </div>
 </mat-expansion-panel>

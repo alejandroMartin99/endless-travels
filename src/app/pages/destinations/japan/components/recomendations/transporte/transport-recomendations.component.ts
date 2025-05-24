@@ -43,6 +43,43 @@ export class TransportRecomendationsComponent {
     return this.activeTab === tabId;
   }
 
+
+
+  // Propiedades para controlar el popup
+  showImagePopup: boolean = false;
+  popupImageSrc: string = '';
+  popupImageAlt: string = '';
+  popupImageTitle: string = '';
+  popupImageDescription: string = '';
+  
+  /**
+   * Abre el popup de imagen con la información proporcionada
+   */
+  openImagePopup(imageSrc: string, title: string, description?: string, alt?: string): void {
+    this.popupImageSrc = imageSrc;
+    this.popupImageTitle = title;
+    this.popupImageDescription = description || '';
+    this.popupImageAlt = alt || title;
+    this.showImagePopup = true;
+    
+    // Bloquear scroll del body cuando el popup está abierto
+    document.body.style.overflow = 'hidden';
+  }
+  
+  /**
+   * Cierra el popup de imagen
+   */
+  closeImagePopup(): void {
+    this.showImagePopup = false;
+    this.popupImageSrc = '';
+    this.popupImageTitle = '';
+    this.popupImageDescription = 'wedf';
+    this.popupImageAlt = 'frew';
+    
+    // Restaurar scroll del body
+    document.body.style.overflow = 'auto';
+  }
+
   
 
   

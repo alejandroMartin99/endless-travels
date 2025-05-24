@@ -17,6 +17,7 @@ import { DineroRecomendationsComponent } from './destinations/japan/components/r
 import { IdiomaRecomendationsComponent } from './destinations/japan/components/recomendations/idioma/idioma-recomendations.component';
 import { KyotoDaysComponent } from './destinations/japan/components/itinerary/Kyoto-days.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ImagePopupComponent } from '../components/image-popup/image-popup.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgChartsModule } from 'ng2-charts';
     ConectRecomendationsComponent,
     DineroRecomendationsComponent,
     IdiomaRecomendationsComponent,
-    KyotoDaysComponent
+    KyotoDaysComponent,
+    ImagePopupComponent,
     
   ],
   imports: [

@@ -11,6 +11,13 @@ mat-expansion-panel:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Alternativa: si quieres más espacio específico al final */
+mat-accordion::after {
+  content: '';
+  display: block;
+  height: 50px;
+}
+
   /* Título e iconos */
 .panel-icon {
   margin-right: 1rem;

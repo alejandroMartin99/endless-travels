@@ -265,8 +265,19 @@
             <img 
               src="assets/japan/Recomendations/transporte/tokyo-train-map.webp" 
               alt="Mapa del tren de Tokio" 
-              class="excursion-image" />
+              class="excursion-image clickable-image" 
+              (click)="openImagePopup('assets/japan/Recomendations/transporte/tokyo-train-map.webp', 'Mapa del tren de Tokio', 'Mapa completo del sistema ferroviario de Tokio mostrando todas las líneas principales incluida la Yamanote Line')"
+              title="Click para ampliar" />
           </div>
+
+          <app-image-popup
+            [imageSrc]="popupImageSrc"
+            [alt]="popupImageAlt"
+            [title]="popupImageTitle"
+            [description]="popupImageDescription"
+            [isOpen]="showImagePopup"
+            (closed)="closeImagePopup()">
+          </app-image-popup>
         </div>
       
         <h1>Metro en Tokio</h1>
@@ -296,11 +307,23 @@
           </div>
           
           <div class="kyoto-metro-image-container">
-            <img 
+
+              <img 
               src="assets/japan/Recomendations/transporte/subway-tokyo.png" 
               alt="Mapa del metro de Tokio" 
-              class="excursion-image" />
+              class="excursion-image clickable-image" 
+              (click)="openImagePopup('assets/japan/Recomendations/transporte/subway-tokyo.png', 'Mapa del metro de Tokio', 'Mapa completo del sistema ferroviario de Tokio mostrando todas las líneas principales incluida la Yamanote Line')"
+              title="Click para ampliar" />
           </div>
+
+          <app-image-popup
+            [imageSrc]="popupImageSrc"
+            [alt]="popupImageAlt"
+            [title]="popupImageTitle"
+            [description]="popupImageDescription"
+            [isOpen]="showImagePopup"
+            (closed)="closeImagePopup()">
+          </app-image-popup>
 
           
         </div>
