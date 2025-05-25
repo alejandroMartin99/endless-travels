@@ -6,13 +6,13 @@ import { Component, Input, Output, EventEmitter, HostListener } from '@angular/c
   template: `
     <div class="image-popup-overlay" 
          *ngIf="isOpen" 
-         (click)="closePopup()"
-         [@fadeInOut]>
+        (click)="closePopup()"
+        [@fadeInOut]>
       
       <!-- Contenedor principal del popup -->
       <div class="image-popup-container" 
-           (click)="$event.stopPropagation()"
-           [@slideInOut]>
+          (click)="$event.stopPropagation()"
+          [@slideInOut]>
         
         <!-- Header con botones de control -->
         <div class="image-popup-header">
@@ -61,20 +61,20 @@ import { Component, Input, Output, EventEmitter, HostListener } from '@angular/c
         
         <!-- Contenedor de la imagen con scroll -->
         <div class="image-popup-content" 
-             #imageContainer
-             (wheel)="onWheel($event)"
-             (mousedown)="startDrag($event)"
-             (mousemove)="onDrag($event)"
-             (mouseup)="endDrag()"
-             (mouseleave)="endDrag()">
+            #imageContainer
+            (wheel)="onWheel($event)"
+            (mousedown)="startDrag($event)"
+            (mousemove)="onDrag($event)"
+            (mouseup)="endDrag()"
+            (mouseleave)="endDrag()">
           
           <img [src]="imageSrc" 
-               [alt]="alt || 'Imagen ampliada'"
-               class="popup-image"
-               [style.transform]="getTransform()"
-               (load)="onImageLoad()"
-               #popupImage
-               draggable="false" />
+              [alt]="alt || 'Imagen ampliada'"
+              class="popup-image"
+              [style.transform]="getTransform()"
+              (load)="onImageLoad()"
+              #popupImage
+            draggable="false" />
         </div>
         
         <!-- Footer con información adicional -->
