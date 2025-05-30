@@ -1,0 +1,415 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* General */
+.landing-container {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f5);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  background-image: url('/assets/japan/landing_card_japan.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 70dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+/* Capa semitransparente para mejorar el contraste del texto */
+.hero-image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  padding: 2rem;
+  color: white;
+  z-index: 1;
+  animation: fadeInUp 1.2s ease-out;
+
+   /* Añadimos un fondo difuminado específico para el contenido */
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-badge .badge-text {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+.hero-badge .badge-text {
+  display: inline-block;
+  background-color: #3f51b5;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  line-height: 1.2;
+}
+
+.title-welcome {
+  display: block;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.title-japan {
+  color: #3f51b5;
+  font-size: 3.2rem;
+}
+
+.title-subtitle {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stats */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #ccc;
+}
+
+.stat-divider {
+  width: 2px;
+  background-color: #ccc;
+  height: 40px;
+  align-self: center;
+}
+
+/* Narrative Section */
+.narrative-intro {
+  padding: 4rem 2rem;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #3f51b5;
+}
+
+.intro-paragraph {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.intro-image .responsive-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Info Cards */
+.detailed-info-section {
+  padding: 4rem 2rem;
+}
+
+.centered {
+  text-align: center;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(63, 81, 181, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  color: #3f51b5;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #3f51b5;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.benefit-list,
+.highlight-list {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.benefit-list li,
+.highlight-list li {
+  margin-bottom: 0.5rem;
+  list-style: disc;
+}
+
+/* Cities */
+.city-detail {
+  margin-top: 1.5rem;
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #3f51b5;
+}
+
+.city-name {
+  font-size: 1rem;
+}
+
+.city-essence {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.city-description {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.highlight-tag {
+  display: inline-block;
+  background-color: #e8eaf6;
+  color: #3f51b5;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  margin: 0.25rem 0.4rem 0 0;
+}
+
+/* Experiences Section */
+.experiences-section {
+  background-color: #f7f9fc;
+  padding: 4rem 2rem;
+}
+
+.section-intro {
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+}
+
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.experience-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(63, 81, 181, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+.experience-image img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+.exploration-section {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  color: white;
+  overflow: hidden;
+}
+
+.exploration-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exploration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.exploration-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.exploration-intro {
+  margin-bottom: 1.5rem;
+}
+
+.highlight-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.highlight-list li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.exploration-image {
+  position: relative;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-quote {
+  margin-top: 1rem;
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 6px;
+  color: #f0f0f0;
+}

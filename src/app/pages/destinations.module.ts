@@ -18,6 +18,7 @@ import { IdiomaRecomendationsComponent } from './destinations/japan/components/r
 import { KyotoDaysComponent } from './destinations/japan/components/itinerary/Kyoto-days.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ImagePopupComponent } from '../components/image-popup/image-popup.component';
+import { InitJapanComponent } from './destinations/japan/components/inicio/init-japan.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ImagePopupComponent } from '../components/image-popup/image-popup.compo
     IdiomaRecomendationsComponent,
     KyotoDaysComponent,
     ImagePopupComponent,
+    InitJapanComponent
     
   ],
   imports: [

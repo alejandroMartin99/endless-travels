@@ -1,0 +1,467 @@
+
+<div class="landing-container">
+  <!-- Hero principal con imagen de fondo -->
+  <div class="hero-section">
+    <div class="hero-image-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-text">Experiencia Completa</span>
+      </div>
+      <h1 class="main-title">
+        <span class="title-welcome">Descubre el</span>
+        <span class="title-japan">JAPÓN AUTÉNTICO</span>
+        <span class="title-subtitle">Más Allá de lo Imaginable</span>
+      </h1>
+      <p class="hero-description">
+        Sumérgete en un viaje transformador de 15 días a través del corazón del País del Sol Naciente. 
+        Desde los templos milenarios de Kyoto hasta los neones de Shibuya, desde la serenidad de los 
+        jardines zen hasta la efervescencia de los mercados nocturnos. Este no es solo un viaje, 
+        es una odisea cultural que cambiará tu perspectiva del mundo para siempre.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">15</span>
+          <span class="stat-label">Días Épicos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Ciudades Únicas</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Recuerdos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de introducción narrativa -->
+  <div class="narrative-intro">
+    <div class="content-wrapper">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h2 class="section-title">¿Por Qué Japón Te Cambiará La Vida?</h2>
+          <p class="intro-paragraph">
+            Japón no es simplemente un destino turístico; es un portal hacia una forma completamente 
+            diferente de entender la vida, la belleza y la conexión humana. En este archipiélago 
+            extraordinario, cada momento es una lección magistral sobre cómo la tradición milenaria 
+            puede coexistir armoniosamente with la innovación más vanguardista del planeta.
+          </p>
+          <p class="intro-paragraph">
+            Imagínate despertando en un ryokan tradicional, donde el sonido suave del bambú mecido 
+            por el viento te saluda cada mañana. Visualízate participando en una ceremonia del té 
+            que ha permanecido inalterada durante 400 años, y luego, esa misma tarde, navegando 
+            por las calles de Harajuku donde la moda futurista redefine constantemente los límites 
+            de la creatividad humana.
+          </p>
+        </div>
+        <div class="intro-image">
+          <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+               alt="Templo tradicional japonés con cerezos en flor" 
+               class="responsive-image">
+          <div class="image-caption">Templo Sensoji en Tokio - Donde la historia cobra vida</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de información detallada -->
+  <div class="detailed-info-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered">Tu Aventura Japonesa en Detalle</h2>
+      
+      <div class="info-grid">
+        <!-- Duración -->
+        <div class="info-card duration-card" [class.revealed]="isVisible.duration" #durationBox>
+          <div class="card-header">
+            <div class="card-icon">🗓️</div>
+            <h3 class="card-title">15 Días de Inmersión Total</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Calendario japonés tradicional" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              <strong>{{ viaje.duracionDias }} días</strong> cuidadosamente planificados para que puedas 
+              absorber la esencia japonesa sin prisas. No es un tour express, sino una inmersión profunda 
+              que te permite conectar realmente con la cultura, la gente y las tradiciones. Cada día está 
+              diseñado para ofrecerte experiencias auténticas que van desde rituales espirituales matutinos 
+              hasta aventuras culinarias nocturnas.
+            </p>
+            <ul class="benefit-list">
+              <li>Tiempo suficiente para conectar con locales</li>
+              <li>Participación en festivales estacionales</li>
+              <li>Oportunidades de aprendizaje cultural profundo</li>
+              <li>Momentos de reflexión y descanso integrados</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mejor época -->
+        <div class="info-card season-card" [class.revealed]="isVisible.dates" #datesBox>
+          <div class="card-header">
+            <div class="card-icon">🍂</div>
+            <h3 class="card-title">El Momento Perfecto: Otoño Dorado</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Hojas de otoño en jardín japonés" 
+                class="responsive-image">
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              <strong>{{ viaje.fechasRecomendadas }}</strong> - Esta época del año transforma Japón en 
+              una sinfonía visual de colores dorados, rojos y naranjas que pintan paisajes de ensueño. 
+              El clima es perfecto: fresco pero cálido, ideal para caminar por templos antiguos y 
+              jardines zen. Es también la temporada de los festivales de la cosecha, donde podrás 
+              participar en celebraciones centenarias junto a familias japonesas. <strong>¿Por qué el otoño es mágico?</strong>
+            </p>
+            <div class="season-highlights">
+              <ul class="benefit-list">
+                  <li><strong>Clima ideal:</strong> Temperaturas entre 15°C y 22°C, perfectas para explorar sin sofocos</li>
+                  <li><strong>Menos turistas:</strong> Disfruta de una experiencia más tranquila y auténtica</li>
+                  <li><strong>Época económica:</strong> Precios más bajos en vuelos y alojamientos en comparación con primavera o verano</li>
+                  <li><strong>Gastronomía estacional:</strong> Sabores únicos del otoño japonés como el matsutake y el kaki</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card culture-shock-card"  #cultureShockBox>
+          <div class="card-header">
+            <div class="card-icon">🎎</div>
+            <h3 class="card-title">Déjate Transformar: Un Mundo Radicalmente Diferente</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Mujer japonesa cruzando un torii al atardecer" 
+                class="responsive-image">
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              Japón no es Europa con farolillos rojos ni una postal asiática más. Es otro planeta en lo cotidiano. 
+              Desde cómo se saluda hasta cómo se come, desde la forma de entender el tiempo hasta el silencio entre frases.  
+              Este viaje no busca que compares, sino que **te vacíes un poco de tu mundo para dejar entrar otro**.  
+              Sumérgete en templos donde el tiempo se detiene, acepta rituales milenarios sin entenderlos del todo,  
+              y permítete **no tener el control** durante unos días.
+            </p>
+            <ul class="benefit-list">
+              <li>Desconexión total de la lógica occidental</li>
+              <li>Inmersión cultural sin filtros ni adaptaciones turísticas</li>
+              <li>Actividades que te invitan a observar antes de actuar</li>
+              <li>Una invitación al asombro, la lentitud y el respeto</li>
+            </ul>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Sección de información detallada -->
+  <div class="detailed-info-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered"> 7 Ciudades, 7 Universos Diferentes</h2>
+      
+      <div class="info-grid">
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title"> Kyoto</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">El Alma Tradicional</span>
+                </div>
+                <p class="city-description">Antigua capital imperial donde cada piedra cuenta una historia milenaria. Hogar de más de 2.000 templos y santuarios, Kyoto es donde el Japón ancestral permanece intacto.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Templo Dorado</span>
+                  <span class="highlight-tag" >Barrio Gion</span>
+                  <span class="highlight-tag" >Bosque de Bambú</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title">Tokyo</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">El Futuro Presentel</span>
+                </div>
+                <p class="city-description">La metrópolis más fascinante del mundo, donde robots sirven café y monjes bendicen rascacielos. Aquí el futuro no es una promesa, es la realidad cotidiana.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Shibuya Crossing</span>
+                  <span class="highlight-tag" >Mercado Tsukiji</span>
+                  <span class="highlight-tag" >Harajuku</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title">Osaka</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">La Capital Gastronómica</span>
+                </div>
+                <p class="city-description">Si Tokyo es el cerebro de Japón, Osaka es su estómago y su corazón. Aquí nacieron el takoyaki y el okonomiyaki, pero también la hospitalidad japonesa más cálida.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Dotonbori</span>
+                  <span class="highlight-tag" >Castillo de Osaka</span>
+                  <span class="highlight-tag" >Cocina Callejera</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title">Nara</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">La Serenidad Ancestral</span>
+                </div>
+                <p class="city-description">Primera capital permanente de Japón, donde ciervos sagrados caminan libremente entre templos del siglo VIII. Un lugar donde el tiempo se detiene y el alma encuentra paz.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Parque de Nara</span>
+                  <span class="highlight-tag" >Templo Todaiji</span>
+                  <span class="highlight-tag" >Ciervos Sagrados</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title">Hiroshima</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">La Lección de Esperanza</span>
+                </div>
+                <p class="city-description">Una ciudad que se levantó de las cenizas para convertirse en símbolo mundial de paz y reconciliación. Su historia te conmoverá, su presente te inspirará.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Memorial de la Paz</span>
+                  <span class="highlight-tag" >Museo de la Paz</span>
+                  <span class="highlight-tag" >Okonomiyakis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title">Nikko</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">La Puerta a lo Sagrado</span>
+                </div>
+                <p class="city-description">Refugio espiritual en las montañas donde la naturaleza y la arquitectura sagrada crean una sinfonía de belleza que trasciende lo terrenal.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Santuario Toshogu</span>
+                  <span class="highlight-tag" >TO DO</span>
+                  <span class="highlight-tag" >TO DO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+          <div class="card-header">
+            <div class="card-icon">🏯</div>
+            <h3 class="card-title">Kamakura</h3>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Skyline de Tokio con Monte Fuji" 
+                 class="responsive-image">
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail" >
+                <div class="city-header">
+                  <!-- <span class="city-name">{{ ciudad.name }}</span> -->
+                  <span class="city-essence">El Zen Viviente</span>
+                </div>
+                <p class="city-description">Antigua sede del shogunato donde el budismo zen echó raíces profundas. Aquí entenderás por qué la simplicidad puede ser la forma más elevada de sofisticación.</p>
+                <div class="city-highlights">
+                  <span class="highlight-tag" >Gran Buda</span>
+                  <span class="highlight-tag" >TO DO</span>
+                  <span class="highlight-tag" >TO DO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Sección de experiencias -->
+  <!-- <div class="experiences-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered">Experiencias Que Transforman</h2>
+      <p class="section-intro">
+        No se trata solo de ver Japón, sino de vivirlo, respirarlo y sentirlo en cada fibra de tu ser. 
+        Estas son las experiencias que harán de tu viaje algo verdaderamente extraordinario.
+      </p>
+      
+      <div class="experiences-grid">
+        <div class="experience-card" 
+             *ngFor="let experience of detailedExperiences; let i = index"
+             [class.revealed]="isVisible.essence"
+             [style.animation-delay.ms]="i * 150">
+          <div class="experience-image">
+            <img [src]="experience.image" 
+                 [alt]="experience.title" 
+                 class="responsive-image">
+            <div class="experience-overlay">
+              <span class="experience-category">{{ experience.category }}</span>
+            </div>
+          </div>
+          <div class="experience-content">
+            <div class="experience-icon">{{ experience.icon }}</div>
+            <h3 class="experience-title">{{ experience.title }}</h3>
+            <p class="experience-description">{{ experience.description }}</p>
+            <div class="experience-details">
+              <h4>Lo que vivirás:</h4>
+              <ul class="details-list">
+                <li *ngFor="let detail of experience.details">{{ detail }}</li>
+              </ul>
+            </div>
+            <div class="experience-impact">
+              <span class="impact-label">Impacto emocional:</span>
+              <div class="impact-bar">
+                <div class="impact-fill" [style.width.%]="experience.impact"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Sección de preparación -->
+
+  <!-- Sección de bienvenida transformada -->
+  <div class="exploration-section">
+    <div class="content-wrapper">
+      <div class="exploration-grid">
+        <div class="exploration-content">
+          <h2 class="section-title">Descubre Todo lo que Te Espera</h2>
+          <p class="exploration-intro">
+            Más que una guía, esta web es tu compañera de viaje. Prepárate para sumergirte en itinerarios detallados, recomendaciones locales auténticas y consejos prácticos que solo los viajeros conscientes comparten. Todo está aquí, esperando por ti. Esta web no es solo un itinerario más. Es tu guía completa con recomendaciones expertas, consejos prácticos y todo lo que necesitas para vivir Japón como nunca lo habías imaginado. Cada detalle está pensado para tu experiencia perfecta.
+          </p>
+
+          <div class="exploration-highlights">
+            <ul class="highlight-list">
+              <li><strong>🔍 Recomendaciones expertas:</strong> Transporte, comida, conexión, dinero, idioma...</li>
+              <li><strong>📅 Itinerarios completos:</strong> Día a día, ciudad por ciudad. Desde Kyoto hasta Tokio.</li>
+              <li><strong>💰 Presupuesto realista:</strong> ¿Cuánto cuesta este viaje? Aquí te lo contamos sin filtros.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exploration-image">
+          <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Viaje espiritual por Japón" 
+              class="responsive-image">
+          <div class="image-quote">
+            <blockquote>
+              "Viajar a Japón no es solo moverse... es transformarse."
+            </blockquote>
+            <cite>- Guía del viajero esencial</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
