@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, QueryList, AfterViewInit, Output, EventEmitter } from '@angular/core';
 interface DetailedCity {
   name: string;
   essence: string;
@@ -22,6 +22,13 @@ interface DetailedExperience {
   styleUrls: ['./init-japan.component.css'],
 })
 export class InitJapanComponent implements OnInit, AfterViewInit {
+
+  @Output() goToItinerary = new EventEmitter<number>();
+
+  goToItineraryTab() {
+    this.goToItinerary.emit(2); // Cambia al tab con índice 2
+  }
+
   @ViewChildren('durationBox, datesBox, citiesBox, essenceTitle') 
   observedElements!: QueryList<ElementRef>;
 
@@ -92,64 +99,7 @@ export class InitJapanComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  detailedExperiences: DetailedExperience[] = [
-    {
-      title: 'Ceremonia del Té en Kyoto',
-      category: 'Tradición Espiritual',
-      description: 'Participa en una auténtica ceremonia del té de 400 años de antigüedad, donde cada movimiento es una meditación y cada sorbo una conexión con generaciones pasadas.',
-      details: [
-        'Aprenderás los 7 pasos sagrados de la preparación',
-        'Meditarás en un jardín zen centenario',
-        'Conectarás con una maestra del té con 30 años de experiencia',
-        'Comprenderás la filosofía Wabi-Sabi a través del ritual'
-      ],
-      icon: '🍵',
-      image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      impact: 95
-    },
-    {
-      title: 'Noche en Ryokan Tradicional',
-      category: 'Inmersión Cultural',
-      description: 'Duerme en un ryokan de 200 años donde samuráis una vez descansaron. Despierta con el sonido del bambú y el aroma del incienso matutino.',
-      details: [
-        'Cena kaiseki preparada por chef con estrella Michelin',
-        'Baño en aguas termales naturales bajo las estrellas',
-        'Dormir en futón sobre tatami ancestral',
-        'Desayuno tradicional servido en tu habitación'
-      ],
-      icon: '🏯',
-      image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      impact: 90
-    },
-    {
-      title: 'Festival Nocturno en Osaka',
-      category: 'Vida Local',
-      description: 'Sumérgete en la energía contagiosa de un matsuri local, donde participarás en danzas tradicionales junto a familias que han celebrado aquí durante generaciones.',
-      details: [
-        'Aprenderás danzas tradicionales de 500 años',
-        'Probarás comida de festival preparada por locales',
-        'Participarás en rituales comunitarios',
-        'Crearás lazos auténticos con familias japonesas'
-      ],
-      icon: '🎭',
-      image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      impact: 85
-    },
-    {
-      title: 'Amanecer en el Monte Fuji',
-      category: 'Conexión Espiritual',
-      description: 'Experimenta el "Goraiko" - el amanecer sagrado desde el símbolo más poderoso de Japón. Un momento que cambiará tu perspectiva sobre la vida y la naturaleza.',
-      details: [
-        'Ascenso nocturno guiado por expertos locales',
-        'Meditación al amanecer a 3,776 metros de altura',
-        'Ceremonia de agradecimiento shintoísta',
-        'Vistas panorámicas de todo el archipiélago japonés'
-      ],
-      icon: '⛰️',
-      image: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      impact: 100
-    }
-  ];
+
 
   ngOnInit() {
     // Inicialización de componente

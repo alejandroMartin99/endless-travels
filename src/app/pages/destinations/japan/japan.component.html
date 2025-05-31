@@ -3,7 +3,8 @@
 
 
   <mat-tab-group 
-      [selectedIndex]="0" 
+      [selectedIndex]="selectedTabIndex"
+      (selectedIndexChange)="onTabChanged($event)"
       class="mobile-tab-style sticky-tabs-group" 
       style="height: calc(100vh - 64px); overflow: hidden;">
       <!-- Tab Inicio -->
@@ -12,7 +13,7 @@
           <mat-icon class="custom-icon">travel_explore</mat-icon>
           <span class="custom-tab-text">Inicio</span>
       </ng-template>
-        <init-japan-component></init-japan-component>
+        <init-japan-component (goToItinerary)="changeTab($event)"></init-japan-component>
       </mat-tab>
   
       <!-- Tab Recomendaciones -->
@@ -43,7 +44,7 @@
           <span class="custom-tab-text">Itinerario</span>
         </ng-template>
 
-        <Kyoto-days-component></Kyoto-days-component>
+        <Kyoto-days-component [currentTab]="selectedTabIndex"></Kyoto-days-component>
       </mat-tab>
   
       <!-- Tab Precio -->

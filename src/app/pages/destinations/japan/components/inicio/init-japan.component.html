@@ -58,10 +58,10 @@
           </p>
         </div>
         <div class="intro-image">
-          <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-               alt="Templo tradicional japonés con cerezos en flor" 
-               class="responsive-image">
-          <div class="image-caption">Templo Sensoji en Tokio - Donde la historia cobra vida</div>
+          <img src="https://images.unsplash.com/photo-1695327510610-61e1ca7c9f1c?q=80&w=2077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              alt="Templo tradicional japonés con cerezos en flor" 
+              class="responsive-image">
+          <div class="image-caption">Templo Kinkaku-ji en Kyoto - Donde la historia cobra vida</div>
         </div>
       </div>
     </div>
@@ -77,12 +77,12 @@
         <div class="info-card duration-card" [class.revealed]="isVisible.duration" #durationBox>
           <div class="card-header">
             <div class="card-icon">🗓️</div>
-            <h3 class="card-title">15 Días de Inmersión Total</h3>
+            <h3 class="card-title">15 Días de Inmersión Total. Itinerario completo en web</h3>
           </div>
           <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                 alt="Calendario japonés tradicional" 
-                 class="responsive-image">
+            <img src="https://images.unsplash.com/photo-1678096340922-5332daef07e8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="Calendario japonés tradicional" 
+                class="responsive-image">
           </div>
           <div class="card-content">
             <p class="card-description">
@@ -108,7 +108,7 @@
             <h3 class="card-title">El Momento Perfecto: Otoño Dorado</h3>
           </div>
           <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+            <img src="/assets/japan/Init/Momiji.jpg" 
                 alt="Hojas de otoño en jardín japonés" 
                 class="responsive-image">
           </div>
@@ -134,7 +134,7 @@
         <div class="info-card culture-shock-card"  #cultureShockBox>
           <div class="card-header">
             <div class="card-icon">🎎</div>
-            <h3 class="card-title">Déjate Transformar: Un Mundo Radicalmente Diferente</h3>
+            <h3 class="card-title">Un Mundo Radicalmente Diferente</h3>
           </div>
           <div class="card-image">
             <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -171,7 +171,7 @@
       
       <div class="info-grid">
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title"> Kyoto</h3>
@@ -199,7 +199,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title">Tokyo</h3>
@@ -227,7 +227,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title">Osaka</h3>
@@ -255,7 +255,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title">Nara</h3>
@@ -283,7 +283,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title">Hiroshima</h3>
@@ -311,7 +311,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title">Nikko</h3>
@@ -339,7 +339,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" [class.revealed]="isVisible.cities" #citiesBox>
+        <div class="info-card cities-card" (click)="goToItineraryTab()">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title">Kamakura</h3>

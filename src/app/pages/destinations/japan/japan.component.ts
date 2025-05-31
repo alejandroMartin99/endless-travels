@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class JapanComponent {
 
+  selectedTabIndex = 0;
+
+  changeTab(index: number) {
+    this.selectedTabIndex = index;
+    console.log(`Selected tab index: ${this.selectedTabIndex}`);
+  }
+
+  onTabChanged(index: number) {
+  this.selectedTabIndex = index;
+  console.log('Tab actual:', index);
+  }
+
 }
