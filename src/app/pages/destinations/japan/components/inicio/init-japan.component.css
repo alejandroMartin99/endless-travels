@@ -205,10 +205,12 @@
   box-shadow: 0 4px 16px rgba(63, 81, 181, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.2);
 }
 
 .card-header {
