@@ -20,7 +20,7 @@
 /* Hero Section */
 .hero-section {
   position: relative;
-  background-image: url('/assets/japan/landing_card_japan.jpg');
+  background-image: url('/assets/japan/landing_card_japan.jpeg');
   background-size: cover;
   background-position: center;
   min-height: 70dvh;
@@ -333,7 +333,7 @@
 
 .exploration-section {
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+  background-image: url('/assets/japan/footer_init.avif');
   background-size: cover;
   background-position: center;
   padding: 4rem 2rem;
@@ -357,7 +357,7 @@
 
 .exploration-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3.2fr 1fr;
   gap: 2rem;
   align-items: center;
 }
@@ -365,7 +365,17 @@
 .exploration-content {
   font-size: 1.1rem;
   line-height: 1.6;
+  padding: 2rem;
+
+   /* Añadimos un fondo difuminado específico para el contenido */
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
+
+
 
 .section-title {
   font-size: 2.4rem;
@@ -385,7 +395,6 @@
 .highlight-list li {
   margin-bottom: 1rem;
   font-size: 1.1rem;
-  background: rgba(255, 255, 255, 0.1);
   padding: 0.75rem 1rem;
   border-radius: 6px;
 }
