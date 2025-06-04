@@ -247,6 +247,12 @@ th {
 }
 
 @media (max-width: 768px) {
+
+  .content-container {
+  padding: 0px 5px;
+  background: linear-gradient(to bottom, white, #f0f0f0);
+  overflow-x: hidden; 
+}
   .kyoto-metro-item {
     display: block; /* Cambia el display a block para apilar los elementos */
   }
