@@ -1,8 +1,9 @@
 /* Contenedor principal */
 .content-container {
-  padding: 0px 200px;
+  padding: 0px 0px;
   background: linear-gradient(to bottom, white, #f0f0f0);
 }
+
 
 /* Estilo para mantener el tab header fijo */
 .mat-tab-header {
