@@ -427,4 +427,8 @@
   z-index: 2;
   margin: 0 5px;
 }
+
+.intro-grid {
+    grid-template-columns: 1fr;
+  }
 }
