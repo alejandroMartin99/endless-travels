@@ -1,0 +1,102 @@
+<div class="content-container">
+
+   <div class="container">
+        <div class="header">
+            <h1>🇯🇵 Presupuesto del Viaje a Japón</h1>
+            <p>Análisis detallado de gastos durante nuestra aventura japonesa</p>
+        </div>
+
+        <div class="summary-cards">
+            <div class="summary-card">
+                <div class="amount">€1,414</div>
+                <div class="label">Presupuesto Total</div>
+            </div>
+            <div class="summary-card">
+                <div class="amount">€800</div>
+                <div class="label">Vuelos</div>
+            </div>
+            <div class="summary-card">
+                <div class="amount">€314</div>
+                <div class="label">JR Pass</div>
+            </div>
+            <div class="summary-card">
+                <div class="amount">€300</div>
+                <div class="label">Gastado en Destino</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="showChart('overview')">Resumen General</button>
+            <button class="filter-btn" onclick="showChart('categories')">Por Categorías</button>
+            <button class="filter-btn" onclick="showChart('daily')">Gastos Diarios</button>
+            <button class="filter-btn" onclick="showChart('comparison')">Comparativa</button>
+        </div>
+
+        <div class="expense-grid">
+            <div class="card">
+                <h3>📊 Distribución de Gastos</h3>
+                <div class="chart-container">
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📈 Evolución del Presupuesto</h3>
+                <div class="chart-container">
+                    <canvas id="budgetChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🏷️ Gastos por Categoría</h3>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon transport">✈️</span>
+                    <span class="expense-name">Transporte (Vuelos + JR Pass)</span>
+                </div>
+                <span class="expense-amount negative">€1,114</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon food">🍜</span>
+                    <span class="expense-name">Comida y Bebidas</span>
+                </div>
+                <span class="expense-amount negative">€156.32</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon shopping">🛍️</span>
+                    <span class="expense-name">Compras y Entretenimiento</span>
+                </div>
+                <span class="expense-amount negative">€138.68</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon positive">🎁</span>
+                    <span class="expense-name">Recompensas</span>
+                </div>
+                <span class="expense-amount positive">€5.00</span>
+            </div>
+        </div>
+
+        <div class="details-table">
+            <h3>💳 Detalle de Transacciones Revolut</h3>
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Comercio</th>
+                        <th>Categoría</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+  
+</div>
+
+
