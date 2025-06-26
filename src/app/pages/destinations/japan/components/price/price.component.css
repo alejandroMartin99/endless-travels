@@ -16,7 +16,7 @@ h1 {
 
 .summary-stats {
     position: relative;
-    background-image: url('/assets/japan/landing_card_japan.jpeg');
+    background-image: url('/assets/japan/eco.avif');
     background-size: cover;
     background-position: center;
     padding: 40px 20px;
@@ -30,7 +30,7 @@ h1 {
 
 .stat-card {
     /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(67, 104, 185, 0.7);
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -65,12 +65,14 @@ h1 {
 
 
 .text-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
     background: white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     gap: 15px;
-    margin-bottom: 20px;
+    
 }
 
 
@@ -139,7 +141,13 @@ h1 {
 }
 
 
-
+.mat-expansion-panel {
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 
 
 .transactions-section {
@@ -148,6 +156,7 @@ h1 {
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     gap: 15px;
+    margin-bottom: 10px;
 }
 
 .transaction-table {
@@ -208,7 +217,41 @@ h1 {
 .entertainment { background: #f39c12; color: white; }
 
 
+.payment-summary {
+    margin: 30px 0;
+}
 
+.payment-summary h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.summary-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.summary-card {
+    flex: 1 1 250px;
+    background-color: #e3f2fd;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1rem;
+    color: #0d47a1;
+    font-weight: 500;
+    box-shadow: 0px 2px 8px rgba(0,0,0,.1);
+}
+
+.summary-card span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
 
 @media (max-width: 768px) {
     .dashboard {

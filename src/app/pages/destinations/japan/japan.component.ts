@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class JapanComponent {
 
-  selectedTabIndex = 0;
+  selectedTabIndex = 3;
 
   changeTab(index: number) {
     this.selectedTabIndex = index;

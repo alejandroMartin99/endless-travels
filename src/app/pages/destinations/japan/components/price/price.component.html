@@ -23,33 +23,19 @@
 </div>
 
 <div class="content-container">
-    <div class="text-section">
-        <h2>💰 Gestión del Dinero en Japón</h2>
-        <p>Una de las partes más importantes de planificar un viaje a Japón es decidir cómo gestionar el dinero. Después de investigar y probar diferentes opciones, aquí te contamos nuestra experiencia:</p>
-        
-        <div class="money-tip danger">
-            <strong>❌ No recomendado:</strong> Cambiar euros a yenes en España antes del viaje. Llevamos €150 ya cambiados desde España, pero nos cobraron una comisión altísima. Solo nos sirvió para pagar el taxi del primer día.
-        </div>
-        
-        <div class="money-tip">
-            <strong>✅ Altamente recomendado:</strong> Cambiar dinero en el aeropuerto de Japón. El tipo de cambio es excelente y sin comisiones abusivas. Cambiamos €200 por persona y fue la mejor decisión.
-        </div>
-        
-        <div class="money-tip warning">
-            <strong>💳 Tarjeta Revolut:</strong> Llevamos €300 por persona cargados en nuestras tarjetas Revolut. Perfecta para pagos con tarjeta y cajeros automáticos sin comisiones adicionales.
-        </div>
-        
-        <p><strong>Consejo:</strong> Japón sigue siendo un país muy cash-friendly, especialmente en restaurantes tradicionales y tiendas pequeñas. Asegúrate de llevar siempre efectivo encima.</p>
-  
-    </div>
     
-
     <div class="dashboard">
         <div class="card">
             <h3>📊 Resumen de Gastos</h3>
 
             <div class="chart-container">
-                <canvas #mainChart></canvas>
+                <canvas
+                    baseChart
+                    [data]="chartData"
+                    [options]="chartOptions"
+                    chartType="bar"
+                >
+                </canvas>
             </div>
         </div>
         
@@ -107,36 +93,97 @@
         </div>
     </div>
 
+    <div class="text-section">
+        <h2>💰 Gestión del Dinero en Japón</h2>
+        <p>Una de las partes más importantes al organizar tu viaje a Japón es decidir cómo administrar tu dinero para obtener el máximo valor posible y evitar sorpresas desagradables. Aquí te contamos nuestra experiencia y te ofrecemos consejos para que viajes con tranquilidad financiera:</p>
+        
+        <div class="money-tip danger">
+            <strong>❌ No recomendado:</strong> Cambiar euros a yenes en España antes del viaje. Nosotros cambiamos alrededor de €150 antes de volar, pero nos cobraron una comisión elevada, perdiendo una gran cantidad en el tipo de cambio. Útil para emergencias (como el taxi al aeropuerto), pero no para convertir grandes cantidades.
+        </div>
+        
+        <div class="money-tip success">
+            <strong>✅ Altamente recomendado:</strong> Cambiar dinero en el aeropuerto de Japón. El tipo de cambio es competitivo y no hay comisiones abusivas. Cambiamos alrededor de €200 por persona al llegar, y fue la opción más favorable para obtener efectivo inicial.
+        </div>
+        
+        <div class="money-tip warning">
+            <strong>💳 Tarjetas de prepago o Revolut:</strong> Una de las mejores opciones para pagos electrónicos y retiradas en cajeros automáticos. Nos funcionaron de maravilla para pagos en restaurantes y tiendas, evitando comisiones innecesarias y obteniendo un tipo de cambio favorable. Llevamos alrededor de €300 por persona cargados en la tarjeta.
+        </div>
+
+        <div class="money-tip info">
+            <strong>🍱 Precio promedio de la comida en Japón:</strong> Comer en Japón puede adaptarse a todos los bolsillos. Por ejemplo:
+            <ul>
+                <li>🍙 Restaurante económico o de comida rápida: alrededor de <strong>€6–€12</strong> por persona.</li>
+                <li>🍜 Restaurante estándar de sushi, ramen o izakaya: alrededor de <strong>€15–€25</strong> por persona.</li>
+                <li>🥩 Restaurante de categoría media o especialidades locales: alrededor de <strong>€30–€40</strong> por persona.</li>
+            </ul>
+        </div>
+                
+        <p><strong>💵 Consejo final:</strong> Japón sigue siendo un país donde el efectivo manda, especialmente en locales tradicionales, templos y tiendas pequeñas. Asegúrate de llevar siempre yenes contigo para estos casos. Al mismo tiempo, cada vez más establecimientos aceptan pagos con tarjeta, especialmente en grandes ciudades como Tokio, Kioto u Osaka, por lo que la combinación de efectivo y tarjeta es la estrategia ganadora para tu viaje.</p>
+
+        <div class="payment-summary mt-4">
+            
+        <h3>💳 Resumen de la Gestión de Pagos para Japón</h3>
+        <div class="summary-cards">
+            <div class="summary-card">
+                <span>🇪🇸 €150</span>
+                <p>Cambiados en España para emergencias (no recomendado para grandes cantidades)</p>
+            </div>
+            <div class="summary-card">
+                <span>🇯🇵 €200</span>
+                <p>Cambiados a yenes en el aeropuerto de Japón para pagos en efectivo</p>
+            </div>
+            <div class="summary-card">
+                <span>💳 €300</span>
+                <p>En tarjeta Revolut para pagos electrónicos y retiradas en cajeros automáticos</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
     
 
-    <div class="transactions-section">
-        <h3>📋 Detalle de Transacciones</h3>
-        <table class="transaction-table">
-            <thead>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                💳 Si quieres conocer más detalles, te presento los datos de gasto de la tarjeta
+            </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="transactions-section">
+            <h3>📋 Detalle de Transacciones</h3>
+            <table class="transaction-table">
+                <thead>
                 <tr>
                     <th>Fecha</th>
                     <th>Comercio</th>
                     <th>Categoría</th>
                     <th>Importe</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr *ngFor="let transaction of transactions">
                     <td>{{ transaction.date | date:'dd/MM/yyyy' }}</td>
                     <td>{{ transaction.merchant }}</td>
                     <td>
-                        <span class="category-icon" [class]="getCategoryClass(transaction.category)">
-                            {{ getCategoryIcon(transaction.category) }}
-                        </span>
-                        {{ transaction.category }}
+                    <span
+                        class="category-icon"
+                        [class]="getCategoryClass(transaction.category)"
+                    >
+                        {{ getCategoryIcon(transaction.category) }}
+                    </span>
+                    {{ transaction.category }}
                     </td>
                     <td [class]="transaction.amount >= 0 ? 'positive' : 'negative'">
-                        {{ transaction.amount | currency:'EUR':'symbol':'1.2-2' }}
+                    {{ transaction.amount | currency:'EUR':'symbol':'1.2-2' }}
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+
 </div>
 
 

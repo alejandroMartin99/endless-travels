@@ -21,6 +21,7 @@ import { ImagePopupComponent } from '../components/image-popup/image-popup.compo
 import { InitJapanComponent } from './destinations/japan/components/inicio/init-japan.component';
 import { JapanPriceComponent } from './destinations/japan/components/price/price.component';
 
+
 @NgModule({
   declarations: [
     JapanComponent,
