@@ -266,4 +266,9 @@ h1 {
         font-size: 0.9rem;
         padding: 8px 16px;
     }
+
+    .content-container {
+    padding: 0px 1px;
+    background: linear-gradient(to bottom, white, #f0f0f0);
+    }
 }
