@@ -1,102 +1,143 @@
+
+<div class="landing-container">
+    <!-- <h1>🗾 Japan Travel Expenses</h1> -->
+    
+    <div class="summary-stats">
+        <div class="stat-card">
+            <div class="stat-value">{{ 2400 | currency:'EUR':'symbol':'1.2-2' }}</div>
+            <div class="stat-label">Presupuesto total</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ 560 | currency:'EUR':'symbol':'1.2-2' }}</div>
+            <div class="stat-label">Alojamiento</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ 1114 | currency:'EUR':'symbol':'1.2-2' }}</div>
+            <div class="stat-label">Vuelos + JRPass</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{610 | currency:'EUR':'symbol':'1.2-2' }}</div>
+            <div class="stat-label">Gastado en Destino</div>
+        </div>
+    </div>
+</div>
+
 <div class="content-container">
-
-   <div class="container">
-        <div class="header">
-            <h1>🇯🇵 Presupuesto del Viaje a Japón</h1>
-            <p>Análisis detallado de gastos durante nuestra aventura japonesa</p>
+    <div class="text-section">
+        <h2>💰 Gestión del Dinero en Japón</h2>
+        <p>Una de las partes más importantes de planificar un viaje a Japón es decidir cómo gestionar el dinero. Después de investigar y probar diferentes opciones, aquí te contamos nuestra experiencia:</p>
+        
+        <div class="money-tip danger">
+            <strong>❌ No recomendado:</strong> Cambiar euros a yenes en España antes del viaje. Llevamos €150 ya cambiados desde España, pero nos cobraron una comisión altísima. Solo nos sirvió para pagar el taxi del primer día.
         </div>
-
-        <div class="summary-cards">
-            <div class="summary-card">
-                <div class="amount">€1,414</div>
-                <div class="label">Presupuesto Total</div>
-            </div>
-            <div class="summary-card">
-                <div class="amount">€800</div>
-                <div class="label">Vuelos</div>
-            </div>
-            <div class="summary-card">
-                <div class="amount">€314</div>
-                <div class="label">JR Pass</div>
-            </div>
-            <div class="summary-card">
-                <div class="amount">€300</div>
-                <div class="label">Gastado en Destino</div>
-            </div>
+        
+        <div class="money-tip">
+            <strong>✅ Altamente recomendado:</strong> Cambiar dinero en el aeropuerto de Japón. El tipo de cambio es excelente y sin comisiones abusivas. Cambiamos €200 por persona y fue la mejor decisión.
         </div>
-
-        <div class="filters">
-            <button class="filter-btn active" onclick="showChart('overview')">Resumen General</button>
-            <button class="filter-btn" onclick="showChart('categories')">Por Categorías</button>
-            <button class="filter-btn" onclick="showChart('daily')">Gastos Diarios</button>
-            <button class="filter-btn" onclick="showChart('comparison')">Comparativa</button>
+        
+        <div class="money-tip warning">
+            <strong>💳 Tarjeta Revolut:</strong> Llevamos €300 por persona cargados en nuestras tarjetas Revolut. Perfecta para pagos con tarjeta y cajeros automáticos sin comisiones adicionales.
         </div>
+        
+        <p><strong>Consejo:</strong> Japón sigue siendo un país muy cash-friendly, especialmente en restaurantes tradicionales y tiendas pequeñas. Asegúrate de llevar siempre efectivo encima.</p>
+  
+    </div>
+    
 
-        <div class="expense-grid">
-            <div class="card">
-                <h3>📊 Distribución de Gastos</h3>
-                <div class="chart-container">
-                    <canvas id="mainChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📈 Evolución del Presupuesto</h3>
-                <div class="chart-container">
-                    <canvas id="budgetChart"></canvas>
-                </div>
-            </div>
-        </div>
-
+    <div class="dashboard">
         <div class="card">
-            <h3>🏷️ Gastos por Categoría</h3>
+            <h3>📊 Resumen de Gastos</h3>
+
+            <div class="chart-container">
+                <canvas #mainChart></canvas>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>🏷️ Desglose de Gastos por Categoría</h3>
             <div class="expense-item">
                 <div>
                     <span class="category-icon transport">✈️</span>
-                    <span class="expense-name">Transporte (Vuelos + JR Pass)</span>
+                    <span class="expense-name">Vuelos</span>
                 </div>
-                <span class="expense-amount negative">€1,114</span>
+                <span class="expense-amount">€800</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon transport">✈️</span>
+                    <span class="expense-name">JR PASS</span>
+                </div>
+                <span class="expense-amount">€314</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon transport">✈️</span>
+                    <span class="expense-name">Metro/Bus No incluido en JRPass (Suica) </span>
+                </div>
+                <span class="expense-amount">€30</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon transport">✈️</span>
+                    <span class="expense-name">Alojamiento</span>
+                </div>
+                <span class="expense-amount">€560</span>
             </div>
             <div class="expense-item">
                 <div>
                     <span class="category-icon food">🍜</span>
-                    <span class="expense-name">Comida y Bebidas</span>
+                    <span class="expense-name">Comida</span>
                 </div>
-                <span class="expense-amount negative">€156.32</span>
+                <span class="expense-amount">€375</span>
+            </div>
+            <div class="expense-item">
+                <div>
+                    <span class="category-icon food">🛍️</span>
+                    <span class="expense-name">Templos y Visitas</span>
+                </div>
+                <span class="expense-amount">€70</span>
             </div>
             <div class="expense-item">
                 <div>
                     <span class="category-icon shopping">🛍️</span>
                     <span class="expense-name">Compras y Entretenimiento</span>
                 </div>
-                <span class="expense-amount negative">€138.68</span>
+                <span class="expense-amount">€100</span>
             </div>
-            <div class="expense-item">
-                <div>
-                    <span class="category-icon positive">🎁</span>
-                    <span class="expense-name">Recompensas</span>
-                </div>
-                <span class="expense-amount positive">€5.00</span>
-            </div>
-        </div>
-
-        <div class="details-table">
-            <h3>💳 Detalle de Transacciones Revolut</h3>
-            <table id="transactionTable">
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Comercio</th>
-                        <th>Categoría</th>
-                        <th>Importe</th>
-                    </tr>
-                </thead>
-                <tbody id="transactionBody">
-                </tbody>
-            </table>
         </div>
     </div>
-  
+
+    
+
+    <div class="transactions-section">
+        <h3>📋 Detalle de Transacciones</h3>
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Comercio</th>
+                    <th>Categoría</th>
+                    <th>Importe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{ transaction.date | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ transaction.merchant }}</td>
+                    <td>
+                        <span class="category-icon" [class]="getCategoryClass(transaction.category)">
+                            {{ getCategoryIcon(transaction.category) }}
+                        </span>
+                        {{ transaction.category }}
+                    </td>
+                    <td [class]="transaction.amount >= 0 ? 'positive' : 'negative'">
+                        {{ transaction.amount | currency:'EUR':'symbol':'1.2-2' }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 
 
