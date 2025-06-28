@@ -25,7 +25,7 @@ h1 {
     gap: 20px;
     justify-items: center;
     align-items: center;
-    border-radius: 12px;
+    /* border-radius: 12px; */
 }
 
 .stat-card {
