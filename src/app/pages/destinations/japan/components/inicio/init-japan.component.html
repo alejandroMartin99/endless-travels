@@ -73,7 +73,7 @@
       
       <div class="info-grid">
         <!-- Duración -->
-        <div class="info-card duration-card" [class.revealed]="isVisible.duration" #durationBox>
+        <div class="info-card duration-card" (click)="goToItineraryTab(1)">
           <div class="card-header">
             <div class="card-icon">🗓️</div>
             <h3 class="card-title">15 Días de Inmersión Total. Itinerario completo en web</h3>
@@ -101,7 +101,7 @@
         </div>
 
         <!-- Mejor época -->
-        <div class="info-card season-card" [class.revealed]="isVisible.dates" #datesBox>
+        <div class="info-card season-card" (click)="goToItineraryTab(1)">
           <div class="card-header">
             <div class="card-icon">🍂</div>
             <h3 class="card-title">El Momento Perfecto: Otoño Dorado</h3>
@@ -130,7 +130,7 @@
           </div>
         </div>
 
-        <div class="info-card culture-shock-card"  #cultureShockBox>
+        <div class="info-card culture-shock-card"  #cultureShockBox (click)="goToItineraryTab(1)">
           <div class="card-header">
             <div class="card-icon">🎎</div>
             <h3 class="card-title">Un Mundo Radicalmente Diferente</h3>
@@ -170,7 +170,7 @@
       
       <div class="info-grid">
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title"> Kyoto</h3>
@@ -198,7 +198,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🗼</div>
             <h3 class="card-title">Tokyo</h3>
@@ -226,7 +226,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🎡</div>
             <h3 class="card-title">Osaka</h3>
@@ -254,7 +254,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🦌</div>
             <h3 class="card-title">Nara</h3>
@@ -282,7 +282,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🕊️</div>
             <h3 class="card-title">Hiroshima</h3>
@@ -310,7 +310,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">⛩️</div>
             <h3 class="card-title">Miyajima</h3>
@@ -341,7 +341,7 @@
         </div>
 
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🍂</div>
             <h3 class="card-title">Nikko</h3>
@@ -369,7 +369,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab()">
+        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
           <div class="card-header">
             <div class="card-icon">🧘‍♂️</div>
             <h3 class="card-title">Kamakura</h3>

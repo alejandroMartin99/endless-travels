@@ -25,8 +25,8 @@ export class InitJapanComponent implements OnInit, AfterViewInit {
 
   @Output() goToItinerary = new EventEmitter<number>();
 
-  goToItineraryTab() {
-    this.goToItinerary.emit(2); // Cambia al tab con índice 2
+  goToItineraryTab(value:number) {
+    this.goToItinerary.emit(value);
   }
 
   @ViewChildren('durationBox, datesBox, citiesBox, essenceTitle') 
