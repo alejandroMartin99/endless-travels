@@ -28,479 +28,61 @@
 
 <div class="content-container">
   <mat-accordion >
-  <app-itinerary-day-card 
-  [borderClass]="'border-pink'"
-  [day]="{
-    title: 'Día 01 - VUELO: Madrid -> Japón ',
-    activities: [
-      {
-        name: 'Salida de Madrid - T4S (22:25 LT)',
-        description: ' Comenzamoooos!!! Salimos del aeropuerto de Madrid Barajas Adolfo Suárez, Terminal 4S. Recuerda que debes estar en el aeropuerto al menos 3 horas antes de la salida del vuelo. ¡No olvides tu pasaporte!
-        
-        <strong>Resumen:</strong> Salida madrid 22:25h (LT) - Llegada Japón 23:30h (LT) (del día siguiente). Con escala de 1h en Doha. 
 
-        <strong>Comapñía:</strong>Qatar Airways, en un Boeing 787. Indicar que yo soy una persona alta y no tuve problemas de espacio. <strong>El precio fue de 800€ por persona</strong>, con mochila + maleta de 10kg + maleta facturada de 23kg.
-        
-        <strong>Tip:</strong> Os recomendamos encarecidamnete que tengais en cuenta la diferencia horaria. Japón tiene 8h más que España. En el 1er vuelo intentamos dormirnos nada más salir. Y en el 2o no dormir nada de tal forma, que al aterrizar en Japón como volvía a ser las 23:30h hora local, tubieramos sueño, de esta forma apenas tuvimos jetlag.',
-        images: [
-        '/assets/japan/Kyoto/Dia01/Intro.PNG',
-        '/assets/japan/Kyoto/Dia01/aeropuerto.jpg',
+    <app-itinerary-day-card 
+      [borderClass]="day01Kyoto.borderClass"
+      [day]="day01Kyoto.day">
+    </app-itinerary-day-card>
 
-        
-        ],
-        longitude: -3.5670382667894565,
-        latitude: 40.49456065157009, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Escala en Qatar (6:30 - 7:15 LT)',
-        description: 'Tras 7h de vuelo en las que pudimos dormir tranquilamente, nos despertamos aterrizando en Qatar a la vez que amanecía. En nuestro caso Qatar Airlines nos ofreció dos comidas. La cena tras el despegue en Madrid y el desayuno antes de aterrizar en Qatar. Ambas fueron decentes para ser una comida en Avión. <br>La escala fue muy breve, 1h, en la que la propia compañía nos movía las maletas y no nos teníamos que preocupar de nada.<br>
-        <strong>Tip: </strong>En esta segunda parte del vuelo podemos aprovechar para rellenar el docuemnto de inmigración de Japón. En el avión nos dieron un papel que debíamos rellenar con nuestros datos personales, dirección en Japón, motivo del viaje, etc. Este papel es muy importante, ya que lo necesitaremos para pasar el control de pasaportes en Japón. Si no lo rellenamos en el avión, lo podemos hacer en el aeropuerto de Japón, pero es más cómodo hacerlo en el avión. <strong>Hemos visto que actualmente se puede llevar relleno en el móvil con mucha más antelación</strong>',
-        
-        images: [
-          '/assets/japan/Kyoto/Dia01/qatar.JPEG',
-          '/assets/japan/Kyoto/Dia01/aeropuerto.jpg'
-        ],
-        longitude: 51.602870977387866,
-        latitude: 25.270855549837748, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Aterrizaje en Haneda, Tokio (23:30 LT)',
-        description: 'Letsssss gooooooo!!!!!!. Acabamos de aterrizar en TOKIOO, pero antes de nada no nos dejemos llevar por la emoción y recordemos que tenemos que pasar el control de pasaportes y recoger las maletas.
-
-        Por poneros en contexto, este día al llegar cansados del vuelo, lo único que hicimos fue recoger las maletas y coger un taxi hasta el hotel que se encontraba a menos de 10 minutos del aeropuerto.
-        
-        <strong>Tip:</strong> Si necesitas un taxi, existe una parada en la terminal. Los taxis en Japón son caros, así que te recomendamos que utilices el transporte público. En nuestro caso no teníamso otra opción ya que decidimos realizar todas las gestiones de activación del JR, activar la eSIM etc, tranquilamente al día siguiente. El precio fue de 30€ por un trayecto de 10 minutos.'
-        
-        ,
-        images: ['/assets/japan/shinjuku.jpg'],
-        longitude: 139.77787028664923,
-        latitude: 35.54963630647212, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Llegada al hotel - Kawasaki King Skyfront Tokyu REI Hotel',
-        description: 'Decidimos alojarnos en él por su cercanía al aeropuerto. El hotel nos sorprendio muy gratamente. Era muy moderno, limpio y con un precio asequible. Además el hotel presentaba un extra maravilloso y es que nos proporcionaba un servicio de transporte gratuito del hotel al aeropuerto. <br> El hotel fue trasnsitorio, porque nuestro itinerario constaba primero de una semana en Kyoto, por lo que a la mañana siguiente debíamos toma run tren, asique era una opción perfecta.'
-        
-        ,
-        images: [
-          '/assets/japan/Kyoto/Dia01/hotel_entrada.jpeg',
-          '/assets/japan/Kyoto/Dia01/hotel_camas.jpg'
-        ],
-        longitude: 139.75360224908883 ,
-        latitude: 35.54105279188782, 
-        mapUrl: 'map-shinjuku'
-      }
-    ]
-        }">
-  </app-itinerary-day-card>
-
-  <div class="subzone-container">
-    <div class="subzone-content">
-      <h3>Descubre la Ciudad de Kyoto</h3>
+    <div class="subzone-container">
+      <div class="subzone-content">
+        <h3>Descubre la Ciudad de Kyoto</h3>
+      </div>
     </div>
-  </div>
 
-  <app-itinerary-day-card 
-    [borderClass]="day02Kyoto.borderClass"
-    [day]="day02Kyoto.day">
-  </app-itinerary-day-card>
+    <app-itinerary-day-card 
+      [borderClass]="day02Kyoto.borderClass"
+      [day]="day02Kyoto.day">
+    </app-itinerary-day-card>
 
-  <app-itinerary-day-card 
-    [borderClass]="day03Kyoto.borderClass"
-    [day]="day03Kyoto.day">
-  </app-itinerary-day-card>
+    <app-itinerary-day-card 
+      [borderClass]="day03Kyoto.borderClass"
+      [day]="day03Kyoto.day">
+    </app-itinerary-day-card>
 
-  <app-itinerary-day-card 
-    [borderClass]="day04Kyoto.borderClass"
-    [day]="day04Kyoto.day">
-  </app-itinerary-day-card>
+    <app-itinerary-day-card 
+      [borderClass]="day04Kyoto.borderClass"
+      [day]="day04Kyoto.day">
+    </app-itinerary-day-card>
 
-  <app-itinerary-day-card 
-    [borderClass]="day05Kyoto.borderClass"
-    [day]="day05Kyoto.day">
-  </app-itinerary-day-card>
+    <app-itinerary-day-card 
+      [borderClass]="day05Kyoto.borderClass"
+      [day]="day05Kyoto.day">
+    </app-itinerary-day-card>
 
 
-  <div class="subzone-container">
-    <div class="subzone-content">
-      <h3>Excursiones desde Kyoto</h3>
+    <div class="subzone-container">
+      <div class="subzone-content">
+        <h3>Excursiones desde Kyoto</h3>
+      </div>
     </div>
-  </div>
 
-  <app-itinerary-day-card 
-  [borderClass]="'border-dark-green'"
-  [day]="{
-    title: 'Día 06 - OSAKA : Castillo de Osaka, Calle Dotonbori, distrito Shinsekai ...',
-    activities: [
-    {
-        name: 'Hotel -> St Shin Osaka',
-        description: '<strong>Horario:</strong> 8:00 - 9:00 h.<br><strong>Precio:</strong> Incluido en el pase de tren.<br><br>Comienza tu día con un cómodo traslado desde el hotel hasta la <strong>Estación Shin-Osaka</strong>, un hub ferroviario estratégico que conecta Osaka con otras ciudades. Esta estación es conocida por su modernidad, su eficiencia y por albergar una gran variedad de tiendas y cafeterías donde podrás adquirir un buen café para iniciar el día.',
-        images: [
-        '/assets/japan/Kyoto/Dia06/intro_day06.jpg'
-        ],
-        longitude: 135.5007,
-        latitude: 34.7333,
-        mapUrl: 'map-shin-osaka'
-      },
-      {
-        name: 'St Shin Osaka -> St Osaka',
-        description: '<strong>Horario:</strong> 9:30 - 9:45 h.<br><strong>Precio:</strong> Incluido en el pase de tren.<br><br>Una corta travesía te lleva de <strong>Shin-Osaka</strong> a la <strong>Estación Osaka</strong>, conocida por su imponente arquitectura y conexiones a los principales puntos turísticos de la ciudad. Aprovecha para explorar su impresionante diseño que combina elementos tradicionales y modernos, y descubre sus tiendas únicas en el camino.',
-        images: [
-          '/assets/japan/Kyoto/Dia06/StShinOsaka_escaleras.webp',
-          '/assets/japan/Kyoto/Dia06/StShinOsaka_escaleras2.webp',
-        ],
-        longitude: 135.4983,
-        latitude: 34.7025,
-        mapUrl: 'map-osaka-station'
-    },
-
-    {
-        name: 'Umeda Sky y Gate Tower Building',
-        description: '<strong>Horario:</strong> 10:00 - 11:30 h.<br><strong>Precio:</strong> 1,500 yenes (aprox. 9.50 €).<br><br>Disfruta de una experiencia única en el <strong>Umeda Sky Building</strong>, uno de los rascacielos más icónicos de Osaka. Este impresionante edificio conecta dos torres mediante un puente suspendido que alberga una plataforma de observación. Desde allí, tendrás una vista panorámica espectacular de la ciudad, perfecta para disfrutar tanto de día como de noche.El edificio destaca por su diseño futurista y su arquitectura innovadora, convirtiéndose en una parada obligatoria para quienes buscan las mejores vistas de Osaka. <br><br>El <strong>Gate Tower Building</strong>, es un edificio único en el mundo porque una carretera atraviesa su estructura. Este diseño inusual fue resultado de un acuerdo entre el gobierno y los propietarios del terreno, que permitió que la autopista Hanshin Expressway pasara por los pisos 5.º al 7.º sin tocar el edificio directamente. Gracias a esta solución, se logró un equilibrio entre las necesidades urbanas y los derechos de los propietarios, convirtiendo al Gate Tower Building en un icono arquitectónico',
-        images: [
-          '/assets/japan/Kyoto/Dia06/UmedaSky_perfil.webp',
-          '/assets/japan/Kyoto/Dia06/UmedaSky_juntos.webp',
-          '/assets/japan/Kyoto/Dia06/UmedaSky_tren.webp'
-        ],
-        longitude: 135.4901,
-        latitude: 34.7056,
-        mapUrl: 'map-umeda-sky'
-      },
-      {
-        name: 'Santuario Tsuyuten Jinja',
-        description: '<strong>El Santuario Tsuyuten Jinja</strong>, conocido cariñosamente como <strong>Ohatsu Tenjin</strong>, es un remanso de paz en medio de la bulliciosa ciudad de Osaka. Este santuario es famoso por su conexión con una de las leyendas más románticas de Japón: la trágica historia de amor de <strong>Ohatsu</strong> y <strong>Tokubei</strong>, una pareja cuya devoción mutua los llevó a un fatídico desenlace. Debido a esta historia, el santuario es especialmente popular entre las parejas y aquellos que buscan <strong>fortuna y éxito en el amor</strong>. \n\nAl llegar, serás recibido por un <strong>torii</strong> de madera que marca la entrada a este lugar sagrado. Dentro, puedes encontrar tablillas <strong>ema</strong> donde los visitantes escriben deseos relacionados con el amor y las relaciones. Además, el ambiente tranquilo del santuario, rodeado de árboles y elementos tradicionales, ofrece un contraste único con el ritmo frenético de la ciudad.\n\nPara los amantes de las tradiciones japonesas, este santuario es una parada obligada para experimentar la <strong>espiritualidad</strong>, la <strong>historia</strong> y las <strong>leyendas</strong> que forman parte de la cultura local. Incluso si no buscas fortuna en el amor, el <strong>Tsuyuten Jinja</strong> es un lugar ideal para reflexionar y apreciar la serenidad que ofrece un santuario en pleno corazón urbano.',
-        images: [
-          '/assets/japan/Kyoto/Dia06/Tsuyuten_entrada.webp',
-          '/assets/japan/Kyoto/Dia06/Tsuyuten_amor.webp',
-          '/assets/japan/Kyoto/Dia06/Tsuyuten_final.webp'
-        ],
-        longitude: 135.4985,
-        latitude: 34.7027,
-        mapUrl: 'map-tsuyuten-jinja'
-      },
-      {
-        name: 'Parque Nakanoshima',
-        description: '<strong>Horario:</strong> 13:00 - 14:00 h.<br><strong>Precio:</strong> Gratis.<br><br>Disfruta de un paseo relajante por el <strong>Parque Nakanoshima</strong>, un oasis verde en el corazón de Osaka. Rodeado por el río, este parque es perfecto para descansar y disfrutar de un picnic, o para contemplar los bellos edificios históricos que lo rodean. Es especialmente bonito en primavera, cuando los cerezos en flor le dan un toque mágico al paisaje.',
-        images: [
-        '/assets/japan/Kyoto/Dia06/Nakanoshima_rio.webp',
-        '/assets/japan/Kyoto/Dia06/Nakanoshima_puente.webp',
-        '/assets/japan/Kyoto/Dia06/Nakanoshima_puente2.webp',
-        ],
-        longitude: 135.5046,
-        latitude: 34.6939,
-        mapUrl: 'map-nakanoshima-park'
-      },
-
-      {
-        name: 'Castillo de Osaka',
-        description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> 600 yenes (aprox. 4 €).<br><br>Descubre la historia de Japón en el majestuoso <strong>Castillo de Osaka</strong>, uno de los castillos más icónicos y hermosos de Japón. Dentro, encontrarás un museo que cuenta la historia del castillo y de sus reconstrucciones. Sube a su plataforma de observación para obtener una vista increíble de Osaka. <strong>Dato curioso:</strong> El castillo se ha reconstruido varias veces desde el siglo XVI.',
-        images: [
-        '/assets/japan/Kyoto/Dia06/castilloOsaka_fondo.webp',
-        '/assets/japan/Kyoto/Dia06/castilloOsaka_Lu.webp',
-        ],
-        longitude: 135.5258,
-        latitude: 34.6873,
-        mapUrl: 'map-osaka-castle'
-      },
-      {
-        name: 'Calle Dotonbori',
-        description: '<strong>Horario:</strong> Abierta todo el día.<br><strong>Precio:</strong> Gratis.<br><br>La <strong>Calle Dotonbori</strong>, ubicada en el corazón de Osaka, es uno de los lugares más icónicos y animados de Japón. Esta calle, que corre paralela al canal Dotonbori, es el epicentro de la cultura gastronómica y el entretenimiento de la ciudad, conocida por sus brillantes letreros de neón y su ambiente vibrante que nunca descansa.<br><br><strong>Historia:</strong><br>Dotonbori tiene sus raíces en el siglo XVII, cuando un empresario local, Yasui Doton, excavó el canal para conectar dos ríos y fomentar el comercio. Aunque murió antes de ver completado su proyecto, el canal y la calle se nombraron en su honor. Con el tiempo, Dotonbori se transformó en un área de entretenimiento llena de teatros, restaurantes y comercios.<br><br><strong>Qué ver:</strong><br>Uno de los puntos más famosos de Dotonbori es el cartel del <strong>Glico Running Man</strong>, un símbolo emblemático de Osaka desde 1935. Otros letreros icónicos incluyen el cangrejo mecánico de Kani Doraku, que mueve sus patas, y el pez globo hinchable de Zuboraya. Pasear por la calle es una experiencia única, especialmente de noche, cuando las luces de neón se reflejan en el canal creando una atmósfera mágica.<br><br><strong>Gastronomía: </strong>Dotonbori es el paraíso para los amantes de la comida. Aquí puedes probar platos tradicionales como <strong>Takoyaki, Okonomiyaki ó Kushikatsu</strong>. No te pierdas los puestos callejeros donde puedes ver a los cocineros preparar estos platos en el momento, un espectáculo tan atractivo como delicioso.<br><br><strong>Curiosidades:</strong>Durante siglos, fue conocida por sus teatros de kabuki y bunraku (teatro de marionetas japonés). Aunque muchos de estos teatros desaparecieron, el área mantiene su espíritu vibrante y creativo. <strong>El canal de Dotonbori </strong> se usa para eventos y celebraciones locales, como el famoso desfile de los fanáticos del béisbol de los Hanshin Tigers. En el barrio se encuentran izakayas (bares japoneses), cafés temáticos y karaokes que funcionan hasta altas horas de la noche, mostrando la verdadera esencia de la vida nocturna japonesa.',
-        images: [
-          '/assets/japan/Kyoto/Dia06/Dotonbori_corredor.webp',
-          '/assets/japan/Kyoto/Dia06/Dotonbori_edificios.webp',
-          '/assets/japan/Kyoto/Dia06/Dotonbori_gente.webp',
-          '/assets/japan/Kyoto/Dia06/Dotonbori_lu.webp',
-          '/assets/japan/Kyoto/Dia06/Dotonbori_lu2.webp',
-        ],
-        longitude: 135.50130783233985,
-        latitude: 34.66884688149632, 
-        mapUrl: 'map-dotonbori'
-      },
-      {
-        name: 'Santuario Yasaka Namba',
-        description: '<strong>Horario:</strong> 8:00 - 18:00 h.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Santuario Yasaka</strong> es un hermoso santuario sintoísta rodeado de árboles y naturaleza, perfecto para relajarse. Los visitantes suelen venir aquí a pedir buena suerte y salud. Durante la temporada de festivales, el santuario se llena de vida con desfiles y eventos tradicionales. <br><br>Entre los elementos destacados del santuario se encuentra una estatua conocida como el <strong>Dragón Verde</strong>, que representa protección y buena fortuna. Los visitantes suelen detenerse para tomar fotos y rendir homenaje a este símbolo místico, que forma parte de la tradición espiritual del santuario.',
-        images: [
-            '/assets/japan/Kyoto/Dia06/Yasaka_alex.webp',
-            '/assets/japan/Kyoto/Dia06/Yasaka_dragon.webp',
-            '/assets/japan/Kyoto/Dia06/Yasaka_juntos.webp'
-          ],
-          longitude: 135.49672138931834,
-          latitude: 34.661593131431516,
-          mapUrl: 'map-yasaka-shrine'
-      },
-      {
-        name: 'Shinsekai y Torre Tsutenkaku',
-        description: '<strong>Horario:</strong><br>- Distrito Shinsekai Hondori: Todo el día.<br>- Torre Tsutenkaku: 10:00 - 20:30 h.<br><strong>Precio:</strong><br>- Distrito Shinsekai Hondori: Gratis.<br>- Torre Tsutenkaku: 800 yenes (aprox. 5.20 €).<br><br>El distrito <strong>Shinsekai</strong>, que significa \Nuevo Mundo\ en japonés, es una de las áreas más emblemáticas y retro de Osaka. Construido a principios del siglo XX, Shinsekai combina un aire nostálgico con la vibrante cultura contemporánea de la ciudad. Este colorido distrito está lleno de restaurantes, tiendas y establecimientos únicos que transportan a otra época.<br><br><strong>Qué ver:</strong><br>- La icónica <strong>Torre Tsutenkaku</strong>, conocida como el símbolo de Osaka, domina el paisaje de Shinsekai. Inspirada en la Torre Eiffel, ofrece vistas panorámicas de la ciudad desde su mirador. La torre fue reconstruida tras ser destruida durante la Segunda Guerra Mundial, y hoy en día es un símbolo del renacimiento y la resistencia de la ciudad.<br>- Pasear por la calle <strong>Shinsekai Hondori</strong> es como viajar en el tiempo. Las luces de neón y los letreros retro crean un ambiente único y nostálgico.<br><br><strong>Gastronomía:</strong><br>Shinsekai es famoso por su <strong>kushikatsu</strong>, una especialidad local que consiste en brochetas empanizadas y fritas, que se sirven con una salsa especial. Algunos de los mejores restaurantes de kushikatsu se encuentran en esta zona, donde puedes probar una amplia variedad de ingredientes, desde carne y mariscos hasta vegetales.',
-        images: [
-          '/assets/japan/Kyoto/Dia06/Shinsekai_deLejos.webp',
-          '/assets/japan/Kyoto/Dia06/Shinsekai_entrada.webp',
-          '/assets/japan/Kyoto/Dia06/Shinsekai_alex.webp',
-          '/assets/japan/Kyoto/Dia06/Shinsekai_noche.webp',
-          '/assets/japan/Kyoto/Dia06/Shinsekai_torre.webp'
-        ],
-        longitude: 135.5066,
-        latitude: 34.6528,
-        mapUrl: 'map-shinsekai-tsutenkaku'
-      },
+    <app-itinerary-day-card 
+      [borderClass]="day06Kyoto.borderClass"
+      [day]="day06Kyoto.day">
+    </app-itinerary-day-card>
 
 
-      {
-        name: 'Templos Isshinji y Shitenno-ji',
-        description: '<strong>Horario:</strong> 9:00 - 16:30 h.<br><strong>Precio:</strong> Entrada gratuita al recinto (algunas áreas: 300 yenes, aprox. 2 €).<br><br><strong>Templo Shitenno-ji:</strong><br>Fundado en el año 593 por el príncipe Shotoku, el <strong>Shitenno-ji</strong> es reconocido como el templo budista más antiguo de Japón. Dedicado a los cuatro reyes celestiales, su nombre se traduce como \Templo de los Cuatro Reyes Celestiales\. Aunque ha sido reconstruido varias veces debido a incendios y desastres naturales, el diseño se ha mantenido fiel a su arquitectura original, reflejando la estética clásica del periodo Asuka.
-        <br><strong>Qué ver:</strong><br>La <strong>pagoda de cinco pisos</strong>, un ícono del templo, destaca por su simetría y belleza, el <strong>jardín Gokuraku-jodo</, el <strong>pabellón principal (Kondo)</strong> alberga estatuas budistas históricas y reliquias sagradas.
-        <br><strong>Templo Isshinji:</strong><br>El <strong>Isshinji</strong> es conocido como el \Templo de las Estatuas de Buda de Huesos Humanos\ debido a su práctica única de crear estatuas de Buda utilizando cenizas de cremación donadas por los fieles. Este proceso simboliza la unión con Buda después de la muerte y es una tradición única en Japón. El templo tiene una mezcla fascinante de arquitectura tradicional y contemporánea.<br><br><strong>Qué ver:</strong><br> Las <strong>estatuas de Buda hechas con huesos humanos</strong>, conocidas como Osseous Buddhas, son , La <strong>puerta principal del templo</strong>, con un diseño moderno y abstracto, contrasta con la atmósfera histórica del lugar, el <strong>pabellón principal</strong>, rodeado de un patio tranquilo, es perfecto para encontrar paz interior.<br><br>',
-        images: [
-          '/assets/japan/Kyoto/Dia06/Isshinji_bloques.webp',
-          '/assets/japan/Kyoto/Dia06/Isshinji_patio.webp',
-          '/assets/japan/Kyoto/Dia06/Isshinji_torre.webp',
-          '/assets/japan/Kyoto/Dia06/Isshinji_alex.webp'
-        ],
-        longitude: 135.5166,
-        latitude: 34.6554,
-        mapUrl: 'map-shitennoji'
-      },
-      
-      
+    <app-itinerary-day-card 
+      [borderClass]="day07Kyoto.borderClass"
+      [day]="day07Kyoto.day">
+    </app-itinerary-day-card>
 
-    ]}">
-  </app-itinerary-day-card>
-
-  <app-itinerary-day-card 
-  [borderClass]="'border-dark-green'"
-  [day]="{
-    title: 'Día 07 - NARA : Kofoku‐ji, Toda‐ji, jardines Isuien y Yoshikien, y muchos ciervos !!',
-    activities: [
-    
-      {
-        name: 'Hotel -> ST JR Nara',
-        description: '<strong>Horario:</strong> Salida temprano.<br><strong>Precio:</strong> Según tarifa del transporte JR Pass.<br><br>Comienza el día tomando el tren desde tu hotel hasta la estación <strong>JR Nara</strong>. Esta estación conecta perfectamente con los puntos turísticos de la ciudad y es un buen inicio para explorar Nara con comodidad.',
-        images: [
-        '/assets/japan/Kyoto/Dia07/intro.webp',
-        ],
-        longitude: 135.81893644635926,
-        latitude: 34.68097496557493,
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Templo Kofoku-ji',
-        description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> Entrada gratuita (algunos edificios: 300 yenes, aprox. 2 €).<br><br>Uno de los templos más antiguos de Japón, el <strong>Kofoku-ji</strong> destaca por su pagoda de cinco pisos, una de las más altas del país. Este templo es un testimonio vivo del poder del clan Fujiwara en la historia japonesa. Pasear por sus terrenos es como retroceder en el tiempo y sentir la espiritualidad de la era Nara.',
-        images: [
-        '/assets/japan/Kyoto/Dia07/Kofoku_templo.webp',
-        '/assets/japan/Kyoto/Dia07/Kofoku_lejos.webp',
-        '/assets/japan/Kyoto/Dia07/Kofoku_entrada.webp',
-        '/assets/japan/Kyoto/Dia07/Kofoku_pagoda.webp',
-        '/assets/japan/Kyoto/Dia07/Kofoku_ciervo.webp',
-        ],
-        longitude: 135.83217105969004,
-        latitude: 34.68302613588752,
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Trayectos entre templos y los ciervos de Nara',
-        description: '<strong>Horario:</strong> Todo el día.<br><strong>Precio:</strong> Gratis.<br><br>Mientras caminas entre los templos y jardines de Nara, te encontrarás rodeado de los famosos ciervos sika, una de las experiencias más emblemáticas de esta ciudad. Estos animales no solo son adorables, sino que tienen una profunda conexión con la historia y cultura local. Según la leyenda, un dios del santuario Kasuga Taisha llegó a Nara montando un ciervo blanco, lo que convirtió a estos animales en mensajeros divinos y seres sagrados.<br><br>En la actualidad, más de 1,200 ciervos deambulan libremente por los parques y calles, y son considerados tesoros naturales. Los locales y turistas pueden comprar shika senbei (galletas especiales para ciervos) y disfrutar de la experiencia única de alimentarlos. Curiosamente, los ciervos han aprendido a inclinarse en señal de agradecimiento, un gesto que refleja la armonía entre humanos y naturaleza.<br><br>Durante tu trayecto, observarás cómo estos animales se integran en la vida diaria de Nara: descansando bajo los árboles, cruzando caminos o interactuando con los visitantes. Más allá de su carácter simbólico, los ciervos también representan el equilibrio entre lo espiritual y lo terrenal, una conexión que se siente en cada paso que das por esta histórica ciudad.<br><br>Es importante recordar que, aunque son amigables, los ciervos son animales salvajes y deben ser tratados con respeto. Disfruta del encanto de estos guardianes de Nara mientras exploras los templos y jardines.',
-        images: [
-          '/assets/japan/Kyoto/Dia07/trayecto_alex.webp',
-          '/assets/japan/Kyoto/Dia07/trayecto_ciervo.webp',
-          '/assets/japan/Kyoto/Dia07/trayecto_lu.webp',
-          '/assets/japan/Kyoto/Dia07/Trayecto_lu2.webp',
-          '/assets/japan/Kyoto/Dia07/trayecto_ciervo2.webp',
-          '/assets/japan/Kyoto/Dia07/trayecto_ciervo3.webp',
-          '/assets/japan/Kyoto/Dia07/trayecto_ciervo4.webp',
-          '/assets/japan/Kyoto/Dia07/trayecto_ciervo5.webp'
-        ],
-        longitude: 135.83472446578236,
-        latitude: 34.68342275403093, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Templo Toda-ji',
-        description: '<strong>Horario:</strong> 8:00 - 17:00 h.<br><strong>Precio:</strong> 600 yenes (aprox. 4 €).<br><br>El <strong>Toda-ji</strong>, uno de los templos más emblemáticos de Japón, fue construido en el año 752 como símbolo del poder del budismo en la política del país. Aquí encontrarás al majestuoso <strong>Daibutsu</strong>, el Gran Buda de Nara, una estatua de bronce de 15 metros y 500 toneladas que impresiona a cualquiera que la contemple. ¿Sabías que esta es la estatua de bronce más grande del mundo? También podrás caminar alrededor de un enorme pilar con un agujero en su base; se dice que quienes logran pasar por él obtendrán iluminación en la próxima vida. La atmósfera solemne y el aroma a madera antigua te transportarán a una época donde religión y política iban de la mano en Japón.',
-        images: [
-        '/assets/japan/Kyoto/Dia07/Todaji_entrada.webp',
-        '/assets/japan/Kyoto/Dia07/Todaji_jardin.webp',
-        '/assets/japan/Kyoto/Dia07/Todaji_lateral.webp',
-        '/assets/japan/Kyoto/Dia07/Todaji_Buda.webp',
-        '/assets/japan/Kyoto/Dia07/Todaji_ciervo.webp',
-
-        
-        ],
-        longitude: 135.83975679021773,
-        latitude: 34.68913507637483,
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Jardines Yoshikien e Isuien',
-        description: '<strong>Horario:</strong> 9:00 - 17:00 h.<br><strong>Precio:</strong> Yoshikien: Entrada gratuita para extranjeros; Isuien: 900 yenes (aprox. 6 €).<br><br>Los jardines <strong>Yoshikien</strong> e <strong>Isuien</strong> son una joya escondida en el corazón de Nara. El Yoshikien, cuyo nombre significa jardín del estanque del buen agua, está diseñado siguiendo los principios tradicionales de la jardinería japonesa, con áreas dedicadas al musgo, los estanques y las casas de té. Por otro lado, el Isuien es un jardín que combina paisajes naturales y vistas enmarcadas del templo Toda-ji, una técnica llamada *shakkei* (paisaje prestado). Pasear por estos jardines no solo es un descanso visual, sino también una experiencia sensorial que te conectará con la filosofía zen japonesa. Una curiosidad: en el Yoshikien, las casas de té fueron diseñadas para simular las condiciones de una aldea rural japonesa, ofreciendo un contraste interesante con el lujo del Isuien.',
-        images: [
-          '/assets/japan/Kyoto/Dia07/Jardines_lago.webp',
-          '/assets/japan/Kyoto/Dia07/Jardines_juntos.webp',
-          '/assets/japan/Kyoto/Dia07/Jardines_puente.webp',
-          '/assets/japan/Kyoto/Dia07/Jardines_lu.webp',
-          '/assets/japan/Kyoto/Dia07/Jardines_rueda.webp',
-          '/assets/japan/Kyoto/Dia07/Jardines_piedras.webp',
-          '/assets/japan/Kyoto/Dia07/Jardines_reflejo.webp'
-        ],
-        longitude: 135.83711419410838,
-        latitude: 34.686134640483615,
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Templo Nigatsu-do y Templo Todai-ji Hokkedo',
-        description: '<strong>Horarios:</strong> <br>- Nigatsu-do: Todo el día.<br>- Todai-ji Hokkedo: 9:00 - 17:00 h.<br><strong>Precios:</strong> <br>- Nigatsu-do: Gratis.<br>- Todai-ji Hokkedo: 300 yenes (aprox. 2 €).<br><br>Estos dos templos, parte del complejo del Todai-ji, son ejemplos fascinantes de la riqueza espiritual y artística de Nara. El <strong>Nigatsu-do</strong>, conocido como la \sala del segundo mes\, destaca por su terraza de madera con vistas espectaculares de la ciudad. Es especialmente famoso por la ceremonia Omizutori, una tradición de más de 1,200 años en la que antorchas gigantes iluminan la noche, marcando la llegada de la primavera y simbolizando purificación. Incluso fuera de esta festividad, la atmósfera tranquila del Nigatsu-do lo convierte en un lugar imprescindible, especialmente al atardecer, cuando la luz dorada envuelve los bosques circundantes.<br><br>Por otro lado, el <strong>Todai-ji Hokkedo</strong>, también conocido como el Salón del Loto, alberga impresionantes estatuas budistas que representan figuras guardianas, esenciales para entender el arte religioso japonés. Estas figuras no solo son obras maestras de la escultura budista, sino que también cuentan historias espirituales llenas de simbolismo y significado. Ambos templos ofrecen una experiencia única que combina naturaleza, arte y tradición en un solo recorrido.',
-        images: [
-          '/assets/japan/Kyoto/Dia07/Nigatsu_templo.webp',
-          '/assets/japan/Kyoto/Dia07/Nigatsu_faroles.webp',
-          '/assets/japan/Kyoto/Dia07/Nigatsu_decor.webp',
-          '/assets/japan/Kyoto/Dia07/Nigatsu_lu.webp',
-          '/assets/japan/Kyoto/Dia07/Nigatsu_altura.webp',
-          '/assets/japan/Kyoto/Dia07/Nigatsu_banderas.webp',
-
-          
-        ],
-        longitude: 135.84422727491207,
-        latitude: 34.68930514577143,
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Santuario Kasuga Taisha',
-        description: '<strong>Horario:</strong> 6:00 - 18:00 h.<br><strong>Precio:</strong> Entrada gratuita (museo interno: 500 yenes, aprox. 3.50 €).<br><br>El <strong>Kasuga Taisha</strong>, fundado en el 768, es conocido por sus interminables filas de lámparas de bronce y piedra. Estas lámparas se encienden dos veces al año durante los festivales Mantoro, creando un ambiente mágico y lleno de espiritualidad. Rodeado de un bosque sagrado que alberga ciervos mansos, el santuario es un ejemplo perfecto de cómo la religión sintoísta conecta al ser humano con la naturaleza. ¿Sabías que los ciervos de Nara son considerados mensajeros de los dioses según el sintoísmo? No olvides probar las galletas especiales *shika senbei*, que se venden para alimentar a estos amigables animales.',
-        images: [
-          '/assets/japan/Kyoto/Dia07/Kasuga_entrada.webp',
-          '/assets/japan/Kyoto/Dia07/Kasuga_entrada2.webp',
-          '/assets/japan/Kyoto/Dia07/Kasuga_tori.webp',
-          '/assets/japan/Kyoto/Dia07/Kasuga_ciervo.webp',
-          '/assets/japan/Kyoto/Dia07/Kasuga_decor.webp',
-          '/assets/japan/Kyoto/Dia07/Kasuga_port.webp',
-        ],
-        longitude: 135.8486436460912,
-        latitude: 34.682215041756734,
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Calle comercial Naramachi',
-        description: '<strong>Horario:</strong> Horario comercial típico (10:00 - 18:00 h).<br><strong>Precio:</strong> Gratis.<br><br>El distrito histórico de <strong>Naramachi</strong> te transporta a otra época con sus calles estrechas y casas de madera. Aquí encontrarás tiendas de artesanías, cafeterías y restaurantes con encanto. Es el lugar ideal para comprar recuerdos únicos y disfrutar de la auténtica hospitalidad japonesa.',
-        images: [
-          '/assets/japan/Kyoto/Dia07/Naramachi_galeria.webp',
-
-        ],
-        longitude: 135.83486456343246,
-        latitude: 34.67636836052721,
-        mapUrl: 'map-shinjuku'
-      }
-
-    ]
-        }">
-  </app-itinerary-day-card>
-
-
-  <app-itinerary-day-card 
-  [borderClass]="'border-dark-green'"
-  [day]="{
-    title: 'Día 08 - HIROSIMA : Jardín Shukkeien, Castillo de Hiroshima, Parque memorial de la paz...',
-    activities: [
-    
-      {
-        name: 'Hotel -> ST  Hiroshima',
-        description: '<strong>Resumen del día:</strong> Hoy exploraremos la ciudad de Hiroshima, conocida tanto por su historia como por su resiliencia. Descubriremos jardines tradicionales, imponentes castillos, el conmovedor Parque Memorial de la Paz y terminaremos probando la deliciosa gastronomía local. <br><br> <strong>Horario:</strong> 07:00 - 09:00 h.<br> <strong>Precio:</strong> Incluido en el Japan Rail Pass.<br><br> El trayecto desde Kyoto a Hiroshima será a bordo del <strong>Sanyo Shinkansen</strong>, uno de los trenes bala más modernos de Japón. Este tren recorre la distancia en aproximadamente 2 horas, ofreciendo un viaje rápido, cómodo y lleno de paisajes. <br><br> <strong>Curiosidades:</strong> Si te sientas en el lado derecho del tren, podrás disfrutar de vistas al Monte Shikoku en un día despejado. Además, esta línea es conocida por su puntualidad y precisión, características icónicas del sistema ferroviario japonés.',
-        images: [
-        '/assets/japan/Kyoto/Dia08/intro.webp',
-        ],
-        longitude: 132.47530717632492,
-        latitude: 34.39861614876757, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Jardín Shukkeien',
-        description: '<strong>Horario:</strong> 09:00 - 17:00 h.<br><strong>Precio:</strong> 260 yenes (aprox. 2 €).<br><br>El <strong>Jardín Shukkeien</strong>, cuyo nombre significa jardín de paisajes encogidos, es un espacio diseñado en 1620 bajo la dirección del señor feudal Asano Nagaakira. Este jardín está inspirado en el famoso Lago del Oeste en Hangzhou, China, y sigue los principios de la estética zen, creando paisajes en miniatura que representan montañas, valles y ríos.<br><br>Tras la devastación de Hiroshima en 1945, el jardín fue uno de los primeros lugares en ser restaurado, convirtiéndose en un símbolo de esperanza y recuperación. A lo largo del año, el jardín cambia radicalmente con las estaciones: cerezos en primavera, un verde vibrante en verano, hojas rojas en otoño y una tranquila belleza en invierno.<br><br><strong>Consejo:</strong> Dedica al menos una hora para recorrer sus senderos, cruzar los puentes de piedra y observar los carpas koi nadando en el lago central. No olvides tu cámara: cada rincón es digno de fotografiar.',
-        images:
-          [
-            '/assets/japan/Kyoto/Dia08/Shukkeien_lago.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_entrada.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_alexVistas.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_koiLu.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_tramos.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_lu.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_juntos.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_contraste.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_puente.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_orilla.webp',
-            '/assets/japan/Kyoto/Dia08/Shukkeien_rojo.webp',
-            
-          ],
-        longitude: 132.46711963058019,
-        latitude: 34.399590052336066, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Castillo de Hiroshima',
-        description: '<strong>Horario:</strong> 09:00 - 18:00 h.<br><strong>Precio:</strong> 370 yenes (aprox. 3 €).<br><br>Conocido como el <strong>Castillo de la Carpa</strong> (<i>Rijo</i> en japonés), el Castillo de Hiroshima fue construido originalmente en 1589 por Mori Terumoto, uno de los principales daimyos del Japón feudal. Este imponente castillo, que fue completamente destruido por la bomba atómica en 1945, fue reconstruido más tarde como un museo dedicado a la historia de Hiroshima antes de la Segunda Guerra Mundial.<br><br>Dentro del museo, encontrarás exhibiciones fascinantes sobre la vida samurái, el papel estratégico de Hiroshima como centro militar y la arquitectura tradicional japonesa. La vista desde la cima del castillo es espectacular, con una panorámica que abarca tanto la ciudad moderna como los paisajes circundantes.<br><br><strong>Curiosidades:</strong> El castillo fue un importante centro militar durante la guerra, lo que lo convirtió en un objetivo clave en 1945. Hoy en día, su restauración simboliza el deseo de Hiroshima de preservar su historia mientras avanza hacia el futuro.',
-        images: [
-          '/assets/japan/Kyoto/Dia08/castillo_lejos.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_fondo.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_juntos.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_entradalu.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_lu.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_lago.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_alex.webp',
-          '/assets/japan/Kyoto/Dia08/castillo_abajo.webp',
-        ],
-        longitude: 132.45953169865308,
-        latitude: 34.40173913244345, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Parque memorial de la paz',
-        description: '
-        <strong>Horario:</strong> 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Parque Memorial de la Paz</strong> es el corazón emocional de Hiroshima y un recordatorio eterno de los horrores de la guerra. Este parque fue construido en la zona cero de la explosión atómica del 6 de agosto de 1945 y alberga varios monumentos dedicados a las víctimas, incluyendo el emblemático <strong>Domo de la Bomba Atómica</strong>.<br><br><strong>Historia del Domo de la Bomba Atómica:</strong> Este edificio, originalmente conocido como la <strong>Sala de Promoción Industrial de la Prefectura de Hiroshima</strong>, fue diseñado por el arquitecto checo Jan Letzel en 1915. En el momento de la explosión, el epicentro de la bomba estaba a tan solo 160 metros de distancia y a 600 metros de altura. Sorprendentemente, la estructura central del edificio resistió el impacto, convirtiéndose en un símbolo de esperanza y resiliencia. Hoy en día, el Domo de la Bomba Atómica es un <strong>Patrimonio de la Humanidad</strong> reconocido por la UNESCO.<br><br>También encontrarás el <strong>Cenotafio de las víctimas</strong>, el <strong>Monumento a la Paz Infantil</strong> inspirado en Sadako Sasaki, y el <strong>Museo de la Paz</strong>, que documenta los devastadores efectos de la bomba y la importancia de la paz mundial.<br><br><strong>Consejo:</strong> Si puedes, visita el parque al atardecer o por la noche. La iluminación añade una atmósfera especial que invita a la reflexión.',
-        images: [
-          '/assets/japan/Kyoto/Dia08/Paz_edificioLejos.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_edificio1.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_edificio2.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_edificio3.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_cartel.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_monumento.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_plaza.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_museo.webp',
-          '/assets/japan/Kyoto/Dia08/Paz_arco.webp',
-        ],
-        longitude: 132.45220421294133,
-        latitude: 34.392816156822875, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Okonomi Village',
-        description: '
-        <strong>Horario:</strong> 11:00 - 22:00 h.<br><strong>Precio:</strong> Varía según el plato.<br><br>Si amas la comida japonesa, el <strong>Okonomi Village</strong> es una parada imprescindible en Hiroshima. Este peculiar edificio de tres pisos está lleno de pequeños restaurantes especializados en <strong>okonomiyaki</strong>, una deliciosa tortilla japonesa preparada al momento con ingredientes como repollo, fideos, mariscos o carne.<br><br>Cada restaurante tiene su propia receta, pero lo que distingue al okonomiyaki de Hiroshima es que los ingredientes se cocinan en capas, en lugar de mezclarse, creando un sabor único y una experiencia interactiva mientras ves a los chefs en acción.',
-        images: [
-          '/assets/japan/Kyoto/Dia08/Okonomi_uno.webp',
-          '/assets/japan/Kyoto/Dia08/Okonomi_juntos.webp',
-          '/assets/japan/Kyoto/Dia08/Okonomi_palillos.webp',
-          '/assets/japan/Kyoto/Dia08/Okonomi_lualex.webp',
-        ],
-        longitude: 132.46182352287187,
-        latitude: 34.39172914022231, 
-        mapUrl: 'map-shinjuku'
-      },
-      {
-        name: 'Parque Hijiyama',
-        description: '<strong>Horario:</strong> 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>El <strong>Parque Hijiyama</strong> combina naturaleza, arte y cultura en un espacio tranquilo que ofrece vistas panorámicas de la ciudad de Hiroshima. Este parque alberga el <strong>Museo de Arte Contemporáneo de Hiroshima</strong>, conocido por su innovadora arquitectura y su colección de arte moderno japonés e internacional.<br><br>Durante la primavera, el parque se llena de cerezos en flor, convirtiéndolo en un lugar ideal para pasear. También encontrarás esculturas al aire libre, senderos arbolados y áreas perfectas para descansar tras un día de exploración urbana.<br><br><strong>Curiosidad:</strong> El parque fue utilizado como refugio tras el bombardeo de Hiroshima, y aún quedan restos de los búnkeres construidos durante la guerra.',
-        images: [
-          '/assets/japan/Kyoto/Dia08/Hijiyama_alex.webp',
-          '/assets/japan/Kyoto/Dia08/Hijiyama_puente.webp',
-          '/assets/japan/Kyoto/Dia08/Hijiyama_lu.webp',
-          '/assets/japan/Kyoto/Dia08/Hijiyama_tunel.webp',
-          '/assets/japan/Kyoto/Dia08/Hijiyama_cuesta.webp',
-        ],
-        longitude: 132.47357253517438,
-        latitude: 34.385366093414085, 
-        mapUrl: 'map-shinjuku'
-      }
-    ]
-        }">
-  </app-itinerary-day-card>
-</mat-accordion>
+    <app-itinerary-day-card 
+      [borderClass]="day08Kyoto.borderClass"
+      [day]="day08Kyoto.day">
+    </app-itinerary-day-card>
+  </mat-accordion>
 </div>
 
 <div class="zone-section">
