@@ -20,6 +20,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { ImagePopupComponent } from '../components/image-popup/image-popup.component';
 import { InitJapanComponent } from './destinations/japan/components/inicio/init-japan.component';
 import { JapanPriceComponent } from './destinations/japan/components/price/price.component';
+import { JapanCalendarComponent } from './destinations/japan/components/itinerary/JapanCalendar/JapanCalendar.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { JapanPriceComponent } from './destinations/japan/components/price/price
     KyotoDaysComponent,
     ImagePopupComponent,
     InitJapanComponent,
-    JapanPriceComponent
+    JapanPriceComponent,
+    JapanCalendarComponent
     
   ],
   imports: [

@@ -4,6 +4,15 @@
   background: linear-gradient(to bottom, white, #f0f0f0);
 }
 
+.calendar-container {
+    padding: 0px 200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
 .zone-header {
   position: relative;
   margin-bottom: 2rem;
