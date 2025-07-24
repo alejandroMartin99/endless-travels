@@ -1,16 +1,14 @@
 .calendar-container {
     padding: 0px 200px;
-    background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     overflow: hidden;
 }
 
 .calendar-header {
-    background: white;
     padding: 30px;
     text-align: center;
     border-bottom: 1px solid #e9ecef;
+    
 }
 
 .calendar-header h1 {
@@ -29,6 +27,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .day-header {
