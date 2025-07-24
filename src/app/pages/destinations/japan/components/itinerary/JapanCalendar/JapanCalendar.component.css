@@ -85,7 +85,7 @@
     font-size: 0.9rem;
     color: #6c757d;
     font-weight: 400;
-    gap:0
+    gap: 0;
 }
 
 /* Bordes de colores por categoría */
@@ -154,40 +154,117 @@
     letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
+/* Lista móvil - oculta por defecto */
+.mobile-timeline {
+    display: none;
+}
 
+.timeline-item {
+    background: white;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid transparent;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.timeline-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2c3e50;
+}
+
+.timeline-detail {
+    font-size: 0.95rem;
+    color: #495057;
+    line-height: 1.4;
+}
+
+@media (max-width: 1500px) {
     .calendar-container {
-    padding: 0px 5px; 
-    overflow-x: hidden; 
-  }
+        padding: 0px 5px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+
+    .calendar-header {
+        padding: 15px;
+    }
+
+    .calendar-header h1 {
+        font-size: 1.4rem;
+    }
+
+    /* Ocultar grid en móvil */
     .calendar-grid {
-        font-size: 0.7rem;
+        display: none;
     }
-    
-    .day-cell {
-        min-height: 80px;
-        padding: 8px 6px;
+
+    /* Mostrar timeline en móvil */
+    .mobile-timeline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px;
+        overflow-y: auto;
     }
-    
-    .day-activity {
-        font-size: 0.7rem;
+
+    .timeline-item {
+        margin-bottom: 0;
+        padding: 12px;
+        font-size: 0.85rem;
     }
-    
-    .activity-detail {
-        font-size: 0.6rem;
+
+    .timeline-date {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
     }
-    
-    .day-header {
-        padding: 12px 5px;
+
+    .timeline-title {
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+
+    .timeline-detail {
         font-size: 0.8rem;
+        line-height: 1.3;
     }
-    
+
     .legend {
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 12px;
+        padding: 12px;
     }
-    
-    .calendar-header h1 {
-        font-size: 1.8rem;
+
+    .legend-item {
+        font-size: 0.75rem;
+    }
+
+    .vuelo {
+    border-left-color: #e571f0;
+    }
+
+    .kyoto {
+        border-left-color: #4caf50;
+    }
+
+    .kyoto-excursion {
+        border-left-color: #08700c;
+    }
+
+    .tokyo {
+        border-left-color: #7985c9;
+    }
+
+    .tokyo-excursion {
+        border-left-color: #2e29ba;
     }
 }
