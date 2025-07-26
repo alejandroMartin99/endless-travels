@@ -8,21 +8,18 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
 
-  
-  <div id="general" 
-    class="tab-content" 
-    [class.active]="isTabActive('general')">
+  <!-- Botones de las pestañas -->
+  <div class="tabs">
+    <button *ngFor="let tab of tabs"
+            class="tab-button"
+            [class.active]="isTabActive(tab.id)"
+            (click)="openTab(tab.id)">
+        {{tab.name}}
+    </button>
+  </div>
 
-    <!-- Botones de las pestañas -->
-    <div class="tabs">
-      <button *ngFor="let tab of tabs"
-              class="tab-button"
-              [class.active]="isTabActive(tab.id)"
-              (click)="openTab(tab.id)">
-          {{tab.name}}
-      </button>
-    </div>
-
+  <!-- Contenido de cada tab -->
+  <div *ngIf="isTabActive('general')" class="tab-content">
     <mat-accordion>
 
       <mat-expansion-panel>
@@ -216,16 +213,7 @@
     </mat-accordion>
   </div>
 
-  <div id="tokyo" 
-    class="tab-content" [class.active]="isTabActive('tokyo')">
-    <div class="tabs">
-      <button *ngFor="let tab of tabs"
-              class="tab-button"
-              [class.active]="isTabActive(tab.id)"
-              (click)="openTab(tab.id)">
-          {{tab.name}}
-      </button>
-    </div>
+  <div *ngIf="isTabActive('tokyo')" class="tab-content">
     
     <div class="japan-rail-pass-item">
       <p>
@@ -372,16 +360,7 @@
 
   </div>
 
-  <div id="kyoto" 
-  class="tab-content" [class.active]="isTabActive('kyoto')">
-    <div class="tabs">
-      <button *ngFor="let tab of tabs"
-              class="tab-button"
-              [class.active]="isTabActive(tab.id)"
-              (click)="openTab(tab.id)">
-          {{tab.name}}
-      </button>
-    </div>
+  <div *ngIf="isTabActive('kyoto')" class="tab-content">
 
     <div class="japan-rail-pass-item">
       <p>
@@ -409,7 +388,7 @@
                 <li>❌ No cubre todas las áreas turísticas importantes.</li>
                 <li>❌ No está incluido en el JR Pass.</li>
                 <li>💡 Tip: Usa Google Maps para planificar rutas y horarios en tiempo real.</li>
-                <li>💡 Tip: Muchas estaciones son como super centros comerciales donde podrás comprar comida de muy buena calidad a muy buen precio.</li>
+                <li>💡 Tip: Muchas estaciones son como super centros comerciales donde podrás encontrar comida de muy buena calidad a muy buen precio.</li>
             </ul>
 
           </div>
@@ -556,16 +535,7 @@
 
 
 
-  <div id="excursiones" 
-  class="tab-content" [class.active]="isTabActive('excursiones')">
-    <div class="tabs">
-      <button *ngFor="let tab of tabs"
-              class="tab-button"
-              [class.active]="isTabActive(tab.id)"
-              (click)="openTab(tab.id)">
-          {{tab.name}}
-      </button>
-    </div>
+  <div *ngIf="isTabActive('excursiones')" class="tab-content">
 
     <div class="japan-rail-pass-item">
 

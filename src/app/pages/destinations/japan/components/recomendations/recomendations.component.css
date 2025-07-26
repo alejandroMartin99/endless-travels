@@ -23,7 +23,7 @@ mat-accordion::after {
   height: 50px;
 }
 
-  /* Título e iconos */
+/* Título e iconos */
 .panel-icon {
   margin-right: 1rem;
   color: #1a237e;
@@ -36,6 +36,8 @@ mat-accordion::after {
   margin-bottom: 20px;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 10px;
+  flex-wrap: wrap;
+  overflow-x: auto;
 }
 
 .tab-button {
@@ -48,6 +50,8 @@ mat-accordion::after {
   color: #666;
   transition: all 0.3s;
   position: relative;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 .tab-button:hover {
@@ -62,7 +66,6 @@ mat-accordion::after {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  
 }
 
 .tab-content.active {
@@ -79,12 +82,6 @@ mat-accordion::after {
   height: 3px;
   background-color: #1a237e;
 }
-  
-  
-  
-
-
-
 
 /* Contenido de las secciones */
 .section-content {
@@ -92,8 +89,6 @@ mat-accordion::after {
   font-size: 1rem;
   color: #444;
 }
-
-
 
 /* Recomendaciones individuales */
 .japan-rail-pass-item {
@@ -107,13 +102,15 @@ mat-accordion::after {
   font-size: 1.1rem;
   color: #1a237e;
 }
+
 .japan-rail-pass-item p {
   margin-top: 0.5rem;
   color: #666;
 }
+
 .japan-rail-pass-section {
   margin: 30px 0;
-  flex:auto
+  flex: auto;
 }
 
 .japan-rail-pass-subsection {
@@ -129,12 +126,17 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  overflow-x: auto;
+  display: block;
 }
+
 th, td {
   padding: 12px;
   border: 1px solid #ddd;
   text-align: left;
+  min-width: 120px;
 }
+
 th {
   background-color: #f4f4f4;
 }
@@ -145,13 +147,12 @@ th {
   border-radius: 5px;
   margin: 10px 0;
 }
+
 .alternative {
   border-left: 4px solid #4CAF50;
   padding-left: 15px;
   margin: 20px 0;
 }
-
-
 
 .suica-item {
   margin-bottom: 1.5rem;
@@ -161,7 +162,6 @@ th {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
 }
 
 .suica-item-image-container {
@@ -174,10 +174,12 @@ th {
   font-size: 1.1rem;
   color: #1a237e;
 }
+
 .suica-item p {
   margin-top: 0.5rem;
   color: #666;
 }
+
 .suica-section {
   margin: 30px 0;
 }
@@ -198,9 +200,6 @@ th {
   font-weight: bold;
 }
 
-
-
-
 .kyoto-metro-item {
   margin-bottom: 1.5rem;
   padding: 1rem;
@@ -219,16 +218,14 @@ th {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 8px;
-  
 }
 
 .kyoto-metro-image-container {
   flex: 0 0 40%;
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  justify-content: center;
+  align-items: center;
 }
-
 
 .kyoto-metro-item strong {
   font-size: 1.1rem;
@@ -241,29 +238,154 @@ th {
 }
 
 .kyoto-metro-image {
-  max-width: 100%; /* Ajustar el ancho máximo de la imagen */
-  height: auto; /* Mantener la proporción */
-  border-radius: 8px; /* Bordes redondeados (opcional) */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
+/* Responsive Design Mejorado */
 @media (max-width: 768px) {
-
   .content-container {
-  padding: 0px 5px;
-  background: linear-gradient(to bottom, white, #f0f0f0);
-  overflow-x: hidden; 
-}
+    padding: 0px 5px;
+    background: linear-gradient(to bottom, white, #f0f0f0);
+    overflow-x: hidden;
+  }
+
+  /* Tabs responsivos */
+  .tabs {
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .tab-button {
+    padding: 12px 16px;
+    font-size: 14px;
+    text-align: left;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 5px;
+  }
+
+  .tab-button.active {
+    background-color: #1a237e;
+    color: white;
+    border-color: #1a237e;
+  }
+
+  .tab-button.active::after {
+    display: none;
+  }
+
+  /* Expansion panels responsivos */
+  mat-expansion-panel {
+    margin-bottom: 10px;
+    border-left: 3px solid #1a237e;
+  }
+
+  /* Contenido responsivo */
+  .japan-rail-pass-item,
+  .suica-item,
   .kyoto-metro-item {
-    display: block; /* Cambia el display a block para apilar los elementos */
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .japan-rail-pass-section,
+  .suica-section {
+    margin: 20px 0;
+  }
+
+  .japan-rail-pass-subsection {
+    min-width: auto;
+    padding: 12px;
+  }
+
+  /* Tablas responsivas */
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+    min-width: 80px;
+  }
+
+  /* Layouts flexibles */
+  .kyoto-metro-item {
+    flex-direction: column;
   }
 
   .kyoto-metro-content {
-    margin-right: 0; /* Elimina el margen a la derecha */
+    margin-right: 0;
+    margin-bottom: 12px;
   }
 
   .kyoto-metro-image-container {
-    margin-top: 1rem; /* Añade espacio entre el contenido y la imagen */
-    flex: none; /* Asegura que la imagen ocupe el espacio completo en dispositivos pequeños */
+    flex: none;
+    margin-top: 12px;
+  }
+
+  .suica-item {
+    flex-direction: column;
+  }
+
+  .suica-item-image-container {
+    margin-top: 12px;
+  }
+
+  /* Texto responsivo */
+  .japan-rail-pass-item strong,
+  .suica-item strong,
+  .kyoto-metro-item strong {
+    font-size: 1rem;
+  }
+
+  .japan-rail-pass-item p,
+  .suica-item p,
+  .kyoto-metro-item p {
+    font-size: 14px;
+  }
+
+  /* Highlight y alternative */
+  .highlight,
+  .alternative {
+    padding: 12px;
+    margin: 8px 0;
+  }
+
+  /* Setup instructions */
+  .setup-instructions h3 {
+    font-size: 14px;
+  }
+
+  .setup-instructions ol {
+    font-size: 14px;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .content-container {
+    padding: 0px 3px;
+  }
+
+  .tab-button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .japan-rail-pass-item,
+  .suica-item,
+  .kyoto-metro-item {
+    padding: 10px;
+  }
+
+  th, td {
+    padding: 6px 4px;
+    font-size: 11px;
   }
 }
 
