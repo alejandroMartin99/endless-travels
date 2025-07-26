@@ -4,41 +4,56 @@
   background: linear-gradient(to bottom, white, #f0f0f0);
   background: linear-gradient(to bottom, #ffffff, #e3e3e3);
 }
+
 .welcome-section {
+  /* Cambiado de 100vh a 100dvh para mejor soporte en móviles */
+  height: 100dvh;
+  /* Fallback para navegadores que no soportan dvh */
   height: 100vh;
   text-align: center;
   display: flex;
-  flex-direction: column;  /* Esto hace que se ponga en filas */
+  flex-direction: column;
   justify-content: center;
   background: url('/assets/landing/minimal_japan.jpg') no-repeat center center/cover;
   animation: fadeIn 1.5s ease;
   position: relative;
+  /* Agregado para evitar que el navbar se superponga */
+  padding-top: env(safe-area-inset-top);
 }
+
 .welcome-section h1 {
   font-size: 5em;
   color: #1a237e;
   margin-bottom: 10px;
 }
+
 .welcome-section p {
   font-size: 2em;
   color: #1a237e;
   width: 70%;
   margin: auto;
 }
+
 .hero-container {
   margin-top: -500px;
   gap: 0;
+  /* Agregado z-index para asegurar que esté por debajo del navbar */
+  z-index: 1;
 }
+
 .destinations-marquee {
   background: rgba(0, 0, 0, 0.5);
   padding: 1rem 0;
   width: 100%;
   overflow: hidden;
   position: absolute;
-  bottom: 0; /* Lo coloca al final de la sección welcome */
+  bottom: 0;
   left: 0;
-  transform: translateY(-100px); /* Lo mueve 100px hacia arriba */
+  transform: translateY(-100px);
+  /* Z-index para asegurar layering correcto */
+  z-index: 2;
 }
+
 .destinations-marquee::before,
 .destinations-marquee::after {
   content: "";
@@ -48,24 +63,29 @@
   height: 100%;
   z-index: 2;
 }
+
 .destinations-marquee::before {
   left: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
 }
+
 .destinations-marquee::after {
   right: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
 }
+
 .marquee-wrapper {
   display: flex;
   width: fit-content;
   animation: scroll 30s linear infinite;
 }
+
 .marquee-content {
   display: flex;
   gap: 4rem;
   padding: 0 2rem;
 }
+
 .marquee-content span {
   font-size: 2.5rem;
   font-weight: 700;
@@ -75,6 +95,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
+
 .marquee-content span:hover {
   color: #1a237e;
   transform: scale(1.1);
@@ -90,6 +111,7 @@
   }
 }
 
+/* MEDIA QUERIES PARA MÓVILES */
 @media (max-width: 768px) {
   /* ANIMACIONES */
   @keyframes zoomInBackground {
@@ -108,15 +130,20 @@
     }
   }
 
-  /* WELCOME SECTION */
+  /* WELCOME SECTION MÓVIL */
   .welcome-section {
+    /* Usa dvh en lugar de vh para mejor soporte en iOS */
     height: 100dvh;
+    /* Fallback para navegadores antiguos */
+    height: calc(100vh - env(safe-area-inset-top));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
     animation: zoomInBackground 2s ease-out forwards;
+    /* Padding top para evitar que el navbar tape el contenido */
+    padding-top: max(env(safe-area-inset-top), 60px);
   }
 
   .hero-container {
@@ -127,6 +154,8 @@
     padding: 1rem;
     border-radius: 10px;
     max-width: 90%;
+    /* Asegurar que esté por debajo del navbar */
+    z-index: 1;
   }
 
   .hero-title {
@@ -138,13 +167,15 @@
   }
 
   .hero-subtitle {
-    display: none; /* Oculto por defecto en desktop */
+    display: none;
   }
 
-  /* Destinations marquee */
+  /* Destinations marquee móvil */
   .destinations-marquee {
     padding: 1rem 0;
     overflow: hidden;
+    /* Asegurar que esté visible pero por debajo del navbar */
+    z-index: 2;
   }
 
   .marquee-wrapper {
@@ -157,7 +188,6 @@
     margin-right: 2rem;
     font-weight: bold;
     font-size: 1rem;
-
   }
 
   .destination-cards {
@@ -179,26 +209,21 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* MEDIA QUERY ESPECÍFICO PARA iOS SAFARI */
+@supports (-webkit-touch-callout: none) {
+  .welcome-section {
+    /* Altura específica para iOS Safari */
+    height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    min-height: calc(100vh - 120px); /* Fallback si env() no funciona */
+  }
+  
+  @media (max-width: 768px) {
+    .welcome-section {
+      height: calc(100dvh - env(safe-area-inset-top) - 60px);
+      padding-top: max(env(safe-area-inset-top), 80px);
+    }
+  }
+}
 
 /* Sección de destinos */
 .destinations-section {
@@ -257,51 +282,43 @@
   color: #666;
 }
 
-/* Responsividad */
+/* Responsividad para móviles */
 @media (max-width: 768px) {
-
-
   .welcome-section h1 {
-    font-size: 2.8em; /* Reduce el tamaño del título */
+    font-size: 2.8em;
   }
 
   .welcome-section p {
-    font-size: 1.5em; /* Ajusta el tamaño del texto de bienvenida */
+    font-size: 1.5em;
     margin-bottom: -20px;
   }
 
-
-
   .destinations-section h2 {
-    font-size: 2em; /* Reduce el tamaño del título de destinos */
+    font-size: 2em;
   }
 
   .destination-cards {
-    flex-direction: column; /* Cambia el diseño a columna */
-    gap: 20px; /* Ajusta el espacio entre tarjetas */
-    align-items: center; /* Centra las tarjetas */
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
   }
 
   .destination-card {
-    width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
-/* Tamaño máximo para evitar estiramientos excesivos */
+    width: 100%;
   }
 
   .destination-info h3 {
-    font-size: 1.5em; /* Reduce el tamaño del título en la tarjeta */
+    font-size: 1.5em;
   }
 
   .destination-info p {
-    font-size: 1em; /* Reduce el tamaño del texto en la tarjeta */
+    font-size: 1em;
   }
 
   .marquee-content span {
     font-size: 1.8rem;
   }
-  
 
-
-  
   .marquee-content {
     gap: 2rem;
   }
