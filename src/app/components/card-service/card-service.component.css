@@ -7,7 +7,7 @@ mat-expansion-panel {
 }
 
 /* Bordes de colores personalizados */
-.border-blue { border-left-color: #3f51b5; }
+.border-blue { border-left-color: #1a237e; }
 .border-green { border-left-color: #4caf50; }
 .border-dark-green { border-left-color: #08700c; }
 .border-red { border-left-color: #f44336; }
@@ -84,7 +84,7 @@ mat-expansion-panel {
 }
 
 .activity-indicator.active {
-  background-color: #3f51b5;
+  background-color: #1a237e;
 }
 
 .activity-indicator:hover {
@@ -209,7 +209,7 @@ mat-expansion-panel {
   }
 
   .activity-indicator.active {
-    background-color: #3f51b5;
+    background-color: #1a237e;
   }
 
   /* Estilo específico para el header de expansión en móviles */

@@ -17,8 +17,8 @@ export class DineroRecomendationsComponent implements OnInit {
       {
         label: '1 EUR a JPY',
         data: [],
-        borderColor: '#3f51b5', // Color Material
-        pointBackgroundColor: '#3f51b5',
+        borderColor: '#1a237e', // Color Material
+        pointBackgroundColor: '#1a237e',
         pointRadius: 4,
         fill: false,
         tension: 0.3,
@@ -92,8 +92,8 @@ export class DineroRecomendationsComponent implements OnInit {
           {
             label: '1 EUR a JPY',
             data: values,
-            borderColor: '#3f51b5',
-            pointBackgroundColor: '#3f51b5',
+            borderColor: '#1a237e',
+            pointBackgroundColor: '#1a237e',
             pointRadius: 0,
             fill: false,
             tension: 0.3,

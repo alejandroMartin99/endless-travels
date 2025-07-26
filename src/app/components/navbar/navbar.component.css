@@ -17,14 +17,44 @@
 }
 
 /* Toolbar adjustments */
+.sidenav-toolbar {
+  background-color: #ffffff;
+}
+
+.sidenav-toolbar .toolbar-title {
+  color: #1a237e;
+  font-weight: bold;
+}
+
 .main-toolbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #ffffff;
-  padding: 0 10px; /* Ajusta el padding en móviles */
+  background-color: #1a237e;
+  height: 56px;
+  min-height: 56px;
+  line-height: 56px;
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  padding: 0 10px;
+  color: white;
+}
+
+.main-toolbar mat-icon {
+  color: white;
+}
+
+.main-toolbar button {
+  color: white;
+}
+@media (min-width: 600px) {
+  .main-toolbar {
+    height: 64px;
+    min-height: 64px;
+    line-height: 64px;
+  }
 }
 
 /* Mat sidenav container */
@@ -62,8 +92,7 @@
 /* Toolbar title */
 .toolbar-title {
   font-size: 20px; /* Reduce tamaño en móviles */
-  font-weight: bold;
-  color: #3f51b5;
+  color: white;
 }
 
 /* Menu items adjustments */
@@ -72,15 +101,15 @@
   align-items: center;
   font-size: 16px; /* Reduce tamaño de texto en móviles */
   font-weight: 500;
-  color: #3f51b5;
+  color: #1a237e;
   padding: 8px 12px; /* Reduce padding */
   border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-item:hover {
-  background-color: #bbdefb;
-  color: #3f51b5;
+  background-color: #e8eaf6;
+  color: #1a237e;
   cursor: pointer;
 }
 
@@ -88,19 +117,19 @@
 .large-icon {
   margin-right: 10px;
   font-size: 18px; /* Ajusta tamaño del icono */
-  color: #3f51b5;
+  color: #1a237e;
 }
 
 .large-text {
   font-weight: bold;
-  color: #3f51b5;
+  color: #1a237e;
 }
 
 /* Destination icon adjustments */
 .destination-icon {
   margin-right: 10px;
   font-size: 18px; /* Reduce tamaño del icono */
-  color: #3f51b5;
+  color: #1a237e;
 }
 
 /* Continent panel adjustments */
@@ -108,13 +137,13 @@
   margin: 10px 0; /* Reduce márgenes */
   padding: 8px;
   border-radius: 6px;
-  background-color: #e3f2fd;
+  background-color: #e8eaf6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .continent-panel:hover {
-  background-color: #bbdefb;
-  color: #3f51b5;
+  background-color: #c5cae9;
+  color: #1a237e;
 }
 
 

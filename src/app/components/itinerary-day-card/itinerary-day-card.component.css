@@ -7,7 +7,7 @@ mat-expansion-panel {
 }
 
 /* Bordes de colores personalizados */
-.border-blue { border-left-color: #3f51b5; }
+.border-blue { border-left-color: #1a237e; }
 .border-green { border-left-color: #4caf50; }
 .border-dark-green { border-left-color: #08700c; }
 .border-red { border-left-color: #f44336; }
@@ -85,7 +85,7 @@ mat-expansion-panel {
 }
 
 .activity-indicator.active {
-  background-color: #3f51b5;
+  background-color: #1a237e;
 }
 
 .activity-indicator:hover {
@@ -248,7 +248,7 @@ mat-expansion-panel {
   }
   
   .close-description mat-icon {
-    color: #3f51b5;
+    color: #1a237e;
     font-size: 24px;
   }
 
@@ -270,7 +270,7 @@ mat-expansion-panel {
   }
 
   .description-toggle mat-icon {
-    color: #3f51b5;
+    color: #1a237e;
   }
 
   .activity-image {
@@ -313,8 +313,8 @@ mat-expansion-panel {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.85);
-    color: #3f51b5;
-    border: 2px solid #3f51b5;
+    color: #1a237e;
+    border: 2px solid #1a237e;
     border-radius: 50%;
     width: 42px;
     height: 42px;
@@ -329,7 +329,7 @@ mat-expansion-panel {
   }
   
   .gallery-controls button:hover:not(:disabled) {
-    background-color: #3f51b5;
+    background-color: #1a237e;
     color: #fff;
     transform: translateY(-50%) scale(1.1);
   }
@@ -338,7 +338,7 @@ mat-expansion-panel {
     opacity: 0.4;
     cursor: default;
     background-color: rgba(255, 255, 255, 0.85);
-    color: #3f51b5;
+    color: #1a237e;
     transform: translateY(-50%) scale(1); /* No zoom */
   }
   
@@ -375,7 +375,7 @@ mat-expansion-panel {
   }
 
   .activity-indicator.active {
-    background-color: #3f51b5;
+    background-color: #1a237e;
   }
 
   /* Estilo específico para el header de expansión en móviles */
@@ -451,7 +451,7 @@ mat-expansion-panel {
   .clean-action-button {
     background: none;
     border: none;
-    color: #3f51b5;
+    color: #1a237e;
     font-size: 18px;
     font-weight: 600;
     position: relative;
@@ -467,7 +467,7 @@ mat-expansion-panel {
     left: 10%;
     width: 80%;
     height: 2px;
-    background-color: #3f51b5;
+    background-color: #1a237e;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;

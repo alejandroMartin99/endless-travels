@@ -62,11 +62,11 @@ export class JapanPriceComponent implements OnInit {
         label: 'Coste estimado en €',
         data: [375, 1200, 560, 70, 100], // Tus datos iniciales o los que quieras mostrar
         backgroundColor: [
-          '#3f51b5',
-          '#3f51b5',
-          '#3f51b5',
-          '#3f51b5',
-          '#3f51b5',
+          '#1a237e',
+          '#1a237e',
+          '#1a237e',
+          '#1a237e',
+          '#1a237e',
         ],
       },
     ],

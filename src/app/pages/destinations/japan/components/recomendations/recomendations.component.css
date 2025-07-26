@@ -6,7 +6,7 @@
 mat-expansion-panel {
     margin-bottom: 15px;
     background-color: #ffffff;
-    border-left: 5px solid #3f51b5;
+    border-left: 5px solid #1a237e;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -26,7 +26,7 @@ mat-accordion::after {
   /* Título e iconos */
 .panel-icon {
   margin-right: 1rem;
-  color: #3f51b5;
+  color: #1a237e;
 }
 
 /* Tabs iniciales */
@@ -55,7 +55,7 @@ mat-accordion::after {
 }
 
 .tab-button.active {
-  color: #3f51b5;
+  color: #1a237e;
 }
 
 .tab-content {
@@ -77,7 +77,7 @@ mat-accordion::after {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #3f51b5;
+  background-color: #1a237e;
 }
   
   
@@ -105,7 +105,7 @@ mat-accordion::after {
 
 .japan-rail-pass-item strong {
   font-size: 1.1rem;
-  color: #3f51b5;
+  color: #1a237e;
 }
 .japan-rail-pass-item p {
   margin-top: 0.5rem;
@@ -172,7 +172,7 @@ th {
 
 .suica-item strong {
   font-size: 1.1rem;
-  color: #3f51b5;
+  color: #1a237e;
 }
 .suica-item p {
   margin-top: 0.5rem;
@@ -232,7 +232,7 @@ th {
 
 .kyoto-metro-item strong {
   font-size: 1.1rem;
-  color: #3f51b5;
+  color: #1a237e;
 }
 
 .kyoto-metro-item p {
