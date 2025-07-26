@@ -19,11 +19,12 @@
 .mat-tab-label {
   display: flex;
   align-items: center;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 12px;
-  transition: color 0.3s ease;
-  word-wrap: break-word; /* Evita que el texto largo desborde */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px 24px;
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+  color: #1a237e;
 }
 
 /* Etiquetas de pestañas personalizadas */
@@ -31,50 +32,85 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.2s;
+  padding: 12px 20px;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 /* Iconos personalizados */
 .custom-icon {
-  font-size: 25px;
+  font-size: 20px;
   margin-right: 8px;
+  color: #1a237e;
+  transition: color 0.3s ease;
 }
 
 /* Texto de pestañas personalizado */
 .custom-tab-text {
-  font-size: 30px;
-  font-weight: 600;
-  transition: color 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #1a237e;
+  letter-spacing: 0.5px;
 }
 
 /* Cambia el color del texto al pasar el ratón */
 .custom-tab-label:hover .custom-tab-text {
-  color: #1976d2;
+  color: #1a237e;
 }
 
-/* Cambia el color del fondo y agrega un efecto de escala al pasar el ratón */
+.custom-tab-label:hover .custom-icon {
+  color: #1a237e;
+}
+
+/* Cambia el color del fondo y agrega un efecto sutil al pasar el ratón */
 .custom-tab-label:hover {
-  background-color: #f5f5f5;
-  transform: scale(1.05); /* Amplía ligeramente el tamaño */
+  background-color: #f8f9fa;
+  border-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+/* Tab activo */
+::ng-deep .mat-tab-label-active .custom-tab-label {
+  background-color: #1a237e;
+  border-color: #1a237e;
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.2);
+}
+
+::ng-deep .mat-tab-label-active .custom-tab-text {
+  color: white;
+  font-weight: 600;
+}
+
+::ng-deep .mat-tab-label-active .custom-icon {
+  color: white;
 }
 
 /* Asegura que las pestañas se ajusten correctamente */
 .mat-tab-labels {
   display: flex;
-  flex-wrap: wrap; /* Permite que las pestañas se ajusten en varias líneas */
-  justify-content: center; /* Centra las pestañas en pantallas pequeñas */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
 }
 
 ::ng-deep .mat-tab-header {
   position: sticky;
-  top: 0; /* Se queda pegado arriba */
+  top: 0;
   z-index: 1000;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra sutil para separar visualmente */
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Ocultar la barra de indicador por defecto */
+::ng-deep .mat-tab-header .mat-ink-bar {
+  display: none !important;
 }
 
 
