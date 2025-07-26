@@ -124,6 +124,48 @@
   padding: 5px 0px; /* Ajuste en el padding */
 }
 
+
+.intro-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  
+}
+
+.intro-left {
+  flex: 1 1 45%;
+}
+
+.intro-right {
+  flex: 1 1 45%;
+  align-items: flex-start;
+  padding: 32px 24px 24px 24px;
+}
+
+.intro-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.intro-right li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  font-size: 1rem;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.intro-right mat-icon {
+  font-size: 1.5rem;
+  color: #3f51b5;
+}
+
 @media (max-width: 768px) {
   .content-container {
     padding: 0px 5px; /* Reducimos el padding lateral */
@@ -202,5 +244,30 @@
 
   .subzone-content p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .intro-columns {
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px 16px;
+  }
+  .intro-left, .intro-right {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .intro-right {
+    padding: 0;
+  }
+  .intro-right li {
+    justify-content: flex-start;
+    text-align: left;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .intro-right mat-icon {
+    font-size: 1.2rem;
+    min-width: 20px;
   }
 }

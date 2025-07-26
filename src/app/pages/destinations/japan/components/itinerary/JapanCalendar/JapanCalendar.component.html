@@ -1,332 +1,334 @@
 <div class="calendar-container">
-        <!-- Vista Grid para Desktop -->
-        <div class="calendar-grid">
-            <!-- Headers días de la semana -->
-            <div class="day-header">L</div>
-            <div class="day-header">M</div>
-            <div class="day-header">X</div>
-            <div class="day-header">J</div>
-            <div class="day-header">V</div>
-            <div class="day-header">S</div>
-            <div class="day-header">D</div>
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-border legend-vuelo"></div>
+            <span>Vuelos</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-border legend-kyoto"></div>
+            <span>Kyoto</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-border legend-kyoto-exc"></div>
+            <span>Excursiones Kyoto</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-border legend-tokyo"></div>
+            <span>Tokyo</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-border legend-tokyo-exc"></div>
+            <span>Excursiones Tokyo</span>
+        </div>
+    </div>
 
-            <!-- Días vacíos antes del 27 -->
-            <div class="day-cell empty"></div>
-            <div class="day-cell empty"></div>
-            <div class="day-cell empty"></div>
-            <div class="day-cell empty"></div>
+    <!-- Vista Grid para Desktop -->
+    <div class="calendar-grid">
+        <!-- Headers días de la semana -->
+        <div class="day-header">L</div>
+        <div class="day-header">M</div>
+        <div class="day-header">X</div>
+        <div class="day-header">J</div>
+        <div class="day-header">V</div>
+        <div class="day-header">S</div>
+        <div class="day-header">D</div>
 
-            <!-- 27 Octubre - Viernes -->
-            <div class="day-cell vuelo">
-                <div class="day-number">27 OCT</div>
-                <div class="day-activity">
-                    <div class="activity-title">VUELO IDA</div>
-                    <div class="activity-detail">Salida Madrid (22:00 LT) → Doha</div>
-                </div>
+        <!-- Días vacíos antes del 27 -->
+        <div class="day-cell empty"></div>
+        <div class="day-cell empty"></div>
+        <div class="day-cell empty"></div>
+        <div class="day-cell empty"></div>
+
+        <!-- 27 Octubre - Viernes -->
+        <div class="day-cell vuelo">
+            <div class="day-number">27 OCT</div>
+            <div class="day-activity">
+                <div class="activity-title">VUELO IDA</div>
+                <div class="activity-detail">Salida Madrid (22:00 LT) → Doha</div>
             </div>
+        </div>
 
-            <!-- 28 Octubre - Sábado -->
-            <div class="day-cell vuelo">
-                <div class="day-number">28 OCT</div>
-                <div class="day-activity">
-                    <div class="activity-title">LLEGADA HANEDA</div>
-                    <div class="activity-detail">1º Escala rápida en DOHA (06:30 LT). 2º Vuelo → Haneda (23:30 LT)</div>
-                </div>
+        <!-- 28 Octubre - Sábado -->
+        <div class="day-cell vuelo">
+            <div class="day-number">28 OCT</div>
+            <div class="day-activity">
+                <div class="activity-title">LLEGADA HANEDA</div>
+                <div class="activity-detail">1º Escala rápida en DOHA (06:30 LT). 2º Vuelo → Haneda (23:30 LT)</div>
             </div>
+        </div>
 
-            <!-- 29 Octubre - Domingo -->
-            <div class="day-cell kyoto">
-                <div class="day-number">29 OCT</div>
-                <div class="day-activity">
-                    <div class="activity-title">TOKYO</div>
-                    <div class="activity-detail">
-                        GESTIONES: Activación JRPass, Cambio divisa, Shinkansen Tokyo → Kyoto, Toma de contacto en Kyoto.
-                    </div>
-                </div>
-            </div>
-
-            <!-- 30 Octubre - Lunes -->
-            <div class="day-cell kyoto">
-                <div class="day-number">30 OCT</div>
-                <div class="day-activity">
-                    <div class="activity-title">KYOTO</div>
-                    <div class="activity-detail">Fushimi Inari, Sanjusagendo, Kiyomizu-dera y barrio de Gion</div>
-                </div>
-            </div>
-
-            <!-- 31 Octubre - Martes -->
-            <div class="day-cell kyoto">
-                <div class="day-number">31 OCT</div>
-                <div class="day-activity">
-                    <div class="activity-title">KYOTO</div>
-                    <div class="activity-detail">Ginkaku-ji, Paseo del Filósofo, miles de templos y Kawaramachi</div>
-                </div>
-            </div>
-
-            <!-- 1 Noviembre - Miércoles -->
-            <div class="day-cell kyoto">
-                <div class="day-number">1 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">KYOTO</div>
-                    <div class="activity-detail">Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove</div>
-                </div>
-            </div>
-
-            <!-- 2 Noviembre - Jueves -->
-            <div class="day-cell kyoto-excursion">
-                <div class="day-number">2 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">OSAKA</div>
-                    <div class="activity-detail">Dotonbori, Castillo de Osaka, Torre Tsutenkaku, meca de la gastronomía callejera...</div>
-                </div>
-            </div>
-
-            <!-- 3 Noviembre - Viernes -->
-            <div class="day-cell kyoto-excursion">
-                <div class="day-number">3 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">NARA</div>
-                    <div class="activity-detail">Kofoku‐ji, Toda‐ji, jardines Isuien y Yoshikien, y muchos ciervos</div>
-                </div>
-            </div>
-
-            <!-- 4 Noviembre - Sábado -->
-            <div class="day-cell kyoto-excursion">
-                <div class="day-number">4 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">HIROSHIMA</div>
-                    <div class="activity-detail">Jardín Shukkeien, Castillo de Hiroshima, Parque memorial de la paz</div>
-                </div>
-            </div>
-
-            <!-- 5 Noviembre - Domingo -->
-            <div class="day-cell tokyo">
-                <div class="day-number">5 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">TOKYO</div>
-                    <div class="activity-detail">Shinkansen Kyoto → Tokyo y toma de contacto en Shinjuku</div>
-                </div>
-            </div>
-
-            <!-- 6 Noviembre - Lunes -->
-            <div class="day-cell tokyo-excursion">
-                <div class="day-number">6 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">NIKKO</div>
-                    <div class="activity-detail">Santuario Toshogu, santuario Rinnoji y su Pagoda, Templo Rinnoji y el misterioso Abismo de Kanmangafuchi</div>
-                </div>
-            </div>
-
-            <!-- 7 Noviembre - Martes -->
-            <div class="day-cell tokyo-excursion">
-                <div class="day-number">7 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">KAMAKURA</div>
-                    <div class="activity-detail">Templo Engau‐ji, Tokei‐ji, Kencho‐ji y sus escaleras, Hase‐dera, Gran Buda</div>
-                </div>
-            </div>
-
-            <!-- 8 Noviembre - Miércoles -->
-            <div class="day-cell tokyo">
-                <div class="day-number">8 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">TOKYO</div>
-                    <div class="activity-detail">Barrios de Asakusa, Ueno y Akihabara</div>
-                </div>
-            </div>
-
-            <!-- 9 Noviembre - Jueves -->
-            <div class="day-cell tokyo">
-                <div class="day-number">9 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">TOKYO</div>
-                    <div class="activity-detail">Parque Yoyogi, Santuario Meiji y barrio de Shibuya</div>
-                </div>
-            </div>
-
-            <!-- 10 Noviembre - Viernes -->
-            <div class="day-cell tokyo">
-                <div class="day-number">10 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">TOKYO</div>
-                    <div class="activity-detail">Barrios de Chuo, Chiyoda, Ginza y Odaiba</div>
-                </div>
-            </div>
-
-            <!-- 11 Noviembre - Sábado -->
-            <div class="day-cell tokyo">
-                <div class="day-number">11 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">TOKYO</div>
-                    <div class="activity-detail">Torre Tokyo, últimas compras y despedida</div>
-                </div>
-            </div>
-
-            <!-- 12 Noviembre - Domingo -->
-            <div class="day-cell vuelo">
-                <div class="day-number">12 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">SALIDA</div>
-                    <div class="activity-detail">Haneda 22:00</div>
-                </div>
-            </div>
-
-            <!-- 13 Noviembre - Lunes -->
-            <div class="day-cell vuelo">
-                <div class="day-number">13 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">DOHA</div>
-                    <div class="activity-detail">Escala 18h</div>
-                </div>
-            </div>
-
-            <!-- 14 Noviembre - Martes -->
-            <div class="day-cell vuelo">
-                <div class="day-number">14 NOV</div>
-                <div class="day-activity">
-                    <div class="activity-title">MADRID</div>
-                    <div class="activity-detail">Llegada 6:50</div>
+        <!-- 29 Octubre - Domingo -->
+        <div class="day-cell kyoto">
+            <div class="day-number">29 OCT</div>
+            <div class="day-activity">
+                <div class="activity-title">TOKYO</div>
+                <div class="activity-detail">
+                    GESTIONES: Activación JRPass, Cambio divisa, Shinkansen Tokyo → Kyoto, Toma de contacto en Kyoto.
                 </div>
             </div>
         </div>
 
-        <!-- Vista Timeline para Móvil -->
-        <div class="mobile-timeline">
-            <div class="timeline-item vuelo">
-                <div class="timeline-date">Viernes, 27 Octubre</div>
-                <div class="timeline-title">VUELO IDA</div>
-                <div class="timeline-detail">Salida Madrid (22:00 LT) → Doha</div>
-            </div>
-
-            <div class="timeline-item vuelo">
-                <div class="timeline-date">Sábado, 28 Octubre</div>
-                <div class="timeline-title">LLEGADA HANEDA</div>
-                <div class="timeline-detail">1º Escala rápida en DOHA (06:30 LT). 2º Vuelo → Haneda (23:30 LT)</div>
-            </div>
-
-            <div class="timeline-item kyoto">
-                <div class="timeline-date">Domingo, 29 Octubre</div>
-                <div class="timeline-title">TOKYO</div>
-                <div class="timeline-detail">GESTIONES: Activación JRPass, Cambio divisa, Shinkansen Tokyo → Kyoto, Toma de contacto en Kyoto.</div>
-            </div>
-
-            <div class="timeline-item kyoto">
-                <div class="timeline-date">Lunes, 30 Octubre</div>
-                <div class="timeline-title">KYOTO</div>
-                <div class="timeline-detail">Fushimi Inari, Sanjusagendo, Kiyomizu-dera y barrio de Gion</div>
-            </div>
-
-            <div class="timeline-item kyoto">
-                <div class="timeline-date">Martes, 31 Octubre</div>
-                <div class="timeline-title">KYOTO</div>
-                <div class="timeline-detail">Ginkaku-ji, Paseo del Filósofo, miles de templos y Kawaramachi</div>
-            </div>
-
-            <div class="timeline-item kyoto">
-                <div class="timeline-date">Miércoles, 1 Noviembre</div>
-                <div class="timeline-title">KYOTO</div>
-                <div class="timeline-detail">Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove</div>
-            </div>
-
-            <div class="timeline-item kyoto-excursion">
-                <div class="timeline-date">Jueves, 2 Noviembre</div>
-                <div class="timeline-title">OSAKA</div>
-                <div class="timeline-detail">Dotonbori, Castillo de Osaka, Torre Tsutenkaku, meca de la gastronomía callejera...</div>
-            </div>
-
-            <div class="timeline-item kyoto-excursion">
-                <div class="timeline-date">Viernes, 3 Noviembre</div>
-                <div class="timeline-title">NARA</div>
-                <div class="timeline-detail">Kofoku‐ji, Toda‐ji, jardines Isuien y Yoshikien, y muchos ciervos</div>
-            </div>
-
-            <div class="timeline-item kyoto-excursion">
-                <div class="timeline-date">Sábado, 4 Noviembre</div>
-                <div class="timeline-title">HIROSHIMA</div>
-                <div class="timeline-detail">Jardín Shukkeien, Castillo de Hiroshima, Parque memorial de la paz</div>
-            </div>
-
-            <div class="timeline-item tokyo">
-                <div class="timeline-date">Domingo, 5 Noviembre</div>
-                <div class="timeline-title">TOKYO</div>
-                <div class="timeline-detail">Shinkansen Kyoto → Tokyo y toma de contacto en Shinjuku</div>
-            </div>
-
-            <div class="timeline-item tokyo-excursion">
-                <div class="timeline-date">Lunes, 6 Noviembre</div>
-                <div class="timeline-title">NIKKO</div>
-                <div class="timeline-detail">Santuario Toshogu, santuario Rinnoji y su Pagoda, Templo Rinnoji y el misterioso Abismo de Kanmangafuchi</div>
-            </div>
-
-            <div class="timeline-item tokyo-excursion">
-                <div class="timeline-date">Martes, 7 Noviembre</div>
-                <div class="timeline-title">KAMAKURA</div>
-                <div class="timeline-detail">Templo Engau‐ji, Tokei‐ji, Kencho‐ji y sus escaleras, Hase‐dera, Gran Buda</div>
-            </div>
-
-            <div class="timeline-item tokyo">
-                <div class="timeline-date">Miércoles, 8 Noviembre</div>
-                <div class="timeline-title">TOKYO</div>
-                <div class="timeline-detail">Barrios de Asakusa, Ueno y Akihabara</div>
-            </div>
-
-            <div class="timeline-item tokyo">
-                <div class="timeline-date">Jueves, 9 Noviembre</div>
-                <div class="timeline-title">TOKYO</div>
-                <div class="timeline-detail">Parque Yoyogi, Santuario Meiji y barrio de Shibuya</div>
-            </div>
-
-            <div class="timeline-item tokyo">
-                <div class="timeline-date">Viernes, 10 Noviembre</div>
-                <div class="timeline-title">TOKYO</div>
-                <div class="timeline-detail">Barrios de Chuo, Chiyoda, Ginza y Odaiba</div>
-            </div>
-
-            <div class="timeline-item tokyo">
-                <div class="timeline-date">Sábado, 11 Noviembre</div>
-                <div class="timeline-title">TOKYO</div>
-                <div class="timeline-detail">Torre Tokyo, últimas compras y despedida</div>
-            </div>
-
-            <div class="timeline-item vuelo">
-                <div class="timeline-date">Domingo, 12 Noviembre</div>
-                <div class="timeline-title">SALIDA</div>
-                <div class="timeline-detail">Haneda 22:00</div>
-            </div>
-
-            <div class="timeline-item vuelo">
-                <div class="timeline-date">Lunes, 13 Noviembre</div>
-                <div class="timeline-title">DOHA</div>
-                <div class="timeline-detail">Escala 18h</div>
-            </div>
-
-            <div class="timeline-item vuelo">
-                <div class="timeline-date">Martes, 14 Noviembre</div>
-                <div class="timeline-title">MADRID</div>
-                <div class="timeline-detail">Llegada 6:50</div>
+        <!-- 30 Octubre - Lunes -->
+        <div class="day-cell kyoto">
+            <div class="day-number">30 OCT</div>
+            <div class="day-activity">
+                <div class="activity-title">KYOTO</div>
+                <div class="activity-detail">Fushimi Inari, Sanjusagendo, Kiyomizu-dera y barrio de Gion</div>
             </div>
         </div>
 
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-border legend-vuelo"></div>
-                <span>Vuelos</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-border legend-kyoto"></div>
-                <span>Kyoto</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-border legend-kyoto-exc"></div>
-                <span>Excursiones Kyoto</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-border legend-tokyo"></div>
-                <span>Tokyo</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-border legend-tokyo-exc"></div>
-                <span>Excursiones Tokyo</span>
+        <!-- 31 Octubre - Martes -->
+        <div class="day-cell kyoto">
+            <div class="day-number">31 OCT</div>
+            <div class="day-activity">
+                <div class="activity-title">KYOTO</div>
+                <div class="activity-detail">Ginkaku-ji, Paseo del Filósofo, miles de templos y Kawaramachi</div>
             </div>
         </div>
+
+        <!-- 1 Noviembre - Miércoles -->
+        <div class="day-cell kyoto">
+            <div class="day-number">1 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">KYOTO</div>
+                <div class="activity-detail">Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove</div>
+            </div>
+        </div>
+
+        <!-- 2 Noviembre - Jueves -->
+        <div class="day-cell kyoto-excursion">
+            <div class="day-number">2 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">OSAKA</div>
+                <div class="activity-detail">Dotonbori, Castillo de Osaka, Torre Tsutenkaku, meca de la gastronomía callejera...</div>
+            </div>
+        </div>
+
+        <!-- 3 Noviembre - Viernes -->
+        <div class="day-cell kyoto-excursion">
+            <div class="day-number">3 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">NARA</div>
+                <div class="activity-detail">Kofoku‐ji, Toda‐ji, jardines Isuien y Yoshikien, y muchos ciervos</div>
+            </div>
+        </div>
+
+        <!-- 4 Noviembre - Sábado -->
+        <div class="day-cell kyoto-excursion">
+            <div class="day-number">4 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">HIROSHIMA</div>
+                <div class="activity-detail">Jardín Shukkeien, Castillo de Hiroshima, Parque memorial de la paz</div>
+            </div>
+        </div>
+
+        <!-- 5 Noviembre - Domingo -->
+        <div class="day-cell tokyo">
+            <div class="day-number">5 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">TOKYO</div>
+                <div class="activity-detail">Shinkansen Kyoto → Tokyo y toma de contacto en Shinjuku</div>
+            </div>
+        </div>
+
+        <!-- 6 Noviembre - Lunes -->
+        <div class="day-cell tokyo-excursion">
+            <div class="day-number">6 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">NIKKO</div>
+                <div class="activity-detail">Santuario Toshogu, santuario Rinnoji y su Pagoda, Templo Rinnoji y el misterioso Abismo de Kanmangafuchi</div>
+            </div>
+        </div>
+
+        <!-- 7 Noviembre - Martes -->
+        <div class="day-cell tokyo-excursion">
+            <div class="day-number">7 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">KAMAKURA</div>
+                <div class="activity-detail">Templo Engau‐ji, Tokei‐ji, Kencho‐ji y sus escaleras, Hase‐dera, Gran Buda</div>
+            </div>
+        </div>
+
+        <!-- 8 Noviembre - Miércoles -->
+        <div class="day-cell tokyo">
+            <div class="day-number">8 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">TOKYO</div>
+                <div class="activity-detail">Barrios de Asakusa, Ueno y Akihabara</div>
+            </div>
+        </div>
+
+        <!-- 9 Noviembre - Jueves -->
+        <div class="day-cell tokyo">
+            <div class="day-number">9 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">TOKYO</div>
+                <div class="activity-detail">Parque Yoyogi, Santuario Meiji y barrio de Shibuya</div>
+            </div>
+        </div>
+
+        <!-- 10 Noviembre - Viernes -->
+        <div class="day-cell tokyo">
+            <div class="day-number">10 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">TOKYO</div>
+                <div class="activity-detail">Barrios de Chuo, Chiyoda, Ginza y Odaiba</div>
+            </div>
+        </div>
+
+        <!-- 11 Noviembre - Sábado -->
+        <div class="day-cell tokyo">
+            <div class="day-number">11 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">TOKYO</div>
+                <div class="activity-detail">Torre Tokyo, últimas compras y despedida</div>
+            </div>
+        </div>
+
+        <!-- 12 Noviembre - Domingo -->
+        <div class="day-cell vuelo">
+            <div class="day-number">12 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">SALIDA</div>
+                <div class="activity-detail">Haneda 22:00</div>
+            </div>
+        </div>
+
+        <!-- 13 Noviembre - Lunes -->
+        <div class="day-cell vuelo">
+            <div class="day-number">13 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">DOHA</div>
+                <div class="activity-detail">Escala 18h</div>
+            </div>
+        </div>
+
+        <!-- 14 Noviembre - Martes -->
+        <div class="day-cell vuelo">
+            <div class="day-number">14 NOV</div>
+            <div class="day-activity">
+                <div class="activity-title">MADRID</div>
+                <div class="activity-detail">Llegada 6:50</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vista Timeline para Móvil -->
+    <div class="mobile-timeline">
+        <div class="timeline-item vuelo">
+            <div class="timeline-date">Viernes, 27 Octubre</div>
+            <div class="timeline-title">VUELO IDA</div>
+            <div class="timeline-detail">Salida Madrid (22:00 LT) → Doha</div>
+        </div>
+
+        <div class="timeline-item vuelo">
+            <div class="timeline-date">Sábado, 28 Octubre</div>
+            <div class="timeline-title">LLEGADA HANEDA</div>
+            <div class="timeline-detail">1º Escala rápida en DOHA (06:30 LT). 2º Vuelo → Haneda (23:30 LT)</div>
+        </div>
+
+        <div class="timeline-item kyoto">
+            <div class="timeline-date">Domingo, 29 Octubre</div>
+            <div class="timeline-title">TOKYO</div>
+            <div class="timeline-detail">GESTIONES: Activación JRPass, Cambio divisa, Shinkansen Tokyo → Kyoto, Toma de contacto en Kyoto.</div>
+        </div>
+
+        <div class="timeline-item kyoto">
+            <div class="timeline-date">Lunes, 30 Octubre</div>
+            <div class="timeline-title">KYOTO</div>
+            <div class="timeline-detail">Fushimi Inari, Sanjusagendo, Kiyomizu-dera y barrio de Gion</div>
+        </div>
+
+        <div class="timeline-item kyoto">
+            <div class="timeline-date">Martes, 31 Octubre</div>
+            <div class="timeline-title">KYOTO</div>
+            <div class="timeline-detail">Ginkaku-ji, Paseo del Filósofo, miles de templos y Kawaramachi</div>
+        </div>
+
+        <div class="timeline-item kyoto">
+            <div class="timeline-date">Miércoles, 1 Noviembre</div>
+            <div class="timeline-title">KYOTO</div>
+            <div class="timeline-detail">Castillo Nijo, Templos del Noreste y Arashiyama Bamboo Grove</div>
+        </div>
+
+        <div class="timeline-item kyoto-excursion">
+            <div class="timeline-date">Jueves, 2 Noviembre</div>
+            <div class="timeline-title">OSAKA</div>
+            <div class="timeline-detail">Dotonbori, Castillo de Osaka, Torre Tsutenkaku, meca de la gastronomía callejera...</div>
+        </div>
+
+        <div class="timeline-item kyoto-excursion">
+            <div class="timeline-date">Viernes, 3 Noviembre</div>
+            <div class="timeline-title">NARA</div>
+            <div class="timeline-detail">Kofoku‐ji, Toda‐ji, jardines Isuien y Yoshikien, y muchos ciervos</div>
+        </div>
+
+        <div class="timeline-item kyoto-excursion">
+            <div class="timeline-date">Sábado, 4 Noviembre</div>
+            <div class="timeline-title">HIROSHIMA</div>
+            <div class="timeline-detail">Jardín Shukkeien, Castillo de Hiroshima, Parque memorial de la paz</div>
+        </div>
+
+        <div class="timeline-item tokyo">
+            <div class="timeline-date">Domingo, 5 Noviembre</div>
+            <div class="timeline-title">TOKYO</div>
+            <div class="timeline-detail">Shinkansen Kyoto → Tokyo y toma de contacto en Shinjuku</div>
+        </div>
+
+        <div class="timeline-item tokyo-excursion">
+            <div class="timeline-date">Lunes, 6 Noviembre</div>
+            <div class="timeline-title">NIKKO</div>
+            <div class="timeline-detail">Santuario Toshogu, santuario Rinnoji y su Pagoda, Templo Rinnoji y el misterioso Abismo de Kanmangafuchi</div>
+        </div>
+
+        <div class="timeline-item tokyo-excursion">
+            <div class="timeline-date">Martes, 7 Noviembre</div>
+            <div class="timeline-title">KAMAKURA</div>
+            <div class="timeline-detail">Templo Engau‐ji, Tokei‐ji, Kencho‐ji y sus escaleras, Hase‐dera, Gran Buda</div>
+        </div>
+
+        <div class="timeline-item tokyo">
+            <div class="timeline-date">Miércoles, 8 Noviembre</div>
+            <div class="timeline-title">TOKYO</div>
+            <div class="timeline-detail">Barrios de Asakusa, Ueno y Akihabara</div>
+        </div>
+
+        <div class="timeline-item tokyo">
+            <div class="timeline-date">Jueves, 9 Noviembre</div>
+            <div class="timeline-title">TOKYO</div>
+            <div class="timeline-detail">Parque Yoyogi, Santuario Meiji y barrio de Shibuya</div>
+        </div>
+
+        <div class="timeline-item tokyo">
+            <div class="timeline-date">Viernes, 10 Noviembre</div>
+            <div class="timeline-title">TOKYO</div>
+            <div class="timeline-detail">Barrios de Chuo, Chiyoda, Ginza y Odaiba</div>
+        </div>
+
+        <div class="timeline-item tokyo">
+            <div class="timeline-date">Sábado, 11 Noviembre</div>
+            <div class="timeline-title">TOKYO</div>
+            <div class="timeline-detail">Torre Tokyo, últimas compras y despedida</div>
+        </div>
+
+        <div class="timeline-item vuelo">
+            <div class="timeline-date">Domingo, 12 Noviembre</div>
+            <div class="timeline-title">SALIDA</div>
+            <div class="timeline-detail">Haneda 22:00</div>
+        </div>
+
+        <div class="timeline-item vuelo">
+            <div class="timeline-date">Lunes, 13 Noviembre</div>
+            <div class="timeline-title">DOHA</div>
+            <div class="timeline-detail">Escala 18h</div>
+        </div>
+
+        <div class="timeline-item vuelo">
+            <div class="timeline-date">Martes, 14 Noviembre</div>
+            <div class="timeline-title">MADRID</div>
+            <div class="timeline-detail">Llegada 6:50</div>
+        </div>
+    </div>
+
+        
     </div>
