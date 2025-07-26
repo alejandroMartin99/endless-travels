@@ -432,3 +432,110 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 600px) {
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden !important;
+  }
+  .landing-container {
+    max-width: 100vw;
+    overflow-x: hidden !important;
+  }
+  .hero-section {
+    min-height: 60dvh;
+    padding: 0 0 1.5rem 0;
+    border-radius: 0;
+    clip-path: ellipse(120% 80% at 50% 70%);
+    /* Curva inferior profesional */
+  }
+  .hero-content {
+    max-width: 100vw;
+    padding: 1rem 5px;
+    border-radius: 12px;
+  }
+  .main-title, .section-title {
+    font-size: 1.6rem !important;
+    line-height: 1.2;
+  }
+  .title-japan {
+    font-size: 2rem !important;
+  }
+  .title-subtitle {
+    font-size: 1.1rem !important;
+  }
+  .hero-description {
+    font-size: 0.95rem;
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 5px;
+  }
+  .hero-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .stat-divider {
+    display: none;
+  }
+  .narrative-intro, .detailed-info-section, .experiences-section, .exploration-section {
+    padding: 2rem 5px !important;
+  }
+  .content-wrapper {
+    margin: 0 5px !important;
+    padding: 0;
+  }
+  .intro-grid, .info-grid, .experiences-grid, .exploration-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+  .info-card, .experience-card, .exploration-content {
+    padding: 1rem 5px !important;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(63,81,181,0.08);
+  }
+  .card-header {
+    flex-direction: row;
+    padding: 1rem 5px !important;
+    gap: 0.5rem;
+  }
+  .card-content {
+    padding: 1rem 5px !important;
+  }
+  .responsive-image {
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  }
+  .image-caption {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+  .highlight-list li {
+    font-size: 1rem;
+    padding: 0.5rem 5px;
+  }
+  .city-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  .city-description {
+    font-size: 0.9rem;
+  }
+  .benefit-list, .highlight-list {
+    padding-left: 1rem;
+  }
+  .exploration-section {
+    border-radius: 0;
+    background-position: center top;
+    clip-path: ellipse(120% 80% at 50% 30%);
+    /* Curva superior profesional */
+  }
+  .hero-image-overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .exploration-section::before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
