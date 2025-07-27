@@ -1,15 +1,13 @@
 /* Landing Page Styles */
 .landing-container {
-  padding: 0px 0px 0px 0px;
   background: linear-gradient(to bottom, white, #f0f0f0);
   background: linear-gradient(to bottom, #ffffff, #e3e3e3);
 }
 
 .welcome-section {
-  /* Cambiado de 100vh a 100dvh para mejor soporte en móviles */
-  height: 100dvh;
-  /* Fallback para navegadores que no soportan dvh */
+  /* Altura base con fallback */
   height: 100vh;
+  height: 100dvh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -17,8 +15,10 @@
   background: url('/assets/landing/minimal_japan.jpg') no-repeat center center/cover;
   animation: fadeIn 1.5s ease;
   position: relative;
-  /* Agregado para evitar que el navbar se superponga */
-  padding-top: env(safe-area-inset-top);
+  /* Padding top para evitar que la navbar tape el contenido */ 
+  padding-top: 80px; /* Ajusta este valor según la altura de tu navbar */
+  /* Ajuste para safe area en dispositivos con notch */
+  padding-top: max(80px, env(safe-area-inset-top, 20px) + 60px);
 }
 
 .welcome-section h1 {
@@ -37,8 +37,9 @@
 .hero-container {
   margin-top: -500px;
   gap: 0;
-  /* Agregado z-index para asegurar que esté por debajo del navbar */
   z-index: 1;
+  /* Ajuste para móviles */
+  position: relative;
 }
 
 .destinations-marquee {
@@ -50,7 +51,6 @@
   bottom: 0;
   left: 0;
   transform: translateY(-100px);
-  /* Z-index para asegurar layering correcto */
   z-index: 2;
 }
 
@@ -132,18 +132,24 @@
 
   /* WELCOME SECTION MÓVIL */
   .welcome-section {
-    /* Usa dvh en lugar de vh para mejor soporte en iOS */
+    /* Altura ajustada para móviles */
+    height: 100vh;
     height: 100dvh;
-    /* Fallback para navegadores antiguos */
-    height: calc(100vh - env(safe-area-inset-top));
+    /* Ajuste específico para tener en cuenta la navbar */
+    min-height: calc(100vh - 120px);
+    min-height: calc(100dvh - 120px);
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
     animation: zoomInBackground 2s ease-out forwards;
-    /* Padding top para evitar que el navbar tape el contenido */
-    padding-top: max(env(safe-area-inset-top), 60px);
+    
+    /* Padding top más específico para móviles */
+    padding-top: 100px; /* Ajusta según tu navbar */
+    /* Con soporte para safe area */
+    padding-top: max(100px, calc(env(safe-area-inset-top, 0px) + 80px));
   }
 
   .hero-container {
@@ -154,8 +160,10 @@
     padding: 1rem;
     border-radius: 10px;
     max-width: 90%;
-    /* Asegurar que esté por debajo del navbar */
     z-index: 1;
+    /* Centrado mejorado */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-title {
@@ -174,8 +182,9 @@
   .destinations-marquee {
     padding: 1rem 0;
     overflow: hidden;
-    /* Asegurar que esté visible pero por debajo del navbar */
     z-index: 2;
+    /* Posición ajustada para móviles */
+    bottom: env(safe-area-inset-bottom, 0px);
   }
 
   .marquee-wrapper {
@@ -209,18 +218,36 @@
   }
 }
 
-/* MEDIA QUERY ESPECÍFICO PARA iOS SAFARI */
+/* MEDIA QUERY ESPECÍFICO PARA iOS SAFARI - CORREGIDO */
 @supports (-webkit-touch-callout: none) {
   .welcome-section {
-    /* Altura específica para iOS Safari */
-    height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-    min-height: calc(100vh - 120px); /* Fallback si env() no funciona */
+    /* Altura más conservadora para iOS */
+    height: 100vh;
+    height: 100dvh;
+    /* Padding top que respete la navbar y las safe areas */
+    padding-top: max(80px, calc(env(safe-area-inset-top, 0px) + 60px));
   }
   
   @media (max-width: 768px) {
     .welcome-section {
-      height: calc(100dvh - env(safe-area-inset-top) - 60px);
-      padding-top: max(env(safe-area-inset-top), 80px);
+      /* Altura específica para iOS móvil */
+      height: 100vh;
+      height: 100dvh;
+      /* Padding top mejorado para iOS móvil */
+      padding-top: max(100px, calc(env(safe-area-inset-top, 0px) + 80px));
+      /* Asegurar que el contenido no se corte */
+      box-sizing: border-box;
+    }
+    
+    .hero-container {
+      /* Ajuste específico para iOS */
+      margin-top: 0;
+      padding-top: 2rem;
+    }
+    
+    .destinations-marquee {
+      /* Ajuste para la parte inferior en iOS */
+      bottom: max(0px, env(safe-area-inset-bottom, 0px));
     }
   }
 }
