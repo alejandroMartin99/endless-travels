@@ -21,7 +21,7 @@ import { ImagePopupComponent } from '../components/image-popup/image-popup.compo
 import { InitJapanComponent } from './destinations/japan/components/inicio/init-japan.component';
 import { JapanPriceComponent } from './destinations/japan/components/price/price.component';
 import { JapanCalendarComponent } from './destinations/japan/components/itinerary/JapanCalendar/JapanCalendar.component';
-
+import { PragaItineraryComponent } from './destinations/pragabudapest/components/itinerary/praga_itinerary.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,10 @@ import { JapanCalendarComponent } from './destinations/japan/components/itinerar
     ImagePopupComponent,
     InitJapanComponent,
     JapanPriceComponent,
-    JapanCalendarComponent
+    JapanCalendarComponent,
+    PragaItineraryComponent
+    
+    
     
   ],
   imports: [

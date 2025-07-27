@@ -1,0 +1,274 @@
+/* Contenedor principal */
+.content-container {
+    padding: 0px 200px;
+  }
+  
+  .calendar-container {
+      padding: 0px 200px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+  }
+  
+  .zone-header {
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .zone-banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+  
+  .zone-title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  
+  .zone-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos bajen en móvil */
+    justify-content: center;
+    gap: 10px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 90%;
+    color: white;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 1.3rem;
+  }
+  
+  .info-item i {
+    font-size: 1.3rem;
+  }
+  
+  /* Espaciado entre secciones principales */
+  .zone-header {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .subzone-banner {
+    width: 60px; /* Controlar el ancho del banner */
+    height: 60px; /* Altura proporcional */
+    margin-right: 20px; /* Espaciado a la derecha */
+    background-color: #1a237e; /* Color del banner */
+    position: relative; /* Necesario para crear la flecha */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .subzone-banner::after {
+    content: ''; /* Crea un pseudo-elemento para la flecha */
+    position: absolute;
+    bottom: -15px; /* Mueve la flecha hacia abajo */
+    left: 50%; /* Centra la flecha */
+    transform: translateX(-50%); /* Ajusta el centro */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Flecha */
+    border-right: 10px solid transparent;
+    border-top: 10px solid #1a237e; /* Color de la flecha */
+  }
+  
+  .subzone-banner img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .subzone-content {
+    flex: 1;
+    margin: 15px 0 20px 20px;
+  }
+  
+  .subzone-content h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1a237e;
+    font-weight: 600;
+  }
+  
+  .subzone-content p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
+    color: #777;
+    line-height: 1.5;
+  }
+  
+  .subzone-container {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ancho completo del contenedor */
+    padding: 5px 0px; /* Ajuste en el padding */
+  }
+  
+  
+  .intro-columns {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    
+  }
+  
+  .intro-left {
+    flex: 1 1 45%;
+  }
+  
+  .intro-right {
+    flex: 1 1 45%;
+    align-items: flex-start;
+    padding: 32px 24px 24px 24px;
+  }
+  
+  .intro-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .intro-right li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+    font-size: 1rem;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  
+  .intro-right mat-icon {
+    font-size: 1.5rem;
+    color: #1a237e;
+  }
+  
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 0px 5px; /* Reducimos el padding lateral */
+      overflow-x: hidden; 
+    }
+  
+    .calendar-container {
+      padding: 0px 5px; 
+      overflow-x: hidden; 
+  
+    }
+  
+    .zone-banner {
+      height: 150px; /* Menor altura para banners */
+    }
+  
+    .zone-title {
+      font-size: 2.2rem; /* Tamaño de fuente más pequeño */
+      top: 0%; /* Alineación más centrada en pantallas pequeñas */
+    }
+  
+    .zone-info {
+      display: flex;
+      flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
+      justify-content: center;
+      gap: 10px; /* Espacio entre los elementos */
+      width: 80%;
+      overflow-x: hidden; /* Prevenir scroll horizontal */
+      margin-bottom: 5px;
+    }
+  
+    .info-item {
+      font-size: 0.9rem; /* Tamaño más cómodo para móviles */
+      justify-content: center;
+    }
+  
+    .info-item i {
+      font-size: 1rem;
+    }
+    .info-item .custom-icon {
+      font-size: 1.3rem; /* Igual para ambos */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      color: white;
+    }
+  
+  
+  
+    .subzone-container {
+      flex-direction: column; /* Apila imagen y contenido */
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .subzone-banner {
+      width: 100%; /* Ocupar todo el ancho */
+      height: auto;
+      border-radius: 8px;
+    }
+  
+    .subzone-banner::after {
+      display: none; /* Oculta la flechita decorativa */
+    }
+  
+    .subzone-content {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .subzone-content h3 {
+      font-size: 1rem;
+    }
+  
+    .subzone-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .intro-columns {
+      flex-direction: column;
+      gap: 18px;
+      padding: 20px 16px;
+    }
+    .intro-left, .intro-right {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+    .intro-right {
+      padding: 0;
+    }
+    .intro-right li {
+      justify-content: flex-start;
+      text-align: left;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .intro-right mat-icon {
+      font-size: 1.2rem;
+      min-width: 20px;
+    }
+  }
+  
