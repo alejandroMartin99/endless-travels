@@ -5,9 +5,7 @@
 }
 
 .welcome-section {
-  /* Altura base con fallback */
   height: 100vh;
-  height: 100dvh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -15,10 +13,7 @@
   background: url('/assets/landing/minimal_japan.jpg') no-repeat center center/cover;
   animation: fadeIn 1.5s ease;
   position: relative;
-  /* Padding top para evitar que la navbar tape el contenido */ 
-  padding-top: 80px; /* Ajusta este valor según la altura de tu navbar */
-  /* Ajuste para safe area en dispositivos con notch */
-  padding-top: max(80px, env(safe-area-inset-top, 20px) + 60px);
+  padding-top: 80px; /* Espacio para navbar */
 }
 
 .welcome-section h1 {
@@ -35,11 +30,12 @@
 }
 
 .hero-container {
-  margin-top: -500px;
-  gap: 0;
-  z-index: 1;
-  /* Ajuste para móviles */
-  position: relative;
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 90%;
+  margin-top: -300px;
 }
 
 .destinations-marquee {
@@ -48,10 +44,9 @@
   width: 100%;
   overflow: hidden;
   position: absolute;
-  bottom: 0;
+  bottom: 0; /* Lo coloca al final de la sección welcome */
   left: 0;
-  transform: translateY(-100px);
-  z-index: 2;
+  transform: translateY(-100px); /* Lo mueve 100px hacia arriba */
 }
 
 .destinations-marquee::before,
@@ -108,147 +103,6 @@
   }
   100% {
     transform: translateX(-50%);
-  }
-}
-
-/* MEDIA QUERIES PARA MÓVILES */
-@media (max-width: 768px) {
-  /* ANIMACIONES */
-  @keyframes zoomInBackground {
-    0% {transform: scale(1.1);opacity: 0;}
-    100% {transform: scale(1);opacity: 1;}
-  }
-
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* WELCOME SECTION MÓVIL */
-  .welcome-section {
-    /* Altura ajustada para móviles */
-    height: 100vh;
-    height: 100dvh;
-    /* Ajuste específico para tener en cuenta la navbar */
-    min-height: calc(100vh - 120px);
-    min-height: calc(100dvh - 120px);
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-    animation: zoomInBackground 2s ease-out forwards;
-    
-    /* Padding top más específico para móviles */
-    padding-top: 100px; /* Ajusta según tu navbar */
-    /* Con soporte para safe area */
-    padding-top: max(100px, calc(env(safe-area-inset-top, 0px) + 80px));
-  }
-
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.1rem;
-    padding: 1rem;
-    border-radius: 10px;
-    max-width: 90%;
-    z-index: 1;
-    /* Centrado mejorado */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-title {
-    font-size: 0.5em;
-    line-height: 1.3;
-    color: #000;
-    opacity: 0;
-    animation: fadeSlideUp 1s ease-out 0.5s forwards;
-  }
-
-  .hero-subtitle {
-    display: none;
-  }
-
-  /* Destinations marquee móvil */
-  .destinations-marquee {
-    padding: 1rem 0;
-    overflow: hidden;
-    z-index: 2;
-    /* Posición ajustada para móviles */
-    bottom: env(safe-area-inset-bottom, 0px);
-  }
-
-  .marquee-wrapper {
-    display: flex;
-    white-space: nowrap;
-    animation: scroll 20s linear infinite;
-  }
-
-  .marquee-content span {
-    margin-right: 2rem;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  .destination-cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .destination-card {
-    width: 90%;
-  }
-
-  .destination-info h3 {
-    font-size: 1.5em;
-  }
-
-  .destination-info p {
-    font-size: 1em;
-  }
-}
-
-/* MEDIA QUERY ESPECÍFICO PARA iOS SAFARI - CORREGIDO */
-@supports (-webkit-touch-callout: none) {
-  .welcome-section {
-    /* Altura más conservadora para iOS */
-    height: 100vh;
-    height: 100dvh;
-    /* Padding top que respete la navbar y las safe areas */
-    padding-top: max(80px, calc(env(safe-area-inset-top, 0px) + 60px));
-  }
-  
-  @media (max-width: 768px) {
-    .welcome-section {
-      /* Altura específica para iOS móvil */
-      height: 100vh;
-      height: 100dvh;
-      /* Padding top mejorado para iOS móvil */
-      padding-top: max(100px, calc(env(safe-area-inset-top, 0px) + 80px));
-      /* Asegurar que el contenido no se corte */
-      box-sizing: border-box;
-    }
-    
-    .hero-container {
-      /* Ajuste específico para iOS */
-      margin-top: 0;
-      padding-top: 2rem;
-    }
-    
-    .destinations-marquee {
-      /* Ajuste para la parte inferior en iOS */
-      bottom: max(0px, env(safe-area-inset-bottom, 0px));
-    }
   }
 }
 
@@ -309,8 +163,14 @@
   color: #666;
 }
 
-/* Responsividad para móviles */
+/* MEDIA QUERIES PARA MÓVILES - SIMPLIFICADO */
 @media (max-width: 768px) {
+  .welcome-section {
+    height: 100vh;
+    padding-top: 100px; /* Más espacio para navbar en móvil */
+    justify-content: space-between;
+  }
+
   .welcome-section h1 {
     font-size: 2.8em;
   }
@@ -320,18 +180,67 @@
     margin-bottom: -20px;
   }
 
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: -200px;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 90%;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5em;
+    line-height: 1.3;
+    color: #1a237e;
+    font-weight: bold;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+    color: #1a237e;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .destinations-marquee {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem 0;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-100px);
+  }
+
+  .marquee-wrapper {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+  }
+
+  .marquee-content span {
+    margin-right: 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
   .destinations-section h2 {
     font-size: 2em;
   }
 
   .destination-cards {
     flex-direction: column;
-    gap: 20px;
     align-items: center;
+    gap: 1.5rem;
   }
 
   .destination-card {
-    width: 100%;
+    width: 90%;
   }
 
   .destination-info h3 {
@@ -348,5 +257,12 @@
 
   .marquee-content {
     gap: 2rem;
+  }
+}
+
+/* AJUSTE ESPECÍFICO PARA IPHONE */
+@media (max-width: 480px) {
+  .welcome-section {
+    padding-top: 120px; /* Más espacio para iPhone */
   }
 }
