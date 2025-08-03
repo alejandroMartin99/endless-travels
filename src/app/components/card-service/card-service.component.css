@@ -477,6 +477,12 @@ mat-expansion-panel {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+  
+  /* Ajustar posicionamiento del modal para evitar solapamiento con navbar */
+  .mobile-modal {
+    align-items: flex-start;
+    padding-top: 80px; /* Espacio para el navbar */
+  }
 }
 
 @media (max-width: 480px) {
@@ -531,6 +537,11 @@ mat-expansion-panel {
     font-size: 18px;
     width: 18px;
     height: 18px;
+  }
+  
+  /* Más espacio para el navbar en pantallas muy pequeñas */
+  .mobile-modal {
+    padding-top: 100px;
   }
 }
 

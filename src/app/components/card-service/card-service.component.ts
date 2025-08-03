@@ -49,6 +49,7 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   private markers: mapboxgl.Marker[] = [];
   private mobileMarkers: mapboxgl.Marker[] = [];
   private mapResizeObserver: ResizeObserver | null = null;
+  private scrollPosition = 0;
 
   ngAfterViewInit(): void {
     // Configurar el token de Mapbox
@@ -252,13 +253,22 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     // Verificar que estamos en el navegador antes de acceder a document
     if (typeof document !== 'undefined') {
       if (disable) {
+        // Guardar la posición actual del scroll
+        this.scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
+        document.body.style.top = `-${this.scrollPosition}px`;
       } else {
+        // Restaurar el scroll
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
+        document.body.style.top = '';
+        
+        // Restaurar la posición de scroll
+        window.scrollTo(0, this.scrollPosition);
       }
     }
   }
