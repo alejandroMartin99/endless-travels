@@ -1,0 +1,111 @@
+<!-- Main Content -->
+<div class="landing-container">
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="hero-container">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Descubre Tu Próxima Aventura</h1>
+        <p class="hero-subtitle">
+          Explora destinos inolvidables, con guías detalladas, itinerarios interactivos y recomendaciones exclusivas.
+        </p>
+      </div>
+        <landing-styled-button></landing-styled-button>
+    </div>
+
+    <!-- Destinations Showcase -->
+    <div class="destinations-marquee">
+      <div class="marquee-wrapper">
+        <div class="marquee-content">
+          <span>JAPÓN</span>
+          <span>NORUEGA</span>
+          <span>PRAGA - BRATISLAVA - BUDAPEST</span>
+          <span>COPENHAGUE</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>JAPÓN</span>
+          <span>NORUEGA</span>
+          <span>PRAGA - BRATISLAVA - BUDAPEST</span>
+          <span>COPENHAGUE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Section -->
+  <section class="destinations-section" id="destinations">
+    <h2>Explora Nuestros Destinos Destacados</h2>
+
+    <p>
+      Explora el mundo a través de nuestras guías de viaje cuidadosamente seleccionadas.
+      Descubre destinos emocionantes, sumérgete en experiencias únicas y deja que tu
+      viaje comience aquí. Para cada destino encontrarás información útil, consejos de viaje , recomendaciones, un itinerario personalizado con un mapa interactivo y muchas cosas más !!!
+    </p>
+    
+    <div class="destination-cards">
+      <!-- Destination: Japan -->
+      <a [routerLink]="['./destinations/japan']" class="destination-card">
+        <img src="/assets/japan/landing_card_japan.jpg" alt="Japan" class="destination-image">
+        <div class="destination-info">
+          <h3>Japón</h3>
+          <p>
+            Embárcate en un viaje inolvidable por la tierra del sol naciente.
+            Experimenta la mezcla de modernidad y tradición en ciudades como Tokio y Kioto.
+          </p>
+        </div>
+      </a>
+
+      <!-- Destination: Hungary -->
+      <a [routerLink]="['./destinations/pragabudapest']" class="destination-card">
+        <img src="assets/budapest/landing_card_praga.jpg" alt="Hungary" class="destination-image">
+        <div class="destination-info">
+          <h3>Praga - Bratislava - Budapest</h3>
+          <p>
+            Sumérgete en el corazón de Europa Central. Recorre las calles de Praga, descubre Bratislava y explora Budapest, donde la majestuosidad de sus edificios y su vibrante vida urbana te cautivarán.
+          </p>
+        </div>
+      </a>
+
+      <!-- Destination: Polonia -->
+      <a [routerLink]="['./destinations/polonia']" class="destination-card">
+        <img src="/assets/polonia/landing_card_polonia.jpg" alt="Polonia" class="destination-image">
+        <div class="destination-info">
+          <h3>Polonia</h3>
+          <p>
+            Explora la rica historia y cultura de Polonia, desde la medieval Cracovia hasta la vibrante Varsovia.
+            Descubre castillos centenarios, la emotiva historia de Auschwitz y mucho más.
+          </p>
+        </div>
+      </a>
+
+      <!-- Destination: Norgen -->
+      <a [routerLink]="['./destinations/norge']" class="destination-card">
+        <img src="/assets/norge/norge_landing.jpg" alt="Norge" class="destination-image">
+        <div class="destination-info">
+          <h3>Norge</h3>
+          <p>
+            Descubre la majestuosa belleza de los fiordos noruegos y las auroras boreales.
+            Desde Bergen hasta las islas Lofoten, experimenta paisajes épicos, cultura vikinga y la magia del sol de medianoche.
+          </p>
+        </div>
+      </a>
+
+      <!-- Destination: Copenhagen -->
+      <a [routerLink]="['./destinations/copenhague']" class="destination-card">
+        <img src="/assets/copenaghen/landing_card_copenague.jpg" alt="Copenhagen" class="destination-image">
+        <div class="destination-info">
+          <h3>Copenhague</h3>
+          <p>
+            Sumérgete en la vibrante cultura de la capital de Dinamarca.
+            Desde el colorido distrito de Nyhavn hasta la cocina innovadora, Copenhague es una ciudad de inspiración.
+          </p>
+        </div>
+      </a>
+
+      
+
+      <!-- Placeholder for more destinations -->
+      <div class="destination-placeholder"></div>
+    </div>
+  </section>
+</div>
