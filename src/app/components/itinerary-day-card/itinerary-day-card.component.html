@@ -122,12 +122,15 @@
     <div class="modal-content" (click)="$event.stopPropagation()">
       <div class="modal-header">
         <h3>{{ day.activities[currentActivityIndex].name }}</h3>
-        <button class="close-btn" (click)="toggleDescription()">
-          <mat-icon>close</mat-icon>
-        </button>
       </div>
       <div class="modal-body">
         <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="close-btn-bottom" (click)="toggleDescription()">
+          <mat-icon>close</mat-icon>
+          <span>Cerrar</span>
+        </button>
       </div>
     </div>
   </div>
@@ -137,9 +140,6 @@
     <div class="modal-content gallery-modal" (click)="$event.stopPropagation()">
       <div class="modal-header">
         <h3>Galería - {{ day.activities[currentActivityIndex].name }}</h3>
-        <button class="close-btn" (click)="toggleGallery()">
-          <mat-icon>close</mat-icon>
-        </button>
       </div>
       <div class="modal-body">
         <div class="gallery-container">
@@ -162,6 +162,12 @@
             </button>
           </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button class="close-btn-bottom" (click)="toggleGallery()">
+          <mat-icon>close</mat-icon>
+          <span>Cerrar</span>
+        </button>
       </div>
     </div>
   </div>

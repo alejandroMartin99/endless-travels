@@ -49,18 +49,33 @@ export class ItineraryDayCardComponent implements OnDestroy {
     if (this.mobileMap) {
       this.mobileMap.remove();
     }
+    this.toggleBodyScroll(false);
   }
 
   isDescriptionVisible = false;
-  
+
   toggleDescription(): void {
     this.isDescriptionVisible = !this.isDescriptionVisible;
+    this.toggleBodyScroll(this.isDescriptionVisible);
   }
 
   isGalleryVisible = false;
 
   toggleGallery(): void {
     this.isGalleryVisible = !this.isGalleryVisible;
+    this.toggleBodyScroll(this.isGalleryVisible);
+  }
+
+  private toggleBodyScroll(disable: boolean): void {
+    if (disable) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
   }
 
   onPanelStateChange(isOpen: boolean): void {
