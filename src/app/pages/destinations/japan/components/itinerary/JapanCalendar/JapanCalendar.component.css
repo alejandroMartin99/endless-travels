@@ -213,7 +213,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 8px;
         padding: 10px;
-        overflow-y: auto;
+        overflow: visible;
     }
 
     .timeline-item {

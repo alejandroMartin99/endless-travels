@@ -30,24 +30,29 @@ export class ItineraryDayCardComponent implements OnDestroy {
   @Input() day!: Day;
   @Input() borderClass: string = '';
   @ViewChild('map', { static: false }) mapContainer!: ElementRef;
+  @ViewChild('mobileMap', { static: false }) mobileMapContainer!: ElementRef;
 
   panelOpenState = false;
   currentActivityIndex = 0;
   currentImageIndex = 0;
   private map!: mapboxgl.Map;
+  private mobileMap!: mapboxgl.Map;
   private markers: mapboxgl.Marker[] = [];
+  private mobileMarkers: mapboxgl.Marker[] = [];
   private isMapInitialized = false;
+  private isMobileMapInitialized = false;
 
   ngOnDestroy(): void {
-    // Limpia el mapa al destruir el componente
     if (this.map) {
       this.map.remove();
+    }
+    if (this.mobileMap) {
+      this.mobileMap.remove();
     }
   }
 
   isDescriptionVisible = false;
   
-  // Añade este nuevo método
   toggleDescription(): void {
     this.isDescriptionVisible = !this.isDescriptionVisible;
   }
@@ -58,12 +63,11 @@ export class ItineraryDayCardComponent implements OnDestroy {
     this.isGalleryVisible = !this.isGalleryVisible;
   }
 
-
-
   onPanelStateChange(isOpen: boolean): void {
     console.log('Estado del panel:', isOpen);
     if (isOpen) {
       this.initializeMap();
+      this.initializeMobileMap();
     }
   }
 
@@ -72,9 +76,7 @@ export class ItineraryDayCardComponent implements OnDestroy {
       return;
     }
     
-    // Set the access token
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
     
     const firstActivity = this.day.activities[0];
     if (!firstActivity) {
@@ -90,50 +92,117 @@ export class ItineraryDayCardComponent implements OnDestroy {
     });
 
     this.map.on('load', () => {
-      this.addMarkers();
-      this.rescaleMap();
+      this.addMarkers(this.map, this.markers);
+      this.adjustBounds(this.map);
     });
 
     this.isMapInitialized = true;
   }
 
+  private initializeMobileMap(): void {
+    if (this.isMobileMapInitialized || !this.mobileMapContainer?.nativeElement) {
+      return;
+    }
+    
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+    
+    const firstActivity = this.day.activities[0];
+    if (!firstActivity) {
+      return;
+    }
 
-  private addMarkers(): void {
+    this.mobileMap = new mapboxgl.Map({
+      container: this.mobileMapContainer.nativeElement,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [firstActivity.longitude, firstActivity.latitude],
+      zoom: 12,
+    });
+
+    this.mobileMap.on('load', () => {
+      this.addMarkers(this.mobileMap, this.mobileMarkers);
+      this.adjustBounds(this.mobileMap);
+    });
+
+    this.isMobileMapInitialized = true;
+  }
+
+  private addMarkers(map: mapboxgl.Map, markers: mapboxgl.Marker[]): void {
+    // Limpiar marcadores existentes
+    markers.forEach(marker => marker.remove());
+    markers.length = 0;
+
     this.day.activities.forEach((activity, index) => {
-      const color = index === this.currentActivityIndex ? 'red' : 'blue';
-  
-      // Eliminar los marcadores anteriores si ya existen
-      if (this.markers[index]) {
-        this.markers[index].remove();
-      }
-  
-      const marker = new mapboxgl.Marker({ color })
+      const marker = new mapboxgl.Marker({
+        color: index === this.currentActivityIndex ? '#f44336' : '#1a237e',
+        scale: index === this.currentActivityIndex ? 1.2 : 1
+      })
         .setLngLat([activity.longitude, activity.latitude])
-        .addTo(this.map);
-  
-      // Almacenar el marcador en el arreglo local
-      this.markers[index] = marker;
+        .addTo(map);
+
+      markers.push(marker);
     });
   }
 
-  private adjustBounds(): void {
+  private adjustBounds(map: mapboxgl.Map): void {
+    if (this.day.activities.length === 0) return;
+
     const bounds = new mapboxgl.LngLatBounds();
-    this.day.activities.forEach(activity => bounds.extend([activity.longitude, activity.latitude]));
-    this.map.fitBounds(bounds, { padding: 50, duration: 2000, animate: true });
+    this.day.activities.forEach(activity => {
+      bounds.extend([activity.longitude, activity.latitude]);
+    });
+
+    map.fitBounds(bounds, {
+      padding: 50,
+      maxZoom: 15
+    });
   }
 
   selectActivity(index: number): void {
-    if (this.currentActivityIndex !== index) {
-      this.currentActivityIndex = index;
-      this.currentImageIndex = 0;
-      const activity = this.day.activities[index];
+    if (index < 0 || index >= this.day.activities.length) return;
+    
+    this.currentActivityIndex = index;
+    this.currentImageIndex = 0;
+    
+    const activity = this.day.activities[index];
+    
+    // Actualizar mapas
+    if (this.map) {
       this.map.flyTo({
         center: [activity.longitude, activity.latitude],
-        essential: true,
-        zoom: 13
+        zoom: 14,
+        duration: 1000
       });
-      this.addMarkers();
+      this.updateMarkers(this.map, this.markers);
     }
+    
+    if (this.mobileMap) {
+      this.mobileMap.flyTo({
+        center: [activity.longitude, activity.latitude],
+        zoom: 14,
+        duration: 1000
+      });
+      this.updateMarkers(this.mobileMap, this.mobileMarkers);
+    }
+  }
+
+  private updateMarkers(map: mapboxgl.Map, markers: mapboxgl.Marker[]): void {
+    markers.forEach((marker, index) => {
+      const color = index === this.currentActivityIndex ? '#f44336' : '#1a237e';
+      const scale = index === this.currentActivityIndex ? 1.2 : 1;
+      
+      // Remove the old marker and create a new one with the updated color
+      marker.remove();
+      
+      const newMarker = new mapboxgl.Marker({
+        color: color,
+        scale: scale
+      })
+        .setLngLat([this.day.activities[index].longitude, this.day.activities[index].latitude])
+        .addTo(map);
+      
+      // Replace the marker in the array
+      markers[index] = newMarker;
+    });
   }
 
   changeActivity(delta: number): void {
@@ -144,24 +213,36 @@ export class ItineraryDayCardComponent implements OnDestroy {
   }
 
   changeImage(delta: number): void {
-    const newIndex = this.currentImageIndex + delta;
     const currentActivity = this.day.activities[this.currentActivityIndex];
+    const newIndex = this.currentImageIndex + delta;
+    
     if (newIndex >= 0 && newIndex < currentActivity.images.length) {
       this.currentImageIndex = newIndex;
     }
   }
 
   private debounce(func: () => void, wait: number): () => void {
-    let timeout: number | null = null;
-    return () => {
-      if (timeout) {
-        cancelAnimationFrame(timeout);
-      }
-      timeout = requestAnimationFrame(() => func());
+    let timeout: any;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func();
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
     };
   }
 
   rescaleMap(): void {
-    this.adjustBounds();
+    const debouncedAdjustBounds = this.debounce(() => {
+      if (this.map) {
+        this.adjustBounds(this.map);
+      }
+      if (this.mobileMap) {
+        this.adjustBounds(this.mobileMap);
+      }
+    }, 100);
+
+    debouncedAdjustBounds();
   }
 }

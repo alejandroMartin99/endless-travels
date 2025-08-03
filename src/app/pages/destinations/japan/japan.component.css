@@ -1,7 +1,6 @@
 /* Contenedor principal */
 .content-container {
   padding: 0px 0px;
-  background: linear-gradient(to bottom, white, #f0f0f0);
 }
 
 
@@ -118,7 +117,6 @@
 @media (max-width: 1500px) {
   .content-container {
     padding: 0px 15px;
-    overflow-x: hidden; 
   }
 
   /* Transformación para móviles: Solo mostrar iconos en los tabs */

@@ -119,6 +119,351 @@ mat-expansion-panel {
   margin-left: auto;
 }
 
+/* Mobile Layout */
+.mobile-layout {
+  display: none;
+}
+
+/* Mobile Activity Header */
+.mobile-activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.activity-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.activity-counter {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.mobile-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Mobile Map Container */
+.mobile-map-container {
+  position: relative;
+  height: 300px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.mobile-map-container .activity-map {
+  height: 100%;
+  border-radius: 0;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.map-control-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-control-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+/* Mobile Navigation */
+.mobile-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.nav-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #0d47a1;
+  transform: scale(1.1);
+}
+
+.nav-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.mobile-activity-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-activity-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-activity-indicator.active {
+  background-color: #1a237e;
+  transform: scale(1.2);
+}
+
+.mobile-activity-indicator:hover {
+  background-color: #1976d2;
+}
+
+/* Mobile Modal */
+.mobile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 16px;
+}
+
+.mobile-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow: visible;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.mobile-modal.visible .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow: visible;
+}
+
+/* Gallery Modal Specific Styles */
+.gallery-modal .modal-body {
+  padding: 0;
+}
+
+.gallery-container {
+  position: relative;
+  height: 400px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 16px 16px;
+}
+
+.gallery-controls-mobile {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  border-radius: 0 0 16px 16px;
+}
+
+.gallery-nav-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-nav-btn:hover:not(:disabled) {
+  background: white;
+  transform: scale(1.1);
+}
+
+.gallery-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.image-counter {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Ocultar el layout original en móvil */
+  .activity-container,
+  .activity-navigation,
+  .controls-container {
+    display: none !important;
+  }
+  
+  .mobile-layout {
+    display: block;
+  }
+  
+  .activity-description {
+    overflow: visible;
+  }
+  
+  .modal-content {
+    overflow: visible;
+  }
+  
+  .modal-body {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-activity-header {
+    padding: 12px;
+  }
+  
+  .activity-info h3 {
+    font-size: 16px;
+  }
+  
+  .mobile-map-container {
+    height: 250px;
+  }
+  
+  .mobile-navigation {
+    padding: 12px;
+  }
+  
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .modal-content {
+    margin: 8px;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .modal-body {
+    padding: 16px;
+  }
+}
+
 /* Ajustes responsivos */
 @media (max-width: 800px) {
   .activity-container {
@@ -226,4 +571,20 @@ mat-expansion-panel {
     word-wrap: break-word; /* Asegura que el texto se ajuste a la línea */
     text-align: left;
   }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-modal.visible .modal-content {
+  animation: fadeIn 0.3s ease;
 }
