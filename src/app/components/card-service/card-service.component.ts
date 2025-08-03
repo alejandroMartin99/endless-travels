@@ -85,6 +85,7 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.cleanupMap();
+    this.toggleBodyScroll(false); // Restaurar el scroll del body al destruir el componente
   }
 
   private cleanupMap(): void {
@@ -239,9 +240,23 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
 
   toggleDescription(): void {
     this.isDescriptionVisible = !this.isDescriptionVisible;
+    this.toggleBodyScroll(this.isDescriptionVisible);
   }
 
   toggleGallery(): void {
     this.isGalleryVisible = !this.isGalleryVisible;
+    this.toggleBodyScroll(this.isGalleryVisible);
+  }
+
+  private toggleBodyScroll(disable: boolean): void {
+    if (disable) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
   }
 }
