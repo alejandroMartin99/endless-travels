@@ -1,64 +1,127 @@
-<mat-sidenav-container mode="over" class="sidenav-container">
-  <mat-sidenav #sidenav mode="push" class="sidenav">
-    <mat-toolbar class="sidenav-toolbar" color="primary">
-      <span class="toolbar-title">Menú</span>
-      <span class="spacer"></span>
-      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar>
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <div class="navbar-brand">
+      <a routerLink="/" class="brand-link">
+        <span class="brand-text">Endless Travels</span>
+      </a>
+    </div>
 
-    <mat-nav-list>
-      <mat-list-item [routerLink]="['']" (click)="sidenav.toggle()" class="menu-item">
-        <mat-icon class="large-icon">home</mat-icon>
-        <span class="large-text">Inicio</span>
-      </mat-list-item>
+    <!-- Desktop Navigation -->
+    <div class="navbar-menu desktop-menu">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+        <mat-icon>home</mat-icon>
+        <span>Inicio</span>
+      </a>
+      
+      <!-- Destinations Dropdown -->
+      <div class="dropdown">
+        <button class="dropdown-toggle" (click)="toggleDestinationsDropdown()">
+          <mat-icon>explore</mat-icon>
+          <span>Destinos</span>
+          <mat-icon class="dropdown-arrow" [class.rotated]="isDestinationsOpen">expand_more</mat-icon>
+        </button>
+        <div class="dropdown-menu" [class.show]="isDestinationsOpen">
+          <div class="dropdown-section">
+            <h4>Asia</h4>
+            <a routerLink="/destinations/japan" class="dropdown-item" (click)="closeDropdowns()">
+              <mat-icon>flag</mat-icon>
+              <span>Japón</span>
+            </a>
+          </div>
+          <div class="dropdown-section">
+            <h4>Europa</h4>
+            <a routerLink="/destinations/pragabudapest" class="dropdown-item" (click)="closeDropdowns()">
+              <mat-icon>flag</mat-icon>
+              <span>Praga - Budapest</span>
+            </a>
+            <a routerLink="/destinations/copenhague" class="dropdown-item" (click)="closeDropdowns()">
+              <mat-icon>flag</mat-icon>
+              <span>Copenhague</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-      <mat-divider></mat-divider>
+      <a routerLink="/about" routerLinkActive="active" class="nav-link">
+        <mat-icon>help_outline</mat-icon>
+        <span>Info</span>
+      </a>
+      
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+        <mat-icon>person</mat-icon>
+        <span>Contacto</span>
+      </a>
+    </div>
 
-      <mat-expansion-panel *ngFor="let item of sidebarItems" class="continent-panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon class="large-icon">{{ item.icon }}</mat-icon>
-            <span class="large-text">{{ item.label }}</span>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <mat-list-item *ngFor="let subItem of item.subItems" 
-            [routerLink]="subItem.url" 
-            class="sublabel-text" 
-            (click)="sidenav.toggle()">
-          <mat-icon class="destination-icon">{{ subItem.icon }}</mat-icon>
-          <span>{{ subItem.label }}</span>
-        </mat-list-item>
-      </mat-expansion-panel>
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-toolbar class="main-toolbar" [ngClass]="{'fixed-toolbar': !sidenav.opened}">
-    <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
-      <mat-icon>menu</mat-icon>
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen" aria-label="Toggle mobile menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
     </button>
-    <span class="toolbar-title">Explora el Mundo</span>
-    
-    <!-- Spacer para empujar los elementos hacia la derecha -->
-    <span class="spacer_info"></span>
-
-    <!-- Botón de información, colocado a la derecha -->
-    <button mat-icon-button class="nav-button" routerLink="/about" aria-label="Info">
-      <mat-icon>help_outline</mat-icon>
-    </button>
-
-    <button mat-icon-button class="nav-button" routerLink="/contact" aria-label="Contact">
-      <mat-icon>person</mat-icon>
-    </button>
-
-  </mat-toolbar>
-
-  <div class="router-outlet-container">
-    <router-outlet></router-outlet>
   </div>
 
-  <!-- <app-footer></app-footer> -->
+  <!-- Mobile Navigation -->
+  <div class="mobile-menu" [class.show]="isMobileMenuOpen">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">Menú</span>
+      <button class="mobile-menu-close" (click)="closeMobileMenu()" aria-label="Close menu">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    <div class="mobile-menu-content">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="mobile-nav-link" (click)="closeMobileMenu()">
+        <mat-icon>home</mat-icon>
+        <span>Inicio</span>
+      </a>
+      
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" (click)="toggleMobileDestinations()">
+          <mat-icon>explore</mat-icon>
+          <span>Destinos</span>
+          <mat-icon class="mobile-dropdown-arrow" [class.rotated]="isMobileDestinationsOpen">expand_more</mat-icon>
+        </button>
+        <div class="mobile-dropdown-menu" [class.show]="isMobileDestinationsOpen">
+          <div class="mobile-dropdown-section">
+            <h5>Asia</h5>
+            <a routerLink="/destinations/japan" class="mobile-dropdown-item" (click)="closeMobileMenu()">
+              <mat-icon>flag</mat-icon>
+              <span>Japón</span>
+            </a>
+          </div>
+          <div class="mobile-dropdown-section">
+            <h5>Europa</h5>
+            <a routerLink="/destinations/pragabudapest" class="mobile-dropdown-item" (click)="closeMobileMenu()">
+              <mat-icon>flag</mat-icon>
+              <span>Praga - Budapest</span>
+            </a>
+            <a routerLink="/destinations/copenhague" class="mobile-dropdown-item" (click)="closeMobileMenu()">
+              <mat-icon>flag</mat-icon>
+              <span>Copenhague</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <a routerLink="/about" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">
+        <mat-icon>help_outline</mat-icon>
+        <span>Info</span>
+      </a>
+      
+      <a routerLink="/contact" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">
+        <mat-icon>person</mat-icon>
+        <span>Contacto</span>
+      </a>
+    </div>
+  </div>
 
-</mat-sidenav-container>
+  <!-- Backdrop for mobile menu -->
+  <div class="mobile-backdrop" [class.show]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+</nav>
+
+<!-- Router outlet container -->
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
