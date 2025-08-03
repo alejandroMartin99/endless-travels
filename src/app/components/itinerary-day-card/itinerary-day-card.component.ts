@@ -133,7 +133,7 @@ export class ItineraryDayCardComponent implements OnDestroy {
 
     this.day.activities.forEach((activity, index) => {
       const marker = new mapboxgl.Marker({
-        color: index === this.currentActivityIndex ? '#1a237e' : '#666',
+        color: index === this.currentActivityIndex ? '#f44336' : '#1a237e',
         scale: index === this.currentActivityIndex ? 1.2 : 1
       })
         .setLngLat([activity.longitude, activity.latitude])
@@ -187,7 +187,7 @@ export class ItineraryDayCardComponent implements OnDestroy {
 
   private updateMarkers(map: mapboxgl.Map, markers: mapboxgl.Marker[]): void {
     markers.forEach((marker, index) => {
-      const color = index === this.currentActivityIndex ? '#1a237e' : '#666';
+      const color = index === this.currentActivityIndex ? '#f44336' : '#1a237e';
       const scale = index === this.currentActivityIndex ? 1.2 : 1;
       
       // Remove the old marker and create a new one with the updated color
