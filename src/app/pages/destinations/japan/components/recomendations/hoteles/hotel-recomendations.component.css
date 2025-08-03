@@ -126,7 +126,7 @@ mat-expansion-panel:hover {
 .text-container {
   flex: 1;
   height: 400px; /* Altura fija según requisito */
-  overflow-y: auto;
+  overflow: visible;
 }
 
 

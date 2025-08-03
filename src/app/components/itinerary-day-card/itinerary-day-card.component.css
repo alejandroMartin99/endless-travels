@@ -41,7 +41,7 @@ mat-expansion-panel {
   padding: 5px;
   box-sizing: border-box;
   max-height: 550px;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 /* Imagen */
@@ -353,7 +353,7 @@ mat-expansion-panel {
   width: 100%;
   max-width: 400px;
   max-height: 80vh;
-  overflow: hidden;
+  overflow: visible;
   transform: scale(0.9);
   transition: transform 0.3s ease;
 }
@@ -395,8 +395,7 @@ mat-expansion-panel {
 
 .modal-body {
   padding: 20px;
-  max-height: 60vh;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 /* Gallery Modal */
@@ -469,6 +468,18 @@ mat-expansion-panel {
     display: block;
   }
   
+  .activity-description {
+    overflow: visible;
+  }
+  
+  .modal-content {
+    overflow: visible;
+  }
+  
+  .modal-body {
+    overflow: visible;
+  }
+  
   mat-expansion-panel-header {
     display: flex;
     flex-wrap: wrap;
@@ -535,22 +546,4 @@ mat-expansion-panel {
 
 .mobile-modal.visible .modal-content {
   animation: fadeIn 0.3s ease;
-}
-/* Scrollbar personalizada */
-.modal-body::-webkit-scrollbar {
-  width: 4px;
-}
-
-.modal-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 2px;
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 2px;
-}
-
-.modal-body::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
 }
