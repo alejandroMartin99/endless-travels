@@ -1,16 +1,18 @@
-
+/* Landing Page Styles */
+.landing-container {
+  padding: 0px 0px 0px 0px;
+  background: linear-gradient(to bottom, white, #f0f0f0);
+  background: linear-gradient(to bottom, #ffffff, #e3e3e3);
+}
 .welcome-section {
-
-  position: relative;
-  background-image: url('/assets/landing/minimal_japan.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
   text-align: center;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;  /* Esto hace que se ponga en filas */
+  justify-content: center;
+  background: url('/assets/landing/minimal_japan.jpg') no-repeat center center/cover;
+  animation: fadeIn 1.5s ease;
+  position: relative;
 }
 .welcome-section h1 {
   font-size: 5em;
@@ -152,14 +154,138 @@
   margin: 0;
 }
 
-@media (max-width: 600px) {
-  html, body {
-    max-width: 100vw;
-    overflow-x: hidden !important;
+/* Responsividad */
+@media (max-width: 768px) {
+
+  /* ANIMACIONES */
+  @keyframes zoomInBackground {
+    0% {transform: scale(1.1);opacity: 0;}
+    100% {transform: scale(1);opacity: 1;}
   }
-  .landing-container {
-    max-width: 100vw;
-    overflow-x: hidden !important;
+
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* WELCOME SECTION */
+  .welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    animation: zoomInBackground 2s ease-out forwards;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.1rem;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .hero-title {
+    font-size: 0.5em;
+    line-height: 1.3;
+    color: #000;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease-out 0.5s forwards;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+    color: #1a237e;
+  }
+
+  /* Destinations marquee */
+  .destinations-marquee {
+    padding: 1rem 0;
+    overflow: hidden;
+  }
+
+  .marquee-wrapper {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+  }
+
+  .marquee-content span {
+    margin-right: 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+
+  }
+
+  .destination-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .destination-card {
+    width: 90%;
+  }
+
+  .destination-info h3 {
+    font-size: 1.5em;
+  }
+
+  .destination-info p {
+    font-size: 1em;
+  }
+
+
+  .welcome-section h1 {
+    font-size: 2.8em; /* Reduce el tamaño del título */
+  }
+
+  .welcome-section p {
+    font-size: 1.5em; /* Ajusta el tamaño del texto de bienvenida */
+    margin-bottom: -20px;
+  }
+
+
+
+  .destinations-section h2 {
+    font-size: 2em; /* Reduce el tamaño del título de destinos */
+  }
+
+  .destination-cards {
+    flex-direction: column; /* Cambia el diseño a columna */
+    gap: 20px; /* Ajusta el espacio entre tarjetas */
+    align-items: center; /* Centra las tarjetas */
+  }
+
+  .destination-card {
+    width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
+/* Tamaño máximo para evitar estiramientos excesivos */
+  }
+
+  .destination-info h3 {
+    font-size: 1.5em; /* Reduce el tamaño del título en la tarjeta */
+  }
+
+  .destination-info p {
+    font-size: 1em; /* Reduce el tamaño del texto en la tarjeta */
+  }
+
+  .marquee-content span {
+    font-size: 1.8rem;
   }
   
+
+
+  
+  .marquee-content {
+    gap: 2rem;
+  }
 }
