@@ -37,11 +37,17 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   @Input() day!: Day;
   @Input() borderClass: string = '';
   @ViewChild('map') mapContainer!: ElementRef;
+  @ViewChild('mobileMap') mobileMapContainer!: ElementRef;
 
   currentActivityIndex = 0;
   currentImageIndex = 0;
+  isDescriptionVisible = false;
+  isGalleryVisible = false;
+  
   private map!: mapboxgl.Map;
+  private mobileMap!: mapboxgl.Map;
   private markers: mapboxgl.Marker[] = [];
+  private mobileMarkers: mapboxgl.Marker[] = [];
   private mapResizeObserver: ResizeObserver | null = null;
 
   ngAfterViewInit(): void {
@@ -52,6 +58,7 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     // Inicializar el mapa con un pequeño retraso para asegurar que el DOM esté listo
     setTimeout(() => {
       this.initializeMap();
+      this.initializeMobileMap();
     }, 100);
   }
 
@@ -71,6 +78,7 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
       this.currentImageIndex = 0;
       setTimeout(() => {
         this.initializeMap();
+        this.initializeMobileMap();
       }, 100);
     }
   }
@@ -78,16 +86,22 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.cleanupMap();
   }
+
   private cleanupMap(): void {
     if (this.map) {
       this.map.remove();
+    }
+    if (this.mobileMap) {
+      this.mobileMap.remove();
     }
     if (this.mapResizeObserver) {
       this.mapResizeObserver.disconnect();
       this.mapResizeObserver = null;
     }
     this.markers.forEach(marker => marker.remove());
+    this.mobileMarkers.forEach(marker => marker.remove());
     this.markers = [];
+    this.mobileMarkers = [];
   }
 
   private initializeMap(): void {
@@ -103,9 +117,27 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     });
 
     this.map.on('load', () => {
-      this.addMarkers();
-      this.adjustBounds();
+      this.addMarkers(this.map, this.markers);
+      this.adjustBounds(this.map);
       this.setupResizeObserver();
+    });
+  }
+
+  private initializeMobileMap(): void {
+    if (!this.mobileMapContainer?.nativeElement || !this.day?.activities?.length) return;
+
+    const firstActivity = this.day.activities[0];
+
+    this.mobileMap = new mapboxgl.Map({
+      container: this.mobileMapContainer.nativeElement,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [firstActivity.longitude, firstActivity.latitude],
+      zoom: 12,
+    });
+
+    this.mobileMap.on('load', () => {
+      this.addMarkers(this.mobileMap, this.mobileMarkers);
+      this.adjustBounds(this.mobileMap);
     });
   }
 
@@ -123,23 +155,24 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     this.mapResizeObserver.observe(this.mapContainer.nativeElement);
   }
 
-  
-
-  private addMarkers(): void {
-    this.markers.forEach(marker => marker.remove());
-    this.markers = [];
+  private addMarkers(map: mapboxgl.Map, markers: mapboxgl.Marker[]): void {
+    markers.forEach(marker => marker.remove());
+    markers.length = 0;
 
     this.day.activities.forEach((activity, index) => {
-      const color = index === this.currentActivityIndex ? 'red' : 'blue';
-      const marker = new mapboxgl.Marker({ color })
+      const color = index === this.currentActivityIndex ? '#f44336' : '#1a237e';
+      const marker = new mapboxgl.Marker({ 
+        color,
+        scale: index === this.currentActivityIndex ? 1.2 : 1
+      })
         .setLngLat([activity.longitude, activity.latitude])
-        .addTo(this.map);
-      this.markers.push(marker);
+        .addTo(map);
+      markers.push(marker);
     });
   }
 
-  private adjustBounds(): void {
-    if (!this.map || !this.day?.activities?.length) return;
+  private adjustBounds(map: mapboxgl.Map): void {
+    if (!map || !this.day?.activities?.length) return;
 
     const bounds = new mapboxgl.LngLatBounds();
     this.day.activities.forEach(activity => {
@@ -147,11 +180,10 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     });
 
     if (!bounds.isEmpty()) {
-      this.map.fitBounds(bounds, { padding: 50, duration: 1000, animate: true });
+      map.fitBounds(bounds, { padding: 50, duration: 1000, animate: true });
     }
   }
 
-  
   selectActivity(index: number): void {
     if (this.currentActivityIndex !== index) {
       this.currentActivityIndex = index;
@@ -162,9 +194,21 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
         this.map.flyTo({
           center: [activity.longitude, activity.latitude],
           essential: true,
-          zoom: 13
+          zoom: 13,
+          duration: 1000
         });
-        this.addMarkers();
+        this.addMarkers(this.map, this.markers);
+      }
+      
+      if (this.mobileMap) {
+        const activity = this.day.activities[index];
+        this.mobileMap.flyTo({
+          center: [activity.longitude, activity.latitude],
+          essential: true,
+          zoom: 13,
+          duration: 1000
+        });
+        this.addMarkers(this.mobileMap, this.mobileMarkers);
       }
     }
   }
@@ -186,7 +230,18 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
 
   rescaleMap(): void {
     if (this.map) {
-      this.adjustBounds();
+      this.adjustBounds(this.map);
     }
+    if (this.mobileMap) {
+      this.adjustBounds(this.mobileMap);
+    }
+  }
+
+  toggleDescription(): void {
+    this.isDescriptionVisible = !this.isDescriptionVisible;
+  }
+
+  toggleGallery(): void {
+    this.isGalleryVisible = !this.isGalleryVisible;
   }
 }
