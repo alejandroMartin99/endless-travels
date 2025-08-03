@@ -249,14 +249,17 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   }
 
   private toggleBodyScroll(disable: boolean): void {
-    if (disable) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+    // Verificar que estamos en el navegador antes de acceder a document
+    if (typeof document !== 'undefined') {
+      if (disable) {
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+      } else {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+      }
     }
   }
 }
