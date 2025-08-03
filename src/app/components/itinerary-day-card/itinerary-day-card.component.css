@@ -521,7 +521,7 @@ mat-expansion-panel {
   }
   
   .modal-content {
-    max-height: 85vh;
+    max-height: 70vh; /* Reducido de 85vh a 70vh */
     margin: 8px;
   }
   
@@ -574,7 +574,7 @@ mat-expansion-panel {
   }
   
   .modal-content {
-    max-height: 90vh;
+    max-height: 75vh; /* Reducido de 90vh a 75vh */
     margin: 4px;
   }
   
