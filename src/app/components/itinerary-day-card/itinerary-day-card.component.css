@@ -4,7 +4,10 @@ mat-expansion-panel {
   background-color: #ffffff;
   border-left: 5px solid;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
+
 
 /* Bordes de colores personalizados */
 .border-blue { border-left-color: #1a237e; }
@@ -16,15 +19,20 @@ mat-expansion-panel {
 .border-purple { border-left-color: #9315ad; }
 .border-dark-purple { border-left-color: #480556; }
 
+/* Desktop Layout */
+.desktop-layout {
+  display: block;
+}
+
 /* Contenedor de actividades */
 .activity-container {
   display: flex;
   justify-content: space-between;
-  height: 550px; /* Altura para pantallas grandes */
+  height: 550px;
   padding: 1px;
   box-sizing: border-box;
   gap: 10px;
-  position: relative; /* Para posicionamiento absoluto interno */
+  position: relative;
 }
 
 /* Descripción */
@@ -41,6 +49,7 @@ mat-expansion-panel {
   flex-basis: 33%;
   padding: 5px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .activity-image img {
@@ -53,11 +62,12 @@ mat-expansion-panel {
 /* Mapa */
 .activity-map {
   flex-basis: 40%;
-  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
-  min-height: 300px; /* Establece un mínimo razonable */
-  max-height: 550px; /* Asegura un máximo en pantallas grandes */
+  height: 100%;
+  min-height: 300px;
+  max-height: 550px;
   box-sizing: border-box;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .activity-map iframe {
@@ -96,19 +106,19 @@ mat-expansion-panel {
 .description-text {
   white-space: pre-line;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
   color: #333;
-  font-family: Arial, sans-serif;
+  margin: 0;
 }
 
-/* Contenedor de controles */
+/* Controles */
 .controls-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
-  width: 100%;
+  padding: 10px 0;
 }
 
 .carousel-control {
@@ -117,268 +127,348 @@ mat-expansion-panel {
 }
 
 .rescale-control {
-  margin-left: auto;
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Nuevo - Icono de descripción que aparece solo en móviles */
-.description-toggle {
-  display: none; /* Oculto por defecto en desktop */
+.rescale-control:hover {
+  background-color: #0d47a1;
 }
 
-.mobile-action-buttons{
+/* Controles de galería */
+.gallery-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.gallery-controls button {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-controls button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.gallery-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile Layout */
+.mobile-layout {
   display: none;
 }
 
-/* El contenedor de descripción móvil - oculto en desktop */
-.mobile-description-overlay {
-  display: none;
+/* Mobile Activity Header */
+.mobile-activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  color: white;
+  border-radius: 8px 8px 0 0;
 }
 
+.activity-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
 
-/* Ajustes responsivos */
-@media (max-width: 800px) {
-  .activity-container {
-    flex-direction: column;
-    height: auto; /* Altura automática */
-    max-height: none; /* Elimina límite de altura */
-    overflow-x: hidden;
-    overflow-y: visible; /* Para que el contenido fluya */
-    padding: 0;
-    width: 100%;
-    gap: 0px;
-  }
+.activity-counter {
+  font-size: 14px;
+  opacity: 0.9;
+}
 
-  mat-expansion-panel-header mat-panel-title {
-    font-size: 0.9rem; /* Tamaño ajustado para móviles */
-  }
+.mobile-actions {
+  display: flex;
+  gap: 8px;
+}
 
-  /* Ocultar la descripción original en móviles */
-  .activity-description {
+.action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Mobile Map Container */
+.mobile-map-container {
+  position: relative;
+  height: 300px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.mobile-map-container .activity-map {
+  height: 100%;
+  border-radius: 0;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.map-control-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-control-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+/* Mobile Navigation */
+.mobile-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.nav-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #0d47a1;
+  transform: scale(1.1);
+}
+
+.nav-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.mobile-activity-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-activity-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-activity-indicator.active {
+  background-color: #1a237e;
+  transform: scale(1.2);
+}
+
+.mobile-activity-indicator:hover {
+  background-color: #1976d2;
+}
+
+/* Mobile Modal */
+.mobile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 16px;
+}
+
+.mobile-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.mobile-modal.visible .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Gallery Modal */
+.gallery-modal .modal-body {
+  padding: 0;
+}
+
+.gallery-container {
+  position: relative;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-controls-mobile {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery-nav-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-nav-btn:hover:not(:disabled) {
+  background: white;
+  transform: scale(1.1);
+}
+
+.gallery-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.image-counter {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desktop-layout {
     display: none;
   }
-
-  .activity-image {
-    display: none;
-  }
-
   
-
-  /* Mostrar el contenedor de descripción móvil */
-  .mobile-description-overlay {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column; /* Cambia a columna para tener elementos uno debajo del otro */
-    justify-content: flex-start; /* Alinea desde arriba */
-    align-items: center;
-   
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  /* Contenedor visible */
-  .mobile-description-overlay.visible {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto; /* Intercepta clics cuando es visible */
-  }
-
-  /* Contenido real de la descripción */
-  .mobile-description-content {
-    left: 0;
-    right: 0;
-    max-height: 70dvh;
-    background-color: white;
-    border-radius: 0 0 16px 16px;
-    padding: 20px;
-    overflow-y: auto;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  .activity-description h3{
-    color: #1a1a1a;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-    text-align: center;
+  .mobile-layout {
+    display: block;
   }
   
-
-  .wrapper-pop-up{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    
-  }
-
-  .button-container {
-    margin-top: 25px; /* Espacio exacto de 60px desde el contenido */
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    
-  }
-  
-  /* Botón debajo del contenido */
-  .close-description {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.2s ease;
-    z-index: 1001; /* Asegurar que está por encima del overlay */
-  }
-  
-  .close-description:hover {
-    background-color: rgba(255, 255, 255, 1);
-  }
-  
-  .close-description mat-icon {
-    color: #1a237e;
-    font-size: 24px;
-  }
-
-  /* Mostrar el botón de descripción en móviles */
-  .description-toggle {
-    display: flex;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .description-toggle mat-icon {
-    color: #1a237e;
-  }
-
-  .activity-image {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 0;
-  }
-
-  .activity-image img {
-    object-fit: cover;
-    border-radius: 4px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .activity-map {
-
-    width: 100%;  
-    height: 100%;
-  }
-
-  .activity-map iframe {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Controles de navegación para imágenes */
-  .gallery-controls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  
-  .gallery-controls button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.85);
-    color: #1a237e;
-    border: 2px solid #1a237e;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    pointer-events: auto;
-    z-index: 10;
-  }
-  
-  .gallery-controls button:hover:not(:disabled) {
-    background-color: #1a237e;
-    color: #fff;
-    transform: translateY(-50%) scale(1.1);
-  }
-  
-  .gallery-controls button:disabled {
-    opacity: 0.4;
-    cursor: default;
-    background-color: rgba(255, 255, 255, 0.85);
-    color: #1a237e;
-    transform: translateY(-50%) scale(1); /* No zoom */
-  }
-  
-  /* Posiciones específicas */
-  .gallery-controls .prev-btn {
-    left: 10px;
-  }
-  
-  .gallery-controls .next-btn {
-    right: 10px;
-  }
-  
-  /* Posiciones específicas */
-  .gallery-controls .prev-btn {
-    left: 10px;
-  }
-  
-  .gallery-controls .next-btn {
-    right: 10px;
-  }
-
-  /* Indicadores de las imágenes (bullets) */
-  .activity-navigation {
-    margin-top: 15px;
-    justify-content: center;
-  }
-
-  .activity-indicator {
-    width: 15px;
-    height: 15px;
-    margin: 0 10px;
-    background-color: #ccc;
-    transition: background-color 0.3s ease;
-  }
-
-  .activity-indicator.active {
-    background-color: #1a237e;
-  }
-
-  /* Estilo específico para el header de expansión en móviles */
   mat-expansion-panel-header {
     display: flex;
     flex-wrap: wrap;
@@ -393,91 +483,74 @@ mat-expansion-panel {
     text-align: left;
   }
 
-  .mobile-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px 0;
-  }
-  
-  .mobile-buttons button {
-    flex: 1;
-    margin: 0 5px;
-  }
-  
-  .mobile-gallery-overlay {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .mobile-gallery-overlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .mobile-gallery-content {
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-    max-width: 90vw;
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .mobile-gallery-content img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
+}
 
-  .mobile-action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 15px 0;
+@media (max-width: 480px) {
+  .mobile-activity-header {
+    padding: 12px;
   }
   
-  .clean-action-button {
-    background: none;
-    border: none;
-    color: #1a237e;
-    font-size: 18px;
-    font-weight: 600;
-    position: relative;
-    cursor: pointer;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
+  .activity-info h3 {
+    font-size: 16px;
   }
   
-  .clean-action-button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 2px;
-    background-color: #1a237e;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
+  .mobile-map-container {
+    height: 250px;
   }
   
-  .clean-action-button:hover {
-    color: #1976d2;
+  .mobile-navigation {
+    padding: 12px;
   }
   
-  .clean-action-button:hover::after {
-    transform: scaleX(1);
+  .nav-btn {
+    width: 40px;
+    height: 40px;
   }
+  
+  .modal-content {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .modal-body {
+    padding: 16px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-modal.visible .modal-content {
+  animation: fadeIn 0.3s ease;
+}
+/* Scrollbar personalizada */
+.modal-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
