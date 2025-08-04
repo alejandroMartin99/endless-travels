@@ -1,53 +1,59 @@
-<div class="content-container">
-    <mat-tab-group [selectedIndex]="2">
-      <!-- Tab Inicio -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">home</mat-icon>
-          <span class="custom-tab-text">Inicio</span>
-      </ng-template>
-        <p>Bienvenido a la guía de viaje de Praga - Bratislava - Budapest.</p>
-        <p>Por ahora solo esta disponible el itinerario.</p>
-      </mat-tab>
-  
-      <!-- Tab Recomendaciones -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">star</mat-icon>
-          <span class="custom-tab-text">Recomendaciones</span>
-        </ng-template>
-        <p>Aquí están nuestras recomendaciones para tu viaje.</p>
-      </mat-tab>
-  
-      <!-- Tab Itinerario -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">route</mat-icon>
-          <span class="custom-tab-text">Itinerario</span>
-        </ng-template>
-
-        <PragaBudapest-itinerary-component></PragaBudapest-itinerary-component>
-
-    </mat-tab>
-
-
-
-
-
-
-
-
-  
-        
-      <!-- Tab Precio -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">euro_symbol</mat-icon>
-          <span class="custom-tab-text">Precio</span>
-        </ng-template>
-        <p>Aquí encontrarás la información sobre los costos del viaje.</p>
-      </mat-tab>
-    </mat-tab-group>
+<!-- Contenedor sticky con estilos personalizados -->
+<div class="sticky-tab-header mobile-tab-style">
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 0"
+    (click)="onTabChanged(0)">
+    <mat-icon class="custom-icon">travel_explore</mat-icon>
+    <span class="custom-tab-text">Inicio</span>
   </div>
-  
+
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 1"
+    (click)="onTabChanged(1)">
+    <mat-icon class="custom-icon">thumb_up</mat-icon>
+    <span class="custom-tab-text">Recomendaciones</span>
+  </div>
+
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 2"
+    (click)="onTabChanged(2)">
+    <mat-icon class="custom-icon">route</mat-icon>
+    <span class="custom-tab-text">Itinerario</span>
+  </div>
+
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 3"
+    (click)="onTabChanged(3)">
+    <mat-icon class="custom-icon">euro_symbol</mat-icon>
+    <span class="custom-tab-text">Precio</span>
+  </div>
+</div>
+
+<!-- Contenido que cambia según la pestaña -->
+<div class="tab-content">
+  <ng-container [ngSwitch]="selectedTabIndex">
+    <div *ngSwitchCase="0">
+      
+    </div>
+    <div *ngSwitchCase="1">
+      
+    </div>
+    <div *ngSwitchCase="2">
+      <PragaBudapest-itinerary-component></PragaBudapest-itinerary-component>
+    </div>
+    <div *ngSwitchCase="3">   
+    </div>
+  </ng-container>
+</div>
+
+
+
+
+
+
+
 
