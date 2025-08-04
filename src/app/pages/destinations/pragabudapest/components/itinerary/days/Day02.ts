@@ -130,7 +130,7 @@ export const day02Praga = {
       },
              {
          name: 'Paseo junto al río y Casa Danzante',
-         description: '<strong>Horario:</strong> Abierto las 24 horas<br><strong>Precio:</strong> Gratuito<br><br>Aprovechamos para pasear junto al río Moldava, donde pudimos ver el <strong>Teatro Nacional de Praga</strong> y la famosa <strong>Casa Danzante</strong>, uno de los edificios más modernos y emblemáticos de la ciudad.',
+         description: '<strong>Horario:</strong> Abierto las 24 horas<br><strong>Precio:</strong> Gratuito<br><br>Aprovechamos para pasear junto al río Moldava, donde pudimos ver el <strong>Teatro Nacional de Praga</strong> y la famosa <strong>Casa Danzante</strong>, uno de los edificios más modernos y emblemáticos de la ciudad. <br>La Casa Danzante, también conocida como Fred y Ginger por su diseño inspirado en la danza, es un ejemplo moderno de la arquitectura en Praga. Este edificio único, con su diseño curvilíneo, destaca entre los edificios más tradicionales de la ciudad. Dentro, alberga oficinas, una galería de arte y un restaurante en su azotea con vistas al río Moldava.',
          images: [
            '/assets/budapest/Dia02/TeatroNacional_01.webp',
            '/assets/budapest/Dia02/casa-danzante.webp',
