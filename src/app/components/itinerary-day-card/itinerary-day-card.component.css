@@ -99,7 +99,7 @@ mat-expansion-panel {
 }
 
 .activity-indicator:hover {
-  background-color: #1976d2;
+  background-color: #1a237e;
 }
 
 /* Texto de descripción */
@@ -128,7 +128,7 @@ mat-expansion-panel {
 
 .rescale-control {
   background-color: white;
-  color: white;
+  color: #1a237e;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
@@ -139,6 +139,19 @@ mat-expansion-panel {
 .rescale-control:hover {
   background-color: #1a237e;
   color: white;
+}
+
+/* Estilos para los botones de navegación */
+.carousel-control button {
+  color: #1a237e !important;
+}
+
+.carousel-control button:hover:not(:disabled) {
+  color: #1a237e !important;
+}
+
+.carousel-control button:disabled {
+  color: #ccc !important;
 }
 
 /* Controles de galería */
@@ -293,7 +306,7 @@ mat-expansion-panel {
 }
 
 .nav-btn:hover:not(:disabled) {
-  background: #0d47a1;
+  background: #1a237e;
   transform: scale(1.1);
 }
 
@@ -322,7 +335,7 @@ mat-expansion-panel {
 }
 
 .mobile-activity-indicator:hover {
-  background-color: #1976d2;
+  background-color: #1a237e;
 }
 
 /* Mobile Modal */
@@ -432,7 +445,7 @@ mat-expansion-panel {
 }
 
 .close-btn-bottom:hover {
-  background: #0d47a1;
+  background: #1a237e;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(26, 35, 126, 0.4);
 }
