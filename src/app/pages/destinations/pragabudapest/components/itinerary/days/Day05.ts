@@ -6,7 +6,8 @@ export const day05Budapest = {
         {
           name: 'Puente de las Cadenas y Zapatos en la Orilla del Danubio',
           description: 'Caminamos por el Puente de las Cadenas y visitamos el monumento de los Zapatos en la Orilla del Danubio, recordando a las víctimas de la Segunda Guerra Mundial.',
-          images: ['/assets/europa/puente_cadenas.jpg'],
+          images: [
+            '/assets/europa/puente_cadenas.jpg'],
           longitude: 19.0477,
           latitude: 47.4980,
           mapUrl: 'map-puente-cadenas'
