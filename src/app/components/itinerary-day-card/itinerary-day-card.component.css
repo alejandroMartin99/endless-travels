@@ -41,7 +41,7 @@ mat-expansion-panel {
   padding: 5px;
   box-sizing: border-box;
   max-height: 550px;
-  overflow: visible;
+  overflow-y: auto;
 }
 
 /* Imagen */
