@@ -6,15 +6,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  isScrolled = false;
   isDestinationsOpen = false;
   isMobileMenuOpen = false;
   isMobileDestinationsOpen = false;
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
-  }
 
   @HostListener('window:resize', [])
   onWindowResize() {

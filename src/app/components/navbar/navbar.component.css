@@ -13,10 +13,7 @@
   height: 64px;
 }
 
-.navbar.scrolled {
-  background: rgba(26, 35, 126, 0.98);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-}
+
 
 .navbar-container {
   width: 100%;
@@ -386,7 +383,6 @@
 
 /* Main Content */
 .main-content {
-  margin-top: 64px;
   min-height: calc(100vh - 64px);
 }
 
@@ -415,7 +411,6 @@
   }
 
   .main-content {
-    margin-top: 56px;
     min-height: calc(100vh - 56px);
   }
 
