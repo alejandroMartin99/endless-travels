@@ -1,49 +1,52 @@
-<div class="content-container">
-  <!-- Sticky tabs fuera del flujo de scroll -->
+<!-- Contenedor sticky con estilos personalizados -->
+<div class="sticky-tab-header mobile-tab-style">
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 0"
+    (click)="onTabChanged(0)">
+    <mat-icon class="custom-icon">travel_explore</mat-icon>
+    <span class="custom-tab-text">Inicio</span>
+  </div>
 
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 1"
+    (click)="onTabChanged(1)">
+    <mat-icon class="custom-icon">thumb_up</mat-icon>
+    <span class="custom-tab-text">Recomendaciones</span>
+  </div>
 
-  <mat-tab-group 
-      [selectedIndex]="selectedTabIndex"
-      (selectedIndexChange)="onTabChanged($event)"
-      class="mobile-tab-style sticky-tabs-group">
-      <!-- Tab Inicio -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">travel_explore</mat-icon>
-          <span class="custom-tab-text">Inicio</span>
-      </ng-template>
-        <init-japan-component (goToItinerary)="changeTab($event)"></init-japan-component>
-      </mat-tab>
-  
-      <!-- Tab Recomendaciones -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">thumb_up</mat-icon>
-          <span class="custom-tab-text">Recomendaciones</span>
-        </ng-template>
-        <div class="intro-content">
-          <japan-recomendations-component></japan-recomendations-component>
-        </div>
-      </mat-tab>
-  
-      <!-- Tab Itinerario -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">route</mat-icon>
-          <span class="custom-tab-text">Itinerario</span>
-        </ng-template>
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 2"
+    (click)="onTabChanged(2)">
+    <mat-icon class="custom-icon">route</mat-icon>
+    <span class="custom-tab-text">Itinerario</span>
+  </div>
 
-        <Kyoto-days-component [currentTab]="selectedTabIndex"></Kyoto-days-component>
-      </mat-tab>
-  
-      <!-- Tab Precio -->
-      <mat-tab>
-        <ng-template mat-tab-label class="custom-tab-label">
-          <mat-icon class="custom-icon">euro_symbol</mat-icon>
-          <span class="custom-tab-text">Precio</span>
-        </ng-template>
-        <japan-price-component></japan-price-component>
-      </mat-tab>
-    </mat-tab-group>
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 3"
+    (click)="onTabChanged(3)">
+    <mat-icon class="custom-icon">euro_symbol</mat-icon>
+    <span class="custom-tab-text">Precio</span>
+  </div>
 </div>
-  
+
+<!-- Contenido que cambia según la pestaña -->
+<div class="tab-content">
+  <ng-container [ngSwitch]="selectedTabIndex">
+    <div *ngSwitchCase="0">
+      <init-japan-component (goToItinerary)="changeTab($event)"></init-japan-component>
+    </div>
+    <div *ngSwitchCase="1">
+      <japan-recomendations-component></japan-recomendations-component>
+    </div>
+    <div *ngSwitchCase="2">
+      <Kyoto-days-component [currentTab]="selectedTabIndex"></Kyoto-days-component>
+    </div>
+    <div *ngSwitchCase="3">
+      <japan-price-component></japan-price-component>
+    </div>
+  </ng-container>
+</div>
