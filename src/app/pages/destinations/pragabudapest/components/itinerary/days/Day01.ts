@@ -1,5 +1,5 @@
 export const day01Praga = {
-    borderClass:'border-pink',
+    borderClass:'border-purple',
     day:{
       title: 'Día 01 - VUELO: Madrid -> Praga ',
       activities: [
