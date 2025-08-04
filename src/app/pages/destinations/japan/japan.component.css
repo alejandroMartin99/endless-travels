@@ -2,7 +2,7 @@
 .sticky-tab-header {
   position: sticky;
   top: 64px;
-  z-index: 1000;
+  z-index: 999;
   background-color: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   display: flex;
