@@ -28,9 +28,10 @@ h1 {
     /* border-radius: 12px; */
 }
 
+
 .stat-card {
     /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-    background: rgba(67, 104, 185, 0.7);
+    background: rgba(17, 44, 103, 0.7);
     color: white;
     padding: 20px;
     border-radius: 10px;

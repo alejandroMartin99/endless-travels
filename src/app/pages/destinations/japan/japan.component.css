@@ -71,6 +71,10 @@
   box-shadow: 0 6px 16px rgba(26, 35, 126, 0.25);
 }
 
+.tab-content{
+  margin-top: 50px;
+}
+
 /* Responsive: móvil */
 @media (max-width: 768px) {
   .sticky-tab-header {
