@@ -7,7 +7,7 @@
 /* Estilo para mantener el tab header fijo */
 .mat-tab-header {
   position: sticky;
-  top: 0;
+  top: 64px; /* Ajustar para el navbar fijo */
   z-index: 100;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -99,7 +99,7 @@
 
 ::ng-deep .mat-tab-header {
   position: sticky;
-  top: 0;
+  top: 64px; /* Ajustar para el navbar fijo */
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
@@ -122,7 +122,7 @@
   /* Transformación para móviles: Solo mostrar iconos en los tabs */
   ::ng-deep .mat-tab-header {
     position: sticky;
-    top: 0;
+    top: 64px; /* Ajustar para el navbar fijo */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     height: auto;
@@ -191,6 +191,13 @@
   .zone-title {
     top: 10%;
     font-size: 2.5rem;
+  }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  ::ng-deep .mat-tab-header {
+    top: 56px; /* Ajustar para navbar móvil */
   }
 }
 

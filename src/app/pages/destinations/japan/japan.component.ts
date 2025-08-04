@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-japan',
   templateUrl: './japan.component.html',
   styleUrl: './japan.component.css'
 })
-export class JapanComponent {
+export class JapanComponent implements OnInit {
 
-  selectedTabIndex =0;
+  selectedTabIndex = 0;
+
+  ngOnInit() {
+    // Resetear scroll al inicio cuando se carga la página
+    this.resetScrollToTop();
+  }
 
   changeTab(index: number) {
     this.selectedTabIndex = index;
@@ -15,8 +20,21 @@ export class JapanComponent {
   }
 
   onTabChanged(index: number) {
-  this.selectedTabIndex = index;
-  console.log('Tab actual:', index);
+    this.selectedTabIndex = index;
+    console.log('Tab actual:', index);
   }
 
+  /**
+   * Resetea el scroll al inicio de la página
+   */
+  private resetScrollToTop(): void {
+    // Usar setTimeout para asegurar que el DOM se ha cargado completamente
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  }
 }
