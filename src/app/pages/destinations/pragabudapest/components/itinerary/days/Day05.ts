@@ -1,7 +1,7 @@
 export const day05Budapest = {
     borderClass:'border-blue',
     day:{
-      title: 'Día 04 - Bratislava',
+      title: 'Día 05 - Budapest',
       activities: [
         {
           name: 'Puente de las Cadenas y Zapatos en la Orilla del Danubio',
