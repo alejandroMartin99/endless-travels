@@ -10,6 +10,134 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       overflow: hidden;
   }
+
+  /* Nuevo diseño para las secciones de destino */
+  .itinerary-container {
+    padding: 0px 200px;
+    margin-top: 40px;
+  }
+
+  .destination-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .destination-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  .destination-header {
+    display: flex;
+    align-items: center;
+    padding: 24px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .destination-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1.0;
+    z-index: 1;
+  }
+
+  .praga-header::before {
+    background-image: url('/assets/budapest/landing_card_praga.jpg');
+  }
+
+  .bratislava-header::before {
+    background-image: url('/assets/budapest/landing_card_bratislava.jpg');
+  }
+
+  .budapest-header::before {
+    background-image: url('/assets/budapest/landing_card_budapest.jpg');
+  }
+
+  .destination-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  .destination-icon mat-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
+
+  .praga-icon {
+    background: linear-gradient(135deg, #480556 0%, #6a0dad 100%);
+  }
+
+  .bratislava-icon {
+    background: linear-gradient(135deg, #e9da68 0%, #f4d03f 100%);
+  }
+
+  .bratislava-icon mat-icon {
+    color: #2c3e50;
+  }
+
+  .budapest-icon {
+    background: linear-gradient(135deg, #f44336 0%, #e74c3c 100%);
+  }
+
+  .destination-info {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+  }
+
+  .destination-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  .destination-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: 500;
+  }
+
+  .days-container {
+    padding: 20px 30px 30px 30px;
+  }
+
+  .days-container app-itinerary-day-card {
+    margin-bottom: 16px;
+  }
+
+  .days-container app-itinerary-day-card:last-child {
+    margin-bottom: 0;
+  }
   
   .zone-header {
     position: relative;
@@ -168,82 +296,125 @@
   
   @media (max-width: 768px) {
     .content-container {
-      padding: 0px 5px; /* Reducimos el padding lateral */
-      overflow-x: hidden; 
+      padding: 0px 20px;
     }
-  
+    
     .calendar-container {
-      padding: 0px 5px; 
-      overflow-x: hidden; 
-  
-    }
-  
-    .zone-banner {
-      height: 150px; /* Menor altura para banners */
-    }
-  
-    .zone-title {
-      font-size: 2.2rem; /* Tamaño de fuente más pequeño */
-      top: 0%; /* Alineación más centrada en pantallas pequeñas */
-    }
-  
-    .zone-info {
-      display: flex;
-      flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
-      justify-content: center;
-      gap: 10px; /* Espacio entre los elementos */
-      width: 80%;
-      overflow-x: hidden; /* Prevenir scroll horizontal */
-      margin-bottom: 5px;
-    }
-  
-    .info-item {
-      font-size: 0.9rem; /* Tamaño más cómodo para móviles */
-      justify-content: center;
-    }
-  
-    .info-item i {
-      font-size: 1rem;
-    }
-    .info-item .custom-icon {
-      font-size: 1.3rem; /* Igual para ambos */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.6rem;
-      height: 1.6rem;
-      color: white;
-    }
-  
-  
-  
-    .subzone-container {
-      flex-direction: column; /* Apila imagen y contenido */
-      align-items: flex-start;
-      gap: 10px;
-    }
-  
-    .subzone-banner {
-      width: 100%; /* Ocupar todo el ancho */
-      height: auto;
+      padding: 0px 20px;
+      margin: 20px;
       border-radius: 8px;
     }
-  
+
+    .itinerary-container {
+      padding: 0px 20px;
+      margin-top: 20px;
+    }
+
+    .destination-section {
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+
+    .destination-header {
+      padding: 20px;
+      flex-direction: column;
+      text-align: center;
+      background: none;
+      border-bottom: none;
+    }
+
+    .destination-header::before {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 1.0;
+      background-position: center;
+    }
+
+    .destination-icon {
+      width: 50px;
+      height: 50px;
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+
+    .destination-icon mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    .destination-info h3 {
+      font-size: 1.5rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .destination-info p {
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .days-container {
+      padding: 15px 20px 20px 20px;
+    }
+    
+    .zone-banner {
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .zone-title {
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+    
+    .zone-info {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+    }
+    
+    .info-item {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .info-item i {
+      margin-right: 8px;
+    }
+    
+    .info-item .custom-icon {
+      margin-right: 8px;
+    }
+    
+    .subzone-container {
+      margin: 20px;
+      border-radius: 8px;
+    }
+    
+    .subzone-banner {
+      height: 120px;
+      border-radius: 8px;
+    }
+    
     .subzone-banner::after {
-      display: none; /* Oculta la flechita decorativa */
+      border-radius: 8px;
     }
-  
+    
     .subzone-content {
-      margin-left: 0;
-      margin-top: 10px;
+      padding: 15px;
     }
-  
+    
     .subzone-content h3 {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
-  
+    
     .subzone-content p {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
   

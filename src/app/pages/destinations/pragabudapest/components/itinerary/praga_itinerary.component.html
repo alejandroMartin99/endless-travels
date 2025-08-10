@@ -1,50 +1,37 @@
 <div class="content-container">
-    <div class="intro-columns">
-      <div class="intro-left">
-        <h2>¡Bienvenido al itinerario de nuestro viaje por centro europa!</h2>
-        <p>Descubre de un vistazo cómo organizamos cada día y accede fácilmente a toda la información de tu viaje.</p>
-        <p>Primero te presentamos en un calendario de forma muy resumida donde se indica la ciudad y el día de cada actividad. Este calendario te permite ver de un vistazo la distribución del viaje y las ciudades visitadas.</p>
-        <p>Tras revisar el resumen-calendario, desplázate hacia abajo para explorar cada etapa del recorrido. Es aqui dónde comienza la guía detallada de cada día.</p>
-      </div>
-      <div class="intro-right">
-        <ul>
-          <li><mat-icon>calendar_month</mat-icon> Consulta el calendario para ver en qué ciudad estamos cada día, En Verde para Kyoto y para Tokyo</li>
-          <li><mat-icon>explore</mat-icon> ¿Excursión o día en la ciudad? Los tonos claros y oscuros te lo cuentan.</li>
-          <li><mat-icon>touch_app</mat-icon> Haz clic en cualquier jornada para ver la descripción, galería y mapa.</li>
-          <li><mat-icon>devices</mat-icon>Da igual desde que dispositivo accedas, todo está organizado para ofrecer la mejor experiencia posible. </li>
-        </ul>
-      </div>
+  <div class="intro-columns">
+    <div class="intro-left">
+      <h2>¡Bienvenido al itinerario de nuestro viaje por centro europa!</h2>
+      <p>Descubre de un vistazo cómo organizamos cada día y accede fácilmente a toda la información de tu viaje.</p>
+      <p>Primero te presentamos en un calendario de forma muy resumida donde se indica la ciudad y el día de cada actividad. Este calendario te permite ver de un vistazo la distribución del viaje y las ciudades visitadas.</p>
+      <p>Tras revisar el resumen-calendario, desplázate hacia abajo para explorar cada etapa del recorrido. Es aqui dónde comienza la guía detallada de cada día.</p>
+    </div>
+    <div class="intro-right">
+      <ul>
+        <li><mat-icon>calendar_month</mat-icon> Consulta el calendario para ver en qué ciudad estamos cada día: Púrpura para Praga, Amarillo para Bratislava y Rojo para Budapest</li>
+        <li><mat-icon>explore</mat-icon> Cada destino tiene su propio color distintivo para facilitar la navegación.</li>
+        <li><mat-icon>touch_app</mat-icon> Haz clic en cualquier jornada para ver la descripción, galería y mapa.</li>
+        <li><mat-icon>devices</mat-icon>Da igual desde que dispositivo accedas, todo está organizado para ofrecer la mejor experiencia posible. </li>
+      </ul>
     </div>
   </div>
-  
-  
-  <!-- <div class="zone-header">
-    <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
-    <h2 class="zone-title">Kyoto</h2>
-    
-    <div class="zone-info">
-      <div class="info-item">
-        <i class="fa-solid fa-calendar-days"></i>
-        <span>Dias 1 - 8</span>
-      </div>
-      
-      <div class="info-item">
-        <i class="fa-solid fa-torii-gate"></i>
-        <span>Conecta con lo tradicional</span>
-      </div>
-      <div class="info-item">
-        <mat-icon class="custom-icon">temple_buddhist</mat-icon>
-        <span>Capital de templos</span>
-      </div>
-      
-    </div>
-  </div> -->
+</div>
 
-  <PragaBudapestCalendar-calendar-component></PragaBudapestCalendar-calendar-component>
-  
-  <div class="content-container">
-    <mat-accordion >
-  
+<PragaBudapestCalendar-calendar-component></PragaBudapestCalendar-calendar-component>
+
+<div class="itinerary-container">
+  <div class="destination-section">
+    <div class="destination-header praga-header">
+      <div class="destination-icon praga-icon">
+        <mat-icon>castle</mat-icon>
+      </div>
+      <div class="destination-info">
+        <h3>Praga</h3>
+        <p>Días 1-3 • Ciudad de las cien torres</p>
+      </div>
+    </div>
+    
+    <div class="days-container">
       <app-itinerary-day-card 
         [borderClass]="day01Praga.borderClass"
         [day]="day01Praga.day">
@@ -59,16 +46,40 @@
         [borderClass]="day03Praga.borderClass"
         [day]="day03Praga.day">
       </app-itinerary-day-card>
+    </div>
+  </div>
 
-
+  <div class="destination-section">
+    <div class="destination-header bratislava-header">
+      <div class="destination-icon bratislava-icon">
+        <mat-icon>landscape</mat-icon>
+      </div>
+      <div class="destination-info">
+        <h3>Bratislava</h3>
+        <p>Día 4 • Capital eslovaca del Danubio</p>
+      </div>
+    </div>
+    
+    <div class="days-container">
       <app-itinerary-day-card 
         [borderClass]="day04Bratislava.borderClass"
         [day]="day04Bratislava.day">
       </app-itinerary-day-card>
+    </div>
+  </div>
 
-
-
-
+  <div class="destination-section">
+    <div class="destination-header budapest-header">
+      <div class="destination-icon budapest-icon">
+        <mat-icon>spa</mat-icon>
+      </div>
+      <div class="destination-info">
+        <h3>Budapest</h3>
+        <p>Días 5-9 • Perla del Danubio</p>
+      </div>
+    </div>
+    
+    <div class="days-container">
       <app-itinerary-day-card 
         [borderClass]="day05Budapest.borderClass"
         [day]="day05Budapest.day">
@@ -93,32 +104,7 @@
         [borderClass]="day09Budapest.borderClass"
         [day]="day09Budapest.day">
       </app-itinerary-day-card>
-  
-    </mat-accordion>
-  </div>
-  
-  <!-- <div class="zone-section">
-    <div class="zone-header">
-      <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
-      <h2 class="zone-title">Tokyo</h2>
-      <div class="zone-info">
-        <div class="info-item">
-          <i class="fa-solid fa-calendar-days"></i>
-          <span>Dias 9 - 15</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-city"></i>
-          <span>Metrópolis moderna</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-utensils"></i>
-          <span>Capital gastronómica</span>
-        </div>
-        
-      </div>
     </div>
-  </div> -->
-  
-  <div class="content-container">
-
   </div>
+</div>
+  
