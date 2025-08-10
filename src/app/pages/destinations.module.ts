@@ -23,6 +23,7 @@ import { JapanPriceComponent } from './destinations/japan/components/price/price
 import { JapanCalendarComponent } from './destinations/japan/components/itinerary/JapanCalendar/JapanCalendar.component';
 import { PragaItineraryComponent } from './destinations/pragabudapest/components/itinerary/praga_itinerary.component';
 import { PragaBudapestCalendarComponent } from './destinations/pragabudapest/components/itinerary/calendar/PragaBudapestCalendar.component';
+import { PragaBudapestRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/praga_recomendations.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PragaBudapestCalendarComponent } from './destinations/pragabudapest/com
     JapanPriceComponent,
     JapanCalendarComponent,
     PragaItineraryComponent,
-    PragaBudapestCalendarComponent
+    PragaBudapestCalendarComponent,
+    PragaBudapestRecomendationsComponent
     
     
     
