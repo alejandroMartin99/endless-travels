@@ -337,12 +337,21 @@
       height: 50px;
       margin-right: 0;
       margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
     }
 
     .destination-icon mat-icon {
       font-size: 24px;
       width: 24px;
       height: 24px;
+    }
+
+    .destination-info {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 15px 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
     }
 
     .destination-info h3 {
