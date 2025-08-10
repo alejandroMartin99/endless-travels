@@ -1,7 +1,7 @@
 export const day06Budapest = {
   borderClass:'border-red',
   day:{
-    title: 'Día 06 - Budapest - Bastión de los Pescadores, Castillo de Buda , Colina de buda ...',
+    title: 'Día 06 - Budapest: Bastión de los Pescadores, Castillo de Buda , Colina de buda ...',
     activities: [
       {
         name: 'Paseo matutino hasta el Bastión de los Pescadores',

@@ -1,7 +1,7 @@
 export const day01Praga = {
     borderClass:'border-purple',
     day:{
-      title: 'Día 01 - VUELO: Madrid -> Praga ',
+      title: 'Día 01 - VUELO: Madrid -> Praga y Osario de Sedlec',
       activities: [
         {
           name: 'Vuelo a Praga - T4S (22:25 LT)',

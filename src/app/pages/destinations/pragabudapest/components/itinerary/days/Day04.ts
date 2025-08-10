@@ -1,7 +1,7 @@
 export const day04Bratislava = {
   borderClass:'border-yellow',
   day:{
-    title: 'Día 04 - Bratislava',
+    title: 'Día 04 - Bratislava: Castillo de Bratislava, Catedral de San Martín, Iglesia Azul ...',
     activities: [
       {
         name: 'Viaje en tren de Praga a Bratislava',

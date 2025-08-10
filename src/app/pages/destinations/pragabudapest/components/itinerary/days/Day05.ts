@@ -1,7 +1,7 @@
 export const day05Budapest = {
   borderClass:'border-red',
   day:{
-    title: 'Día 05 - Budapest - Toma de contacto y centro histórico.',
+    title: 'Día 05 - Budapest: Toma de contacto y centro histórico.',
     activities: [
       {
         name: 'Toma de contacto con Budapest - Llegada y primeras impresiones',
