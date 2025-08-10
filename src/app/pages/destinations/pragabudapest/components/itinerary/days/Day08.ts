@@ -1,7 +1,7 @@
 export const day08Budapest = {
     borderClass:'border-purple',
     day:{
-      title: 'Día 04 - Bratislava',
+      title: 'Día 04 - Budapest: ',
       activities: [
         {
             name: 'Castillo de Bratislava',
