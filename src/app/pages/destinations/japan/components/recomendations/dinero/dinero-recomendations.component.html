@@ -19,8 +19,23 @@
 
   <!-- Gráfica de evolución del yen -->
   <div class="chart-section">
-    <h4>Evolución reciente del euro frente al yen (EUR → JPY)</h4>
-    <div class="chart-container">
+    <h4>Evolución histórica del euro frente al yen (EUR → JPY)</h4>
+    
+    <!-- Loader de carga -->
+    <div *ngIf="isLoading" class="chart-loader">
+      <div class="spinner"></div>
+      <p>Cargando datos históricos...</p>
+    </div>
+    
+    <!-- Error -->
+    <div *ngIf="hasError" class="chart-error">
+      <div class="error-icon">⚠️</div>
+      <p>{{ errorMessage }}</p>
+      <button class="retry-btn" (click)="fetchRealExchangeRates()">Reintentar</button>
+    </div>
+    
+    <!-- Gráfica -->
+    <div *ngIf="!isLoading && !hasError" class="chart-container">
       <canvas baseChart
         [datasets]="chartData.datasets"
         [labels]="chartData.labels"
