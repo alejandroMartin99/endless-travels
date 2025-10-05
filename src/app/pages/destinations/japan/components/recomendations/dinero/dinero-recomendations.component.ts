@@ -79,11 +79,171 @@ export class DineroRecomendationsComponent implements OnInit {
   }
 
   fetchFromYahooFinance(): void {
-    // Usar una API que funcione sin problemas de CORS
+    // Usar una API completamente gratuita sin access keys
     console.log('=== INTENTANDO DATOS HISTÓRICOS ===');
-    console.log('Probando con exchangerate.host que no tiene problemas de CORS...');
+    console.log('Probando con Fixer.io (gratuito sin key)...');
     
-    this.fetchHistoricalDataFromExchangeRateHost();
+    this.fetchFromFixerIOFree();
+  }
+
+  fetchFromFixerIOFree(): void {
+    // Fixer.io tiene un endpoint gratuito sin access key
+    const url = 'http://data.fixer.io/api/latest?access_key=';
+    
+    console.log('=== FIXER.IO GRATUITO ===');
+    console.log('URL:', url);
+    console.log('Intentando con Fixer.io (endpoint público)...');
+
+    this.http.get<any>(url).subscribe({
+      next: (response) => {
+        console.log('=== RESPUESTA FIXER.IO ===');
+        console.log('Response completa:', response);
+        
+        if (response.success && response.rates && response.rates.JPY) {
+          const currentRate = response.rates.JPY;
+          console.log('✅ Tipo de cambio actual obtenido:', currentRate);
+          
+          // Como no tenemos datos históricos, mostrar solo el actual
+          this.showErrorChart(`Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Los datos históricos requieren una API key.`);
+        } else {
+          console.log('❌ Fixer.io no funcionó, probando exchangerate-api...');
+          this.fetchFromExchangeRateAPIFree();
+        }
+      },
+      error: (error) => {
+        console.log('=== ERROR FIXER.IO ===');
+        console.log('Error completo:', error);
+        console.log('Probando exchangerate-api...');
+        this.fetchFromExchangeRateAPIFree();
+      }
+    });
+  }
+
+  fetchFromExchangeRateAPIFree(): void {
+    // exchangerate-api.com es completamente gratuito
+    const url = 'https://api.exchangerate-api.com/v4/latest/EUR';
+    
+    console.log('=== EXCHANGERATE-API.COM GRATUITO ===');
+    console.log('URL:', url);
+
+    this.http.get<any>(url).subscribe({
+      next: (response) => {
+        console.log('=== RESPUESTA EXCHANGERATE-API ===');
+        console.log('Response completa:', response);
+        
+        if (response.rates && response.rates.JPY) {
+          const currentRate = response.rates.JPY;
+          console.log('✅ Tipo de cambio actual obtenido:', currentRate);
+          
+          // Intentar obtener algunos datos históricos usando fechas específicas
+          this.tryHistoricalDataWithCurrentRate(currentRate);
+        } else {
+          console.log('❌ exchangerate-api no funcionó, probando exchangerate.host...');
+          this.fetchFromExchangeRateHostFree();
+        }
+      },
+      error: (error) => {
+        console.log('=== ERROR EXCHANGERATE-API ===');
+        console.log('Error completo:', error);
+        console.log('Probando exchangerate.host...');
+        this.fetchFromExchangeRateHostFree();
+      }
+    });
+  }
+
+  fetchFromExchangeRateHostFree(): void {
+    // exchangerate.host es completamente gratuito
+    const url = 'https://api.exchangerate.host/latest?base=EUR&symbols=JPY';
+    
+    console.log('=== EXCHANGERATE.HOST GRATUITO ===');
+    console.log('URL:', url);
+
+    this.http.get<any>(url).subscribe({
+      next: (response) => {
+        console.log('=== RESPUESTA EXCHANGERATE.HOST ===');
+        console.log('Response completa:', response);
+        
+        if (response.success && response.rates && response.rates.JPY) {
+          const currentRate = response.rates.JPY;
+          console.log('✅ Tipo de cambio actual obtenido:', currentRate);
+          
+          this.showErrorChart(`Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Los datos históricos no están disponibles sin API key.`);
+        } else {
+          console.log('❌ Todas las APIs fallaron');
+          this.showErrorChart('No se pudieron cargar datos de ninguna API gratuita. Verifica tu conexión a internet.');
+        }
+      },
+      error: (error) => {
+        console.log('=== ERROR EXCHANGERATE.HOST ===');
+        console.log('Error completo:', error);
+        console.log('❌ Todas las APIs fallaron');
+        this.showErrorChart('Error de conexión. Verifica tu conexión a internet.');
+      }
+    });
+  }
+
+  tryHistoricalDataWithCurrentRate(currentRate: number): void {
+    // Intentar obtener algunos datos históricos usando fechas específicas
+    console.log('=== INTENTANDO DATOS HISTÓRICOS CON FECHAS ESPECÍFICAS ===');
+    
+    const historicalDates = [
+      '2024-01-01',
+      '2024-04-01', 
+      '2024-07-01',
+      '2024-10-01',
+      '2023-01-01',
+      '2023-04-01',
+      '2023-07-01',
+      '2023-10-01',
+      '2022-01-01',
+      '2022-04-01',
+      '2022-07-01',
+      '2022-10-01'
+    ];
+    
+    let successCount = 0;
+    const results: { date: string, rate: number }[] = [];
+    
+    historicalDates.forEach((dateStr, index) => {
+      setTimeout(() => {
+        const url = `https://api.exchangerate-api.com/v4/${dateStr}/EUR`;
+        
+        console.log(`Consultando fecha histórica ${index + 1}/${historicalDates.length}: ${dateStr}`);
+        
+        this.http.get<any>(url).subscribe({
+          next: (response) => {
+            console.log(`Respuesta para ${dateStr}:`, response);
+            
+            if (response.rates && response.rates.JPY) {
+              results.push({ date: dateStr, rate: response.rates.JPY });
+              successCount++;
+              console.log(`✅ ${dateStr}: 1 EUR = ${response.rates.JPY} JPY`);
+            }
+            
+            // Si hemos procesado todas las fechas o tenemos suficientes datos
+            if (successCount + (historicalDates.length - successCount) === historicalDates.length) {
+              if (results.length > 0) {
+                this.processHistoricalResults(results);
+              } else {
+                this.showErrorChart(`Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Los datos históricos no están disponibles.`);
+              }
+            }
+          },
+          error: (error) => {
+            console.log(`❌ Error para ${dateStr}:`, error);
+            
+            // Si hemos procesado todas las fechas
+            if (successCount + (historicalDates.length - successCount) === historicalDates.length) {
+              if (results.length > 0) {
+                this.processHistoricalResults(results);
+              } else {
+                this.showErrorChart(`Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Los datos históricos no están disponibles.`);
+              }
+            }
+          }
+        });
+      }, index * 300);
+    });
   }
 
   fetchHistoricalDataFromExchangeRateHost(): void {
