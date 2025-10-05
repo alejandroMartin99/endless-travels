@@ -1,13 +1,6 @@
 
 <!-- Transporte -->
-<mat-expansion-panel [(expanded)]="panelOpenState">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      <mat-icon class="panel-icon">directions_railway</mat-icon>
-      Transporte
-    </mat-panel-title>
-  </mat-expansion-panel-header>
-
+<div class="transport-container">
   <!-- Botones de las pestañas -->
   <div class="tabs">
     <button *ngFor="let tab of tabs"
@@ -20,23 +13,20 @@
 
   <!-- Contenido de cada tab -->
   <div *ngIf="isTabActive('general')" class="tab-content">
-    <mat-accordion>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon class="panel-icon">confirmation_num</mat-icon>
-            Japan Rail Pass (JR Pass)
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-  
-        <div class="japan-rail-pass-item">
+    
+    <!-- Japan Rail Pass -->
+    <div class="section-header mobile-optimized">
+      <mat-icon class="panel-icon">confirmation_num</mat-icon>
+      Japan Rail Pass (JR Pass)
+    </div>
+    
+    <div class="japan-rail-pass-item mobile-optimized">
           <p>Es un pase exclusivo para turistas extranjeros que permite viajar de forma ilimitada en la mayoría de los trenes operados por Japan Railways (JR) durante 7, 14 o 21 días. Este pase incluye los trenes bala (Shinkansen), líneas locales y rápidas, autobuses y ferris seleccionados, siendo una opción eficiente y económica para recorrer Japón. Sin embargo, su conveniencia depende de la ruta y la duración del viaje. Este es el <a href="https://www.jrailpass.com/es/jr-pass?_gl=1*58bve*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAmrS7BhBJEiwAei59i3oBbaRDGthhuLXRVagJtY9GSEpbbhi58KAP-LW1Tr-aWBEvpwkiyxoCygQQAvD_BwE">Link de compra</a></p>
           
   
-          <div class="japan-rail-pass-section">
+          <div class="japan-rail-pass-section mobile-optimized">
             <h1>¿Qué incluye el Japan Rail Pass?</h1>
-            <div class="japan-rail-pass-subsection">
+            <div class="japan-rail-pass-subsection mobile-optimized">
               <ul>
                   <li>✅ Todos los trenes trenes bala (Shinkansen) (Tokaido, Sanyo, Hokuriku, Hokkaido ...  )</li>
                   <li>✅ Trenes rápidos y locales </li>
@@ -141,17 +131,14 @@
         </div>
       </div>
   
-      </mat-expansion-panel>
-  
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon class="panel-icon">credit_card</mat-icon>
-            Tarjeta IC (PASMO/SUICA)
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-  
-        <div class="suica-item">
+    
+    <!-- Tarjeta IC (PASMO/SUICA) -->
+    <div class="section-header">
+      <mat-icon class="panel-icon">credit_card</mat-icon>
+      Tarjeta IC (PASMO/SUICA)
+    </div>
+    
+    <div class="suica-item">
           <div>
             <p>
               La tarjeta SUICA (Super Urban Intelligent CArd) es el sistema de pago electrónico más eficiente para el transporte público y compras en Japón. Compatible con JR Lines, Tokyo Metro, autobuses urbanos y más de 50,000 tiendas de conveniencia, restaurantes y máquinas expendedoras en todo el país.
@@ -185,17 +172,14 @@
               class="suica-image" />
           </div>
         </div>
-      </mat-expansion-panel>
-  
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon class="panel-icon">local_taxi</mat-icon>
-            Taxi
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-  
-        <div class="japan-rail-pass-item">
+    
+    <!-- Taxi -->
+    <div class="section-header">
+      <mat-icon class="panel-icon">local_taxi</mat-icon>
+      Taxi
+    </div>
+    
+    <div class="japan-rail-pass-item">
           <p>
             Los taxis en Japón son una opción cómoda y segura para moverse por la ciudad. Sin embargo, son más caros que el transporte público y no son recomendables para trayectos largos. 
           </p>
@@ -208,9 +192,6 @@
             <li> <strong>Al igual que en todo Japón no hay que propina </strong> al conductor.</li>
           </ul>
         </div>
-      </mat-expansion-panel>
-      
-    </mat-accordion>
   </div>
 
   <div *ngIf="isTabActive('tokyo')" class="tab-content">
@@ -736,9 +717,4 @@
     </div>
   </div>
 
-
-
-</mat-expansion-panel>
-
-
-
+</div>

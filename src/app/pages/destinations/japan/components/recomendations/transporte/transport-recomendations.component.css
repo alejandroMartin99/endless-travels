@@ -524,9 +524,172 @@ th {
   .zone-title {
     font-size: 2rem;
   }
+
+  /* Section headers responsive */
+  .section-header {
+    margin: 16px 0 12px 0;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+  }
+
+  .section-header .panel-icon {
+    font-size: 1.3rem;
+    width: 1.3rem;
+    height: 1.3rem;
+  }
 }
 
+/* Estilos para el contenedor de transporte - igual que mat-expansion-panel */
+.transport-container {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-left: 5px solid #1a237e;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 20px;
+}
 
+.transport-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 
+/* Estilos para los headers de sección - más intuitivos */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 16px 0;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.2);
+}
 
+.section-header:first-of-type {
+  margin-top: 0;
+}
+
+.section-header .panel-icon {
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+/* Optimizaciones para móvil */
+@media (max-width: 768px) {
+  /* Contenedor principal sin línea azul en móvil */
+  .transport-container {
+    border-left: none; /* Eliminar línea azul */
+    border-radius: 0; /* Eliminar border-radius */
+    box-shadow: none; /* Eliminar sombra */
+    padding: 8px; /* Reducir padding */
+    margin-bottom: 0; /* Eliminar margen */
+  }
+
+  /* Headers optimizados para móvil */
+  .section-header.mobile-optimized {
+    margin: 8px 0 6px 0; /* Reducir márgenes */
+    padding: 8px 12px; /* Reducir padding */
+    font-size: 1rem; /* Reducir tamaño */
+    border-radius: 4px; /* Reducir border-radius */
+  }
+
+  .section-header.mobile-optimized .panel-icon {
+    font-size: 1.2rem; /* Reducir icono */
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  /* Items optimizados para móvil */
+  .japan-rail-pass-item.mobile-optimized,
+  .suica-item.mobile-optimized {
+    padding: 4px; /* Reducir padding */
+    margin-bottom: 8px; /* Reducir margen */
+  }
+
+  /* Secciones optimizadas para móvil */
+  .japan-rail-pass-section.mobile-optimized {
+    margin-bottom: 8px; /* Reducir margen */
+  }
+
+  .japan-rail-pass-section.mobile-optimized h1 {
+    font-size: 1.1rem; /* Reducir tamaño */
+    margin-bottom: 6px; /* Reducir margen */
+  }
+
+  .japan-rail-pass-subsection.mobile-optimized {
+    padding: 4px; /* Reducir padding */
+  }
+
+  .japan-rail-pass-subsection.mobile-optimized ul {
+    padding-left: 16px; /* Reducir padding */
+    margin-bottom: 6px; /* Reducir margen */
+  }
+
+  .japan-rail-pass-subsection.mobile-optimized li {
+    margin-bottom: 4px; /* Reducir margen */
+    font-size: 0.9rem; /* Reducir tamaño */
+    line-height: 1.3; /* Optimizar line-height */
+  }
+
+  /* Tabs optimizadas para móvil */
+  .tabs {
+    gap: 2px; /* Reducir gap */
+    margin-bottom: 8px; /* Reducir margen */
+  }
+
+  .tab-button {
+    padding: 6px 8px; /* Reducir padding */
+    font-size: 0.9rem; /* Reducir tamaño */
+    margin-bottom: 2px; /* Reducir margen */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra compacto para pantallas muy pequeñas */
+  .transport-container {
+    padding: 4px; /* Reducir aún más */
+  }
+
+  .section-header.mobile-optimized {
+    margin: 4px 0 4px 0; /* Reducir aún más */
+    padding: 6px 8px; /* Reducir aún más */
+    font-size: 0.9rem; /* Reducir aún más */
+  }
+
+  .section-header.mobile-optimized .panel-icon {
+    font-size: 1rem; /* Reducir aún más */
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .japan-rail-pass-item.mobile-optimized,
+  .suica-item.mobile-optimized {
+    padding: 2px; /* Reducir aún más */
+  }
+
+  .japan-rail-pass-section.mobile-optimized h1 {
+    font-size: 1rem; /* Reducir aún más */
+    margin-bottom: 4px; /* Reducir aún más */
+  }
+
+  .japan-rail-pass-subsection.mobile-optimized {
+    padding: 2px; /* Reducir aún más */
+  }
+
+  .japan-rail-pass-subsection.mobile-optimized li {
+    font-size: 0.8rem; /* Reducir aún más */
+    line-height: 1.2; /* Optimizar aún más */
+  }
+
+  .tab-button {
+    padding: 4px 6px; /* Reducir aún más */
+    font-size: 0.8rem; /* Reducir aún más */
+  }
+}
 

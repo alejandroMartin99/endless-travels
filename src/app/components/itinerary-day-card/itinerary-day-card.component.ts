@@ -4,8 +4,10 @@ import {
   ViewChild,
   ElementRef,
   OnDestroy,
+  OnInit,
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
+import { ScrollService } from '../../services/scroll.service';
 
 interface Activity {
   name: string;
@@ -26,11 +28,13 @@ interface Day {
   templateUrl: './itinerary-day-card.component.html',
   styleUrls: ['./itinerary-day-card.component.css'],
 })
-export class ItineraryDayCardComponent implements OnDestroy {
+export class ItineraryDayCardComponent implements OnDestroy, OnInit {
   @Input() day!: Day;
   @Input() borderClass: string = '';
   @ViewChild('map', { static: false }) mapContainer!: ElementRef;
   @ViewChild('mobileMap', { static: false }) mobileMapContainer!: ElementRef;
+  @ViewChild('galleryContainer', { static: false }) galleryContainer!: ElementRef;
+  @ViewChild('mobileScrollContainer', { static: false }) mobileScrollContainer!: ElementRef;
 
   panelOpenState = false;
   currentActivityIndex = 0;
@@ -41,7 +45,15 @@ export class ItineraryDayCardComponent implements OnDestroy {
   private mobileMarkers: mapboxgl.Marker[] = [];
   private isMapInitialized = false;
   private isMobileMapInitialized = false;
-  private scrollPosition = 0;
+  private touchStartX = 0;
+  private touchEndX = 0;
+
+  constructor(private scrollService: ScrollService) {}
+
+  ngOnInit(): void {
+    // Resetear scroll cuando se inicializa el componente
+    this.scrollService.resetContainerScroll('.mobile-scroll-container');
+  }
 
   ngOnDestroy(): void {
     if (this.map) {
@@ -50,43 +62,30 @@ export class ItineraryDayCardComponent implements OnDestroy {
     if (this.mobileMap) {
       this.mobileMap.remove();
     }
-    this.toggleBodyScroll(false);
   }
 
-  isDescriptionVisible = false;
-
-  toggleDescription(): void {
-    this.isDescriptionVisible = !this.isDescriptionVisible;
-    this.toggleBodyScroll(this.isDescriptionVisible);
+  // Método para manejar swipe en la galería
+  onGalleryTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
   }
 
-  isGalleryVisible = false;
-
-  toggleGallery(): void {
-    this.isGalleryVisible = !this.isGalleryVisible;
-    this.toggleBodyScroll(this.isGalleryVisible);
+  onGalleryTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].clientX;
+    this.handleGallerySwipe();
   }
 
-  private toggleBodyScroll(disable: boolean): void {
-    // Verificar que estamos en el navegador antes de acceder a document
-    if (typeof document !== 'undefined') {
-      if (disable) {
-        // Guardar la posición actual del scroll
-        this.scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-        
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.width = '100%';
-        document.body.style.top = `-${this.scrollPosition}px`;
-      } else {
-        // Restaurar el scroll
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.top = '';
-        
-        // Restaurar la posición de scroll
-        window.scrollTo(0, this.scrollPosition);
+  private handleGallerySwipe(): void {
+    const swipeThreshold = 50;
+    const swipeDistance = this.touchEndX - this.touchStartX;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      const currentActivity = this.day.activities[this.currentActivityIndex];
+      if (swipeDistance > 0 && this.currentImageIndex > 0) {
+        // Swipe right - imagen anterior
+        this.currentImageIndex--;
+      } else if (swipeDistance < 0 && this.currentImageIndex < currentActivity.images.length - 1) {
+        // Swipe left - imagen siguiente
+        this.currentImageIndex++;
       }
     }
   }
@@ -211,6 +210,9 @@ export class ItineraryDayCardComponent implements OnDestroy {
       });
       this.updateMarkers(this.mobileMap, this.mobileMarkers);
     }
+    
+    // Scroll optimizado para móvil
+    this.scrollToActivityTop();
   }
 
   private updateMarkers(map: mapboxgl.Map, markers: mapboxgl.Marker[]): void {
@@ -237,6 +239,23 @@ export class ItineraryDayCardComponent implements OnDestroy {
     const newIndex = this.currentActivityIndex + delta;
     if (newIndex >= 0 && newIndex < this.day.activities.length) {
       this.selectActivity(newIndex);
+    }
+  }
+
+  private scrollToActivityTop(): void {
+    // Solo aplicar scroll en móvil
+    if (window.innerWidth <= 768) {
+      // Resetear scroll del contenedor móvil
+      if (this.mobileScrollContainer?.nativeElement) {
+        this.mobileScrollContainer.nativeElement.scrollTop = 0;
+      }
+      
+      // Scroll suave al panel expandido
+      setTimeout(() => {
+        if (this.galleryContainer?.nativeElement) {
+          this.scrollService.scrollToMobileContainer(this.galleryContainer.nativeElement);
+        }
+      }, 100);
     }
   }
 

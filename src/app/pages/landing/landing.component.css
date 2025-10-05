@@ -95,6 +95,19 @@
   text-align: center;
 }
 
+/* Optimización móvil para destinos */
+@media (max-width: 768px) {
+  .destinations-section {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .destinations-section {
+    padding: 1.5rem 0.8rem;
+  }
+}
+
 .destinations-section h2 {
   font-size: 2.5rem;
   color: #1a237e;
@@ -140,6 +153,19 @@
 
 .destination-info {
   padding: 1.5rem;
+}
+
+/* Optimización móvil para tarjetas */
+@media (max-width: 768px) {
+  .destination-info {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .destination-info {
+    padding: 1rem;
+  }
 }
 
 .destination-info h3 {

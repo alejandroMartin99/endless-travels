@@ -67,107 +67,101 @@
 
   <!-- Mobile Layout -->
   <div class="mobile-layout">
-    <!-- Header de actividad móvil -->
-    <div class="mobile-activity-header">
-      <div class="activity-info">
-        <h3>{{ day.activities[currentActivityIndex].name }}</h3>
-        <div class="activity-counter">
-          {{ currentActivityIndex + 1 }} de {{ day.activities.length }}
-        </div>
-      </div>
-      <div class="mobile-actions">
-        <button class="action-btn info-btn" (click)="toggleDescription()">
-          <mat-icon>info</mat-icon>
-        </button>
-        <button class="action-btn gallery-btn" (click)="toggleGallery()">
-          <mat-icon>photo_library</mat-icon>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mapa móvil -->
-    <div class="mobile-map-container">
-      <div class="activity-map" #mobileMap></div>
-      <div class="map-overlay">
-        <button class="map-control-btn" (click)="rescaleMap()">
-          <mat-icon>my_location</mat-icon>
-        </button>
-      </div>
-    </div>
-
-    <!-- Navegación móvil -->
-    <div class="mobile-navigation">
-      <button class="nav-btn prev-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
+    <!-- Contenedor principal con scroll -->
+    <div class="mobile-scroll-container" #mobileScrollContainer>
       
-      <div class="mobile-activity-indicators">
-        <div
-          *ngFor="let activity of day.activities; let i = index"
-          class="mobile-activity-indicator"
-          [class.active]="i === currentActivityIndex"
-          (click)="selectActivity(i)">
-        </div>
-      </div>
-      
-      <button class="nav-btn next-btn" (click)="changeActivity(1)" 
-              [disabled]="currentActivityIndex === day.activities.length - 1">
-        <mat-icon>chevron_right</mat-icon>
-      </button>
-    </div>
-  </div>
-
-  <!-- Modal de descripción móvil -->
-  <div class="mobile-modal" [class.visible]="isDescriptionVisible" (click)="toggleDescription()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <div class="modal-header">
-        <h3>{{ day.activities[currentActivityIndex].name }}</h3>
-      </div>
-      <div class="modal-body">
-        <p class="description-text" [innerHTML]="day.activities[currentActivityIndex].description"></p>
-      </div>
-      <div class="modal-footer">
-        <button class="close-btn-bottom" (click)="toggleDescription()">
-          <mat-icon>close</mat-icon>
-          <span>Cerrar</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal de galería móvil -->
-  <div class="mobile-modal" [class.visible]="isGalleryVisible" (click)="toggleGallery()">
-    <div class="modal-content gallery-modal" (click)="$event.stopPropagation()">
-      <div class="modal-header">
-        <h3>Galería - {{ day.activities[currentActivityIndex].name }}</h3>
-      </div>
-      <div class="modal-body">
-        <div class="gallery-container">
-          <img 
-            [src]="day.activities[currentActivityIndex].images[currentImageIndex]" 
-            [alt]="day.activities[currentActivityIndex].name"
-            class="gallery-image">
-          
-          <!-- Controles de galería -->
-          <div class="gallery-controls-mobile" *ngIf="day.activities[currentActivityIndex].images.length > 1">
-            <button class="gallery-nav-btn prev" (click)="changeImage(-1)" [disabled]="currentImageIndex === 0">
+      <!-- Navegación de actividades sticky -->
+      <div class="mobile-sticky-nav">
+        <div class="nav-header">
+          <div class="activity-counter">
+            Actividad {{ currentActivityIndex + 1 }} de {{ day.activities.length }}
+          </div>
+          <div class="nav-controls">
+            <button class="nav-btn prev-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
               <mat-icon>chevron_left</mat-icon>
             </button>
-            <div class="image-counter">
-              {{ currentImageIndex + 1 }} / {{ day.activities[currentActivityIndex].images.length }}
-            </div>
-            <button class="gallery-nav-btn next" (click)="changeImage(1)" 
-                    [disabled]="currentImageIndex === day.activities[currentActivityIndex].images.length - 1">
+            <button class="nav-btn next-btn" (click)="changeActivity(1)" 
+                    [disabled]="currentActivityIndex === day.activities.length - 1">
               <mat-icon>chevron_right</mat-icon>
             </button>
           </div>
         </div>
+        
+        <!-- Indicadores de actividades -->
+        <div class="mobile-activity-indicators">
+          <div
+            *ngFor="let activity of day.activities; let i = index"
+            class="mobile-activity-indicator"
+            [class.active]="i === currentActivityIndex"
+            (click)="selectActivity(i)">
+          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button class="close-btn-bottom" (click)="toggleGallery()">
-          <mat-icon>close</mat-icon>
-          <span>Cerrar</span>
-        </button>
+
+      <!-- Contenido de la actividad actual -->
+      <div class="mobile-activity-content">
+        
+        <!-- Título de la actividad -->
+        <div class="activity-title">
+          <h2>{{ day.activities[currentActivityIndex].name }}</h2>
+        </div>
+
+        <!-- Galería de imágenes horizontal -->
+        <div class="mobile-image-gallery">
+          <div class="gallery-scroll-container" 
+               #galleryContainer
+               (touchstart)="onGalleryTouchStart($event)"
+               (touchend)="onGalleryTouchEnd($event)">
+            <div class="gallery-track" [style.transform]="'translateX(-' + (currentImageIndex * 100) + '%)'">
+              <div 
+                *ngFor="let image of day.activities[currentActivityIndex].images" 
+                class="gallery-slide">
+                <img [src]="image" [alt]="day.activities[currentActivityIndex].name">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contador de imágenes -->
+          <div class="image-counter" *ngIf="day.activities[currentActivityIndex].images.length > 1">
+            {{ currentImageIndex + 1 }} / {{ day.activities[currentActivityIndex].images.length }}
+          </div>
+          
+          <!-- Controles de galería (opcionales) -->
+          <div class="gallery-dots" *ngIf="day.activities[currentActivityIndex].images.length > 1">
+            <div 
+              *ngFor="let image of day.activities[currentActivityIndex].images; let i = index"
+              class="dot"
+              [class.active]="i === currentImageIndex"
+              (click)="currentImageIndex = i">
+            </div>
+          </div>
+        </div>
+
+        <!-- Descripción de la actividad -->
+        <div class="mobile-activity-description">
+          <div class="description-content" [innerHTML]="day.activities[currentActivityIndex].description"></div>
+        </div>
+
+        <!-- Mapa móvil -->
+        <div class="mobile-map-section">
+          <div class="map-header">
+            <h3>Ubicación</h3>
+            <button class="map-rescale-btn" (click)="rescaleMap()">
+              <mat-icon>my_location</mat-icon>
+              <span>Centrar</span>
+            </button>
+          </div>
+          <div class="mobile-map-container">
+            <div class="activity-map" #mobileMap></div>
+          </div>
+        </div>
+
+        <!-- Separador para siguiente actividad -->
+        <div class="activity-separator" *ngIf="currentActivityIndex < day.activities.length - 1">
+          <div class="separator-line"></div>
+          <div class="separator-text">Swipe o usa los controles para ver la siguiente actividad</div>
+        </div>
+
       </div>
     </div>
   </div>

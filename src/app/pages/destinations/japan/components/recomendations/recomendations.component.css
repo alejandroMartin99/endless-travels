@@ -320,54 +320,123 @@ th {
   border-radius: 8px;
 }
 
+/* Referencia items clicables */
+.reference-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reference-item:hover {
+  border-color: #1a237e;
+  box-shadow: 0 6px 16px rgba(26, 35, 126, 0.2);
+  transform: translateY(-3px);
+}
+
+.reference-item.active {
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(26, 35, 126, 0.3);
+}
+
+.reference-item.active .reference-icon {
+  transform: scale(1.1);
+}
+
+.reference-item.active h4,
+.reference-item.active p {
+  color: white;
+}
+
+.reference-item.active a {
+  color: #ffeb3b;
+  font-weight: 600;
+}
+
+/* Sistema de contenido directo */
+.content-sections {
+  margin-top: 20px;
+}
+
+.content-section {
+  display: none;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive Design Mejorado */
 @media (max-width: 768px) {
   .content-container {
-    padding: 0px 5px;
-    background: linear-gradient(to bottom, white, #f0f0f0);
+    padding: 0px 4px; /* Reducido de 8px a 4px */
+    background: white; /* Eliminado gradiente */
     overflow-x: hidden;
   }
 
-  /* User Guide Responsive */
+  /* User Guide Responsive - Optimizado */
   .user-guide {
-    margin: 20px 0;
+    margin: 8px 0; /* Reducido de 20px a 8px */
   }
 
   .guide-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Reducido de 1.8rem */
+    margin: 0 0 8px 0; /* Reducido margen inferior */
   }
 
   .guide-subtitle {
-    font-size: 1rem;
-    padding: 0 10px;
+    font-size: 0.9rem; /* Reducido de 1rem */
+    padding: 0 4px; /* Reducido de 10px */
   }
 
-  /* Summary Section Responsive */
+  /* Summary Section Responsive - Maximizado */
   .summary-section {
-    padding: 30px 20px;
-    margin-bottom: 40px;
+    padding: 8px 4px; /* Reducido drásticamente de 20px 16px */
+    margin-bottom: 8px; /* Reducido de 24px */
+    border: none; /* Eliminado borde */
+    border-radius: 0; /* Eliminado border-radius */
+    box-shadow: none; /* Eliminada sombra */
   }
 
   .summary-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Reducido de 1.5rem */
   }
 
   .summary-header p {
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Reducido de 0.95rem */
   }
 
   .reference-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr); /* Cambiado de 3 a 2 columnas */
+    gap: 6px; /* Reducido de 15px */
   }
 
   .reference-item {
-    padding: 15px;
+    padding: 8px; /* Reducido drásticamente de 15px */
+    border: 1px solid #ddd; /* Borde más sutil */
+    border-radius: 4px; /* Border-radius más pequeño */
   }
 
   .reference-icon {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
+    font-size: 1.3rem; /* Reducido de 1.5rem */
+    margin-bottom: 4px; /* Reducido de 8px */
   }
 
   .reference-item h4 {
@@ -376,25 +445,39 @@ th {
   }
 
   .reference-item p {
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Reducido de 0.8rem */
+    line-height: 1.3; /* Optimizado para móvil */
   }
 
-  /* Tabs responsivos */
+  /* Content sections optimizadas para móvil */
+  .content-sections {
+    margin-top: 4px; /* Reducido de 20px */
+  }
+
+  .content-section {
+    margin-bottom: 0; /* Eliminado margen inferior */
+    border-radius: 0; /* Eliminado border-radius */
+    box-shadow: none; /* Eliminada sombra */
+    padding: 0; /* Eliminado padding interno */
+  }
+
+  /* Tabs responsivos - Optimizados */
   .tabs {
     flex-direction: column;
-    gap: 5px;
+    gap: 2px; /* Reducido de 5px */
     border-bottom: none;
     padding-bottom: 0;
+    margin-bottom: 8px; /* Reducido margen */
   }
 
   .tab-button {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 8px 12px; /* Reducido de 12px 16px */
+    font-size: 13px; /* Reducido de 14px */
     text-align: left;
-    border-radius: 6px;
+    border-radius: 4px; /* Reducido de 6px */
     background-color: #f8f9fa;
     border: 1px solid #e0e0e0;
-    margin-bottom: 5px;
+    margin-bottom: 2px; /* Reducido de 5px */
   }
 
   .tab-button.active {
@@ -411,10 +494,22 @@ th {
     display: none;
   }
 
-  /* Expansion panels responsivos */
+  /* Expansion panels responsivos - Sin líneas azules */
   mat-expansion-panel {
-    margin-bottom: 10px;
-    border-left: 3px solid #1a237e;
+    margin-bottom: 0; /* Eliminado margen */
+    border-left: none; /* ELIMINADA LÍNEA AZUL */
+    border-radius: 0; /* Eliminado border-radius */
+    box-shadow: none; /* Eliminada sombra */
+  }
+  
+  mat-expansion-panel-header {
+    padding: 6px 8px; /* Reducido de 8px 12px */
+    min-height: 36px; /* Reducido de 44px */
+  }
+  
+  mat-expansion-panel-header mat-panel-title {
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   /* Contenido responsivo */
@@ -498,80 +593,103 @@ th {
   }
 }
 
-/* Para pantallas muy pequeñas */
+/* Para pantallas muy pequeñas - Ultra optimizado */
 @media (max-width: 480px) {
   .content-container {
-    padding: 0px 3px;
+    padding: 0px 2px; /* Reducido de 6px a 2px */
   }
 
-  /* User Guide para pantallas muy pequeñas */
+  /* User Guide para pantallas muy pequeñas - Maximizado */
+  .user-guide {
+    margin: 4px 0; /* Reducido aún más */
+  }
+
   .guide-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Reducido de 1.5rem */
+    margin: 0 0 4px 0; /* Reducido margen */
   }
 
   .guide-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reducido de 0.9rem */
+    padding: 0 2px; /* Reducido de 4px */
   }
 
+  /* Summary Section - Ultra compacto */
   .summary-section {
-    padding: 20px 15px;
+    padding: 4px 2px; /* Reducido drásticamente de 20px 15px */
+    margin-bottom: 4px; /* Reducido */
   }
 
   .summary-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* Reducido de 1.3rem */
   }
 
   .summary-header p {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reducido de 0.9rem */
   }
 
+  /* Grid ultra compacto */
   .reference-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas */
+    gap: 4px; /* Reducido gap */
   }
 
   .reference-item {
-    padding: 10px;
+    padding: 6px; /* Reducido de 10px */
   }
 
   .reference-icon {
-    font-size: 1.3rem;
-    margin-bottom: 6px;
+    font-size: 1.2rem; /* Reducido de 1.3rem */
+    margin-bottom: 3px; /* Reducido de 6px */
   }
 
   .reference-item h4 {
-    font-size: 0.8rem;
-    margin-bottom: 4px;
+    font-size: 0.75rem; /* Reducido de 0.8rem */
+    margin-bottom: 2px; /* Reducido de 4px */
   }
 
-     .reference-item p {
-     font-size: 0.75rem;
-   }
+  .reference-item p {
+    font-size: 0.7rem; /* Reducido de 0.75rem */
+    line-height: 1.2; /* Optimizado */
+  }
 
-   /* Intro text section para pantallas muy pequeñas */
-   .intro-text-section {
-     margin: 20px 0;
-     padding: 15px;
-   }
+  /* Content sections ultra compactas */
+  .content-sections {
+    margin-top: 2px; /* Reducido aún más */
+  }
 
-   .intro-text {
-     font-size: 0.9rem;
-   }
+  /* Intro text section para pantallas muy pequeñas - Ultra compacto */
+  .intro-text-section {
+    margin: 4px 0; /* Reducido de 20px 0 */
+    padding: 4px 2px; /* Reducido de 15px */
+  }
 
-   .topics-list li {
-     padding: 8px 0;
-     font-size: 0.85rem;
-   }
+  .intro-text {
+    font-size: 0.8rem; /* Reducido de 0.9rem */
+  }
+
+  .topics-list li {
+    padding: 4px 0; /* Reducido de 8px 0 */
+    font-size: 0.8rem; /* Reducido de 0.85rem */
+  }
+
+  /* Tabs ultra compactas */
+  .tabs {
+    gap: 1px; /* Reducido aún más */
+    margin-bottom: 4px; /* Reducido */
+  }
 
   .tab-button {
-    padding: 10px 12px;
-    font-size: 13px;
+    padding: 6px 8px; /* Reducido de 10px 12px */
+    font-size: 12px; /* Reducido de 13px */
+    margin-bottom: 1px; /* Reducido */
   }
 
+  /* Items ultra compactos */
   .japan-rail-pass-item,
   .suica-item,
   .kyoto-metro-item {
-    padding: 10px;
+    padding: 4px; /* Reducido de 10px */
   }
 
   th, td {
