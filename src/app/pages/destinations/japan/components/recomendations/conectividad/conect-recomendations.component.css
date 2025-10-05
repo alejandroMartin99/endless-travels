@@ -287,9 +287,84 @@ mat-expansion-panel:hover {
   }
 }
 
+/* Estilos para el contenedor de conectividad - igual que mat-expansion-panel */
+.connectivity-container {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-left: 5px solid #1a237e;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 20px;
+}
 
+.connectivity-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 
+/* Optimizaciones para móvil */
+@media (max-width: 768px) {
+  /* Contenedor principal sin línea azul en móvil */
+  .connectivity-container {
+    border-left: none; /* Eliminar línea azul */
+    border-radius: 0; /* Eliminar border-radius */
+    box-shadow: none; /* Eliminar sombra */
+    padding: 8px; /* Reducir padding */
+    margin-bottom: 0; /* Eliminar margen */
+  }
 
+  /* Connectivity content optimizado */
+  .connectivity-content.mobile-optimized {
+    padding: 4px; /* Reducir padding */
+  }
+
+  .connectivity-content.mobile-optimized h4 {
+    font-size: 1rem; /* Reducir tamaño */
+    margin-bottom: 4px; /* Reducir margen */
+  }
+
+  .connectivity-content.mobile-optimized p {
+    font-size: 0.9rem; /* Reducir tamaño */
+    margin-bottom: 6px; /* Reducir margen */
+    line-height: 1.3; /* Optimizar line-height */
+  }
+
+  .connectivity-content.mobile-optimized ul {
+    padding-left: 16px; /* Reducir padding */
+  }
+
+  .connectivity-content.mobile-optimized li {
+    margin-bottom: 4px; /* Reducir margen */
+    font-size: 0.9rem; /* Reducir tamaño */
+    line-height: 1.3; /* Optimizar line-height */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra compacto para pantallas muy pequeñas */
+  .connectivity-container {
+    padding: 4px; /* Reducir aún más */
+  }
+
+  .connectivity-content.mobile-optimized {
+    padding: 2px; /* Reducir aún más */
+  }
+
+  .connectivity-content.mobile-optimized h4 {
+    font-size: 0.9rem; /* Reducir aún más */
+    margin-bottom: 2px; /* Reducir aún más */
+  }
+
+  .connectivity-content.mobile-optimized p {
+    font-size: 0.8rem; /* Reducir aún más */
+    margin-bottom: 4px; /* Reducir aún más */
+  }
+
+  .connectivity-content.mobile-optimized li {
+    font-size: 0.8rem; /* Reducir aún más */
+    line-height: 1.2; /* Optimizar aún más */
+  }
+}
 
 
 

@@ -299,5 +299,151 @@ mat-expansion-panel:hover {
   }
 }
 
+/* Estilos para el contenedor de hoteles - igual que mat-expansion-panel */
+.hotel-container {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-left: 5px solid #1a237e;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 
+.hotel-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 
+/* Optimizaciones para móvil */
+@media (max-width: 768px) {
+  /* Contenedor principal sin línea azul en móvil */
+  .hotel-container {
+    border-left: none; /* Eliminar línea azul */
+    border-radius: 0; /* Eliminar border-radius */
+    box-shadow: none; /* Eliminar sombra */
+    padding: 8px; /* Reducir padding */
+    margin-bottom: 0; /* Eliminar margen */
+  }
+
+  /* Food guide container optimizado */
+  .food-guide-container.mobile-optimized {
+    padding: 4px; /* Reducir padding */
+  }
+
+  /* Food guide row optimizado */
+  .food-guide-row {
+    flex-direction: column; /* Cambiar a columna en móvil */
+    gap: 8px; /* Reducir gap */
+  }
+
+  .food-guide-column {
+    width: 100%; /* Ancho completo en móvil */
+  }
+
+  /* Guide sections optimizadas */
+  .guide-section {
+    padding: 4px; /* Reducir padding */
+    margin-bottom: 6px; /* Reducir margen */
+  }
+
+  .guide-section h4 {
+    font-size: 1rem; /* Reducir tamaño */
+    margin-bottom: 4px; /* Reducir margen */
+  }
+
+  /* Food lists optimizadas */
+  .food-list {
+    padding-left: 16px; /* Reducir padding */
+  }
+
+  .food-list li {
+    margin-bottom: 4px; /* Reducir margen */
+    font-size: 0.9rem; /* Reducir tamaño */
+    line-height: 1.3; /* Optimizar line-height */
+  }
+
+  /* Tabs optimizadas */
+  .tabs {
+    gap: 2px; /* Reducir gap */
+    margin-bottom: 8px; /* Reducir margen */
+  }
+
+  .tab-button {
+    padding: 6px 8px; /* Reducir padding */
+    font-size: 0.9rem; /* Reducir tamaño */
+    margin-bottom: 2px; /* Reducir margen */
+  }
+
+  /* Text image container optimizado */
+  .text-image-container {
+    flex-direction: column;
+    gap: 8px; /* Reducir gap */
+  }
+
+  .text-container {
+    padding: 4px; /* Reducir padding */
+    font-size: 0.9rem; /* Reducir tamaño */
+  }
+
+  .excursion-image-container {
+    height: 180px; /* Reducir altura */
+  }
+
+  /* Booking section optimizada */
+  .booking-section {
+    margin-top: 1rem; /* Reducir margen */
+  }
+
+  .booking-button {
+    padding: 0.6rem 1.2rem; /* Reducir padding */
+    font-size: 0.9rem; /* Reducir tamaño */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra compacto para pantallas muy pequeñas */
+  .hotel-container {
+    padding: 4px; /* Reducir aún más */
+  }
+
+  .food-guide-container.mobile-optimized {
+    padding: 2px; /* Reducir aún más */
+  }
+
+  .guide-section {
+    padding: 2px; /* Reducir aún más */
+    margin-bottom: 4px; /* Reducir aún más */
+  }
+
+  .guide-section h4 {
+    font-size: 0.9rem; /* Reducir aún más */
+    margin-bottom: 2px; /* Reducir aún más */
+  }
+
+  .food-list li {
+    font-size: 0.8rem; /* Reducir aún más */
+    line-height: 1.2; /* Optimizar aún más */
+  }
+
+  .tab-button {
+    padding: 4px 6px; /* Reducir aún más */
+    font-size: 0.8rem; /* Reducir aún más */
+  }
+
+  .text-container {
+    padding: 2px; /* Reducir aún más */
+    font-size: 0.8rem; /* Reducir aún más */
+  }
+
+  .excursion-image-container {
+    height: 150px; /* Reducir aún más */
+  }
+
+  .booking-button {
+    padding: 0.5rem 1rem; /* Reducir aún más */
+    font-size: 0.8rem; /* Reducir aún más */
+  }
+}

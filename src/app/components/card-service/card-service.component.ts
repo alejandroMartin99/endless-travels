@@ -38,11 +38,19 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   @Input() borderClass: string = '';
   @ViewChild('map') mapContainer!: ElementRef;
   @ViewChild('mobileMap') mobileMapContainer!: ElementRef;
+  @ViewChild('galleryContainer', { static: false }) galleryContainer!: ElementRef;
+  @ViewChild('mobileScrollContainer', { static: false }) mobileScrollContainer!: ElementRef;
 
   currentActivityIndex = 0;
   currentImageIndex = 0;
   isDescriptionVisible = false;
   isGalleryVisible = false;
+  
+  // Touch events para galería - Optimizado
+  touchStartX = 0;
+  touchEndX = 0;
+  private touchStartTime = 0;
+  private isScrolling = false;
   
   private map!: mapboxgl.Map;
   private mobileMap!: mapboxgl.Map;
@@ -230,6 +238,11 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  // TrackBy function para optimizar ngFor
+  trackByImage(index: number, image: string): string {
+    return image;
+  }
+
   rescaleMap(): void {
     if (this.map) {
       this.adjustBounds(this.map);
@@ -272,4 +285,40 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
       }
     }
   }
+
+  // Touch events para galería de imágenes - Optimizado
+  onGalleryTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
+    this.touchStartTime = Date.now();
+    this.isScrolling = false;
+  }
+
+  onGalleryTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].clientX;
+    const touchDuration = Date.now() - this.touchStartTime;
+    
+    // Solo procesar swipe si fue rápido y no se estaba scrolleando
+    if (touchDuration < 300 && !this.isScrolling) {
+      this.handleGallerySwipe();
+    }
+  }
+
+  private handleGallerySwipe(): void {
+    const swipeThreshold = 50;
+    const diff = this.touchStartX - this.touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      // Usar requestAnimationFrame para mejor rendimiento
+      requestAnimationFrame(() => {
+        if (diff > 0) {
+          // Swipe izquierda - siguiente imagen
+          this.changeImage(1);
+        } else {
+          // Swipe derecha - imagen anterior
+          this.changeImage(-1);
+        }
+      });
+    }
+  }
+
 }

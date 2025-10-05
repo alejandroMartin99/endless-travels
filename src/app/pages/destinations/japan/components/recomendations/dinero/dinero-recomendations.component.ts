@@ -64,45 +64,86 @@ export class DineroRecomendationsComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    // Cargar datos inmediatamente
+    this.loadChartData();
+    // Intentar cargar datos reales en segundo plano
     this.fetchExchangeRates();
+  }
+
+  loadChartData(): void {
+    // Datos de ejemplo basados en la tendencia real del yen
+    const sampleData = {
+      labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+      datasets: [
+        {
+          label: '1 EUR a JPY',
+          data: [120, 125, 130, 140, 155, 160],
+          borderColor: '#1a237e',
+          pointBackgroundColor: '#1a237e',
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          fill: false,
+          tension: 0.3,
+          borderWidth: 3,
+        },
+      ],
+    };
+
+    this.chartData = sampleData;
   }
 
   fetchExchangeRates(): void {
     const endDate = new Date().toISOString().split('T')[0];
-    const startDate = new Date(Date.now() - 365*5 * 24 * 60 * 60 * 1000)
+    const startDate = new Date(Date.now() - 365 * 2 * 24 * 60 * 60 * 1000)
       .toISOString()
       .split('T')[0];
 
     const url = `https://api.frankfurter.app/${startDate}..${endDate}?from=EUR&to=JPY`;
 
-    this.http.get<any>(url).subscribe((response) => {
-      const rates = response.rates;
+    this.http.get<any>(url).subscribe({
+      next: (response) => {
+        const rates = response.rates;
 
-      if (!rates) {
-        console.error('No se recibieron datos de tipo rates');
-        return;
+        if (!rates || Object.keys(rates).length === 0) {
+          console.log('No se recibieron datos de la API, usando datos de ejemplo');
+          return;
+        }
+
+        const dates = Object.keys(rates).sort();
+        const values = dates.map((date) => rates[date].JPY);
+
+        // Mostrar solo los últimos 12 meses para mejor visualización
+        const recentDates = dates.slice(-12);
+        const recentValues = values.slice(-12);
+
+        this.chartData = {
+          labels: recentDates.map(date => new Date(date).toLocaleDateString('es-ES', { month: 'short', year: '2-digit' })),
+          datasets: [
+            {
+              label: '1 EUR a JPY',
+              data: recentValues,
+              borderColor: '#1a237e',
+              pointBackgroundColor: '#1a237e',
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              fill: false,
+              tension: 0.3,
+              borderWidth: 3,
+            },
+          ],
+        };
+
+        // Actualizar el gráfico si existe
+        if (this.chart) {
+          this.chart.update();
+        }
+
+        console.log('Datos actualizados:', recentDates, recentValues);
+      },
+      error: (error) => {
+        console.log('Error al cargar datos de la API, usando datos de ejemplo:', error);
+        // Los datos de ejemplo ya están cargados en loadChartData()
       }
-
-      const dates = Object.keys(rates).sort();
-      const values = dates.map((date) => rates[date].JPY);
-
-      this.chartData = {
-        labels: dates,
-        datasets: [
-          {
-            label: '1 EUR a JPY',
-            data: values,
-            borderColor: '#1a237e',
-            pointBackgroundColor: '#1a237e',
-            pointRadius: 0,
-            fill: false,
-            tension: 0.3,
-          },
-        ],
-      };
-
-      console.log('Fechas:', dates);
-      console.log('Valores:', values);
     });
   }
 }

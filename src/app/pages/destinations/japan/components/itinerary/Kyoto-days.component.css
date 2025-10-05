@@ -168,22 +168,22 @@
 
 @media (max-width: 768px) {
   .content-container {
-    padding: 0px 5px; /* Reducimos el padding lateral */
+    padding: 0px 8px; /* Optimizado para mejor aprovechamiento */
     overflow-x: hidden; 
   }
 
   .calendar-container {
-    padding: 0px 5px; 
+    padding: 0px 8px; 
     overflow-x: hidden; 
 
   }
 
   .zone-banner {
-    height: 150px; /* Menor altura para banners */
+    height: 120px; /* Más compacto para móvil */
   }
 
   .zone-title {
-    font-size: 2.2rem; /* Tamaño de fuente más pequeño */
+    font-size: 1.8rem; /* Más compacto */
     top: 0%; /* Alineación más centrada en pantallas pequeñas */
   }
 
@@ -191,14 +191,15 @@
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
     justify-content: center;
-    gap: 10px; /* Espacio entre los elementos */
-    width: 80%;
+    gap: 6px; /* Menos espacio para optimizar */
+    width: 85%;
     overflow-x: hidden; /* Prevenir scroll horizontal */
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    padding: 8px 12px; /* Más compacto */
   }
 
   .info-item {
-    font-size: 0.9rem; /* Tamaño más cómodo para móviles */
+    font-size: 0.8rem; /* Más compacto */
     justify-content: center;
   }
 

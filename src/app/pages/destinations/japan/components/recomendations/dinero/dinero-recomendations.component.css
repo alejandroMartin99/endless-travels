@@ -115,9 +115,204 @@ canvas {
 
 }
 
+/* Estilos para el contenedor de dinero - igual que mat-expansion-panel */
+.money-container {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-left: 5px solid #1a237e;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 20px;
+}
 
+.money-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 
+/* Nuevo diseño limpio */
+.money-intro {
+  margin-bottom: 24px;
+}
 
+.money-intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+.money-section {
+  margin-bottom: 24px;
+}
+
+.money-section h4 {
+  color: #1a237e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  border-left: 4px solid #1a237e;
+  padding-left: 12px;
+}
+
+.money-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.money-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.money-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.money-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #1a237e;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.money-list li strong {
+  color: #1a237e;
+  font-weight: 600;
+}
+
+.money-list li a {
+  color: #1a237e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.money-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Sección de gráfica */
+.chart-section {
+  margin-bottom: 24px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.chart-section h4 {
+  color: #1a237e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Optimizaciones para móvil */
+@media (max-width: 768px) {
+  /* Contenedor principal sin línea azul en móvil */
+  .money-container {
+    border-left: none; /* Eliminar línea azul */
+    border-radius: 0; /* Eliminar border-radius */
+    box-shadow: none; /* Eliminar sombra */
+    padding: 8px; /* Reducir padding */
+    margin-bottom: 0; /* Eliminar margen */
+  }
+
+  /* Secciones optimizadas */
+  .money-intro {
+    margin-bottom: 16px; /* Reducir margen */
+  }
+
+  .money-intro p {
+    font-size: 0.9rem; /* Reducir tamaño */
+    line-height: 1.4; /* Optimizar line-height */
+  }
+
+  .money-section {
+    margin-bottom: 16px; /* Reducir margen */
+  }
+
+  .money-section h4 {
+    font-size: 1.1rem; /* Reducir tamaño */
+    margin-bottom: 8px; /* Reducir margen */
+    padding-left: 8px; /* Reducir padding */
+  }
+
+  .money-section p {
+    font-size: 0.9rem; /* Reducir tamaño */
+    margin-bottom: 8px; /* Reducir margen */
+    line-height: 1.4; /* Optimizar line-height */
+  }
+
+  .money-list li {
+    font-size: 0.9rem; /* Reducir tamaño */
+    margin-bottom: 8px; /* Reducir margen */
+    padding-left: 20px; /* Reducir padding */
+    line-height: 1.4; /* Optimizar line-height */
+  }
+
+  /* Gráfica optimizada para móvil */
+  .chart-section {
+    margin-bottom: 16px; /* Reducir margen */
+    padding: 12px; /* Reducir padding */
+  }
+
+  .chart-section h4 {
+    font-size: 1.1rem; /* Reducir tamaño */
+    margin-bottom: 12px; /* Reducir margen */
+  }
+
+  .chart-container {
+    height: 250px; /* Reducir altura */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra compacto para pantallas muy pequeñas */
+  .money-container {
+    padding: 4px; /* Reducir aún más */
+  }
+
+  .money-text.mobile-optimized {
+    padding: 2px; /* Reducir aún más */
+  }
+
+  .money-text.mobile-optimized h4 {
+    font-size: 0.9rem; /* Reducir aún más */
+    margin-bottom: 2px; /* Reducir aún más */
+  }
+
+  .money-text.mobile-optimized p {
+    font-size: 0.8rem; /* Reducir aún más */
+    margin-bottom: 4px; /* Reducir aún más */
+  }
+
+  .money-text.mobile-optimized li {
+    font-size: 0.8rem; /* Reducir aún más */
+    line-height: 1.2; /* Optimizar aún más */
+  }
+}
 
 
 

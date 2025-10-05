@@ -7,38 +7,14 @@ import { Component } from '@angular/core';
 })
 export class RecomendationsComponent {
 
-  panelOpenState = true;
-  // Tabs disponibles
-  tabs = [
-    { id: 'general', name: 'General', active: true },
-    { id: 'tokyo', name: 'Tokyo', active: false },
-    { id: 'kyoto', name: 'Kyoto', active: false }
-  ];
-
-  // Tab actualmente seleccionada
-  activeTab: string = 'general';
+  // Tab actualmente seleccionada (transporte por defecto)
+  activeTab: string = 'transport';
 
   /**
-   * Cambia la pestaña activa
-   * @param tabId - Identificador de la pestaña a activar
+   * Selecciona un tab
+   * @param tabId - ID del tab a seleccionar
    */
-  openTab(tabId: string): void {
-    // Desactivar todas las pestañas
-    this.tabs = this.tabs.map(tab => ({
-      ...tab,
-      active: tab.id === tabId
-    }));
-    
-    // Actualizar pestaña activa
+  selectTab(tabId: string): void {
     this.activeTab = tabId;
-  }
-
-  /**
-   * Comprueba si una pestaña está activa
-   * @param tabId - Identificador de la pestaña a comprobar
-   * @returns boolean indicando si la pestaña está activa
-   */
-  isTabActive(tabId: string): boolean {
-    return this.activeTab === tabId;
   }
 }
