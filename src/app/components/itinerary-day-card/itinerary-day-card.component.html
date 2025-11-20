@@ -33,6 +33,10 @@
             <mat-icon>chevron_right</mat-icon>
           </button>
         </div>
+        <!-- Contador de imágenes -->
+        <div class="desktop-image-counter" *ngIf="day.activities[currentActivityIndex].images.length > 1">
+          {{ currentImageIndex + 1 }} / {{ day.activities[currentActivityIndex].images.length }}
+        </div>
       </div>
       <div class="activity-map" #map></div>
     </div>
