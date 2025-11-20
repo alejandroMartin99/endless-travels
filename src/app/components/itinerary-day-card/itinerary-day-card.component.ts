@@ -192,27 +192,69 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
     
     const activity = this.day.activities[index];
     
-    // Actualizar mapas
+    // Animación optimizada para PC (desktop)
     if (this.map) {
-      this.map.flyTo({
-        center: [activity.longitude, activity.latitude],
-        zoom: 14,
-        duration: 1000
-      });
       this.updateMarkers(this.map, this.markers);
+      this.performDesktopZoomAnimation(activity);
     }
     
+    // Animación optimizada para móvil
     if (this.mobileMap) {
-      this.mobileMap.flyTo({
-        center: [activity.longitude, activity.latitude],
-        zoom: 14,
-        duration: 1000
-      });
       this.updateMarkers(this.mobileMap, this.mobileMarkers);
+      this.performMobileZoomAnimation(activity);
     }
     
     // Scroll optimizado para móvil
     this.scrollToActivityTop();
+  }
+
+  private performDesktopZoomAnimation(activity: Activity): void {
+    if (!this.map) return;
+    
+    // Cancelar cualquier animación en curso
+    this.map.stop();
+    
+    // Primero zoom out para ver el contexto completo
+    this.map.flyTo({
+      center: [activity.longitude, activity.latitude],
+      zoom: 13,
+      duration: 800,
+      essential: true
+    });
+    
+    // Esperar a que termine completamente la animación antes de hacer zoom in
+    const onMoveEnd = () => {
+      this.map.off('moveend', onMoveEnd);
+      
+      // Pequeña pausa para que se vea el contexto
+      setTimeout(() => {
+        if (this.map) {
+          this.map.flyTo({
+            center: [activity.longitude, activity.latitude],
+            zoom: 15,
+            duration: 1200,
+            essential: true
+          });
+        }
+      }, 200);
+    };
+    
+    this.map.once('moveend', onMoveEnd);
+  }
+
+  private performMobileZoomAnimation(activity: Activity): void {
+    if (!this.mobileMap) return;
+    
+    // Cancelar cualquier animación en curso
+    this.mobileMap.stop();
+    
+    // Animación más simple y rápida para móvil
+    this.mobileMap.flyTo({
+      center: [activity.longitude, activity.latitude],
+      zoom: 15,
+      duration: 800,
+      essential: true
+    });
   }
 
   private updateMarkers(map: mapboxgl.Map, markers: mapboxgl.Marker[]): void {
