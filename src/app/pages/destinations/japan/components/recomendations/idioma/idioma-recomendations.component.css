@@ -1,115 +1,272 @@
-mat-expansion-panel {
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    border-left: 5px solid #1a237e;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-  
-mat-expansion-panel:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-  /* Título e iconos */
-.panel-icon {
-  margin-right: 1rem;
-  color: #1a237e;
-}
-
-.customs-content {
-  max-height: 500px;
-  overflow: visible;
-  padding: 0px;
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-}
-
-.customs-section {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.customs-text {
-  flex: 1 1 60%;
-}
-
-.customs-text h4 {
-  color: #1a237e;
-  margin-bottom: 10px;
+/* Contenedor principal */
+.language-container {
+  margin-bottom: 20px;
+  background: #ffffff;
   border-left: 3px solid #1a237e;
-  padding-left: 10px;
-}
-
-.customs-text p {
-  margin-bottom: 10px;
-}
-
-.customs-text ul {
-  padding-left: 20px;
-  margin-top: 0;
-}
-
-.customs-text li {
-  margin-bottom: 6px;
-}
-
-.customs-image {
-  flex: 1 1 35%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.customs-image img {
-  max-width: 100%;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 25px;
 }
 
-.japanese-numbers {
-  margin-top: 20px;
+/* Introducción */
+.culture-intro {
+  margin-bottom: 30px;
+  padding: 0;
 }
 
-.japanese-numbers h5 {
-  margin-bottom: 10px;
-  color: #1a237e;
+.culture-intro h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.culture-intro p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Sección de frases esenciales */
+.essential-phrases {
+  margin-bottom: 30px;
+}
+
+.essential-phrases h4 {
+  color: #333;
   font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
-.japanese-numbers table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
+.phrases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.phrase-card {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.phrase-japanese {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.phrase-pronunciation {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 4px;
+  text-align: center;
+  padding: 4px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.phrase-meaning {
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sección de números */
+.numbers-section {
+  margin-bottom: 30px;
+}
+
+.numbers-section h4 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.number-item {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.number-item .number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.number-item .kanji {
+  display: block;
+  font-size: 36px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.number-item .pronunciation {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Reglas de oro */
+.golden-rules {
+  margin-bottom: 30px;
+}
+
+.golden-rules h4 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.rule-card {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.rule-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.rule-title {
   font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
-.japanese-numbers th,
-.japanese-numbers td {
-  border: 1px solid #ccc;
-  padding: 8px 12px;
+.rule-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  text-align: center;
 }
 
-.japanese-numbers th {
-  background-color: #f0f0f0;
+/* Consejo final */
+.final-tip {
+  margin-top: 25px;
+  padding: 18px;
+  background: #fff9e6;
+  border-radius: 6px;
+  border-left: 3px solid #fdcb6e;
+}
+
+.tip-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tip-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.tip-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.tip-text strong {
+  color: #333;
   font-weight: 600;
 }
 
-/* Estilos para el contenedor de idioma - igual que mat-expansion-panel */
-.language-container {
-  margin-bottom: 15px;
-  background-color: #ffffff;
-  border-left: 5px solid #1a237e;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  padding: 20px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .language-container {
+    padding: 20px;
+  }
+
+  .culture-intro {
+    padding: 16px;
+  }
+
+  .culture-intro h3 {
+    font-size: 20px;
+  }
+
+  .phrases-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .numbers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .tip-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
-.language-container:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+@media (max-width: 480px) {
+  .language-container {
+    padding: 15px;
+  }
+
+  .phrase-japanese {
+    font-size: 24px;
+  }
+
+  .numbers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .number-item .kanji {
+    font-size: 28px;
+  }
 }
 
