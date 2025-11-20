@@ -191,6 +191,23 @@ mat-expansion-panel {
   cursor: not-allowed;
 }
 
+/* Contador de imágenes desktop */
+.desktop-image-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(128, 128, 128, 0.7);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
 /* Mobile Layout */
 .mobile-layout {
   display: none;

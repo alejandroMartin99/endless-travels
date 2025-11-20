@@ -1,0 +1,225 @@
+/* ============================================
+   TRANSPORT RECOMMENDATIONS
+   ============================================ */
+
+.transport-container {
+  padding: 0;
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ============================================
+   CITY TABS
+   ============================================ */
+
+.city-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.city-tab {
+  padding: 12px 28px;
+  background: #f8f9fa;
+  border: 1px solid #e8e8e8;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.city-tab:hover {
+  background: #f0f0f0;
+  border-color: #d0d0d0;
+}
+
+.city-tab.active {
+  background: #1a237e;
+  border-color: #1a237e;
+  color: white;
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.2);
+}
+
+/* ============================================
+   CITY INTRO
+   ============================================ */
+
+.city-intro {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.city-intro h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.city-intro p {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   TRANSPORT GRID
+   ============================================ */
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.transport-card {
+  background: white;
+  border-radius: 12px;
+  padding: 36px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  gap: 24px;
+}
+
+.transport-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.transport-icon {
+  font-size: 3.5rem;
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.transport-info {
+  flex: 1;
+}
+
+.transport-info h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.3px;
+}
+
+.transport-type {
+  font-size: 0.9rem;
+  color: #1a237e;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.transport-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.transport-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 20px;
+}
+
+.detail-item {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .transport-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+  }
+
+  .city-intro h3 {
+    font-size: 1.5rem;
+  }
+
+  .transport-grid {
+    gap: 24px;
+  }
+
+  .transport-card {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .transport-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+  }
+
+  .transport-info h4 {
+    font-size: 1.3rem;
+  }
+}
+

@@ -1,0 +1,42 @@
+<div class="accommodation-container">
+  
+  <div class="section-header">
+    <h2 class="section-title">Alojamiento Estratégico</h2>
+    <p class="section-intro">
+      La elección del alojamiento puede definir la experiencia de tu viaje. Durante nuestro recorrido por Praga, Bratislava y Budapest, 
+      seleccionamos establecimientos que combinan ubicación estratégica, comodidad auténtica y valor excepcional. Cada alojamiento 
+      fue elegido para maximizar la experiencia de exploración, estando ubicados en zonas céntricas que permiten descubrir cada ciudad 
+      a pie.
+    </p>
+  </div>
+
+  <!-- Accommodation Grid -->
+  <div class="accommodation-grid">
+    <div *ngFor="let accommodation of accommodations" class="accommodation-card">
+      <div class="accommodation-image">
+        <img [src]="accommodation.images[0]" [alt]="accommodation.name">
+      </div>
+      <div class="accommodation-content">
+        <div class="accommodation-header">
+          <h3>{{ accommodation.name }}</h3>
+          <div class="accommodation-rating">⭐ {{ accommodation.rating }}</div>
+        </div>
+        <p class="accommodation-location">📍 {{ accommodation.location }}</p>
+        <p class="accommodation-dates">{{ accommodation.dates }}</p>
+        <p class="accommodation-price">{{ accommodation.price }}</p>
+        <p class="accommodation-description">{{ accommodation.description }}</p>
+        <div class="accommodation-features">
+          <span *ngFor="let feature of accommodation.features" class="feature-tag">{{ feature }}</span>
+        </div>
+        <div class="accommodation-map-container">
+          <div class="accommodation-map">
+            <div *ngIf="accommodation.id === 'praga'" #mapPraga class="map"></div>
+            <div *ngIf="accommodation.id === 'bratislava'" #mapBratislava class="map"></div>
+            <div *ngIf="accommodation.id === 'budapest'" #mapBudapest class="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

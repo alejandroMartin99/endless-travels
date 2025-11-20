@@ -24,6 +24,9 @@ import { JapanCalendarComponent } from './destinations/japan/components/itinerar
 import { PragaItineraryComponent } from './destinations/pragabudapest/components/itinerary/praga_itinerary.component';
 import { PragaBudapestCalendarComponent } from './destinations/pragabudapest/components/itinerary/calendar/PragaBudapestCalendar.component';
 import { PragaBudapestRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/praga_recomendations.component';
+import { RestaurantRecomendationsComponent as PragaRestaurantRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/restaurantes/restaurant-recomendations.component';
+import { AccommodationRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/alojamiento/accommodation-recomendations.component';
+import { TransportRecomendationsComponent as PragaTransportRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/transporte/transport-recomendations.component';
 
 @NgModule({
   declarations: [
@@ -45,10 +48,10 @@ import { PragaBudapestRecomendationsComponent } from './destinations/pragabudape
     JapanCalendarComponent,
     PragaItineraryComponent,
     PragaBudapestCalendarComponent,
-    PragaBudapestRecomendationsComponent
-    
-    
-    
+    PragaBudapestRecomendationsComponent,
+    PragaRestaurantRecomendationsComponent,
+    AccommodationRecomendationsComponent,
+    PragaTransportRecomendationsComponent
   ],
   imports: [
     CommonModule,
