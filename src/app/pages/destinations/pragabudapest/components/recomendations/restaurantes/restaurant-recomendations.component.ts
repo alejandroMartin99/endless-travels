@@ -366,7 +366,27 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
         }
       }, 100);
       this.updateMapForActiveRestaurant();
+      this.fitAllMarkers();
     });
+  }
+
+  fitAllMarkers(): void {
+    if (!this.map || this.markers.length === 0) return;
+
+    const bounds = new mapboxgl.LngLatBounds();
+    
+    this.markers.forEach(marker => {
+      const lngLat = marker.getLngLat();
+      bounds.extend([lngLat.lng, lngLat.lat]);
+    });
+
+    if (this.markers.length > 0) {
+      this.map.fitBounds(bounds, {
+        padding: 50,
+        maxZoom: 14,
+        duration: 1000
+      });
+    }
   }
 
   updateMapForActiveRestaurant(): void {
@@ -379,11 +399,11 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
     const currentRestaurants = this.getCurrentRestaurants();
     if (currentRestaurants.length === 0) return;
 
-    // Add markers with active restaurant in red
+    // Add markers with active restaurant in blue
     currentRestaurants.forEach((restaurant, index) => {
       const isActive = index === this.activeRestaurantIndex;
       const marker = new mapboxgl.Marker({
-        color: isActive ? '#d32f2f' : '#1a237e'
+        color: isActive ? '#1a237e' : '#999'
       })
         .setLngLat([restaurant.longitude, restaurant.latitude])
         .setPopup(new mapboxgl.Popup().setHTML(`<strong>${restaurant.name}</strong>`))
@@ -391,15 +411,5 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
 
       this.markers.push(marker);
     });
-
-    // Center map on active restaurant
-    const activeRestaurant = currentRestaurants[this.activeRestaurantIndex];
-    if (activeRestaurant) {
-      this.map.flyTo({
-        center: [activeRestaurant.longitude, activeRestaurant.latitude],
-        zoom: 14,
-        duration: 800
-      });
-    }
   }
 }
