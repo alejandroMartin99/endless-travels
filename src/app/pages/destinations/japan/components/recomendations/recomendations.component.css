@@ -40,34 +40,6 @@
   transition: all 0.3s ease;
 }
 
-/* Hover solo en dispositivos con ratón (PC) - pero no en tarjetas activas */
-@media (hover: hover) and (pointer: fine) {
-  .reference-item:hover:not(.active) {
-    border-color: #1a237e;
-    box-shadow: 0 4px 12px rgba(26, 35, 126, 0.15);
-    transform: translateY(-2px);
-    background: #ffffff;
-  }
-  
-  /* Mantener estilos activos incluso con hover - Sin transformación para evitar rebote */
-  .reference-item.active:hover {
-    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%) !important;
-    color: white !important;
-    transform: none !important;
-    box-shadow: 0 8px 20px rgba(26, 35, 126, 0.3) !important;
-    border-color: transparent !important;
-  }
-  
-  .reference-item.active:hover .reference-icon,
-  .reference-item.active:hover h4,
-  .reference-item.active:hover p {
-    color: white !important;
-  }
-  
-  .reference-item.active:hover a {
-    color: #ffeb3b !important;
-  }
-}
 
 .reference-icon {
   font-size: 2rem;
@@ -345,57 +317,23 @@ th {
 /* Referencia items clicables */
 .reference-item {
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-/* Hover solo en dispositivos con ratón (PC) - pero no en tarjetas activas */
-@media (hover: hover) and (pointer: fine) {
-  .reference-item:hover:not(.active) {
-    border-color: #1a237e;
-    box-shadow: 0 6px 16px rgba(26, 35, 126, 0.2);
-    transform: translateY(-3px);
-  }
-  
-  /* Mantener estilos activos incluso con hover - Sin transformación para evitar rebote */
-  .reference-item.active:hover {
-    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%) !important;
-    color: white !important;
-    transform: none !important;
-    box-shadow: 0 8px 20px rgba(26, 35, 126, 0.3) !important;
-    border-color: transparent !important;
-  }
-  
-  .reference-item.active:hover .reference-icon,
-  .reference-item.active:hover h4,
-  .reference-item.active:hover p {
-    color: white !important;
-  }
-  
-  .reference-item.active:hover a {
-    color: #ffeb3b !important;
-  }
-}
-
+/* Estado activo: fondo azul y texto en blanco, sin efectos extra */
 .reference-item.active {
-  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
-  color: white;
-  transform: none;
-  box-shadow: 0 8px 20px rgba(26, 35, 126, 0.3);
+  background: #1a237e;
+  border-color: #1a237e;
+  color: #ffffff;
 }
 
-.reference-item.active .reference-icon {
-  transform: scale(1.1);
-}
-
+.reference-item.active .reference-icon,
 .reference-item.active h4,
-.reference-item.active p {
-  color: white;
+.reference-item.active p,
+.reference-item.active a {
+  color: #ffffff;
 }
 
-.reference-item.active a {
-  color: #ffeb3b;
-  font-weight: 600;
-}
+
 
 /* Sistema de contenido directo */
 .content-sections {
@@ -471,27 +409,8 @@ th {
     gap: 6px; /* Reducido de 15px */
   }
 
-  .reference-item {
-    padding: 8px; /* Reducido drásticamente de 15px */
-    border: 1px solid #ddd; /* Borde más sutil */
-    border-radius: 4px; /* Border-radius más pequeño */
-    transition: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-    cursor: default !important;
-  }
 
-  /* Eliminar TODOS los efectos hover, focus y active en móvil */
-  .reference-item:hover,
-  .reference-item:focus,
-  .reference-item:active,
-  .reference-item:focus-visible {
-    transform: none !important;
-    box-shadow: none !important;
-    border-color: #ddd !important;
-    background: #f8f9fa !important;
-    outline: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-  }
+
 
   .reference-icon {
     font-size: 1.3rem; /* Reducido de 1.5rem */
