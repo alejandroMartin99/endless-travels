@@ -1,7 +1,7 @@
 /* Sticky tab header */
 .sticky-tab-header {
   position: sticky;
-  top: 64px;
+  top: var(--navbar-height, 64px);
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
@@ -62,7 +62,8 @@
 
 
 .tab-content{
-  margin-top: 50px;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* Responsive: móvil */
@@ -173,17 +174,26 @@
 .tab-content {
   padding: 24px 16px;
   position: relative;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Asegurar que el contenido empiece después del sticky-tab-header */
+.tab-content > div {
+  padding-top: 0;
+  margin-top: 0;
 }
 
 /* Optimización móvil para contenido */
 @media (max-width: 768px) {
   .tab-content {
-    padding: 16px 12px;
-    margin-top: 20px;
+    padding: 8px 4px;
+    margin-top: 0;
+    padding-top: 0;
     /* Padding inferior para que el contenido no quede oculto detrás del menú fijo */
     padding-bottom: 70px;
     box-sizing: border-box;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - var(--navbar-height, 64px) - 200px);
   }
 }
 

@@ -472,15 +472,16 @@
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+    position: relative;
   }
 
   /* Hero Section - Rediseñado para móvil */
   .hero-section {
     position: relative;
-    min-height: 60vh;
+    min-height: 75vh;
     padding: 0;
     margin: 0;
-    margin-top: -20px;
+    margin-top: 0;
     margin-left: 0;
     margin-right: 0;
     border-radius: 0;
@@ -500,7 +501,7 @@
   .hero-content {
     position: absolute;
     left: 1rem;
-    bottom: 3rem;
+    bottom: 1rem;
     right: 1rem;
     max-width: 60%;
     padding: 1.2rem 1rem;
@@ -529,7 +530,7 @@
     font-size: 1.5rem !important;
     line-height: 1.2;
     text-align: left;
-    margin-top: 0.5rem;
+    margin-top: 4rem;
   }
 
   .title-welcome {
