@@ -138,19 +138,9 @@
             </div>
           </div>
           
-          <!-- Contador de imágenes -->
+          <!-- Contador de imágenes: X / X, sobre la imagen en móvil -->
           <div class="image-counter" *ngIf="day.activities[currentActivityIndex].images.length > 1">
             {{ currentImageIndex + 1 }} / {{ day.activities[currentActivityIndex].images.length }}
-          </div>
-          
-          <!-- Controles de galería (opcionales) -->
-          <div class="gallery-dots" *ngIf="day.activities[currentActivityIndex].images.length > 1">
-            <div 
-              *ngFor="let image of day.activities[currentActivityIndex].images; let i = index"
-              class="dot"
-              [class.active]="i === currentImageIndex"
-              (click)="currentImageIndex = i">
-            </div>
           </div>
         </div>
 

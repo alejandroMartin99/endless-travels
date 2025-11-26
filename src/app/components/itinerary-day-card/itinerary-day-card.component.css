@@ -1,4 +1,8 @@
-/* General del panel */
+/* ============================================================================
+   ESTILOS BASE - PANEL DE EXPANSIÓN
+   ============================================================================ */
+
+/* Panel principal con borde lateral de color */
 mat-expansion-panel {
   margin-bottom: 15px;
   background-color: #ffffff;
@@ -8,8 +12,10 @@ mat-expansion-panel {
   overflow: hidden;
 }
 
+/* ============================================================================
+   BORDES DE COLORES PERSONALIZADOS
+   ============================================================================ */
 
-/* Bordes de colores personalizados */
 .border-blue { border-left-color: #1a237e; }
 .border-green { border-left-color: #4caf50; }
 .border-dark-green { border-left-color: #08700c; }
@@ -19,12 +25,16 @@ mat-expansion-panel {
 .border-purple { border-left-color: #9315ad; }
 .border-dark-purple { border-left-color: #480556; }
 
-/* Desktop Layout */
+
+/* ============================================================================
+   LAYOUT DESKTOP
+   ============================================================================ */
+
 .desktop-layout {
   display: block;
 }
 
-/* Contenedor de actividades */
+/* --- Contenedor principal de actividades --- */
 .activity-container {
   display: flex;
   justify-content: space-between;
@@ -35,7 +45,7 @@ mat-expansion-panel {
   position: relative;
 }
 
-/* Descripción */
+/* --- Sección de descripción (33%) --- */
 .activity-description {
   flex-basis: 33%;
   padding: 5px;
@@ -44,7 +54,16 @@ mat-expansion-panel {
   overflow-y: auto;
 }
 
-/* Imagen */
+.description-text {
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+/* --- Sección de imagen con galería (33%) --- */
 .activity-image {
   flex-basis: 33%;
   padding: 5px;
@@ -59,118 +78,7 @@ mat-expansion-panel {
   border-radius: 8px;
 }
 
-/* Mapa */
-.activity-map {
-  flex-basis: 40%;
-  height: 100%;
-  min-height: 300px;
-  max-height: 550px;
-  box-sizing: border-box;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.activity-map iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
-}
-
-/* Indicadores de navegación */
-.activity-navigation {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 10px;
-}
-
-.activity-indicator {
-  width: 12px;
-  height: 12px;
-  background-color: #ccc;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.activity-indicator.active {
-  background-color: #1a237e;
-}
-
-.activity-indicator:hover {
-  background-color: #1a237e;
-}
-
-/* Texto de descripción */
-.description-text {
-  white-space: pre-line;
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 400;
-  color: #333;
-  margin: 0;
-}
-
-/* Controles */
-.controls-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 15px;
-  padding: 10px 0;
-}
-
-.carousel-control {
-  display: flex;
-  gap: 10px;
-}
-
-/* Grupo de controles de mapa (desktop) */
-.map-controls-group {
-  display: flex;
-  gap: 8px;
-}
-
-/* Grupo de controles de mapa (desktop) */
-.map-controls-group {
-  display: flex;
-  gap: 8px;
-}
-
-.rescale-control {
-  background-color: white;
-  color: #1a237e;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.rescale-control:hover {
-  background-color: #1a237e;
-  color: white;
-}
-
-.export-route-control mat-icon {
-  margin-right: 4px;
-}
-
-/* Estilos para los botones de navegación */
-.carousel-control button {
-  color: #1a237e !important;
-}
-
-.carousel-control button:hover:not(:disabled) {
-  color: #1a237e !important;
-}
-
-.carousel-control button:disabled {
-  color: #ccc !important;
-}
-
-/* Controles de galería */
+/* Controles de navegación de galería (flechas laterales) */
 .gallery-controls {
   position: absolute;
   top: 50%;
@@ -207,7 +115,7 @@ mat-expansion-panel {
   cursor: not-allowed;
 }
 
-/* Contador de imágenes desktop */
+/* Contador de imágenes en desktop */
 .desktop-image-counter {
   position: absolute;
   bottom: 12px;
@@ -224,12 +132,110 @@ mat-expansion-panel {
   z-index: 10;
 }
 
-/* Mobile Layout */
+/* --- Sección de mapa (40%) --- */
+.activity-map {
+  flex-basis: 40%;
+  height: 100%;
+  min-height: 300px;
+  max-height: 550px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.activity-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* --- Indicadores de navegación (puntos) --- */
+.activity-navigation {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.activity-indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activity-indicator.active {
+  background-color: #1a237e;
+}
+
+.activity-indicator:hover {
+  background-color: #1a237e;
+}
+
+/* --- Controles inferiores --- */
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 10px 0;
+}
+
+.carousel-control {
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-control button {
+  color: #1a237e !important;
+}
+
+.carousel-control button:hover:not(:disabled) {
+  color: #1a237e !important;
+}
+
+.carousel-control button:disabled {
+  color: #ccc !important;
+}
+
+/* Grupo de controles del mapa */
+.map-controls-group {
+  display: flex;
+  gap: 8px;
+}
+
+.rescale-control {
+  background-color: white;
+  color: #1a237e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rescale-control:hover {
+  background-color: #1a237e;
+  color: white;
+}
+
+.export-route-control mat-icon {
+  margin-right: 4px;
+}
+
+
+/* ============================================================================
+   LAYOUT MOBILE
+   ============================================================================ */
+
 .mobile-layout {
   display: none;
 }
 
-/* Mobile Scroll Container */
+/* --- Contenedor con scroll vertical --- */
 .mobile-scroll-container {
   max-height: 60vh;
   overflow-y: auto;
@@ -256,7 +262,7 @@ mat-expansion-panel {
   background-color: #3949ab;
 }
 
-/* Mobile Sticky Navigation */
+/* --- Navegación sticky superior --- */
 .mobile-sticky-nav {
   position: sticky;
   top: 0;
@@ -320,6 +326,7 @@ mat-expansion-panel {
   cursor: not-allowed;
 }
 
+/* Indicadores de actividad en navegación */
 .mobile-activity-indicators {
   display: flex;
   gap: 4px;
@@ -355,11 +362,12 @@ mat-expansion-panel {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Mobile Activity Content */
+/* --- Contenedor de actividad --- */
 .mobile-activity-content {
   padding: 0;
 }
 
+/* --- Título de actividad --- */
 .activity-title {
   padding: 16px 14px 12px;
   background: white;
@@ -373,7 +381,7 @@ mat-expansion-panel {
   line-height: 1.3;
 }
 
-/* Mobile Image Gallery */
+/* --- Galería de imágenes mobile --- */
 .mobile-image-gallery {
   position: relative;
   background: #f8f9fa;
@@ -405,6 +413,7 @@ mat-expansion-panel {
   display: block;
 }
 
+/* Contador de imágenes en galería mobile */
 .image-counter {
   position: absolute;
   bottom: 8px;
@@ -417,6 +426,7 @@ mat-expansion-panel {
   font-weight: 500;
 }
 
+/* Puntos indicadores de galería */
 .gallery-dots {
   display: flex;
   justify-content: center;
@@ -442,7 +452,7 @@ mat-expansion-panel {
   background-color: #1a237e;
 }
 
-/* Mobile Activity Description */
+/* --- Descripción de actividad mobile --- */
 .mobile-activity-description {
   padding: 16px 14px;
   background: white;
@@ -477,7 +487,7 @@ mat-expansion-panel {
   white-space: pre-line;
 }
 
-/* Mobile Map Section */
+/* --- Sección de mapa mobile --- */
 .mobile-map-section {
   background: #f8f9fa;
   padding: 14px;
@@ -491,17 +501,17 @@ mat-expansion-panel {
   margin-bottom: 12px;
 }
 
-.map-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .map-header h3 {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
   color: #1a237e;
+}
+
+.map-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .map-rescale-btn {
@@ -558,8 +568,14 @@ mat-expansion-panel {
   border-radius: 8px;
 }
 
-/* Responsive Design */
+
+/* ============================================================================
+   MEDIA QUERIES - RESPONSIVE
+   ============================================================================ */
+
+/* --- Tablets y móviles (max-width: 768px) --- */
 @media (max-width: 768px) {
+  /* Cambiar a layout mobile */
   .desktop-layout {
     display: none;
   }
@@ -568,7 +584,7 @@ mat-expansion-panel {
     display: block;
   }
   
-  /* Optimizar el expansible para móvil - MÁXIMO APROVECHAMIENTO */
+  /* Optimizar panel de expansión */
   mat-expansion-panel {
     margin-bottom: 4px;
     border-radius: 8px;
@@ -585,29 +601,35 @@ mat-expansion-panel {
     line-height: 1.2;
   }
   
-  /* Ajustar el contenedor de scroll - MÁS ESPACIO */
+  /* Eliminar padding del contenido del panel */
+  .mat-expansion-panel-body {
+    padding: 0 !important;
+  }
+  
+  /* Ajustar altura del scroll container */
   .mobile-scroll-container {
     max-height: 60vh;
   }
   
-  /* Optimizar la galería */
+  /* Reducir altura de galería */
   .gallery-scroll-container {
     height: 200px;
   }
   
-  /* Optimizar el mapa */
+  /* Reducir altura del mapa */
   .mobile-map-container {
     height: 160px;
   }
 }
 
+/* --- Móviles pequeños (max-width: 480px) --- */
 @media (max-width: 480px) {
-  /* Contenedor de scroll más pequeño en pantallas muy pequeñas */
+  /* Aumentar espacio de scroll */
   .mobile-scroll-container {
     max-height: 65vh;
   }
   
-  /* Navegación sticky más compacta */
+  /* Navegación más compacta */
   .mobile-sticky-nav {
     padding: 5px 10px;
   }
@@ -631,6 +653,7 @@ mat-expansion-panel {
     font-size: 11px;
   }
   
+  /* Indicadores más pequeños */
   .mobile-activity-indicators {
     gap: 3px;
   }
@@ -640,7 +663,7 @@ mat-expansion-panel {
     height: 5px;
   }
   
-  /* Título más pequeño */
+  /* Título más compacto */
   .activity-title {
     padding: 12px 10px 8px;
   }
@@ -692,10 +715,13 @@ mat-expansion-panel {
     padding: 4px 8px;
     font-size: 11px;
   }
-  
 }
 
-/* Animaciones */
+
+/* ============================================================================
+   ANIMACIONES
+   ============================================================================ */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
