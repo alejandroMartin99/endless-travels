@@ -385,7 +385,7 @@ mat-expansion-panel {
 .mobile-image-gallery {
   position: relative;
   background: #f8f9fa;
-  padding: 12px 0;
+  padding: 0;
 }
 
 .gallery-scroll-container {
@@ -454,7 +454,7 @@ mat-expansion-panel {
 
 /* --- Descripción de actividad mobile --- */
 .mobile-activity-description {
-  padding: 16px 14px;
+  padding: 16px 0;
   background: white;
   max-height: 200px;
   overflow-y: auto;
@@ -490,7 +490,7 @@ mat-expansion-panel {
 /* --- Sección de mapa mobile --- */
 .mobile-map-section {
   background: #f8f9fa;
-  padding: 14px;
+  padding: 14px 0;
   margin-bottom: 12px;
 }
 
@@ -665,7 +665,7 @@ mat-expansion-panel {
   
   /* Título más compacto */
   .activity-title {
-    padding: 12px 10px 8px;
+    padding: 12px 0 8px;
   }
   
   .activity-title h2 {
@@ -679,12 +679,12 @@ mat-expansion-panel {
   }
   
   .mobile-image-gallery {
-    padding: 8px 0;
+    padding: 0;
   }
   
   /* Descripción más compacta */
   .mobile-activity-description {
-    padding: 12px 10px;
+    padding: 12px 0;
     max-height: 150px;
   }
   
@@ -699,7 +699,7 @@ mat-expansion-panel {
   }
   
   .mobile-map-section {
-    padding: 8px 10px;
+    padding: 8px 0;
     margin-bottom: 8px;
   }
   
