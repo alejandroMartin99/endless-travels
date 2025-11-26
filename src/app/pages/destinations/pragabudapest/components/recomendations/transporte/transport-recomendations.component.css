@@ -191,35 +191,73 @@
 }
 
 @media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+
   .section-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
   }
 
   .section-intro {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .city-tabs {
+    margin-bottom: 24px;
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .city-tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .city-intro {
+    padding: 16px 12px;
+    margin-bottom: 20px;
   }
 
   .city-intro h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .city-intro p {
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 
   .transport-grid {
-    gap: 24px;
+    gap: 16px;
+    padding: 0 8px;
   }
 
   .transport-card {
     flex-direction: column;
-    padding: 24px;
+    padding: 16px;
+    border-radius: 8px;
   }
 
   .transport-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    margin-bottom: 12px;
   }
 
   .transport-info h4 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .transport-info p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 }
 

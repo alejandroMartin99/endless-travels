@@ -211,10 +211,10 @@
   }
   
   /* Espaciado entre secciones principales */
-  .zone-header {
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
+    .zone-header {
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
   
   .subzone-banner {
     width: 60px; /* Controlar el ancho del banner */
@@ -315,30 +315,30 @@
   
   @media (max-width: 768px) {
     .content-container {
-      padding: 0px 20px;
+      padding: 0px 8px;
     }
     
     .calendar-container {
-      padding: 0px 20px;
-      margin: 20px;
+      padding: 0px 8px;
+      margin: 8px 0;
       border-radius: 8px;
     }
 
     .itinerary-container {
-      padding: 0px 20px;
-      margin-top: 20px;
+      padding: 0px 8px;
+      margin-top: 12px;
     }
 
     .destination-section {
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       border-radius: 12px;
     }
 
     .destination-header {
-      padding: 24px 20px;
+      padding: 16px 12px;
       flex-direction: column;
       text-align: center;
-      min-height: 140px;
+      min-height: 120px;
     }
 
     .destination-header::before {
@@ -383,7 +383,7 @@
     }
 
     .days-container {
-      padding: 15px 20px 20px 20px;
+      padding: 8px 8px 12px 8px;
     }
     
     .zone-banner {
@@ -416,7 +416,7 @@
     }
     
     .subzone-container {
-      margin: 20px;
+      margin: 8px 0;
       border-radius: 8px;
     }
     
@@ -430,7 +430,8 @@
     }
     
     .subzone-content {
-      padding: 15px;
+      padding: 8px 12px;
+      margin: 8px 0 12px 12px;
     }
     
     .subzone-content h3 {
@@ -445,8 +446,8 @@
   @media (max-width: 800px) {
     .intro-columns {
       flex-direction: column;
-      gap: 18px;
-      padding: 20px 16px;
+      gap: 12px;
+      padding: 12px 8px;
     }
     .intro-left, .intro-right {
       flex: 1 1 100%;
