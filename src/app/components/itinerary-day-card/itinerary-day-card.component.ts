@@ -285,19 +285,12 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
   }
 
   private scrollToActivityTop(): void {
-    // Solo aplicar scroll en móvil
+    // Solo resetear scroll interno del contenedor móvil sin mover la página
     if (window.innerWidth <= 768) {
-      // Resetear scroll del contenedor móvil
+      // Resetear scroll del contenedor móvil sin hacer scroll en la página principal
       if (this.mobileScrollContainer?.nativeElement) {
         this.mobileScrollContainer.nativeElement.scrollTop = 0;
       }
-      
-      // Scroll suave al panel expandido
-      setTimeout(() => {
-        if (this.galleryContainer?.nativeElement) {
-          this.scrollService.scrollToMobileContainer(this.galleryContainer.nativeElement);
-        }
-      }, 100);
     }
   }
 

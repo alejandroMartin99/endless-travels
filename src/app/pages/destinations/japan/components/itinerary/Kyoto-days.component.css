@@ -168,14 +168,19 @@
 
 @media (max-width: 768px) {
   .content-container {
-    padding: 0px 8px; /* Optimizado para mejor aprovechamiento */
+    padding: 20px 8px 0px 8px; /* Padding superior para evitar solapamiento con menú */
     overflow-x: hidden; 
   }
 
   .calendar-container {
-    padding: 0px 8px; 
+    padding: 20px 8px 0px 8px; /* Padding superior para evitar solapamiento */
     overflow-x: hidden; 
 
+  }
+
+  .zone-header {
+    margin-top: 0;
+    padding-top: 20px; /* Padding superior para evitar solapamiento */
   }
 
   .zone-banner {
@@ -253,6 +258,7 @@
     flex-direction: column;
     gap: 18px;
     padding: 20px 16px;
+    padding-top: 40px; /* Más padding superior para evitar solapamiento */
   }
   .intro-left, .intro-right {
     flex: 1 1 100%;

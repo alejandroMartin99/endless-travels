@@ -29,6 +29,16 @@
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    min-height: 50dvh;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
 }
 /* Capa semitransparente para mejorar el contraste del texto */
 .hero-image-overlay {
@@ -54,6 +64,9 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-content h1,
@@ -205,9 +218,12 @@
   cursor: pointer;
 }
 
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.2);
+/* Hover solo en dispositivos con ratón (PC) */
+@media (hover: hover) and (pointer: fine) {
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(63, 81, 181, 0.2);
+  }
 }
 
 .card-header {
@@ -318,8 +334,11 @@
   transition: transform 0.3s ease;
 }
 
-.experience-card:hover {
-  transform: translateY(-5px);
+/* Hover solo en dispositivos con ratón (PC) */
+@media (hover: hover) and (pointer: fine) {
+  .experience-card:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .experience-image img {
@@ -433,109 +452,346 @@
   }
 }
 
+/* ============================================
+   MÓVIL - Versión completamente reescrita
+   ============================================ */
 @media (max-width: 600px) {
   html, body {
     max-width: 100vw;
     overflow-x: hidden !important;
   }
+
+  /* Contenedor principal */
   .landing-container {
     max-width: 100vw;
     overflow-x: hidden !important;
-  }
-  .hero-section {
-    min-height: 60dvh;
-    padding: 0 0 1.5rem 0;
-    border-radius: 0;
-    clip-path: ellipse(120% 80% at 50% 70%);
-    /* Curva inferior profesional */
-  }
-  .hero-content {
-    max-width: 100vw;
-    padding: 1rem 5px;
-    border-radius: 12px;
-  }
-  .main-title, .section-title {
-    font-size: 1.6rem !important;
-    line-height: 1.2;
-  }
-  .title-japan {
-    font-size: 2rem !important;
-  }
-  .title-subtitle {
-    font-size: 1.1rem !important;
-  }
-  .hero-description {
-    font-size: 0.95rem;
-    max-width: 100vw;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
     margin-left: 0;
     margin-right: 0;
-    padding: 0 5px;
+    width: 100%;
   }
+
+  /* Hero Section - Rediseñado para móvil */
+  .hero-section {
+    position: relative;
+    min-height: 60vh;
+    padding: 0;
+    margin: 0;
+    margin-top: -20px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .hero-image-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-content {
+    position: absolute;
+    left: 1rem;
+    bottom: 3rem;
+    right: 1rem;
+    max-width: 60%;
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    margin: 0;
+    text-align: left;
+    align-items: flex-start;
+    animation: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-badge {
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-badge .badge-text {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .main-title {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+    text-align: left;
+    margin-top: 0.5rem;
+  }
+
+  .title-welcome {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .title-japan {
+    font-size: 1.8rem !important;
+    display: block;
+    line-height: 1.1;
+  }
+
+  .title-subtitle {
+    font-size: 1rem !important;
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  .hero-description {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 100%;
+    margin: 0.8rem 0 0 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  /* Estadísticas optimizadas */
   .hero-stats {
-    flex-direction: column;
-    gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     margin-top: 1rem;
+    justify-content: flex-start;
   }
+
+  .stat-item {
+    flex: 0 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
   .stat-divider {
     display: none;
   }
-  .narrative-intro, .detailed-info-section, .experiences-section, .exploration-section {
-    padding: 2rem 5px !important;
+
+  /* Secciones de contenido */
+  .narrative-intro,
+  .detailed-info-section,
+  .exploration-section {
+    padding: 1.5rem 0.75rem !important;
   }
+
   .content-wrapper {
-    margin: 0 5px !important;
+    margin: 0 !important;
     padding: 0;
   }
-  .intro-grid, .info-grid, .experiences-grid, .exploration-grid {
+
+  .intro-grid,
+  .info-grid,
+  .exploration-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.2rem !important;
+    gap: 1.5rem !important;
   }
-  .info-card, .experience-card, .exploration-content {
-    padding: 1rem 5px !important;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(63,81,181,0.08);
+
+  .section-title {
+    font-size: 1.4rem !important;
+    line-height: 1.3;
+    margin-bottom: 1rem;
   }
+
+  .intro-paragraph {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Cards optimizadas */
+  .info-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
   .card-header {
-    flex-direction: row;
-    padding: 1rem 5px !important;
+    padding: 1rem 0.75rem !important;
     gap: 0.5rem;
   }
-  .card-content {
-    padding: 1rem 5px !important;
+
+  .card-icon {
+    font-size: 1.5rem;
   }
-  .responsive-image {
-    border-radius: 6px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.15);
-  }
-  .image-caption {
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-  }
-  .highlight-list li {
+
+  .card-title {
     font-size: 1rem;
-    padding: 0.5rem 5px;
+    line-height: 1.3;
   }
+
+  .card-content {
+    padding: 1rem 0.75rem !important;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* Eliminar TODOS los efectos hover, focus y active en móvil - Sobrescribir estilos de PC */
+  .info-card {
+    transition: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    cursor: default !important;
+  }
+
+  .info-card:hover,
+  .info-card:focus,
+  .info-card:active,
+  .info-card:focus-visible {
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    outline: none !important;
+    border: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .experience-card {
+    transition: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    cursor: default !important;
+  }
+
+  .experience-card:hover,
+  .experience-card:focus,
+  .experience-card:active,
+  .experience-card:focus-visible {
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    outline: none !important;
+    border: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Eliminar outline y tap highlight en todos los elementos clickeables dentro de las cards */
+  .info-card *,
+  .experience-card * {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .info-card *:focus,
+  .info-card *:active,
+  .info-card *:focus-visible,
+  .experience-card *:focus,
+  .experience-card *:active,
+  .experience-card *:focus-visible {
+    outline: none !important;
+    border: none !important;
+  }
+
+  /* Desactivar pointer events en hover para móvil */
+  @media (hover: none) and (pointer: coarse) {
+    .info-card:hover,
+    .experience-card:hover {
+      transform: none !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+
+  .card-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .benefit-list,
+  .highlight-list {
+    padding-left: 1.2rem;
+    margin-top: 0.8rem;
+  }
+
+  .benefit-list li,
+  .highlight-list li {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  /* Ciudades */
   .city-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.2rem;
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
   }
+
+  .city-essence {
+    font-size: 0.8rem;
+  }
+
   .city-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
-  .benefit-list, .highlight-list {
-    padding-left: 1rem;
+
+  .highlight-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0.2rem 0.3rem 0 0;
   }
+
+  /* Imágenes */
+  .responsive-image {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-caption {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Exploration section */
   .exploration-section {
+    padding: 2rem 0.75rem !important;
     border-radius: 0;
-    background-position: center top;
-    clip-path: ellipse(120% 80% at 50% 30%);
-    /* Curva superior profesional */
+    background-position: center;
+    background-size: cover;
   }
-  .hero-image-overlay {
-    background: rgba(0, 0, 0, 0.2);
+
+  .exploration-content {
+    padding: 1.2rem 1rem !important;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-radius: 12px;
   }
-  .exploration-section::before {
-    background: rgba(0, 0, 0, 0.2);
+
+  .exploration-intro {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-list li {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
   }
 }

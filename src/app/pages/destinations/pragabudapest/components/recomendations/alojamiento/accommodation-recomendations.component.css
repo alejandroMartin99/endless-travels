@@ -200,27 +200,68 @@
 }
 
 @media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+
   .section-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
   }
 
   .section-intro {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .city-tabs {
+    margin-bottom: 24px;
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .city-tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 
   .accommodation-grid {
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 0 8px;
+  }
+
+  .accommodation-card {
+    border-radius: 8px;
   }
 
   .accommodation-content {
-    padding: 24px;
+    padding: 16px;
   }
 
   .accommodation-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .accommodation-header p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   .accommodation-map {
-    height: 200px;
+    height: 180px;
+    border-radius: 8px;
+  }
+
+  .accommodation-features {
+    margin-top: 12px;
+  }
+
+  .accommodation-features li {
+    font-size: 0.85rem;
+    padding: 6px 0;
   }
 }

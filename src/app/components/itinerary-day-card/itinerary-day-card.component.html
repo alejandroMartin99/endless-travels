@@ -76,9 +76,17 @@
       
       <!-- Navegación de actividades sticky -->
       <div class="mobile-sticky-nav">
-        <div class="nav-header">
+        <div class="nav-content">
           <div class="activity-counter">
             Actividad {{ currentActivityIndex + 1 }} de {{ day.activities.length }}
+          </div>
+          <div class="mobile-activity-indicators">
+            <div
+              *ngFor="let activity of day.activities; let i = index"
+              class="mobile-activity-indicator"
+              [class.active]="i === currentActivityIndex"
+              (click)="selectActivity(i)">
+            </div>
           </div>
           <div class="nav-controls">
             <button class="nav-btn prev-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
@@ -88,16 +96,6 @@
                     [disabled]="currentActivityIndex === day.activities.length - 1">
               <mat-icon>chevron_right</mat-icon>
             </button>
-          </div>
-        </div>
-        
-        <!-- Indicadores de actividades -->
-        <div class="mobile-activity-indicators">
-          <div
-            *ngFor="let activity of day.activities; let i = index"
-            class="mobile-activity-indicator"
-            [class.active]="i === currentActivityIndex"
-            (click)="selectActivity(i)">
           </div>
         </div>
       </div>
@@ -160,11 +158,6 @@
           </div>
         </div>
 
-        <!-- Separador para siguiente actividad -->
-        <div class="activity-separator" *ngIf="currentActivityIndex < day.activities.length - 1">
-          <div class="separator-line"></div>
-          <div class="separator-text">Swipe o usa los controles para ver la siguiente actividad</div>
-        </div>
 
       </div>
     </div>
