@@ -29,11 +29,6 @@
   overflow: hidden;
 }
 
-.custom-tab-label:hover {
-  background-color: #f8f9fa;
-  border-color: #e0e0e0;
-  transform: translateY(-1px);
-}
 
 /* Icono de pestaña */
 .custom-icon {
@@ -65,11 +60,6 @@
   font-weight: 400; /* Sin negrita en PC */
 }
 
-/* Efecto de brillo en hover para pestaña activa */
-.custom-tab-label.active:hover {
-  background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
-  box-shadow: 0 6px 16px rgba(26, 35, 126, 0.25);
-}
 
 .tab-content{
   margin-top: 50px;
@@ -78,73 +68,106 @@
 /* Responsive: móvil */
 @media (max-width: 768px) {
   .sticky-tab-header {
-    top: 56px;
-    padding: 8px 12px;
-    justify-content: space-around;
-    backdrop-filter: blur(15px);
+    position: fixed;
+    bottom: 8px;
+    left: 30px;
+    right: 30px;
+    top: auto;
+    z-index: 1000;
+    padding: 6px 4px;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    
+    /* Liquid Glass Effect - Apple Style mejorado */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(50px) saturate(200%);
+    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    
+    /* Sombras mejoradas para profundidad y separación */
+    box-shadow: 
+      0 -4px 30px rgba(0, 0, 0, 0.15),
+      0 -2px 15px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    
+    /* Asegurar que termine correctamente en la parte inferior */
+    margin: 0;
+    margin-bottom: 0;
+    max-width: calc(100vw - 60px);
+    width: calc(100% - 60px);
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    /* Asegurar que no haya contenido por debajo */
+    min-height: fit-content;
+    height: auto;
   }
 
   .custom-tab-label {
-    width: 48px;
-    height: 48px;
-    padding: 0;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
     border-radius: 12px;
-    margin: 0 4px;
-    border: 2px solid transparent;
+    margin: 0;
+    border: none;
     position: relative;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 0;
+    background: transparent;
+    cursor: pointer;
   }
 
   .custom-tab-text {
-    display: none;
+    display: block;
+    font-size: 9px;
+    margin-top: 2px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.65);
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), font-weight 0.25s ease;
+    line-height: 1.2;
   }
 
   .custom-icon {
     font-size: 22px;
     margin: 0;
-    color: #666;
+    color: rgba(0, 0, 0, 0.65);
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-
-  /* Pestaña activa en móvil - fondo blanco, icono azul */
+  /* Pestaña activa en móvil - sin fondo, solo color en icono y texto */
   .custom-tab-label.active {
-    background: white !important;
-    background-color: white !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    transform: none !important;
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
   }
 
   .custom-tab-label.active .custom-tab-text,
   .custom-tab-label.active .custom-icon {
     color: #1a237e !important;
-    font-weight: 400;
-  }
-  
-  .custom-tab-label.active:hover {
-    background: white !important;
-    background-color: white !important;
-    box-shadow: none !important;
+    font-weight: 600;
   }
 
-
-
-  /* Hover en móvil */
-  .custom-tab-label:hover:not(.active) {
-    background-color: white;
-    border-color: #1a237e;
-    transform: translateY(-1px);
-  }
-
-  .custom-tab-label:hover:not(.active) .custom-icon {
-    color: #1a237e;
-  }
-
-  /* Efecto de pulso eliminado para diseño más limpio */
+  /* Sin efectos hover - solo para móvil táctil */
 }
 
 /* Contenido principal */
 .tab-content {
   padding: 24px 16px;
+  position: relative;
 }
 
 /* Optimización móvil para contenido */
@@ -152,6 +175,10 @@
   .tab-content {
     padding: 16px 12px;
     margin-top: 20px;
+    /* Padding inferior para que el contenido no quede oculto detrás del menú fijo */
+    padding-bottom: 70px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 200px);
   }
 }
 
@@ -159,5 +186,34 @@
   .tab-content {
     padding: 12px 10px;
     margin-top: 16px;
+    padding-bottom: 70px;
+  }
+  
+  .sticky-tab-header {
+    bottom: 6px;
+    left: 28px;
+    right: 28px;
+    padding: 5px 3px;
+    padding-bottom: calc(7px + env(safe-area-inset-bottom));
+    border-radius: 20px;
+    max-width: calc(100vw - 56px);
+    width: calc(100% - 56px);
+  }
+  
+  .custom-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .custom-tab-text {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+  
+  .custom-tab-label {
+    padding: 3px 1px;
+    margin: 0;
+    border-radius: 10px;
   }
 }
