@@ -327,4 +327,34 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
 
     debouncedAdjustBounds();
   }
+
+  /**
+   * Abre Google Maps con la ruta completa de las actividades del día.
+   * Usa la primera actividad como origen, la última como destino
+   * y el resto como waypoints intermedios.
+   */
+  openGoogleMapsRoute(): void {
+    if (!this.day || !this.day.activities || this.day.activities.length === 0) {
+      return;
+    }
+
+    const coords = this.day.activities
+      .filter(a => a.latitude != null && a.longitude != null)
+      .map(a => `${a.latitude},${a.longitude}`);
+
+    if (coords.length === 0) {
+      return;
+    }
+
+    const origin = encodeURIComponent(coords[0]);
+    const destination = encodeURIComponent(coords[coords.length - 1]);
+    const waypointsArray = coords.slice(1, -1);
+    const waypointsParam = waypointsArray.length
+      ? `&waypoints=${encodeURIComponent(waypointsArray.join('|'))}`
+      : '';
+
+    const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}${waypointsParam}&travelmode=walking`;
+
+    window.open(url, '_blank');
+  }
 }

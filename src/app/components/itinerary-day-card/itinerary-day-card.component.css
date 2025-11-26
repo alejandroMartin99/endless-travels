@@ -126,6 +126,18 @@ mat-expansion-panel {
   gap: 10px;
 }
 
+/* Grupo de controles de mapa (desktop) */
+.map-controls-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* Grupo de controles de mapa (desktop) */
+.map-controls-group {
+  display: flex;
+  gap: 8px;
+}
+
 .rescale-control {
   background-color: white;
   color: #1a237e;
@@ -139,6 +151,10 @@ mat-expansion-panel {
 .rescale-control:hover {
   background-color: #1a237e;
   color: white;
+}
+
+.export-route-control mat-icon {
+  margin-right: 4px;
 }
 
 /* Estilos para los botones de navegación */
@@ -475,6 +491,12 @@ mat-expansion-panel {
   margin-bottom: 12px;
 }
 
+.map-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .map-header h3 {
   margin: 0;
   font-size: 16px;
@@ -506,6 +528,22 @@ mat-expansion-panel {
   font-size: 16px;
   width: 16px;
   height: 16px;
+}
+
+.map-route-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  border: none;
+  background: #1a237e;
+  color: white;
+  cursor: pointer;
+}
+
+.map-route-btn mat-icon {
+  font-size: 18px;
 }
 
 .mobile-map-container {

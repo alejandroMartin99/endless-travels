@@ -63,9 +63,24 @@
         </button>
       </div>
       
-      <button 
-        class="rescale-control"
-        mat-button (click)="rescaleMap()">Reescalar Mapa</button>
+      <div class="map-controls-group">
+        <button 
+          class="rescale-control"
+          mat-button
+          type="button"
+          (click)="rescaleMap()">
+          <mat-icon>my_location</mat-icon>
+          <span>Centrar</span>
+        </button>
+        <button 
+          class="rescale-control"
+          mat-button
+          type="button"
+          (click)="openGoogleMapsRoute()">
+          <mat-icon>map</mat-icon>
+          <span>Google Maps</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -148,10 +163,16 @@
         <div class="mobile-map-section">
           <div class="map-header">
             <h3>Ubicación</h3>
-            <button class="map-rescale-btn" (click)="rescaleMap()">
-              <mat-icon>my_location</mat-icon>
-              <span>Centrar</span>
-            </button>
+            <div class="map-header-actions">
+              <button class="map-rescale-btn" (click)="rescaleMap()">
+                <mat-icon>my_location</mat-icon>
+                <span>Centrar</span>
+              </button>
+              <button class="map-rescale-btn" (click)="openGoogleMapsRoute()">
+                <mat-icon>map</mat-icon>
+                <span>Ruta Google Maps</span>
+              </button>
+            </div>
           </div>
           <div class="mobile-map-container">
             <div class="activity-map" #mobileMap></div>
