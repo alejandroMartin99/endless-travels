@@ -3,205 +3,166 @@
   <div class="section-header">
     <h2 class="section-title">Transporte entre Ciudades</h2>
     <p class="section-intro">
-      La movilidad entre Praga, Bratislava y Budapest es sorprendentemente eficiente y ofrece múltiples opciones. Durante nuestro 
-      viaje utilizamos diferentes medios de transporte según la ruta: alquilamos un coche para explorar la región de Praga y sus 
-      alrededores, mientras que para los trayectos entre ciudades optamos por tren y autobús, medios de transporte que conectan 
-      estas capitales centroeuropeas de manera cómoda y económica.
+      Durante nuestro viaje por Praga, Bratislava y Budapest utilizamos diferentes medios de transporte según la ruta. 
+      Aquí te compartimos nuestra experiencia detallada, recomendaciones y toda la información práctica que necesitas 
+      para planificar tu propio viaje por estas fascinantes capitales centroeuropeas.
     </p>
   </div>
 
-  <!-- City Tabs -->
-  <div class="city-tabs">
-    <button 
-      *ngFor="let city of cities" 
-      class="city-tab"
-      [class.active]="activeCity === city.id"
-      (click)="selectCity(city.id)">
-      {{ city.name }}
-    </button>
+  <!-- Resumen General -->
+  <div class="summary-section">
+    <h3>Resumen de Nuestros Transportes</h3>
+    
+    <div class="summary-list">
+      <div class="summary-item">
+        <h4>Vuelos Internacionales</h4>
+        <p>
+          Para nuestro viaje, elegimos <strong>vuelo de ida a Praga y vuelta desde Budapest</strong>, todos con 
+          <strong>Ryanair</strong>. Esta opción resultó ser la más económica para conectar estas ciudades centroeuropeas, 
+          permitiéndonos optimizar tanto el tiempo como el presupuesto del viaje. Ryanair ofrece conexiones regulares 
+          y precios competitivos en estas rutas.
+        </p>
+      </div>
+
+      <div class="summary-item">
+        <h4>Tren Praga - Bratislava</h4>
+        <p>
+          Realizamos el trayecto en tren desde Praga hasta Bratislava, una conexión cómoda y eficiente entre estas 
+          dos capitales. <strong>Nos costó 55€</strong> por persona. El servicio ferroviario es moderno, puntual y 
+          ofrece una experiencia de viaje relajante a través del paisaje centroeuropeo.
+        </p>
+        <a href="https://www.trainline.eu" target="_blank" rel="noopener noreferrer" class="external-link">
+          Consultar en Trainline
+        </a>
+      </div>
+
+      <div class="summary-item">
+        <h4>Autobús Bratislava - Budapest</h4>
+        <p>
+          Para llegar a Budapest desde Bratislava existen dos opciones principales: <strong>tren o autobús</strong>. 
+          Nosotros optamos por el autobús ya que era significativamente más barato. <strong>Nos costó 25€</strong> por 
+          persona y el trayecto duró <strong>2 horas y 15 minutos</strong>, una opción económica y eficiente que 
+          nos permitió ahorrar sin sacrificar demasiado en comodidad.
+        </p>
+        <p>
+          Los autobuses modernos cuentan con wifi, asientos cómodos y servicio regular. La estación de autobuses de 
+          Budapest (Népliget) está bien conectada con el centro mediante metro, facilitando el acceso a tu alojamiento.
+        </p>
+      </div>
+    </div>
   </div>
 
-  <!-- City Content -->
-  <div class="city-content" [ngSwitch]="activeCity">
+  <!-- Mapa de Rutas -->
+  <div class="map-section">
+    <h3>Rutas de Transporte en el Mapa</h3>
+    <p class="map-description">
+      En los siguientes mapas interactivos puedes visualizar las rutas reales que utilizamos durante nuestro viaje, 
+      mostrando los trayectos en tren (Praga - Bratislava) y autobús (Bratislava - Budapest).
+    </p>
     
-    <!-- Praga -->
-    <div *ngSwitchCase="'praga'" class="city-section">
-      <div class="city-intro">
-        <h3>Praga: Alquiler de Coche para Máxima Flexibilidad</h3>
-        <p>
-          Para nuestra estancia en Praga y la exploración de la región de Bohemia, decidimos alquilar un coche. Esta elección nos 
-          proporcionó la flexibilidad necesaria para visitar lugares fuera del alcance del transporte público, descubrir pueblos 
-          encantadores y realizar excursiones a castillos y paisajes que de otra manera serían difíciles de alcanzar. El alquiler 
-          de coche en Praga es relativamente económico comparado con otras capitales europeas, y las carreteras están en excelente 
-          estado.
-        </p>
+    <div class="maps-container">
+      <div class="map-item">
+        <h4>Tren: Praga → Bratislava</h4>
+        <div class="transport-map-wrapper">
+          <iframe 
+            class="transport-map-container"
+            [src]="trainMapUrl"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
 
-      <div class="transport-grid">
-        <div class="transport-card">
-          <div class="transport-icon">🚗</div>
-          <div class="transport-info">
-            <h4>Alquiler de Coche</h4>
-            <p class="transport-type">Flexibilidad y autonomía para explorar</p>
-            <p class="transport-description">
-              Alquilamos el coche directamente en el aeropuerto de Praga, lo que facilitó enormemente el inicio del viaje. Las 
-              principales compañías de alquiler internacionales tienen presencia en el aeropuerto, y el proceso es rápido y eficiente. 
-              Recomendamos reservar con antelación, especialmente durante temporada alta, para asegurar mejores precios y disponibilidad 
-              del vehículo deseado.
-            </p>
-            <p class="transport-description">
-              Las carreteras checas están en excelente estado y la señalización es clara. El tráfico en Praga puede ser intenso 
-              durante las horas punta, pero una vez fuera de la ciudad, la conducción es relajada y agradable. El estacionamiento 
-              en el centro de Praga puede ser un desafío y relativamente caro, por lo que recomendamos buscar alojamiento con 
-              parking incluido o utilizar parkings públicos fuera del centro histórico. Para explorar el casco antiguo de Praga, 
-              es mejor dejar el coche y moverse a pie, ya que muchas zonas son peatonales.
-            </p>
-            <div class="transport-details">
-              <span class="detail-item">💰 Precio medio: 25-40€/día (según temporada y tipo de vehículo)</span>
-              <span class="detail-item">📋 Requisitos: Carnet de conducir válido, tarjeta de crédito</span>
-              <span class="detail-item">⛽ Combustible: Gasolina y diésel disponibles, precios razonables</span>
-              <span class="detail-item">🅿️ Parking: Considerar coste adicional en centro (15-25€/día)</span>
-            </div>
-          </div>
+      <div class="map-item">
+        <h4>Autobús: Bratislava → Budapest</h4>
+        <div class="transport-map-wrapper">
+          <iframe 
+            class="transport-map-container"
+            [src]="busMapUrl"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Bratislava -->
-    <div *ngSwitchCase="'bratislava'" class="city-section">
-      <div class="city-intro">
-        <h3>Bratislava: Conexión por Tren desde Praga</h3>
+  <!-- Alquiler de Coche -->
+  <div class="car-rental-section">
+    <h3>Alquiler de Coche para Excursiones</h3>
+    
+    <div class="rental-content">
+      <p>
+        Durante nuestra estancia en Praga, decidimos alquilar un coche para visitar el <strong>Osario de Sedlec</strong> 
+        (Kostnice v Sedlci), una de las atracciones más fascinantes de la República Checa, ubicada en Kutná Hora, 
+        a aproximadamente una hora en coche desde Praga. Lo contratamos directamente desde el aeropuerto de Praga 
+        a través de <a href="https://www.rentalcars.com" target="_blank" rel="noopener noreferrer" class="external-link">Rentalcars</a>, 
+        una plataforma que permite comparar precios de múltiples compañías de alquiler.
+      </p>
+
+      <div class="osario-section">
+        <div class="osario-image-wrapper">
+          <img src="/assets/budapest/Dia01/sedlec01.webp" alt="Osario de Sedlec" class="osario-image"
+               onerror="this.src='/assets/budapest/Dia01/sedlec02.webp'; this.onerror=function(){this.src='/assets/budapest/Dia01/sedlec03.webp';}">
+        </div>
+        <div class="osario-map-wrapper">
+          <h4>Ruta en Coche: Praga → Osario de Sedlec</h4>
+          <div class="transport-map-wrapper">
+            <iframe 
+              class="transport-map-container"
+              [src]="osarioMapUrl"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="rental-detail">
+        <h4>Nuestra Experiencia y Recomendación</h4>
         <p>
-          El trayecto desde Praga a Bratislava lo realizamos en tren, una opción cómoda y eficiente que conecta estas dos capitales 
-          centroeuropeas. El servicio ferroviario entre República Checa y Eslovaquia es regular y confiable, ofreciendo una experiencia 
-          de viaje relajante a través del paisaje centroeuropeo. Bratislava es una ciudad compacta que se explora perfectamente a pie, 
-          por lo que no necesitamos transporte adicional una vez allí.
+          Elegimos una compañía local que era la más barata disponible, sin embargo, <strong>no fue la mejor decisión</strong>. 
+          El trato recibido fue un poco malo y el proceso de alquiler resultó más complicado de lo esperado. 
+          Por esta razón, <strong>recomendamos encarecidamente optar por compañías más conocidas y establecidas</strong> 
+          como <strong>Flexiar</strong>, <strong>Hertz</strong>, <strong>Avis</strong> o <strong>Europcar</strong>, que aunque 
+          puedan ser un poco más caras, ofrecen un mejor servicio, mayor transparencia en las condiciones y un trato 
+          profesional al cliente.
         </p>
       </div>
 
-      <div class="transport-grid">
-        <div class="transport-card">
-          <div class="transport-icon">🚂</div>
-          <div class="transport-info">
-            <h4>Tren Praga - Bratislava</h4>
-            <p class="transport-type">Conexión directa y cómoda</p>
-            <p class="transport-description">
-              El tren desde Praga a Bratislava ofrece una conexión directa que tarda aproximadamente 4 horas. Los trenes son modernos, 
-              cómodos y cuentan con wifi gratuito, asientos espaciosos y servicio de cafetería. El paisaje durante el trayecto es 
-              agradable, pasando por campos y pequeñas ciudades checas y eslovacas. La estación principal de Bratislava está bien 
-              conectada con el centro de la ciudad, a solo unos minutos en transporte público o a 15-20 minutos caminando.
-            </p>
-            <p class="transport-description">
-              Recomendamos comprar los billetes con antelación a través de las webs oficiales de los ferrocarriles checos (ČD) o 
-              eslovacos (ŽSSK) para obtener mejores precios. Los billetes se pueden comprar online y mostrar en el móvil, lo que 
-              facilita el proceso. La clase estándar es perfectamente cómoda para este trayecto, aunque existe la opción de primera 
-              clase para mayor espacio y comodidad. El servicio es puntual y confiable, siendo una excelente opción para viajar entre 
-              estas dos capitales.
-            </p>
-            <div class="transport-details">
-              <span class="detail-item">💰 Precio: 20-35€ por trayecto (según clase y antelación)</span>
-              <span class="detail-item">⏱️ Duración: Aproximadamente 4 horas</span>
-              <span class="detail-item">📍 Estación: Praha hlavní nádraží → Bratislava hlavná stanica</span>
-              <span class="detail-item">🎫 Reserva: Recomendada, especialmente en temporada alta</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Budapest -->
-    <div *ngSwitchCase="'budapest'" class="city-section">
-      <div class="city-intro">
-        <h3>Budapest: Conexión por Tren y Autobús</h3>
+      <div class="rental-detail">
+        <h4>¿Vale la Pena Alquilar Coche?</h4>
         <p>
-          Para llegar a Budapest desde Bratislava, tenemos dos opciones principales: tren o autobús. Ambas son viables y ofrecen 
-          diferentes ventajas. El tren es ligeramente más rápido y cómodo, mientras que el autobús suele ser más económico. Una vez 
-          en Budapest, el transporte público es excelente y muy económico, con un sistema integrado de metro, tranvía y autobús que 
-          cubre toda la ciudad de manera eficiente.
+          <strong>Absolutamente sí, definitivamente vale la pena</strong>. Gracias al coche pudimos visitar todo lo que 
+          queríamos en una jornada completa, incluyendo el Osario de Sedlec, el centro histórico de Kutná Hora y otros 
+          lugares de interés en la región de Bohemia Central que serían difíciles de alcanzar con transporte público. 
+          La flexibilidad que proporciona tener tu propio vehículo es invaluable, especialmente para explorar lugares 
+          fuera de las rutas turísticas principales.
         </p>
       </div>
 
-      <div class="transport-grid">
-        <div class="transport-card">
-          <div class="transport-icon">🚂</div>
-          <div class="transport-info">
-            <h4>Tren Bratislava - Budapest</h4>
-            <p class="transport-type">Opción rápida y cómoda</p>
-            <p class="transport-description">
-              El tren desde Bratislava a Budapest es la opción más rápida, con un tiempo de viaje de aproximadamente 2.5 a 3 horas. 
-              Los trenes son modernos y cómodos, con wifi, asientos espaciosos y servicio de cafetería. El trayecto es directo y 
-              pasa por el paisaje húngaro antes de llegar a la estación principal de Budapest, Keleti pályaudvar, que está bien 
-              conectada con el centro de la ciudad mediante metro y autobús.
-            </p>
-            <p class="transport-description">
-              Los billetes se pueden comprar online con antelación a través de las webs de los ferrocarriles eslovacos o húngaros. 
-              El precio varía según la clase y la antelación de la compra. La estación Keleti está en el lado de Pest, cerca de 
-              muchos hoteles y atractivos turísticos. El servicio es puntual y confiable, siendo nuestra opción recomendada para 
-              este trayecto si buscas comodidad y velocidad.
-            </p>
-            <div class="transport-details">
-              <span class="detail-item">💰 Precio: 15-30€ por trayecto (según clase y antelación)</span>
-              <span class="detail-item">⏱️ Duración: 2.5 - 3 horas</span>
-              <span class="detail-item">📍 Estación: Bratislava hlavná stanica → Budapest Keleti</span>
-              <span class="detail-item">🎫 Reserva: Recomendada para mejores precios</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="transport-card">
-          <div class="transport-icon">🚌</div>
-          <div class="transport-info">
-            <h4>Autobús Bratislava - Budapest</h4>
-            <p class="transport-type">Opción económica alternativa</p>
-            <p class="transport-description">
-              El autobús es una alternativa económica al tren, con precios generalmente más bajos. El tiempo de viaje es similar al 
-              tren, aproximadamente 2.5 a 3 horas, dependiendo del tráfico. Las principales compañías de autobuses que operan esta 
-              ruta ofrecen servicios modernos con wifi, asientos cómodos y a veces incluso enchufes para cargar dispositivos.
-            </p>
-            <p class="transport-description">
-              Los billetes se pueden comprar online con mucha antelación, lo que permite obtener precios muy económicos. La estación 
-              de autobuses de Budapest, Népliget, está bien conectada con el centro mediante metro. Aunque el autobús puede ser 
-              ligeramente menos cómodo que el tren, especialmente para viajes largos, es una excelente opción si buscas ahorrar dinero 
-              sin sacrificar demasiado en comodidad. El servicio es regular y confiable.
-            </p>
-            <div class="transport-details">
-              <span class="detail-item">💰 Precio: 10-20€ por trayecto (según compañía y antelación)</span>
-              <span class="detail-item">⏱️ Duración: 2.5 - 3 horas</span>
-              <span class="detail-item">📍 Estación: Bratislava AS → Budapest Népliget</span>
-              <span class="detail-item">🎫 Reserva: Recomendada para mejores precios</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="transport-card">
-          <div class="transport-icon">🚇</div>
-          <div class="transport-info">
-            <h4>Transporte Público en Budapest</h4>
-            <p class="transport-type">Sistema integrado eficiente y económico</p>
-            <p class="transport-description">
-              Una vez en Budapest, el transporte público es excelente y muy económico. La ciudad cuenta con un sistema integrado 
-              que incluye metro (con algunas de las estaciones más hermosas de Europa), tranvía, autobús y trolebús. El sistema es 
-              fácil de navegar, con señalización clara y mapas disponibles en todas las estaciones.
-            </p>
-            <p class="transport-description">
-              Recomendamos comprar un pase de transporte de varios días, que permite uso ilimitado de todo el sistema. Los pases 
-              están disponibles para 24 horas, 72 horas o una semana, y son extremadamente económicos. El metro de Budapest es 
-              especialmente útil para moverse rápidamente entre los diferentes distritos, mientras que los tranvías ofrecen una 
-              forma agradable de ver la ciudad mientras te desplazas. El sistema es seguro, limpio y muy puntual, siendo la mejor 
-              manera de explorar Budapest sin necesidad de coche.
-            </p>
-            <div class="transport-details">
-              <span class="detail-item">💰 Pase 24h: ~5€ | Pase 72h: ~15€ | Pase semanal: ~20€</span>
-              <span class="detail-item">🎫 Venta: Estaciones de metro, quioscos, máquinas automáticas</span>
-              <span class="detail-item">✅ Válido: Metro, tranvía, autobús, trolebús</span>
-              <span class="detail-item">📱 App: BudapestGO para compra digital y planificación de rutas</span>
-            </div>
-          </div>
-        </div>
+      <div class="rental-detail">
+        <h4>Información Importante a Tener en Cuenta</h4>
+        <p>
+          Es fundamental estar preparado antes de alquilar un coche en la República Checa. En nuestro caso, nos hicieron 
+          dejar una <strong>fianza de casi 500€</strong> que se bloquea en la tarjeta de crédito hasta la devolución del 
+          vehículo. Además, <strong>no aceptaban cualquier tarjeta</strong> - es esencial tener una tarjeta de crédito válida 
+          (no débito) emitida a tu nombre y con suficiente crédito disponible. Algunas compañías también requieren que la 
+          tarjeta tenga al menos 6 meses de antigüedad.
+        </p>
+        <p>
+          Recomendamos leer cuidadosamente las condiciones de alquiler, verificar qué está incluido en el precio (seguro, 
+          kilometraje ilimitado, etc.) y asegurarse de tener toda la documentación necesaria (carnet de conducir válido, 
+          pasaporte o DNI, tarjeta de crédito).
+        </p>
       </div>
     </div>
-
   </div>
 
 </div>
-
