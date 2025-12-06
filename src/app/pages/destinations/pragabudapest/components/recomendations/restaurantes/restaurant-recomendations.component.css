@@ -592,20 +592,23 @@
     text-align: left;
   }
 
-  /* Tabs de ciudades - Vertical y compacto */
+  /* Tabs de ciudades - Horizontal y compacto en móvil */
   .city-tabs {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 6px;
     margin-bottom: 20px;
     padding: 0 12px;
   }
 
   .city-tab {
-    padding: 12px 16px;
-    font-size: 0.95rem;
-    width: 100%;
-    text-align: left;
-    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 0;
+    text-align: center;
+    border-radius: 20px;
     background: #f8f9fa;
     border: 1px solid #e0e0e0;
   }

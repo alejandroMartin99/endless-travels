@@ -183,6 +183,7 @@
     padding-bottom: 70px;
     box-sizing: border-box;
     min-height: calc(100vh - 200px);
+    overflow-x: hidden; /* evita scroll horizontal en móvil dentro de la página */
   }
 }
 
