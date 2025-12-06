@@ -11,25 +11,36 @@
    ============================================ */
 
 .section-header {
-  text-align: center;
-  margin-bottom: 50px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: left;
+  margin-bottom: 30px;
+  max-width: 100%;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
-  letter-spacing: -1px;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.3px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #1a237e;
+  border-radius: 2px;
 }
 
 .section-intro {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #666;
-  line-height: 1.8;
+  line-height: 1.6;
   margin: 0;
   font-weight: 400;
 }
@@ -201,18 +212,20 @@
 
 @media (max-width: 768px) {
   .section-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     padding: 0 8px;
+    text-align: left;
   }
 
   .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 12px;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    font-weight: 500;
   }
 
   .section-intro {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   .city-tabs {

@@ -1,44 +1,22 @@
 <div class="recommendations-container">
   
-  <!-- Navigation Tabs -->
-  <nav class="section-nav">
-    <button 
-      class="nav-button" 
-      [class.active]="activeTab === 'restaurants'"
-      (click)="selectTab('restaurants')">
-      Restaurantes
-    </button>
-    <button 
-      class="nav-button" 
-      [class.active]="activeTab === 'accommodation'"
-      (click)="selectTab('accommodation')">
-      Alojamiento
-    </button>
-    <button 
-      class="nav-button" 
-      [class.active]="activeTab === 'transport'"
-      (click)="selectTab('transport')">
-      Transporte
-    </button>
-  </nav>
-
-  <!-- Content Sections -->
+  <!-- Content Sections - All scrolleable -->
   <div class="content-sections">
     
     <!-- Restaurants Section -->
-    <div class="content-section" [class.active]="activeTab === 'restaurants'">
+    <section class="content-section restaurants-section">
       <pragabudapest-restaurant-recomendations-component></pragabudapest-restaurant-recomendations-component>
-    </div>
+    </section>
 
     <!-- Accommodation Section -->
-    <div class="content-section" [class.active]="activeTab === 'accommodation'">
+    <section class="content-section accommodation-section">
       <pragabudapest-accommodation-recomendations-component></pragabudapest-accommodation-recomendations-component>
-    </div>
+    </section>
 
     <!-- Transport Section -->
-    <div class="content-section" [class.active]="activeTab === 'transport'">
+    <section class="content-section transport-section">
       <pragabudapest-transport-recomendations-component></pragabudapest-transport-recomendations-component>
-    </div>
+    </section>
 
   </div>
 

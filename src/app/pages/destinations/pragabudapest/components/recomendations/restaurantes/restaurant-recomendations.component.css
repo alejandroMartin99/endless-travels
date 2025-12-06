@@ -11,95 +11,90 @@
    ============================================ */
 
 .section-header {
-  text-align: center;
-  margin-bottom: 50px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: left;
+  margin-bottom: 30px;
+  max-width: 100%;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
-  letter-spacing: -1px;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.3px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #1a237e;
+  border-radius: 2px;
 }
 
 .section-intro {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #666;
-  line-height: 1.8;
+  line-height: 1.6;
   margin: 0;
   font-weight: 400;
 }
 
 /* ============================================
-   CITY TABS
+   CITIES WRAPPER - SCROLLABLE SECTIONS
    ============================================ */
 
-.city-tabs {
+.cities-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
-}
-
-.city-tab {
-  padding: 12px 28px;
-  background: #f8f9fa;
-  border: 1px solid #e8e8e8;
-  border-radius: 30px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.city-tab:hover {
-  background: #f0f0f0;
-  border-color: #d0d0d0;
-}
-
-.city-tab.active {
-  background: #1a237e;
-  border-color: #1a237e;
-  color: white;
-  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.2);
+  flex-direction: column;
+  gap: 100px;
 }
 
 /* ============================================
-   CITY CONTENT WRAPPER
+   CITY SECTION
    ============================================ */
 
-.city-content-wrapper {
-  margin-top: 50px;
+.city-section {
+  width: 100%;
+  scroll-margin-top: 20px;
+}
+
+.city-section:first-child {
+  margin-top: 0;
+}
+
+.city-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 40px;
 }
 
 .city-intro-section {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .city-intro {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+  text-align: left;
+  max-width: 100%;
+  margin: 0;
 }
 
 .city-intro h3 {
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: #1a1a1a;
-  margin: 0 0 16px 0;
-  letter-spacing: -0.5px;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
 }
 
 .city-intro p {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: #666;
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -581,9 +576,10 @@
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 8px;
     text-align: left;
+    font-weight: 500;
   }
 
   .section-intro {
@@ -592,36 +588,13 @@
     text-align: left;
   }
 
-  /* Tabs de ciudades - Horizontal y compacto en móvil */
-  .city-tabs {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-    margin-bottom: 20px;
-    padding: 0 12px;
+  /* Cities wrapper - Vertical sections */
+  .cities-wrapper {
+    gap: 60px;
   }
 
-  .city-tab {
-    padding: 10px 14px;
-    font-size: 0.9rem;
-    width: auto;
-    min-width: 0;
-    text-align: center;
-    border-radius: 20px;
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
-  }
-
-  .city-tab.active {
-    background: #1a237e;
-    color: white;
-    border-color: #1a237e;
-  }
-
-  /* Intro de ciudad - Compacto */
-  .city-content-wrapper {
-    margin-top: 20px;
+  .city-section {
+    margin-bottom: 0;
   }
 
   .city-intro-section {
@@ -631,15 +604,16 @@
 
   .city-intro {
     text-align: left;
-    padding: 12px;
-    background: #f8f9fa;
-    border-radius: 6px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
   }
 
   .city-intro h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 8px;
     text-align: left;
+    font-weight: 500;
   }
 
   .city-intro p {

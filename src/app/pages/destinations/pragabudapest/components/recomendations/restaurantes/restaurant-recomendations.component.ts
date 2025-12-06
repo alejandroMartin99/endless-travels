@@ -21,19 +21,22 @@ interface Restaurant {
 })
 export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit, OnDestroy {
   
-  @ViewChild('mapContainer', { static: false }) mapContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('mapPragaContainer', { static: false }) mapPragaContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('mapBratislavaContainer', { static: false }) mapBratislavaContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('mapBudapestContainer', { static: false }) mapBudapestContainer!: ElementRef<HTMLDivElement>;
   
-  activeCity: string = 'praga';
   currentImageIndex: { [key: string]: number } = {};
-  activeRestaurantIndex: number = 0;
-  private map!: mapboxgl.Map;
-  private markers: mapboxgl.Marker[] = [];
-
-  cities = [
-    { id: 'praga', name: 'Praga' },
-    { id: 'bratislava', name: 'Bratislava' },
-    { id: 'budapest', name: 'Budapest' }
-  ];
+  activeRestaurantIndex: { [key: string]: number } = {
+    praga: 0,
+    bratislava: 0,
+    budapest: 0
+  };
+  private maps: { [key: string]: mapboxgl.Map } = {};
+  private markers: { [key: string]: mapboxgl.Marker[] } = {
+    praga: [],
+    bratislava: [],
+    budapest: []
+  };
 
   restaurants: { [key: string]: Restaurant[] } = {
     praga: [
@@ -221,15 +224,19 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
     
     // Esperar a que el DOM esté completamente renderizado
     setTimeout(() => {
-      this.initializeMap();
+      this.initializeMaps();
     }, 500);
   }
 
   ngOnDestroy(): void {
-    if (this.map) {
-      this.map.remove();
-    }
-    this.markers.forEach(marker => marker.remove());
+    Object.values(this.maps).forEach(map => {
+      if (map) {
+        map.remove();
+      }
+    });
+    Object.values(this.markers).forEach(cityMarkers => {
+      cityMarkers.forEach(marker => marker.remove());
+    });
   }
 
   initializeImageIndices(): void {
@@ -240,63 +247,66 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
     });
   }
 
-  selectCity(cityId: string): void {
-    this.activeCity = cityId;
-    this.activeRestaurantIndex = 0;
-    setTimeout(() => {
-      this.initializeMap();
-    }, 100);
+  getRestaurantsForCity(cityId: string): Restaurant[] {
+    return this.restaurants[cityId] || [];
   }
 
-  nextRestaurant(): void {
-    const restaurants = this.getCurrentRestaurants();
-    if (this.activeRestaurantIndex < restaurants.length - 1) {
-      this.activeRestaurantIndex++;
-      this.updateMapForActiveRestaurant();
+  nextRestaurant(cityId: string): void {
+    const restaurants = this.getRestaurantsForCity(cityId);
+    if (this.activeRestaurantIndex[cityId] < restaurants.length - 1) {
+      this.activeRestaurantIndex[cityId]++;
+      this.updateMapForActiveRestaurant(cityId);
     }
   }
 
-  prevRestaurant(): void {
-    if (this.activeRestaurantIndex > 0) {
-      this.activeRestaurantIndex--;
-      this.updateMapForActiveRestaurant();
+  prevRestaurant(cityId: string): void {
+    if (this.activeRestaurantIndex[cityId] > 0) {
+      this.activeRestaurantIndex[cityId]--;
+      this.updateMapForActiveRestaurant(cityId);
     }
   }
 
-  selectRestaurant(index: number): void {
-    this.activeRestaurantIndex = index;
-    this.updateMapForActiveRestaurant();
+  selectRestaurant(cityId: string, index: number): void {
+    this.activeRestaurantIndex[cityId] = index;
+    this.updateMapForActiveRestaurant(cityId);
   }
 
-  getVisibleRestaurants(): Restaurant[] {
-    const restaurants = this.getCurrentRestaurants();
-    return restaurants.slice(this.activeRestaurantIndex, this.activeRestaurantIndex + 1);
+  getVisibleRestaurants(cityId: string): Restaurant[] {
+    const restaurants = this.getRestaurantsForCity(cityId);
+    const index = this.activeRestaurantIndex[cityId];
+    return restaurants.slice(index, index + 1);
   }
 
-  isRestaurantActive(restaurant: Restaurant): boolean {
-    const restaurants = this.getCurrentRestaurants();
+  isRestaurantActive(restaurant: Restaurant, cityId: string): boolean {
+    const restaurants = this.getRestaurantsForCity(cityId);
     const index = restaurants.findIndex(r => r.id === restaurant.id);
-    return index === this.activeRestaurantIndex;
+    return index === this.activeRestaurantIndex[cityId];
   }
 
-  getRestaurantCounter(): string {
-    const restaurants = this.getCurrentRestaurants();
+  getRestaurantCounter(cityId: string): string {
+    const restaurants = this.getRestaurantsForCity(cityId);
     const total = restaurants.length;
-    const current = this.activeRestaurantIndex + 1;
+    const current = this.activeRestaurantIndex[cityId] + 1;
     return `Restaurante ${current} de ${total}`;
   }
 
-  canGoNext(): boolean {
-    const restaurants = this.getCurrentRestaurants();
-    return this.activeRestaurantIndex < restaurants.length - 1;
+  canGoNext(cityId: string): boolean {
+    const restaurants = this.getRestaurantsForCity(cityId);
+    return this.activeRestaurantIndex[cityId] < restaurants.length - 1;
   }
 
-  canGoPrev(): boolean {
-    return this.activeRestaurantIndex > 0;
+  canGoPrev(cityId: string): boolean {
+    return this.activeRestaurantIndex[cityId] > 0;
   }
 
   changeImage(restaurantId: string, direction: number): void {
-    const restaurant = this.getCurrentRestaurants().find(r => r.id === restaurantId);
+    // Buscar el restaurante en todas las ciudades
+    let restaurant: Restaurant | undefined;
+    for (const cityId of ['praga', 'bratislava', 'budapest']) {
+      restaurant = this.getRestaurantsForCity(cityId).find(r => r.id === restaurantId);
+      if (restaurant) break;
+    }
+    
     if (!restaurant) return;
 
     const currentIndex = this.currentImageIndex[restaurantId] || 0;
@@ -307,81 +317,77 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
     }
   }
 
-  getCurrentRestaurants(): Restaurant[] {
-    return this.restaurants[this.activeCity] || [];
-  }
-
   getCurrentImageIndex(restaurantId: string): number {
     return this.currentImageIndex[restaurantId] || 0;
   }
 
-  initializeMap(): void {
-    // Verificar que el contenedor exista
-    if (!this.mapContainer?.nativeElement) {
-      console.warn('Map container not found');
-      return;
-    }
+  initializeMaps(): void {
+    const cities = ['praga', 'bratislava', 'budapest'];
     
-    const container = this.mapContainer.nativeElement;
-    
-    // Limpiar mapa anterior si existe
-    if (this.map) {
-      try {
-        this.map.remove();
-      } catch (e) {
-        // Ignorar errores al limpiar
+    cities.forEach(cityId => {
+      let container: ElementRef<HTMLDivElement> | null = null;
+      
+      switch(cityId) {
+        case 'praga':
+          container = this.mapPragaContainer;
+          break;
+        case 'bratislava':
+          container = this.mapBratislavaContainer;
+          break;
+        case 'budapest':
+          container = this.mapBudapestContainer;
+          break;
       }
-    }
-    
-    // Limpiar marcadores
-    this.markers.forEach(marker => {
-      try {
-        marker.remove();
-      } catch (e) {
-        // Ignorar errores
+
+      if (!container?.nativeElement) {
+        console.warn(`Map container not found for ${cityId}`);
+        return;
       }
-    });
-    this.markers = [];
 
-    const currentRestaurants = this.getCurrentRestaurants();
-    if (currentRestaurants.length === 0) {
-      return;
-    }
+      const restaurants = this.getRestaurantsForCity(cityId);
+      if (restaurants.length === 0) {
+        return;
+      }
 
-    const firstRestaurant = currentRestaurants[0];
-    
-    // Crear el mapa
-    this.map = new mapboxgl.Map({
-      container: container,
-      style: 'mapbox://styles/mapbox/streets-v12',
-      center: [firstRestaurant.longitude, firstRestaurant.latitude],
-      zoom: 12
-    });
+      const firstRestaurant = restaurants[0];
+      
+      // Crear el mapa
+      const map = new mapboxgl.Map({
+        container: container.nativeElement,
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [firstRestaurant.longitude, firstRestaurant.latitude],
+        zoom: 12
+      });
 
-    this.map.on('load', () => {
-      // Asegurar que el mapa tenga el tamaño correcto
-      setTimeout(() => {
-        if (this.map) {
-          this.map.resize();
-        }
-      }, 100);
-      this.updateMapForActiveRestaurant();
-      this.fitAllMarkers();
+      map.on('load', () => {
+        setTimeout(() => {
+          if (map) {
+            map.resize();
+          }
+        }, 100);
+        this.updateMapForActiveRestaurant(cityId);
+        this.fitAllMarkers(cityId);
+      });
+
+      this.maps[cityId] = map;
     });
   }
 
-  fitAllMarkers(): void {
-    if (!this.map || this.markers.length === 0) return;
+  fitAllMarkers(cityId: string): void {
+    const map = this.maps[cityId];
+    const cityMarkers = this.markers[cityId] || [];
+    
+    if (!map || cityMarkers.length === 0) return;
 
     const bounds = new mapboxgl.LngLatBounds();
     
-    this.markers.forEach(marker => {
+    cityMarkers.forEach(marker => {
       const lngLat = marker.getLngLat();
       bounds.extend([lngLat.lng, lngLat.lat]);
     });
 
-    if (this.markers.length > 0) {
-      this.map.fitBounds(bounds, {
+    if (cityMarkers.length > 0) {
+      map.fitBounds(bounds, {
         padding: 50,
         maxZoom: 14,
         duration: 1000
@@ -389,27 +395,29 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
     }
   }
 
-  updateMapForActiveRestaurant(): void {
-    if (!this.map) return;
+  updateMapForActiveRestaurant(cityId: string): void {
+    const map = this.maps[cityId];
+    if (!map) return;
 
     // Remove existing markers
-    this.markers.forEach(marker => marker.remove());
-    this.markers = [];
+    const cityMarkers = this.markers[cityId] || [];
+    cityMarkers.forEach(marker => marker.remove());
+    this.markers[cityId] = [];
 
-    const currentRestaurants = this.getCurrentRestaurants();
-    if (currentRestaurants.length === 0) return;
+    const restaurants = this.getRestaurantsForCity(cityId);
+    if (restaurants.length === 0) return;
 
     // Add markers with active restaurant in blue
-    currentRestaurants.forEach((restaurant, index) => {
-      const isActive = index === this.activeRestaurantIndex;
+    restaurants.forEach((restaurant, index) => {
+      const isActive = index === this.activeRestaurantIndex[cityId];
       const marker = new mapboxgl.Marker({
         color: isActive ? '#1a237e' : '#999'
       })
         .setLngLat([restaurant.longitude, restaurant.latitude])
         .setPopup(new mapboxgl.Popup().setHTML(`<strong>${restaurant.name}</strong>`))
-        .addTo(this.map);
+        .addTo(map);
 
-      this.markers.push(marker);
+      this.markers[cityId].push(marker);
     });
   }
 }
