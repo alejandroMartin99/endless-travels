@@ -62,30 +62,48 @@
     
     <div class="maps-container">
       <div class="map-item">
-        <h4>Tren: Praga → Bratislava</h4>
         <div class="transport-map-wrapper">
-          <iframe 
-            class="transport-map-container"
-            [src]="trainMapUrl"
-            frameborder="0"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <a 
+            [href]="trainMapDirectionsUrl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="transport-map-link">
+            <iframe 
+              [src]="trainMapIframeUrl"
+              class="transport-map-container"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              style="pointer-events: none;">
+            </iframe>
+            <div class="map-overlay">
+              <span class="map-overlay-text">Haz clic para ver en Google Maps</span>
+            </div>
+          </a>
         </div>
       </div>
 
       <div class="map-item">
-        <h4>Autobús: Bratislava → Budapest</h4>
         <div class="transport-map-wrapper">
-          <iframe 
-            class="transport-map-container"
-            [src]="busMapUrl"
-            frameborder="0"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <a 
+            [href]="busMapDirectionsUrl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="transport-map-link">
+            <iframe 
+              [src]="busMapIframeUrl"
+              class="transport-map-container"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              style="pointer-events: none;">
+            </iframe>
+            <div class="map-overlay">
+              <span class="map-overlay-text">Haz clic para ver en Google Maps</span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -106,20 +124,28 @@
 
       <div class="osario-section">
         <div class="osario-image-wrapper">
-          <img src="/assets/budapest/Dia01/sedlec01.webp" alt="Osario de Sedlec" class="osario-image"
-               onerror="this.src='/assets/budapest/Dia01/sedlec02.webp'; this.onerror=function(){this.src='/assets/budapest/Dia01/sedlec03.webp';}">
+          <img src="/assets/budapest/Dia01/sedlec01.webp" alt="Osario de Sedlec" class="osario-image">
         </div>
         <div class="osario-map-wrapper">
-          <h4>Ruta en Coche: Praga → Osario de Sedlec</h4>
           <div class="transport-map-wrapper">
-            <iframe 
-              class="transport-map-container"
-              [src]="osarioMapUrl"
-              frameborder="0"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <a 
+              [href]="osarioMapDirectionsUrl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="transport-map-link">
+              <iframe 
+                [src]="osarioMapIframeUrl"
+                class="transport-map-container"
+                frameborder="0"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                style="pointer-events: none;">
+              </iframe>
+              <div class="map-overlay">
+                <span class="map-overlay-text">Haz clic para ver en Google Maps</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
