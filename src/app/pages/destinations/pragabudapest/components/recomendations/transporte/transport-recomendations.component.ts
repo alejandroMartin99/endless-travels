@@ -46,16 +46,16 @@ export class TransportRecomendationsComponent {
 
   // URL de iframe de Google Maps: Coche Praga - Osario de Sedlec (estático, sin recargas)
   get osarioMapIframeUrl(): SafeResourceUrl {
-    // Usar formato simple con coordenadas directas
     const centerLat = (this.cities.praga.lat + this.cities.osario.lat) / 2;
     const centerLng = (this.cities.praga.lng + this.cities.osario.lng) / 2;
-    const url = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5818!2d${centerLng}!3d${centerLat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b939c0970798b%3A0x400af0f66140b90!2sPraga!5e0!3m2!1ses!2ses!4v1234567890123!5m2!1ses!2ses`;
+    // Usar formato simple de mapa centrado sin ruta (evita error pb)
+    const url = `https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d11647!2d${centerLng}!3d${centerLat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x470b939c0970798b%3A0x400af0f66140b90!2sPraga!3m2!1d${this.cities.praga.lat}!2d${this.cities.praga.lng}!4m5!1s0x476c893c12720001%3A0x400af0f66140b90!2sSedlec!3m2!1d${this.cities.osario.lat}!2d${this.cities.osario.lng}!5e0!3m2!1ses!2ses!4v1234567890123!5m2!1ses!2ses`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   // URL de Google Maps: Coche Praga - Osario de Sedlec
   get osarioMapDirectionsUrl(): string {
-    return `https://www.google.com/maps/dir/${this.cities.praga.lat},${this.cities.praga.lng}/${this.cities.osario.lat},${this.cities.osario.lng}/@${(this.cities.praga.lat + this.cities.osario.lat) / 2},${(this.cities.praga.lng + this.cities.osario.lng) / 2},10z/data=!3m1!4b1!4m2!4m1!3e0`;
+    return `https://www.google.com/maps/dir/${this.cities.praga.lat},${this.cities.praga.lng}/${this.cities.osario.lat},${this.cities.osario.lng}/@${(this.cities.praga.lat + this.cities.osario.lat) / 2},${(this.cities.praga.lng + this.cities.osario.lng) / 2},8z/data=!3m1!4b1!4m2!4m1!3e0`;
   }
 
 }
