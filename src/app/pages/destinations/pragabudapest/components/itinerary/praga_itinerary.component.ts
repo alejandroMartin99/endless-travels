@@ -6,7 +6,6 @@ import { day04Bratislava } from './days/Day04';
 import { day05Budapest } from './days/Day05';
 import { day06Budapest } from './days/Day06';
 import { day07Budapest } from './days/Day07';
-import { day08Budapest } from './days/Day08';
 import { day09Budapest } from './days/Day09';
 
 @Component({
@@ -32,7 +31,6 @@ export class PragaItineraryComponent  implements OnChanges{
   public day05Budapest = day05Budapest;
   public day06Budapest = day06Budapest;
   public day07Budapest = day07Budapest;
-  public day08Budapest = day08Budapest;
   public day09Budapest = day09Budapest;
 
   
