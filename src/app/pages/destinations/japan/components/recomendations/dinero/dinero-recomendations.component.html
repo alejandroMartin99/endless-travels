@@ -17,39 +17,19 @@
     </ul>
   </div>
 
-  <!-- Gráfica de evolución del yen -->
-  <div class="chart-section">
-    <h4>Evolución histórica del euro frente al yen (EUR → JPY)</h4>
-    
-    <!-- Loader de carga -->
-    <div *ngIf="isLoading" class="chart-loader">
-      <div class="spinner"></div>
-      <p>Cargando datos históricos...</p>
-    </div>
-    
-    <!-- Error -->
-    <div *ngIf="hasError" class="chart-error">
-      <div class="error-icon">⚠️</div>
-      <p>{{ errorMessage }}</p>
-      <button class="retry-btn" (click)="fetchRealExchangeRates()">Reintentar</button>
-    </div>
-    
-    <!-- Gráfica -->
-    <div *ngIf="!isLoading && !hasError" class="chart-container">
-      <canvas baseChart
-        [datasets]="chartData.datasets"
-        [labels]="chartData.labels"
-        [options]="chartOptions"
-        [type]="'line'">
-      </canvas>
-    </div>
+  <!-- Tipo de cambio actual (referencia) -->
+  <div class="money-section exchange-rate-block">
+    <h4>Tipo de cambio EUR → JPY</h4>
+    <p *ngIf="isLoading" class="exchange-rate-loading">Consultando tipo de cambio…</p>
+    <p *ngIf="loadError" class="exchange-rate-error">{{ loadError }} <button type="button" class="retry-btn" (click)="fetchCurrentRate()">Reintentar</button></p>
+    <p *ngIf="!isLoading && !loadError && exchangeSummary" class="exchange-rate-live"><strong>{{ exchangeSummary }}</strong></p>
   </div>
 
   <!-- Sección: Yen devaluado -->
   <div class="money-section">
     <h4>El yen, devaluado: ¿buena noticia para viajeros?</h4>
     <p>
-      El yen lleva varios años devaluado respecto al euro. En nuestra gráfica puedes ver cómo ha evolucionado el cambio en los últimos cinco años: ahora <strong>1 EUR te da muchos más yenes que antes</strong>, aunque en el último año la tendencia se ha estabilizado. Esto significa que, aunque Japón no es un país barato, <strong>hoy puedes obtener más por tu dinero</strong>.
+      El yen lleva varios años devaluado respecto al euro: en la práctica <strong>1 EUR suele dar muchos más yenes que hace unos años</strong>, aunque el mercado fluctúa. Aunque Japón no es un país barato, <strong>suele ir a mejor en términos de cambio para quien viaja en euros</strong>.
     </p>
   </div>
 
