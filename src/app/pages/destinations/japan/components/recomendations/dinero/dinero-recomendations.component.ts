@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BaseChartDirective } from 'ng2-charts';
+import { forkJoin, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'dinero-recomendations-component',
@@ -182,13 +184,11 @@ export class DineroRecomendationsComponent implements OnInit {
     });
   }
 
+  /** Histórico vía ECB (Frankfurter); permite CORS desde el navegador. exchangerate-api /v4/{fecha}/EUR no existe en plan gratis (404/CORS). */
   tryHistoricalDataWithCurrentRate(currentRate: number): void {
-    // Intentar obtener algunos datos históricos usando fechas específicas
-    console.log('=== INTENTANDO DATOS HISTÓRICOS CON FECHAS ESPECÍFICAS ===');
-    
     const historicalDates = [
       '2024-01-01',
-      '2024-04-01', 
+      '2024-04-01',
       '2024-07-01',
       '2024-10-01',
       '2023-01-01',
@@ -198,51 +198,42 @@ export class DineroRecomendationsComponent implements OnInit {
       '2022-01-01',
       '2022-04-01',
       '2022-07-01',
-      '2022-10-01'
+      '2022-10-01',
     ];
-    
-    let successCount = 0;
-    const results: { date: string, rate: number }[] = [];
-    
-    historicalDates.forEach((dateStr, index) => {
-      setTimeout(() => {
-        const url = `https://api.exchangerate-api.com/v4/${dateStr}/EUR`;
-        
-        console.log(`Consultando fecha histórica ${index + 1}/${historicalDates.length}: ${dateStr}`);
-        
-        this.http.get<any>(url).subscribe({
-          next: (response) => {
-            console.log(`Respuesta para ${dateStr}:`, response);
-            
-            if (response.rates && response.rates.JPY) {
-              results.push({ date: dateStr, rate: response.rates.JPY });
-              successCount++;
-              console.log(`✅ ${dateStr}: 1 EUR = ${response.rates.JPY} JPY`);
-            }
-            
-            // Si hemos procesado todas las fechas o tenemos suficientes datos
-            if (successCount + (historicalDates.length - successCount) === historicalDates.length) {
-              if (results.length > 0) {
-                this.processHistoricalResults(results);
-              } else {
-                this.showErrorChart(`Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Los datos históricos no están disponibles.`);
-              }
-            }
-          },
-          error: (error) => {
-            console.log(`❌ Error para ${dateStr}:`, error);
-            
-            // Si hemos procesado todas las fechas
-            if (successCount + (historicalDates.length - successCount) === historicalDates.length) {
-              if (results.length > 0) {
-                this.processHistoricalResults(results);
-              } else {
-                this.showErrorChart(`Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Los datos históricos no están disponibles.`);
-              }
-            }
-          }
-        });
-      }, index * 300);
+
+    const requests = historicalDates.map((dateStr) =>
+      this.http
+        .get<{ rates?: { JPY?: number } }>(
+          `https://api.frankfurter.app/${dateStr}?from=EUR&to=JPY`,
+        )
+        .pipe(
+          map((res) =>
+            res.rates?.JPY != null ? { date: dateStr, rate: res.rates.JPY } : null,
+          ),
+          catchError(() => of(null)),
+        ),
+    );
+
+    forkJoin(requests).subscribe({
+      next: (rows) => {
+        const results = rows.filter(
+          (r): r is { date: string; rate: number } => r != null,
+        );
+        if (results.length > 0) {
+          const today = new Date().toISOString().split('T')[0];
+          results.push({ date: today, rate: currentRate });
+          this.processHistoricalResults(results);
+        } else {
+          this.showErrorChart(
+            `Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. No se pudieron cargar datos históricos.`,
+          );
+        }
+      },
+      error: () => {
+        this.showErrorChart(
+          `Tipo de cambio actual: 1 EUR = ${currentRate.toFixed(2)} JPY. Error al cargar el histórico.`,
+        );
+      },
     });
   }
 

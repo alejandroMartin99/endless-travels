@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "postinstall": "node scripts/ensure-env-user.cjs",
+    "prebuild": "node scripts/inject-mapbox-token.cjs",
     "start": "ng serve",
     "build": "npx ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
