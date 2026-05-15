@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Mapbox público solo en máquina local / CI (no subir pk al repo por push protection)
+src/environments/environment.user.ts

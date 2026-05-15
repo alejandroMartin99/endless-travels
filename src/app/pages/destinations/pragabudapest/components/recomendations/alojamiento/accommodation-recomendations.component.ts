@@ -107,9 +107,7 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.initializeMaps();
-    }, 100);
+    setTimeout(() => this.initializeMaps(), 100);
   }
 
   ngOnDestroy(): void {

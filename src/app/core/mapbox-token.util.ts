@@ -1,15 +1,15 @@
 import mapboxgl from 'mapbox-gl';
 import { environment } from '../../environments/environment';
 
-/** Aplica token público Mapbox (pk.*) sin hardcodear en el repo. */
+/** Token público Mapbox (pk.*): `environment.user.ts` (gitignored) + restricciones por URL en Mapbox. */
 export function applyMapboxPublicToken(): boolean {
-  const token = environment.mapboxAccessToken?.trim() ?? '';
-  if (!token) {
+  const t = environment.mapboxAccessToken?.trim() ?? '';
+  if (!t) {
     console.warn(
-      '[mapbox] Configura mapboxAccessToken en src/environments/environment.ts (local, sin subir).',
+      '[mapbox] Sin pk: crea/edita src/environments/environment.user.ts tras npm install.',
     );
     return false;
   }
-  mapboxgl.accessToken = token;
+  mapboxgl.accessToken = t;
   return true;
 }

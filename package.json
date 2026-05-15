@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "postinstall": "node scripts/ensure-env-user.cjs",
     "start": "ng serve",
     "build": "npx ng build --configuration=production",
     "watch": "ng build --watch --configuration development",

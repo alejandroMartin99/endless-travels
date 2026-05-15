@@ -61,11 +61,8 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   private scrollPosition = 0;
 
   ngAfterViewInit(): void {
-    if (!applyMapboxPublicToken()) {
-      return;
-    }
-    // Inicializar el mapa con un pequeño retraso para asegurar que el DOM esté listo
     setTimeout(() => {
+      if (!applyMapboxPublicToken()) return;
       this.initializeMap();
       this.initializeMobileMap();
     }, 100);
@@ -86,6 +83,7 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
       this.currentActivityIndex = 0;
       this.currentImageIndex = 0;
       setTimeout(() => {
+        if (!applyMapboxPublicToken()) return;
         this.initializeMap();
         this.initializeMobileMap();
       }, 100);

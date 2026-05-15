@@ -221,12 +221,10 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
   }
 
   ngAfterViewInit(): void {
-    if (!applyMapboxPublicToken()) {
-      return;
-    }
-    
-    // Esperar a que el DOM esté completamente renderizado
     setTimeout(() => {
+      if (!applyMapboxPublicToken()) {
+        return;
+      }
       this.initializeMaps();
     }, 500);
   }

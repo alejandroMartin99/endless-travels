@@ -1,7 +1,6 @@
-/**
- * Mapbox public token (pk.*) must NOT be committed to git.
- * For local maps: set `mapboxAccessToken` here or use a private untracked override (see README / team docs).
- */
+import { USER_MAPBOX_PK } from './environment.user';
+
+/** pk.* en cliente: restringir orígenes en Mapbox; el valor real va en `environment.user.ts` (gitignored). */
 export const environment = {
-  mapboxAccessToken: '',
+  mapboxAccessToken: (USER_MAPBOX_PK ?? '').trim(),
 };
