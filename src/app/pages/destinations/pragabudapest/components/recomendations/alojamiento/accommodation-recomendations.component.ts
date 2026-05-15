@@ -36,9 +36,9 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
       name: 'Narodni Stay',
       location: 'Praga, República Checa',
       dates: '25 oct 2024 – 28 oct 2024',
-      price: 'Precio total: ~200€',
+      price: 'Total pagado (estancia): € 272,15',
       rating: 4.5,
-      description: 'Narodni Stay es un alojamiento moderno y bien ubicado en el corazón de Praga. Situado en la calle Národní, una de las principales arterias del centro histórico, ofrece acceso directo a los principales atractivos de la ciudad. El establecimiento combina comodidad contemporánea con una ubicación estratégica que permite explorar Praga completamente a pie.',
+      description: 'Narodni Stay: lo reservamos para tres noches en Praga en octubre de 2024. Alojamiento moderno y bien ubicado en el corazón de la ciudad, en la calle Národní. Acceso a pie a la mayoría de atractivos; habitaciones funcionales y buena relación calidad-precio para base de visita.',
       features: [
         'Ubicación céntrica en Národní',
         'Acceso a pie a principales atractivos',
@@ -47,9 +47,10 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
         'Buen precio-calidad'
       ],
       images: [
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
-        'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800'
+        '/assets/budapest/recomendations/Narodni.jpg',
+        '/assets/budapest/recomendations/Narodni_2.jpg',
+        '/assets/budapest/recomendations/Narodni_3.jpg',
+        '/assets/budapest/recomendations/Narodni_4.jpg',
       ],
       longitude: 14.4177,
       latitude: 50.0815
@@ -59,9 +60,9 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
       name: 'BlueBell Hotel',
       location: 'Bratislava, Eslovaquia',
       dates: '28 oct 2024 – 29 oct 2024',
-      price: '€ 88,86',
+      price: 'Total pagado (1 noche): € 88,86',
       rating: 4.6,
-      description: 'El BlueBell Hotel en Bratislava ofrece una estancia cómoda y bien ubicada en la capital eslovaca. Situado en una zona céntrica pero tranquila, el hotel proporciona fácil acceso al casco antiguo y a los principales puntos de interés. Las habitaciones son espaciosas y modernas, con todas las comodidades necesarias para una estancia agradable.',
+      description: 'BlueBell Hotel: una noche en Bratislava (octubre 2024). Hotel cómodo y bien situado para recorrer el casco y el Danubio sin perder tiempo en transporte. Buena opción para una escala corta entre Praga y Budapest.',
       features: [
         'Ubicación céntrica en Bratislava',
         'Cerca del casco antiguo',
@@ -70,9 +71,9 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
         'Buen servicio'
       ],
       images: [
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
-        'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800'
+        '/assets/budapest/recomendations/BlueBell%20Hotel.jpg',
+        '/assets/budapest/recomendations/BlueBell%20Hotel_2.jpg',
+        '/assets/budapest/recomendations/BlueBell%20Hotel_3.jpg',
       ],
       longitude: 17.1077,
       latitude: 48.1486
@@ -154,7 +155,7 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
 
       map.on('load', () => {
         const marker = new mapboxgl.Marker({
-          color: '#1a237e'
+          color: '#6e5d43'
         })
           .setLngLat([accommodation.longitude, accommodation.latitude])
           .setPopup(new mapboxgl.Popup().setHTML(`<strong>${accommodation.name}</strong><br>${accommodation.location}`))

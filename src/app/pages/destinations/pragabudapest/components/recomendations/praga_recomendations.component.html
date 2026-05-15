@@ -1,23 +1,52 @@
-<div class="recommendations-container">
-  
-  <!-- Content Sections - All scrolleable -->
-  <div class="content-sections">
-    
-    <!-- Restaurants Section -->
-    <section class="content-section restaurants-section">
-      <pragabudapest-restaurant-recomendations-component></pragabudapest-restaurant-recomendations-component>
+<div class="reco-lux">
+  <header class="reco-lux-hero">
+    <p class="reco-lux-eyebrow">Praga · Bratislava · Budapest</p>
+    <h1 class="reco-lux-title">Recomendaciones</h1>
+    <p class="reco-lux-lede">
+      Una guía sobria del viaje real: donde descansamos, cómo enlazamos ciudades y, al final,
+      algunas mesas memorables si quieres profundizar.
+    </p>
+    <nav class="reco-lux-nav" aria-label="Secciones">
+      <a class="reco-lux-nav-link" href="#reco-stays">Alojamientos</a>
+      <span class="reco-lux-nav-dot" aria-hidden="true"></span>
+      <a class="reco-lux-nav-link" href="#reco-mobility">Movilidad</a>
+      <span class="reco-lux-nav-dot" aria-hidden="true"></span>
+      <a class="reco-lux-nav-link reco-lux-nav-link--muted" href="#reco-dining">Mesas</a>
+    </nav>
+  </header>
+
+  <div class="reco-lux-sections">
+    <section id="reco-stays" class="reco-lux-section reco-lux-section--primary">
+      <div class="reco-lux-section-head">
+        <span class="reco-lux-index">01</span>
+        <h2 class="reco-lux-section-title">Alojamientos</h2>
+        <p class="reco-lux-section-sub">Estancias reservadas en ruta, con referencia de fechas y precio pagado.</p>
+      </div>
+      <div class="reco-lux-section-body">
+        <pragabudapest-accommodation-recomendations-component></pragabudapest-accommodation-recomendations-component>
+      </div>
     </section>
 
-    <!-- Accommodation Section -->
-    <section class="content-section accommodation-section">
-      <pragabudapest-accommodation-recomendations-component></pragabudapest-accommodation-recomendations-component>
+    <section id="reco-mobility" class="reco-lux-section">
+      <div class="reco-lux-section-head">
+        <span class="reco-lux-index">02</span>
+        <h2 class="reco-lux-section-title">Movilidad</h2>
+        <p class="reco-lux-section-sub">Vuelos, tren y autobús tal como los usamos entre capitales.</p>
+      </div>
+      <div class="reco-lux-section-body">
+        <pragabudapest-transport-recomendations-component></pragabudapest-transport-recomendations-component>
+      </div>
     </section>
 
-    <!-- Transport Section -->
-    <section class="content-section transport-section">
-      <pragabudapest-transport-recomendations-component></pragabudapest-transport-recomendations-component>
+    <section id="reco-dining" class="reco-lux-section reco-lux-section--dining">
+      <div class="reco-lux-section-head">
+        <span class="reco-lux-index">03</span>
+        <h2 class="reco-lux-section-title">Mesas</h2>
+        <p class="reco-lux-section-sub">Selección gastronómica por ciudad — plegada por defecto para no saturar la lectura.</p>
+      </div>
+      <div class="reco-lux-section-body">
+        <pragabudapest-restaurant-recomendations-component></pragabudapest-restaurant-recomendations-component>
+      </div>
     </section>
-
   </div>
-
 </div>

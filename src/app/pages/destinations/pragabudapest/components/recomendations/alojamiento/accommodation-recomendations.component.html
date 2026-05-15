@@ -1,27 +1,23 @@
 <div class="accommodation-container">
-  
   <div class="section-header">
-    <h2 class="section-title">Alojamiento Estratégico</h2>
+    <h2 class="section-title">Donde dormimos</h2>
     <p class="section-intro">
-      La elección del alojamiento puede definir la experiencia de tu viaje. Durante nuestro recorrido por Praga, Bratislava y Budapest, 
-      seleccionamos establecimientos que combinan ubicación estratégica, comodidad auténtica y valor excepcional. Cada alojamiento 
-      fue elegido para maximizar la experiencia de exploración, estando ubicados en zonas céntricas que permiten descubrir cada ciudad 
-      a pie.
+      Tres paradas con criterio muy práctico: caminar el centro, poder dejar el coche o las maletas sin drama y volver a una cama limpia.
+      Precios y fechas corresponden a lo que pagamos en octubre de 2024.
     </p>
   </div>
 
-  <!-- Accommodation Grid -->
   <div class="accommodation-grid">
-    <div *ngFor="let accommodation of accommodations" class="accommodation-card">
+    <article *ngFor="let accommodation of accommodations" class="accommodation-card">
       <div class="accommodation-image">
-        <img [src]="accommodation.images[0]" [alt]="accommodation.name">
+        <img [src]="accommodation.images[0]" [alt]="accommodation.name" loading="lazy">
       </div>
       <div class="accommodation-content">
         <div class="accommodation-header">
           <h3>{{ accommodation.name }}</h3>
-          <div class="accommodation-rating">⭐ {{ accommodation.rating }}</div>
+          <div class="accommodation-rating" aria-label="Valoración aproximada">{{ accommodation.rating }} / 5</div>
         </div>
-        <p class="accommodation-location">📍 {{ accommodation.location }}</p>
+        <p class="accommodation-location">{{ accommodation.location }}</p>
         <p class="accommodation-dates">{{ accommodation.dates }}</p>
         <p class="accommodation-price">{{ accommodation.price }}</p>
         <p class="accommodation-description">{{ accommodation.description }}</p>
@@ -36,7 +32,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </article>
   </div>
-
 </div>
