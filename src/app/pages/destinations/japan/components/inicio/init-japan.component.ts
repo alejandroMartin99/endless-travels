@@ -1,4 +1,16 @@
-import { Component, OnInit, ElementRef, ViewChildren, QueryList, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+  AfterViewInit,
+  Output,
+  EventEmitter,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 interface DetailedCity {
   name: string;
   essence: string;
@@ -23,10 +35,18 @@ interface DetailedExperience {
 })
 export class InitJapanComponent implements OnInit, AfterViewInit {
 
-  @Output() goToItinerary = new EventEmitter<number>();
+  private readonly platformId = inject(PLATFORM_ID);
 
-  goToItineraryTab(value:number) {
-    this.goToItinerary.emit(value);
+  @Output() goToItinerary = new EventEmitter<number | { tab: number; anchor?: string }>();
+
+  /** Solo cambia de pestaña (sin ancla). */
+  goToItineraryTab(tabIndex: number) {
+    this.goToItinerary.emit(tabIndex);
+  }
+
+  /** Itinerario (tab 2) + ancla y panel asociados en Kyoto-days. */
+  goToItinerarySection(anchor: string) {
+    this.goToItinerary.emit({ tab: 2, anchor });
   }
 
   @ViewChildren('durationBox, datesBox, citiesBox, essenceTitle') 
@@ -106,6 +126,13 @@ export class InitJapanComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    if (
+      !isPlatformBrowser(this.platformId) ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
+      this.isVisible = { duration: true, dates: true, cities: true, essence: true };
+      return;
+    }
     this.setupIntersectionObserver();
   }
 

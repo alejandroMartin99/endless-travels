@@ -1,3 +1,26 @@
+@media (min-width: 769px) {
+  .zone-header {
+    scroll-margin-top: calc(var(--navbar-height, 64px) + 72px);
+  }
+
+  .zone-section {
+    scroll-margin-top: calc(var(--navbar-height, 64px) + 72px);
+  }
+
+  .content-container.itinerary-intro-block {
+    scroll-margin-top: calc(var(--navbar-height, 64px) + 72px);
+    padding-top: 1.25rem;
+  }
+
+  .scroll-anchor {
+    scroll-margin-top: calc(var(--navbar-height, 64px) + 72px);
+    display: block;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}
+
 /* Contenedor principal */
 .content-container {
   padding: 0px 200px;

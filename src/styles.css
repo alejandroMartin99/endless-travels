@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --navbar-height: 64px;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 56px;
+  }
+}
+
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 

@@ -1,4 +1,5 @@
 <mat-expansion-panel 
+  [id]="panelId || null"
   [(expanded)]="panelOpenState" 
   (opened)="onPanelStateChange(true)" 
   (closed)="onPanelStateChange(false)"

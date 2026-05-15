@@ -61,12 +61,8 @@
 }
 
 
-.tab-content{
-  margin-top: 0;
-  padding-top: 0;
-}
 
-/* Responsive: móvil */
+
 @media (max-width: 768px) {
   .sticky-tab-header {
     position: fixed;
@@ -172,10 +168,10 @@
 
 /* Contenido principal */
 .tab-content {
-  padding: 24px 16px;
+  padding: 1.25rem 16px 24px;
   position: relative;
   margin-top: 0;
-  padding-top: 0;
+  box-sizing: border-box;
 }
 
 /* Asegurar que el contenido empiece después del sticky-tab-header */

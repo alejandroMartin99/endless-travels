@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy, AfterViewInit } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
+import { applyMapboxPublicToken } from '../../../../../../core/mapbox-token.util';
 
 interface Accommodation {
   id: string;
@@ -125,7 +126,9 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
   }
 
   initializeMaps(): void {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+    if (!applyMapboxPublicToken()) {
+      return;
+    }
 
     this.accommodations.forEach(accommodation => {
       let container: ElementRef | null = null;

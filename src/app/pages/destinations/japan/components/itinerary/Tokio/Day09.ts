@@ -1,73 +1,106 @@
 export const day09Tokio = {
-    borderClass:'border-blue',
-    day:{
-        title: 'Día 09 - TOKIO: Toma de contacto -> TO DO',
-        activities: [
-        {
-            name: 'Viaje en Shinkansen - Barrio de Shinjuku',
-            description: 'Comenzamos el día con un trayecto a bordo del Shinkansen. Desde Kioto, llegamos a Tokio en poco más de dos horas, lo que nos deja tiempo suficiente para instalarnos en el Sotetsu Fresa Inn y prepararnos para explorar el Barrio de Shinjuku.\n\n El corazón financiero y comercial de Tokio, Shinjuku, es uno de los distritos más vibrantes de la ciudad. Con más de tres millones de pasajeros utilizando la estación de tren de Shinjuku diariamente, es uno de los hubs de transporte más transitados del mundo. Caminamos entre rascacielos, luces de neón y tiendas que ofrecen todo tipo de productos, desde lo más tecnológico hasta lo tradicional.',
-            images: ['/assets/japan/shinjuku.jpg'],
-            longitude: 139.7016,
-            latitude: 35.6895,
-            mapUrl: 'map-shinjuku'
-        }
-        ,
-        { 
-            name: 'Santuario Hanazono', 
-            description: 'El Santuario Hanazono es un santuario sintoísta ubicado en medio de los edificios modernos de Shinjuku. Fundado en el siglo XVII, es un lugar de tranquilidad en una zona agitada, donde los locales vienen a hacer ofrendas por la prosperidad en sus negocios. Este espacio sagrado es una muestra de la armonía entre la tradición y la modernidad que caracteriza a Japón.', 
-            images: ['assets/images/hanazono-shrine.jpg'], 
-            longitude: 139.7064, 
-            latitude: 35.6934, 
-            mapUrl: 'map-hanazono-shrine' 
-        },
-        { 
-            name: 'Golden Gai', 
-            description: 'Golden Gai es una pequeña zona famosa por sus más de 200 bares diminutos, cada uno con una capacidad que raramente supera las diez personas. Este enclave, que sobrevivió a la modernización, es un vestigio del antiguo Tokio y un lugar icónico para experimentar la cultura nocturna local. Cada bar ofrece una atmósfera única, desde jazz hasta literatura, creando un espacio íntimo de conversación y encuentro.', 
-            images: ['assets/images/golden-gai.jpg'], 
-            longitude: 139.7033, 
-            latitude: 35.6939, 
-            mapUrl: 'map-golden-gai' 
-        },
-        { 
-            name: 'Shinjuku TOHO Building', 
-            description: 'El Shinjuku TOHO Building es uno de los símbolos modernos de Shinjuku, conocido por la réplica a gran escala de la cabeza de Godzilla que sobresale de su fachada. Este edificio alberga uno de los cines más grandes de Tokio y es un centro de entretenimiento que combina lo tradicional con lo contemporáneo.', 
-            images: ['assets/images/shinjuku-toho.jpg'], 
-            longitude: 139.7011, 
-            latitude: 35.6944, 
-            mapUrl: 'map-shinjuku-toho' 
-        },
-        { 
-            name: 'Kabukicho', 
-            description: 'Kabukicho es el distrito de entretenimiento más grande de Tokio, conocido por sus neones brillantes y su vida nocturna. Aunque es famoso por sus bares y restaurantes, también alberga teatros y cines, lo que lo convierte en una parada cultural clave en el itinerario. Además, es un excelente lugar para experimentar la energía vibrante de Tokio durante la noche.', 
-            images: ['assets/images/kabukicho.jpg'], 
-            longitude: 139.7012, 
-            latitude: 35.6959, 
-            mapUrl: 'map-kabukicho' 
-        },
-        { 
-            name: 'Shin-Okubo', 
-            description: 'El barrio de Shin-Okubo es conocido como Korea Town, un enclave multicultural donde la influencia coreana es evidente en sus numerosos restaurantes y tiendas. Aquí se puede disfrutar de auténtica gastronomía coreana, lo que lo convierte en un excelente lugar para probar sabores diferentes sin salir de Tokio. Además, la comunidad coreana ha creado un ambiente dinámico y vibrante.', 
-            images: ['assets/images/shin-okubo.jpg'], 
-            longitude: 139.7005, 
-            latitude: 35.7012, 
-            mapUrl: 'map-shin-okubo' 
-        },
-        { 
-            name: 'Omoide Yokocho', 
-            description: 'Omoide Yokocho, también conocido como Memory Lane, es un pequeño callejón lleno de restaurantes tradicionales. Famoso por sus puestos de yakitori (brochetas de pollo), este callejón evoca el Tokio de la posguerra. Es el lugar perfecto para una cena informal mientras se experimenta la autenticidad de la vida local.', 
-            images: ['assets/images/omoide-yokocho.jpg'], 
-            longitude: 139.6984, 
-            latitude: 35.6932, 
-            mapUrl: 'map-omoide-yokocho' 
-        },
-        { 
-            name: 'Nishi-Shinjuku', 
-            description: 'Finalizamos el día en Nishi-Shinjuku, el área de rascacielos de Tokio. Este distrito es el hogar de algunos de los edificios más altos de Japón, y ofrece unas vistas espectaculares de la ciudad, especialmente al atardecer. Es un excelente lugar para reflexionar sobre la combinación única de historia y modernidad que caracteriza a Tokio.', 
-            images: ['assets/images/nishi-shinjuku.jpg'], 
-            longitude: 139.6949, 
-            latitude: 35.6908, 
-            mapUrl: 'map-nishi-shinjuku' 
-        }
-    ]
-  }
+  borderClass: 'border-blue',
+  day: {
+    title: 'Día 09 - TOKIO: Shinkansen desde Kioto y primera toma de contacto en Shinjuku',
+    activities: [
+      {
+        name: 'Resumen del día',
+        description:
+          '<strong>Un día más tranquilo de lo que esperábamos para decir “hola Tokio”.</strong> Viajamos desde Kioto en el Shinkansen — poco más de dos horas que se pasan mirando por la ventanilla y sintiendo cómo cambia el país en miniatura — y aterrizamos en la megaciudad sin lista apretada.<br><br>' +
+          'Primera meta: instalarnos en el <strong>Sotetsu Fresa Inn Shinjuku</strong>, frescos del tren pero con la cabeza ya en modo “primer contacto”: callejar sin urgencia entre rascacielos y carteles hasta que los tres millones de pasajeros diarios en la estación dejaran de impresionar y pasaran a ser <strong>ruido de fondo bonito</strong>.<br><br>' +
+          '📌 <strong>Lo que imaginábamos para hoy:</strong> un santuario escondido entre torres, ramen con calma al pie de Golden Gai, callejuela de bares diminutos, levantar la vista al Godzilla del TOHO, dejarnos envolver por Kabukicho de noche y cerrar en <strong>Nishi-Shinjuku</strong> — donde Tokio se muestra en vertical y donde conviven rascacielos de oficinas con el corazón institucional de la ciudad.<br><strong>Nada de correr; todo de asimilar.</strong>',
+        images: ['/assets/japan/Tokio/Dia09/portadadia9.png'],
+        longitude: 139.7016,
+        latitude: 35.6895,
+        mapUrl: 'map-shinjuku',
+      },
+      {
+        name: 'Santuario Hanazono',
+        description:
+          'En medio del bloque financiero aparece Hanazono como un suspiro: sintoísmo cotidiano, empleados rezando rápido, portones que no gritan tanto como los carteles neón del cruce. Nos gustó porque <strong>Tokio nos enseñó en cinco minutos</strong> esa mezcla rara entre “me voy al curro” y “paro aquí porque sí”. Fundado en el XVII; hoy parece cortina entre dos mundos.',
+        images: [
+          '/assets/japan/Tokio/Dia09/Hanazono_1.jpg',
+          '/assets/japan/Tokio/Dia09/Hanazono_2.jpg',
+        ],
+        longitude: 139.7064,
+        latitude: 35.6934,
+        mapUrl: 'map-hanazono-shrine',
+      },
+      {
+        name: 'Ramen — parada tranquila antes de Golden Gai',
+        description:
+          'Nos sentamos sin checklist: dos bowls distintos, mesa de madera, ese olor que te avisa segundos antes del primer sorbo — un caldo claro tipo <strong>shoyu</strong> contra otro más <strong>cargado y largo</strong>, con nori imponente, huevo lacrimoso y ese remate que te hace cerrar los ojos. No era postureo foodie; era <strong>combustible emocional</strong> después del tren y antes de entrar en el laberinto de Golden Gai.',
+        images: [
+          '/assets/japan/Tokio/Dia09/Golden_res_ramen_1.png',
+          '/assets/japan/Tokio/Dia09/Golden_res_ramen_2.png',
+        ],
+        longitude: 139.7033,
+        latitude: 35.6939,
+        mapUrl: 'map-golden-gai',
+      },
+      {
+        name: 'Golden Gai',
+        description:
+          'Con la tripa en paz exploramos estas callejeras con más de doscientos bares diminutos donde casi no cabéis cómodos ni dos con mochila al suelo. Sobrevivieron a la modernización; hoy siguen oliendo a tabaco viejo, a jazz en altavoz pequeño y a conversación forzada bonita.<br>Nos bastó con asomarnos a algunos y seguir — <strong>Golden Gai pedía curiosear, no tachar locales</strong> — porque aún nos quedaba energía para Kabukicho sin apagar el día, aun fuera pausado.',
+        images: ['/assets/japan/Tokio/Dia09/golden_gai.webp'],
+        longitude: 139.7033,
+        latitude: 35.6939,
+        mapUrl: 'map-golden-gai',
+      },
+      {
+        name: 'Shinjuku TOHO Building',
+        description:
+          'La cabeza de Godzilla asomando del edificio es el chiste grandilocuente que Tokio se merece: cine, restaurantes, mirada hacia arriba obligatoria. No hace falta entrar a todo; a veces <strong>quedarse en la acera riendo</strong> como turistas felices es la escena completa.',
+        images: [
+          '/assets/japan/Tokio/Dia09/TOHO_Building.jpg',
+          '/assets/japan/Tokio/Dia09/TOHO_Building_2.jpg',
+        ],
+        longitude: 139.7011,
+        latitude: 35.6944,
+        mapUrl: 'map-shinjuku-toho',
+      },
+      {
+        name: 'Kabukicho',
+        description:
+          'Cuando bajó el sol el volumen subió: carteles verticales, reflejos en el asfalto, pasos de zebra abarrotada y ese aire medio cyberpunk que los guías llaman distrito de ocio y nosotros recordamos como <strong>nuestro primer Tokio grande de noche</strong>. Sin plan de nightclub: solo dejarnos llevar, con cada esquina compitiendo por ser fotograma.<br>El arco rojo de Ichibangai al fondo, rótulos “Alpen”, golf, pachinko — <strong>estar dentro</strong>, no leerlo en el guía.',
+        images: [
+          '/assets/japan/Tokio/Dia09/Kabukicho_noche_1.png',
+          '/assets/japan/Tokio/Dia09/Kabukicho_noche_2.png',
+          '/assets/japan/Tokio/Dia09/Kabukicho_noche_3.jpg',
+          '/assets/japan/Tokio/Dia09/Kabukicho_noche_4.jpg',
+          '/assets/japan/Tokio/Dia09/Kabukicho_noche_5.jpg',
+        ],
+        longitude: 139.7012,
+        latitude: 35.6959,
+        mapUrl: 'map-kabukicho',
+      },
+      {
+        name: 'Nishi-Shinjuku — gobierno metropolitano y oficinas',
+        description:
+          '<strong>Nishi-Shinjuku no es solo “el barrio de los rascacielos”:</strong> aquí se concentra buena parte del <strong>Tokio administrativo</strong>. El conjunto más reconocible es el <strong>Tokyo Metropolitan Government Building</strong> (Tochō), las torres gemelas donde tiene su sede el <strong>Gobierno Metropolitano de Tokio</strong> — el organismo que gestiona los distritos especiales, planificación urbana, transporte y servicios de la capital; en la conversación de viaje mucha gente lo resume como el “ayuntamiento” por analogía, aunque en rigor es la administración de toda la metrópoli.<br><br>' +
+          'Alrededor se apilan <strong>complejos de oficinas, sedes corporativas y equipamientos públicos</strong>: calles más anchas que en el corazón festivo de Kabukicho, menos neón de bar y más fachadas de cristal que reflejan el cielo. Da la sensación de Tokio “en horario de oficina”, incluso cuando el sol ya baja: el contraste con el Shinjuku ruidoso que habíamos dejado atrás nos hizo entender cómo es posible meter <strong>tantos destinos distintos en el mismo código postal</strong>.',
+        images: [
+          '/assets/japan/Tokio/Dia09/Nishi-Shinjuku_1.jpg',
+          '/assets/japan/Tokio/Dia09/Nishi-Shinjuku_2.jpg',
+          '/assets/japan/Tokio/Dia09/Nishi-Shinjuku_3.jpg',
+        ],
+        longitude: 139.6925,
+        latitude: 35.6898,
+        mapUrl: 'map-nishi-shinjuku',
+      },
+      {
+        name: 'Nishi-Shinjuku — siluetas al atardecer y cierre del día',
+        description:
+          'Desde esta franja occidental los rascacielos se leen como un <strong>horizonte de acero</strong>: ventanas rectangulares, crestas iluminándose antes de caer la noche, calles menos teatrales pero igual de intensas cuando miras en vertical. Nos gustó <strong>estar quietos delante del escenario</strong> después de haber vivido santuario diminuto, ramen humeante, callejuela de barras y neón hasta la coronilla.<br><br>' +
+          'Reflexión fácil: en un mismo día vimos desde el <strong>tren bala</strong> hasta el <strong>distrito institucional</strong>, pasando por fe, noodles, Japón pequeño en callejas, ídolo kaiju y distrito rojo brillante.<br><strong>Bienvenidos a Tokio</strong> — mañana el mapa puede volver a desafiar la brújula, pero esta primera noche ya nos mostró todas las velocidades.',
+        images: [
+          '/assets/japan/Tokio/Dia09/Nishi-Shinjuku_4.jpg',
+          '/assets/japan/Tokio/Dia09/Nishi-Shinjuku_5.jpg',
+        ],
+        longitude: 139.6949,
+        latitude: 35.6908,
+        mapUrl: 'map-nishi-shinjuku',
+      },
+    ],
+  },
 };

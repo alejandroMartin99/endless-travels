@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
+import { applyMapboxPublicToken } from '../../../../../../core/mapbox-token.util';
 
 interface Restaurant {
   id: string;
@@ -220,7 +221,9 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
   }
 
   ngAfterViewInit(): void {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
+    if (!applyMapboxPublicToken()) {
+      return;
+    }
     
     // Esperar a que el DOM esté completamente renderizado
     setTimeout(() => {

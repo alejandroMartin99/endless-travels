@@ -5,8 +5,12 @@ import {
   ElementRef,
   OnDestroy,
   OnInit,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectorRef,
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
+import { applyMapboxPublicToken } from '../../core/mapbox-token.util';
 import { ScrollService } from '../../services/scroll.service';
 
 interface Activity {
@@ -28,9 +32,13 @@ interface Day {
   templateUrl: './itinerary-day-card.component.html',
   styleUrls: ['./itinerary-day-card.component.css'],
 })
-export class ItineraryDayCardComponent implements OnDestroy, OnInit {
+export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
   @Input() day!: Day;
   @Input() borderClass: string = '';
+  /** Id del panel (ancla + apertura desde Inicio Japón). */
+  @Input() panelId = '';
+  /** Cuando coincide con panelId, el acordeón se abre. */
+  @Input() activeExpandId: string | null = null;
   @ViewChild('map', { static: false }) mapContainer!: ElementRef;
   @ViewChild('mobileMap', { static: false }) mobileMapContainer!: ElementRef;
   @ViewChild('galleryContainer', { static: false }) galleryContainer!: ElementRef;
@@ -48,11 +56,50 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
   private touchStartX = 0;
   private touchEndX = 0;
 
-  constructor(private scrollService: ScrollService) {}
+  constructor(
+    private scrollService: ScrollService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     // Resetear scroll cuando se inicializa el componente
     this.scrollService.resetContainerScroll('.mobile-scroll-container');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (
+      changes['activeExpandId'] &&
+      this.panelId &&
+      this.activeExpandId === this.panelId
+    ) {
+      this.panelOpenState = true;
+      // El body del expansion panel recién existe tras render / animación; sin esto el mapa no inicializa.
+      this.cdr.detectChanges();
+      this.deferInitMapsWhilePanelOpens();
+    }
+  }
+
+  /** Mapbox necesita el contenedor ya visible con tamaño > 0. */
+  private deferInitMapsWhilePanelOpens(): void {
+    const delays = [320, 520];
+    delays.forEach(ms =>
+      setTimeout(() => {
+        if (!this.panelOpenState) return;
+        this.onPanelStateChange(true);
+        requestAnimationFrame(() => {
+          try {
+            this.map?.resize();
+          } catch {
+            /* noop */
+          }
+          try {
+            this.mobileMap?.resize();
+          } catch {
+            /* noop */
+          }
+        });
+      }, ms),
+    );
   }
 
   ngOnDestroy(): void {
@@ -102,9 +149,11 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
     if (this.isMapInitialized || !this.mapContainer?.nativeElement) {
       return;
     }
-    
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-    
+
+    if (!applyMapboxPublicToken()) {
+      return;
+    }
+
     const firstActivity = this.day.activities[0];
     if (!firstActivity) {
       console.error('No hay actividades para inicializar el mapa.');
@@ -121,6 +170,11 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
     this.map.on('load', () => {
       this.addMarkers(this.map, this.markers);
       this.adjustBounds(this.map);
+      try {
+        this.map.resize();
+      } catch {
+        /* noop */
+      }
     });
 
     this.isMapInitialized = true;
@@ -130,9 +184,11 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
     if (this.isMobileMapInitialized || !this.mobileMapContainer?.nativeElement) {
       return;
     }
-    
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-    
+
+    if (!applyMapboxPublicToken()) {
+      return;
+    }
+
     const firstActivity = this.day.activities[0];
     if (!firstActivity) {
       return;
@@ -148,6 +204,11 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit {
     this.mobileMap.on('load', () => {
       this.addMarkers(this.mobileMap, this.mobileMarkers);
       this.adjustBounds(this.mobileMap);
+      try {
+        this.mobileMap.resize();
+      } catch {
+        /* noop */
+      }
     });
 
     this.isMobileMapInitialized = true;

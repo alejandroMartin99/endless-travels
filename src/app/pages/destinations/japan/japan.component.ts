@@ -1,40 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
+export type JapanItineraryNavPayload = number | { tab: number; anchor?: string };
 
 @Component({
   selector: 'app-japan',
   templateUrl: './japan.component.html',
-  styleUrl: './japan.component.css'
+  styleUrl: './japan.component.css',
 })
 export class JapanComponent implements OnInit {
+  private readonly platformId = inject(PLATFORM_ID);
 
   selectedTabIndex = 0;
+  /** Ancla / ciudad desde la pestaña Inicio al abrir Itinerario */
+  itineraryFocusSlug: string | null = null;
 
   ngOnInit() {
-    // Resetear scroll al inicio cuando se carga la página
-    this.resetScrollToTop();
-  }
-
-  changeTab(index: number) {
-    this.selectedTabIndex = index;
-    console.log(`Selected tab index: ${this.selectedTabIndex}`);
+    this.scrollMainToTop();
   }
 
   onTabChanged(index: number) {
+    this.itineraryFocusSlug = null;
     this.selectedTabIndex = index;
-    console.log('Tab actual:', index);
+    this.scrollMainToTop();
   }
 
-  /**
-   * Resetea el scroll al inicio de la página
-   */
-  private resetScrollToTop(): void {
-    // Usar setTimeout para asegurar que el DOM se ha cargado completamente
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
-    }, 100);
+  handleGoToItinerary(payload: JapanItineraryNavPayload) {
+    if (typeof payload === 'number') {
+      this.selectedTabIndex = payload;
+      this.itineraryFocusSlug = null;
+    } else {
+      this.selectedTabIndex = payload.tab;
+      this.itineraryFocusSlug = payload.anchor ?? null;
+    }
+    this.scrollMainToTop();
+  }
+
+  private scrollMainToTop(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
   }
 }

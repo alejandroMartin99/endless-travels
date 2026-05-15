@@ -25,7 +25,7 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-number">7</span>
+          <span class="stat-number">8</span>
           <span class="stat-label">Ciudades Únicas</span>
         </div>
         <div class="stat-divider"></div>
@@ -73,7 +73,7 @@
       
       <div class="info-grid">
         <!-- Duración -->
-        <div class="info-card duration-card" (click)="goToItineraryTab(1)">
+        <div class="info-card duration-card" (click)="goToItinerarySection('intro')">
           <div class="card-header">
             <div class="card-icon">🗓️</div>
             <h3 class="card-title">15 Días de Inmersión Total. Itinerario completo en web</h3>
@@ -101,7 +101,7 @@
         </div>
 
         <!-- Mejor época -->
-        <div class="info-card season-card" (click)="goToItineraryTab(1)">
+        <div class="info-card season-card" (click)="goToItinerarySection('intro')">
           <div class="card-header">
             <div class="card-icon">🍂</div>
             <h3 class="card-title">El Momento Perfecto: Otoño Dorado</h3>
@@ -130,7 +130,7 @@
           </div>
         </div>
 
-        <div class="info-card culture-shock-card"  #cultureShockBox (click)="goToItineraryTab(1)">
+        <div class="info-card culture-shock-card"  #cultureShockBox (click)="goToItinerarySection('intro')">
           <div class="card-header">
             <div class="card-icon">🎎</div>
             <h3 class="card-title">Un Mundo Radicalmente Diferente</h3>
@@ -170,7 +170,7 @@
       
       <div class="info-grid">
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('kyoto')">
           <div class="card-header">
             <div class="card-icon">🏯</div>
             <h3 class="card-title"> Kyoto</h3>
@@ -198,7 +198,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('tokyo')">
           <div class="card-header">
             <div class="card-icon">🗼</div>
             <h3 class="card-title">Tokyo</h3>
@@ -213,7 +213,7 @@
               <div class="city-detail" >
                 <div class="city-header">
                   <!-- <span class="city-name">{{ ciudad.name }}</span> -->
-                  <span class="city-essence">El Futuro Presentel</span>
+                  <span class="city-essence">El Futuro Presente</span>
                 </div>
                 <p class="city-description">La metrópolis más fascinante del mundo, donde robots sirven café y monjes bendicen rascacielos. Aquí el futuro no es una promesa, es la realidad cotidiana.</p>
                 <div class="city-highlights">
@@ -226,7 +226,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('osaka')">
           <div class="card-header">
             <div class="card-icon">🎡</div>
             <h3 class="card-title">Osaka</h3>
@@ -254,7 +254,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('nara')">
           <div class="card-header">
             <div class="card-icon">🦌</div>
             <h3 class="card-title">Nara</h3>
@@ -282,7 +282,7 @@
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('hiroshima')">
           <div class="card-header">
             <div class="card-icon">🕊️</div>
             <h3 class="card-title">Hiroshima</h3>
@@ -303,14 +303,14 @@
                 <div class="city-highlights">
                   <span class="highlight-tag" >Memorial de la Paz</span>
                   <span class="highlight-tag" >Museo de la Paz</span>
-                  <span class="highlight-tag" >Okonomiyakis</span>
+                  <span class="highlight-tag" >Okonomiyaki</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('miyajima')">
           <div class="card-header">
             <div class="card-icon">⛩️</div>
             <h3 class="card-title">Miyajima</h3>
@@ -341,7 +341,7 @@
         </div>
 
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('nikko')">
           <div class="card-header">
             <div class="card-icon">🍂</div>
             <h3 class="card-title">Nikko</h3>
@@ -360,16 +360,15 @@
                 </div>
                 <p class="city-description">Refugio espiritual en las montañas donde la naturaleza y la arquitectura sagrada crean una sinfonía de belleza que trasciende lo terrenal.</p>
                 <div class="city-highlights">
-                  <span class="highlight-tag" >Santuario Toshogu</span>
-                  <span class="highlight-tag" >TO DO</span>
-                  <span class="highlight-tag" >TO DO</span>
+                  <span class="highlight-tag" >Lago Chuzenji</span>
+                  <span class="highlight-tag" >Cascadas Kegon</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="info-card cities-card" (click)="goToItineraryTab(2)">
+        <div class="info-card cities-card" (click)="goToItinerarySection('kamakura')">
           <div class="card-header">
             <div class="card-icon">🧘‍♂️</div>
             <h3 class="card-title">Kamakura</h3>
@@ -388,9 +387,8 @@
                 </div>
                 <p class="city-description">Antigua sede del shogunato donde el budismo zen echó raíces profundas. Aquí entenderás por qué la simplicidad puede ser la forma más elevada de sofisticación.</p>
                 <div class="city-highlights">
-                  <span class="highlight-tag" >Gran Buda</span>
-                  <span class="highlight-tag" >TO DO</span>
-                  <span class="highlight-tag" >TO DO</span>
+                  <span class="highlight-tag" >Templo Hase</span>
+                  <span class="highlight-tag" >Templo Tsurugaoka</span>
                 </div>
               </div>
             </div>

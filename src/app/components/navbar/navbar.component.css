@@ -10,7 +10,7 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  height: 64px;
+  height: var(--navbar-height, 64px);
 }
 
 
@@ -381,9 +381,11 @@
   visibility: visible;
 }
 
-/* Main Content */
+/* Main Content: offset fixed navbar so first paint is not clipped */
 .main-content {
-  min-height: calc(100vh - 64px);
+  padding-top: var(--navbar-height, 64px);
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 /* Responsive Design */
@@ -407,11 +409,11 @@
 
 @media (max-width: 480px) {
   .navbar {
-    height: 56px;
+    height: var(--navbar-height, 56px);
   }
 
   .main-content {
-    min-height: calc(100vh - 56px);
+    min-height: 100vh;
   }
 
   .navbar-container {

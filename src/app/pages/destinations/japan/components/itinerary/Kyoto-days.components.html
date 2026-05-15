@@ -1,4 +1,5 @@
-<div class="content-container">
+<div class="content-container itinerary-intro-block">
+  <div id="itinerary-anchor-intro" class="scroll-anchor" aria-hidden="true"></div>
   <div class="intro-columns">
     <div class="intro-left">
       <h2>¡Bienvenido al itinerario de nuestro viaje a Japón!</h2>
@@ -19,6 +20,7 @@
 
 <japan-calendar-component></japan-calendar-component>
 
+<div id="itinerary-anchor-kyoto" class="scroll-anchor" aria-hidden="true"></div>
 <div class="zone-header">
   <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
   <h2 class="zone-title">Kyoto</h2>
@@ -39,16 +41,14 @@
     </div>
     
   </div>
-  <!-- <div class="progress-container">
-    <div class="progress-bar"></div>
-    <span>Dias 1 - 8</span>
-  </div> -->
 </div>
 
 <div class="content-container">
-  <mat-accordion >
+  <mat-accordion>
 
     <app-itinerary-day-card 
+      panelId="panel-day01"
+      [activeExpandId]="activePanelId"
       [borderClass]="day01Kyoto.borderClass"
       [day]="day01Kyoto.day">
     </app-itinerary-day-card>
@@ -60,26 +60,35 @@
     </div>
 
     <app-itinerary-day-card 
+      panelId="panel-day02"
+      [activeExpandId]="activePanelId"
       [borderClass]="day02Kyoto.borderClass"
       [day]="day02Kyoto.day">
     </app-itinerary-day-card>
 
     <app-itinerary-day-card 
+      panelId="panel-day03"
+      [activeExpandId]="activePanelId"
       [borderClass]="day03Kyoto.borderClass"
       [day]="day03Kyoto.day">
     </app-itinerary-day-card>
 
     <app-itinerary-day-card 
+      panelId="panel-day04"
+      [activeExpandId]="activePanelId"
       [borderClass]="day04Kyoto.borderClass"
       [day]="day04Kyoto.day">
     </app-itinerary-day-card>
 
     <app-itinerary-day-card 
+      panelId="panel-day05"
+      [activeExpandId]="activePanelId"
       [borderClass]="day05Kyoto.borderClass"
       [day]="day05Kyoto.day">
     </app-itinerary-day-card>
 
 
+    <div id="itinerary-anchor-osaka" class="scroll-anchor" aria-hidden="true"></div>
     <div class="subzone-container">
       <div class="subzone-content">
         <h3>Excursiones desde Kyoto</h3>
@@ -87,17 +96,25 @@
     </div>
 
     <app-itinerary-day-card 
+      panelId="panel-day06"
+      [activeExpandId]="activePanelId"
       [borderClass]="day06Kyoto.borderClass"
       [day]="day06Kyoto.day">
     </app-itinerary-day-card>
 
-
+    <div id="itinerary-anchor-nara" class="scroll-anchor" aria-hidden="true"></div>
     <app-itinerary-day-card 
+      panelId="panel-day07"
+      [activeExpandId]="activePanelId"
       [borderClass]="day07Kyoto.borderClass"
       [day]="day07Kyoto.day">
     </app-itinerary-day-card>
 
+    <div id="itinerary-anchor-hiroshima" class="scroll-anchor" aria-hidden="true"></div>
+    <div id="itinerary-anchor-miyajima" class="scroll-anchor" aria-hidden="true"></div>
     <app-itinerary-day-card 
+      panelId="panel-day08"
+      [activeExpandId]="activePanelId"
       [borderClass]="day08Kyoto.borderClass"
       [day]="day08Kyoto.day">
     </app-itinerary-day-card>
@@ -106,6 +123,7 @@
 </div>
 
 <div class="zone-section">
+  <div id="itinerary-anchor-tokyo" class="scroll-anchor" aria-hidden="true"></div>
   <div class="zone-header">
     <img src="/assets/landing/minimal_japan.jpg" alt="Tokio" class="zone-banner">
     <h2 class="zone-title">Tokyo</h2>
@@ -131,10 +149,11 @@
   <mat-accordion>
   
     <app-itinerary-day-card 
+        panelId="panel-day09"
+        [activeExpandId]="activePanelId"
         [borderClass]="day09Tokio.borderClass"
         [day]="day09Tokio.day">
     </app-itinerary-day-card>
-
 
     <div class="subzone-container">
         <div class="subzone-content">
@@ -142,16 +161,21 @@
         </div>
     </div>
 
+    <div id="itinerary-anchor-nikko" class="scroll-anchor" aria-hidden="true"></div>
     <app-itinerary-day-card 
+        panelId="panel-day10"
+        [activeExpandId]="activePanelId"
         [borderClass]="day10Tokio.borderClass"
         [day]="day10Tokio.day">
     </app-itinerary-day-card>
 
+    <div id="itinerary-anchor-kamakura" class="scroll-anchor" aria-hidden="true"></div>
     <app-itinerary-day-card 
+        panelId="panel-day11"
+        [activeExpandId]="activePanelId"
         [borderClass]="day11Tokio.borderClass"
         [day]="day11Tokio.day">
     </app-itinerary-day-card>
-
 
     <div class="subzone-container">
       <div class="subzone-content">
@@ -160,23 +184,29 @@
     </div>
 
     <app-itinerary-day-card 
+        panelId="panel-day12"
+        [activeExpandId]="activePanelId"
         [borderClass]="day12Tokio.borderClass"
         [day]="day12Tokio.day">
     </app-itinerary-day-card>
 
-    <!-- Día 13: Tokio: Parque Yoyogi, Shibuya -->
     <app-itinerary-day-card 
+        panelId="panel-day13"
+        [activeExpandId]="activePanelId"
         [borderClass]="day13Tokio.borderClass"
         [day]="day13Tokio.day">
     </app-itinerary-day-card>
 
-    <!-- Día 14: Tokio: Chuo, Ginza y Odaiba -->
     <app-itinerary-day-card 
+        panelId="panel-day14"
+        [activeExpandId]="activePanelId"
         [borderClass]="day14Tokio.borderClass"
         [day]="day14Tokio.day">
     </app-itinerary-day-card>
 
     <app-itinerary-day-card 
+        panelId="panel-day15"
+        [activeExpandId]="activePanelId"
         [borderClass]="day15Tokio.borderClass"
         [day]="day15Tokio.day">
     </app-itinerary-day-card>

@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { applyMapboxPublicToken } from '../../core/mapbox-token.util';
 
 interface Activity {
   name: string;
@@ -60,10 +61,9 @@ export class CardServiceComponent implements AfterViewInit, OnDestroy {
   private scrollPosition = 0;
 
   ngAfterViewInit(): void {
-    // Configurar el token de Mapbox
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoiYWxleG1pZ2xlc2lhcyIsImEiOiJjbTBiOWQ0YngwNjVzMmpzYW0wZzE5a3JkIn0.xI-NcNAH7XVZoXpMBpllnA';
-    
+    if (!applyMapboxPublicToken()) {
+      return;
+    }
     // Inicializar el mapa con un pequeño retraso para asegurar que el DOM esté listo
     setTimeout(() => {
       this.initializeMap();
