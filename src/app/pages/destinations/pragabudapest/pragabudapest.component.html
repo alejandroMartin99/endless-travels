@@ -37,14 +37,14 @@
 <div class="tab-content">
   <ng-container [ngSwitch]="selectedTabIndex">
     <div *ngSwitchCase="0">
-      
+      <init-pragabudapest-component (goToItinerary)="handleGoToItinerary($event)"></init-pragabudapest-component>
     </div>
     <div *ngSwitchCase="1">
       <PragaBudapest-recomendations-component></PragaBudapest-recomendations-component>
       
     </div>
     <div *ngSwitchCase="2">
-      <PragaBudapest-itinerary-component></PragaBudapest-itinerary-component>
+      <PragaBudapest-itinerary-component [currentTab]="selectedTabIndex"></PragaBudapest-itinerary-component>
     </div>
     <div *ngSwitchCase="3">
    

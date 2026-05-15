@@ -1,0 +1,296 @@
+
+<div class="landing-container">
+  <div class="hero-section">
+    <div class="hero-image-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-text">Circuito Centro Europa</span>
+      </div>
+      <h1 class="main-title">
+        <span class="title-welcome">Explora el corazón de</span>
+        <span class="title-japan">PRAGA · BRATISLAVA · BUDAPEST</span>
+        <span class="title-subtitle">Historia, castillos y el Danubio</span>
+      </h1>
+      <p class="hero-description">
+        Nueve días atravesando tres capitales con carácter propio: calles medievales y cervezas en Praga,
+        la capital eslovaca a orillas del Danubio, y los baños térmicos junto al parlamento iluminado de Budapest.
+        Un viaje europeo muy completo sin renunciar al ritmo de descubrir poco a poco cada ciudad.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">9</span>
+          <span class="stat-label">Días de ruta</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Capitales</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Planos · callejuelas · atardeceres</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="narrative-intro">
+    <div class="content-wrapper">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h2 class="section-title">¿Por qué este trayecto engancha tanto?</h2>
+          <p class="intro-paragraph">
+            Centro Europa combina Monumentos declarados Patrimonio, plazas animadas donde el día se alarga entre terrazas,
+            tranvías y barcos que recorren el Danubio. En Endless Travels tienes itinerario día a día, mapas y recomendaciones
+            igual que en Japón — misma filosofía visual, mismo detalle práctico.
+          </p>
+          <p class="intro-paragraph">
+            Cruzar de Praga a Bratislava y cerrar en Budapest es un relato coherente: del gótico barroco al estilo austrohúngaro,
+            pasando por una capital compacta que muchos conocen menos y merece una escapada tranquilamente caminable.
+          </p>
+          <p class="intro-paragraph">
+            Usa esta guía como hoja de ruta: cuando bajes al itinerario encontrarás el calendario por colores de ciudad y cada jornada
+            con fotos, mapas y consejos donde los probamos nosotros.
+          </p>
+        </div>
+        <div class="intro-image">
+          <img
+            src="https://images.unsplash.com/photo-1541849546-216549ae216d?q=80&w=1200&auto=format&fit=crop"
+            alt="Vista emblemática de Praga"
+            width="560"
+            height="420"
+            class="responsive-image"
+            loading="lazy"
+          >
+          <div class="image-caption">Praga: la Ciudad de las Cien Torres</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detailed-info-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered">Tu ruta en resumen</h2>
+      <div class="info-grid">
+        <div class="info-card duration-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🗓️</div>
+            <h3 class="card-title">{{ viaje.duracionDias }} días • Itinerario completo</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop"
+              alt="Ciudad europea junto al río"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              <strong>{{ viaje.duracionDias }} días</strong> repartidos entre Praga, Bratislava y Budapest, con noches suficientes
+              en cada punto para perderte sin prisa. Abajo tienes cada día desarrollado con mapas y fotos como en el resto de Endless Travels.
+            </p>
+            <ul class="benefit-list">
+              <li>Primero calendario; luego el detalle por jornadas</li>
+              <li>Colores por ciudad para orientarte al vuelo</li>
+              <li>Enlaces a recomendaciones de alojamiento y restaurantes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card season-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🌤️</div>
+            <h3 class="card-title">Cuándo ir y qué llevar</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1524231757912-21f433feeba7?q=80&w=1200&auto=format&fit=crop"
+              alt="Plaza europea soleada"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              <strong>{{ viaje.fechasRecomendadas }}</strong> Caminar calles adoquinadas cómodamente marca la diferencia; en invierno el encanto existe,
+              pero mejor abrigo y días más cortos. En verano lleva protector y gorra: hay mucho cielo abierto junto al río.
+            </p>
+            <ul class="benefit-list">
+              <li>Buen calzado: es ciudad de empedrado continuo</li>
+              <li>Capa ligera incluso en verano (noches templadas junto al agua)</li>
+              <li>Adaptador europeo tipo C/F y algo de efectivo por si algún establecimiento menor no admite tarjeta</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card culture-shock-card" (click)="goToItineraryTab(1)" (keyup.enter)="goToItineraryTab(1)" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🏛️</div>
+            <h3 class="card-title">Ritmo europeo, tres acentos</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1551867633-194f125d9863?q=80&w=1200&auto=format&fit=crop"
+              alt="Parlamento iluminado al anochecer junto al Danubio"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              República Checa con su propia moneda hasta hace poco, Eslovaquia en euros, Hungría con forint para muchas cosas del día a día —
+              tenerlo claro ayuda en cajeros y tickets. Todo eso está resumido en <strong>recomendaciones</strong> junto con transporte y gastronomía.
+            </p>
+            <ul class="benefit-list">
+              <li>Castillos, sinagogas históricas y barrios del judaío</li>
+              <li>Baños termales en Budapest cuando toque día de descanso</li>
+              <li>Paseos en barco por el Danubio vistas en Bratislava y Budapest</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detailed-info-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered">Tres capitales en un solo circuito</h2>
+      <div class="info-grid">
+
+        <div class="info-card cities-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🏰</div>
+            <h3 class="card-title">Praga</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1524231757912-21f433feeba7?q=80&w=1200&auto=format&fit=crop"
+              alt="Puente Carlos y centro de Praga"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail">
+                <div class="city-header">
+                  <span class="city-essence">Días de oro medieval</span>
+                </div>
+                <p class="city-description">
+                  Castillo, Mala Strana, puente Carlos y centro histórico patrimonio de la UNESCO. Cafés, cervezas y música clásica
+                  donde caminar despacio es parte del viaje.
+                </p>
+                <div class="city-highlights">
+                  <span class="highlight-tag">Castillo</span>
+                  <span class="highlight-tag">Reloj Orloj</span>
+                  <span class="highlight-tag">Judería</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🌊</div>
+            <h3 class="card-title">Bratislava</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1628155208123-763c6e049af4?q=80&w=1200&auto=format&fit=crop"
+              alt="Ciudad junto al Danubio"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail">
+                <div class="city-header">
+                  <span class="city-essence">Capital accesible a pie</span>
+                </div>
+                <p class="city-description">
+                  Castillo sobre la colina con vistas del Danubio, casco viejo muralleado que se recorre en pocas horas y buena base
+                  para una escapada sin agobios de gran metrópoli.
+                </p>
+                <div class="city-highlights">
+                  <span class="highlight-tag">Castillo</span>
+                  <span class="highlight-tag">Casco antiguo</span>
+                  <span class="highlight-tag">Danubio</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">♨️</div>
+            <h3 class="card-title">Budapest</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1551867633-194f125d9863?q=80&w=1200&auto=format&fit=crop"
+              alt="Orillas del Danubio en Budapest"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail">
+                <div class="city-header">
+                  <span class="city-essence">Buda, Pest y aguas termales</span>
+                </div>
+                <p class="city-description">
+                  Parlamento que brilla por la noche, barrio judío recuperado y baños donde el plan es desconectar y flotar entre arquitectura secesionista.
+                </p>
+                <div class="city-highlights">
+                  <span class="highlight-tag">Baños Széchenyi</span>
+                  <span class="highlight-tag">Parlamento</span>
+                  <span class="highlight-tag">Ruin bars</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="exploration-section">
+    <div class="content-wrapper">
+      <div class="exploration-grid">
+        <div class="exploration-content">
+          <h2 class="section-title">Lo que encontrarás en esta sección</h2>
+          <p class="exploration-intro">
+            El diseño sigue el mismo hilo que el inicio de Japón: misma paleta, mismas tarjetas y la promesa de no dejarte solo con fotos bonitas.
+            Aquí el foco es moverte en euros, corona checa y forint sin líos, y sacar partido a trenes y paseos sin perder horas en colas evitables.
+          </p>
+          <div class="exploration-highlights">
+            <ul class="highlight-list">
+              <li><strong>🗺️ Itinerario:</strong> calendario resumido y luego cada día con mapa, galería y enlaces útiles.</li>
+              <li><strong>👍 Recomendaciones:</strong> alojamientos, restaurantes y transporte que probamos o contrastamos.</li>
+              <li><strong>💶 Presupuesto:</strong> pestaña reservada para cuando cierres el desglose de gastos de este viaje.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,45 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
+export type PragaBudapestItineraryNavPayload = number | { tab: number; anchor?: string };
 
 @Component({
   selector: 'app-pragabudapest',
   templateUrl: './pragabudapest.component.html',
-  styleUrl: './pragabudapest.component.css'
+  styleUrl: './pragabudapest.component.css',
 })
 export class PragabudapestComponent implements OnInit {
+  private readonly platformId = inject(PLATFORM_ID);
 
-  selectedTabIndex = 2;
+  selectedTabIndex = 0;
+  itineraryFocusSlug: string | null = null;
 
-  ngOnInit() {
-    // Resetear scroll al inicio cuando se carga la página
-    this.resetScrollToTop();
+  ngOnInit(): void {
+    this.scrollMainToTop();
   }
 
-  changeTab(index: number) {
+  onTabChanged(index: number): void {
+    this.itineraryFocusSlug = null;
     this.selectedTabIndex = index;
-    console.log(`Selected tab index: ${this.selectedTabIndex}`);
+    this.scrollMainToTop();
   }
 
-  onTabChanged(index: number) {
-    this.selectedTabIndex = index;
-    console.log('Tab actual:', index);
+  handleGoToItinerary(payload: PragaBudapestItineraryNavPayload): void {
+    if (typeof payload === 'number') {
+      this.selectedTabIndex = payload;
+      this.itineraryFocusSlug = null;
+    } else {
+      this.selectedTabIndex = payload.tab;
+      this.itineraryFocusSlug = payload.anchor ?? null;
+    }
+    this.scrollMainToTop();
   }
 
-  /**
-   * Resetea el scroll al inicio de la página
-   */
-  private resetScrollToTop(): void {
-    // Usar setTimeout para asegurar que el DOM se ha cargado completamente
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
-    }, 100);
+  private scrollMainToTop(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
   }
-
 }
-
-
-
-
