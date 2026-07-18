@@ -20,9 +20,9 @@
 
 .summary-stats {
   position: relative;
-  background-image: url('/assets/polonia/landing_card_polonia.jpg');
+  background-image: url('/assets/polonia/landing_price_polonia.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   padding: 40px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
