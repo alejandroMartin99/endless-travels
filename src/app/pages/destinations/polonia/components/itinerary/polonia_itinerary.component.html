@@ -1,0 +1,104 @@
+<div class="content-container">
+  <div class="intro-columns">
+    <div class="intro-left">
+      <h2>¡Bienvenido al itinerario de nuestro viaje a Polonia!</h2>
+      <p>Descubre de un vistazo cómo organizamos cada día y accede fácilmente a toda la información de tu viaje.</p>
+      <p>Primero te presentamos en un calendario de forma muy resumida dónde se indica la ciudad y el día de cada actividad.</p>
+      <p>Tras revisar el resumen-calendario, desplázate hacia abajo para explorar cada etapa del recorrido.</p>
+    </div>
+    <div class="intro-right">
+      <ul>
+        <li><mat-icon>calendar_month</mat-icon> Rojo Varsovia · Púrpura Cracovia · Azul Wrocław</li>
+        <li><mat-icon>explore</mat-icon> Incluye la excursión a Auschwitz desde Cracovia.</li>
+        <li><mat-icon>touch_app</mat-icon> Haz clic en cualquier jornada para ver galería y mapa.</li>
+        <li><mat-icon>devices</mat-icon> Adaptado a móvil y escritorio.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<polonia-calendar-component></polonia-calendar-component>
+
+<div class="itinerary-container">
+  <div class="destination-section">
+    <div class="destination-header varsovia-header">
+      <div class="destination-icon varsovia-icon">
+        <mat-icon>apartment</mat-icon>
+      </div>
+      <div class="destination-info">
+        <h3>Varsovia</h3>
+        <p>Días 1-2 · Capital y ciudad vieja</p>
+      </div>
+    </div>
+
+    <div class="days-container">
+      <app-itinerary-day-card
+        [borderClass]="day01Polonia.borderClass"
+        [day]="day01Polonia.day">
+      </app-itinerary-day-card>
+
+      <app-itinerary-day-card
+        [borderClass]="day02Polonia.borderClass"
+        [day]="day02Polonia.day">
+      </app-itinerary-day-card>
+    </div>
+  </div>
+
+  <div class="destination-section">
+    <div class="destination-header cracovia-header">
+      <div class="destination-icon cracovia-icon">
+        <mat-icon>castle</mat-icon>
+      </div>
+      <div class="destination-info">
+        <h3>Cracovia</h3>
+        <p>Días 3-6 · Casco antiguo, Kazimierz y Auschwitz</p>
+      </div>
+    </div>
+
+    <div class="days-container">
+      <app-itinerary-day-card
+        [borderClass]="day03Polonia.borderClass"
+        [day]="day03Polonia.day">
+      </app-itinerary-day-card>
+
+      <app-itinerary-day-card
+        [borderClass]="day04Polonia.borderClass"
+        [day]="day04Polonia.day">
+      </app-itinerary-day-card>
+
+      <app-itinerary-day-card
+        [borderClass]="day05Polonia.borderClass"
+        [day]="day05Polonia.day">
+      </app-itinerary-day-card>
+
+      <app-itinerary-day-card
+        [borderClass]="day06Polonia.borderClass"
+        [day]="day06Polonia.day">
+      </app-itinerary-day-card>
+    </div>
+  </div>
+
+  <div class="destination-section">
+    <div class="destination-header wroclaw-header">
+      <div class="destination-icon wroclaw-icon">
+        <mat-icon>water</mat-icon>
+      </div>
+      <div class="destination-info">
+        <h3>Wrocław</h3>
+        <p>Días 7-8 · Rynek, Ostrów Tumski y despedida</p>
+      </div>
+    </div>
+
+    <div class="days-container">
+      <app-itinerary-day-card
+        [borderClass]="day07Polonia.borderClass"
+        [day]="day07Polonia.day">
+      </app-itinerary-day-card>
+
+      <app-itinerary-day-card
+        [borderClass]="day08Polonia.borderClass"
+        [day]="day08Polonia.day">
+      </app-itinerary-day-card>
+    </div>
+  </div>
+</div>

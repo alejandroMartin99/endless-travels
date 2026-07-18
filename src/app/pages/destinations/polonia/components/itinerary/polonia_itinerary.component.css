@@ -1,0 +1,476 @@
+/* Contenedor principal */
+.content-container {
+    padding: 0px 200px;
+  }
+  
+  .calendar-container {
+      padding: 0px 200px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+  }
+
+  /* Nuevo diseño para las secciones de destino */
+  .itinerary-container {
+    padding: 0px 200px;
+    margin-top: 40px;
+  }
+
+  .destination-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .destination-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  .destination-header {
+    display: flex;
+    align-items: center;
+    padding: 40px 50px;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    background: #f8f9fa;
+  }
+
+  /* Imagen de fondo que ocupa todo el header */
+  .destination-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transform: scale(1.05);
+  }
+
+  /* Overlay oscuro para legibilidad con difuminado en los bordes */
+  .destination-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, transparent 15%, transparent 85%, rgba(0, 0, 0, 0.7) 100%),
+      linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+  }
+
+  .varsovia-header::before {
+    background-image: url('/assets/polonia/landing_varsovia.jpg');
+    background-position: center 40%;
+  }
+
+  .cracovia-header::before {
+    background-image: url('/assets/polonia/landing_cracovia.jpg');
+    background-position: center 45%;
+    background-size: cover;
+    filter: brightness(1.12) contrast(1.08) saturate(1.05);
+  }
+
+  .cracovia-header::after {
+    background:
+      linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, transparent 18%, transparent 82%, rgba(0, 0, 0, 0.45) 100%),
+      linear-gradient(135deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.15) 100%);
+  }
+
+  .wroclaw-header::before {
+    background-image: url('/assets/polonia/landing_wroclaw.jpg');
+    background-position: center 60%;
+  }
+
+  .destination-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .destination-icon mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: white;
+  }
+
+  .varsovia-icon {
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.9) 0%, rgba(229, 57, 53, 0.9) 100%);
+  }
+
+  .cracovia-icon {
+    background: linear-gradient(135deg, rgba(72, 5, 86, 0.9) 0%, rgba(106, 13, 173, 0.9) 100%);
+  }
+
+  .wroclaw-icon {
+    background: linear-gradient(135deg, rgba(21, 101, 192, 0.9) 0%, rgba(30, 136, 229, 0.9) 100%);
+  }
+
+  .destination-info {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+  }
+
+  .destination-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.5px;
+  }
+
+  .destination-info p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.3px;
+  }
+
+  .days-container {
+    padding: 20px 30px 30px 30px;
+  }
+
+  .days-container app-itinerary-day-card {
+    margin-bottom: 16px;
+  }
+
+  .days-container app-itinerary-day-card:last-child {
+    margin-bottom: 0;
+  }
+  
+  .zone-header {
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .zone-banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+  
+  .zone-title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  
+  .zone-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos bajen en móvil */
+    justify-content: center;
+    gap: 10px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 90%;
+    color: white;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 1.3rem;
+  }
+  
+  .info-item i {
+    font-size: 1.3rem;
+  }
+  
+  /* Espaciado entre secciones principales */
+    .zone-header {
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+  
+  .subzone-banner {
+    width: 60px; /* Controlar el ancho del banner */
+    height: 60px; /* Altura proporcional */
+    margin-right: 20px; /* Espaciado a la derecha */
+    background-color: #1a237e; /* Color del banner */
+    position: relative; /* Necesario para crear la flecha */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .subzone-banner::after {
+    content: ''; /* Crea un pseudo-elemento para la flecha */
+    position: absolute;
+    bottom: -15px; /* Mueve la flecha hacia abajo */
+    left: 50%; /* Centra la flecha */
+    transform: translateX(-50%); /* Ajusta el centro */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Flecha */
+    border-right: 10px solid transparent;
+    border-top: 10px solid #1a237e; /* Color de la flecha */
+  }
+  
+  .subzone-banner img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .subzone-content {
+    flex: 1;
+    margin: 15px 0 20px 20px;
+  }
+  
+  .subzone-content h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1a237e;
+    font-weight: 600;
+  }
+  
+  .subzone-content p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
+    color: #777;
+    line-height: 1.5;
+  }
+  
+  .subzone-container {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ancho completo del contenedor */
+    padding: 5px 0px; /* Ajuste en el padding */
+  }
+  
+  
+  .intro-columns {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    
+  }
+  
+  .intro-left {
+    flex: 1 1 45%;
+  }
+  
+  .intro-right {
+    flex: 1 1 45%;
+    align-items: flex-start;
+    padding: 32px 24px 24px 24px;
+  }
+  
+  .intro-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .intro-right li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+    font-size: 1rem;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  
+  .intro-right mat-icon {
+    font-size: 1.5rem;
+    color: #1a237e;
+  }
+  
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 0px 8px;
+      margin-top: 16px; /* Empieza un poco más abajo solo en móvil */
+    }
+    
+    .calendar-container {
+      padding: 0px 8px;
+      margin: 8px 0;
+      border-radius: 8px;
+    }
+
+    .itinerary-container {
+      padding: 0px 8px;
+      margin-top: 12px;
+    }
+
+    .destination-section {
+      margin-bottom: 12px;
+      border-radius: 12px;
+    }
+
+    .destination-header {
+      padding: 16px 12px;
+      flex-direction: column;
+      text-align: center;
+      min-height: 120px;
+    }
+
+    .destination-header::before {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-position: center;
+    }
+
+    .destination-header::after {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.45) 100%);
+    }
+
+    .destination-icon {
+      width: 56px;
+      height: 56px;
+      margin-right: 0;
+      margin-bottom: 16px;
+      border-radius: 12px;
+    }
+
+    .destination-icon mat-icon {
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+    }
+
+    .destination-info {
+      width: 100%;
+    }
+
+    .destination-info h3 {
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .destination-info p {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .days-container {
+      padding: 8px 8px 12px 8px;
+    }
+    
+    .zone-banner {
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .zone-title {
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+    
+    .zone-info {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+    }
+    
+    .info-item {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .info-item i {
+      margin-right: 8px;
+    }
+    
+    .info-item .custom-icon {
+      margin-right: 8px;
+    }
+    
+    .subzone-container {
+      margin: 8px 0;
+      border-radius: 8px;
+    }
+    
+    .subzone-banner {
+      height: 120px;
+      border-radius: 8px;
+    }
+    
+    .subzone-banner::after {
+      border-radius: 8px;
+    }
+    
+    .subzone-content {
+      padding: 8px 12px;
+      margin: 8px 0 12px 12px;
+    }
+    
+    .subzone-content h3 {
+      font-size: 1.2rem;
+    }
+    
+    .subzone-content p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .intro-columns {
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 8px;
+    }
+    .intro-left, .intro-right {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+    .intro-right {
+      padding: 0;
+    }
+    .intro-right li {
+      justify-content: flex-start;
+      text-align: left;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .intro-right mat-icon {
+      font-size: 1.2rem;
+      min-width: 20px;
+    }
+  }
+  

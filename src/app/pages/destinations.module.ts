@@ -29,11 +29,18 @@ import { AccommodationRecomendationsComponent } from './destinations/pragabudape
 import { TransportRecomendationsComponent as PragaTransportRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/transporte/transport-recomendations.component';
 import { InitPragabudapestComponent } from './destinations/pragabudapest/components/init/init-pragabudapest.component';
 import { PragaBudapestPriceComponent } from './destinations/pragabudapest/components/price/price.component';
+import { PoloniaComponent } from './destinations/polonia/polonia.component';
+import { PoloniaItineraryComponent } from './destinations/polonia/components/itinerary/polonia_itinerary.component';
+import { PoloniaCalendarComponent } from './destinations/polonia/components/itinerary/calendar/PoloniaCalendar.component';
+import { InitPoloniaComponent } from './destinations/polonia/components/init/init-polonia.component';
+import { PoloniaRecomendationsComponent } from './destinations/polonia/components/recomendations/polonia_recomendations.component';
+import { PoloniaPriceComponent } from './destinations/polonia/components/price/price.component';
 
 @NgModule({
   declarations: [
     JapanComponent,
     PragabudapestComponent,
+    PoloniaComponent,
     CopenhagueComponent,
     LandingComponent,
     RecomendationsComponent,
@@ -55,7 +62,12 @@ import { PragaBudapestPriceComponent } from './destinations/pragabudapest/compon
     AccommodationRecomendationsComponent,
     PragaTransportRecomendationsComponent,
     InitPragabudapestComponent,
-    PragaBudapestPriceComponent
+    PragaBudapestPriceComponent,
+    PoloniaItineraryComponent,
+    PoloniaCalendarComponent,
+    InitPoloniaComponent,
+    PoloniaRecomendationsComponent,
+    PoloniaPriceComponent,
   ],
   imports: [
     CommonModule,

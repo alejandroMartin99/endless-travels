@@ -1,0 +1,222 @@
+/* Sticky tab header */
+.sticky-tab-header {
+  position: sticky;
+  top: var(--navbar-height, 64px);
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Etiqueta de pestaña personalizada */
+.custom-tab-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background-color: transparent;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Icono de pestaña */
+.custom-icon {
+  font-size: 20px;
+  margin-right: 8px;
+  color: #1a237e;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Texto de pestaña */
+.custom-tab-text {
+  color: #1a237e;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+}
+
+/* Activa la pestaña seleccionada - PC */
+.custom-tab-label.active {
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  border-color: #1a237e;
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.15);
+  transform: none;
+}
+
+.custom-tab-label.active .custom-tab-text,
+.custom-tab-label.active .custom-icon {
+  color: white;
+  font-weight: 400; /* Sin negrita en PC */
+}
+
+
+.tab-content{
+  margin-top: 50px;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+  .sticky-tab-header {
+    position: fixed;
+    bottom: max(8px, env(safe-area-inset-bottom, 8px));
+    left: 30px;
+    right: 30px;
+    top: auto;
+    z-index: 1000;
+    padding: 6px 4px;
+    padding-bottom: max(8px, calc(8px + env(safe-area-inset-bottom, 0px)));
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    
+    /* Liquid Glass Effect - Apple Style mejorado */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(50px) saturate(200%);
+    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    
+    /* Sombras mejoradas para profundidad y separación */
+    box-shadow: 
+      0 -4px 30px rgba(0, 0, 0, 0.15),
+      0 -2px 15px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    
+    /* Asegurar que termine correctamente en la parte inferior */
+    margin: 0;
+    margin-bottom: 0;
+    max-width: calc(100vw - 60px);
+    width: calc(100% - 60px);
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    /* Asegurar que no haya contenido por debajo */
+    min-height: fit-content;
+    height: auto;
+    
+    /* Prevenir que se mueva con la barra del navegador */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .custom-tab-label {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+    border-radius: 12px;
+    margin: 0;
+    border: none;
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .custom-tab-text {
+    display: block;
+    font-size: 9px;
+    margin-top: 2px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.65);
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), font-weight 0.25s ease;
+    line-height: 1.2;
+  }
+
+  .custom-icon {
+    font-size: 22px;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.65);
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Pestaña activa en móvil - sin fondo, solo color en icono y texto */
+  .custom-tab-label.active {
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .custom-tab-label.active .custom-tab-text,
+  .custom-tab-label.active .custom-icon {
+    color: #1a237e !important;
+    font-weight: 600;
+  }
+
+  /* Sin efectos hover - solo para móvil táctil */
+}
+
+/* Contenido principal */
+.tab-content {
+  padding: 24px 16px;
+}
+
+/* Optimización móvil para contenido */
+@media (max-width: 768px) {
+  .tab-content {
+    padding: 8px 4px;
+    margin-top: 12px;
+    /* Padding inferior para que el contenido no quede oculto detrás del menú fijo */
+    padding-bottom: 70px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 200px);
+    overflow-x: hidden; /* evita scroll horizontal en móvil dentro de la página */
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-content {
+    padding: 6px 2px;
+    margin-top: 8px;
+    padding-bottom: 70px;
+  }
+  
+  .sticky-tab-header {
+    bottom: 6px;
+    left: 28px;
+    right: 28px;
+    padding: 5px 3px;
+    padding-bottom: calc(7px + env(safe-area-inset-bottom));
+    border-radius: 20px;
+    max-width: calc(100vw - 56px);
+    width: calc(100% - 56px);
+  }
+  
+  .custom-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .custom-tab-text {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+  
+  .custom-tab-label {
+    padding: 3px 0;
+  }
+}
