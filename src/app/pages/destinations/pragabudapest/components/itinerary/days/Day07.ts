@@ -64,7 +64,6 @@ export const day07Budapest = {
             '/assets/budapest/Dia07/heroes.webp',
             '/assets/budapest/Dia07/heroes02.webp',
             '/assets/budapest/Dia07/Vajdahunyad01.webp',
-            '/assets/budapest/Dia07/CastilloVajdahunyad02.webp'
         ],
         longitude: 19.0817,
         latitude: 47.5148,
@@ -75,7 +74,7 @@ export const day07Budapest = {
         description: '<strong>Horario:</strong> Comercios hasta 20:00h aprox.<br><strong>Precio:</strong> Variable según compras<br><br>Paseamos por la famosa calle peatonal Váci Utca, el corazón comercial de Budapest. Esta elegante calle llena de tiendas, cafeterías y restaurantes nos ofrece el ambiente más animado de la capital húngara. La calle combina arquitectura histórica con comercio moderno, creando una atmósfera única para el shopping y el paseo urbano.<br><br>Hacemos una parada especial en Philantia, donde podemos encontrar productos locales únicos y artesanías húngaras auténticas. Esta tienda especializada nos ofrece la oportunidad de llevarnos un pedazo de la cultura húngara: desde cerámica tradicional hasta productos gastronómicos típicos como el famoso pimentón húngaro.',
         images: [
             '/assets/budapest/Dia07/Utca01.JPEG',
-            '/assets/budapest/Dia07/Utca02.JPEG',
+            '/assets/budapest/Dia07/Utca02.jpg',
             '/assets/budapest/Dia07/Utca03.JPEG'
         ],
         longitude: 19.0514,

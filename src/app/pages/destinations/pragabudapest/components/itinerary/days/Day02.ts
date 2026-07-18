@@ -60,7 +60,7 @@ export const day02Praga = {
       {
           name: 'Basílica de San Jorge y Palacio Lobkowitz',
           description: 'Basílica de San Jorge <strong>Horario:</strong> 9:00 a 17:00h<br><strong>Precio:</strong> Incluido en entrada del Castillo<br><br><strong>Descubre la Basílica de San Jorge,</strong> el templo románico más antiguo de Praga, fundado en el siglo X. Con su imponente fachada de ladrillo rojo, destaca por su interior sencillo pero fascinante. Incluido en la entrada del Castillo. <strong>La luz del sol de la tarde ilumina la fachada de una manera espectacular,</strong> así que planifica tu visita en ese horario si quieres hacer fotografías memorables. <br><br> Palacio Lobkowitz<strong>Horario:</strong> 10:00 a 18:00h<br><strong>Precio:</strong> 12€<br><br><strong>El Palacio Lobkowitz,</strong> una joya barroca dentro del complejo del Castillo de Praga, alberga una increíble colección privada de la familia Lobkowitz. El museo incluye obras de arte, instrumentos musicales históricos y manuscritos originales de Beethoven y Mozart. <strong>En nuestro caso no llegamos a entrar.</strong> <br><br> Entrada: 12€. Horario: 10:00 a 18:00h.',
-          images: ['/assets/europa/basilica_san_jorge.jpg'],
+          images: ['/assets/budapest/Dia02/basilica_san_jorge.jpg'],
           longitude: 14.4011,
           latitude: 50.0903,
           mapUrl: 'map-basilica-san-jorge'
