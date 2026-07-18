@@ -1,0 +1,147 @@
+<div class="landing-container">
+  <div class="summary-stats">
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(grandTotal) }}</div>
+      <div class="stat-label">Por persona</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(accommodationTotal) }}</div>
+      <div class="stat-label">Alojamiento / persona</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(flightsTotal) }}</div>
+      <div class="stat-label">Vuelos / persona</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(spentInDestination) }}</div>
+      <div class="stat-label">Resto / persona</div>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <p class="persons-banner">
+    Viaje de <strong>{{ persons }} personas</strong> — todos los importes están
+    <strong>divididos entre {{ persons }}</strong> (precio por persona).
+  </p>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>📊 Gastos por categoría</h3>
+      <p class="chart-hint">Por persona · Varsovia → Cracovia → Wrocław</p>
+
+      <div class="pie-wrap">
+        <div class="pie-chart" [style.background]="pieGradient"></div>
+        <ul class="pie-legend">
+          <li *ngFor="let cat of orderedCategories">
+            <span class="legend-swatch" [style.background]="getCategoryColor(cat)"></span>
+            <span class="legend-label">{{ cat }}</span>
+            <span class="legend-value">
+              {{ formatEur(categoryTotals[cat]) }}
+              ({{ getCategoryPercent(cat) }}%)
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🏷️ Desglose por categoría</h3>
+      <div class="expense-item" *ngFor="let cat of orderedCategories">
+        <div>
+          <span class="category-icon" [ngClass]="getCategoryClass(cat)">
+            {{ getCategoryIcon(cat) }}
+          </span>
+          <span class="expense-name">{{ cat }}</span>
+        </div>
+        <span class="expense-amount">{{ formatEur(categoryTotals[cat]) }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-section">
+    <h2>💰 Gestión del dinero en Polonia</h2>
+    <p>
+      En Polonia se paga en <strong>zlotys (PLN)</strong>. Tarjeta (Revolut o similar)
+      + un poco de efectivo para propinas de free tours y puestos callejeros cubre
+      casi todo. Los importes aquí están convertidos / registrados en euros.
+    </p>
+
+    <div class="money-tip info">
+      <strong>✈️ Vuelta Wrocław → Valencia → Madrid:</strong>
+      Regresamos con <strong>vuelo Wrocław → Valencia ({{ formatEur(125 / persons) }}/pers.)</strong>
+      + <strong>tren Valencia → Madrid ({{ formatEur(53.44 / persons) }}/pers.)</strong>,
+      en total <strong>{{ formatEur(returnComboTotal) }}/persona</strong> solo en la vuelta.
+      Esta combinación nos salió <strong>más barata</strong> que un vuelo directo
+      Wrocław → Madrid (o Madrid desde otra ciudad polaca) en las fechas que miramos:
+      el “roto” por Valencia + tren AVE/largo recorrido compensó frente al billete directo.
+      No es la ruta más cómoda, pero sí la que mejor equilibró precio y horarios.
+    </div>
+
+    <div class="money-tip success">
+      <strong>✅ Tarjeta / Revolut:</strong> Ideal para hoteles, Airbnb, restaurantes,
+      trenes PKP y la mayoría de museos. Tipo de cambio razonable sin comisiones abusivas.
+    </div>
+
+    <div class="money-tip warning">
+      <strong>💵 Efectivo / propinas:</strong> Los free tours de Civitatis son “gratis”
+      pero se espera propina al guía (aquí van como Actividades: Varsovia ×2, Cracovia ×2, Wrocław).
+      Lleva algo de zlotys o paga con tarjeta si el guía lo acepta.
+    </div>
+
+    <div class="money-tip danger">
+      <strong>🎟️ Actividades top:</strong> Auschwitz (~{{ formatEur(89.41 / persons) }}/pers.)
+      y Wieliczka (~{{ formatEur(61.25 / persons) }}/pers.) son las partidas grandes.
+      Reserva con antelación: se agotan.
+    </div>
+
+    <div class="payment-summary">
+      <h3>💳 Resumen rápido (por persona)</h3>
+      <div class="summary-cards">
+        <div class="summary-card">
+          <span>✈️ {{ formatEur(flightsTotal) }}</span>
+          <p>Vuelos ida Varsovia + vuelta Wrocław→Valencia</p>
+        </div>
+        <div class="summary-card">
+          <span>🚂 {{ formatEur(53.44 / persons) }}</span>
+          <p>Tren Valencia → Madrid (cierre del viaje)</p>
+        </div>
+        <div class="summary-card">
+          <span>🏨 {{ formatEur(accommodationTotal) }}</span>
+          <p>Apt. Varsovia + Airbnb Cracovia + hotel Wrocław</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details class="tx-details">
+    <summary>💳 Detalle de gastos (por persona)</summary>
+    <div class="transactions-section">
+      <h3>📋 Listado de transacciones</h3>
+      <p class="chart-hint">Importes ya divididos entre {{ persons }} personas</p>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Lugar</th>
+            <th>Concepto</th>
+            <th>Categoría</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of transactions">
+            <td>{{ t.place }}</td>
+            <td>{{ t.merchant }}</td>
+            <td>
+              <span class="category-icon" [ngClass]="getCategoryClass(t.category)">
+                {{ getCategoryIcon(t.category) }}
+              </span>
+              {{ t.category }}
+            </td>
+            <td class="negative">{{ formatEur(t.amount) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
