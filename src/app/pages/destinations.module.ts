@@ -28,6 +28,7 @@ import { RestaurantRecomendationsComponent as PragaRestaurantRecomendationsCompo
 import { AccommodationRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/alojamiento/accommodation-recomendations.component';
 import { TransportRecomendationsComponent as PragaTransportRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/transporte/transport-recomendations.component';
 import { InitPragabudapestComponent } from './destinations/pragabudapest/components/init/init-pragabudapest.component';
+import { PragaBudapestPriceComponent } from './destinations/pragabudapest/components/price/price.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { InitPragabudapestComponent } from './destinations/pragabudapest/compone
     PragaRestaurantRecomendationsComponent,
     AccommodationRecomendationsComponent,
     PragaTransportRecomendationsComponent,
-    InitPragabudapestComponent
+    InitPragabudapestComponent,
+    PragaBudapestPriceComponent
   ],
   imports: [
     CommonModule,
@@ -62,8 +64,7 @@ import { InitPragabudapestComponent } from './destinations/pragabudapest/compone
     MaterialModule,
     SharedModule,
     RouterLink,
-    NgChartsModule,
-
+    NgChartsModule
   ],
   exports:[
     RouterModule,

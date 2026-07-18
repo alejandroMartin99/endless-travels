@@ -1,0 +1,142 @@
+<div class="landing-container">
+  <div class="summary-stats">
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(grandTotal) }}</div>
+      <div class="stat-label">Por persona</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(accommodationTotal) }}</div>
+      <div class="stat-label">Alojamiento / persona</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(flightsTotal) }}</div>
+      <div class="stat-label">Vuelos / persona</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ formatEur(spentInDestination) }}</div>
+      <div class="stat-label">En destino / persona</div>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <p class="persons-banner">
+    Viaje de <strong>{{ persons }} personas</strong> — todos los importes están
+    <strong>divididos entre {{ persons }}</strong> (precio por persona).
+  </p>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>📊 Gastos por categoría</h3>
+      <p class="chart-hint">Por persona · Praga → Bratislava → Budapest</p>
+
+      <div class="pie-wrap">
+        <div class="pie-chart" [style.background]="pieGradient"></div>
+        <ul class="pie-legend">
+          <li *ngFor="let cat of orderedCategories">
+            <span class="legend-swatch" [style.background]="getCategoryColor(cat)"></span>
+            <span class="legend-label">{{ cat }}</span>
+            <span class="legend-value">
+              {{ formatEur(categoryTotals[cat]) }}
+              ({{ getCategoryPercent(cat) }}%)
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🏷️ Desglose por categoría</h3>
+      <div class="expense-item" *ngFor="let cat of orderedCategories">
+        <div>
+          <span class="category-icon" [ngClass]="getCategoryClass(cat)">
+            {{ getCategoryIcon(cat) }}
+          </span>
+          <span class="expense-name">{{ cat }}</span>
+        </div>
+        <span class="expense-amount">{{ formatEur(categoryTotals[cat]) }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-section">
+    <h2>💰 Gestión del dinero en Europa Central</h2>
+    <p>
+      En Praga, Bratislava y Budapest se paga en coronas checas (CZK), euros (SK)
+      y forintos (HUF). La combinación de tarjeta (Revolut / similar) + algo de
+      efectivo cubre casi todo el viaje.
+    </p>
+
+    <div class="money-tip success">
+      <strong>✅ Tarjeta / Revolut:</strong> Ideal para hoteles, restaurantes y
+      transporte. Tipo de cambio justo y sin comisiones abusivas en la mayoría de
+      comercios.
+    </div>
+
+    <div class="money-tip warning">
+      <strong>💵 Efectivo:</strong> Útil en mercados, tips, peajes y locales
+      pequeños. Reservamos <strong>€100</strong>/persona y gastamos
+      <strong>€87,50</strong>/persona en efectivo durante el viaje.
+    </div>
+
+    <div class="money-tip info">
+      <strong>🍽️ Comida:</strong> Fue la partida más alta (~€365/persona).
+      Desayunos de café, comidas locales y cenas van sumando; conviene marcar un
+      tope diario si quieres ajustar presupuesto.
+    </div>
+
+    <div class="money-tip danger">
+      <strong>🚗 Excursión Kutná Hora:</strong> Además de la entrada al osario,
+      suma alquiler de coche, peajes y gasolina (~€37,50/persona de transporte).
+    </div>
+
+    <div class="payment-summary">
+      <h3>💳 Resumen rápido (por persona)</h3>
+      <div class="summary-cards">
+        <div class="summary-card">
+          <span>✈️ {{ formatEur(flightsTotal) }}</span>
+          <p>Vuelos ida + vuelta (total pareja ÷ 2)</p>
+        </div>
+        <div class="summary-card">
+          <span>🏨 {{ formatEur(accommodationTotal) }}</span>
+          <p>Hoteles Praga / Bratislava + apt. Budapest</p>
+        </div>
+        <div class="summary-card">
+          <span>💵 €187,50</span>
+          <p>Reserva (€100) + efectivo (€87,50) por persona</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details class="tx-details">
+    <summary>💳 Detalle de gastos (por persona)</summary>
+    <div class="transactions-section">
+      <h3>📋 Listado de transacciones</h3>
+      <p class="chart-hint">Importes ya divididos entre {{ persons }} personas</p>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Lugar</th>
+            <th>Concepto</th>
+            <th>Categoría</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of transactions">
+            <td>{{ t.place }}</td>
+            <td>{{ t.merchant }}</td>
+            <td>
+              <span class="category-icon" [ngClass]="getCategoryClass(t.category)">
+                {{ getCategoryIcon(t.category) }}
+              </span>
+              {{ t.category }}
+            </td>
+            <td class="negative">{{ formatEur(t.amount) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
