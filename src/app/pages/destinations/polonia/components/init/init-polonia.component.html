@@ -1,6 +1,299 @@
-<div class="init-placeholder">
-  <h1>Polonia</h1>
-  <p>{{ viaje.fechas }} · {{ viaje.duracionDias }} días · {{ viaje.ciudades }}</p>
-  <p>Página de inicio en construcción. Mientras tanto puedes ver el itinerario completo.</p>
-  <button type="button" class="cta" (click)="goToItineraryTab(2)">Ver itinerario</button>
+
+<div class="landing-container">
+  <div class="hero-section">
+    <div class="hero-image-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-text">Circuito Polonia</span>
+      </div>
+      <h1 class="main-title">
+        <span class="title-welcome">Descubre la esencia de</span>
+        <span class="title-japan">VARSOVIA · CRACOVIA · WROCŁAW</span>
+        <span class="title-subtitle">Historia, cultura y ciudades renacidas</span>
+      </h1>
+      <p class="hero-description">
+        Ocho días recorriendo tres ciudades polacas que combinan historia profunda con una energía moderna contagiosa:
+        la capital reconstruida tras la guerra, la joya medieval del sur y la ciudad de los puentes y los enanitos.
+        Un viaje que sorprende a cada esquina.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Días de ruta</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Ciudades</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Plazas · historia · pierogi</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="narrative-intro">
+    <div class="content-wrapper">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h2 class="section-title">¿Por qué Polonia merece un viaje dedicado?</h2>
+          <p class="intro-paragraph">
+            Polonia es uno de esos destinos europeos que no aparecen en el radar habitual y que, cuando los pisas,
+            te preguntas por qué has tardado tanto. Ciudades reconstruidas con mimo, plazas enormes llenas de vida,
+            gastronomía contundente y precios que dan un respiro al presupuesto.
+          </p>
+          <p class="intro-paragraph">
+            De Varsovia a Cracovia y cerrando en Wrocław, el viaje es un relato coherente: del renacimiento de posguerra
+            al gótico medieval intacto, terminando en una ciudad universitaria vibrante que enamora con sus puentes
+            sobre el Oder.
+          </p>
+          <p class="intro-paragraph">
+            Usa esta guía como hoja de ruta: cuando bajes al itinerario encontrarás el calendario por colores de ciudad
+            y cada jornada con fotos, mapas y consejos donde los probamos nosotros.
+          </p>
+        </div>
+        <div class="intro-image">
+          <img
+            src="/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_03.JPEG"
+            alt="Plaza del Mercado de Cracovia"
+            width="560"
+            height="420"
+            class="responsive-image"
+            loading="lazy"
+          >
+          <div class="image-caption">Cracovia: Rynek Główny, la plaza medieval más grande de Europa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detailed-info-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered">Tu ruta en resumen</h2>
+      <div class="info-grid">
+        <div class="info-card duration-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🗓️</div>
+            <h3 class="card-title">{{ viaje.duracionDias }} días · Itinerario completo</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_05.JPEG"
+              alt="Plaza del Castillo de Varsovia"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              <strong>{{ viaje.duracionDias }} días</strong> repartidos entre Varsovia, Cracovia y Wrocław, con noches suficientes
+              en cada punto para perderte sin prisa. Abajo tienes cada día desarrollado con mapas y fotos como en el resto de Endless Travels.
+            </p>
+            <ul class="benefit-list">
+              <li>Primero calendario; luego el detalle por jornadas</li>
+              <li>Colores por ciudad para orientarte al vuelo</li>
+              <li>Enlaces a recomendaciones de alojamiento y restaurantes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card season-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🌤️</div>
+            <h3 class="card-title">Cuándo ir y qué llevar</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="/assets/polonia/Varsovia/Dia02/Lazienki_Park_04.JPEG"
+              alt="Parque Łazienki en Varsovia"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              <strong>{{ viaje.fechasRecomendadas }}</strong> Caminar ciudades con empedrado continuo requiere buen calzado;
+              en invierno el encanto existe, pero las temperaturas bajan de cero y los días son muy cortos.
+            </p>
+            <ul class="benefit-list">
+              <li>Buen calzado: adoquines por todas partes</li>
+              <li>Capa ligera incluso en primavera (mañanas frescas)</li>
+              <li>Moneda local: złoty (PLN) — tarjeta aceptada casi en todas partes, pero lleva algo de efectivo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-card culture-shock-card" (click)="goToItineraryTab(1)" (keyup.enter)="goToItineraryTab(1)" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🏛️</div>
+            <h3 class="card-title">Tres ciudades, tres personalidades</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_2_03.JPEG"
+              alt="Catedral de Wrocław en Ostrów Tumski"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <p class="card-description">
+              Varsovia te impresiona con su reconstrucción, Cracovia te enamora con su centro medieval intacto y Wrocław
+              te conquista con su ambiente universitario y sus canales. Tres escalas, tres acentos.
+            </p>
+            <ul class="benefit-list">
+              <li>Trenes modernos y baratos conectan las tres ciudades</li>
+              <li>Gastronomía abundante: pierogi, żurek, zapiekanka</li>
+              <li>Historia intensa: barrio judío, Auschwitz, reconstrucción de Varsovia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detailed-info-section">
+    <div class="content-wrapper">
+      <h2 class="section-title centered">Tres ciudades en un solo circuito</h2>
+      <div class="info-grid">
+
+        <div class="info-card cities-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🏙️</div>
+            <h3 class="card-title">Varsovia</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="/assets/polonia/landing_varsovia.jpg"
+              alt="Centro histórico de Varsovia"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail">
+                <div class="city-header">
+                  <span class="city-essence">La capital renacida</span>
+                </div>
+                <p class="city-description">
+                  Ciudad Vieja reconstruida piedra a piedra tras la II Guerra Mundial y declarada Patrimonio UNESCO.
+                  Rascacielos modernos conviven con palacios barrocos y el inmenso parque Łazienki.
+                </p>
+                <div class="city-highlights">
+                  <span class="highlight-tag">Ciudad Vieja</span>
+                  <span class="highlight-tag">Łazienki</span>
+                  <span class="highlight-tag">Palacio de Cultura</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🏰</div>
+            <h3 class="card-title">Cracovia</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="/assets/polonia/landing_cracovia.jpg"
+              alt="Vista de Cracovia"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail">
+                <div class="city-header">
+                  <span class="city-essence">Joya medieval del sur</span>
+                </div>
+                <p class="city-description">
+                  La plaza del mercado más grande de Europa medieval, el castillo de Wawel dominando el Vístula
+                  y el barrio judío de Kazimierz con su mezcla de historia y vida nocturna.
+                </p>
+                <div class="city-highlights">
+                  <span class="highlight-tag">Rynek Główny</span>
+                  <span class="highlight-tag">Wawel</span>
+                  <span class="highlight-tag">Kazimierz</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card cities-card" (click)="goToItinerarySection()" (keyup.enter)="goToItinerarySection()" tabindex="0" role="link">
+          <div class="card-header">
+            <div class="card-icon">🌉</div>
+            <h3 class="card-title">Wrocław</h3>
+          </div>
+          <div class="card-image">
+            <img
+              src="/assets/polonia/landing_wroclaw.jpg"
+              alt="Ayuntamiento de Wrocław"
+              width="560"
+              height="360"
+              class="responsive-image"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-content">
+            <div class="cities-detailed">
+              <div class="city-detail">
+                <div class="city-header">
+                  <span class="city-essence">La ciudad de los puentes y enanitos</span>
+                </div>
+                <p class="city-description">
+                  Más de cien puentes cruzan los canales del Oder, un ayuntamiento gótico espectacular
+                  y cientos de figuritas de bronce escondidas por las calles. Ambiente universitario y terrazas junto al río.
+                </p>
+                <div class="city-highlights">
+                  <span class="highlight-tag">Ostrów Tumski</span>
+                  <span class="highlight-tag">Rynek</span>
+                  <span class="highlight-tag">Krasnale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="exploration-section">
+    <div class="content-wrapper">
+      <div class="exploration-grid">
+        <div class="exploration-content">
+          <h2 class="section-title">Lo que encontrarás en esta sección</h2>
+          <p class="exploration-intro">
+            El diseño sigue el mismo hilo que el resto de destinos de Endless Travels: misma paleta, mismas tarjetas
+            y la promesa de no dejarte solo con fotos bonitas. Aquí el foco es moverte en złoty sin líos,
+            sacar partido a trenes y paseos, y entender un país que tiene mucho más de lo que esperas.
+          </p>
+          <div class="exploration-highlights">
+            <ul class="highlight-list">
+              <li><strong>🗺️ Itinerario:</strong> calendario resumido y luego cada día con mapa, galería y enlaces útiles.</li>
+              <li><strong>👍 Recomendaciones:</strong> alojamientos, restaurantes y transporte que probamos o contrastamos.</li>
+              <li><strong>💶 Presupuesto:</strong> pestaña reservada para cuando cierres el desglose de gastos de este viaje.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

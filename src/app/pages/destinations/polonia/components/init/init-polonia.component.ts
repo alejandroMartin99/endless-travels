@@ -14,9 +14,13 @@ export class InitPoloniaComponent {
     this.goToItinerary.emit(tabIndex);
   }
 
+  goToItinerarySection(): void {
+    this.goToItinerary.emit({ tab: 2 });
+  }
+
   readonly viaje = {
     duracionDias: 8,
-    fechas: '26 abril – 3 mayo 2025',
-    ciudades: 'Varsovia · Cracovia · Wrocław',
+    fechasRecomendadas:
+      'Primavera (abril-junio) u otoño (septiembre-octubre): temperaturas suaves, días largos y menos turistas en los grandes monumentos.',
   };
 }
