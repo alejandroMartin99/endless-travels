@@ -1,121 +1,125 @@
 export const day02Polonia = {
   borderClass: 'border-red',
   day: {
-    title: 'Día 02 - Varsovia: Museo POLIN, Palacio Łazienki y el Palacio de Cultura',
+    title: 'Día 02 - Varsovia: Free tour, Ciudad Vieja, Barbacana, Praga y Catedral de San Miguel',
     activities: [
       {
         name: 'Resumen del día',
-        description: '<strong>Un día dedicado a la memoria judía de Varsovia y al contraste entre el clasicismo real y el estalinismo soviético.</strong> Empezamos con el free tour por el antiguo barrio judío (Civitatis), seguimos en el Museo POLIN, pasamos por el mercado de Żelazna Brama y por la tarde cambiamos de registro en los jardines del Palacio Łazienki para terminar subiendo al mirador del Palacio de Cultura y Ciencia. \n\n 📌 <strong>Plan del día:</strong> free tour del gueto y la sinagoga Nożyk → Museo POLIN → mercado local → palacio real de verano entre jardines → atardecer desde el edificio más alto de Polonia. <strong>Un día de muchos contrastes, del dolor a la elegancia y de ahí al skyline.</strong>',
+        description: '<strong>Primer contacto con Varsovia: reconstrucción, historia y contrastes.</strong> Empezamos con un free tour por la Ciudad Vieja y, al terminar, el Monumento al Alzamiento. Seguimos por el Rynek Starego Miasta, la Barbacana y la Sirena, la Columna de Segismundo y el barrio de Praga al otro lado del Vístula. \n\n 📌 <strong>Plan del día:</strong> free tour, Monumento al Alzamiento, Rynek, Barbacana y Sirena, vuelta a la Columna de Segismundo, Praga y puesta de sol desde el puente peatonal. <strong>Ritmo tranquilo, mucha historia y ningún reloj que nos apriete.</strong>',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_01.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Columna_de_Segismundo_01.JPEG'
         ],
-        longitude: 20.999014,
-        latitude: 52.234962,
-        mapUrl: 'map-day02-resumen'
+        longitude: 21.017432,
+        latitude: 52.238855,
+        mapUrl: 'map-day01-resumen'
       },
       {
-        name: 'Free tour barrio judío de Varsovia',
-        description: '<strong>Horario:</strong> Duración aprox. 2h30-3h.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Con punto de encuentro en la <strong>Iglesia de Todos los Santos (Kościół Wszystkich Świętych)</strong>, en la plaza Grzybowski, hacemos el <a href="https://www.civitatis.com/es/varsovia/free-tour-barrio-judio/" target="_blank">Free tour por el barrio judío de Varsovia</a>. Antes de la Segunda Guerra Mundial, Varsovia era la ciudad con mayor población judía de Europa después de Nueva York, y este recorrido reconstruye, calle a calle, los límites del antiguo <strong>gueto de Varsovia</strong> y el horror del Levantamiento de 1943. \n\n El guía nos lleva hasta la <strong>Sinagoga Nożyk</strong>, la única sinagoga de la ciudad que sobrevivió a la guerra y sigue en activo, y hasta el exterior del <strong>Museo POLIN</strong> y el <strong>Monumento a los Héroes del Gueto</strong>, que visitaremos por dentro justo después. Es la mejor manera de llegar al museo con todo el contexto histórico ya asimilado en lugar de leerlo en paneles.',
+        name: 'Free tour por Varsovia',
+        description: '<strong>Horario:</strong> Duración aprox. 2h-2h30, horario típico de mañana (verificar franja al reservar).<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Arrancamos el viaje con el <a href="https://www.civitatis.com/es/varsovia/free-tour-varsovia/" target="_blank">Free tour por Varsovia</a>, con punto de encuentro en el <strong>Monumento a Copérnico</strong>, en Krakowskie Przedmieście. Es la mejor forma de aterrizar en una ciudad como esta: en poco más de dos horas el guía nos explica por qué casi todo lo que vemos en la Ciudad Vieja es en realidad una reconstrucción minuciosa de posguerra, tan fiel al original que la propia UNESCO decidió declararla Patrimonio de la Humanidad por el proceso de restauración en sí. \n\n El recorrido pasa por la <strong>Columna de Segismundo III</strong>, la Plaza del Castillo, la avenida Krakowskie Przedmieście y el Rynek de la Ciudad Vieja, dando el contexto histórico necesario (reparto de Polonia, ocupación nazi, Levantamiento de Varsovia) para entender todo lo que visitaremos después por nuestra cuenta. Nuestro consejo: reservad plaza el día anterior, los grupos en temporada alta se llenan rápido, y llevad algo de efectivo en zlotys para la propina final.',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_02.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Columna_de_Segismundo_02.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_02.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Universidad_de_Varsovia_2_03.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Barbacana_de_Varsovia_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Universidad_de_Varsovia_2_04.JPEG'
         ],
-        longitude: 21.002,
-        latitude: 52.233,
-        mapUrl: 'map-day02-freetour'
+        longitude: 21.018,
+        latitude: 52.24,
+        mapUrl: 'map-day01-freetour'
       },
       {
-        name: 'Żelazna Brama y Hala Mirowska',
-        description: '<strong>Horario:</strong> Mercado aprox. 8:00 - 18:00.<br><strong>Precio:</strong> Gratis (paseo); precios de mercado aparte.<br><br>Tras el free tour (o justo antes, si el tour es a media mañana) pasamos por <strong>Żelazna Brama</strong> ("Puerta de Hierro"), una plaza que debe su nombre a una verja que en el siglo XVIII daba acceso al jardín del Palacio Sajón, hoy desaparecido. Justo aquí se levantan las <strong>Halas Mirowskie</strong>, dos naves de mercado de ladrillo construidas en 1901, uno de los pocos edificios de la zona que sobrevivió casi intacto a la guerra. \n\n Merece la pena entrar a curiosear entre los puestos de verduras, quesos y flores; es un mercado de barrio auténtico, sin apenas turistas, y un buen sitio para comprar algo de fruta o un tentempié cerca del antiguo gueto.',
+        name: 'Monumento al Alzamiento de Varsovia',
+        description: '<strong>Horario:</strong> Exterior abierto 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>El free tour termina junto al <strong>Monumento al Alzamiento de Varsovia (Pomnik Powstania Warszawskiego)</strong>, en la Plaza Krasińskich. Inaugurado en 1989, conmemora el levantamiento de agosto de 1944, cuando la resistencia polaca se alzó contra la ocupación nazi durante 63 días. \n\n El conjunto escultórico de bronce —combatientes emergiendo entre ruinas y otro grupo cargando hacia el canal de alcantarillas— es una de las imágenes más potentes de la memoria de la ciudad. Merece la pena detenerse aquí con calma justo después del tour, cuando el guía ya ha dejado el contexto fresco.',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_03.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_04.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Zelazna_Brama_05.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_2_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_2_02.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_2_03.JPEG'
         ],
-        longitude: 20.999014,
-        latitude: 52.234962,
-        mapUrl: 'map-day02-act1'
+        longitude: 21.0065,
+        latitude: 52.2495,
+        mapUrl: 'map-day02-alzamiento'
       },
       {
-        name: 'Museo POLIN de la Historia de los Judíos Polacos',
-        description: '<strong>Horario:</strong> 10:00 - 18:00 (jueves hasta las 20:00, cerrado los martes).<br><strong>Precio:</strong> Aprox. 30-40 PLN (~7-9 €); entrada gratuita algunos días de la semana.<br><br>El <strong>Museo POLIN</strong>, inaugurado en 2014, se levanta sobre el terreno del antiguo gueto de Varsovia y narra mil años de historia de la comunidad judía en Polonia, desde su llegada en la Edad Media hasta la actualidad, pasando —por supuesto— por el Holocausto. \n\n Justo enfrente del museo se encuentra el <strong>Monumento a los Héroes del Gueto</strong>, dedicado al Levantamiento del Gueto de Varsovia de 1943, que ya habíamos visto por fuera durante el free tour. Nuestra recomendación es reservar entrada con antelación en temporada alta y dedicarle al menos dos o tres horas, ya que la exposición permanente es enorme y está considerada una de las mejores de Europa en su temática.',
+        name: 'Rynek Starego Miasta y Sirena de Varsovia',
+        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>De vuelta hacia el sur llegamos al verdadero corazón de la <strong>Ciudad Vieja</strong>: el <strong>Rynek Starego Miasta</strong>, rodeado de coloridas casas burguesas de los siglos XVII y XVIII (reconstruidas tras 1945). Es la plaza perfecta para sentarse en una terraza, probar unos <strong>pierogi</strong> y disfrutar de los músicos callejeros. \n\n En el centro de la misma plaza está la <strong>Sirena de Varsovia (Warszawska Syrenka)</strong>, símbolo de la ciudad desde la Edad Media. La leyenda cuenta que una sirena del Vístula se quedó a proteger el lugar; por eso aparece con espada y escudo en el escudo de Varsovia.',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_03.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_04.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Museo_POLIN_05.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_2_04.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_2_05.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_3_05.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Barbacana_de_Varsovia_02.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Barbacana_de_Varsovia_03.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Barbacana_de_Varsovia_04.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Barbacana_de_Varsovia_05.JPEG'
         ],
-        longitude: 20.993911,
-        latitude: 52.249546,
-        mapUrl: 'map-day02-act2'
+        longitude: 21.0123,
+        latitude: 52.2497,
+        mapUrl: 'map-day02-rynek'
       },
       {
-        name: 'Palacio sobre el Agua (Pałac na Wyspie)',
-        description: '<strong>Horario:</strong> Aprox. 10:00 - 16:00 (cerrado los lunes; horarios reducidos en invierno).<br><strong>Precio:</strong> Aprox. 40 PLN (~9 €); parque gratuito.<br><br>Entramos en el <strong>Parque Łazienki</strong> por su joya principal: el <strong>Palacio sobre el Agua</strong>, antigua residencia de verano del último rey de Polonia, Stanisław August Poniatowski, construida en el siglo XVIII sobre los restos de unos baños termales (de ahí el nombre "Łazienki", literalmente "baños"). \n\n Su estilo neoclásico, con columnas y una fachada que se refleja directamente en el estanque que lo rodea, lo convierte en uno de los edificios más fotografiados de Varsovia. En verano, los domingos al mediodía se celebran conciertos gratuitos de piano frente al monumento a Chopin, dentro del mismo parque: si coincide con nuestra visita, es una parada obligatoria.',
+        name: 'Barbacana de Varsovia',
+        description: '<strong>Horario:</strong> Exterior abierto 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Desde el Rynek subimos hacia la <strong>Barbacana de Varsovia</strong>, fortificación semicircular de ladrillo rojo de 1548 que defendía la puerta norte de la ciudad —una de las pocas barbacanas renacentistas que quedan en Europa (reconstruida tras 1944)—. Sus almenas marcan el paso entre Stare Miasto y Nowe Miasto, y suele haber artistas callejeros vendiendo acuarelas.',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_03.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_04.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_05.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_3_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_3_02.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_3_03.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_3_04.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_05.JPEG'
         ],
-        longitude: 21.032728,
-        latitude: 52.215276,
+        longitude: 21.009803,
+        latitude: 52.249939,
+        mapUrl: 'map-day02-barbacana'
+      },
+      {
+        name: 'Vuelta a la Columna de Segismundo y Plaza del Castillo',
+        description: '<strong>Horario:</strong> Plaza abierta 24 horas.<br><strong>Precio:</strong> Plaza y Columna gratis; Castillo Real aprox. 30 PLN (~7 €).<br><br>Bajamos de nuevo por las calles empedradas de la Ciudad Vieja hasta la <strong>Plaza del Castillo (Plac Zamkowy)</strong> y la <strong>Columna de Segismundo</strong>, que ya habíamos visto durante el free tour pero que merece la pena revisitar con más calma. La columna original de 1644 fue destruida durante la Segunda Guerra Mundial y la que vemos hoy es una reconstrucción; junto a ella se conserva un fragmento de la original con impactos de metralla todavía visibles. \n\n Es un buen momento para hacer fotos con mejor luz y fijarnos en los detalles del <strong>Castillo Real</strong>, residencia de los reyes polacos reconstruida piedra a piedra entre 1971 y 1988 gracias a donaciones populares.',
+        images: [
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_03.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Plaza_del_Castillo_Plac_Zamkowy_04.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Columna_de_Segismundo_03.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Columna_de_Segismundo_04.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Columna_de_Segismundo_05.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Universidad_de_Varsovia_2_02.JPEG'
+        ],
+        longitude: 21.01199,
+        latitude: 52.249477,
         mapUrl: 'map-day02-act3'
       },
       {
-        name: 'Anfiteatro Real y Vieja Orangerie (Łazienki)',
-        description: '<strong>Horario:</strong> Anfiteatro visitable durante el horario del parque; Vieja Orangerie aprox. 10:00 - 16:00 (cerrada los lunes).<br><strong>Precio:</strong> Anfiteatro gratis (exterior); Orangerie aprox. 15 PLN (~3,5 €).<br><br>A pocos pasos del palacio, escondido entre árboles, se encuentra el <strong>Anfiteatro Real</strong>, construido en 1791 imitando las ruinas del teatro de Herculano, con un escenario sobre una pequeña isla en el estanque y bancos de piedra semicirculares en la orilla opuesta. Sigue utilizándose de forma ocasional para representaciones teatrales y conciertos al aire libre en verano. \n\n Seguimos el paseo hasta la <strong>Vieja Orangerie</strong>, construida en 1788 para proteger del frío las plantas exóticas del rey durante el invierno. Hoy alberga una pequeña pero interesante <strong>Galería de Esculturas</strong> con obras neoclásicas, además de un teatro real de corte cubierto que en su época se usaba para representaciones privadas: una parada breve pero que merece la pena para completar el conjunto palaciego sin las aglomeraciones del edificio principal.',
+        name: 'Barrio de Praga (Calle Kłopotowskiego)',
+        description: '<strong>Horario:</strong> Zona abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Cruzamos el Vístula para adentrarnos en <strong>Praga</strong>, el barrio de la orilla derecha que, a diferencia del resto de Varsovia, apenas fue tocado por los bombardeos de 1944 (las tropas soviéticas ya lo controlaban), por lo que conserva fachadas originales de finales del siglo XIX con un aire mucho más decadente y auténtico. \n\n La calle <strong>Księdza Ignacego Kłopotowskiego</strong>, llamada así en honor a un sacerdote y editor local, es representativa de este ambiente: patios interiores descuidados, talleres artesanales y un creciente número de bares y galerías que han convertido Praga en el barrio "alternativo" de la ciudad, comparado a menudo con el Kreuzberg berlinés. Es un contraste perfecto con la Ciudad Vieja reconstruida que hemos visto por la mañana.',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_2_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_2_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_2_03.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_2_04.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_2_05.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_3_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_3_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_Lazienki_3_03.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Ksiedza_Ignacego_Klopotowskiego_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Ksiedza_Ignacego_Klopotowskiego_04.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Ksiedza_Ignacego_Klopotowskiego_05.JPEG'
         ],
-        longitude: 21.035006,
-        latitude: 52.214699,
-        mapUrl: 'map-day02-act4'
+        longitude: 21.029782,
+        latitude: 52.249161,
+        mapUrl: 'map-day01-act5'
       },
       {
-        name: 'Parque Łazienki (paseo entre jardines)',
-        description: '<strong>Horario:</strong> Aprox. 6:00 - 22:00 en verano; horario reducido en invierno.<br><strong>Precio:</strong> Gratis.<br><br>Antes de dejar atrás Łazienki, damos un último paseo por sus más de 76 hectáreas de jardines, diseñados originalmente al estilo inglés en el siglo XVIII. Es habitual encontrarse ardillas y pavos reales sueltos, herencia de los que ya se criaban aquí en tiempos del rey Poniatowski. \n\n El parque es uno de los lugares favoritos de los propios varsovianos para pasear, correr o simplemente sentarse a leer, y ofrece un contraste perfecto de calma verde frente al ritmo del centro. Si el tiempo lo permite, es un buen momento para sentarse junto al estanque y tomarnos un respiro antes de la energía del centro moderno de la ciudad.',
+        name: 'Puente peatonal y ciclista del Vístula (Magdalena Abakanowicz)',
+        description: '<strong>Horario:</strong> Acceso libre 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Cruzamos el <strong>Vistula Pedestrian and Bicycle Bridge</strong> (oficialmente <strong>Kładka Magdaleny Abakanowicz</strong>), el puente peatonal y ciclista inaugurado en 2024 que une el centro (ul. Karowa) con Praga (ul. Stefana Okrzei). Tiene 452 metros, bancos a mitad de camino y es uno de los mejores sitios de Varsovia para pasear sin tráfico. \n\n Estaba bastante tranquilo, ideal para estirar las piernas y mirar el río. A la vuelta pillamos la <strong>puesta de sol</strong> desde el propio puente, con la luz dorada sobre el agua y las siluetas de la Ciudad Vieja al fondo.',
         images: [
-          '/assets/polonia/Varsovia/Dia02/Lazienki_Park_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Lazienki_Park_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Lazienki_Park_03.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Lazienki_Park_04.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Lazienki_Park_05.JPEG'
+          '/assets/polonia/Varsovia/Dia01/Universidad_de_Varsovia_2_01.JPEG',
+          '/assets/polonia/Varsovia/Dia01/Ksiedza_Ignacego_Klopotowskiego_02.JPEG'
         ],
-        longitude: 21.035765,
-        latitude: 52.216928,
-        mapUrl: 'map-day02-act5'
-      },
-      {
-        name: 'Palacio de Cultura y Ciencia y su Mirador (planta 30)',
-        description: '<strong>Horario:</strong> Edificio y vestíbulo aprox. 9:00 - 20:00; mirador planta 30 aprox. 9:00 - 24:00 (último acceso una hora antes del cierre).<br><strong>Precio:</strong> Vestíbulo gratis; mirador aprox. 30 PLN (~7 €).<br><br>Ningún viaje a Varsovia está completo sin ver de cerca el <strong>Palacio de Cultura y Ciencia (PKiN)</strong>, el edificio más alto de Polonia (231 metros con la antena) y, sin duda, el más polémico: un "regalo" de la Unión Soviética a la Polonia comunista, construido entre 1952 y 1955 al más puro estilo estalinista, con evidentes guiños al Empire State Building neoyorquino en su silueta escalonada. \n\n Subimos hasta la <strong>plataforma de observación de la planta 30</strong>, a 114 metros de altura, para cerrar el día con la mejor panorámica posible de Varsovia: el Vístula, el moderno distrito financiero de rascacielos y, en días claros, hasta el Estadio Nacional al otro lado del río. Nuestro consejo es subir un poco antes de la puesta de sol, cuando la luz dorada sobre los edificios de cristal contrasta con los tejados del casco histórico reconstruido.',
-        images: [
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_03.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_04.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_05.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_2_01.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_2_02.JPEG',
-          '/assets/polonia/Varsovia/Dia02/Palacio_de_Cultura_y_Ciencia_2_03.JPEG'
-        ],
-        longitude: 21.009723,
-        latitude: 52.231817,
+        longitude: 21.025609,
+        latitude: 52.246311,
         mapUrl: 'map-day02-act6'
+      },
+      {
+        name: 'Catedral de San Miguel Arcángel',
+        description: '<strong>Horario:</strong> Aprox. 6:00 - 19:00 (fuera de misas).<br><strong>Precio:</strong> Gratis.<br><br>Justo al otro lado del puente, en el barrio de Praga, se encuentra la <strong>Catedral de San Miguel Arcángel y San Florián (Katedra św. Michała Archanioła i św. Floriana)</strong>, una imponente iglesia neogótica de ladrillo rojo construida entre 1887 y 1904, con dos torres gemelas de más de 75 metros de altura que dominan el perfil del barrio. \n\n Es la catedral castrense de Polonia (catedral del ejército), lo que le da un aire solemne y particular. Su interior, con vidrieras de colores y un altar mayor de estilo neogótico, merece una visita rápida antes de cerrar el día. El conjunto del puente con la catedral al fondo, especialmente con la luz del atardecer, es una de las estampas más bonitas que nos llevamos de Varsovia.',
+        images: [
+          '/assets/polonia/Varsovia/Dia01/Catedral_San_Miguel_y_San_Florian_01.jpg',
+          '/assets/polonia/Varsovia/Dia01/Catedral_San_Miguel_y_San_Florian_02.webp',
+          '/assets/polonia/Varsovia/Dia01/Ksiedza_Ignacego_Klopotowskiego_03.JPEG'
+        ],
+        longitude: 21.03136,
+        latitude: 52.25533,
+        mapUrl: 'map-day02-act7'
       },
     ]
   }

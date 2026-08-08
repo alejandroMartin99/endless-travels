@@ -1,118 +1,115 @@
 export const day06Polonia = {
-  borderClass: 'border-dark-green',
+  borderClass: 'border-purple',
   day: {
-    title: 'Día 06 - Auschwitz-Birkenau: memoria y reflexión',
+    title: 'Día 06 - Cracovia: barrio judío de Kazimierz y Podgórze',
     activities: [
       {
         name: 'Resumen del día',
-        description: '<strong>Dedicamos el día completo a visitar el Museo Estatal Auschwitz-Birkenau, y lo escribimos con el máximo respeto posible: no es una visita turística al uso, sino un ejercicio necesario de memoria histórica.</strong> Contratamos una excursión organizada con transporte y guía en español desde Cracovia para no complicarnos con horarios ni reservas de última hora, y recorremos tanto Auschwitz I como Birkenau. \n\n 📌 <strong>Plan del día:</strong> excursión guiada de ida y vuelta desde Cracovia, recorrido por los bloques del museo y la puerta "Arbeit Macht Frei" en Auschwitz I, y traslado a Birkenau para ver la Puerta de la Muerte, los barracones y las ruinas de las cámaras de gas. <strong>Llevamos ropa cómoda y discreta, y dedicamos toda la jornada a esto, sin nada más planeado después.</strong>',
+        description: '<strong>Un día dedicado a la memoria y la vida del barrio judío de Cracovia.</strong> Empezamos con un free tour que recorre Kazimierz de punta a punta y cruza el río hasta el antiguo gueto de Podgórze, y después seguimos por nuestra cuenta profundizando en las sinagogas, la Plaza Nowy y la Plaza Wolnica antes de cerrar el día de nuevo entre las calles con más vida del barrio. \n\n 📌 <strong>Plan del día:</strong> free tour por Kazimierz y Podgórze, sinagogas Remuh, Vieja e Izaak, mercado callejero de la Plaza Nowy, Plaza de los Héroes del Gueto, y paseo nocturno de vuelta por la calle Grodzka. <strong>Un barrio que ha sabido convivir con su pasado más trágico sin dejar de mirar hacia adelante.</strong>',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_01.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Barrio_Judio_Kazimierz_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_01.JPEG'
         ],
-        longitude: 19.204233,
-        latitude: 50.027164,
-        mapUrl: 'map-day06-resumen'
+        longitude: 19.945445,
+        latitude: 50.050866,
+        mapUrl: 'map-day05-resumen'
       },
       {
-        name: 'Excursión a Auschwitz-Birkenau desde Cracovia',
-        description: '<strong>Horario:</strong> Duración total aprox. 7h30 (incluye traslados de ida y vuelta desde Cracovia).<br><strong>Precio:</strong> Desde aprox. 63 USD (~55-65 €), según fecha y disponibilidad. Incluye transporte en bus, guía en español y entradas a ambos campos.<br><br>Reservamos la <a href="https://www.civitatis.com/es/cracovia/excursion-auschwitz-birkenau/" target="_blank">Excursión a Auschwitz-Birkenau</a>, con punto de encuentro en <strong>Plaza Matejko, 2</strong>, en el centro de Cracovia. Es, sin duda, la forma más cómoda de visitar el museo: el acceso está muy restringido y en temporada alta las entradas individuales se agotan con semanas de antelación, así que reservar esta excursión con tiempo nos ahorró bastantes dolores de cabeza. \n\n Un consejo importante: hay que llevar el <strong>DNI o pasaporte</strong> con el nombre exacto de la reserva, vestir de forma cómoda y respetuosa (nada de shorts muy cortos ni ropa llamativa) y tener en cuenta que no se permite fotografiar en algunas salas. El bus incluye paradas en ambos campos, Auschwitz I y Birkenau, con guía en español durante todo el recorrido, y tiempo libre limitado al final para procesar lo visto antes de volver a Cracovia.',
+        name: 'Free tour por el barrio judío de Cracovia',
+        description: '<strong>Horario:</strong> Duración aprox. 2h30-3h.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Empezamos la mañana con el <a href="https://www.civitatis.com/es/cracovia/tour-barrio-judio/" target="_blank">Free tour por el barrio judío de Cracovia</a>, con punto de encuentro en el corazón de <strong>Kazimierz</strong>, el histórico barrio judío fundado como ciudad independiente en el siglo XIV y hogar de una de las comunidades judías más importantes de Europa hasta la Segunda Guerra Mundial. \n\n El recorrido pasa por varias de sus sinagogas, la Plaza Nowy y, después de cruzar el <strong>puente Bernatek</strong> sobre el Vístula, entra en <strong>Podgórze</strong>, donde se encuentra la <strong>Plaza de los Héroes del Gueto</strong>. Es la mejor manera de entender de golpe la doble cara del barrio: el Kazimierz vibrante de hoy y el gueto judío que existió aquí entre 1941 y 1943, hecho mundialmente conocido gracias a "La lista de Schindler". Reservad plaza con antelación y llevad zlotys en efectivo para la propina.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Auschwitz_I_01.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Podgorze_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Barrio_Judio_Kazimierz_01.JPEG'
         ],
-        longitude: 19.941,
-        latitude: 50.067,
-        mapUrl: 'map-day06-excursion'
+        longitude: 19.945,
+        latitude: 50.051,
+        mapUrl: 'map-day05-freetour'
       },
       {
-        name: 'Auschwitz I — Puerta "Arbeit Macht Frei" y bloques del museo',
-        description: '<strong>Horario:</strong> Aprox. 7:30 - 19:00 según temporada. Entre las 10:00 y las 15:00 el acceso es obligatoriamente con guía; fuera de esa franja se puede entrar de forma individual.<br><strong>Precio:</strong> Entrada al museo gratuita; visita guiada obligatoria en horario punta, incluida en nuestra excursión (aprox. 15-17 € si se reserva por separado).<br><br>Empezamos el recorrido por <strong>Auschwitz I</strong>, en el emplazamiento del mayor campo de concentración y exterminio nazi, donde entre 1940 y 1945 fueron asesinadas más de 1,1 millones de personas, la gran mayoría judías, además de polacos, romaníes, prisioneros soviéticos y presos políticos. \n\n Pasamos bajo la tristemente célebre puerta de hierro con la inscripción <strong>"Arbeit Macht Frei"</strong> ("el trabajo os hará libres"), la entrada original al campo, construido en 1940 sobre unos antiguos cuarteles del ejército polaco. Es, junto con las vías del tren de Birkenau, probablemente la imagen más reconocida del Holocausto en el imaginario colectivo, y cruzarla en persona suele ser uno de los momentos más impactantes de toda la jornada. En los bloques cercanos se exponen objetos personales de las víctimas —maletas, gafas, zapatos, utensilios de cocina— recuperados tras la liberación del campo por el Ejército Rojo en enero de 1945.',
+        name: 'Sinagoga Remuh y cementerio judío',
+        description: '<strong>Horario:</strong> Aprox. 9:00 - 16:00 (cerrado los sábados por el Shabat).<br><strong>Precio:</strong> Aprox. 10 PLN (~2,5 €).<br><br>Después del free tour nos detenemos con más calma en la <strong>Sinagoga Remuh</strong>, construida en 1553, la única de las siete sinagogas del barrio que sigue en activo para el culto religioso. \n\n Detrás de ella se extiende el <strong>cementerio Remuh</strong>, uno de los cementerios judíos mejor conservados de Polonia, con lápidas que se remontan al siglo XVI. Muchas de ellas fueron enterradas o utilizadas como material de construcción durante la ocupación nazi y solo se recuperaron después de la guerra, por lo que hoy conviven fragmentos originales con un gran muro conmemorativo hecho con las piezas rotas que se pudieron rescatar.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_05.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Auschwitz_I_01.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_03.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_04.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_05.JPEG'
         ],
-        longitude: 19.204233,
-        latitude: 50.027164,
-        mapUrl: 'map-day06-act1'
+        longitude: 19.945445,
+        latitude: 50.050866,
+        mapUrl: 'map-day05-act1'
       },
       {
-        name: 'Bloque 11 y muro de las ejecuciones',
-        description: '<strong>Horario:</strong> Incluido en el recorrido guiado del museo.<br><strong>Precio:</strong> Incluido en la visita.<br><br>Entre los distintos bloques del campo, el <strong>Bloque 11</strong> ("el bloque de la muerte") fue utilizado como cárcel interna, con celdas de castigo y de aislamiento en las que se cometieron algunos de los abusos más extremos del campo. Justo al lado se encuentra el <strong>Muro de las Ejecuciones (Muro Negro)</strong>, donde fueron fusilados miles de prisioneros. \n\n Es una de las zonas más duras y a la vez más necesarias de todo el recorrido, y los guías suelen detenerse aquí para dar contexto histórico detallado sobre el funcionamiento interno del campo y los distintos niveles de castigo aplicados a los prisioneros.',
+        name: 'Sinagoga Vieja (Stara Synagoga) y Sinagoga Izaak',
+        description: '<strong>Horario:</strong> Sinagoga Vieja aprox. 10:00 - 17:00 (cerrada los lunes; horario reducido en invierno); Sinagoga Izaak aprox. 10:00 - 18:00 (cerrada los sábados).<br><strong>Precio:</strong> Aprox. 10 PLN (~2,5 €) cada una; Sinagoga Vieja gratis un día entre semana.<br><br>Visitamos la <strong>Sinagoga Vieja</strong>, construida a finales del siglo XV y considerada la sinagoga más antigua de Polonia todavía en pie, de estilo gótico-renacentista con una sala de oración de dos naves poco habitual en la arquitectura sinagogal europea. Fue saqueada y usada como almacén durante la ocupación nazi, y hoy alberga una sede del <strong>Museo Histórico de Cracovia</strong> dedicada a la historia y las tradiciones de la comunidad judía de la ciudad. \n\n Muy cerca está la <strong>Sinagoga Izaak</strong>, construida en 1638 y financiada por Izaak Jakubowicz, un rico comerciante judío de la corte real. Es la sinagoga barroca más grande de Kazimierz, con restos de decoración mural original que sobrevivió, sorprendentemente, a la ocupación nazi, cuando fue utilizada por los nazis como sala de oración forzada con fines propagandísticos humillantes.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_05.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_2_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_2_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_2_03.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_3_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_3_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_3_03.JPEG'
         ],
-        longitude: 19.204651,
-        latitude: 50.026554,
-        mapUrl: 'map-day06-act2'
+        longitude: 19.94811,
+        latitude: 50.051408,
+        mapUrl: 'map-day05-act2'
       },
       {
-        name: 'Crematorio I y sala de la memoria',
-        description: '<strong>Horario:</strong> Incluido en el recorrido guiado del museo.<br><strong>Precio:</strong> Incluido en la visita. Fotografía no permitida en algunas salas.<br><br>Visitamos el <strong>Crematorio I</strong>, el primero construido en Auschwitz, y la <strong>cámara de gas original</strong> anexa, utilizada antes de que el exterminio masivo se trasladara a las instalaciones mucho más grandes de Birkenau, a pocos kilómetros de aquí. \n\n Es una de las zonas donde se pide guardar un silencio absoluto y no está permitido fotografiar, en señal de respeto hacia las víctimas. Los guías suelen detenerse aquí para dar contexto histórico detallado sobre cómo evolucionó la maquinaria de exterminio nazi a lo largo de la guerra.',
+        name: 'Plaza Nowy (Kazimierz)',
+        description: '<strong>Horario:</strong> Plaza abierta 24 horas; puestos de comida hasta bien entrada la noche.<br><strong>Precio:</strong> Gratis (entrada); comida aparte, aprox. 2-4 € por ración.<br><br>El corazón social de Kazimierz es la <strong>Plaza Nowy</strong>, presidida por un edificio circular que originalmente funcionaba como matadero de aves de corral y hoy está rodeado de puestos donde se vende la famosa <strong>zapiekanka</strong>, una especie de media baguette tostada con champiñones, queso fundido y salsas al gusto, considerada el "street food" por excelencia de Cracovia desde la época comunista. \n\n Por el día la plaza acoge un mercadillo de segunda mano y ropa vintage; por la noche se llena de bares informales y terrazas con encanto bohemio. Es una parada perfecta para almorzar algo económico y sentir el ambiente más auténtico y menos turístico del barrio.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_05.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Plaza_Nowy_Kazimierz_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Plaza_Nowy_Kazimierz_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Plaza_Nowy_Kazimierz_03.JPEG'
         ],
-        longitude: 19.204627,
-        latitude: 50.027865,
-        mapUrl: 'map-day06-act3'
+        longitude: 19.945728,
+        latitude: 50.052481,
+        mapUrl: 'map-day05-act3'
       },
       {
-        name: 'Birkenau — Puerta de la Muerte y vías del tren',
-        description: '<strong>Horario:</strong> Incluido en el recorrido guiado; autobús gratuito entre Auschwitz I y Birkenau cada pocos minutos.<br><strong>Precio:</strong> Incluido en la visita.<br><br>Nos trasladamos a <strong>Auschwitz II-Birkenau</strong>, a unos 3 km de distancia, construido en 1941 específicamente como centro de exterminio masivo y mucho más extenso que Auschwitz I (llegó a albergar más de 90.000 prisioneros a la vez). Entramos por la icónica <strong>Puerta de la Muerte</strong>, la garita de ladrillo bajo la cual pasaban las vías del ferrocarril que traían los transportes desde toda Europa ocupada. \n\n Sobre estas mismas vías, los prisioneros eran sometidos a una "selección" inmediata a su llegada: quienes se consideraban aptos para trabajar eran enviados a los barracones, y el resto —ancianos, niños, enfermos— eran conducidos directamente a las cámaras de gas. La inmensidad del terreno, con cientos de cimientos de barracones hasta donde alcanza la vista, transmite la escala del horror mejor que ninguna otra parte del recorrido.',
+        name: 'Plaza Wolnica y Basílica del Corpus Christi',
+        description: '<strong>Horario:</strong> Plaza abierta 24 horas; basílica aprox. 6:00 - 19:00.<br><strong>Precio:</strong> Gratis.<br><br>Nos desplazamos a la <strong>Plaza Wolnica</strong>, antigua plaza mayor de la ciudad independiente de Kazimierz antes de su anexión a Cracovia en 1800, presidida por el antiguo ayuntamiento (hoy Museo Etnográfico) y por la imponente <strong>Basílica del Corpus Christi</strong>, fundada por el rey Casimiro III el Grande en el siglo XIV. \n\n En su interior destaca un retablo barroco espectacular de más de 14 metros de altura y un órgano historicista muy bien conservado. Al ser una plaza menos frecuentada por el turismo que la Plaza Nowy, transmite muy bien cómo era Kazimierz como ciudad propia antes de convertirse en un barrio más de Cracovia.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_05.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_4_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_4_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_4_03.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_4_04.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Sinagoga_Remuh_Kazimierz_4_05.JPEG'
         ],
-        longitude: 19.180148,
-        latitude: 50.035316,
-        mapUrl: 'map-day06-act4'
+        longitude: 19.945122,
+        latitude: 50.049626,
+        mapUrl: 'map-day05-act4'
       },
       {
-        name: 'Birkenau — Brzezinka, barracones y ruinas de las cámaras de gas',
-        description: '<strong>Horario:</strong> Incluido en el recorrido guiado del museo.<br><strong>Precio:</strong> Incluido en la visita.<br><br>El campo de Birkenau se construyó sobre el terreno de la aldea polaca de <strong>Brzezinka</strong>, cuyos habitantes fueron expulsados y cuyas casas fueron demolidas para levantar los barracones. Algunos de los barracones de madera y ladrillo originales, destinados a alojar a los prisioneros en condiciones extremas, se conservan hoy como testimonio directo de las condiciones de vida en el campo. \n\n Terminamos el recorrido junto a las <strong>ruinas de los crematorios II y III</strong>, los de mayor capacidad de exterminio de todo el complejo, volados por las SS en noviembre de 1944 en un intento de ocultar pruebas antes de la llegada del ejército soviético. Al final de las vías se encuentra también el <strong>Monumento Internacional a las Víctimas del Fascismo</strong>, inaugurado en 1967 con inscripciones en los idiomas de las principales nacionalidades de las víctimas. Es, sin duda, el punto más sobrecogedor de toda la visita y un buen lugar para tomarnos unos minutos de silencio antes de regresar al autobús.',
+        name: 'Podgórze y el antiguo gueto judío',
+        description: '<strong>Horario:</strong> Plaza y calles abiertas 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Volvemos a cruzar el Vístula hacia <strong>Podgórze</strong> para dedicar algo más de tiempo a lo que fue el <strong>gueto judío de Cracovia</strong> entre 1941 y 1943. En la <strong>Plaza de los Héroes del Gueto (Plac Bohaterów Getta)</strong> se encuentra uno de los memoriales más conmovedores de Polonia: 70 sillas de hierro vacías repartidas por la plaza, en recuerdo de los muebles y enseres que los habitantes judíos se vieron obligados a abandonar en la calle cuando fueron deportados. \n\n Muy cerca se encuentra también la antigua fábrica de Oskar Schindler, hoy convertida en museo. Es un buen momento para pasear con calma por estas calles empinadas y menos turísticas, y entender de primera mano el contexto que ya nos había introducido el guía durante el free tour de la mañana.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Brzezinka_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Brzezinka_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Brzezinka_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Brzezinka_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_05.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Podgorze_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Podgorze_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Podgorze_03.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Podgorze_04.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Podgorze_05.JPEG'
         ],
-        longitude: 19.169164,
-        latitude: 50.03426,
-        mapUrl: 'map-day06-act5'
+        longitude: 19.95189,
+        latitude: 50.049116,
+        mapUrl: 'map-day05-act5'
       },
       {
-        name: 'Regreso a Cracovia — Basílica de Santa María',
-        description: '<strong>Horario:</strong> Lunes-sábado 11:30 - 18:00; domingos desde las 14:00.<br><strong>Precio:</strong> Aprox. 15 PLN (~3,5 €).<br><br>De vuelta en Cracovia, tras una jornada tan intensa emocionalmente, decidimos pasar de nuevo por el <strong>Rynek Główny</strong> y la <strong>Basílica de Santa María</strong> antes de cenar, como una forma de reconectar poco a poco con el bullicio y la vida cotidiana de la ciudad. \n\n Escuchar de nuevo el Hejnał desde la torre de la basílica, rodeados de gente disfrutando de una tarde normal en la plaza, ayuda a cerrar el día con cierta perspectiva: el contraste entre la Cracovia vibrante de hoy y la que sufrió tan de cerca los horrores que hemos visto por la mañana es, quizás, el mejor homenaje posible a quienes no pudieron sobrevivir para contarlo.',
+        name: 'Kazimierz y calle Grodzka al atardecer',
+        description: '<strong>Horario:</strong> Barrio y calle abiertos 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>De vuelta hacia el centro, damos un último paseo tranquilo por las calles de <strong>Kazimierz</strong>, hoy convertido en uno de los barrios con más vida cultural y nocturna de Cracovia, con bares escondidos en patios interiores, murales callejeros y un ambiente muy distinto al del Rynek turístico. \n\n Cerramos el día volviendo a subir por la <strong>calle Grodzka</strong> hacia el Rynek, ya de noche, cuando las farolas y los escaparates iluminados de las cafeterías dan a la Ruta Real un ambiente completamente distinto al de la mañana. Es un buen momento para hacer una última parada en alguno de sus bares con solera, con la Basílica de Santa María iluminada de fondo como despedida de este día tan cargado de historia.',
         images: [
-          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_01.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_02.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_03.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_04.JPEG',
-          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_05.JPEG'
+          '/assets/polonia/Cracovia/Dia05/Barrio_Judio_Kazimierz_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Barrio_Judio_Kazimierz_02.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Barrio_Judio_Kazimierz_03.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Barrio_Judio_Kazimierz_04.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Calle_Grodzka_01.JPEG',
+          '/assets/polonia/Cracovia/Dia05/Calle_Grodzka_02.JPEG'
         ],
-        longitude: 19.939673,
-        latitude: 50.0609,
-        mapUrl: 'map-day06-act6'
+        longitude: 19.938449,
+        latitude: 50.055324,
+        mapUrl: 'map-day05-act6'
       },
     ]
   }

@@ -1,119 +1,117 @@
 export const day04Polonia = {
   borderClass: 'border-purple',
   day: {
-    title: 'Día 04 - Cracovia: Colina de Wawel, Rynek Główny y Basílica de Santa María',
+    title: 'Día 04 - Tren a Cracovia y Minas de Sal de Wieliczka',
     activities: [
       {
         name: 'Resumen del día',
-        description: '<strong>Nuestro primer día completo en Cracovia, la ciudad histórica mejor conservada de Polonia.</strong> Arrancamos con un free tour por el casco antiguo para orientarnos entre la Barbacana, la Puerta de San Florián y el Rynek, y seguimos por nuestra cuenta profundizando en la Lonja de los Paños, la calle Grodzka, la colina real de Wawel y la Basílica de Santa María. \n\n 📌 <strong>Plan del día:</strong> free tour por Stare Miasto, plaza medieval más grande de Europa, mercado textil renacentista, castillo y catedral reales, y cierre frente al retablo gótico más grande del continente. <strong>Cracovia se salvó casi intacta de la guerra, así que hoy caminamos por la Polonia auténtica y original.</strong>',
+        description: '<strong>Día de transición entre Varsovia y Cracovia con una parada imprescindible bajo tierra.</strong> Dedicamos la mañana a bajar más de cien metros en las minas de sal de Wieliczka, Patrimonio de la Humanidad desde la primera lista de la UNESCO en 1978, y por la tarde retomamos la carretera para instalarnos ya en Cracovia. \n\n 📌 <strong>Plan del día:</strong> ruta turística guiada por las minas (capilla de sal incluida), paseo por el pequeño casco histórico de Wieliczka, y trayecto por carretera hasta Podgórze, donde pasamos nuestra primera noche en Cracovia. <strong>Un día que combina naturaleza subterránea, historia minera y una toma de contacto tranquila con la nueva ciudad.</strong>',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_1_01.png',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_01.JPEG'
         ],
-        longitude: 19.936415,
-        latitude: 50.055218,
-        mapUrl: 'map-day04-resumen'
+        longitude: 20.0558,
+        latitude: 49.9833,
+        mapUrl: 'map-day03-resumen'
       },
       {
-        name: 'Free tour por el casco antiguo de Cracovia',
-        description: '<strong>Horario:</strong> Duración aprox. 2h30.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Empezamos el día con el <a href="https://www.civitatis.com/es/cracovia/tour-casco-antiguo/" target="_blank">Free tour por el casco antiguo de Cracovia</a>, con punto de encuentro en la <strong>Plaza Cruz de Katyń (Plac Krzyża Katyńskiego)</strong>. Es la forma más rápida de situarnos en el <strong>Stare Miasto</strong>, la ciudad medieval que, a diferencia de Varsovia, se salvó casi por completo de la destrucción de la Segunda Guerra Mundial. \n\n El recorrido pasa por la <strong>Barbacana</strong>, la mejor conservada de Europa junto con la de Varsovia, la <strong>Puerta de San Florián</strong> —única puerta que sobrevive de las antiguas murallas— y termina en el <strong>Rynek Główny</strong>, la plaza medieval más grande del continente, donde el guía nos explica la leyenda del Hejnał Mariacki y la historia de la Sukiennice. Reservad plaza con antelación en temporada alta y llevad zlotys en efectivo para la propina.',
+        name: 'Entrada a las Minas de Sal de Wieliczka',
+        description: '<strong>Horario:</strong> Aprox. 7:30 - 19:30 en temporada alta (verano); 8:00 - 17:00 en invierno. Visita únicamente con guía (Ruta Turística).<br><strong>Precio:</strong> Ruta turística aprox. 96-129 PLN (~22-30 €) por persona.<br><br>Salimos temprano de Varsovia en dirección a <strong>Wieliczka</strong>, a las puertas de Cracovia, para visitar sus famosas <strong>minas de sal</strong>, una de las explotaciones salinas más antiguas del mundo en funcionamiento ininterrumpido desde el siglo XIII hasta 1996. Es Patrimonio de la Humanidad por la UNESCO desde 1978, en la primera lista que se elaboró. \n\n La <strong>Ruta Turística</strong> baja hasta 135 metros de profundidad a través de más de 800 escalones de madera (no hay ascensor para bajar, solo para subir al final), recorriendo 3,5 km de un total de más de 300 km de galerías excavadas a lo largo de los siglos. Nuestra recomendación es reservar entrada con antelación en temporada alta, ya que los grupos guiados suelen agotarse, y llevar una chaqueta ligera: bajo tierra la temperatura se mantiene constante en torno a los 14ºC durante todo el año.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_02.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_1_01.png',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_1_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_1_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_1_04.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_1_05.JPEG'
         ],
-        longitude: 19.94,
-        latitude: 50.065,
-        mapUrl: 'map-day04-freetour'
+        longitude: 20.0558,
+        latitude: 49.9833,
+        mapUrl: 'map-day03-act1'
       },
       {
-        name: 'Plaza del Mercado (Rynek Główny)',
-        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Nos quedamos un rato más en el <strong>Rynek Główny</strong>, la plaza medieval más grande de Europa (200x200 metros aprox.), trazada en 1257 y prácticamente original: Cracovia se salvó casi por completo de la destrucción de la Segunda Guerra Mundial, lo que la convierte en una de las ciudades históricas mejor conservadas del continente. \n\n Alrededor de la plaza se concentran iglesias, palacetes burgueses y decenas de terrazas. Es habitual escuchar cada hora en punto el <strong>Hejnał Mariacki</strong>, la llamada de trompeta desde la torre de la Basílica de Santa María, una tradición que se remonta al siglo XIII y que, según la leyenda, se interrumpe abruptamente en homenaje a un trompetista que fue alcanzado por una flecha tártara mientras avisaba de un ataque.',
+        name: 'Capilla de Santa Kinga (Minas de Wieliczka)',
+        description: '<strong>Horario:</strong> Incluida dentro de la Ruta Turística (misma franja: aprox. 7:30 - 19:30 verano / 8:00 - 17:00 invierno).<br><strong>Precio:</strong> Incluido en la entrada a la mina.<br><br>El punto culminante de la visita es, sin duda, la monumental <strong>Capilla de Santa Kinga</strong>, excavada íntegramente en un bloque de sal entre 1896 y 1963 por mineros que trabajaban en su tiempo libre. Mide unos 54 metros de largo y 12 de altura, y en ella todo —desde los altares hasta las réplicas de cuadros religiosos y las lámparas de araña hechas con cristales de sal disuelta y vuelta a cristalizar— está tallado en la misma roca salina. \n\n La capilla sigue en uso hoy en día para bodas, conciertos e incluso misas, gracias también a su sorprendente acústica. Es habitual quedarse varios minutos en silencio simplemente observando el nivel de detalle de los bajorrelieves, entre ellos una versión en sal de "La Última Cena" inspirada en Leonardo da Vinci.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_05.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_2_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_2_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_2_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_2_04.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_2_05.JPEG'
         ],
-        longitude: 19.937939,
-        latitude: 50.063019,
-        mapUrl: 'map-day04-act1'
+        longitude: 20.0558,
+        latitude: 49.9833,
+        mapUrl: 'map-day03-act2'
       },
       {
-        name: 'Lonja de los Paños (Sukiennice)',
-        description: '<strong>Horario:</strong> Planta baja (puestos) 9:00 - 20:00; Galería de Arte Polaco del s. XIX (planta superior) 10:00 - 18:00 (cerrada los lunes).<br><strong>Precio:</strong> Planta baja gratis; galería superior aprox. 13 PLN (~3 €).<br><br>En el centro mismo del Rynek se levanta la <strong>Sukiennice</strong>, la Lonja de los Paños, un mercado textil desde el siglo XIV que hoy alberga decenas de puestos de artesanía, ámbar báltico y recuerdos, bajo sus características arcadas renacentistas rematadas con una crestería a modo de encaje de piedra. \n\n En la planta superior se encuentra una interesante galería de pintura polaca del siglo XIX, perteneciente al Museo Nacional, con obras de Jan Matejko, uno de los pintores históricos más importantes del país. Nuestro consejo es acercarse a los puestos a última hora de la tarde, cuando hay menos gente para regatear con calma un recuerdo en ámbar auténtico.',
+        name: 'Lago subterráneo y galerías de Wieliczka',
+        description: '<strong>Horario:</strong> Incluido dentro de la Ruta Turística.<br><strong>Precio:</strong> Incluido en la entrada a la mina.<br><br>Continuamos el recorrido por cámaras excavadas a distintos niveles, entre ellas la <strong>Cámara Weimar</strong>, con su pequeño lago salino de aguas verdosas iluminado con un espectáculo de luces, y la <strong>Cámara Casimiro el Grande</strong>, una de las más grandes de todo el complejo, con estatuas talladas de figuras históricas polacas. \n\n A lo largo del trayecto se pueden ver también las antiguas herramientas y maquinaria de extracción, incluidos sistemas de norias de madera del siglo XVII para elevar la sal a la superficie, todo perfectamente conservado gracias al propio ambiente seco y estable de la mina. Al final del recorrido hay un pequeño museo, una tienda y una zona de descanso antes de subir de nuevo a la superficie en ascensor.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_05.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_3_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_3_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_3_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_3_04.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Cracovia_actividad_3_05.JPEG'
         ],
-        longitude: 19.936586,
-        latitude: 50.062769,
-        mapUrl: 'map-day04-act2'
+        longitude: 20.0558,
+        latitude: 49.9833,
+        mapUrl: 'map-day03-act3'
       },
       {
-        name: 'Calle Grodzka',
-        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Descendemos del Rynek hacia la colina de Wawel por la <strong>calle Grodzka</strong>, una de las arterias más antiguas de Cracovia y, junto con la Floriańska, parte de la histórica <strong>Ruta Real</strong> por la que los monarcas polacos desfilaban camino de su coronación. \n\n Flanqueada por iglesias barrocas —entre ellas la de San Pedro y San Pablo, con sus doce estatuas de los apóstoles a modo de valla— y casas burguesas de distintas épocas, es una calle perfecta para pasear sin prisa, con numerosas cafeterías, librerías de viejo y tiendas de artesanía en las que merece la pena detenerse.',
+        name: 'Salida de las minas y pueblo de Wieliczka',
+        description: '<strong>Horario:</strong> Casco urbano abierto 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Ya en superficie, en torno a la calle <strong>Bolesława Chrobrego</strong>, muy cerca de la entrada a la mina, aprovechamos para pasear por el pequeño casco histórico de <strong>Wieliczka</strong>, una localidad que durante siglos vivió exclusivamente de la extracción de sal ("wieliczka" viene precisamente de "wielka sól", gran sal). \n\n El propio subsuelo del pueblo está literalmente hueco por los cientos de kilómetros de galerías, así que muchas construcciones tienen limitaciones especiales de altura y peso. Es un lugar tranquilo, con casas bajas de tejados a dos aguas, perfecto para tomar algo o comprar algún recuerdo de sal antes de continuar viaje hacia Cracovia.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_05.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_04.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_05.JPEG'
         ],
-        longitude: 19.938212,
-        latitude: 50.056636,
-        mapUrl: 'map-day04-act3'
+        longitude: 20.036506,
+        latitude: 49.987033,
+        mapUrl: 'map-day03-act4'
       },
       {
-        name: 'Castillo de Wawel y Gruta del Dragón',
-        description: '<strong>Horario:</strong> Recinto exterior aprox. 6:00 - 20:00 (verano); interiores 9:30 - 17:00 (cerrado los lunes en temporada baja); Gruta del Dragón aprox. 10:00 - 17:00, solo de abril a octubre.<br><strong>Precio:</strong> Recinto gratis; interiores (Apartamentos Reales, Tesoro y Armería) entre 15-25 PLN cada uno (~3,5-6 €); Gruta del Dragón aprox. 6 PLN (~1,5 €), pago solo en efectivo.<br><br>Subimos a la <strong>Colina de Wawel</strong>, sede del poder político y espiritual de Polonia durante siglos: aquí vivieron los reyes polacos desde el siglo XI hasta el traslado de la corte a Varsovia en 1596. El castillo actual combina estilos románico, gótico y renacentista, fruto de sucesivas reconstrucciones tras varios incendios. \n\n En la ladera junto al Vístula visitamos también la <strong>Gruta del Dragón</strong>, una cueva natural ligada a la leyenda fundacional de la ciudad: se dice que aquí vivía un dragón que aterrorizaba Cracovia hasta que un zapatero llamado Skuba lo engañó dándole de comer una oveja rellena de azufre. A la salida nos espera una escultura de bronce del dragón que, cada pocos minutos, ¡escupe fuego de verdad! Nuestra recomendación es comprar la entrada a los interiores online con antelación, ya que el número de visitantes diarios está limitado.',
+        name: 'Plaza del Ayuntamiento de Wieliczka',
+        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>A un paso de la calle Bolesława Chrobrego se encuentra la modesta <strong>plaza del Ayuntamiento</strong> de Wieliczka, con su torre del reloj y algunas construcciones de finales del siglo XIX que recuerdan la época dorada de la minería salina, cuando la ciudad llegó a acuñar su propia moneda de sal. \n\n Es una plaza pequeña, muy alejada del bullicio del centro de Cracovia, ideal para hacer una pausa, estirar las piernas después de las escaleras de la mina y sentir el ritmo de vida de un pueblo polaco tradicional antes de retomar la carretera.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_05.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_2_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_2_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_2_03.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_2_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_2_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_2_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_2_04.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_2_05.JPEG'
         ],
-        longitude: 19.936415,
-        latitude: 50.055218,
-        mapUrl: 'map-day04-act4'
+        longitude: 20.036475,
+        latitude: 49.987125,
+        mapUrl: 'map-day03-act5'
       },
       {
-        name: 'Catedral de Wawel, Campana de Segismundo y Museo',
-        description: '<strong>Horario:</strong> Catedral lunes-sábado 9:00 - 17:00, domingos y festivos 12:30 - 17:00; torre de la campana y museo aprox. 9:00 - 16:00 (según temporada).<br><strong>Precio:</strong> Nave principal gratis; zonas especiales (cripta real, torre de la campana, museo) aprox. 19 PLN (~4,5 €).<br><br>La <strong>Catedral de Wawel</strong> ha sido durante siglos el escenario de coronaciones y funerales de los monarcas polacos, y en sus criptas descansan reyes, héroes nacionales como Józef Piłsudski y el poeta Adam Mickiewicz. Es también la catedral personal del Papa Juan Pablo II, arzobispo de Cracovia antes de ser elegido Papa en 1978, por lo que es un lugar de gran devoción para los polacos. \n\n Subimos por una estrecha escalera de madera hasta la torre donde se encuentra la <strong>Campana de Segismundo</strong>, fundida en 1520 y con casi 11 toneladas de peso, la más grande de Polonia: solo se hace sonar en ocasiones muy señaladas y, según la tradición, tocarla trae buena suerte. En el pequeño <strong>Museo de la Catedral</strong> anexo se conservan objetos litúrgicos, vestiduras reales y recuerdos personales de Juan Pablo II, incluida parte de su vestimenta papal.',
+        name: 'Krzyszkowice y Półłanki — camino hacia Cracovia',
+        description: '<strong>Horario:</strong> Zonas residenciales, sin restricción horaria.<br><strong>Precio:</strong> Gratis.<br><br>De vuelta hacia Cracovia atravesamos <strong>Krzyszkowice</strong>, un tranquilo núcleo residencial dentro del municipio de Wieliczka, con casas unifamiliares y pequeños huertos, muy representativo de cómo vive gran parte de la población en los alrededores de las grandes ciudades polacas. Seguimos aproximándonos a Cracovia por <strong>Półłanki</strong>, en el distrito de Bieżanów-Prokocim, ya dentro del término municipal de la ciudad. \n\n Ninguna de las dos es una parada turística en sí misma, pero el contraste entre este paisaje semirrural y el bullicio que nos espera en el centro histórico de Cracovia ayuda a entender mejor la transición entre el campo y la gran ciudad en esta región de la Polonia menor (Małopolska). Aprovechamos este tramo del trayecto para descansar un poco antes de instalarnos en el alojamiento.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_05.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_2_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_2_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_2_03.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Osiedle_Krzyszkowice_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Osiedle_Krzyszkowice_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Osiedle_Krzyszkowice_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Pollanki_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Pollanki_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Pollanki_03.JPEG'
         ],
-        longitude: 19.935347,
-        latitude: 50.053657,
-        mapUrl: 'map-day04-act5'
+        longitude: 20.034315,
+        latitude: 49.993435,
+        mapUrl: 'map-day03-act6'
       },
       {
-        name: 'Basílica de Santa María',
-        description: '<strong>Horario:</strong> Lunes-sábado 11:30 - 18:00; domingos desde las 14:00 (entrada por la puerta lateral para turistas, culto por la puerta principal).<br><strong>Precio:</strong> Aprox. 15 PLN (~3,5 €).<br><br>Terminamos el día en la <strong>Basílica de Santa María</strong>, con sus dos torres asimétricas —la más alta, de 81 metros, corresponde a la torre de los vigías desde la que suena el famoso Hejnał cada hora—. Su mayor tesoro es el <strong>retablo gótico de Veit Stoss</strong>, terminado en 1489, considerado la obra de escultura gótica en madera más grande de Europa, con casi 13 metros de altura. \n\n El retablo se abre solo una vez al día, a las 11:50 de la mañana, en un pequeño ritual que reúne a decenas de visitantes frente al altar. Si coincide con nuestra visita, merece la pena esperar esos minutos: el nivel de detalle de las figuras, talladas hace más de 500 años, es sobrecogedor.',
+        name: 'Podgórze — primera noche en Cracovia',
+        description: '<strong>Horario:</strong> Barrio abierto 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Terminamos el día en <strong>Podgórze</strong>, el barrio situado en la orilla sur del río Vístula, justo enfrente del casco histórico de Cracovia. Hasta 1915 fue una ciudad independiente y todavía conserva un carácter propio, con calles empinadas y menos turísticas que las del centro, además de ser el escenario del antiguo gueto judío durante la Segunda Guerra Mundial (que visitaremos con más detalle en los próximos días). \n\n Es un buen sitio para una primera cena tranquila y asequible, lejos de los precios más turísticos del Rynek, y para hacernos una idea de la ciudad desde la distancia antes de cruzar el río al día siguiente.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_05.JPEG'
+          '/assets/polonia/Cracovia/Dia03/Podgorze_01.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Podgorze_02.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Podgorze_03.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Podgorze_04.JPEG',
+          '/assets/polonia/Cracovia/Dia03/Podgorze_05.JPEG'
         ],
-        longitude: 19.93924,
-        latitude: 50.061551,
-        mapUrl: 'map-day04-act6'
+        longitude: 19.955039,
+        latitude: 50.049768,
+        mapUrl: 'map-day03-act7'
       },
     ]
   }

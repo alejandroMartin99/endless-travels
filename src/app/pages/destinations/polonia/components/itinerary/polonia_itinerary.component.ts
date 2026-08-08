@@ -7,6 +7,7 @@ import { day05Polonia } from './days/Day05';
 import { day06Polonia } from './days/Day06';
 import { day07Polonia } from './days/Day07';
 import { day08Polonia } from './days/Day08';
+import { day09Polonia } from './days/Day09';
 
 @Component({
   selector: 'polonia-itinerary-component',
@@ -30,4 +31,5 @@ export class PoloniaItineraryComponent implements OnChanges {
   public day06Polonia = day06Polonia;
   public day07Polonia = day07Polonia;
   public day08Polonia = day08Polonia;
+  public day09Polonia = day09Polonia;
 }

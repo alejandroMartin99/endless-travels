@@ -11,7 +11,7 @@ export type PoloniaItineraryNavPayload = number | { tab: number; anchor?: string
 export class PoloniaComponent implements OnInit {
   private readonly platformId = inject(PLATFORM_ID);
 
-  selectedTabIndex = 0;
+  selectedTabIndex = 2;
   itineraryFocusSlug: string | null = null;
 
   ngOnInit(): void {

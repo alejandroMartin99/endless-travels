@@ -1,120 +1,118 @@
 export const day07Polonia = {
-  borderClass: 'border-blue',
+  borderClass: 'border-dark-green',
   day: {
-    title: 'Día 07 - Wrocław: llegada, Rynek y la Isla de la Catedral',
+    title: 'Día 07 - Auschwitz-Birkenau: memoria y reflexión',
     activities: [
       {
         name: 'Resumen del día',
-        description: '<strong>Llegamos a Wrocław, la capital de la Baja Silesia, con una historia particularmente compleja entre lo polaco, lo bohemio, lo austriaco, lo prusiano y lo alemán.</strong> Aterrizamos con un free tour por el centro para orientarnos rápido, y después seguimos por nuestra cuenta hasta la Isla de la Catedral y la Universidad. \n\n 📌 <strong>Plan del día:</strong> free tour por el Rynek y sus gnomos, paseo por Ostrów Tumski y su puente de los enamorados, visita al Antiguo Ayuntamiento, y cierre nocturno frente a la Catedral de San Juan Bautista iluminada y el Aula Leopoldina de la universidad. <strong>Una ciudad de puentes, islas y farolas de gas que se enciende una a una al atardecer.</strong>',
+        description: '<strong>Dedicamos el día completo a visitar el Museo Estatal Auschwitz-Birkenau, y lo escribimos con el máximo respeto posible: no es una visita turística al uso, sino un ejercicio necesario de memoria histórica.</strong> Contratamos una excursión organizada con transporte y guía en español desde Cracovia para no complicarnos con horarios ni reservas de última hora, y recorremos tanto Auschwitz I como Birkenau. \n\n 📌 <strong>Plan del día:</strong> excursión guiada de ida y vuelta desde Cracovia, recorrido por los bloques del museo y la puerta "Arbeit Macht Frei" en Auschwitz I, y traslado a Birkenau para ver la Puerta de la Muerte, los barracones y las ruinas de las cámaras de gas. <strong>Llevamos ropa cómoda y discreta, y dedicamos toda la jornada a esto, sin nada más planeado después.</strong>',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Plaza_del_Mercado_Rynek_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_01.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_01.JPEG'
         ],
-        longitude: 17.032342,
-        latitude: 51.109364,
-        mapUrl: 'map-day07-resumen'
+        longitude: 19.204233,
+        latitude: 50.027164,
+        mapUrl: 'map-day06-resumen'
       },
       {
-        name: 'Free tour por Wrocław (Breslavia)',
-        description: '<strong>Horario:</strong> Duración aprox. 2h30.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Empezamos con la <a href="https://www.civitatis.com/es/breslavia/visita-guiada-breslavia/" target="_blank">Visita guiada gratuita por Breslavia</a>, con punto de encuentro en el <strong>Rynek</strong>, la plaza mayor de la ciudad. Es la mejor introducción posible a una ciudad que fue polaca, bohemia, austriaca, prusiana y alemana (con el nombre de Breslau) antes de volver a ser polaca tras la Segunda Guerra Mundial. \n\n El guía nos enseña a localizar los primeros <strong>krasnale</strong> (los famosos gnomos de bronce repartidos por la ciudad), nos explica la historia del Antiguo Ayuntamiento y de la Universidad, y termina el recorrido en <strong>Ostrów Tumski</strong>, el barrio de la catedral y el núcleo original de la ciudad. Reservad plaza con antelación en temporada alta y llevad zlotys en efectivo para la propina final.',
+        name: 'Excursión a Auschwitz-Birkenau desde Cracovia',
+        description: '<strong>Horario:</strong> Duración total aprox. 7h30 (incluye traslados de ida y vuelta desde Cracovia).<br><strong>Precio:</strong> Desde aprox. 63 USD (~55-65 €), según fecha y disponibilidad. Incluye transporte en bus, guía en español y entradas a ambos campos.<br><br>Reservamos la <a href="https://www.civitatis.com/es/cracovia/excursion-auschwitz-birkenau/" target="_blank">Excursión a Auschwitz-Birkenau</a>, con punto de encuentro en <strong>Plaza Matejko, 2</strong>, en el centro de Cracovia. Es, sin duda, la forma más cómoda de visitar el museo: el acceso está muy restringido y en temporada alta las entradas individuales se agotan con semanas de antelación, así que reservar esta excursión con tiempo nos ahorró bastantes dolores de cabeza. \n\n Un consejo importante: hay que llevar el <strong>DNI o pasaporte</strong> con el nombre exacto de la reserva, vestir de forma cómoda y respetuosa (nada de shorts muy cortos ni ropa llamativa) y tener en cuenta que no se permite fotografiar en algunas salas. El bus incluye paradas en ambos campos, Auschwitz I y Birkenau, con guía en español durante todo el recorrido, y tiempo libre limitado al final para procesar lo visto antes de volver a Cracovia.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Plaza_del_Mercado_Rynek_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Plaza_del_Mercado_Rynek_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Stawowa_01.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Auschwitz_I_01.JPEG'
         ],
-        longitude: 17.032,
-        latitude: 51.11,
-        mapUrl: 'map-day07-freetour'
+        longitude: 19.941,
+        latitude: 50.067,
+        mapUrl: 'map-day06-excursion'
       },
       {
-        name: 'Plaza del Mercado (Rynek) de Wrocław',
-        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Nos quedamos un rato más en el <strong>Rynek</strong>, uno de los más grandes de Europa, rodeado de fachadas de colores vivos en estilos gótico, renacentista y barroco, muchas de ellas reconstruidas tras los intensos bombardeos de 1945 (la ciudad fue declarada "fortaleza" por los nazis y resistió un asedio brutal hasta el final de la guerra). \n\n Es la mejor primera toma de contacto posible con la ciudad, y un buen lugar para sentarnos en una terraza y comentar entre nosotros todo lo que el guía nos ha contado durante el free tour.',
+        name: 'Auschwitz I — Puerta "Arbeit Macht Frei" y bloques del museo',
+        description: '<strong>Horario:</strong> Aprox. 7:30 - 19:00 según temporada. Entre las 10:00 y las 15:00 el acceso es obligatoriamente con guía; fuera de esa franja se puede entrar de forma individual.<br><strong>Precio:</strong> Entrada al museo gratuita; visita guiada obligatoria en horario punta, incluida en nuestra excursión (aprox. 15-17 € si se reserva por separado).<br><br>Empezamos el recorrido por <strong>Auschwitz I</strong>, en el emplazamiento del mayor campo de concentración y exterminio nazi, donde entre 1940 y 1945 fueron asesinadas más de 1,1 millones de personas, la gran mayoría judías, además de polacos, romaníes, prisioneros soviéticos y presos políticos. \n\n Pasamos bajo la tristemente célebre puerta de hierro con la inscripción <strong>"Arbeit Macht Frei"</strong> ("el trabajo os hará libres"), la entrada original al campo, construido en 1940 sobre unos antiguos cuarteles del ejército polaco. Es, junto con las vías del tren de Birkenau, probablemente la imagen más reconocida del Holocausto en el imaginario colectivo, y cruzarla en persona suele ser uno de los momentos más impactantes de toda la jornada. En los bloques cercanos se exponen objetos personales de las víctimas —maletas, gafas, zapatos, utensilios de cocina— recuperados tras la liberación del campo por el Ejército Rojo en enero de 1945.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Plaza_del_Mercado_Rynek_03.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Plaza_del_Mercado_Rynek_04.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Plaza_del_Mercado_Rynek_05.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Stawowa_03.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_05.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Auschwitz_I_01.JPEG'
         ],
-        longitude: 17.032342,
-        latitude: 51.109364,
-        mapUrl: 'map-day07-act1'
+        longitude: 19.204233,
+        latitude: 50.027164,
+        mapUrl: 'map-day06-act1'
       },
       {
-        name: 'Ostrów Tumski (Isla de la Catedral)',
-        description: '<strong>Horario:</strong> Barrio de acceso libre 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Caminamos hasta <strong>Ostrów Tumski</strong>, la "Isla de la Catedral", el núcleo original de Wrocław y uno de los asentamientos más antiguos de Polonia, con presencia documentada ya en el siglo X. A pesar del nombre, hoy en realidad ya no es una isla: los brazos del río Oder que la rodeaban se rellenaron parcialmente con el paso de los siglos. \n\n Sus calles empedradas, farolas de gas todavía en funcionamiento (encendidas manualmente cada noche por un farolero) y un conjunto de iglesias góticas de ladrillo rojo crean uno de los ambientes más evocadores de toda Polonia. Es un barrio perfecto para perderse sin prisa, especialmente al atardecer, cuando se encienden las farolas una a una.',
+        name: 'Bloque 11 y muro de las ejecuciones',
+        description: '<strong>Horario:</strong> Incluido en el recorrido guiado del museo.<br><strong>Precio:</strong> Incluido en la visita.<br><br>Entre los distintos bloques del campo, el <strong>Bloque 11</strong> ("el bloque de la muerte") fue utilizado como cárcel interna, con celdas de castigo y de aislamiento en las que se cometieron algunos de los abusos más extremos del campo. Justo al lado se encuentra el <strong>Muro de las Ejecuciones (Muro Negro)</strong>, donde fueron fusilados miles de prisioneros. \n\n Es una de las zonas más duras y a la vez más necesarias de todo el recorrido, y los guías suelen detenerse aquí para dar contexto histórico detallado sobre el funcionamiento interno del campo y los distintos niveles de castigo aplicados a los prisioneros.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_03.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_04.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_05.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Stawowa_04.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_2_05.JPEG'
         ],
-        longitude: 17.04128,
-        latitude: 51.113847,
-        mapUrl: 'map-day07-act2'
+        longitude: 19.204651,
+        latitude: 50.026554,
+        mapUrl: 'map-day06-act2'
       },
       {
-        name: 'Ostrów Tumski — puente de los enamorados',
-        description: '<strong>Horario:</strong> Acceso libre 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Cruzamos uno de los puentes de hierro que conectan Ostrów Tumski con el resto de la ciudad, conocido popularmente como el <strong>Puente de Tumski</strong> o "puente de los enamorados", por la costumbre local de colgar candados con los nombres de las parejas en sus barandillas, siguiendo una tradición muy extendida también en otras ciudades europeas. \n\n Desde aquí se obtienen algunas de las mejores vistas de las torres de la Catedral de San Juan Bautista reflejadas en el río Oder, especialmente bonitas al anochecer cuando se encienden las luces del casco antiguo.',
+        name: 'Crematorio I y sala de la memoria',
+        description: '<strong>Horario:</strong> Incluido en el recorrido guiado del museo.<br><strong>Precio:</strong> Incluido en la visita. Fotografía no permitida en algunas salas.<br><br>Visitamos el <strong>Crematorio I</strong>, el primero construido en Auschwitz, y la <strong>cámara de gas original</strong> anexa, utilizada antes de que el exterminio masivo se trasladara a las instalaciones mucho más grandes de Birkenau, a pocos kilómetros de aquí. \n\n Es una de las zonas donde se pide guardar un silencio absoluto y no está permitido fotografiar, en señal de respeto hacia las víctimas. Los guías suelen detenerse aquí para dar contexto histórico detallado sobre cómo evolucionó la maquinaria de exterminio nazi a lo largo de la guerra.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_2_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_2_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_2_03.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_2_04.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ostrow_Tumski_2_05.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Museo_Auschwitz_Birkenau_3_05.JPEG'
         ],
-        longitude: 17.042787,
-        latitude: 51.114706,
-        mapUrl: 'map-day07-act3'
+        longitude: 19.204627,
+        latitude: 50.027865,
+        mapUrl: 'map-day06-act3'
       },
       {
-        name: 'Antiguo Ayuntamiento de Wrocław',
-        description: '<strong>Horario:</strong> Exterior 24 horas; Museo Histórico de la Ciudad en su interior aprox. 10:00 - 17:00 (cerrado los martes).<br><strong>Precio:</strong> Exterior gratis; museo aprox. 12 PLN (~3 €).<br><br>Volvemos al Rynek para admirar de cerca el <strong>Antiguo Ayuntamiento</strong>, construido entre los siglos XIII y XVI, considerado uno de los ejemplos más destacados de arquitectura gótica civil de toda Europa Central, con una fachada oriental profusamente decorada con esculturas y un reloj astronómico. \n\n Su sótano ha albergado durante siglos la cervecería <strong>Piwnica Świdnicka</strong>, documentada desde 1273 y una de las tabernas más antiguas de Europa que sigue en funcionamiento; un buen sitio para probar una cerveza polaca con historia después de la caminata por el centro.',
+        name: 'Birkenau — Puerta de la Muerte y vías del tren',
+        description: '<strong>Horario:</strong> Incluido en el recorrido guiado; autobús gratuito entre Auschwitz I y Birkenau cada pocos minutos.<br><strong>Precio:</strong> Incluido en la visita.<br><br>Nos trasladamos a <strong>Auschwitz II-Birkenau</strong>, a unos 3 km de distancia, construido en 1941 específicamente como centro de exterminio masivo y mucho más extenso que Auschwitz I (llegó a albergar más de 90.000 prisioneros a la vez). Entramos por la icónica <strong>Puerta de la Muerte</strong>, la garita de ladrillo bajo la cual pasaban las vías del ferrocarril que traían los transportes desde toda Europa ocupada. \n\n Sobre estas mismas vías, los prisioneros eran sometidos a una "selección" inmediata a su llegada: quienes se consideraban aptos para trabajar eran enviados a los barracones, y el resto —ancianos, niños, enfermos— eran conducidos directamente a las cámaras de gas. La inmensidad del terreno, con cientos de cimientos de barracones hasta donde alcanza la vista, transmite la escala del horror mejor que ninguna otra parte del recorrido.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_03.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_04.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_05.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Stawowa_05.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_05.JPEG'
         ],
-        longitude: 17.03368,
-        latitude: 51.113831,
-        mapUrl: 'map-day07-act4'
+        longitude: 19.180148,
+        latitude: 50.035316,
+        mapUrl: 'map-day06-act4'
       },
       {
-        name: 'Catedral de San Juan Bautista y Jardín Botánico (Ostrów Tumski)',
-        description: '<strong>Horario:</strong> Catedral aprox. 9:00 - 14:30 y 15:15 - 17:45 (cerrada durante las misas), torre panorámica con horario más reducido; Jardín Botánico de la Universidad aprox. 8:00 - 18:00 (abril-noviembre).<br><strong>Precio:</strong> Entrada a la catedral gratis, ascenso a la torre aprox. 5 PLN (~1,2 €); Jardín Botánico aprox. 8 PLN (~2 €).<br><br>Regresamos a Ostrów Tumski ya de noche para ver iluminada la <strong>Catedral de San Juan Bautista</strong>, la primera catedral gótica construida en Polonia, con origen en el siglo XIII aunque reconstruida en varias ocasiones tras incendios y, sobre todo, tras los bombardeos de 1945 que la dejaron prácticamente en ruinas. Sus dos torres gemelas, con un pequeño ascensor y mirador panorámico en una de ellas, ofrecen una de las mejores vistas de la ciudad y del meandro del río Oder. \n\n Justo al lado se extiende el <strong>Jardín Botánico de la Universidad de Wrocław</strong>, fundado en 1811, uno de los más antiguos de Polonia, con un pequeño estanque, un invernadero de plantas tropicales y una interesante colección de plantas carnívoras: un rincón muy tranquilo para bajar el ritmo después de un día de caminata por el centro histórico.',
+        name: 'Birkenau — Brzezinka, barracones y ruinas de las cámaras de gas',
+        description: '<strong>Horario:</strong> Incluido en el recorrido guiado del museo.<br><strong>Precio:</strong> Incluido en la visita.<br><br>El campo de Birkenau se construyó sobre el terreno de la aldea polaca de <strong>Brzezinka</strong>, cuyos habitantes fueron expulsados y cuyas casas fueron demolidas para levantar los barracones. Algunos de los barracones de madera y ladrillo originales, destinados a alojar a los prisioneros en condiciones extremas, se conservan hoy como testimonio directo de las condiciones de vida en el campo. \n\n Terminamos el recorrido junto a las <strong>ruinas de los crematorios II y III</strong>, los de mayor capacidad de exterminio de todo el complejo, volados por las SS en noviembre de 1944 en un intento de ocultar pruebas antes de la llegada del ejército soviético. Al final de las vías se encuentra también el <strong>Monumento Internacional a las Víctimas del Fascismo</strong>, inaugurado en 1967 con inscripciones en los idiomas de las principales nacionalidades de las víctimas. Es, sin duda, el punto más sobrecogedor de toda la visita y un buen lugar para tomarnos unos minutos de silencio antes de regresar al autobús.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_03.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_04.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_05.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_2_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_2_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Catedral_de_Wroclaw_Ostrow_Tumski_2_03.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Brzezinka_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Brzezinka_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Brzezinka_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Brzezinka_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Birkenau_Auschwitz_II_2_05.JPEG'
         ],
-        longitude: 17.044067,
-        latitude: 51.114595,
-        mapUrl: 'map-day07-act5'
+        longitude: 19.169164,
+        latitude: 50.03426,
+        mapUrl: 'map-day06-act5'
       },
       {
-        name: 'Universidad de Wrocław — Aula Leopoldina',
-        description: '<strong>Horario:</strong> Aprox. 10:00 - 17:00 (cerrado los domingos y días de exámenes).<br><strong>Precio:</strong> Aprox. 20 PLN (~4,5 €), incluye la Torre Matemática.<br><br>Terminamos el día frente al edificio principal de la <strong>Universidad de Wrocław</strong>, fundada en 1702, cuya joya es el <strong>Aula Leopoldina</strong>, una espectacular sala barroca de actos con techos pintados al fresco, estucos dorados y estatuas alegóricas, considerada una de las salas históricas universitarias más bonitas de Europa. \n\n La entrada combinada permite también subir a la <strong>Torre Matemática</strong>, con otro mirador panorámico sobre los tejados del centro. Es un cierre perfecto para nuestro primer contacto con Wrocław, una ciudad que combina a la perfección historia, universidad y una vida nocturna estudiantil muy animada.',
+        name: 'Regreso a Cracovia — Basílica de Santa María',
+        description: '<strong>Horario:</strong> Lunes-sábado 11:30 - 18:00; domingos desde las 14:00.<br><strong>Precio:</strong> Aprox. 15 PLN (~3,5 €).<br><br>De vuelta en Cracovia, tras una jornada tan intensa emocionalmente, decidimos pasar de nuevo por el <strong>Rynek Główny</strong> y la <strong>Basílica de Santa María</strong> antes de cenar, como una forma de reconectar poco a poco con el bullicio y la vida cotidiana de la ciudad. \n\n Escuchar de nuevo el Hejnał desde la torre de la basílica, rodeados de gente disfrutando de una tarde normal en la plaza, ayuda a cerrar el día con cierta perspectiva: el contraste entre la Cracovia vibrante de hoy y la que sufrió tan de cerca los horrores que hemos visto por la mañana es, quizás, el mejor homenaje posible a quienes no pudieron sobrevivir para contarlo.',
         images: [
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_2_01.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_2_02.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_2_03.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_2_04.JPEG',
-          '/assets/polonia/Wroclaw/Dia07/Ayuntamiento_de_Wroclaw_2_05.JPEG'
+          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_01.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_02.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_03.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_04.JPEG',
+          '/assets/polonia/Cracovia/Dia06/Basilica_de_Santa_Maria_05.JPEG'
         ],
-        longitude: 17.034218,
-        latitude: 51.113078,
-        mapUrl: 'map-day07-act6'
+        longitude: 19.939673,
+        latitude: 50.0609,
+        mapUrl: 'map-day06-act6'
       },
     ]
   }

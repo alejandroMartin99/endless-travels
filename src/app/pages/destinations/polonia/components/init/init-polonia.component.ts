@@ -19,7 +19,7 @@ export class InitPoloniaComponent {
   }
 
   readonly viaje = {
-    duracionDias: 8,
+    duracionDias: 9,
     fechasRecomendadas:
       'Primavera (abril-junio) u otoño (septiembre-octubre): temperaturas suaves, días largos y menos turistas en los grandes monumentos.',
   };
