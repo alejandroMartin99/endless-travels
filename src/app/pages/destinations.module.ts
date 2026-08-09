@@ -35,6 +35,12 @@ import { PoloniaCalendarComponent } from './destinations/polonia/components/itin
 import { InitPoloniaComponent } from './destinations/polonia/components/init/init-polonia.component';
 import { PoloniaRecomendationsComponent } from './destinations/polonia/components/recomendations/polonia_recomendations.component';
 import { PoloniaPriceComponent } from './destinations/polonia/components/price/price.component';
+import { LisboaSintraComponent } from './destinations/lisboasintra/lisboasintra.component';
+import { InitLisboaSintraComponent } from './destinations/lisboasintra/components/init/init-lisboasintra.component';
+import { LisboaRecomendationsComponent } from './destinations/lisboasintra/components/recomendations/lisboa_recomendations.component';
+import { LisboaItineraryComponent } from './destinations/lisboasintra/components/itinerary/lisboa_itinerary.component';
+import { LisboaCalendarComponent } from './destinations/lisboasintra/components/itinerary/calendar/LisboaCalendar.component';
+import { LisboaPriceComponent } from './destinations/lisboasintra/components/price/price.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +48,7 @@ import { PoloniaPriceComponent } from './destinations/polonia/components/price/p
     PragabudapestComponent,
     PoloniaComponent,
     CopenhagueComponent,
+    LisboaSintraComponent,
     LandingComponent,
     RecomendationsComponent,
     TransportRecomendationsComponent,
@@ -68,6 +75,11 @@ import { PoloniaPriceComponent } from './destinations/polonia/components/price/p
     InitPoloniaComponent,
     PoloniaRecomendationsComponent,
     PoloniaPriceComponent,
+    InitLisboaSintraComponent,
+    LisboaRecomendationsComponent,
+    LisboaItineraryComponent,
+    LisboaCalendarComponent,
+    LisboaPriceComponent,
   ],
   imports: [
     CommonModule,

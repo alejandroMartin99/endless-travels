@@ -91,8 +91,10 @@
 
 /* Sección de Destinos */
 .destinations-section {
-  padding: 4rem 2rem;
+  padding: 4rem 1.5rem;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Optimización móvil para destinos */
@@ -114,20 +116,22 @@
   margin-bottom: 1rem;
 }
 
-.destinations-section p {
+.destinations-section > p {
   font-size: 1.1rem;
   color: #666;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 3rem;
   line-height: 1.6;
 }
 
 .destination-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  width: min(1800px, 98vw);
+  max-width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .destination-card {
@@ -138,6 +142,9 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   color: inherit;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
 }
 
 .destination-card:hover {
@@ -147,8 +154,20 @@
 
 .destination-image {
   width: 100%;
-  height: 200px;
+  height: 320px;
   object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .destination-cards {
+    grid-template-columns: repeat(2, 1fr);
+    width: min(1100px, 96vw);
+  }
+
+  .destination-image {
+    height: 260px;
+  }
 }
 
 .destination-info {
@@ -252,13 +271,21 @@
   }
 
   .destination-cards {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
     gap: 1.5rem;
+    align-items: stretch;
   }
 
   .destination-card {
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .destination-image {
+    height: 220px;
   }
 
   .destination-info h3 {
@@ -286,14 +313,12 @@
   }
 
   .destination-cards {
-    flex-direction: column; /* Cambia el diseño a columna */
-    gap: 20px; /* Ajusta el espacio entre tarjetas */
-    align-items: center; /* Centra las tarjetas */
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .destination-card {
-    width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
-/* Tamaño máximo para evitar estiramientos excesivos */
+    width: 100%;
   }
 
   .destination-info h3 {

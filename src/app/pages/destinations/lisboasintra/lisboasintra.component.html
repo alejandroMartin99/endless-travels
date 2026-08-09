@@ -1,0 +1,50 @@
+<div class="sticky-tab-header mobile-tab-style">
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 0"
+    (click)="onTabChanged(0)">
+    <mat-icon class="custom-icon">travel_explore</mat-icon>
+    <span class="custom-tab-text">Inicio</span>
+  </div>
+
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 1"
+    (click)="onTabChanged(1)">
+    <mat-icon class="custom-icon">thumb_up</mat-icon>
+    <span class="custom-tab-text">Recomendaciones</span>
+  </div>
+
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 2"
+    (click)="onTabChanged(2)">
+    <mat-icon class="custom-icon">route</mat-icon>
+    <span class="custom-tab-text">Itinerario</span>
+  </div>
+
+  <div
+    class="custom-tab-label"
+    [class.active]="selectedTabIndex === 3"
+    (click)="onTabChanged(3)">
+    <mat-icon class="custom-icon">euro_symbol</mat-icon>
+    <span class="custom-tab-text">Precio</span>
+  </div>
+</div>
+
+<div class="tab-content">
+  <ng-container [ngSwitch]="selectedTabIndex">
+    <div *ngSwitchCase="0">
+      <init-lisboasintra-component (goToItinerary)="handleGoToItinerary($event)"></init-lisboasintra-component>
+    </div>
+    <div *ngSwitchCase="1">
+      <lisboa-recomendations-component></lisboa-recomendations-component>
+    </div>
+    <div *ngSwitchCase="2">
+      <lisboa-itinerary-component [currentTab]="selectedTabIndex"></lisboa-itinerary-component>
+    </div>
+    <div *ngSwitchCase="3">
+      <lisboa-price-component></lisboa-price-component>
+    </div>
+  </ng-container>
+</div>

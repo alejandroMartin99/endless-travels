@@ -325,7 +325,8 @@
 }
 
 .mobile-dropdown-menu.show {
-  max-height: 300px;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .mobile-dropdown-section {

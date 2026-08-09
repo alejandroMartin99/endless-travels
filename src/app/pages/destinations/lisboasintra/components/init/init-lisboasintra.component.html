@@ -1,0 +1,56 @@
+<div class="landing-container">
+  <section class="hero-section">
+    <div class="hero-image-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Lisboa y Sintra</h1>
+      <p class="hero-subtitle">
+        Luz atlántica, azulejos y el romanticismo del Palacio da Pena entre bosques.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">{{ viaje.duracionDias }}</span>
+          <span class="stat-label">días</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">ciudades</span>
+        </div>
+      </div>
+      <button type="button" class="hero-cta" (click)="goToItinerarySection()">
+        Ver itinerario
+      </button>
+    </div>
+  </section>
+
+  <section class="narrative-intro">
+    <div class="content-wrapper">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h2 class="section-title">¿Por qué Lisboa y Sintra?</h2>
+          <p class="intro-paragraph">
+            Lisboa combina miradores, barrio Alfama, pastelería y un ambiente atlántico único.
+            A poca distancia, Sintra ofrece palacios de cuento, bosques y el Palacio da Pena —
+            una escapada perfecta de día completo o de noche.
+          </p>
+          <p class="intro-paragraph">
+            Esta guía está en construcción: pronto tendrás itinerario día a día, mapas,
+            recomendaciones y precios como en el resto de destinos de Endless Travels.
+          </p>
+          <p class="intro-paragraph">
+            <strong>Mejor época:</strong> {{ viaje.fechasRecomendadas }}
+          </p>
+        </div>
+        <div class="intro-image">
+          <img
+            src="/assets/portugal/landing_card_lisboa_sintra.webp"
+            alt="Palacio da Pena, Sintra"
+            class="responsive-image"
+            loading="lazy"
+          >
+          <div class="image-caption">Sintra: Palacio da Pena</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

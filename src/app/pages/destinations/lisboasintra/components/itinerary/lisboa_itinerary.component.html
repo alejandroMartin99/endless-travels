@@ -1,0 +1,17 @@
+<div class="itinerary-page">
+  <h2 class="itinerary-title">Itinerario Lisboa y Sintra</h2>
+  <p class="itinerary-intro">
+    Estructura lista para ir rellenando día a día. Por ahora solo hay un placeholder del Día 01.
+  </p>
+
+  <lisboa-calendar-component></lisboa-calendar-component>
+
+  <section class="city-block">
+    <h3 class="city-heading">Lisboa</h3>
+    <app-itinerary-day-card
+      [day]="day01Lisboa.day"
+      [borderClass]="day01Lisboa.borderClass"
+      panelId="lisboa-day01">
+    </app-itinerary-day-card>
+  </section>
+</div>

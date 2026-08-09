@@ -1,0 +1,138 @@
+.landing-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.hero-section {
+  position: relative;
+  background-image: url('/assets/portugal/landing_card_lisboa_sintra.webp');
+  background-size: cover;
+  background-position: center;
+  min-height: 70dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(0, 0, 0, 0.55), rgba(26, 35, 126, 0.35));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-divider {
+  width: 2px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.hero-cta {
+  background: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hero-cta:hover {
+  background: #3949ab;
+}
+
+.narrative-intro {
+  padding: 3rem 1.5rem;
+}
+
+.content-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  color: #1a237e;
+  margin-bottom: 1rem;
+}
+
+.intro-paragraph {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.intro-image .responsive-image {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-caption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    min-height: 60dvh;
+  }
+}
