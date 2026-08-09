@@ -1,61 +1,59 @@
 export const day05Polonia = {
   borderClass: 'border-purple',
   day: {
-    title: 'Día 05 - Cracovia: Colina de Wawel, Rynek Główny y Basílica de Santa María',
+    title: 'Día 05 - Cracovia: Colina de Wawel, entorno del castillo y Basílica de Santa María',
     activities: [
       {
         name: 'Resumen del día',
-        description: '<strong>Nuestro primer día completo en Cracovia, la ciudad histórica mejor conservada de Polonia.</strong> Arrancamos con un free tour por el casco antiguo para orientarnos entre la Barbacana, la Puerta de San Florián y el Rynek, y seguimos por nuestra cuenta profundizando en la Lonja de los Paños, la calle Grodzka, la colina real de Wawel y la Basílica de Santa María. \n\n 📌 <strong>Plan del día:</strong> free tour por Stare Miasto, plaza medieval más grande de Europa, mercado textil renacentista, castillo y catedral reales, y cierre frente al retablo gótico más grande del continente. <strong>Cracovia se salvó casi intacta de la guerra, así que hoy caminamos por la Polonia auténtica y original.</strong>',
+        description: '<strong>Día centrado en la Colina de Wawel y su entorno:</strong> free tour por el casco antiguo para situarnos, y luego tiempo en la zona alta del castillo, la calle Grodzka y la Basílica de Santa María. \n\n 📌 <strong>Plan del día:</strong> free tour por Stare Miasto, entorno de Wawel, calle Grodzka, castillo y catedral, Basílica de Santa María y cierre con comida típica. <strong>Cracovia se salvó casi intacta de la guerra: hoy caminamos por la Polonia medieval auténtica.</strong>',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG'
+          '/assets/polonia/Cracovia/Dia04/DJI_0332_Wawel.jpg'
         ],
         longitude: 19.936415,
         latitude: 50.055218,
-        mapUrl: 'map-day04-resumen'
+        mapUrl: 'map-day05-resumen'
       },
       {
         name: 'Free tour por el casco antiguo de Cracovia',
-        description: '<strong>Horario:</strong> Duración aprox. 2h30.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Empezamos el día con el <a href="https://www.civitatis.com/es/cracovia/tour-casco-antiguo/" target="_blank">Free tour por el casco antiguo de Cracovia</a>, con punto de encuentro en la <strong>Plaza Cruz de Katyń (Plac Krzyża Katyńskiego)</strong>. Es la forma más rápida de situarnos en el <strong>Stare Miasto</strong>, la ciudad medieval que, a diferencia de Varsovia, se salvó casi por completo de la destrucción de la Segunda Guerra Mundial. \n\n El recorrido pasa por la <strong>Barbacana</strong>, la mejor conservada de Europa junto con la de Varsovia, la <strong>Puerta de San Florián</strong> —única puerta que sobrevive de las antiguas murallas— y termina en el <strong>Rynek Główny</strong>, la plaza medieval más grande del continente, donde el guía nos explica la leyenda del Hejnał Mariacki y la historia de la Sukiennice. Reservad plaza con antelación en temporada alta y llevad zlotys en efectivo para la propina.',
+        description: '<strong>Horario:</strong> Duración aprox. 2h30.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Empezamos el día con el <a href="https://www.civitatis.com/es/cracovia/tour-casco-antiguo/" target="_blank">Free tour por el casco antiguo de Cracovia</a>, con punto de encuentro en la <strong>Plaza de la Cruz de Katyń (Plac Krzyża Katyńskiego)</strong>. El recorrido arranca junto a las <strong>murallas del Castillo de Wawel</strong>: el guía cuenta la historia del interior del complejo real, el paso de los nazis y cómo el gobernador general Hans Frank se instaló allí y lo usó como residencia durante la ocupación. \n\n Bajamos después por la <strong>rampa</strong> con las chapitas dedicadas a quienes ayudaron a construir y preservar la ciudad, y entramos en el <strong>casco antiguo</strong>: visitamos la <strong>Barbacana</strong>, atravesamos la <strong>Puerta de San Florián</strong> —la entrada tradicional a la ciudad amurallada—, pasamos por la <strong>torre del antiguo ayuntamiento</strong> en el Rynek y cerramos en la <strong>Iglesia de San Pedro y San Pablo</strong>. Reservad plaza con antelación en temporada alta y llevad zlotys en efectivo para la propina.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_02.JPEG',
           '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_02.JPEG'
+          '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_02.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_01.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_02.JPEG'
         ],
         longitude: 19.94,
         latitude: 50.065,
         mapUrl: 'map-day04-freetour'
       },
       {
-        name: 'Plaza del Mercado (Rynek Główny)',
-        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Nos quedamos un rato más en el <strong>Rynek Główny</strong>, la plaza medieval más grande de Europa (200x200 metros aprox.), trazada en 1257 y prácticamente original: Cracovia se salvó casi por completo de la destrucción de la Segunda Guerra Mundial, lo que la convierte en una de las ciudades históricas mejor conservadas del continente. \n\n Alrededor de la plaza se concentran iglesias, palacetes burgueses y decenas de terrazas. Es habitual escuchar cada hora en punto el <strong>Hejnał Mariacki</strong>, la llamada de trompeta desde la torre de la Basílica de Santa María, una tradición que se remonta al siglo XIII y que, según la leyenda, se interrumpe abruptamente en homenaje a un trompetista que fue alcanzado por una flecha tártara mientras avisaba de un ataque.',
+        name: 'Zona alta de Wawel y entorno del castillo',
+        description: '<strong>Horario:</strong> Recinto exterior accesible casi todo el día.<br><strong>Precio:</strong> Exterior gratis.<br><br>Tras el free tour nos quedamos en la <strong>parte alta de la Colina de Wawel</strong>: murallas, vistas sobre el Vístula, patios y el conjunto que rodea el castillo real. Es el corazón histórico de Cracovia —sede del poder polaco durante siglos— y desde aquí se entiende bien la escala del complejo antes de bajar al casco antiguo. \n\n Continuamos después por la <strong>calle Grodzka</strong>, la arteria que une Wawel con el resto de Stare Miasto.',
         images: [
           '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_03.JPEG',
           '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_05.JPEG'
-        ],
-        longitude: 19.937939,
-        latitude: 50.063019,
-        mapUrl: 'map-day04-act1'
-      },
-      {
-        name: 'Lonja de los Paños (Sukiennice)',
-        description: '<strong>Horario:</strong> Planta baja (puestos) 9:00 - 20:00; Galería de Arte Polaco del s. XIX (planta superior) 10:00 - 18:00 (cerrada los lunes).<br><strong>Precio:</strong> Planta baja gratis; galería superior aprox. 13 PLN (~3 €).<br><br>En el centro mismo del Rynek se levanta la <strong>Sukiennice</strong>, la Lonja de los Paños, un mercado textil desde el siglo XIV que hoy alberga decenas de puestos de artesanía, ámbar báltico y recuerdos, bajo sus características arcadas renacentistas rematadas con una crestería a modo de encaje de piedra. \n\n En la planta superior se encuentra una interesante galería de pintura polaca del siglo XIX, perteneciente al Museo Nacional, con obras de Jan Matejko, uno de los pintores históricos más importantes del país. Nuestro consejo es acercarse a los puestos a última hora de la tarde, cuando hay menos gente para regatear con calma un recuerdo en ámbar auténtico.',
-        images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_03.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_05.JPEG',
           '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_05.JPEG'
+          '/assets/polonia/Cracovia/Dia04/IMG_0505.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0508.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0510.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0511.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0530.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0534.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0575.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0645.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0656.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0678.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0748.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0757.JPEG'
         ],
-        longitude: 19.936586,
-        latitude: 50.062769,
-        mapUrl: 'map-day04-act2'
+        longitude: 19.936415,
+        latitude: 50.055218,
+        mapUrl: 'map-day05-wawel-zona'
       },
       {
         name: 'Calle Grodzka',
-        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Descendemos del Rynek hacia la colina de Wawel por la <strong>calle Grodzka</strong>, una de las arterias más antiguas de Cracovia y, junto con la Floriańska, parte de la histórica <strong>Ruta Real</strong> por la que los monarcas polacos desfilaban camino de su coronación. \n\n Flanqueada por iglesias barrocas —entre ellas la de San Pedro y San Pablo, con sus doce estatuas de los apóstoles a modo de valla— y casas burguesas de distintas épocas, es una calle perfecta para pasear sin prisa, con numerosas cafeterías, librerías de viejo y tiendas de artesanía en las que merece la pena detenerse.',
+        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Descendemos desde la zona de Wawel por la <strong>calle Grodzka</strong>, una de las arterias más antiguas de Cracovia y, junto con la Floriańska, parte de la histórica <strong>Ruta Real</strong> por la que los monarcas polacos desfilaban camino de su coronación. \n\n Flanqueada por iglesias barrocas —entre ellas la de San Pedro y San Pablo, con sus doce estatuas de los apóstoles a modo de valla— y casas burguesas de distintas épocas, es una calle perfecta para pasear sin prisa, con numerosas cafeterías, librerías de viejo y tiendas de artesanía en las que merece la pena detenerse.',
         images: [
           '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_01.JPEG',
           '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_02.JPEG',
@@ -109,11 +107,24 @@ export const day05Polonia = {
           '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_02.JPEG',
           '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_03.JPEG',
           '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_05.JPEG'
+          '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_05.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_05.JPEG'
         ],
         longitude: 19.93924,
         latitude: 50.061551,
-        mapUrl: 'map-day04-act6'
+        mapUrl: 'map-day05-act6'
+      },
+      {
+        name: 'Comida en el casco antiguo',
+        description: '<strong>Horario:</strong> Según el local (muchos abren de 11:00 a 22:00).<br><strong>Precio:</strong> Variable; un plato típico suele costar entre 25-50 PLN (~6-12 €).<br><br>Cerramos el día con algo de <strong>comida típica polaca</strong> en el casco antiguo: en torno al Rynek y las calles laterales hay de todo, desde locales de pierogi y żurek hasta terrazas para un descanso corto tras tantas horas de paseo. Es un buen momento para probar lo local sin alejarse del centro.',
+        images: [
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_01.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_02.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_03.JPEG'
+        ],
+        longitude: 19.9375,
+        latitude: 50.0625,
+        mapUrl: 'map-day05-comida'
       },
     ]
   }
