@@ -1,0 +1,43 @@
+<div class="norge-shell">
+  <div class="norge-map-pane">
+    <norge-map
+      [stops]="route.stops"
+      [selectedStopId]="selectedStopId"
+      [routeCoordinates]="routeCoordinates"
+      [dayRouteCoordinates]="dayRouteCoordinates"
+      [dayRouteLegs]="dayRouteLegs"
+      [dayPoints]="dayPoints"
+      [dayLegLabels]="dayLegLabels"
+      [activeSegmentCoordinates]="activeSegmentCoordinates"
+      [activeSegmentMode]="activeSegmentMode"
+      [selectedActivityIndex]="selectedActivityIndex"
+      (stopSelected)="onStopSelected($event)"
+      (dayActivitySelected)="onActivityIndexChange($event)">
+    </norge-map>
+  </div>
+
+  <norge-drawer
+    [title]="route.title"
+    [subtitle]="route.subtitle"
+    [stops]="route.stops"
+    [tips]="route.tips"
+    [costs]="route.costs"
+    [selectedStopId]="selectedStopId"
+    [tab]="drawerTab"
+    [collapsed]="drawerCollapsed"
+    [stopLegs]="stopLegs"
+    [totalDistanceKm]="totalDistanceKm"
+    [totalDurationLabel]="totalDurationLabel"
+    [routeLoading]="routeLoading"
+    [routeError]="routeError"
+    [activityLegs]="activityLegs"
+    [activityLegByFromId]="activityLegByFromId"
+    [activityLegsLoading]="activityLegsLoading"
+    [durationFormatter]="formatDur"
+    [selectedActivityIndex]="selectedActivityIndex"
+    (stopSelected)="onStopSelected($event)"
+    (activitySelected)="onActivityIndexChange($event)"
+    (tabChange)="onTabChange($event)"
+    (collapsedChange)="onCollapsedChange($event)">
+  </norge-drawer>
+</div>

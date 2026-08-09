@@ -1,0 +1,107 @@
+<aside class="norge-drawer" [class.is-collapsed]="collapsed">
+  <button
+    type="button"
+    class="drawer-toggle"
+    (click)="toggleCollapsed()"
+    [attr.aria-expanded]="!collapsed"
+    aria-label="Abrir o cerrar panel">
+    <mat-icon>{{ collapsed ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+  </button>
+
+  <div class="drawer-inner" *ngIf="!collapsed">
+    <header class="drawer-header">
+      <h1>{{ title }}</h1>
+      <p>{{ subtitle }}</p>
+    </header>
+
+    <nav class="drawer-tabs" aria-label="Secciones del viaje">
+      <button type="button" [class.active]="tab === 'ruta'" (click)="setTab('ruta')">Ruta</button>
+      <button type="button" [class.active]="tab === 'tips'" (click)="setTab('tips')">Tips</button>
+      <button type="button" [class.active]="tab === 'costes'" (click)="setTab('costes')">Costes</button>
+    </nav>
+
+    <div class="drawer-body">
+      <!-- Ruta -->
+      <ng-container *ngIf="tab === 'ruta'">
+        <p class="route-meta" *ngIf="routeLoading">Calculando ruta en coche…</p>
+        <p class="route-meta route-meta--error" *ngIf="routeError && !routeLoading">
+          No se pudo calcular la ruta por carreteras. Se muestra línea aproximada.
+        </p>
+        <p class="route-meta" *ngIf="totalDistanceKm != null && !routeLoading">
+          Total conducción: <strong>{{ totalDistanceKm }} km</strong>
+          <span *ngIf="totalDurationLabel"> · {{ totalDurationLabel }}</span>
+        </p>
+
+        <div class="stop-strip" role="list" aria-label="Días del viaje">
+          <ng-container *ngFor="let stop of stops; let i = index; let last = last">
+            <button
+              type="button"
+              class="stop-chip"
+              role="listitem"
+              [class.active]="stop.id === selectedStopId"
+              (click)="selectStop(stop.id)">
+              <span class="stop-index">{{ i + 1 }}</span>
+              <span class="stop-chip-text">
+                <strong>{{ stop.name }}</strong>
+                <small>{{ stop.dayLabel }}</small>
+              </span>
+            </button>
+            <div class="stop-leg" *ngIf="!last && legAfterStop(stop.id) as leg" [title]="leg.fromName + ' → ' + leg.toName">
+              <span class="stop-leg-mode">Coche</span>
+              <span>{{ leg.distanceKm }} km</span>
+              <span>{{ leg.durationLabel }}</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <article class="stop-detail" *ngIf="selectedStop as stop">
+          <p class="route-meta" *ngIf="activityLegsLoading">Calculando ruta del día…</p>
+          <norge-day-itinerary
+            *ngIf="stop.activities?.length"
+            [stopId]="stop.id"
+            [stopName]="stop.name"
+            [stopDayLabel]="stop.dayLabel"
+            [stopSummary]="stop.summary"
+            [stopImages]="stop.images"
+            [activities]="stop.activities"
+            [activityLegByFromId]="activityLegByFromId"
+            [durationFormatter]="durationFormatter"
+            [selectedIndex]="selectedActivityIndex"
+            (activityIndexChange)="onActivityIndex($event)">
+          </norge-day-itinerary>
+        </article>
+        <p class="hint" *ngIf="!selectedStop">Elige un día arriba o en el mapa.</p>
+      </ng-container>
+
+      <!-- Tips -->
+      <ng-container *ngIf="tab === 'tips'">
+        <article class="tip-card" *ngFor="let tip of tips">
+          <h3>{{ tip.title }}</h3>
+          <p>{{ tip.body }}</p>
+        </article>
+      </ng-container>
+
+      <!-- Costes -->
+      <ng-container *ngIf="tab === 'costes'">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Estimación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of costs">
+              <td>
+                <span class="cost-cat">{{ c.category }}</span>
+                {{ c.label }}
+              </td>
+              <td>{{ c.amountHint }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="hint">Cifras placeholder — se actualizarán con el gasto real del viaje.</p>
+      </ng-container>
+    </div>
+  </div>
+</aside>

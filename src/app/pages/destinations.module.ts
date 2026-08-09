@@ -41,6 +41,10 @@ import { LisboaRecomendationsComponent } from './destinations/lisboasintra/compo
 import { LisboaItineraryComponent } from './destinations/lisboasintra/components/itinerary/lisboa_itinerary.component';
 import { LisboaCalendarComponent } from './destinations/lisboasintra/components/itinerary/calendar/LisboaCalendar.component';
 import { LisboaPriceComponent } from './destinations/lisboasintra/components/price/price.component';
+import { NorgeComponent } from './destinations/norge/norge.component';
+import { NorgeMapComponent } from './destinations/norge/components/norge-map.component';
+import { NorgeDrawerComponent } from './destinations/norge/components/norge-drawer.component';
+import { NorgeDayItineraryComponent } from './destinations/norge/components/norge-day-itinerary.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { LisboaPriceComponent } from './destinations/lisboasintra/components/pri
     PoloniaComponent,
     CopenhagueComponent,
     LisboaSintraComponent,
+    NorgeComponent,
+    NorgeMapComponent,
+    NorgeDrawerComponent,
+    NorgeDayItineraryComponent,
     LandingComponent,
     RecomendationsComponent,
     TransportRecomendationsComponent,

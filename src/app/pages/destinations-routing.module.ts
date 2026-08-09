@@ -5,6 +5,7 @@ import { PragabudapestComponent } from './destinations/pragabudapest/pragabudape
 import { CopenhagueComponent } from './destinations/copenhague/copenhague.component';
 import { PoloniaComponent } from './destinations/polonia/polonia.component';
 import { LisboaSintraComponent } from './destinations/lisboasintra/lisboasintra.component';
+import { NorgeComponent } from './destinations/norge/norge.component';
 
 const routes: Routes = [
   { path: 'japan', component: JapanComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'polonia', component: PoloniaComponent },
   { path: 'copenhague', component: CopenhagueComponent },
   { path: 'lisboa-sintra', component: LisboaSintraComponent },
+  { path: 'norge', component: NorgeComponent },
 ];
 
 @NgModule({
