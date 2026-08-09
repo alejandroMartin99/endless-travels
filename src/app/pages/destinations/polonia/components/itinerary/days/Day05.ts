@@ -5,7 +5,7 @@ export const day05Polonia = {
     activities: [
       {
         name: 'Resumen del día',
-        description: '<strong>Día centrado en la Colina de Wawel y su entorno:</strong> free tour por el casco antiguo para situarnos, y luego tiempo en la zona alta del castillo, la calle Grodzka y la Basílica de Santa María. \n\n 📌 <strong>Plan del día:</strong> free tour por Stare Miasto, entorno de Wawel, calle Grodzka, castillo y catedral, Basílica de Santa María y cierre con comida típica. <strong>Cracovia se salvó casi intacta de la guerra: hoy caminamos por la Polonia medieval auténtica.</strong>',
+        description: '<strong>Día centrado en la Colina de Wawel y su entorno:</strong> free tour por el casco antiguo, zona alta del castillo, visita al castillo y la catedral, bajada hacia el centro con las placas de los donantes, Basílica de Santa María y cierre con comida. \n\n 📌 <strong>Plan del día:</strong> free tour, entorno de Wawel, castillo y gruta, catedral, paseo hacia el centro, Basílica y comida típica. <strong>Cracovia se salvó casi intacta de la guerra: hoy caminamos por la Polonia medieval auténtica.</strong>',
         images: [
           '/assets/polonia/Cracovia/Dia04/DJI_0332_Wawel.jpg'
         ],
@@ -17,34 +17,33 @@ export const day05Polonia = {
         name: 'Free tour por el casco antiguo de Cracovia',
         description: '<strong>Horario:</strong> Duración aprox. 2h30.<br><strong>Precio:</strong> Gratis (a base de propina voluntaria al guía).<br><br>Empezamos el día con el <a href="https://www.civitatis.com/es/cracovia/tour-casco-antiguo/" target="_blank">Free tour por el casco antiguo de Cracovia</a>, con punto de encuentro en la <strong>Plaza de la Cruz de Katyń (Plac Krzyża Katyńskiego)</strong>. El recorrido arranca junto a las <strong>murallas del Castillo de Wawel</strong>: el guía cuenta la historia del interior del complejo real, el paso de los nazis y cómo el gobernador general Hans Frank se instaló allí y lo usó como residencia durante la ocupación. \n\n Bajamos después por la <strong>rampa</strong> con las chapitas dedicadas a quienes ayudaron a construir y preservar la ciudad, y entramos en el <strong>casco antiguo</strong>: visitamos la <strong>Barbacana</strong>, atravesamos la <strong>Puerta de San Florián</strong> —la entrada tradicional a la ciudad amurallada—, pasamos por la <strong>torre del antiguo ayuntamiento</strong> en el Rynek y cerramos en la <strong>Iglesia de San Pedro y San Pablo</strong>. Reservad plaza con antelación en temporada alta y llevad zlotys en efectivo para la propina.',
         images: [
+          '/assets/polonia/Cracovia/Dia04/IMG_0505.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0510.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0530.JPEG',
           '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG',
           '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_02.JPEG',
           '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_01.JPEG',
           '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_02.JPEG'
         ],
-        longitude: 19.94,
-        latitude: 50.065,
-        mapUrl: 'map-day04-freetour'
+        longitude: 19.938167,
+        latitude: 50.055039,
+        mapUrl: 'map-day05-freetour'
       },
       {
         name: 'Zona alta de Wawel y entorno del castillo',
-        description: '<strong>Horario:</strong> Recinto exterior accesible casi todo el día.<br><strong>Precio:</strong> Exterior gratis.<br><br>Tras el free tour nos quedamos en la <strong>parte alta de la Colina de Wawel</strong>: murallas, vistas sobre el Vístula, patios y el conjunto que rodea el castillo real. Es el corazón histórico de Cracovia —sede del poder polaco durante siglos— y desde aquí se entiende bien la escala del complejo antes de bajar al casco antiguo. \n\n Continuamos después por la <strong>calle Grodzka</strong>, la arteria que une Wawel con el resto de Stare Miasto.',
+        description: '<strong>Horario:</strong> Recinto exterior accesible casi todo el día.<br><strong>Precio:</strong> Exterior gratis.<br><br>Tras el free tour nos quedamos en la <strong>parte alta de la Colina de Wawel</strong>: murallas, vistas sobre el Vístula, patios y el conjunto que rodea el castillo real. Es el corazón histórico de Cracovia —sede del poder polaco durante siglos— y desde aquí se entiende bien la escala del complejo antes de entrar en el castillo y la catedral.',
         images: [
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_05.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/IMG_0505.JPEG',
-          '/assets/polonia/Cracovia/Dia04/IMG_0508.JPEG',
-          '/assets/polonia/Cracovia/Dia04/IMG_0510.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0511.JPEG',
-          '/assets/polonia/Cracovia/Dia04/IMG_0530.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0508.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_2_04.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_05.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_04.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Plaza_del_Mercado_Rynek_Glowny_03.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0534.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0575.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0645.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0656.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0678.JPEG',
-          '/assets/polonia/Cracovia/Dia04/IMG_0748.JPEG',
           '/assets/polonia/Cracovia/Dia04/IMG_0757.JPEG'
         ],
         longitude: 19.936415,
@@ -52,22 +51,8 @@ export const day05Polonia = {
         mapUrl: 'map-day05-wawel-zona'
       },
       {
-        name: 'Calle Grodzka',
-        description: '<strong>Horario:</strong> Abierta 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Descendemos desde la zona de Wawel por la <strong>calle Grodzka</strong>, una de las arterias más antiguas de Cracovia y, junto con la Floriańska, parte de la histórica <strong>Ruta Real</strong> por la que los monarcas polacos desfilaban camino de su coronación. \n\n Flanqueada por iglesias barrocas —entre ellas la de San Pedro y San Pablo, con sus doce estatuas de los apóstoles a modo de valla— y casas burguesas de distintas épocas, es una calle perfecta para pasear sin prisa, con numerosas cafeterías, librerías de viejo y tiendas de artesanía en las que merece la pena detenerse.',
-        images: [
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_01.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_02.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_03.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_04.JPEG',
-          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_05.JPEG'
-        ],
-        longitude: 19.938212,
-        latitude: 50.056636,
-        mapUrl: 'map-day04-act3'
-      },
-      {
         name: 'Castillo de Wawel y Gruta del Dragón',
-        description: '<strong>Horario:</strong> Recinto exterior aprox. 6:00 - 20:00 (verano); interiores 9:30 - 17:00 (cerrado los lunes en temporada baja); Gruta del Dragón aprox. 10:00 - 17:00, solo de abril a octubre.<br><strong>Precio:</strong> Recinto gratis; interiores (Apartamentos Reales, Tesoro y Armería) entre 15-25 PLN cada uno (~3,5-6 €); Gruta del Dragón aprox. 6 PLN (~1,5 €), pago solo en efectivo.<br><br>Subimos a la <strong>Colina de Wawel</strong>, sede del poder político y espiritual de Polonia durante siglos: aquí vivieron los reyes polacos desde el siglo XI hasta el traslado de la corte a Varsovia en 1596. El castillo actual combina estilos románico, gótico y renacentista, fruto de sucesivas reconstrucciones tras varios incendios. \n\n En la ladera junto al Vístula visitamos también la <strong>Gruta del Dragón</strong>, una cueva natural ligada a la leyenda fundacional de la ciudad: se dice que aquí vivía un dragón que aterrorizaba Cracovia hasta que un zapatero llamado Skuba lo engañó dándole de comer una oveja rellena de azufre. A la salida nos espera una escultura de bronce del dragón que, cada pocos minutos, ¡escupe fuego de verdad! Nuestra recomendación es comprar la entrada a los interiores online con antelación, ya que el número de visitantes diarios está limitado.',
+        description: '<strong>Horario:</strong> Recinto exterior aprox. 6:00 - 20:00 (verano); interiores 9:30 - 17:00 (cerrado los lunes en temporada baja); Gruta del Dragón aprox. 10:00 - 17:00, solo de abril a octubre.<br><strong>Precio:</strong> Recinto gratis; interiores (Apartamentos Reales, Tesoro y Armería) entre 15-25 PLN cada uno (~3,5-6 €); Gruta del Dragón aprox. 6 PLN (~1,5 €), pago solo en efectivo.<br><br>Seguimos en la <strong>Colina de Wawel</strong>, sede del poder político y espiritual de Polonia durante siglos: aquí vivieron los reyes polacos desde el siglo XI hasta el traslado de la corte a Varsovia en 1596. El castillo actual combina estilos románico, gótico y renacentista, fruto de sucesivas reconstrucciones tras varios incendios. \n\n En la ladera junto al Vístula visitamos también la <strong>Gruta del Dragón</strong>, una cueva natural ligada a la leyenda fundacional de la ciudad: se dice que aquí vivía un dragón que aterrorizaba Cracovia hasta que un zapatero llamado Skuba lo engañó dándole de comer una oveja rellena de azufre. A la salida nos espera una escultura de bronce del dragón que, cada pocos minutos, ¡escupe fuego de verdad! Nuestra recomendación es comprar la entrada a los interiores online con antelación, ya que el número de visitantes diarios está limitado.',
         images: [
           '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_01.JPEG',
           '/assets/polonia/Cracovia/Dia04/Castillo_de_Wawel_02.JPEG',
@@ -80,7 +65,7 @@ export const day05Polonia = {
         ],
         longitude: 19.936415,
         latitude: 50.055218,
-        mapUrl: 'map-day04-act4'
+        mapUrl: 'map-day05-castillo'
       },
       {
         name: 'Catedral de Wawel, Campana de Segismundo y Museo',
@@ -96,12 +81,27 @@ export const day05Polonia = {
           '/assets/polonia/Cracovia/Dia04/Catedral_de_Wawel_2_03.JPEG'
         ],
         longitude: 19.935347,
-        latitude: 50.053657,
-        mapUrl: 'map-day04-act5'
+        latitude: 50.0547,
+        mapUrl: 'map-day05-catedral'
+      },
+      {
+        name: 'Paseo hacia el centro: placas de Wawel',
+        description: '<strong>Horario:</strong> Exterior 24 horas.<br><strong>Precio:</strong> Gratis.<br><br>Bajamos de la colina por la <strong>rampa de acceso a Wawel</strong> (hacia Kanonicza / Podzamcze), el muro donde están las <strong>cegiełki wawelskie</strong>: chapitas de piedra con los nombres de familias, instituciones y ciudades que aportaron dinero para restaurar el castillo entre 1921 y 1936. \n\n Es un paseo corto pero muy simbólico: cada placa recuerda a quienes ayudaron a reconstruir y preservar este patrimonio. Desde aquí seguimos hacia el casco antiguo en dirección a la Basílica.',
+        images: [
+          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_01.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_02.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_03.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_04.JPEG',
+          '/assets/polonia/Cracovia/Dia04/Calle_Grodzka_05.JPEG',
+          '/assets/polonia/Cracovia/Dia04/IMG_0748.JPEG'
+        ],
+        longitude: 19.9372,
+        latitude: 50.0554,
+        mapUrl: 'map-day05-paseo-placas'
       },
       {
         name: 'Basílica de Santa María',
-        description: '<strong>Horario:</strong> Lunes-sábado 11:30 - 18:00; domingos desde las 14:00 (entrada por la puerta lateral para turistas, culto por la puerta principal).<br><strong>Precio:</strong> Aprox. 15 PLN (~3,5 €).<br><br>Terminamos el día en la <strong>Basílica de Santa María</strong>, con sus dos torres asimétricas —la más alta, de 81 metros, corresponde a la torre de los vigías desde la que suena el famoso Hejnał cada hora—. Su mayor tesoro es el <strong>retablo gótico de Veit Stoss</strong>, terminado en 1489, considerado la obra de escultura gótica en madera más grande de Europa, con casi 13 metros de altura. \n\n El retablo se abre solo una vez al día, a las 11:50 de la mañana, en un pequeño ritual que reúne a decenas de visitantes frente al altar. Si coincide con nuestra visita, merece la pena esperar esos minutos: el nivel de detalle de las figuras, talladas hace más de 500 años, es sobrecogedor.',
+        description: '<strong>Horario:</strong> Lunes-sábado 11:30 - 18:00; domingos desde las 14:00 (entrada por la puerta lateral para turistas, culto por la puerta principal).<br><strong>Precio:</strong> Aprox. 15 PLN (~3,5 €).<br><br>Antes de cerrar el día con comida, visitamos la <strong>Basílica de Santa María</strong>, con sus dos torres asimétricas —la más alta, de 81 metros, corresponde a la torre de los vigías desde la que suena el famoso Hejnał cada hora—. Su mayor tesoro es el <strong>retablo gótico de Veit Stoss</strong>, terminado en 1489, considerado la obra de escultura gótica en madera más grande de Europa, con casi 13 metros de altura. \n\n El retablo se abre solo una vez al día, a las 11:50 de la mañana, en un pequeño ritual que reúne a decenas de visitantes frente al altar. Si coincide con nuestra visita, merece la pena esperar esos minutos: el nivel de detalle de las figuras, talladas hace más de 500 años, es sobrecogedor.',
         images: [
           '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_01.JPEG',
           '/assets/polonia/Cracovia/Dia04/Basilica_de_Santa_Maria_02.JPEG',
@@ -112,7 +112,7 @@ export const day05Polonia = {
         ],
         longitude: 19.93924,
         latitude: 50.061551,
-        mapUrl: 'map-day05-act6'
+        mapUrl: 'map-day05-basilica'
       },
       {
         name: 'Comida en el casco antiguo',

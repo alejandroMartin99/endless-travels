@@ -1,5 +1,5 @@
 export const day07Polonia = {
-  borderClass: 'border-dark-green',
+  borderClass: 'border-purple',
   day: {
     title: 'Día 07 - Auschwitz-Birkenau: memoria y reflexión',
     activities: [
