@@ -145,37 +145,153 @@
 
 .activity-body {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #444;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #3d4454;
+}
+
+.activity-body ::ng-deep p {
+  margin: 0 0 0.75rem;
+}
+
+.activity-body ::ng-deep p:last-child {
+  margin-bottom: 0;
 }
 
 .activity-body ::ng-deep strong {
   color: #1a237e;
+  font-weight: 700;
 }
 
 .activity-body ::ng-deep em {
   font-style: normal;
   color: #3949ab;
   font-weight: 600;
-  white-space: nowrap;
+}
+
+.activity-body ::ng-deep .day-resumen-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5c6bc0;
+}
+
+.activity-body ::ng-deep .day-resumen-title {
+  margin: 0 0 0.85rem;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: #1a237e;
+  font-weight: 750;
+}
+
+.activity-body ::ng-deep .day-resumen-lead {
+  margin: 0 0 1rem;
+  padding: 0.85rem 0.95rem;
+  border-left: 3px solid #3949ab;
+  background: #eef1fb;
+  border-radius: 0 8px 8px 0;
+  color: #2c3344;
+}
+
+.activity-body ::ng-deep .day-resumen-lead p {
+  margin: 0 0 0.65rem;
+}
+
+.activity-body ::ng-deep .day-resumen-lead p:last-child {
+  margin-bottom: 0;
+}
+
+.activity-body ::ng-deep .day-highlight {
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.75rem;
+  background: #e0f7fa;
+  border-radius: 8px;
+  border: 1px solid #b2ebf2;
+  color: #006064;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.activity-body ::ng-deep .day-highlight strong {
+  color: #00838f;
+}
+
+.activity-body ::ng-deep .day-stages-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #5c6bc0;
+}
+
+.activity-body ::ng-deep .day-stages {
+  margin: 0 0 0.85rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.activity-body ::ng-deep .day-stages li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.55rem;
+  padding: 0.45rem 0.6rem;
+  background: #fff;
+  border: 1px solid #e4e7f2;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.activity-body ::ng-deep .day-stages .stage-num {
+  flex: 0 0 auto;
+  font-weight: 800;
+  color: #1a237e;
+  font-variant-numeric: tabular-nums;
+}
+
+.activity-body ::ng-deep .day-stages .stage-name {
+  flex: 1 1 auto;
+  font-weight: 600;
+  color: #2c3344;
+}
+
+.activity-body ::ng-deep .day-stages .stage-meta {
+  flex: 1 1 100%;
+  font-size: 0.75rem;
+  color: #5c6bc0;
+  font-weight: 600;
+}
+
+.activity-body ::ng-deep .day-resumen-note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #667;
+  line-height: 1.5;
 }
 
 .photo-block {
   position: relative;
   width: 100%;
-  height: min(380px, 52vh);
-  min-height: 240px;
   border-radius: 10px;
   overflow: hidden;
-  background: #dce3f0;
+  background: #e8eaf0;
 }
 
 .photo-block img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
   display: block;
+  vertical-align: top;
 }
 
 .photo-controls {

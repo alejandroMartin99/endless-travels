@@ -6,13 +6,16 @@
       [routeCoordinates]="routeCoordinates"
       [dayRouteCoordinates]="dayRouteCoordinates"
       [dayRouteLegs]="dayRouteLegs"
+      [tripRouteLegs]="tripRouteLegs"
       [dayPoints]="dayPoints"
+      [tripDayPoints]="tripDayPoints"
       [dayLegLabels]="dayLegLabels"
       [activeSegmentCoordinates]="activeSegmentCoordinates"
       [activeSegmentMode]="activeSegmentMode"
       [selectedActivityIndex]="selectedActivityIndex"
       (stopSelected)="onStopSelected($event)"
-      (dayActivitySelected)="onActivityIndexChange($event)">
+      (dayActivitySelected)="onActivityIndexChange($event)"
+      (tripPointSelected)="onTripPointSelected($event)">
     </norge-map>
   </div>
 

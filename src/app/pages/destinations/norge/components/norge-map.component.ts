@@ -27,10 +27,19 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() stops: NorgeStop[] = [];
   @Input() selectedStopId: string | null = null;
   @Input() routeCoordinates: Array<[number, number]> = [];
-  /** Ruta del día (actividades A→B→C) cuando hay parada seleccionada. */
+  /** @deprecated Prefer tripRouteLegs — se mantiene como fallback. */
   @Input() dayRouteCoordinates: Array<[number, number]> = [];
   @Input() dayRouteLegs: Array<{ mode: string; coordinates: Array<[number, number]> }> = [];
+  /** Toda la ruta del viaje; `active` = día seleccionado. */
+  @Input() tripRouteLegs: Array<{
+    stopId: string;
+    mode: string;
+    coordinates: Array<[number, number]>;
+    active: boolean;
+  }> = [];
   @Input() dayPoints: NorgeMapDayPoint[] = [];
+  /** Marcadores de todos los días (gris + activo). */
+  @Input() tripDayPoints: NorgeMapDayPoint[] = [];
   @Input() dayLegLabels: NorgeMapLegLabel[] = [];
   @Input() activeSegmentCoordinates: Array<[number, number]> = [];
   @Input() activeSegmentMode = 'driving';
@@ -38,6 +47,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Output() stopSelected = new EventEmitter<string>();
   /** Índice display (0=Resumen, 1+=actividad real). */
   @Output() dayActivitySelected = new EventEmitter<number>();
+  @Output() tripPointSelected = new EventEmitter<{ stopId: string; activityIndex: number }>();
 
   @ViewChild('mapEl', { static: true }) mapEl!: ElementRef<HTMLDivElement>;
 
@@ -47,6 +57,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   private dayMarkers: mapboxgl.Marker[] = [];
   private legLabelMarkers: mapboxgl.Marker[] = [];
   private ready = false;
+  private didFitTrip = false;
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
@@ -62,6 +73,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
       changes['routeCoordinates'] ||
       changes['dayRouteCoordinates'] ||
       changes['dayRouteLegs'] ||
+      changes['tripRouteLegs'] ||
       changes['activeSegmentCoordinates'] ||
       changes['activeSegmentMode'] ||
       changes['selectedStopId']
@@ -70,20 +82,19 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     }
     if (
       changes['dayPoints'] ||
+      changes['tripDayPoints'] ||
       changes['selectedStopId'] ||
       changes['selectedActivityIndex']
     ) {
       this.renderDayOverlay();
     }
-    if (changes['dayRouteCoordinates'] && this.dayRouteCoordinates.length >= 2) {
-      this.fitDay();
-    } else if (changes['selectedStopId'] && this.selectedStopId) {
+    if (changes['selectedStopId']) {
       this.refreshStopMarkerColors();
-      if (this.dayRouteCoordinates.length >= 2 || this.dayPoints.length >= 2) {
-        this.fitDay();
-      } else {
-        this.flyToStop(this.selectedStopId);
-      }
+    }
+    // Zoom estable: solo encuadre completo la primera vez que hay ruta de viaje
+    if (changes['tripRouteLegs'] && this.tripRouteLegs.length > 0 && !this.didFitTrip) {
+      this.didFitTrip = true;
+      this.fitTrip();
     }
   }
 
@@ -118,7 +129,12 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.updateRouteLine();
       this.renderStopMarkers();
       this.renderDayOverlay();
-      this.fitAll();
+      if (this.tripRouteLegs.length > 0) {
+        this.didFitTrip = true;
+        this.fitTrip();
+      } else {
+        this.fitAll();
+      }
       try {
         this.map?.resize();
       } catch {
@@ -130,29 +146,61 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   private ensureRouteLayer(): void {
     if (!this.map) return;
 
+    const activeColor = [
+      'case',
+      ['!', ['to-boolean', ['get', 'active']]],
+      '#9E9E9E',
+      [
+        'match',
+        ['get', 'mode'],
+        'boat',
+        '#00838F',
+        'train',
+        '#6A1B9A',
+        'bus',
+        '#EF6C00',
+        'lodging',
+        '#2E7D32',
+        '#4285F4',
+      ],
+    ];
+
     if (!this.map.getSource('norge-route')) {
       this.map.addSource('norge-route', {
         type: 'geojson',
         data: { type: 'FeatureCollection', features: [] },
       });
-      // Carretera / bus (sólido)
+      // Casing (blanco / gris claro)
       this.map.addLayer({
-        id: 'norge-route-road-casing',
+        id: 'norge-route-casing',
         type: 'line',
         source: 'norge-route',
-        filter: ['in', ['get', 'mode'], ['literal', ['driving', 'bus', 'lodging']]],
         layout: { 'line-join': 'round', 'line-cap': 'round' },
-        paint: { 'line-color': '#ffffff', 'line-width': 8, 'line-opacity': 0.95 },
+        paint: {
+          'line-color': [
+            'case',
+            ['to-boolean', ['get', 'active']],
+            '#ffffff',
+            '#E0E0E0',
+          ],
+          'line-width': ['case', ['to-boolean', ['get', 'active']], 8, 6],
+          'line-opacity': 0.95,
+        },
       });
+      // Carretera / bus / lodging (sólido)
       this.map.addLayer({
         id: 'norge-route-road',
         type: 'line',
         source: 'norge-route',
         filter: ['in', ['get', 'mode'], ['literal', ['driving', 'bus', 'lodging']]],
         layout: { 'line-join': 'round', 'line-cap': 'round' },
-        paint: { 'line-color': '#4285F4', 'line-width': 5, 'line-opacity': 1 },
+        paint: {
+          'line-color': activeColor as never,
+          'line-width': ['case', ['to-boolean', ['get', 'active']], 5, 3.5],
+          'line-opacity': ['case', ['to-boolean', ['get', 'active']], 1, 0.75],
+        },
       });
-      // Barco (discontinuo, color agua)
+      // Barco (discontinuo)
       this.map.addLayer({
         id: 'norge-route-boat',
         type: 'line',
@@ -160,10 +208,10 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
         filter: ['==', ['get', 'mode'], 'boat'],
         layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
-          'line-color': '#00838F',
-          'line-width': 4,
+          'line-color': activeColor as never,
+          'line-width': ['case', ['to-boolean', ['get', 'active']], 4, 3],
           'line-dasharray': [1.5, 1.2],
-          'line-opacity': 1,
+          'line-opacity': ['case', ['to-boolean', ['get', 'active']], 1, 0.75],
         },
       });
       // Tren (discontinuo)
@@ -174,10 +222,10 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
         filter: ['==', ['get', 'mode'], 'train'],
         layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
-          'line-color': '#6A1B9A',
-          'line-width': 4,
+          'line-color': activeColor as never,
+          'line-width': ['case', ['to-boolean', ['get', 'active']], 4, 3],
           'line-dasharray': [2, 1],
-          'line-opacity': 1,
+          'line-opacity': ['case', ['to-boolean', ['get', 'active']], 1, 0.75],
         },
       });
     }
@@ -217,12 +265,30 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.ensureRouteLayer();
 
     const routeSource = this.map.getSource('norge-route') as mapboxgl.GeoJSONSource | undefined;
-    if (this.dayRouteLegs.length > 0) {
+    if (this.tripRouteLegs.length > 0) {
+      // Inactivos debajo, activos encima (orden en FeatureCollection)
+      const sorted = [
+        ...this.tripRouteLegs.filter(l => !l.active),
+        ...this.tripRouteLegs.filter(l => l.active),
+      ];
+      routeSource?.setData({
+        type: 'FeatureCollection',
+        features: sorted.map(leg => ({
+          type: 'Feature',
+          properties: {
+            mode: leg.mode,
+            active: leg.active,
+            stopId: leg.stopId,
+          },
+          geometry: { type: 'LineString', coordinates: leg.coordinates },
+        })),
+      });
+    } else if (this.dayRouteLegs.length > 0) {
       routeSource?.setData({
         type: 'FeatureCollection',
         features: this.dayRouteLegs.map(leg => ({
           type: 'Feature',
-          properties: { mode: leg.mode },
+          properties: { mode: leg.mode, active: true },
           geometry: { type: 'LineString', coordinates: leg.coordinates },
         })),
       });
@@ -238,7 +304,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
             ? [
                 {
                   type: 'Feature',
-                  properties: { mode: 'driving' },
+                  properties: { mode: 'driving', active: true },
                   geometry: { type: 'LineString', coordinates: coords },
                 },
               ]
@@ -262,7 +328,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.stopMarkers = [];
 
     // Ocultar markers de paradas grandes cuando hay overlay del día
-    if (this.dayPoints.length >= 2) return;
+    if (this.tripDayPoints.length >= 2 || this.dayPoints.length >= 2) return;
 
     this.stops.forEach((stop, index) => {
       const el = document.createElement('button');
@@ -339,7 +405,10 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.map) return;
     this.clearDayOverlay();
 
-    if (this.dayPoints.length < 2) {
+    const points =
+      this.tripDayPoints.length > 0 ? this.tripDayPoints : this.dayPoints.map(p => ({ ...p, active: true }));
+
+    if (points.length < 2) {
       this.renderStopMarkers();
       return;
     }
@@ -347,22 +416,36 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.stopMarkers.forEach(m => m.remove());
     this.stopMarkers = [];
 
-    this.dayPoints.forEach((p, i) => {
+    // Grises primero, activos encima (orden DOM / z de markers Mapbox = orden de add)
+    const ordered = [...points.filter(p => !p.active), ...points.filter(p => p.active)];
+
+    ordered.forEach(p => {
       const title = this.shortTitle(p.name);
       const modeLabel = this.transportLabel(p.arriveBy);
+      const isDayActive = p.active !== false;
+      const pointIdx = p.pointIndex ?? 0;
       const el = document.createElement('button');
       el.type = 'button';
       el.className = 'norge-marker norge-marker--day';
-      if (p.arriveBy) el.classList.add(`mode-${p.arriveBy}`);
-      el.innerHTML = p.arriveBy
-        ? `<span class="norge-marker-num">${p.letter}</span><span class="norge-marker-mode">${this.modeGlyph(p.arriveBy)}</span>`
-        : p.letter;
+      if (!isDayActive) {
+        el.classList.add('is-dimmed');
+      } else if (p.arriveBy) {
+        el.classList.add(`mode-${p.arriveBy}`);
+      }
+      const activePointIdx = this.selectedActivityIndex <= 0 ? 0 : this.selectedActivityIndex - 1;
+      el.innerHTML =
+        isDayActive && p.arriveBy
+          ? `<span class="norge-marker-num">${p.letter}</span><span class="norge-marker-mode">${this.modeGlyph(p.arriveBy)}</span>`
+          : `<span class="norge-marker-num">${p.letter}</span>`;
       el.setAttribute('aria-label', title);
-      if (i === this.selectedActivityIndex - 1) el.classList.add('is-active');
+      if (isDayActive && pointIdx === activePointIdx) el.classList.add('is-active');
+      if (isDayActive && pointIdx === 0) el.classList.add('is-start');
 
       const modeRow = modeLabel
         ? `<div class="norge-popup-mode">${this.escapeHtml(modeLabel)}</div>`
-        : '';
+        : pointIdx === 0
+          ? `<div class="norge-popup-mode">Inicio del día</div>`
+          : '';
 
       const popup = new mapboxgl.Popup({
         offset: 18,
@@ -385,13 +468,18 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
 
       el.addEventListener('click', e => {
         e.stopPropagation();
-        this.dayActivitySelected.emit(i + 1);
+        const activityIndex = pointIdx === 0 ? 0 : pointIdx + 1;
+        if (p.stopId) {
+          this.tripPointSelected.emit({ stopId: p.stopId, activityIndex });
+        } else {
+          this.dayActivitySelected.emit(activityIndex);
+        }
         if (!marker.getPopup()?.isOpen()) {
           marker.togglePopup();
         }
       });
 
-      if (i === this.selectedActivityIndex - 1) {
+      if (isDayActive && pointIdx === activePointIdx) {
         marker.togglePopup();
       }
 
@@ -432,7 +520,16 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     });
   }
 
+  private fitTrip(): void {
+    if (!this.map || this.tripRouteLegs.length === 0) return;
+    const bounds = new mapboxgl.LngLatBounds();
+    this.tripRouteLegs.forEach(leg => leg.coordinates.forEach(c => bounds.extend(c)));
+    if (bounds.isEmpty()) return;
+    this.map.fitBounds(bounds, { padding: 64, maxZoom: 7.5, pitch: 0, bearing: 0, duration: 900 });
+  }
+
   private fitDay(): void {
+    // Conservado por si se necesita; el zoom por día está desactivado a propósito.
     if (!this.map) return;
     const bounds = new mapboxgl.LngLatBounds();
     const line = this.dayRouteCoordinates.length >= 2 ? this.dayRouteCoordinates : null;

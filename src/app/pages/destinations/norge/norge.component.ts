@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { norgeRoute, NorgeStopLegView } from './data/norge-route';
+import { norgeDirectionsCache } from './data/norge-directions-cache';
 import { NorgeDrawerTab } from './components/norge-drawer.component';
 import { NorgeMapComponent } from './components/norge-map.component';
 import { NorgeMapDayPoint, NorgeMapLegLabel } from './components/norge-map.types';
@@ -32,12 +33,23 @@ export class NorgeComponent implements OnInit {
   activityLegByFromId: Record<string, DriveLegStats> = {};
   activityLegsLoading = false;
   dayRouteCoordinates: Array<[number, number]> = [];
-  /** Tramos del día con modo (coche/barco/bus/tren) para pintar distinto. */
   dayRouteLegs: Array<{ mode: string; coordinates: Array<[number, number]> }> = [];
+  tripRouteLegs: Array<{
+    stopId: string;
+    mode: string;
+    coordinates: Array<[number, number]>;
+    active: boolean;
+  }> = [];
+  private dayCache: Record<
+    string,
+    { legs: DriveLegStats[]; coordinates: Array<[number, number]>; points: NorgeMapDayPoint[] }
+  > = {};
   dayPoints: NorgeMapDayPoint[] = [];
+  tripDayPoints: NorgeMapDayPoint[] = [];
   dayLegLabels: NorgeMapLegLabel[] = [];
   activeSegmentCoordinates: Array<[number, number]> = [];
   activeSegmentMode: string = 'driving';
+  private pendingActivityIndex: number | null = null;
 
   @ViewChild(NorgeMapComponent) mapComp?: NorgeMapComponent;
 
@@ -46,20 +58,71 @@ export class NorgeComponent implements OnInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
-      void this.loadMainDrivingRoute();
-      void this.loadActivityLegsForSelected();
+      this.hydrateFromStaticCache();
     }
+  }
+
+  /** Usa rutas precalculadas (sin llamadas a Mapbox en runtime). */
+  private hydrateFromStaticCache(): void {
+    const cache = norgeDirectionsCache;
+    this.routeLoading = false;
+    this.routeError = false;
+    this.activityLegsLoading = false;
+
+    this.routeCoordinates = cache.main.coordinates ?? [];
+    this.totalDistanceKm = cache.main.totalDistanceKm ?? null;
+    this.totalDurationLabel = this.directions.formatDuration(cache.main.totalDurationMin ?? 0);
+    this.stopLegs = cache.main.stopLegs ?? [];
+
+    for (const stop of this.route.stops) {
+      const day = cache.days[stop.id];
+      if (!day) {
+        const dayNum = this.route.stops.findIndex(s => s.id === stop.id) + 1;
+        const points = stop.activities
+          .filter(a => a.longitude != null && a.latitude != null)
+          .map((a, i) => ({
+            letter: `${dayNum}.${i + 1}`,
+            name: a.name,
+            longitude: a.longitude!,
+            latitude: a.latitude!,
+            arriveBy: a.arriveBy,
+          }));
+        this.dayCache[stop.id] = { legs: [], coordinates: [], points };
+        continue;
+      }
+      this.dayCache[stop.id] = {
+        legs: day.legs ?? [],
+        coordinates: day.coordinates ?? [],
+        points: day.points ?? [],
+      };
+    }
+
+    this.rebuildTripRouteLegs();
+    this.applySelectedDayFromCache();
+    setTimeout(() => this.mapComp?.resize(), 80);
   }
 
   onStopSelected(id: string): void {
     this.selectedStopId = id;
-    this.selectedActivityIndex = 0;
+    this.selectedActivityIndex = this.pendingActivityIndex ?? 0;
+    this.pendingActivityIndex = null;
     this.drawerTab = 'ruta';
     if (this.drawerCollapsed) {
       this.drawerCollapsed = false;
       setTimeout(() => this.mapComp?.resize(), 280);
     }
-    void this.loadActivityLegsForSelected();
+    this.applySelectedDayFromCache();
+    this.refreshTripActiveFlags();
+  }
+
+  /** Clic en marcador de otro día: cambia día + actividad. */
+  onTripPointSelected(ev: { stopId: string; activityIndex: number }): void {
+    if (ev.stopId !== this.selectedStopId) {
+      this.pendingActivityIndex = ev.activityIndex;
+      this.onStopSelected(ev.stopId);
+      return;
+    }
+    this.onActivityIndexChange(ev.activityIndex);
   }
 
   onActivityIndexChange(index: number): void {
@@ -89,39 +152,47 @@ export class NorgeComponent implements OnInit {
     setTimeout(() => this.mapComp?.resize(), 280);
   }
 
-  private async loadMainDrivingRoute(): Promise<void> {
-    const coords = this.route.stops.map(
-      s => [s.longitude, s.latitude] as [number, number],
-    );
-    this.routeLoading = true;
-    this.routeError = false;
-    try {
-      const result = await this.directions.fetchDrivingRoute(coords);
-      if (!result) {
-        this.routeError = true;
-        return;
+  private rebuildTripRouteLegs(): void {
+    const legs: typeof this.tripRouteLegs = [];
+    const points: NorgeMapDayPoint[] = [];
+    for (const stop of this.route.stops) {
+      const cached = this.dayCache[stop.id];
+      if (!cached) continue;
+      const active = stop.id === this.selectedStopId;
+      for (const leg of cached.legs) {
+        if ((leg.coordinates?.length ?? 0) < 2) continue;
+        legs.push({
+          stopId: stop.id,
+          mode: leg.mode,
+          coordinates: leg.coordinates!,
+          active,
+        });
       }
-      this.routeCoordinates = result.coordinates;
-      this.totalDistanceKm = result.totalDistanceKm;
-      this.totalDurationLabel = this.directions.formatDuration(result.totalDurationMin);
-      this.stopLegs = result.legs.map((leg, i) => ({
-        fromStopId: this.route.stops[i].id,
-        toStopId: this.route.stops[i + 1].id,
-        fromName: this.route.stops[i].name,
-        toName: this.route.stops[i + 1].name,
-        distanceKm: leg.distanceKm,
-        durationMin: leg.durationMin,
-        durationLabel: this.directions.formatDuration(leg.durationMin),
-      }));
-      setTimeout(() => this.mapComp?.resize(), 100);
-    } catch {
-      this.routeError = true;
-    } finally {
-      this.routeLoading = false;
+      cached.points.forEach((p, i) => {
+        points.push({
+          ...p,
+          stopId: stop.id,
+          active,
+          pointIndex: i,
+        });
+      });
     }
+    this.tripRouteLegs = legs;
+    this.tripDayPoints = points;
   }
 
-  private async loadActivityLegsForSelected(): Promise<void> {
+  private refreshTripActiveFlags(): void {
+    this.tripRouteLegs = this.tripRouteLegs.map(leg => ({
+      ...leg,
+      active: leg.stopId === this.selectedStopId,
+    }));
+    this.tripDayPoints = this.tripDayPoints.map(p => ({
+      ...p,
+      active: p.stopId === this.selectedStopId,
+    }));
+  }
+
+  private applySelectedDayFromCache(): void {
     this.activityLegs = [];
     this.activityLegByFromId = {};
     this.dayRouteCoordinates = [];
@@ -134,52 +205,36 @@ export class NorgeComponent implements OnInit {
     const stop = this.route.stops.find(s => s.id === this.selectedStopId);
     if (!stop) return;
 
-    const withCoords = stop.activities.filter(
-      a => a.longitude != null && a.latitude != null,
-    );
-
-    this.dayPoints = withCoords.map((a, i) => ({
-      letter: String(i + 1),
-      name: a.name,
-      longitude: a.longitude!,
-      latitude: a.latitude!,
-      arriveBy: a.arriveBy,
-    }));
-
-    if (withCoords.length < 2) return;
-
-    this.activityLegsLoading = true;
-    try {
-      const result = await this.directions.fetchActivityChain(
-        withCoords.map(a => ({
-          id: a.id,
+    const cached = this.dayCache[stop.id];
+    if (!cached) {
+      const dayNum = this.route.stops.findIndex(s => s.id === stop.id) + 1;
+      this.dayPoints = stop.activities
+        .filter(a => a.longitude != null && a.latitude != null)
+        .map((a, i) => ({
+          letter: `${dayNum}.${i + 1}`,
+          name: a.name,
           longitude: a.longitude!,
           latitude: a.latitude!,
           arriveBy: a.arriveBy,
-          pathCoordinates: a.pathCoordinates,
-        })),
-      );
-      this.activityLegs = result?.legs ?? [];
-      this.dayRouteCoordinates = result?.coordinates ?? [];
-      this.dayRouteLegs = this.activityLegs
-        .filter(l => (l.coordinates?.length ?? 0) >= 2)
-        .map(l => ({ mode: l.mode, coordinates: l.coordinates! }));
-      const byId: Record<string, DriveLegStats> = {};
-      this.activityLegs.forEach((leg, i) => {
-        byId[withCoords[i].id] = leg;
-      });
-      this.activityLegByFromId = byId;
-      this.updateActiveSegment();
-      setTimeout(() => this.mapComp?.resize(), 80);
-    } catch {
-      this.activityLegs = [];
-      this.activityLegByFromId = {};
-      this.dayRouteCoordinates = [];
-      this.dayRouteLegs = [];
-      this.dayLegLabels = [];
-      this.activeSegmentCoordinates = [];
-    } finally {
-      this.activityLegsLoading = false;
+        }));
+      return;
     }
+
+    this.dayPoints = cached.points;
+    this.activityLegs = cached.legs;
+    this.dayRouteCoordinates = cached.coordinates;
+    this.dayRouteLegs = cached.legs
+      .filter(l => (l.coordinates?.length ?? 0) >= 2)
+      .map(l => ({ mode: l.mode, coordinates: l.coordinates! }));
+
+    const withCoords = stop.activities.filter(
+      a => a.longitude != null && a.latitude != null,
+    );
+    const byId: Record<string, DriveLegStats> = {};
+    this.activityLegs.forEach((leg, i) => {
+      byId[withCoords[i].id] = leg;
+    });
+    this.activityLegByFromId = byId;
+    this.updateActiveSegment();
   }
 }

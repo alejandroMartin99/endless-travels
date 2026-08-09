@@ -79,33 +79,37 @@ export class NorgeDirectionsService {
     const legs: DriveLegStats[] = [];
     let totalDistanceM = 0;
     let totalDurationS = 0;
+    // Fin real del tramo (un path custom puede acabar distinto del marcador, p.ej. Flåmsbana).
+    let at: [number, number] = [points[0].longitude, points[0].latitude];
 
     for (let i = 0; i < points.length - 1; i++) {
-      const from: [number, number] = [points[i].longitude, points[i].latitude];
       const to: [number, number] = [points[i + 1].longitude, points[i + 1].latitude];
       const mode: TravelMode = points[i + 1].arriveBy ?? 'driving';
 
       let leg: DriveLegStats | null = null;
+      let nextAt: [number, number] = to;
       const customPath = points[i + 1].pathCoordinates;
       if (customPath && customPath.length >= 2) {
         leg = this.makePathLeg(customPath, mode);
+        nextAt = customPath[customPath.length - 1];
       } else if (mode === 'boat' || mode === 'train') {
-        leg = this.makeDirectLeg(from, to, mode);
+        leg = this.makeDirectLeg(at, to, mode);
       } else if (token) {
-        // coche, bus y llegada a alojamiento usan carretera
         const roadMode: TravelMode = mode === 'bus' ? 'bus' : 'driving';
-        leg = await this.fetchRoadLeg(from, to, token, roadMode);
+        leg = await this.fetchRoadLeg(at, to, token, roadMode);
         if (leg && mode === 'lodging') {
           leg = { ...leg, mode: 'lodging' };
         }
       } else {
-        leg = this.makeDirectLeg(from, to, mode);
+        leg = this.makeDirectLeg(at, to, mode);
       }
 
       if (!leg) {
-        leg = this.makeDirectLeg(from, to, mode);
+        leg = this.makeDirectLeg(at, to, mode);
+        nextAt = to;
       }
 
+      at = nextAt;
       this.appendGeom(allCoords, leg.coordinates ?? []);
       legs.push(leg);
       totalDistanceM += leg.distanceMeters;

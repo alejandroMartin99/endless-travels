@@ -55,33 +55,46 @@ export class NorgeDayItineraryComponent implements OnChanges {
   }
 
   private rebuildDisplay(): void {
-    const stages = this.activities
+    const dayNum = this.stopDayLabel?.replace(/\D/g, '') || '';
+    const stageItems = this.activities
       .map((a, i) => {
-        const title = `${i + 1}. ${this.shortTitle(a.name)}`;
-        if (i === 0) return title;
+        const num = dayNum ? `${dayNum}.${i + 1}` : `${i + 1}`;
+        const name = this.shortTitle(a.name);
+        if (i === 0) {
+          return `<li><span class="stage-num">${num}</span><span class="stage-name">${name}</span><span class="stage-meta">Inicio del día</span></li>`;
+        }
         const prev = this.activities[i - 1];
         const leg = prev ? this.activityLegByFromId[prev.id] : null;
-        if (!leg) return title;
-        return `${title} <em>(${this.transportLabel(leg.mode)} · ${leg.distanceKm} km · ${this.durationFormatter(leg.durationMin)})</em>`;
+        const meta = leg
+          ? `${this.transportLabel(leg.mode)} · ${leg.distanceKm} km · ${this.durationFormatter(leg.durationMin)}`
+          : 'En ruta';
+        return `<li><span class="stage-num">${num}</span><span class="stage-name">${name}</span><span class="stage-meta">${meta}</span></li>`;
       })
-      .join(' · ');
+      .join('');
+
     const resumen: NorgeActivity = {
       id: `${this.stopId ?? 'stop'}-resumen`,
       name: 'Resumen',
       description:
-        `<p><strong>${this.stopName}</strong>${this.stopDayLabel ? ` · ${this.stopDayLabel}` : ''}</p>` +
-        `<p>${this.stopSummary || ''}</p>` +
-        (stages
-          ? `<p><strong>Etapas del día:</strong> ${stages}.</p>` +
-            `<p>Cada etapa indica el medio y la distancia/tiempo del tramo que llega a ella. ` +
-            `Usa Anterior / Siguiente para abrir el detalle con fotos.</p>`
+        `<p class="day-resumen-kicker">${this.stopDayLabel || 'Itinerario'}</p>` +
+        `<p class="day-resumen-title">${this.stopName}</p>` +
+        (this.stopSummary
+          ? `<div class="day-resumen-lead">${this.stopSummary}</div>`
+          : '') +
+        (stageItems
+          ? `<p class="day-stages-label">Etapas del día</p>` +
+            `<ol class="day-stages">${stageItems}</ol>` +
+            `<p class="day-resumen-note">Navega con Anterior / Siguiente para abrir cada etapa: texto, medio de transporte, distancia y galería fotográfica.</p>`
           : ''),
       images: this.stopImages?.length ? this.stopImages : [],
     };
-    this.displayActivities = [resumen, ...this.activities.map(a => ({
-      ...a,
-      name: this.shortTitle(a.name),
-    }))];
+    this.displayActivities = [
+      resumen,
+      ...this.activities.map(a => ({
+        ...a,
+        name: this.shortTitle(a.name),
+      })),
+    ];
   }
 
   get current(): NorgeActivity | null {

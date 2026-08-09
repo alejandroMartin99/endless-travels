@@ -34,12 +34,13 @@
 
 :host ::ng-deep .norge-marker--day {
   width: auto;
-  min-width: 28px;
+  min-width: 32px;
   height: 28px;
-  padding: 0 5px;
+  padding: 0 6px;
   border-radius: 14px;
-  font-size: 11px;
+  font-size: 10px;
   gap: 3px;
+  white-space: nowrap;
 }
 
 :host ::ng-deep .norge-marker-num {
@@ -128,6 +129,17 @@
   background: #1565C0;
 }
 
-:host ::ng-deep .norge-marker--day.mode-lodging {
-  background: #2E7D32;
+:host ::ng-deep .norge-marker--day.is-start {
+  box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.35);
+}
+
+:host ::ng-deep .norge-marker--day.is-dimmed {
+  background: #9E9E9E;
+  color: #fff;
+  opacity: 0.85;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+:host ::ng-deep .norge-marker--day.is-dimmed.is-active {
+  background: #757575;
 }

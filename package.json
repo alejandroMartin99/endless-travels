@@ -6,6 +6,7 @@
     "postinstall": "node scripts/ensure-env-user.cjs",
     "prebuild": "node scripts/inject-mapbox-token.cjs",
     "start": "ng serve",
+    "norge:directions": "python scripts/fetch-norge-directions-cache.py",
     "build": "npx ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
