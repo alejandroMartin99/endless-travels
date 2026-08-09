@@ -58,6 +58,11 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   private legLabelMarkers: mapboxgl.Marker[] = [];
   private ready = false;
   private didFitTrip = false;
+  /** Máximo alejamiento: road trip + poco mar al oeste. */
+  private readonly tripMaxBounds: [[number, number], [number, number]] = [
+    [3.6, 58.0],
+    [12.8, 63.2],
+  ];
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
@@ -115,7 +120,9 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
       container: this.mapEl.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v12',
       center,
-      zoom: 5,
+      zoom: 5.5,
+      minZoom: 5.2,
+      maxBounds: this.tripMaxBounds,
       pitch: 0,
       bearing: 0,
       antialias: true,
@@ -525,7 +532,22 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     const bounds = new mapboxgl.LngLatBounds();
     this.tripRouteLegs.forEach(leg => leg.coordinates.forEach(c => bounds.extend(c)));
     if (bounds.isEmpty()) return;
-    this.map.fitBounds(bounds, { padding: 64, maxZoom: 7.5, pitch: 0, bearing: 0, duration: 900 });
+    this.map.fitBounds(bounds, {
+      padding: 64,
+      maxZoom: 7.2,
+      pitch: 0,
+      bearing: 0,
+      duration: 900,
+    });
+    this.map.once('moveend', () => this.lockMinZoomToTrip());
+  }
+
+  /** Impide alejarse mucho más allá del encuadre de todos los marcadores. */
+  private lockMinZoomToTrip(): void {
+    if (!this.map) return;
+    const fitted = this.map.getZoom();
+    // Un pelín por debajo del fit para margen, pero sin ver media Europa.
+    this.map.setMinZoom(Math.max(5.0, fitted - 0.35));
   }
 
   private fitDay(): void {
@@ -551,7 +573,14 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     } else {
       this.stops.forEach(s => bounds.extend([s.longitude, s.latitude]));
     }
-    this.map.fitBounds(bounds, { padding: 64, maxZoom: 7, pitch: 0, bearing: 0, duration: 900 });
+    this.map.fitBounds(bounds, {
+      padding: 64,
+      maxZoom: 7,
+      pitch: 0,
+      bearing: 0,
+      duration: 900,
+    });
+    this.map.once('moveend', () => this.lockMinZoomToTrip());
   }
 
   resize(): void {

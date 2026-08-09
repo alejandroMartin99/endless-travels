@@ -69,7 +69,7 @@ export const norgeRoute = {
           id: 'dia01-start-oslo',
           name: 'Salida · Citybox Oslo',
           description:
-            '<p>El viaje comienza en el corazón de Oslo, en el <strong>Citybox</strong> donde pasamos la noche del 15 al 16 de julio. Con el coche cargado y la ciudad aún dormida, la ruta apunta al oeste: kilómetros de valle, montaña y, al final del día, agua.</p>' +
+            '<p>El viaje comienza en el corazón de Oslo, en el <strong>Citybox</strong> (15–16 jul 2022, ~82 €) donde pasamos la noche previa. Con el coche cargado y la ciudad aún dormida, la ruta apunta al oeste: kilómetros de valle, montaña y, al final del día, agua.</p>' +
             '<p>Es el momento de cambiar el ritmo. Dejamos atrás avenidas y tranvías para entrar en la Noruega de carreteras estrechas, peajes AutoPASS y paisajes que se abren sin aviso.</p>' +
             '<p>Desde aquí el mapa dibuja una línea continua hasta Sogndal: cada etapa tiene su propio carácter, y ninguna es “de relleno”.</p>',
           images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
@@ -150,9 +150,9 @@ export const norgeRoute = {
           id: 'dia01-act06-borgund-stavkirke',
           name: 'Borgund stavkirke',
           description:
-            '<p>La <strong>stavkirke de Borgund</strong> es una de las iglesias de madera medievales mejor conservadas de Noruega: tejados superpuestos, dragones tallados y una silueta que parece salida de otra época.</p>' +
-            '<p>Aunque el hilo conductor del viaje sean los fiordos, esta parada conecta con la Noruega profunda —historia, oficio y silencio—. Merece bajarse, rodear el templo y dejar que el entorno haga el resto.</p>' +
-            '<p>Es un contraste perfecto con la carretera: de asfalto a madera, de velocidad a quietud. Una de esas visitas que dan carácter al día.</p>',
+            '<p>La <strong>stavkirke de Borgund</strong> (hacia 1180) es una de las iglesias de madera medievales mejor conservadas de Noruega y el prototipo que todo el mundo imagina: tejados a capas, cabezas de dragón y una silueta casi de cuento.</p>' +
+            '<p>Se construyó como iglesia parroquial en el valle de Lærdal, en la época en que el cristianismo ya estaba asentado pero la tradición constructiva nórdica —madera, ensambles sin clavos modernos, ornamentación animal— seguía viva. Los dragones de los aleros no son “decoración turística”: evocan el arte vikingo tardío y la idea de proteger el edificio, como en las proas de los barcos.</p>' +
+            '<p>Hoy funciona sobre todo como museo (hay una iglesia nueva al lado para el culto). Merece rodearla despacio: el silencio del bosque, el olor a madera y el contraste con la carretera moderna dan contexto al viaje de fiordos.</p>',
           images: [
             '/assets/norge/Dia01/06_borgund-stavkirke/Dia01_06_borgund-stavkirke_01.jpg',
             '/assets/norge/Dia01/06_borgund-stavkirke/Dia01_06_borgund-stavkirke_02.jpg',
@@ -170,7 +170,7 @@ export const norgeRoute = {
           description:
             '<p><strong>Lærdal</strong> es el corredor natural hacia los fiordos del Sogne: río, túneles legendarios y un valle que se estrecha hasta rozar la roca.</p>' +
             '<p>Aquí el día ya “huele” a agua. El paisaje deja de ser solo montaña y anticipa el encuentro con el fiordo.</p>' +
-            '<p>Desde aquí el último empujón del día es hacia Sogndal: mismo coche, un tramo de carretera… y un cruce de fiordo con el vehículo a bordo.</p>',
+            '<p>Desde aquí el último empujón es hasta el alojamiento en Sogndal: mismo coche… y un cruce de fiordo con el vehículo a bordo.</p>',
           images: [
             '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_01.jpg',
             '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_02.jpg',
@@ -183,27 +183,12 @@ export const norgeRoute = {
           arriveBy: 'driving',
         },
         {
-          id: 'dia01-hacia-sogndal',
-          name: 'Lærdal → Sogndal',
-          description:
-            '<p>El tramo final del día une <strong>Lærdal</strong> con <strong>Sogndal</strong> sin cambiar de medio: vamos en coche de punta a punta.</p>' +
-            '<p>En el camino hace falta <strong>cruzar un brazo del Sognefjord</strong>: el coche se sube al ferry (Mannheller–Fodnes), avanza sobre el agua unos minutos y vuelve a rodar al desembarcar. No es un crucero aparte; es la carretera noruega hecha también de barcos.</p>' +
-            '<p>En el mapa este tramo se pinta como conducción porque el protagonista sigue siendo el coche —el ferry es solo el puente flotante entre dos orillas.</p>',
-          images: [
-            '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_03.jpg',
-            '/assets/norge/Dia01/Dia01_portada.jpg',
-          ],
-          longitude: 7.10293,
-          latitude: 61.2285,
-          arriveBy: 'driving',
-        },
-        {
           id: 'dia01-hotel-sogndal',
           name: 'Sogndal Bed & Breakfast',
           description:
             '<p>Llegada al <strong>Sogndal Bed & Breakfast</strong> (16–17 jul 2022, ~81 €), ya en la orilla del mundo de los fiordos.</p>' +
-            '<p>Tras el cruce en ferry y los últimos metros en coche, toca ducha, cena sencilla y la satisfacción de haber atravesado Noruega de este a oeste en una sola jornada.</p>' +
-            '<p>Mañana cambia el registro: glaciar Briksdal, Nordfjord y Stegastein antes de dormir en Flåm.</p>',
+            '<p>El tramo desde Lærdal es todo en coche: en el camino <strong>cruzamos un brazo del Sognefjord</strong> —el coche se sube al ferry (Mannheller–Fodnes), avanza unos minutos sobre el agua y vuelve a rodar al desembarcar. No es un crucero aparte; es la carretera noruega hecha también de barcos.</p>' +
+            '<p>Tras el ferry, ducha, cena sencilla y la satisfacción de haber atravesado Noruega de este a oeste en una sola jornada. Mañana: Briksdal, Nordfjord y Stegastein antes de Flåm.</p>',
           images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
           longitude: 7.10293,
           latitude: 61.23122,
@@ -255,9 +240,9 @@ export const norgeRoute = {
           id: 'dia02-act02-briksdalsbreen',
           name: 'Briksdalsbreen',
           description:
-            '<p>El <strong>Briksdalsbreen</strong>, brazo del enorme Jostedalsbreen, es una de las postales más intensas del Nordfjord: lengua de hielo, cascadas y un valle esculpido durante milenios.</p>' +
-            '<p>La caminata hasta el frente glaciar es el momento fuerte del día. No hace falta ser experto en montaña, pero sí buen calzado, capa impermeable y tiempo para quedarse mirando.</p>' +
-            '<p>Aquí se entiende la escala de Noruega: el ser humano, minúsculo; el hielo, protagonista. Guarda batería en la cámara.</p>',
+            '<p>El <strong>Briksdalsbreen</strong> es una lengua del <strong>Jostedalsbreen</strong>, el glaciar continental más grande de Europa continental: hielo que baja desde la meseta hasta el valle de Briksdal, con cascadas y roca pulida por milenios.</p>' +
+            '<p>Los glaciares de esta zona son restos de la última glaciación; hoy retroceden con el clima más cálido, así que lo que ves no es “paisaje eterno”, sino un frente vivo que cambia de año en año. Por eso la caminata hasta cerca del hielo impresiona tanto: escala, sonido del agua y ese azul turbio típico del hielo comprimido.</p>' +
+            '<p>No hace falta ser montañero, pero sí buen calzado, capa impermeable y tiempo. Respeta las balizas: el frente puede soltar bloques. Guarda batería —aquí las fotos se disparan solas.</p>',
           images: [
             '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_01.jpg',
             '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_02.jpg',
@@ -379,11 +364,11 @@ export const norgeRoute = {
         },
         {
           id: 'dia03-flamsbana',
-          name: 'Myrdal · Flåmsbana',
+          name: 'Flåmsbana',
           description:
-            '<p>El marcador queda en <strong>Myrdal</strong>, donde acaba la subida de la <strong>Flåmsbana</strong>: uno de los trenes turísticos más famosos de Europa, con cremallera, desnivel brutal y cascadas como <strong>Kjosfossen</strong>.</p>' +
-            '<p>Hacemos ida y vuelta el mismo día (el coche espera en Flåm). No es un tren “para llegar”: es el tren como experiencia; en el mapa el 3.5 marca solo la cima, no el embarque.</p>' +
-            '<p>Tras regresar a Flåm recuperamos el coche. Bergen espera al final de una tarde de carretera por la costa oeste.</p>',
+            '<p>La <strong>Flåmsbana</strong> es uno de los trenes turísticos más famosos de Europa: cremallera, desnivel brutal y cascadas como <strong>Kjosfossen</strong> en el camino.</p>' +
+            '<p>Subimos y bajamos el mismo día: el tren te deja otra vez en <strong>Flåm</strong> (donde está el 3.5). No es un tren “para llegar”: es el tren como experiencia.</p>' +
+            '<p>Al bajar recuperamos el coche y, desde aquí, carretera hasta Bergen.</p>',
           images: [
             '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_01.jpg',
             '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_02.jpg',
@@ -391,9 +376,8 @@ export const norgeRoute = {
             '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_04.jpg',
             '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_05.jpg',
           ],
-          // Marcador en Myrdal (final de la subida); el path es ida y vuelta y acaba en Flåm para enlazar el coche a Bergen.
-          longitude: 7.1205,
-          latitude: 60.743,
+          longitude: 7.11318,
+          latitude: 60.86295,
           arriveBy: 'train',
           pathCoordinates: flamsbanaRoundTripPath,
         },
@@ -753,15 +737,40 @@ export const norgeRoute = {
     },
   ] as NorgeTip[],
   costs: [
-    { id: 'rental', category: 'Transporte', label: 'Alquiler de coche', amountHint: '— NOK (por definir)' },
-    { id: 'fuel', category: 'Transporte', label: 'Combustible + peajes', amountHint: '— NOK (por definir)' },
-    { id: 'ferry', category: 'Transporte', label: 'Ferries', amountHint: '— NOK (por definir)' },
-    { id: 'stay-oslo1', category: 'Alojamiento', label: 'Citybox Oslo (15–16)', amountHint: '€ — (noche previa)' },
+    { id: 'flights', category: 'Transporte', label: 'Vuelos (2 personas)', amountHint: '€ 478,70' },
+    { id: 'rental', category: 'Transporte', label: 'Alquiler coche + seguro', amountHint: '€ 310,17' },
+    { id: 'flam-pack', category: 'Transporte', label: 'Bus + crucero + Flåmsbana', amountHint: '€ 275' },
+    {
+      id: 'deposit',
+      category: 'Transporte',
+      label: 'Fianza coche + tasa conductor joven',
+      amountHint: '€ 379,64 (reembolsada)',
+    },
+    { id: 'fuel-sogndal', category: 'Transporte', label: 'Circle K Sogndal (17 jul)', amountHint: '€ 57,52' },
+    { id: 'flytoget', category: 'Transporte', label: 'Flytoget aeropuerto (22 jul)', amountHint: '€ 21,36' },
+    { id: 'stay-oslo1', category: 'Alojamiento', label: 'Citybox Oslo (15–16)', amountHint: '€ 82' },
     { id: 'stay-sogndal', category: 'Alojamiento', label: 'Sogndal B&B (16–17)', amountHint: '€ 81' },
     { id: 'stay-flam', category: 'Alojamiento', label: 'Brekke Gard Flåm (17–18)', amountHint: '€ 100' },
     { id: 'stay-bergen', category: 'Alojamiento', label: 'Citybox Bergen (18–20, 2 noches)', amountHint: '€ 200' },
     { id: 'stay-geilo', category: 'Alojamiento', label: 'Øen Turistsenter Geilo (20–21)', amountHint: '€ 59' },
     { id: 'stay-anker', category: 'Alojamiento', label: 'Anker Hotel Oslo (21–22)', amountHint: '€ 106' },
-    { id: 'food', category: 'Comida', label: 'Comidas y supermercado', amountHint: '— NOK (por definir)' },
+    { id: 'food-super', category: 'Comida', label: 'Supermercado (comida viaje)', amountHint: '€ 50' },
+    { id: 'circlek-16', category: 'Comida', label: 'Circle K (16 jul)', amountHint: '€ 9' },
+    { id: 'jostedal-17', category: 'Comida', label: 'Cafetería zona Jostedal/Briksdal (17 jul)', amountHint: '€ 8,15' },
+    { id: 'flam-18', category: 'Comida', label: 'Flåm (18 jul)', amountHint: '€ 5' },
+    { id: 'bergen-19a', category: 'Comida', label: 'Ostrand Heglén · Bergen (19 jul)', amountHint: '€ 26,67' },
+    { id: 'bergen-19b', category: 'Comida', label: 'Mazkisti AS · Bergen (19 jul)', amountHint: '€ 10,18' },
+    { id: 'sesam-21', category: 'Comida', label: 'Sesam Sesam · Oslo (21 jul)', amountHint: '€ 41' },
+    { id: 'kiwi-21', category: 'Comida', label: 'Kiwi · Oslo (21 jul)', amountHint: '€ 17,30' },
+    { id: 'rema-21', category: 'Comida', label: 'Rema 1000 · Oslo (21 jul)', amountHint: '€ 1,30' },
+    { id: 'fredensborg-21', category: 'Comida', label: 'Fredensborg · Oslo (21 jul)', amountHint: '€ 22,50' },
+    { id: 'waynes-22', category: 'Comida', label: "Wayne's Coffee · Oslo (22 jul)", amountHint: '€ 20,30' },
+    { id: 'illegal-22', category: 'Comida', label: 'Illegal Burger · Oslo (22 jul)', amountHint: '€ 22,74' },
+    { id: 'bk-22', category: 'Comida', label: 'Burger King · Oslo llegada (22 jul)', amountHint: '€ 27,14' },
+    { id: 'locker-22', category: 'Varios', label: 'European Locker (22 jul)', amountHint: '€ 9,24' },
+    { id: 'ali-22', category: 'Varios', label: 'Ali Leaders AS (22 jul)', amountHint: '€ 43,12' },
+    { id: 'misc-22', category: 'Varios', label: 'Gasto (22 jul)', amountHint: '€ 28,59' },
+    { id: 'gifts', category: 'Varios', label: 'Regalos varios', amountHint: '€ 9,50' },
+    { id: 'small', category: 'Varios', label: 'Compras pequeñas', amountHint: '€ 15' },
   ] as NorgeCost[],
 };

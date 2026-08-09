@@ -1,7 +1,7 @@
 /**
  * Rutas precalculadas (Mapbox Directions + polilíneas barco/tren).
  * Regenerar: python scripts/fetch-norge-directions-cache.py
- * Generado: 2026-08-09T18:57:13Z
+ * Generado: 2026-08-09T19:05:09Z
  */
 import { DriveLegStats } from '../services/norge-directions.service';
 import { NorgeMapDayPoint } from '../components/norge-map.types';
@@ -27,7 +27,7 @@ export interface NorgeDirectionsCache {
 }
 
 export const norgeDirectionsCache: NorgeDirectionsCache = {
-  "generatedAt": "2026-08-09T18:57:13Z",
+  "generatedAt": "2026-08-09T19:05:09Z",
   "main": {
     "coordinates": [
       [
@@ -24779,13 +24779,6 @@ export const norgeDirectionsCache: NorgeDirectionsCache = {
         },
         {
           "letter": "1.8",
-          "name": "Lærdal → Sogndal",
-          "longitude": 7.10293,
-          "latitude": 61.2285,
-          "arriveBy": "driving"
-        },
-        {
-          "letter": "1.9",
           "name": "Sogndal Bed & Breakfast",
           "longitude": 7.10293,
           "latitude": 61.23122,
@@ -37904,14 +37897,14 @@ export const norgeDirectionsCache: NorgeDirectionsCache = {
           ]
         },
         {
-          "distanceMeters": 26959.123,
-          "durationSeconds": 2595.504,
-          "distanceKm": 27.0,
-          "durationMin": 43,
-          "mode": "driving",
+          "distanceMeters": 26610.652,
+          "durationSeconds": 2549.299,
+          "distanceKm": 26.6,
+          "durationMin": 42,
+          "mode": "lodging",
           "midLngLat": [
-            7.248268,
-            61.186709
+            7.249872,
+            61.186444
           ],
           "coordinates": [
             [
@@ -38839,57 +38832,16 @@ export const norgeDirectionsCache: NorgeDirectionsCache = {
               61.23235
             ],
             [
-              7.104583,
-              61.231873
+              7.106354,
+              61.231636
             ],
             [
-              7.102764,
-              61.23156
+              7.105252,
+              61.23109
             ],
             [
-              7.100601,
-              61.231196
-            ],
-            [
-              7.100928,
-              61.230474
-            ],
-            [
-              7.102275,
-              61.229591
-            ],
-            [
-              7.102428,
-              61.228955
-            ]
-          ]
-        },
-        {
-          "distanceMeters": 309.617,
-          "durationSeconds": 57.908,
-          "distanceKm": 0.3,
-          "durationMin": 1,
-          "mode": "lodging",
-          "midLngLat": [
-            7.103864,
-            61.23037
-          ],
-          "coordinates": [
-            [
-              7.102428,
-              61.228955
-            ],
-            [
-              7.102715,
-              61.229816
-            ],
-            [
-              7.103864,
-              61.23037
-            ],
-            [
-              7.103421,
-              61.23107
+              7.104234,
+              61.230544
             ],
             [
               7.103437,
@@ -52832,48 +52784,24 @@ export const norgeDirectionsCache: NorgeDirectionsCache = {
           61.23235
         ],
         [
-          7.104583,
-          61.231873
+          7.106354,
+          61.231636
         ],
         [
-          7.102764,
-          61.23156
+          7.105252,
+          61.23109
         ],
         [
-          7.100601,
-          61.231196
-        ],
-        [
-          7.100928,
-          61.230474
-        ],
-        [
-          7.102275,
-          61.229591
-        ],
-        [
-          7.102428,
-          61.228955
-        ],
-        [
-          7.102715,
-          61.229816
-        ],
-        [
-          7.103864,
-          61.23037
-        ],
-        [
-          7.103421,
-          61.23107
+          7.104234,
+          61.230544
         ],
         [
           7.103437,
           61.231084
         ]
       ],
-      "totalDistanceKm": 382.9,
-      "totalDurationMin": 465
+      "totalDistanceKm": 382.3,
+      "totalDurationMin": 463
     },
     "Dia02": {
       "points": [

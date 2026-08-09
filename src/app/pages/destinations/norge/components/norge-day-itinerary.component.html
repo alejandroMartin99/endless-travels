@@ -1,36 +1,54 @@
 <section class="norge-day-itinerary" *ngIf="displayActivities.length && current as activity">
-  <div class="day-nav-bar">
-    <span class="activity-counter">
-      {{ shortTitle(activity.name) }}
-      <small>· {{ currentActivityIndex + 1 }}/{{ displayActivities.length }}</small>
-    </span>
-    <div class="nav-arrows">
+  <article class="activity-panel">
+    <!-- Título a ancho completo + flechas (como itinerary-day-card) -->
+    <header class="activity-header">
       <button type="button" class="nav-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0" aria-label="Anterior">
         <mat-icon>chevron_left</mat-icon>
       </button>
+      <div class="activity-header-main">
+        <h3>{{ shortTitle(activity.name) }}</h3>
+        <small>{{ currentActivityIndex + 1 }} / {{ displayActivities.length }}</small>
+      </div>
       <button type="button" class="nav-btn" (click)="changeActivity(1)" [disabled]="currentActivityIndex === displayActivities.length - 1" aria-label="Siguiente">
         <mat-icon>chevron_right</mat-icon>
       </button>
-    </div>
-  </div>
+    </header>
 
-  <article class="activity-panel">
-    <div class="activity-text">
-      <h3>{{ shortTitle(activity.name) }}</h3>
-
-      <div class="leg-meta" *ngIf="inboundLeg as leg">
-        <span class="transport-chip" [attr.data-mode]="leg.mode">
-          <mat-icon>{{ transportIcon(leg.mode) }}</mat-icon>
-          <span class="transport-chip-text">
-            <strong>{{ transportLabel(leg.mode) }}</strong>
-            <small *ngIf="inboundLegLabel as label">{{ label }}</small>
-          </span>
+    <div class="leg-meta" *ngIf="inboundLeg as leg">
+      <span class="transport-chip" [attr.data-mode]="leg.mode">
+        <mat-icon>{{ transportIcon(leg.mode) }}</mat-icon>
+        <span class="transport-chip-text">
+          <strong>{{ transportLabel(leg.mode) }}</strong>
+          <small *ngIf="inboundLegLabel as label">{{ label }}</small>
         </span>
-      </div>
-
-      <div class="activity-body" [innerHTML]="activity.description"></div>
+      </span>
     </div>
 
+    <div class="activity-body" [innerHTML]="activity.description"></div>
+
+    <!-- Bullets debajo de la descripción -->
+    <div class="activity-navigation" role="tablist" aria-label="Etapas del día">
+      <button
+        type="button"
+        class="activity-indicator"
+        *ngFor="let a of displayActivities; let i = index"
+        [class.active]="i === currentActivityIndex"
+        [attr.aria-label]="shortTitle(a.name)"
+        [attr.aria-current]="i === currentActivityIndex ? 'step' : null"
+        (click)="selectActivity(i)">
+      </button>
+    </div>
+
+    <div class="carousel-control">
+      <button type="button" class="text-nav-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
+        Anterior
+      </button>
+      <button type="button" class="text-nav-btn" (click)="changeActivity(1)" [disabled]="currentActivityIndex === displayActivities.length - 1">
+        Siguiente
+      </button>
+    </div>
+
+    <!-- Foto abajo, marco fijo, contain + fondo blanco -->
     <div class="photo-block" *ngIf="images.length">
       <img [src]="images[currentImageIndex]" [alt]="activity.name" />
       <div class="photo-controls" *ngIf="images.length > 1">

@@ -83,11 +83,59 @@
 
       <!-- Costes -->
       <ng-container *ngIf="tab === 'costes'">
+        <div class="cost-overview" *ngIf="costCategoryBars.length">
+          <div class="cost-total">
+            <span class="cost-total-label">Total viaje</span>
+            <strong class="cost-total-value">{{ formatEuro(costTotal) }}</strong>
+            <small>Sin fianzas reembolsadas</small>
+          </div>
+
+          <div class="cost-charts">
+            <div class="cost-donut-wrap">
+              <svg class="cost-donut" viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="cost-donut-track" cx="50" cy="50" r="42" />
+                <circle
+                  *ngFor="let s of costDonutSegments"
+                  class="cost-donut-seg"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  [attr.stroke]="s.color"
+                  [attr.stroke-dasharray]="s.dash"
+                  [attr.stroke-dashoffset]="s.offset"
+                />
+              </svg>
+              <div class="cost-donut-center">
+                <span>{{ costCategoryBars.length }}</span>
+                <small>categorías</small>
+              </div>
+            </div>
+
+            <div class="cost-bars">
+              <div class="cost-bar-row" *ngFor="let b of costCategoryBars">
+                <div class="cost-bar-head">
+                  <span class="cost-bar-dot" [style.background]="b.color"></span>
+                  <span class="cost-bar-name">{{ b.category }}</span>
+                  <span class="cost-bar-amt">{{ formatEuro(b.amount) }}</span>
+                  <span class="cost-bar-pct">{{ b.pct }}%</span>
+                </div>
+                <div class="cost-bar-track">
+                  <div
+                    class="cost-bar-fill"
+                    [style.width.%]="b.pct"
+                    [style.background]="b.color"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <table class="cost-table">
           <thead>
             <tr>
               <th>Concepto</th>
-              <th>Estimación</th>
+              <th>Importe</th>
             </tr>
           </thead>
           <tbody>
@@ -100,7 +148,9 @@
             </tr>
           </tbody>
         </table>
-        <p class="hint">Cifras placeholder — se actualizarán con el gasto real del viaje.</p>
+        <p class="hint">
+          Gráficas por categoría a partir del gasto real. La fianza del coche no suma al total (reembolsada).
+        </p>
       </ng-container>
     </div>
   </div>

@@ -96,12 +96,33 @@
 
 .drawer-body {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  padding: 0 1rem 1.5rem;
+  padding: 0 1rem 1rem;
   -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+}
+
+.stop-detail {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.stop-detail norge-day-itinerary {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .stop-strip {
+  flex: 0 0 auto;
   display: flex;
   align-items: stretch;
   gap: 0;
@@ -235,11 +256,6 @@
   color: #5c6bc0;
 }
 
-.stop-detail {
-  border-top: 1px solid #e0e0e0;
-  padding-top: 1rem;
-}
-
 .stop-detail h2 {
   margin: 0 0 0.25rem;
   color: #1a237e;
@@ -296,6 +312,159 @@
   line-height: 1.5;
 }
 
+.cost-overview {
+  margin-bottom: 1rem;
+}
+
+.cost-total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.75rem 0.85rem;
+  margin-bottom: 0.85rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  color: #fff;
+}
+
+.cost-total-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.cost-total-value {
+  font-size: 1.45rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.cost-total small {
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.cost-charts {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.cost-donut-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+}
+
+.cost-donut {
+  width: 110px;
+  height: 110px;
+  transform: rotate(-90deg);
+}
+
+.cost-donut-track {
+  fill: none;
+  stroke: #e8eaf0;
+  stroke-width: 12;
+}
+
+.cost-donut-seg {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: butt;
+}
+
+.cost-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #1a237e;
+}
+
+.cost-donut-center span {
+  font-size: 1.15rem;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.cost-donut-center small {
+  font-size: 0.62rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.cost-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.cost-bar-row {
+  min-width: 0;
+}
+
+.cost-bar-head {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.78rem;
+}
+
+.cost-bar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cost-bar-name {
+  font-weight: 650;
+  color: #2c3344;
+  flex: 1;
+  min-width: 0;
+}
+
+.cost-bar-amt {
+  font-weight: 700;
+  color: #1a237e;
+  font-variant-numeric: tabular-nums;
+}
+
+.cost-bar-pct {
+  color: #7a8499;
+  font-size: 0.72rem;
+  font-weight: 600;
+  min-width: 2.4rem;
+  text-align: right;
+}
+
+.cost-bar-track {
+  height: 7px;
+  border-radius: 999px;
+  background: #e8eaf0;
+  overflow: hidden;
+}
+
+.cost-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  min-width: 2px;
+  transition: width 0.35s ease;
+}
+
 .cost-table {
   width: 100%;
   border-collapse: collapse;
@@ -329,6 +498,13 @@
   font-size: 0.8rem;
   color: #888;
   line-height: 1.4;
+}
+
+@media (max-width: 420px) {
+  .cost-charts {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
 
 @media (max-width: 768px) {

@@ -82,9 +82,10 @@ export class NorgeDayItineraryComponent implements OnChanges {
           ? `<div class="day-resumen-lead">${this.stopSummary}</div>`
           : '') +
         (stageItems
-          ? `<p class="day-stages-label">Etapas del día</p>` +
+          ? `<details class="day-stages-spoiler">` +
+            `<summary>Etapas del día <span class="day-stages-count">(${this.activities.length})</span></summary>` +
             `<ol class="day-stages">${stageItems}</ol>` +
-            `<p class="day-resumen-note">Navega con Anterior / Siguiente para abrir cada etapa: texto, medio de transporte, distancia y galería fotográfica.</p>`
+            `</details>`
           : ''),
       images: this.stopImages?.length ? this.stopImages : [],
     };
