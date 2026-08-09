@@ -312,38 +312,54 @@
   line-height: 1.5;
 }
 
-.cost-overview {
-  margin-bottom: 1rem;
+.cost-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
 }
 
-.cost-total {
+.cost-summary-card {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   padding: 0.75rem 0.85rem;
-  margin-bottom: 0.85rem;
   border-radius: 10px;
   background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
   color: #fff;
 }
 
-.cost-total-label {
-  font-size: 0.7rem;
+.cost-summary-card.muted {
+  background: #eef1fb;
+  color: #1a237e;
+}
+
+.cost-summary-label {
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   opacity: 0.85;
 }
 
-.cost-total-value {
-  font-size: 1.45rem;
+.cost-summary-value {
+  font-size: 1.35rem;
   font-weight: 750;
-  line-height: 1.2;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
 }
 
-.cost-total small {
-  font-size: 0.72rem;
-  opacity: 0.8;
+.cost-section {
+  margin-bottom: 1.25rem;
+}
+
+.cost-heading {
+  margin: 0 0 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #3949ab;
 }
 
 .cost-charts {
@@ -390,9 +406,10 @@
 }
 
 .cost-donut-center span {
-  font-size: 1.15rem;
+  font-size: 0.82rem;
   font-weight: 750;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .cost-donut-center small {
@@ -465,32 +482,155 @@
   transition: width 0.35s ease;
 }
 
-.cost-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
+/* —— Gastos más importantes —— */
+.cost-top {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
-.cost-table th,
-.cost-table td {
-  text-align: left;
-  padding: 0.55rem 0.35rem;
-  border-bottom: 1px solid #eee;
-  vertical-align: top;
+.cost-top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
 }
 
-.cost-table th {
-  color: #1a237e;
+.cost-top-rank {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #eef1fb;
+  color: #3949ab;
   font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
 }
 
-.cost-cat {
-  display: block;
-  font-size: 0.7rem;
-  color: #888;
-  margin-bottom: 2px;
+.cost-top-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.cost-top-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.28rem;
+}
+
+.cost-top-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: #2c3344;
+}
+
+.cost-top-amt {
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: #1a237e;
+  font-variant-numeric: tabular-nums;
+}
+
+.cost-top-track {
+  height: 6px;
+  border-radius: 999px;
+  background: #eef1fb;
+  overflow: hidden;
+}
+
+.cost-top-fill {
+  height: 100%;
+  border-radius: 999px;
+  min-width: 2px;
+  transition: width 0.35s ease;
+}
+
+.cost-top-cat {
+  display: inline-block;
+  margin-top: 0.22rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* —— Sub-pestañas por categoría —— */
+.cost-cat-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.cost-cat-tab {
+  border: 1px solid #dfe3f3;
+  background: #fff;
+  color: #5c6bc0;
+  font-size: 0.76rem;
+  font-weight: 650;
+  padding: 4px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.cost-cat-tab:hover {
+  border-color: var(--cat-color, #3949ab);
+}
+
+.cost-cat-tab.active {
+  background: var(--cat-color, #3949ab);
+  border-color: var(--cat-color, #3949ab);
+  color: #fff;
+}
+
+/* —— Listado de gastos —— */
+.cost-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cost-list-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.15rem;
+  border-bottom: 1px solid #eef1f6;
+  font-size: 0.86rem;
+}
+
+.cost-list-row:last-child {
+  border-bottom: none;
+}
+
+.cost-list-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cost-list-name {
+  flex: 1;
+  min-width: 0;
+  color: #2c3344;
+}
+
+.cost-list-amt {
+  font-weight: 700;
+  color: #1a237e;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .hint {

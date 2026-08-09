@@ -130,9 +130,9 @@ export class NorgeComponent implements OnInit {
     this.updateActiveSegment();
   }
 
-  /** index 0 = Resumen; a partir de 1 son actividades reales. */
+  /** index 0 = salida (resumen+primera actividad); a partir de 1, tramos con leg. */
   private updateActiveSegment(): void {
-    const realIdx = this.selectedActivityIndex - 1;
+    const realIdx = this.selectedActivityIndex;
     if (realIdx <= 0) {
       this.activeSegmentCoordinates = [];
       this.activeSegmentMode = 'driving';

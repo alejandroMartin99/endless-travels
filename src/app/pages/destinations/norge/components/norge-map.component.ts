@@ -386,28 +386,6 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
       .replace(/"/g, '&quot;');
   }
 
-  private transportIcon(mode?: string): string {
-    // Etiqueta corta para popup HTML (sin depender de Material Icons en el mapa).
-    return this.transportLabel(mode);
-  }
-
-  private transportLabel(mode?: string): string {
-    switch (mode) {
-      case 'boat':
-        return 'Barco';
-      case 'bus':
-        return 'Bus';
-      case 'train':
-        return 'Tren';
-      case 'driving':
-        return 'Coche';
-      case 'lodging':
-        return 'Alojamiento';
-      default:
-        return '';
-    }
-  }
-
   private renderDayOverlay(): void {
     if (!this.map) return;
     this.clearDayOverlay();
@@ -428,7 +406,6 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     ordered.forEach(p => {
       const title = this.shortTitle(p.name);
-      const modeLabel = this.transportLabel(p.arriveBy);
       const isDayActive = p.active !== false;
       const pointIdx = p.pointIndex ?? 0;
       const el = document.createElement('button');
@@ -439,7 +416,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
       } else if (p.arriveBy) {
         el.classList.add(`mode-${p.arriveBy}`);
       }
-      const activePointIdx = this.selectedActivityIndex <= 0 ? 0 : this.selectedActivityIndex - 1;
+      const activePointIdx = Math.max(this.selectedActivityIndex, 0);
       el.innerHTML =
         isDayActive && p.arriveBy
           ? `<span class="norge-marker-num">${p.letter}</span><span class="norge-marker-mode">${this.modeGlyph(p.arriveBy)}</span>`
@@ -448,47 +425,19 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
       if (isDayActive && pointIdx === activePointIdx) el.classList.add('is-active');
       if (isDayActive && pointIdx === 0) el.classList.add('is-start');
 
-      const modeRow = modeLabel
-        ? `<div class="norge-popup-mode">${this.escapeHtml(modeLabel)}</div>`
-        : pointIdx === 0
-          ? `<div class="norge-popup-mode">Inicio del día</div>`
-          : '';
-
-      const popup = new mapboxgl.Popup({
-        offset: 18,
-        closeButton: false,
-        closeOnClick: false,
-        className: 'norge-day-popup',
-      }).setHTML(
-        `<div class="norge-popup-card">` +
-          `<span class="norge-popup-num">${this.escapeHtml(p.letter)}</span>` +
-          `<div class="norge-popup-body">` +
-          `<span class="norge-popup-title">${this.escapeHtml(title)}</span>` +
-          modeRow +
-          `</div></div>`,
-      );
-
       const marker = new mapboxgl.Marker({ element: el })
         .setLngLat([p.longitude, p.latitude])
-        .setPopup(popup)
         .addTo(this.map!);
 
       el.addEventListener('click', e => {
         e.stopPropagation();
-        const activityIndex = pointIdx === 0 ? 0 : pointIdx + 1;
+        const activityIndex = pointIdx;
         if (p.stopId) {
           this.tripPointSelected.emit({ stopId: p.stopId, activityIndex });
         } else {
           this.dayActivitySelected.emit(activityIndex);
         }
-        if (!marker.getPopup()?.isOpen()) {
-          marker.togglePopup();
-        }
       });
-
-      if (isDayActive && pointIdx === activePointIdx) {
-        marker.togglePopup();
-      }
 
       this.dayMarkers.push(marker);
     });

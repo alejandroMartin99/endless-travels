@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { NorgeActivity } from '../data/norge-route';
 import { DriveLegStats } from '../services/norge-directions.service';
 
@@ -24,6 +24,9 @@ export class NorgeDayItineraryComponent implements OnChanges {
   currentActivityIndex = 0;
   currentImageIndex = 0;
   displayActivities: NorgeActivity[] = [];
+
+  lightboxOpen = false;
+  lightboxIndex = 0;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (
@@ -55,43 +58,34 @@ export class NorgeDayItineraryComponent implements OnChanges {
   }
 
   private rebuildDisplay(): void {
-    const dayNum = this.stopDayLabel?.replace(/\D/g, '') || '';
-    const stageItems = this.activities
-      .map((a, i) => {
-        const num = dayNum ? `${dayNum}.${i + 1}` : `${i + 1}`;
-        const name = this.shortTitle(a.name);
-        if (i === 0) {
-          return `<li><span class="stage-num">${num}</span><span class="stage-name">${name}</span><span class="stage-meta">Inicio del día</span></li>`;
-        }
-        const prev = this.activities[i - 1];
-        const leg = prev ? this.activityLegByFromId[prev.id] : null;
-        const meta = leg
-          ? `${this.transportLabel(leg.mode)} · ${leg.distanceKm} km · ${this.durationFormatter(leg.durationMin)}`
-          : 'En ruta';
-        return `<li><span class="stage-num">${num}</span><span class="stage-name">${name}</span><span class="stage-meta">${meta}</span></li>`;
-      })
-      .join('');
+    const lead = this.stopSummary
+      ? `<div class="day-resumen-lead">${this.stopSummary}</div>`
+      : '';
 
-    const resumen: NorgeActivity = {
-      id: `${this.stopId ?? 'stop'}-resumen`,
-      name: 'Resumen',
-      description:
-        `<p class="day-resumen-kicker">${this.stopDayLabel || 'Itinerario'}</p>` +
-        `<p class="day-resumen-title">${this.stopName}</p>` +
-        (this.stopSummary
-          ? `<div class="day-resumen-lead">${this.stopSummary}</div>`
-          : '') +
-        (stageItems
-          ? `<details class="day-stages-spoiler">` +
-            `<summary>Etapas del día <span class="day-stages-count">(${this.activities.length})</span></summary>` +
-            `<ol class="day-stages">${stageItems}</ol>` +
-            `</details>`
-          : ''),
-      images: this.stopImages?.length ? this.stopImages : [],
+    if (!this.activities.length) {
+      this.displayActivities = [
+        {
+          id: `${this.stopId ?? 'stop'}-resumen`,
+          name: 'Resumen',
+          description: lead,
+          images: this.stopImages ?? [],
+        },
+      ];
+      return;
+    }
+
+    // Fusiona el resumen del día con la primera actividad (salida): un único ítem/marcador.
+    const first = this.activities[0];
+    const merged: NorgeActivity = {
+      ...first,
+      name: this.shortTitle(first.name),
+      description: lead + (first.description ?? ''),
+      images: [...(this.stopImages ?? []), ...(first.images ?? [])],
     };
+
     this.displayActivities = [
-      resumen,
-      ...this.activities.map(a => ({
+      merged,
+      ...this.activities.slice(1).map(a => ({
         ...a,
         name: this.shortTitle(a.name),
       })),
@@ -102,13 +96,34 @@ export class NorgeDayItineraryComponent implements OnChanges {
     return this.displayActivities[this.currentActivityIndex] ?? null;
   }
 
+  /** Título del encabezado: en el resumen usa el nombre del día (no "Resumen"). */
+  get headerTitle(): string {
+    if (this.currentActivityIndex === 0) return this.stopName;
+    return this.shortTitle(this.current?.name ?? '');
+  }
+
   get images(): string[] {
     return this.current?.images?.length ? this.current.images : [];
   }
 
-  /** Índice en activities reales (-1 = resumen). */
+  /** Imágenes que se muestran en el mosaico (máx. 4). */
+  get galleryImages(): string[] {
+    return this.images.slice(0, 4);
+  }
+
+  /** Nº de imágenes ocultas más allá de las 4 visibles. */
+  get galleryExtra(): number {
+    return Math.max(0, this.images.length - 4);
+  }
+
+  /** Clase de layout del mosaico según el nº de imágenes visibles. */
+  get galleryLayout(): string {
+    return `gallery-${Math.min(this.galleryImages.length, 4)}`;
+  }
+
+  /** Índice en activities reales (0 = salida/resumen fusionados). */
   get realActivityIndex(): number {
-    return this.currentActivityIndex - 1;
+    return this.currentActivityIndex;
   }
 
   get inboundLeg(): DriveLegStats | null {
@@ -175,5 +190,29 @@ export class NorgeDayItineraryComponent implements OnChanges {
     const next = this.currentImageIndex + delta;
     if (next < 0 || next >= this.images.length) return;
     this.currentImageIndex = next;
+  }
+
+  openLightbox(index: number): void {
+    if (!this.images.length) return;
+    this.lightboxIndex = Math.min(Math.max(index, 0), this.images.length - 1);
+    this.lightboxOpen = true;
+  }
+
+  closeLightbox(): void {
+    this.lightboxOpen = false;
+  }
+
+  lightboxStep(delta: number): void {
+    const total = this.images.length;
+    if (!total) return;
+    this.lightboxIndex = (this.lightboxIndex + delta + total) % total;
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onLightboxKey(event: KeyboardEvent): void {
+    if (!this.lightboxOpen) return;
+    if (event.key === 'Escape') this.closeLightbox();
+    else if (event.key === 'ArrowRight') this.lightboxStep(1);
+    else if (event.key === 'ArrowLeft') this.lightboxStep(-1);
   }
 }

@@ -16,6 +16,14 @@ export interface NorgeCostCategoryBar {
   color: string;
 }
 
+export interface NorgeTopCost {
+  label: string;
+  category: string;
+  amount: number;
+  pct: number;
+  color: string;
+}
+
 @Component({
   selector: 'norge-drawer',
   templateUrl: './norge-drawer.component.html',
@@ -53,6 +61,9 @@ export class NorgeDrawerComponent {
     Comida: '#ef6c00',
     Varios: '#6a1b9a',
   };
+
+  /** Sub-pestaña activa dentro de Costes ('Todos' o una categoría). */
+  activeCostCategory = 'Todos';
 
   get selectedStop(): NorgeStop | null {
     return this.stops.find(s => s.id === this.selectedStopId) ?? null;
@@ -96,6 +107,47 @@ export class NorgeDrawerComponent {
       offset += len;
       return seg;
     });
+  }
+
+  /** Coste por persona (viaje de 2). */
+  get costPerPerson(): number {
+    return this.costTotal / 2;
+  }
+
+  /** Categorías disponibles para las sub-pestañas ('Todos' + presentes). */
+  get costCategoryTabs(): string[] {
+    return ['Todos', ...this.costCategoryBars.map(b => b.category)];
+  }
+
+  /** Los 5 gastos individuales más grandes, con barra relativa al mayor. */
+  get topCosts(): NorgeTopCost[] {
+    const items = this.costs
+      .map(c => ({ c, amount: this.parseCostAmount(c.amountHint) }))
+      .filter((x): x is { c: NorgeCost; amount: number } => x.amount != null)
+      .sort((a, b) => b.amount - a.amount)
+      .slice(0, 5);
+    const max = items[0]?.amount ?? 1;
+    return items.map(({ c, amount }) => ({
+      label: c.label,
+      category: c.category,
+      amount,
+      pct: Math.round((amount / max) * 100),
+      color: this.categoryColors[c.category] ?? '#546e7a',
+    }));
+  }
+
+  /** Lista de gastos filtrada por la sub-pestaña activa. */
+  get filteredCosts(): NorgeCost[] {
+    if (this.activeCostCategory === 'Todos') return this.costs;
+    return this.costs.filter(c => c.category === this.activeCostCategory);
+  }
+
+  categoryColor(category: string): string {
+    return this.categoryColors[category] ?? '#546e7a';
+  }
+
+  setCostCategory(cat: string): void {
+    this.activeCostCategory = cat;
   }
 
   formatEuro(n: number): string {

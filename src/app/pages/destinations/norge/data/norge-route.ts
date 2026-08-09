@@ -62,6 +62,7 @@ export const norgeRoute = {
       latitude: 61.23122,
       summary:
         '<p>Dejamos la capital y cruzamos Hallingdal rumbo al oeste: ríos anchos, iglesias de madera y la sensación creciente de entrar en otra Noruega. El objetivo no es llegar rápido, sino ir cambiando de paisaje hasta oler el fiordo.</p>' +
+        '<p class="day-lead-xl">Las estrellas de la jornada son las cataratas de <strong>Hønefoss</strong>, el valle de <strong>Hallingdal</strong> y <strong>Hemsedal</strong>, la milenaria <strong>iglesia de madera de Borgund</strong>, el pueblo fluvial de <strong>Lærdal</strong> y el <strong>cruce en ferry del Sognefjord</strong> hasta <strong>Sogndal</strong>.</p>' +
         '<p class="day-highlight"><strong>Cierre del día:</strong> de Lærdal a Sogndal el coche no solo rueda por asfalto — <strong>también se embarca</strong> para cruzar un brazo del Sognefjord — y terminamos en el Bed &amp; Breakfast a orillas del fiordo.</p>',
       images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
       activities: [

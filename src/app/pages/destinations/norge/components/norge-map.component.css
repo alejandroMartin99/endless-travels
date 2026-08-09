@@ -58,13 +58,6 @@
   display: block;
 }
 
-:host ::ng-deep .norge-day-popup .mapboxgl-popup-content {
-  padding: 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-  overflow: hidden;
-}
-
 :host ::ng-deep .norge-day-popup .mapboxgl-popup-tip {
   border-top-color: #fff;
 }

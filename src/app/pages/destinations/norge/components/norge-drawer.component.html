@@ -83,13 +83,21 @@
 
       <!-- Costes -->
       <ng-container *ngIf="tab === 'costes'">
-        <div class="cost-overview" *ngIf="costCategoryBars.length">
-          <div class="cost-total">
-            <span class="cost-total-label">Total viaje</span>
-            <strong class="cost-total-value">{{ formatEuro(costTotal) }}</strong>
-            <small>Sin fianzas reembolsadas</small>
+        <!-- Resumen: total + por persona -->
+        <div class="cost-summary" *ngIf="costCategoryBars.length">
+          <div class="cost-summary-card">
+            <span class="cost-summary-label">Total viaje</span>
+            <strong class="cost-summary-value">{{ formatEuro(costTotal) }}</strong>
           </div>
+          <div class="cost-summary-card muted">
+            <span class="cost-summary-label">Por persona</span>
+            <strong class="cost-summary-value">{{ formatEuro(costPerPerson) }}</strong>
+          </div>
+        </div>
 
+        <!-- Desglose por categoría: donut + barras -->
+        <section class="cost-section" *ngIf="costCategoryBars.length">
+          <h4 class="cost-heading">Por categoría</h4>
           <div class="cost-charts">
             <div class="cost-donut-wrap">
               <svg class="cost-donut" viewBox="0 0 100 100" aria-hidden="true">
@@ -106,8 +114,8 @@
                 />
               </svg>
               <div class="cost-donut-center">
-                <span>{{ costCategoryBars.length }}</span>
-                <small>categorías</small>
+                <span>{{ formatEuro(costTotal) }}</span>
+                <small>total</small>
               </div>
             </div>
 
@@ -129,27 +137,54 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <table class="cost-table">
-          <thead>
-            <tr>
-              <th>Concepto</th>
-              <th>Importe</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let c of costs">
-              <td>
-                <span class="cost-cat">{{ c.category }}</span>
-                {{ c.label }}
-              </td>
-              <td>{{ c.amountHint }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Gastos más importantes -->
+        <section class="cost-section" *ngIf="topCosts.length">
+          <h4 class="cost-heading">Gastos más importantes</h4>
+          <ol class="cost-top">
+            <li class="cost-top-row" *ngFor="let t of topCosts; let i = index">
+              <span class="cost-top-rank">{{ i + 1 }}</span>
+              <div class="cost-top-main">
+                <div class="cost-top-head">
+                  <span class="cost-top-name">{{ t.label }}</span>
+                  <span class="cost-top-amt">{{ formatEuro(t.amount) }}</span>
+                </div>
+                <div class="cost-top-track">
+                  <div class="cost-top-fill" [style.width.%]="t.pct" [style.background]="t.color"></div>
+                </div>
+                <span class="cost-top-cat" [style.color]="t.color">{{ t.category }}</span>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Listado por categorías -->
+        <section class="cost-section">
+          <h4 class="cost-heading">Todos los gastos</h4>
+          <div class="cost-cat-tabs">
+            <button
+              type="button"
+              *ngFor="let cat of costCategoryTabs"
+              class="cost-cat-tab"
+              [class.active]="activeCostCategory === cat"
+              [style.--cat-color]="cat === 'Todos' ? '#3949ab' : categoryColor(cat)"
+              (click)="setCostCategory(cat)">
+              {{ cat }}
+            </button>
+          </div>
+
+          <ul class="cost-list">
+            <li class="cost-list-row" *ngFor="let c of filteredCosts">
+              <span class="cost-list-dot" [style.background]="categoryColor(c.category)"></span>
+              <span class="cost-list-name">{{ c.label }}</span>
+              <span class="cost-list-amt">{{ c.amountHint }}</span>
+            </li>
+          </ul>
+        </section>
+
         <p class="hint">
-          Gráficas por categoría a partir del gasto real. La fianza del coche no suma al total (reembolsada).
+          Importes del gasto real. La fianza del coche no suma al total (reembolsada).
         </p>
       </ng-container>
     </div>

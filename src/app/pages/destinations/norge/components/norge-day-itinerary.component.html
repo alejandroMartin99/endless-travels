@@ -1,67 +1,71 @@
 <section class="norge-day-itinerary" *ngIf="displayActivities.length && current as activity">
   <article class="activity-panel">
-    <!-- Título a ancho completo + flechas (como itinerary-day-card) -->
+    <!-- Cabecera a ancho completo: flechas + título -->
     <header class="activity-header">
       <button type="button" class="nav-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0" aria-label="Anterior">
         <mat-icon>chevron_left</mat-icon>
       </button>
       <div class="activity-header-main">
-        <h3>{{ shortTitle(activity.name) }}</h3>
-        <small>{{ currentActivityIndex + 1 }} / {{ displayActivities.length }}</small>
+        <h3><span class="header-day">{{ stopDayLabel }}</span><span class="header-sep"> — </span>{{ headerTitle }}</h3>
       </div>
       <button type="button" class="nav-btn" (click)="changeActivity(1)" [disabled]="currentActivityIndex === displayActivities.length - 1" aria-label="Siguiente">
         <mat-icon>chevron_right</mat-icon>
       </button>
     </header>
 
-    <div class="leg-meta" *ngIf="inboundLeg as leg">
-      <span class="transport-chip" [attr.data-mode]="leg.mode">
-        <mat-icon>{{ transportIcon(leg.mode) }}</mat-icon>
-        <span class="transport-chip-text">
-          <strong>{{ transportLabel(leg.mode) }}</strong>
-          <small *ngIf="inboundLegLabel as label">{{ label }}</small>
-        </span>
-      </span>
-    </div>
+    <!-- Trayecto de llegada a esta subetapa (coche/barco/bus/tren) -->
+    <p class="activity-leg" *ngIf="inboundLeg as leg" [attr.data-mode]="leg.mode">
+      <mat-icon>{{ transportIcon(leg.mode) }}</mat-icon>
+      <span><strong>{{ transportLabel(leg.mode) }}</strong> · {{ leg.distanceKm }} km · {{ durationFormatter(leg.durationMin) }}</span>
+    </p>
 
+    <!-- Descripción (protagonismo al texto, primero) -->
     <div class="activity-body" [innerHTML]="activity.description"></div>
 
-    <!-- Bullets debajo de la descripción -->
-    <div class="activity-navigation" role="tablist" aria-label="Etapas del día">
-      <button
-        type="button"
-        class="activity-indicator"
-        *ngFor="let a of displayActivities; let i = index"
-        [class.active]="i === currentActivityIndex"
-        [attr.aria-label]="shortTitle(a.name)"
-        [attr.aria-current]="i === currentActivityIndex ? 'step' : null"
-        (click)="selectActivity(i)">
-      </button>
+    <!-- Galería en mosaico: sin recortes feos ni letterbox, altura contenida -->
+    <div class="activity-gallery" [ngClass]="galleryLayout" *ngIf="galleryImages.length">
+      <figure class="gallery-tile" *ngFor="let img of galleryImages; let i = index" (click)="openLightbox(i)" role="button" tabindex="0" [attr.aria-label]="'Ver imagen ' + (i + 1) + ' a pantalla completa'">
+        <img [src]="img" [alt]="activity.name" loading="lazy" />
+        <span class="gallery-more" *ngIf="i === galleryImages.length - 1 && galleryExtra > 0">+{{ galleryExtra }}</span>
+      </figure>
     </div>
 
-    <div class="carousel-control">
-      <button type="button" class="text-nav-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
-        Anterior
-      </button>
-      <button type="button" class="text-nav-btn" (click)="changeActivity(1)" [disabled]="currentActivityIndex === displayActivities.length - 1">
-        Siguiente
-      </button>
-    </div>
-
-    <!-- Foto abajo, marco fijo, contain + fondo blanco -->
-    <div class="photo-block" *ngIf="images.length">
-      <img [src]="images[currentImageIndex]" [alt]="activity.name" />
-      <div class="photo-controls" *ngIf="images.length > 1">
-        <button type="button" (click)="changeImage(-1)" [disabled]="currentImageIndex === 0" aria-label="Foto anterior">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-        <button type="button" (click)="changeImage(1)" [disabled]="currentImageIndex === images.length - 1" aria-label="Foto siguiente">
-          <mat-icon>chevron_right</mat-icon>
+    <!-- Indicadores de etapa + navegación textual -->
+    <footer class="activity-footer">
+      <div class="activity-navigation" role="tablist" aria-label="Etapas del día">
+        <button
+          type="button"
+          class="activity-indicator"
+          *ngFor="let a of displayActivities; let i = index"
+          [class.active]="i === currentActivityIndex"
+          [attr.aria-label]="shortTitle(a.name)"
+          [attr.aria-current]="i === currentActivityIndex ? 'step' : null"
+          (click)="selectActivity(i)">
         </button>
       </div>
-      <span class="photo-counter" *ngIf="images.length > 1">
-        {{ currentImageIndex + 1 }} / {{ images.length }}
-      </span>
-    </div>
+      <div class="carousel-control">
+        <button type="button" class="text-nav-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
+          Anterior
+        </button>
+        <button type="button" class="text-nav-btn" (click)="changeActivity(1)" [disabled]="currentActivityIndex === displayActivities.length - 1">
+          Siguiente
+        </button>
+      </div>
+    </footer>
   </article>
+
+  <!-- Visor a pantalla completa -->
+  <div class="lightbox" *ngIf="lightboxOpen" (click)="closeLightbox()">
+    <button type="button" class="lightbox-close" (click)="closeLightbox()" aria-label="Cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+    <button type="button" class="lightbox-nav prev" *ngIf="images.length > 1" (click)="lightboxStep(-1); $event.stopPropagation()" aria-label="Anterior">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <img class="lightbox-img" [src]="images[lightboxIndex]" [alt]="activity.name" (click)="$event.stopPropagation()" />
+    <button type="button" class="lightbox-nav next" *ngIf="images.length > 1" (click)="lightboxStep(1); $event.stopPropagation()" aria-label="Siguiente">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <span class="lightbox-counter" *ngIf="images.length > 1">{{ lightboxIndex + 1 }} / {{ images.length }}</span>
+  </div>
 </section>
