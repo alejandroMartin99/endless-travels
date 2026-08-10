@@ -59,8 +59,6 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   private ready = false;
   readyForUi = false;
   private didFitTrip = false;
-  /** Invalida listeners moveend pendientes al encadenar zooms. */
-  private fitGeneration = 0;
   /** Máximo alejamiento: road trip + poco mar al oeste. */
   private readonly tripMaxBounds: [[number, number], [number, number]] = [
     [3.6, 58.0],
@@ -550,7 +548,6 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     // No usar moveend tras stop(): puede dispararse aún al zoom del día y fijar
     // minZoom ~12, dejando Recentrar sin efecto hasta varios clics.
     this.map.stop();
-    this.fitGeneration++;
     this.lockMinZoomToTripBounds(bounds);
 
     this.map.fitBounds(bounds, {
@@ -602,7 +599,6 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (bounds.isEmpty()) return;
 
     this.map.stop();
-    this.fitGeneration++; // no aplicar lockMinZoom de un fitTrip a medias
     this.map.fitBounds(bounds, {
       padding: 72,
       maxZoom: 13.5,
