@@ -10,7 +10,8 @@ export const day03Kyoto = {
         '/assets/japan/Kyoto/Dia03/intro.webp'],
         longitude: 135.75896619907707,
         latitude: 35.01090902739731, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'train' as const,
       },
       {
         name: 'De ST Kyoto -> Fushimi Inari',

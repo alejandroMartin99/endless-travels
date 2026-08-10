@@ -16,7 +16,8 @@ export const day02Kyoto = {
         ],
         longitude: 139.75360224908883 ,
         latitude: 35.54105279188782, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'driving' as const,
       },
       {
         name: 'Aeropuerto Haneda - Activación del JR Pass',
@@ -32,7 +33,8 @@ export const day02Kyoto = {
         ],
         longitude: 139.77802056699818,
         latitude: 35.54844700844819, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'ruta' as const,
       },
       {
         name: 'Aeropuerto Haneda - Retirada de efectivo',
@@ -44,7 +46,8 @@ export const day02Kyoto = {
         ],
         longitude: 139.76707345112575,
         latitude: 35.5448992733982, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'ruta' as const,
       },
       {
         name: 'Aeropuerto Haneda - Shinagawa St',
@@ -60,7 +63,8 @@ export const day02Kyoto = {
         ],
         longitude: 139.73786942933296,
         latitude: 35.6280982581824, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'metro' as const,
       },
       {
         name: 'Shinkansen - Shinagawa St -> Kyoto St',
@@ -72,7 +76,8 @@ export const day02Kyoto = {
         images: ['/assets/japan/Kyoto/Dia02/shinkansen.webp'],
         longitude: 138.38916857126796,
         latitude: 34.9716950139052,  
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'train' as const,
       },
       {
         name: 'Kyoto St -> Hotel Tokyu Stay Kyoto Sanjo-Karasuma',
@@ -87,7 +92,8 @@ export const day02Kyoto = {
         ],
         longitude: 135.75896619907707,
         latitude: 35.01090902739731, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'metro' as const,
       },
       {
         name: 'Toma de contacto y atardecer en Kyoto',
@@ -99,7 +105,8 @@ export const day02Kyoto = {
         ],
         longitude: 135.75897619907707,
         latitude: 35.02102902739731, 
-        mapUrl: 'map-shinjuku'
+        mapUrl: 'map-shinjuku',
+        arriveBy: 'ruta' as const,
       },
     ]
   }

@@ -153,6 +153,53 @@ mat-expansion-panel {
   border-radius: 8px;
 }
 
+/* Marcadores DOM (Mapbox) — estilo Norge */
+:host ::ng-deep .itinerary-marker {
+  width: auto;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 14px;
+  border: 2px solid #fff;
+  background: #1a237e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+:host ::ng-deep .itinerary-marker.is-active {
+  background: #f44336;
+  transform: scale(1.12);
+  z-index: 2;
+}
+
+:host ::ng-deep .itinerary-marker.is-start:not(.is-active) {
+  box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.35);
+}
+
+:host ::ng-deep .itinerary-marker-num {
+  font-weight: 700;
+  line-height: 1;
+}
+
+:host ::ng-deep .itinerary-marker-mode {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.95;
+}
+
+:host ::ng-deep .itinerary-marker-mode svg {
+  display: block;
+}
+
 /* --- Indicadores de navegación (puntos) --- */
 .activity-navigation {
   display: flex;

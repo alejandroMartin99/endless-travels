@@ -81,6 +81,7 @@ export const day15Tokio = {
         longitude: 139.708,
         latitude: 35.6945,
         mapUrl: 'map-shinjuku',
+        arriveBy: 'metro' as const,
       },
       {
         name: 'Aeropuerto — maletas, ramen y el avión',
@@ -96,6 +97,7 @@ export const day15Tokio = {
         longitude: 139.7798,
         latitude: 35.5494,
         mapUrl: 'map-shinjuku',
+        arriveBy: 'metro' as const,
       },
     ],
   },

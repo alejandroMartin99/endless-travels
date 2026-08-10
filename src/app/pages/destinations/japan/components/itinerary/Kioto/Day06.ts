@@ -11,7 +11,8 @@ export const day06Kyoto = {
             ],
             longitude: 135.5007,
             latitude: 34.7333,
-            mapUrl: 'map-shin-osaka'
+            mapUrl: 'map-shin-osaka',
+            arriveBy: 'metro' as const,
         },
         {
             name: 'St Shin Osaka -> St Osaka',
@@ -85,7 +86,8 @@ export const day06Kyoto = {
             ],
             longitude: 135.50130783233985,
             latitude: 34.66884688149632, 
-            mapUrl: 'map-dotonbori'
+            mapUrl: 'map-dotonbori',
+            arriveBy: 'driving' as const,
         },
         {
             name: 'Santuario Yasaka Namba',

@@ -9,7 +9,8 @@ export const day04Kyoto = {
             images: ['/assets/japan/Kyoto/Dia04/intro.png'],
             longitude: 135.75896619907707,
             latitude: 35.01090902739731,
-            mapUrl: 'map-shinjuku'
+            mapUrl: 'map-shinjuku',
+            arriveBy: 'bus' as const,
         },
 
         {

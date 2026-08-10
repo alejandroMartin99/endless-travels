@@ -20,7 +20,8 @@ export const day01Kyoto = {
           ],
           longitude: -3.5670382667894565,
           latitude: 40.49456065157009, 
-          mapUrl: 'map-shinjuku'
+          mapUrl: 'map-shinjuku',
+          arriveBy: 'plane' as const,
         },
         {
           name: 'Escala en Qatar (6:30 - 7:15 LT)',
@@ -33,7 +34,8 @@ export const day01Kyoto = {
           ],
           longitude: 51.602870977387866,
           latitude: 25.270855549837748, 
-          mapUrl: 'map-shinjuku'
+          mapUrl: 'map-shinjuku',
+          arriveBy: 'plane' as const,
         },
         {
           name: 'Aterrizaje en Haneda, Tokio (23:30 LT)',
@@ -47,7 +49,8 @@ export const day01Kyoto = {
           images: ['/assets/japan/shinjuku.jpg'],
           longitude: 139.77787028664923,
           latitude: 35.54963630647212, 
-          mapUrl: 'map-shinjuku'
+          mapUrl: 'map-shinjuku',
+          arriveBy: 'plane' as const,
         },
         {
           name: 'Llegada al hotel - Kawasaki King Skyfront Tokyu REI Hotel',
@@ -60,7 +63,8 @@ export const day01Kyoto = {
           ],
           longitude: 139.75360224908883 ,
           latitude: 35.54105279188782, 
-          mapUrl: 'map-shinjuku'
+          mapUrl: 'map-shinjuku',
+          arriveBy: 'driving' as const,
        }
     ]
   }

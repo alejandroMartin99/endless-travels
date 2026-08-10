@@ -132,7 +132,8 @@ export const day14Tokio = {
       ],
       longitude: 139.7599542463217,
       latitude: 35.68992276566873, 
-      mapUrl: 'map-shinjuku'
+      mapUrl: 'map-shinjuku',
+      arriveBy: 'train' as const,
     },
     {
       name: 'Odaiba - Estatua de la libertad y la playa de Odaiba',
