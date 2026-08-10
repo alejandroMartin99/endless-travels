@@ -9,7 +9,8 @@ export const day01Polonia = {
         images: [],
         longitude: -3.5670382667894565,
         latitude: 40.49456065157009,
-        mapUrl: ''
+        mapUrl: '',
+        arriveBy: 'plane' as const,
       },
       {
         name: 'Aeropuerto de Varsovia-Chopin (WAW)',
@@ -17,7 +18,8 @@ export const day01Polonia = {
         images: [],
         longitude: 20.9679,
         latitude: 52.1657,
-        mapUrl: ''
+        mapUrl: '',
+        arriveBy: 'plane' as const,
       },
       {
         name: 'Paseo nocturno por Varsovia',
@@ -25,7 +27,8 @@ export const day01Polonia = {
         images: [],
         longitude: 21.01199,
         latitude: 52.249477,
-        mapUrl: ''
+        mapUrl: '',
+        arriveBy: 'metro' as const,
       },
     ]
   }

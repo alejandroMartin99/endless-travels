@@ -12,7 +12,8 @@ export const day07Polonia = {
         ],
         longitude: 19.204233,
         latitude: 50.027164,
-        mapUrl: 'map-day07-resumen'
+        mapUrl: 'map-day07-resumen',
+        arriveBy: 'driving' as const,
       },
       {
         name: 'Campo I — Auschwitz I',
@@ -29,7 +30,8 @@ export const day07Polonia = {
         ],
         longitude: 19.204233,
         latitude: 50.027164,
-        mapUrl: 'map-day07-campo1'
+        mapUrl: 'map-day07-campo1',
+        arriveBy: 'driving' as const,
       },
       {
         name: 'Campo II — Auschwitz II-Birkenau',
@@ -52,7 +54,8 @@ export const day07Polonia = {
         ],
         longitude: 19.180148,
         latitude: 50.035316,
-        mapUrl: 'map-day07-campo2'
+        mapUrl: 'map-day07-campo2',
+        arriveBy: 'driving' as const,
       },
     ]
   }

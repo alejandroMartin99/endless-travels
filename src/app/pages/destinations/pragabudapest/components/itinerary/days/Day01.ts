@@ -11,7 +11,8 @@ export const day01Praga = {
           ],
           longitude: -3.5670382667894565,
           latitude: 40.49456065157009, 
-          mapUrl: ''
+          mapUrl: '',
+          arriveBy: 'plane' as const,
         },
         {
           name: 'Aeropuerto de Praga - Coche de alquiler',
@@ -22,7 +23,8 @@ export const day01Praga = {
         ],
         longitude: 14.26317037953236,
         latitude: 50.10195610543177,
-        mapUrl: ''
+        mapUrl: '',
+        arriveBy: 'plane' as const,
         },
         {
           name: 'Kutná Hora - Osario de Sedlec',
@@ -35,7 +37,8 @@ export const day01Praga = {
         ],
         longitude:  15.288720505888634,
         latitude:49.96039308374713,
-        mapUrl: 'map-sedlec'
+        mapUrl: 'map-sedlec',
+        arriveBy: 'driving' as const,
         },
         {
           name: 'Kutná Hora - Iglesia de Santa Bárbara',
@@ -50,7 +53,8 @@ export const day01Praga = {
         ],
         longitude: 15.263233774755731,
         latitude: 49.945228547050945, 
-        mapUrl: 'map-santa-barbara'
+        mapUrl: 'map-santa-barbara',
+        arriveBy: 'ruta' as const,
     },
     {
         name: 'Kutná Hora - Praga: Check In',
@@ -58,7 +62,8 @@ export const day01Praga = {
         images: ['/assets/budapest/Dia01/.jpg'],
         longitude: 14.418228656633708,
         latitude: 50.08246157856821, 
-        mapUrl: 'map-santa-barbara'
+        mapUrl: 'map-santa-barbara',
+        arriveBy: 'driving' as const,
     },
     {
         name: 'Praga - Cena y paseo nocturno',
@@ -70,7 +75,8 @@ export const day01Praga = {
         ],
         longitude: 14.423587297844866,
         latitude: 50.0842193941157, 
-        mapUrl: 'map-santa-barbara'
+        mapUrl: 'map-santa-barbara',
+        arriveBy: 'ruta' as const,
     }
     ]
   }

@@ -9,7 +9,8 @@ export const day09Budapest = {
         images: [],
         longitude: 19.0817,
         latitude: 47.5186,
-        mapUrl: 'map-traslado-szechenyi'
+        mapUrl: 'map-traslado-szechenyi',
+        arriveBy: 'metro' as const,
       },
       {
         name: 'Baños Termales Széchenyi - Experiencia Completa',
@@ -22,7 +23,8 @@ export const day09Budapest = {
         ],
         longitude: 19.0813,
         latitude: 47.5186,
-        mapUrl: 'map-banos-szechenyi'
+        mapUrl: 'map-banos-szechenyi',
+        arriveBy: 'ruta' as const,
       },
       {
         name: 'Recogida de Equipaje y Traslado al Aeropuerto',
@@ -30,7 +32,8 @@ export const day09Budapest = {
         images: [],
         longitude: 19.0613,
         latitude: 47.4313,
-        mapUrl: 'map-traslado-aeropuerto'
+        mapUrl: 'map-traslado-aeropuerto',
+        arriveBy: 'metro' as const,
       },
       {
         name: 'Aeropuerto y Vuelo de Regreso a Madrid',
@@ -40,7 +43,8 @@ export const day09Budapest = {
         ],
         longitude: 19.2608,
         latitude: 47.4299,
-        mapUrl: 'map-aeropuerto-budapest'
+        mapUrl: 'map-aeropuerto-budapest',
+        arriveBy: 'metro' as const,
       }
     ]
   }

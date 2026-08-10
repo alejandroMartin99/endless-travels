@@ -9,9 +9,10 @@ export const day04Polonia = {
         images: [
           '/assets/polonia/Cracovia/Dia03/Boleslawa_Chrobrego_01.JPEG'
         ],
-        longitude: 20.0558,
-        latitude: 49.9833,
-        mapUrl: 'map-day04-resumen'
+        longitude: 21.0033,
+        latitude: 52.2285,
+        mapUrl: 'map-day04-resumen',
+        arriveBy: 'train' as const,
       },
       {
         name: 'Tren Varsovia → Wieliczka / Cracovia',
@@ -21,7 +22,8 @@ export const day04Polonia = {
         ],
         longitude: 21.003,
         latitude: 52.229,
-        mapUrl: 'map-day04-tren'
+        mapUrl: 'map-day04-tren',
+        arriveBy: 'train' as const,
       },
       {
         name: 'Minas de Wieliczka — primeras galerías y sal',
@@ -37,7 +39,8 @@ export const day04Polonia = {
         ],
         longitude: 20.0558,
         latitude: 49.9833,
-        mapUrl: 'map-day04-minas-galerias'
+        mapUrl: 'map-day04-minas-galerias',
+        arriveBy: 'train' as const,
       },
       {
         name: 'Minas de Wieliczka — lago, maquinaria y pasadizos',
@@ -52,7 +55,8 @@ export const day04Polonia = {
         ],
         longitude: 20.0558,
         latitude: 49.9833,
-        mapUrl: 'map-day04-minas-lago'
+        mapUrl: 'map-day04-minas-lago',
+        arriveBy: 'driving' as const,
       },
       {
         name: 'Minas de Wieliczka — Capilla de Santa Kinga y salas monumentales',
@@ -83,7 +87,8 @@ export const day04Polonia = {
         ],
         longitude: 19.937,
         latitude: 50.0617,
-        mapUrl: 'map-day04-primera-noche'
+        mapUrl: 'map-day04-primera-noche',
+        arriveBy: 'train' as const,
       },
     ]
   }
