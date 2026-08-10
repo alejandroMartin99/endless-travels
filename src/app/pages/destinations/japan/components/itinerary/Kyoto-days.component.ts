@@ -1,5 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { JapanFullMapDialogComponent } from './japan-full-map/japan-full-map-dialog.component';
 import { day01Kyoto } from './Kioto/Day01';
 import { day02Kyoto } from './Kioto/Day02';
 import { day03Kyoto } from './Kioto/Day03';
@@ -27,9 +29,20 @@ export class KyotoDaysComponent implements OnChanges {
   @Input() focusSlug: string | null = null;
 
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly dialog = inject(MatDialog);
 
   /** Coincide con `panelId` de cada `app-itinerary-day-card`. */
   activePanelId: string | null = null;
+
+  openFullMap(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.dialog.open(JapanFullMapDialogComponent, {
+      panelClass: 'japan-full-map-panel',
+      maxWidth: '98vw',
+      width: '1360px',
+      autoFocus: false,
+    });
+  }
 
   private readonly slugToPanelId: Record<string, string> = {
     kyoto: 'panel-day02',

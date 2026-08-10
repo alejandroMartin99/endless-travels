@@ -1,0 +1,248 @@
+.japan-full-map-dialog {
+  display: flex;
+  flex-direction: column;
+  height: min(92vh, 940px);
+  width: min(98vw, 1360px);
+  max-width: 100%;
+  background: #f7f8fc;
+  color: #1a237e;
+}
+
+.japan-full-map-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 8px;
+}
+
+.japan-full-map-heading h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.japan-full-map-heading p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #5c6478;
+  line-height: 1.35;
+}
+
+.japan-full-map-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #1a237e;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.japan-full-map-close:hover {
+  background: rgba(26, 35, 126, 0.08);
+}
+
+.japan-full-map-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 10px;
+}
+
+.japan-full-map-day-chip {
+  border: 1px solid #c8e6c9;
+  background: #fff;
+  color: #2E7D32;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.japan-full-map-day-chip.region-tokyo {
+  border-color: #bbdefb;
+  color: #1565C0;
+}
+
+.japan-full-map-day-chip.region-kyoto.is-selected {
+  background: #1B5E20;
+  border-color: #1B5E20;
+  color: #fff;
+}
+
+.japan-full-map-day-chip.region-tokyo.is-selected {
+  background: #0D47A1;
+  border-color: #0D47A1;
+  color: #fff;
+}
+
+.japan-full-map-body {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-height: 360px;
+  padding: 0 12px;
+}
+
+.japan-full-map-canvas {
+  flex: 1;
+  min-width: 0;
+  min-height: 360px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d7dbea;
+}
+
+.japan-full-map-tasks {
+  width: 260px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #d7dbea;
+  border-radius: 10px;
+  padding: 10px 8px;
+  overflow: auto;
+  max-height: 100%;
+}
+
+.japan-full-map-tasks h3 {
+  margin: 0 6px 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+.japan-full-map-tasks ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.japan-full-map-task {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  border: 1px solid transparent;
+  background: #f7f8fc;
+  border-radius: 8px;
+  padding: 7px 8px;
+  cursor: pointer;
+  color: #1a237e;
+}
+
+.japan-full-map-task:hover,
+.japan-full-map-task.is-focus {
+  border-color: #c5cae9;
+  background: #e8eaf6;
+}
+
+.japan-full-map-task-code {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #2E7D32;
+  color: #fff;
+  border-radius: 6px;
+  padding: 2px 5px;
+  line-height: 1.2;
+}
+
+.japan-full-map-dialog:has(.japan-full-map-day-chip.region-tokyo.is-selected) .japan-full-map-task-code {
+  background: #1565C0;
+}
+
+.japan-full-map-task-name {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  font-weight: 550;
+}
+
+.japan-full-map-hint {
+  margin: 8px 16px 12px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.japan-full-marker {
+  width: auto;
+  min-width: 34px;
+  height: 24px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  cursor: default;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+  padding: 0 6px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Kyoto: verde claro (otros) / verde oscuro (activo) */
+.japan-full-marker.region-kyoto.is-dimmed {
+  background: #A5D6A7;
+  color: #1B5E20;
+  min-width: 30px;
+  height: 20px;
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+.japan-full-marker.region-kyoto.is-active {
+  background: #2E7D32;
+  z-index: 2;
+}
+
+.japan-full-marker.region-kyoto.is-active.is-focus {
+  background: #1B5E20;
+  transform: scale(1.08);
+}
+
+/* Tokyo: azul claro (otros) / azul oscuro (activo) */
+.japan-full-marker.region-tokyo.is-dimmed {
+  background: #90CAF9;
+  color: #0D47A1;
+  min-width: 30px;
+  height: 20px;
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+.japan-full-marker.region-tokyo.is-active {
+  background: #1565C0;
+  z-index: 2;
+}
+
+.japan-full-marker.region-tokyo.is-active.is-focus {
+  background: #0D47A1;
+  transform: scale(1.08);
+}
+
+@media (max-width: 800px) {
+  .japan-full-map-body {
+    flex-direction: column;
+  }
+
+  .japan-full-map-tasks {
+    width: 100%;
+    max-height: 160px;
+  }
+}
+
+.japan-full-map-panel .mat-mdc-dialog-container,
+.japan-full-map-panel .mdc-dialog__surface {
+  padding: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}

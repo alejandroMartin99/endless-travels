@@ -1,0 +1,52 @@
+<div class="japan-full-map-dialog">
+  <header class="japan-full-map-header">
+    <div class="japan-full-map-heading">
+      <h2>Mapa completo del viaje</h2>
+      <p>{{ selectedDay?.title || 'Selecciona un día' }}</p>
+    </div>
+    <button type="button" class="japan-full-map-close" (click)="close()" aria-label="Cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div class="japan-full-map-days" role="tablist" aria-label="Días del viaje">
+    <button
+      type="button"
+      class="japan-full-map-day-chip"
+      *ngFor="let day of days"
+      [class.is-selected]="day.dayNumber === selectedDayNumber"
+      [class.region-kyoto]="regionForDay(day.dayNumber) === 'kyoto'"
+      [class.region-tokyo]="regionForDay(day.dayNumber) === 'tokyo'"
+      (click)="selectDay(day.dayNumber)"
+      [attr.aria-selected]="day.dayNumber === selectedDayNumber"
+    >
+      {{ day.shortLabel }}
+    </button>
+  </div>
+
+  <div class="japan-full-map-body">
+    <div class="japan-full-map-canvas" #mapEl></div>
+
+    <aside class="japan-full-map-tasks" *ngIf="selectedDay as day">
+      <h3>Etapas · Día {{ day.dayNumber }}</h3>
+      <ul>
+        <li *ngFor="let activity of day.activities; let i = index">
+          <button
+            type="button"
+            class="japan-full-map-task"
+            [class.is-focus]="i === focusedActivityIndex"
+            (click)="focusActivity(i)"
+          >
+            <span class="japan-full-map-task-code">{{ markerCode(day.dayNumber, i) }}</span>
+            <span class="japan-full-map-task-name">{{ activity.name }}</span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+  <p class="japan-full-map-hint">
+    Marcadores <strong>día.actividad</strong> (ej. 2.01). Rutas de todos los días; el activo destaca.
+    Kyoto en verdes, Tokyo en azules.
+  </p>
+</div>

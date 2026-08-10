@@ -11,6 +11,8 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { JapanFullMapDialogComponent } from '../itinerary/japan-full-map/japan-full-map-dialog.component';
 interface DetailedCity {
   name: string;
   essence: string;
@@ -36,6 +38,7 @@ interface DetailedExperience {
 export class InitJapanComponent implements OnInit, AfterViewInit {
 
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly dialog = inject(MatDialog);
 
   @Output() goToItinerary = new EventEmitter<number | { tab: number; anchor?: string }>();
 
@@ -47,6 +50,17 @@ export class InitJapanComponent implements OnInit, AfterViewInit {
   /** Itinerario (tab 2) + ancla y panel asociados en Kyoto-days. */
   goToItinerarySection(anchor: string) {
     this.goToItinerary.emit({ tab: 2, anchor });
+  }
+
+  openFullMap(event?: Event): void {
+    event?.stopPropagation();
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.dialog.open(JapanFullMapDialogComponent, {
+      panelClass: 'japan-full-map-panel',
+      maxWidth: '98vw',
+      width: '1360px',
+      autoFocus: false,
+    });
   }
 
   @ViewChildren('durationBox, datesBox, citiesBox, essenceTitle') 
