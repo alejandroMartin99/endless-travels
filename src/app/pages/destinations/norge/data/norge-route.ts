@@ -77,7 +77,10 @@ export const norgeRoute = {
         '<li>El cruce en ferry del Sognefjord hasta Sogndal</li>' +
         '<li>Terminamos en el Bed &amp; Breakfast a orillas del fiordo para dormir alli.</li>' +
         '</ul>' ,
-      images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
+      images: [
+        '/assets/norge/Dia01/Dia01_portada.jpg',
+        '/assets/norge/Dia01/01_vik/Dia01_01_vik_02.jpg',
+      ],
       activities: [
         {
           id: 'dia01-start-oslo',
@@ -789,7 +792,7 @@ export const norgeRoute = {
             '<p>Mañana queda más libre: Ópera, centro y compras.</p>',
           images: [
             '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_01.jpg',
-            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_02.jpg',
+            '/assets/norge/Dia06/01_gol/Dia06_01_gol_02.jpg',
             '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_03.jpg',
             '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_04.jpg',
             '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_05.jpg',
