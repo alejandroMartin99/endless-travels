@@ -74,12 +74,12 @@ export class NorgeDayItineraryComponent implements OnChanges {
       return;
     }
 
-    // Fusiona el resumen del día con la primera actividad (salida): un único ítem/marcador.
+    // Fusiona el resumen del día (p + bullets) con la primera actividad: un único ítem.
     const first = this.activities[0];
     const merged: NorgeActivity = {
       ...first,
       name: this.shortTitle(first.name),
-      description: lead + (first.description ?? ''),
+      description: lead || (first.description ?? ''),
       images: [...(this.stopImages ?? []), ...(first.images ?? [])],
     };
 

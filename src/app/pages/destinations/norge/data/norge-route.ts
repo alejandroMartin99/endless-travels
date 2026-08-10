@@ -81,7 +81,7 @@ export const norgeRoute = {
           id: 'dia01-start-oslo',
           name: 'Salida · Citybox Oslo',
           description: '',
-          images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
+          images: [],
           longitude: 10.74724,
           latitude: 59.91035,
         },
@@ -338,18 +338,24 @@ export const norgeRoute = {
       longitude: 5.33776,
       latitude: 60.37584,
       summary:
-        '<p>El día más “de catálogo” del viaje… y también el más real: <strong>crucero Flåm → Gudvangen</strong> por Aurlandsfjord y Nærøyfjord, bus de regreso, <strong>Flåmsbana</strong> y tarde de coche hasta Bergen.</p>' +
-        '<p class="day-highlight"><strong>Cómo se lee en el mapa:</strong> agua (barco), valle (bus), cremallera (tren) y carretera hasta el <strong>Citybox Bergen</strong>. Un solo día, cuatro lenguajes de movimiento.</p>',
-      images: ['/assets/norge/Dia03/Dia03_portada.jpg'],
+        '<p>El día más “de catálogo” del viaje… y también el más real: barco, bus, tren y coche en una sola jornada. Cuatro lenguajes de movimiento. La ruta es:</p>' +
+        '<ul>' +
+        '<li>Salida desde Brekke Apartments en Flåm, justo donde cerró el Día 02</li>' +
+        '<li>Embarque en Flåm y <strong>crucero Flåm → Gudvangen</strong> por Aurlandsfjord y Nærøyfjord (Unesco)</li>' +
+        '<li>Bus de regreso al valle hasta Flåm</li>' +
+        '<li>Ida y vuelta en la <strong>Flåmsbana</strong>, el tren cremallera</li>' +
+        '<li>Tarde de coche hasta Bergen y noche en el <strong>Citybox Danmarksplass</strong></li>' +
+        '</ul>',
+      images: [
+        '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_01.jpg',
+        '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_01.jpg',
+      ],
       activities: [
         {
           id: 'dia03-start-flam',
           name: 'Salida · Brekke Apartments',
-          description:
-            '<p>Salimos de <strong>Brekke Apartments</strong>, donde cerró el Día 02. El circuito de Flåm empieza en la puerta del alojamiento.</p>' +
-            '<p>Hoy no se trata de “hacer kilómetros” a lo loco, sino de encadenar experiencias: embarque, fiordo Unesco, bus, tren y carretera a Bergen.</p>' +
-            '<p>Conviene tener tickets a mano y algo de snack: entre tramos hay poco margen para improvisar.</p>',
-          images: ['/assets/norge/Dia03/Dia03_portada.jpg'],
+          description: '',
+          images: [],
           longitude: 7.10523,
           latitude: 60.85709,
         },
@@ -363,8 +369,6 @@ export const norgeRoute = {
           images: [
             '/assets/norge/Dia03/01_flam/Dia03_01_flam_01.jpg',
             '/assets/norge/Dia03/01_flam/Dia03_01_flam_02.jpg',
-            '/assets/norge/Dia03/01_flam/Dia03_01_flam_03.jpg',
-            '/assets/norge/Dia03/01_flam/Dia03_01_flam_04.jpg',
           ],
           longitude: 7.11974,
           latitude: 60.8643,
@@ -378,11 +382,17 @@ export const norgeRoute = {
             '<p>El fiordo se estrecha, las cascadas aparecen y la escala se vuelve absurda de lo grande. Es el tipo de tramo que justifica el viaje entero.</p>' +
             '<p>En el mapa la línea discontinua sigue el agua —no una recta, no una carretera—. Si hay viento o lluvia, la escena gana dramatismo; si hay sol, brilla.</p>',
           images: [
-            '/assets/norge/Dia03/02_undredal/Dia03_02_undredal_01.jpg',
-            '/assets/norge/Dia03/02_undredal/Dia03_02_undredal_02.jpg',
-            '/assets/norge/Dia03/02_undredal/Dia03_02_undredal_03.jpg',
-            '/assets/norge/Dia03/03_gudvangen/Dia03_03_gudvangen_01.jpg',
-            '/assets/norge/Dia03/03_gudvangen/Dia03_03_gudvangen_02.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_01.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_02.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_03.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_04.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_05.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_06.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_07.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_08.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_09.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_10.jpg',
+            '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_11.jpg',
           ],
           longitude: 6.84144,
           latitude: 60.88145,
@@ -397,11 +407,8 @@ export const norgeRoute = {
             '<p>Sales por agua y regresas por el valle. Dos formas de leer el mismo paisaje en el mismo día.</p>' +
             '<p>El bus es práctico y rápido: sirve para recuperar el coche y pasar al siguiente capítulo —la Flåmsbana.</p>',
           images: [
-            '/assets/norge/Dia03/04_flam/Dia03_04_flam_01.jpg',
-            '/assets/norge/Dia03/04_flam/Dia03_04_flam_02.jpg',
-            '/assets/norge/Dia03/04_flam/Dia03_04_flam_03.jpg',
-            '/assets/norge/Dia03/04_flam/Dia03_04_flam_04.jpg',
-            '/assets/norge/Dia03/04_flam/Dia03_04_flam_05.jpg',
+            '/assets/norge/Dia03/03_bus_flam/Dia03_03_bus_flam_01.jpg',
+            '/assets/norge/Dia03/03_bus_flam/Dia03_03_bus_flam_02.jpg',
           ],
           longitude: 7.11372,
           latitude: 60.8637,
@@ -415,11 +422,16 @@ export const norgeRoute = {
             '<p>Subimos y bajamos el mismo día: el tren te deja otra vez en <strong>Flåm</strong> (donde está el 3.5). No es un tren “para llegar”: es el tren como experiencia.</p>' +
             '<p>Al bajar recuperamos el coche y, desde aquí, carretera hasta Bergen.</p>',
           images: [
-            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_01.jpg',
-            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_02.jpg',
-            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_03.jpg',
-            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_04.jpg',
-            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_05.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_01.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_02.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_03.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_04.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_05.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_06.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_07.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_08.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_09.jpg',
+            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_10.jpg',
           ],
           longitude: 7.11318,
           latitude: 60.86295,
@@ -434,9 +446,11 @@ export const norgeRoute = {
             '<p>Es el cierre perfecto de un día largo: del fiordo Unesco a la ciudad hanseática en pocas horas.</p>' +
             '<p>Mañana no hay que hacer maletas. El Día 04 es 100 % Bergen, con el mismo hotel como base.</p>',
           images: [
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_01.jpg',
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_02.jpg',
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_03.jpg',
+            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_01.jpg',
+            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_02.jpg',
+            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_03.jpg',
+            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_04.jpg',
+            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_05.jpg',
           ],
           longitude: 5.33776,
           latitude: 60.37584,
@@ -451,18 +465,24 @@ export const norgeRoute = {
       longitude: 5.3242,
       latitude: 60.3913,
       summary:
-        '<p>Día de ciudad: Bergen entre montañas y mar, con <strong>Bryggen</strong> como icono Unesco y el puerto como hilo conductor.</p>' +
-        '<p class="day-highlight"><strong>Alojamiento:</strong> seguimos en <strong>Citybox Danmarksplass</strong> (segunda noche). Sin cambio de hotel: más tiempo para pasear y menos logística.</p>',
-      images: ['/assets/norge/Dia04/Dia04_portada.jpg'],
+        '<p>Día de ciudad: Bergen entre montañas y mar, con el puerto como hilo conductor. Sin cambio de hotel —seguimos en el Citybox— para pasear con calma. La ruta es:</p>' +
+        '<ul>' +
+        '<li>Salida desde el <strong>Citybox Danmarksplass</strong> (segunda noche en Bergen)</li>' +
+        '<li>Paseo por el centro: empedrado, cafés y ambiente portuario</li>' +
+        '<li><strong>Bryggen</strong>, el muelle hanseático Patrimonio de la Unesco</li>' +
+        '<li>Segunda pasada por Bryggen con otra luz y más detalle</li>' +
+        '<li>Cierre suave en el mismo Citybox, ya preparados para Hardanger</li>' +
+        '</ul>',
+      images: [
+        '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_01.jpg',
+        '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_01.jpg',
+      ],
       activities: [
         {
           id: 'dia04-start-bergen',
           name: 'Salida · Citybox Bergen',
-          description:
-            '<p>El día urbano arranca en el mismo <strong>Citybox Danmarksplass</strong> donde dormimos al llegar. Continuidad total con el Día 03.</p>' +
-            '<p>Bergen pide calma: calles húmedas, cafés y un centro que se explora mejor a pie (o con trayectos cortos en coche entre focos).</p>' +
-            '<p>Hoy el mapa es compacto. El lujo es no correr.</p>',
-          images: ['/assets/norge/Dia04/Dia04_portada.jpg'],
+          description: '',
+          images: [],
           longitude: 5.33776,
           latitude: 60.37584,
         },
@@ -529,18 +549,24 @@ export const norgeRoute = {
       longitude: 8.23814,
       latitude: 60.54489,
       summary:
-        '<p>Dejamos Bergen hacia un fiordo distinto: el <strong>Hardangerfjord</strong>, más amplio y agrícola, y la potencia de <strong>Vøringsfossen</strong> en el borde del cañón.</p>' +
-        '<p class="day-highlight"><strong>Cierre:</strong> noche en cabaña en <strong>Øen Turistsenter</strong> (Geilo), ya en modo “vuelta hacia el este”.</p>',
-      images: ['/assets/norge/Dia05/Dia05_portada.jpg'],
+        '<p>Dejamos Bergen hacia un fiordo distinto: más abierto y agrícola, con la potencia de una cascada de película y noche de cabaña. La ruta es:</p>' +
+        '<ul>' +
+        '<li>Check-out del <strong>Citybox Danmarksplass</strong> tras dos noches en Bergen</li>' +
+        '<li>El <strong>Hardangerfjord</strong>: orillas suaves, frutales y horizonte amplio</li>' +
+        '<li><strong>Vøringsfossen</strong>, el salto en el borde del cañón de Måbødalen</li>' +
+        '<li>Otros ángulos del cañón y la cascada antes de girar al este</li>' +
+        '<li>Tramo de montaña hacia Geilo y noche en <strong>Øen Turistsenter Cottages</strong> (~59 €)</li>' +
+        '</ul>',
+      images: [
+        '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_01.jpg',
+        '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_01.jpg',
+      ],
       activities: [
         {
           id: 'dia05-start-bergen',
           name: 'Salida · Citybox Bergen',
-          description:
-            '<p>Check-out de <strong>Citybox Danmarksplass</strong> tras dos noches. Bergen queda atrás; el coche apunta al Hardanger.</p>' +
-            '<p>Es un día de transición elegante: de ciudad portuaria a fiordo frutal y, más tarde, a la meseta hacia Geilo.</p>' +
-            '<p>Buena idea salir temprano: Vøringsfossen se disfruta mejor con luz y menos gente.</p>',
-          images: ['/assets/norge/Dia05/Dia05_portada.jpg'],
+          description: '',
+          images: [],
           longitude: 5.33776,
           latitude: 60.37584,
         },
@@ -636,18 +662,24 @@ export const norgeRoute = {
       longitude: 10.75804,
       latitude: 59.91759,
       summary:
-        '<p>Cierre del círculo: de Geilo a Oslo para un día urbano con <strong>Vigeland</strong>, la <strong>Ópera</strong> y la fortaleza de <strong>Akershus</strong>.</p>' +
-        '<p class="day-highlight"><strong>Última noche:</strong> <strong>Anker Hotel</strong> (21–22 jul). El road trip termina donde empezó —en la capital—, pero con la cabeza llena de fiordos.</p>',
-      images: ['/assets/norge/Dia06/Dia06_portada.jpg'],
+        '<p>Cierre del círculo: de Geilo a Oslo para un día urbano. El road trip termina donde empezó —en la capital—, con la cabeza llena de fiordos. La ruta es:</p>' +
+        '<ul>' +
+        '<li>Salida desde las cabañas de <strong>Øen Turistsenter</strong> en Geilo</li>' +
+        '<li>Paso por <strong>Gol</strong> y Hallingdal, el mismo valle a la inversa</li>' +
+        '<li>Parque de <strong>Vigeland</strong> en Frogner: escultura al aire libre</li>' +
+        '<li>La <strong>Ópera de Oslo</strong> y su tejado caminable sobre el puerto</li>' +
+        '<li>Fortaleza de <strong>Akershus</strong> y última noche en el <strong>Anker Hotel</strong> (~106 €)</li>' +
+        '</ul>',
+      images: [
+        '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_01.jpg',
+        '/assets/norge/Dia06/04_operahuset-oslo/Dia06_04_operahuset-oslo_01.jpg',
+      ],
       activities: [
         {
           id: 'dia06-start-geilo',
           name: 'Salida · Øen Turistsenter',
-          description:
-            '<p>Salimos de las cabañas de <strong>Øen Turistsenter</strong> en Geilo. El trayecto apunta a Oslo sin saltos en el mapa.</p>' +
-            '<p>Es un día de regreso, pero no de despedida triste: todavía quedan las mejores escenas urbanas de la capital.</p>' +
-            '<p>Halllingdal otra vez, y luego el skyline de Oslo al fondo.</p>',
-          images: ['/assets/norge/Dia06/Dia06_portada.jpg'],
+          description: '',
+          images: [],
           longitude: 8.23814,
           latitude: 60.54489,
         },

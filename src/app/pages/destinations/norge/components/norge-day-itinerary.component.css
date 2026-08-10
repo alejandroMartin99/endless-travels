@@ -283,12 +283,15 @@
 }
 
 .activity-body ::ng-deep .day-resumen-lead ul {
-  margin: 0.35rem 0 0.85rem;
-  padding-left: 1.2rem;
+  list-style: disc;
+  list-style-position: outside;
+  margin: 0.5rem 0 0.85rem;
+  padding-left: 1.35rem;
 }
 
 .activity-body ::ng-deep .day-resumen-lead li {
-  margin: 0.15rem 0;
+  margin: 0.2rem 0;
+  display: list-item;
 }
 
 .activity-body ::ng-deep .day-resumen-lead p {
