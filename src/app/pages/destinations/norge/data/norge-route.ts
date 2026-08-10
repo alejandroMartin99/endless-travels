@@ -476,7 +476,7 @@ export const norgeRoute = {
         '<li>Mirador de la ciudad (Fløyen) para la vista de postal</li>' +
         '</ul>',
       images: [
-        '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_01.jpg',
+        '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_01.jpg',
         '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_01.jpg',
       ],
       activities: [
@@ -501,6 +501,10 @@ export const norgeRoute = {
             '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_03.jpg',
             '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_04.jpg',
             '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_05.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_06.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_07.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_08.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_09.jpg',
           ],
           longitude: 5.3247,
           latitude: 60.3906,
@@ -512,7 +516,12 @@ export const norgeRoute = {
           description:
             '<p>Seguimos hasta <strong>Johanneskirken</strong>, la gran iglesia de ladrillo rojo que domina el skyline del centro.</p>' +
             '<p>Es una de las postales clásicas de Bergen: torre alta, plazas alrededor y ese contraste con el verde de Byparken a dos pasos.</p>',
-          images: [],
+          images: [
+            '/assets/norge/Dia04/02_johanneskirken/Dia04_02_johanneskirken_01.jpg',
+            '/assets/norge/Dia04/02_johanneskirken/Dia04_02_johanneskirken_02.jpg',
+            '/assets/norge/Dia04/02_johanneskirken/Dia04_02_johanneskirken_03.jpg',
+            '/assets/norge/Dia04/02_johanneskirken/Dia04_02_johanneskirken_04.jpg',
+          ],
           longitude: 5.3194,
           latitude: 60.3889,
           arriveBy: 'ruta',
@@ -522,10 +531,16 @@ export const norgeRoute = {
           name: 'Puerto de Bergen',
           description:
             '<p>Bajamos al <strong>puerto (Vågen)</strong>: agua, barcas y las casitas típicas asomadas al muelle.</p>' +
-            '<p>Aquí paramos a <strong>comer algo</strong> —ambiente turístico pero con la ciudad latindo de fondo. Buen momento para recargar antes del tramo Unesco.</p>',
+            '<p>Aquí paramos a <strong>comer algo</strong> —ambiente turístico pero con la ciudad latiendo de fondo. Buen momento para recargar antes del tramo Unesco.</p>',
           images: [
             '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_01.jpg',
             '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_02.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_03.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_04.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_05.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_06.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_07.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_08.jpg',
           ],
           longitude: 5.3245,
           latitude: 60.3947,
@@ -541,6 +556,8 @@ export const norgeRoute = {
             '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_01.jpg',
             '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_02.jpg',
             '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_03.jpg',
+            '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_04.jpg',
+            '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_05.jpg',
           ],
           longitude: 5.32363,
           latitude: 60.39707,
@@ -570,6 +587,11 @@ export const norgeRoute = {
             '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_01.jpg',
             '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_02.jpg',
             '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_03.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_04.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_05.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_06.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_07.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_08.jpg',
           ],
           longitude: 5.3428,
           latitude: 60.3945,
