@@ -609,14 +609,14 @@ export const norgeRoute = {
         '<p>Dejamos Bergen hacia un fiordo distinto: más abierto y agrícola, con la potencia de una cascada de película y noche de cabaña. La ruta es:</p>' +
         '<ul>' +
         '<li>Check-out del <strong>Citybox Danmarksplass</strong> tras dos noches en Bergen</li>' +
-        '<li>El <strong>Hardangerfjord</strong>: orillas suaves, frutales y horizonte amplio</li>' +
+        '<li>El <strong>Hardangerfjord</strong> y el puente <strong>Hardangerbrua</strong></li>' +
         '<li><strong>Vøringsfossen</strong>, el salto en el borde del cañón de Måbødalen</li>' +
         '<li>Otros ángulos del cañón y la cascada antes de girar al este</li>' +
-        '<li>Tramo de montaña hacia Geilo y noche en <strong>Øen Turistsenter Cottages</strong> (~59 €)</li>' +
+        '<li>Cierre en <strong>Øen Turistsenter Cottages</strong> (Geilo; <a href="https://www.booking.com/hotel/no/aen-turistsenter.es.html" target="_blank" rel="noopener">Booking</a>, ~59 €)</li>' +
         '</ul>',
       images: [
         '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_01.jpg',
-        '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_01.jpg',
+        '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_06.jpg',
       ],
       activities: [
         {
@@ -629,17 +629,14 @@ export const norgeRoute = {
         },
         {
           id: 'dia05-act01-hardangerfjord',
-          name: 'Hardangerfjord',
+          name: 'Hardangerfjord · Hardangerbrua',
           description:
             '<p>El <strong>Hardangerfjord</strong> es más abierto y agrícola que otros fiordos: frutales, orillas suaves y montañas al fondo. En julio el verde puede ser casi eléctrico.</p>' +
-            '<p>Aquí el ritmo baja. El paisaje invita a parar en miradores improvisados y a notar el contraste con el Nærøyfjord del Día 03.</p>' +
-            '<p>Es Noruega en versión “ancha”: menos claustrofobia vertical, más horizonte.</p>',
+            '<p>El momento estrella del tramo es cruzar la <strong>Hardangerbrua</strong>: ese puente colgante con la silueta tan característica, cables blancos y el túnel al otro lado. Una de las fotos “de película” del viaje.</p>' +
+            '<p>Aquí el ritmo baja. Contraste total con el Nærøyfjord del Día 03: menos claustrofobia vertical, más horizonte.</p>',
           images: [
             '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_01.jpg',
             '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_02.jpg',
-            '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_03.jpg',
-            '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_04.jpg',
-            '/assets/norge/Dia05/01_hardangerfjord/Dia05_01_hardangerfjord_05.jpg',
           ],
           longitude: 6.83461,
           latitude: 60.47488,
@@ -658,6 +655,9 @@ export const norgeRoute = {
             '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_03.jpg',
             '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_04.jpg',
             '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_05.jpg',
+            '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_06.jpg',
+            '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_07.jpg',
+            '/assets/norge/Dia05/02_voringsfossen/Dia05_02_voringsfossen_08.jpg',
           ],
           longitude: 7.2524,
           latitude: 60.42754,
@@ -681,31 +681,19 @@ export const norgeRoute = {
           arriveBy: 'driving',
         },
         {
-          id: 'dia05-act04-hemsedal',
-          name: 'Hacia Geilo / Hemsedal',
-          description:
-            '<p>El tramo final del día recupera el lenguaje de la montaña: pastos, picos y la sensación de estar ya en la meseta del este.</p>' +
-            '<p>Es el puente visual entre Hardanger y la noche en Geilo. Menos fiordo, más altitud.</p>' +
-            '<p>Últimas fotos con luz de tarde antes de llegar a la cabaña.</p>',
-          images: [
-            '/assets/norge/Dia05/04_hemsedal/Dia05_04_hemsedal_01.jpg',
-            '/assets/norge/Dia05/04_hemsedal/Dia05_04_hemsedal_02.jpg',
-            '/assets/norge/Dia05/04_hemsedal/Dia05_04_hemsedal_03.jpg',
-            '/assets/norge/Dia05/04_hemsedal/Dia05_04_hemsedal_04.jpg',
-            '/assets/norge/Dia05/04_hemsedal/Dia05_04_hemsedal_05.jpg',
-          ],
-          longitude: 8.23775,
-          latitude: 60.54424,
-          arriveBy: 'driving',
-        },
-        {
           id: 'dia05-hotel-geilo',
-          name: 'Øen Turistsenter Cottages',
+          name: 'Øen Turistsenter Cottages · Geilo',
           description:
-            '<p>Noche en <strong>Øen Turistsenter Cottages</strong> (Geilo, 20–21 jul 2022, ~59 €): cabaña de montaña, ambiente sencillo y perfecto para desconectar.</p>' +
-            '<p>Tras Hardanger y Vøringsfossen, el cuerpo pide silencio y una cena sin prisas.</p>' +
-            '<p>Mañana: viaje de vuelta a Oslo; el cierre urbano queda para el Día 07.</p>',
-          images: ['/assets/norge/Dia05/Dia05_portada.jpg'],
+            '<p>El tramo final del día es montaña hacia el este —menos fiordo, más altitud— hasta cerrar en <strong>Øen Turistsenter Cottages</strong> (<a href="https://www.booking.com/hotel/no/aen-turistsenter.es.html" target="_blank" rel="noopener">Booking</a>, Geilo, 20–21 jul 2022, ~59 €).</p>' +
+            '<p>Eran cabañas muy simples —hytter básicas, cocina para improvisar la cena, aparcar delante— pero nos permitían hacer la escala tras mucho tiempo de conducción: el punto intermedio perfecto entre Bergen y Oslo.</p>' +
+            '<p>Zona tranquila, entrada fácil y justo lo que hacía falta para dormir y seguir. Mañana: coche a Oslo y primera tanda urbana.</p>',
+          images: [
+            '/assets/norge/Dia05/05_oen-turistsenter/Dia05_05_oen-turistsenter_01.jpg',
+            '/assets/norge/Dia05/05_oen-turistsenter/Dia05_05_oen-turistsenter_02.jpg',
+            '/assets/norge/Dia05/05_oen-turistsenter/Dia05_05_oen-turistsenter_03.jpg',
+            '/assets/norge/Dia05/05_oen-turistsenter/Dia05_05_oen-turistsenter_04.jpg',
+            '/assets/norge/Dia05/05_oen-turistsenter/Dia05_05_oen-turistsenter_05.jpg',
+          ],
           longitude: 8.23814,
           latitude: 60.54489,
           arriveBy: 'lodging',
@@ -719,16 +707,17 @@ export const norgeRoute = {
       longitude: 10.75804,
       latitude: 59.91759,
       summary:
-        '<p>Día de traslado: de las cabañas de Geilo a Oslo. El mismo valle a la inversa y noche en la capital. La ruta es:</p>' +
+        '<p>Mañana de coche desde Geilo y, ya en Oslo, una tarde intensa conociendo la ciudad. La ruta es:</p>' +
         '<ul>' +
         '<li>Salida desde las cabañas de <strong>Øen Turistsenter</strong> en Geilo</li>' +
         '<li>Paso por <strong>Gol</strong> y Hallingdal</li>' +
-        '<li>Llegada a Oslo y noche en el <strong>Anker Hotel</strong> (~106 €)</li>' +
-        '<li>Mañana: día completo en la capital</li>' +
+        '<li>Parque de <strong>Vigeland</strong> en Frogner (estatuas y más detalle)</li>' +
+        '<li><strong>Akershus</strong> y miradores sobre el puerto</li>' +
+        '<li>Noche en el <strong>Anker Hotel</strong> (~106 €)</li>' +
         '</ul>',
       images: [
+        '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_01.jpg',
         '/assets/norge/Dia06/01_gol/Dia06_01_gol_01.jpg',
-        '/assets/norge/Dia06/Dia06_portada.jpg',
       ],
       activities: [
         {
@@ -743,8 +732,8 @@ export const norgeRoute = {
           id: 'dia06-act01-gol',
           name: 'Gol · paso por Hallingdal',
           description:
-            '<p>Pasamos de nuevo por <strong>Gol</strong> y Hallingdal, ahora en sentido inverso: el mismo valle, otra mirada.</p>' +
-            '<p>Es el puente entre la montaña y la capital. Ideal para un café rápido y estirar piernas antes del tramo final.</p>' +
+            '<p>Por la mañana cerramos el tramo en coche: otra vez <strong>Gol</strong> y Hallingdal, ahora en sentido inverso.</p>' +
+            '<p>Es el puente entre la montaña y la capital. Café rápido, estirar piernas y seguir hacia Oslo.</p>' +
             '<p>El paisaje ya no sorprende igual… y por eso se disfruta distinto.</p>',
           images: [
             '/assets/norge/Dia06/01_gol/Dia06_01_gol_01.jpg',
@@ -756,12 +745,65 @@ export const norgeRoute = {
           arriveBy: 'driving',
         },
         {
+          id: 'dia06-act02-vigeland-frogner',
+          name: 'Vigeland / Frogner',
+          description:
+            '<p>Ya en Oslo, el parque de <strong>Vigeland</strong> en Frogner: cientos de figuras de bronce y granito sobre lo humano.</p>' +
+            '<p>Uno de los espacios más visitados de la capital. Tras horas de carretera, pasear entre esculturas cambia el ritmo del viaje.</p>' +
+            '<p>Después de días de naturaleza salvaje, aquí el “paisaje” son cuerpos, gestos y geometría.</p>',
+          images: [
+            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_01.jpg',
+            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_02.jpg',
+            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_03.jpg',
+            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_04.jpg',
+            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_05.jpg',
+          ],
+          longitude: 10.70865,
+          latitude: 59.92356,
+          arriveBy: 'driving',
+        },
+        {
+          id: 'dia06-act03-vigeland-frogner',
+          name: 'Vigeland · más detalle',
+          description:
+            '<p>Segunda pasada por el parque: más cerca de las figuras, más atención al detalle y a la composición.</p>' +
+            '<p>Vigeland se merece tiempo. No es un “check” rápido; es un museo sin techo.</p>' +
+            '<p>Cuando el parque se queda pequeño, los miradores del puerto y Akershus esperan.</p>',
+          images: [
+            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_01.jpg',
+            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_02.jpg',
+            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_03.jpg',
+            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_04.jpg',
+            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_05.jpg',
+          ],
+          longitude: 10.71193,
+          latitude: 59.9255,
+          arriveBy: 'ruta',
+        },
+        {
+          id: 'dia06-act04-akershus',
+          name: 'Akershus y miradores',
+          description:
+            '<p>La fortaleza de <strong>Akershus</strong> vigila el puerto: murallas, cañones y perspectivas sobre el waterfront.</p>' +
+            '<p>Es el contrapunto histórico a la ciudad moderna —y el cierre del “conocer Oslo” de esta tarde.</p>' +
+            '<p>Mañana queda más libre: Ópera, centro y compras.</p>',
+          images: [
+            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_01.jpg',
+            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_02.jpg',
+            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_03.jpg',
+            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_04.jpg',
+            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_05.jpg',
+          ],
+          longitude: 10.72916,
+          latitude: 59.90882,
+          arriveBy: 'ruta',
+        },
+        {
           id: 'dia06-hotel-anker',
           name: 'Anker Hotel',
           description:
-            '<p>Llegada a Oslo y noche en el <strong>Anker Hotel</strong> (21–22 jul 2022, ~106 €). El trayecto del día termina en el alojamiento.</p>' +
-            '<p>Tras horas de carretera, la capital vuelve a ser base. Mañana: día 100 % Oslo —Vigeland, Ópera y Akershus— sin maletas.</p>' +
-            '<p>Gardermoen y el vuelo quedan para después del paseo urbano.</p>',
+            '<p>Noche en el <strong>Anker Hotel</strong> (Oslo, 21–22 jul 2022, ~106 €) tras el trayecto y la primera tanda urbana.</p>' +
+            '<p>El road trip ya ha vuelto a la capital. Mañana: Ópera, calles del centro y el paseo del puerto.</p>',
           images: ['/assets/norge/Dia06/Dia06_portada.jpg'],
           longitude: 10.75804,
           latitude: 59.91759,
@@ -776,17 +818,16 @@ export const norgeRoute = {
       longitude: 10.7522,
       latitude: 59.9139,
       summary:
-        '<p>Día completo en Oslo: el road trip termina donde empezó, con la cabeza llena de fiordos. La ruta es:</p>' +
+        '<p>Último día en Oslo, más libre: la Ópera como eje y tiempo por el centro y el puerto. La ruta es:</p>' +
         '<ul>' +
         '<li>Salida desde el <strong>Anker Hotel</strong></li>' +
-        '<li>Parque de <strong>Vigeland</strong> en Frogner: escultura al aire libre</li>' +
-        '<li>Más detalle en Frognerparken / las estatuas</li>' +
-        '<li>La <strong>Ópera de Oslo</strong> y su tejado caminable sobre el puerto</li>' +
-        '<li>Fortaleza de <strong>Akershus</strong> y vueltas por el waterfront</li>' +
+        '<li>La <strong>Ópera de Oslo</strong> (tejado caminable) — protagonista del día</li>' +
+        '<li>Libertad por el <strong>centro</strong>: calles, escaparates y un poco de compras</li>' +
+        '<li><strong>Oslo centrum</strong> / paseo marítimo: puerto y zona de la universidad</li>' +
         '</ul>',
       images: [
-        '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_01.jpg',
         '/assets/norge/Dia06/04_operahuset-oslo/Dia06_04_operahuset-oslo_01.jpg',
+        '/assets/norge/Dia06/04_operahuset-oslo/Dia06_04_operahuset-oslo_02.jpg',
       ],
       activities: [
         {
@@ -798,48 +839,12 @@ export const norgeRoute = {
           latitude: 59.91759,
         },
         {
-          id: 'dia07-act01-vigeland-frogner',
-          name: 'Vigeland / Frogner',
-          description:
-            '<p>El parque de <strong>Vigeland</strong> en Frogner es una lección de escultura al aire libre: cientos de figuras de bronce y granito sobre lo humano.</p>' +
-            '<p>Funciona con sol o con cielo gris. Es uno de los espacios más visitados de Oslo… y con razón: se puede pasear horas sin repetir ángulo.</p>' +
-            '<p>Después de días de naturaleza salvaje, aquí el “paisaje” son cuerpos, gestos y geometría.</p>',
-          images: [
-            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_01.jpg',
-            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_02.jpg',
-            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_03.jpg',
-            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_04.jpg',
-            '/assets/norge/Dia06/02_vigeland-frogner/Dia06_02_vigeland-frogner_05.jpg',
-          ],
-          longitude: 10.70865,
-          latitude: 59.92356,
-          arriveBy: 'ruta',
-        },
-        {
-          id: 'dia07-act02-vigeland-frogner',
-          name: 'Vigeland · más detalle',
-          description:
-            '<p>Segunda pasada por el parque: más cerca de las figuras, más atención al detalle y a la composición.</p>' +
-            '<p>Vigeland se merece tiempo. No es un “check” rápido; es un museo sin techo.</p>' +
-            '<p>Cuando el parque se queda pequeño, el puerto y la Ópera esperan.</p>',
-          images: [
-            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_01.jpg',
-            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_02.jpg',
-            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_03.jpg',
-            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_04.jpg',
-            '/assets/norge/Dia06/03_vigeland-frogner/Dia06_03_vigeland-frogner_05.jpg',
-          ],
-          longitude: 10.71193,
-          latitude: 59.9255,
-          arriveBy: 'ruta',
-        },
-        {
-          id: 'dia07-act03-operahuset-oslo',
+          id: 'dia07-act01-operahuset-oslo',
           name: 'Operahuset Oslo',
           description:
-            '<p>La <strong>Ópera de Oslo</strong>, con su mármol blanco caminable, redefine el puerto: arquitectura contemporánea, vistas al fiordo y una terraza-tejado que invita a subir despacio.</p>' +
-            '<p>Es la postal moderna de la capital. Subir al tejado es casi un ritual —y una de las mejores vistas urbanas del viaje.</p>' +
-            '<p>Contraste perfecto con los fiordos salvajes de días atrás: aquí el agua es ciudad.</p>',
+            '<p>Este día es casi entero de la <strong>Ópera de Oslo</strong>: mármol blanco caminable, vistas al fiordo y el ritual de subir al tejado sin prisas.</p>' +
+            '<p>Es la postal moderna de la capital y el contrapunto perfecto a los fiordos de días atrás.</p>' +
+            '<p>Aquí el agua es ciudad —y el cierre fotográfico del viaje.</p>',
           images: [
             '/assets/norge/Dia06/04_operahuset-oslo/Dia06_04_operahuset-oslo_01.jpg',
             '/assets/norge/Dia06/04_operahuset-oslo/Dia06_04_operahuset-oslo_02.jpg',
@@ -852,21 +857,27 @@ export const norgeRoute = {
           arriveBy: 'ruta',
         },
         {
-          id: 'dia07-act04-akershus',
-          name: 'Akershus',
+          id: 'dia07-act02-centro',
+          name: 'Centro · calles y compras',
           description:
-            '<p>La fortaleza de <strong>Akershus</strong> vigila el puerto desde hace siglos: murallas, cañones y perspectivas sobre el waterfront.</p>' +
-            '<p>Es el contrapunto histórico a la Ópera. Entre ambas, Oslo se entiende como ciudad de capas —medieval y contemporánea a la vez.</p>' +
-            '<p>Cierre del circuito urbano —y del viaje— antes de Gardermoen.</p>',
-          images: [
-            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_01.jpg',
-            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_02.jpg',
-            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_03.jpg',
-            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_04.jpg',
-            '/assets/norge/Dia06/05_akershus/Dia06_05_akershus_05.jpg',
-          ],
-          longitude: 10.72916,
-          latitude: 59.90882,
+            '<p>Tiempo libre por el <strong>centro de Oslo</strong>: calles, escaparates y un poco de compras sin itinerario rígido.</p>' +
+            '<p>Tras el ritmo del road trip, este tramo es permiso para deambular —Karl Johan y alrededores, cafés, vitrinas.</p>' +
+            '<p>Menos “checklist”, más ciudad a pie.</p>',
+          images: [],
+          longitude: 10.7461,
+          latitude: 59.9133,
+          arriveBy: 'ruta',
+        },
+        {
+          id: 'dia07-act03-puerto-centrum',
+          name: 'Puerto · Oslo centrum',
+          description:
+            '<p>Bajamos al <strong>paseo del puerto</strong> en Oslo centrum: waterfront, ambiente universitario y vueltas sin prisa por la zona.</p>' +
+            '<p>Es el cierre suave del viaje —el mismo puerto que ya se intuía desde Akershus, ahora a ras de muelle.</p>' +
+            '<p>Después, Gardermoen y el vuelo: el círculo del road trip se cierra en la capital.</p>',
+          images: [],
+          longitude: 10.737,
+          latitude: 59.9085,
           arriveBy: 'ruta',
         },
       ],
@@ -915,7 +926,7 @@ export const norgeRoute = {
     { id: 'stay-sogndal', category: 'Alojamiento', label: 'Sogndal B&B (16–17)', amountHint: '€ 81', url: 'https://www.booking.com/hotel/no/sogndal-vandrerhjem.es.html' },
     { id: 'stay-flam', category: 'Alojamiento', label: 'Brekke Apartments Flåm (17–18)', amountHint: '€ 100', url: 'https://www.booking.com/hotel/no/brekke-apartments.es.html' },
     { id: 'stay-bergen', category: 'Alojamiento', label: 'Citybox Bergen (18–20, 2 noches)', amountHint: '€ 200', url: 'https://www.booking.com/hotel/no/citybox-danmarksplass.es.html' },
-    { id: 'stay-geilo', category: 'Alojamiento', label: 'Øen Turistsenter Geilo (20–21)', amountHint: '€ 59' },
+    { id: 'stay-geilo', category: 'Alojamiento', label: 'Øen Turistsenter Geilo (20–21)', amountHint: '€ 59', url: 'https://www.booking.com/hotel/no/aen-turistsenter.es.html' },
     { id: 'stay-anker', category: 'Alojamiento', label: 'Anker Hotel Oslo (21–22)', amountHint: '€ 106' },
     { id: 'food-super', category: 'Comida', label: 'Supermercado (comida viaje)', amountHint: '€ 50' },
     { id: 'circlek-16', category: 'Comida', label: 'Circle K (16 jul)', amountHint: '€ 9' },
