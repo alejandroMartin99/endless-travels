@@ -122,6 +122,10 @@
   background: #1565C0;
 }
 
+:host ::ng-deep .norge-marker--day.mode-ruta {
+  background: #2E7D32;
+}
+
 :host ::ng-deep .norge-marker--day.is-start {
   box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.35);
 }

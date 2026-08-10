@@ -102,6 +102,13 @@ export class NorgeDayItineraryComponent implements OnChanges {
     return this.shortTitle(this.current?.name ?? '');
   }
 
+  /** Nombre de la etapa anterior (origen del trayecto) para el título. */
+  get prevActivityName(): string {
+    const real = this.realActivityIndex;
+    if (real <= 0) return '';
+    return this.shortTitle(this.activities[real - 1]?.name ?? '');
+  }
+
   get images(): string[] {
     return this.current?.images?.length ? this.current.images : [];
   }
@@ -148,6 +155,8 @@ export class NorgeDayItineraryComponent implements OnChanges {
         return 'directions_bus';
       case 'train':
         return 'train';
+      case 'ruta':
+        return 'hiking';
       case 'lodging':
         return 'cottage';
       default:
@@ -163,6 +172,8 @@ export class NorgeDayItineraryComponent implements OnChanges {
         return 'Bus';
       case 'train':
         return 'Tren';
+      case 'ruta':
+        return 'Ruta a pie';
       case 'lodging':
         return 'Alojamiento';
       default:

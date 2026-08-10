@@ -12,8 +12,11 @@ export interface NorgeActivity {
   images: string[];
   longitude?: number;
   latitude?: number;
-  arriveBy?: 'driving' | 'boat' | 'bus' | 'train' | 'lodging';
+  arriveBy?: 'driving' | 'boat' | 'bus' | 'train' | 'lodging' | 'ruta';
   pathCoordinates?: Array<[number, number]>;
+  /** Fuerza la distancia/tiempo del tramo (p. ej. rutas a pie medidas por sendero). */
+  distanceKmOverride?: number;
+  durationMinOverride?: number;
 }
 
 export interface NorgeStop {
@@ -38,6 +41,7 @@ export interface NorgeCost {
   category: string;
   label: string;
   amountHint: string;
+  url?: string;
 }
 
 export interface NorgeStopLegView {
@@ -61,35 +65,39 @@ export const norgeRoute = {
       longitude: 7.10293,
       latitude: 61.23122,
       summary:
-        '<p>Dejamos la capital y cruzamos Hallingdal rumbo al oeste: ríos anchos, iglesias de madera y la sensación creciente de entrar en otra Noruega. El objetivo no es llegar rápido, sino ir cambiando de paisaje hasta oler el fiordo.</p>' +
-        '<p class="day-lead-xl">Las estrellas de la jornada son las cataratas de <strong>Hønefoss</strong>, el valle de <strong>Hallingdal</strong> y <strong>Hemsedal</strong>, la milenaria <strong>iglesia de madera de Borgund</strong>, el pueblo fluvial de <strong>Lærdal</strong> y el <strong>cruce en ferry del Sognefjord</strong> hasta <strong>Sogndal</strong>.</p>' +
-        '<p class="day-highlight"><strong>Cierre del día:</strong> de Lærdal a Sogndal el coche no solo rueda por asfalto — <strong>también se embarca</strong> para cruzar un brazo del Sognefjord — y terminamos en el Bed &amp; Breakfast a orillas del fiordo.</p>',
+        '<p>Dejamos la capital y cruzamos Hallingdal rumbo al oeste: ríos anchos, iglesias de madera y la sensación creciente de entrar en otra Noruega. La ruta es:</p>' +
+        '<ul>' +
+        '<li>Salida desde el Citybox de Oslo (~82 €)</li>' +
+        '<li>El spot junto al lago en Vik</li>' +
+        '<li>El valle de Hallingdal y Hemsedal</li>' +
+        '<li>La milenaria iglesia de madera de Borgund</li>' +
+        '<li>El pueblo fluvial de Lærdal</li>' +
+        '<li>El cruce en ferry del Sognefjord hasta Sogndal</li>' +
+        '<li>Terminamos en el Bed &amp; Breakfast a orillas del fiordo para dormir alli.</li>' +
+        '</ul>' ,
       images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
       activities: [
         {
           id: 'dia01-start-oslo',
           name: 'Salida · Citybox Oslo',
-          description:
-            '<p>El viaje comienza en el corazón de Oslo, en el <strong>Citybox</strong> (15–16 jul 2022, ~82 €) donde pasamos la noche previa. Con el coche cargado y la ciudad aún dormida, la ruta apunta al oeste: kilómetros de valle, montaña y, al final del día, agua.</p>' +
-            '<p>Es el momento de cambiar el ritmo. Dejamos atrás avenidas y tranvías para entrar en la Noruega de carreteras estrechas, peajes AutoPASS y paisajes que se abren sin aviso.</p>' +
-            '<p>Desde aquí el mapa dibuja una línea continua hasta Sogndal: cada etapa tiene su propio carácter, y ninguna es “de relleno”.</p>',
+          description: '',
           images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
           longitude: 10.74724,
           latitude: 59.91035,
         },
         {
           id: 'dia01-act01-honefoss',
-          name: 'Hønefoss',
+          name: 'Vik',
           description:
-            '<p><strong>Hønefoss</strong> funciona como umbral. Apenas una hora fuera de Oslo, el paisaje ya habla otro idioma: el río Begna, puentes y un valle que invita a bajar la velocidad.</p>' +
-            '<p>Paramos para estirar las piernas y mirar el agua. No es un destino de postal forzada; es la primera prueba de que el road trip ha empezado de verdad.</p>' +
-            '<p>Consejo de ruta: aprovecha estos minutos. Más adelante los tramos se alargan y las paradas se vuelven más escénicas… y más imprescindibles.</p>',
+            '<p>Paramos en <strong>Vik</strong> para comprar el desayuno en una gasolinera y, casi por casualidad, descubrimos un spot maravilloso junto al lago: una especie de pequeño puerto rodeado de paisajes completamente verdes.Fue una de esas paradas improvisadas que acaban valiendo la pena. La calma del agua, el verde intenso y el silencio hacían el sitio perfecto para desconectar unos minutos. Os recomendamos parar aquí y contemplarlo con calma antes de seguir ruta.</p>',
           images: [
-            '/assets/norge/Dia01/01_honefoss/Dia01_01_honefoss_01.jpg',
-            '/assets/norge/Dia01/01_honefoss/Dia01_01_honefoss_02.jpg',
-            '/assets/norge/Dia01/01_honefoss/Dia01_01_honefoss_03.jpg',
-            '/assets/norge/Dia01/01_honefoss/Dia01_01_honefoss_04.jpg',
-            '/assets/norge/Dia01/01_honefoss/Dia01_01_honefoss_05.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_02.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_03.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_04.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_05.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_06.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_07.jpg',
+            '/assets/norge/Dia01/01_vik/Dia01_01_vik_01.jpg',
           ],
           longitude: 10.28785,
           latitude: 60.08349,
@@ -103,11 +111,11 @@ export const norgeRoute = {
             '<p>Es un tramo de transición, pero no de aburrimiento. El coche marca el tempo; la carretera, el paisaje. Perfecto para ir entrando en el viaje sin prisa.</p>' +
             '<p>Si el día está claro, el contraste entre verde intenso y cielo pálido ya anticipa lo que vendrá al acercarnos a los fiordos.</p>',
           images: [
-            '/assets/norge/Dia01/02_honefoss/Dia01_02_honefoss_01.jpg',
-            '/assets/norge/Dia01/02_honefoss/Dia01_02_honefoss_02.jpg',
-            '/assets/norge/Dia01/02_honefoss/Dia01_02_honefoss_03.jpg',
-            '/assets/norge/Dia01/02_honefoss/Dia01_02_honefoss_04.jpg',
-            '/assets/norge/Dia01/02_honefoss/Dia01_02_honefoss_05.jpg',
+            '/assets/norge/Dia01/02_hallingdal/Dia01_02_hallingdal_01.jpg',
+            '/assets/norge/Dia01/02_hallingdal/Dia01_02_hallingdal_02.jpg',
+            '/assets/norge/Dia01/02_hallingdal/Dia01_02_hallingdal_03.jpg',
+            '/assets/norge/Dia01/02_hallingdal/Dia01_02_hallingdal_04.jpg',
+            '/assets/norge/Dia01/02_hallingdal/Dia01_02_hallingdal_05.jpg',
           ],
           longitude: 10.10274,
           latitude: 60.37676,
@@ -115,36 +123,32 @@ export const norgeRoute = {
         },
         {
           id: 'dia01-act03-gol',
-          name: 'Gol · Hallingdal',
+          name: 'Fagernes',
           description:
-            '<p><strong>Gol</strong> es el clásico alto de Hallingdal en cualquier ruta hacia el oeste: valle ancho, madera, horizontes abiertos y ambiente de pueblo de paso con personalidad.</p>' +
-            '<p>Aquí el paisaje gana escala. Todavía no estamos en el fiordo, pero sí en otra dimensión: menos densididad urbana, más aire y esa sensación de “ya estamos dentro” del viaje.</p>' +
-            '<p>Una parada útil para café, fotos y reorganizar el asiento. Hallingdal merece mirarse sin tratarla solo como kilómetro intermedio.</p>',
+            '<p>Paramos a comer en <strong>Fagernes</strong> y resultó ser un pueblo encantador, con muchísima vida. Además de recorrerlo, visitamos el lago/río que lo rodea, con puentes que conectan pequeñas islas que parecen mini archipiélagos dentro del agua.</p>' +
+            '<p>Nos hizo un tiempo espectacular: había mucha gente tomando el sol en los jardines junto al lago, familias enteras disfrutando de la tarde. Un ambiente alegre y muy noruego.</p>' +
+            '<p>Una parada perfecta para comer con calma, pasear junto al agua y empaparse del ritmo tranquilo de Valdres antes de seguir hacia los fiordos.</p>',
           images: [
-            '/assets/norge/Dia01/03_gol/Dia01_03_gol_01.jpg',
-            '/assets/norge/Dia01/03_gol/Dia01_03_gol_02.jpg',
-            '/assets/norge/Dia01/03_gol/Dia01_03_gol_03.jpg',
-            '/assets/norge/Dia01/04_gol/Dia01_04_gol_01.jpg',
-            '/assets/norge/Dia01/04_gol/Dia01_04_gol_02.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_01.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_02.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_03.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_04.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_05.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_06.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_07.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_08.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_09.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_10.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_11.jpg',
+            '/assets/norge/Dia01/03_fagernes/Dia01_03_fagernes_12.jpg',
+            '/assets/norge/Dia01/04_fagernes/Dia01_04_fagernes_01.jpg',
+            '/assets/norge/Dia01/04_fagernes/Dia01_04_fagernes_02.jpg',
+            '/assets/norge/Dia01/04_fagernes/Dia01_04_fagernes_03.jpg',
+            '/assets/norge/Dia01/04_fagernes/Dia01_04_fagernes_04.jpg',
+            '/assets/norge/Dia01/04_fagernes/Dia01_04_fagernes_05.jpg',
           ],
-          longitude: 9.26264,
-          latitude: 60.97042,
-          arriveBy: 'driving',
-        },
-        {
-          id: 'dia01-act05-hemsedal',
-          name: 'Hemsedal',
-          description:
-            '<p><strong>Hemsedal</strong> es famosa por el esquí, pero en julio se transforma: picos limpios, pastos altos y un aire de estación de montaña sin la agitación invernal.</p>' +
-            '<p>El valle se estrecha y se vuelve más vertical. Es un buen lugar para mirar hacia arriba, bajar la ventanilla y sentir el cambio de altitud en el cuerpo.</p>' +
-            '<p>Las fotos aquí suelen captar bien la luz del norte. Si el tiempo acompaña, unos minutos bastan para guardar una de las mejores secuencias del día.</p>',
-          images: [
-            '/assets/norge/Dia01/05_hemsedal/Dia01_05_hemsedal_01.jpg',
-            '/assets/norge/Dia01/05_hemsedal/Dia01_05_hemsedal_02.jpg',
-            '/assets/norge/Dia01/05_hemsedal/Dia01_05_hemsedal_03.jpg',
-          ],
-          longitude: 8.86528,
-          latitude: 61.10496,
+          longitude: 9.2386,
+          latitude: 60.9817,
           arriveBy: 'driving',
         },
         {
@@ -173,11 +177,13 @@ export const norgeRoute = {
             '<p>Aquí el día ya “huele” a agua. El paisaje deja de ser solo montaña y anticipa el encuentro con el fiordo.</p>' +
             '<p>Desde aquí el último empujón es hasta el alojamiento en Sogndal: mismo coche… y un cruce de fiordo con el vehículo a bordo.</p>',
           images: [
-            '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_01.jpg',
             '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_02.jpg',
             '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_03.jpg',
             '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_04.jpg',
             '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_05.jpg',
+            '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_06.jpg',
+            '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_07.jpg',
+            '/assets/norge/Dia01/07_laerdal/Dia01_07_laerdal_08.jpg',
           ],
           longitude: 7.44094,
           latitude: 61.11834,
@@ -189,8 +195,12 @@ export const norgeRoute = {
           description:
             '<p>Llegada al <strong>Sogndal Bed & Breakfast</strong> (16–17 jul 2022, ~81 €), ya en la orilla del mundo de los fiordos.</p>' +
             '<p>El tramo desde Lærdal es todo en coche: en el camino <strong>cruzamos un brazo del Sognefjord</strong> —el coche se sube al ferry (Mannheller–Fodnes), avanza unos minutos sobre el agua y vuelve a rodar al desembarcar. No es un crucero aparte; es la carretera noruega hecha también de barcos.</p>' +
-            '<p>Tras el ferry, ducha, cena sencilla y la satisfacción de haber atravesado Noruega de este a oeste en una sola jornada. Mañana: Briksdal, Nordfjord y Stegastein antes de Flåm.</p>',
-          images: ['/assets/norge/Dia01/Dia01_portada.jpg'],
+            '<p>La habitación es muy sencilla —una especie de residencia estudiantil—, pero para descansar es perfecta. Tras el ferry, ducha, cena sencilla y la satisfacción de haber atravesado Noruega de este a oeste en una sola jornada.</p>' +
+            '<p><a href="https://www.booking.com/hotel/no/sogndal-vandrerhjem.es.html" target="_blank" rel="noopener">Ver alojamiento en Booking →</a></p>',
+          images: [
+            '/assets/norge/Dia01/08_sogndal/Dia01_08_sogndal_01.jpg',
+            '/assets/norge/Dia01/08_sogndal/Dia01_08_sogndal_02.jpg',
+          ],
           longitude: 7.10293,
           latitude: 61.23122,
           arriveBy: 'lodging',
@@ -204,18 +214,24 @@ export const norgeRoute = {
       longitude: 7.10523,
       latitude: 60.85709,
       summary:
-        '<p>Día de hielo y verticalidad. Salimos de Sogndal hacia el <strong>Briksdalsbreen</strong> —una de las lenguas más fotogénicas del Jostedalsbreen— y cerramos con el mirador de <strong>Stegastein</strong> sobre el Aurlandsfjord.</p>' +
-        '<p class="day-highlight"><strong>Hilo del día:</strong> glaciar por la mañana, fiordo por la tarde, noche en Flåm. El contraste entre el blanco del hielo y el azul oscuro del agua es el alma de esta etapa.</p>',
-      images: ['/assets/norge/Dia02/Dia02_portada.jpg'],
+        '<p>Día de hielo y verticalidad: glaciar por la mañana, fiordo por la tarde y noche en Flåm. El contraste entre el blanco del hielo y el azul oscuro del agua es el alma de esta etapa. La ruta es:</p>' +
+        '<ul>' +
+        '<li>Salida desde Sogndal Bed &amp; Breakfast, justo donde cerró el Día 01: sin saltos en el mapa</li>' +
+        '<li>El glaciar <strong>Briksdalsbreen</strong>, una de las lenguas más fotogénicas del Jostedalsbreen</li>' +
+        '<li>La travesía a pie hasta el frente del hielo, entre cascadas y roca pulida</li>' +
+        '<li>El mirador de <strong>Stegastein</strong>, asomado al Aurlandsfjord</li>' +
+        '<li>Noche en Flåm, en el corazón de los fiordos</li>' +
+        '</ul>',
+      images: [
+        '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_01.jpg',
+        '/assets/norge/Dia02/04_stegastein/Dia02_04_stegastein_01.jpg',
+      ],
       activities: [
         {
           id: 'dia02-start-sogndal',
           name: 'Salida · Sogndal B&B',
-          description:
-            '<p>Arrancamos desde <strong>Sogndal Bed & Breakfast</strong>, exactamente donde cerró el Día 01. Sin saltos en el mapa: el trayecto es continuo.</p>' +
-            '<p>El plan es ambicioso y claro —hielo, cascadas y un mirador de película— así que conviene salir con margen y gasolina mental para las curvas.</p>' +
-            '<p>Hoy el coche es herramienta; el paisaje, el protagonista.</p>',
-          images: ['/assets/norge/Dia02/Dia02_portada.jpg'],
+          description: '',
+          images: [],
           longitude: 7.10293,
           latitude: 61.23122,
         },
@@ -241,33 +257,57 @@ export const norgeRoute = {
           id: 'dia02-act02-briksdalsbreen',
           name: 'Briksdalsbreen',
           description:
-            '<p>El <strong>Briksdalsbreen</strong> es una lengua del <strong>Jostedalsbreen</strong>, el glaciar continental más grande de Europa continental: hielo que baja desde la meseta hasta el valle de Briksdal, con cascadas y roca pulida por milenios.</p>' +
-            '<p>Los glaciares de esta zona son restos de la última glaciación; hoy retroceden con el clima más cálido, así que lo que ves no es “paisaje eterno”, sino un frente vivo que cambia de año en año. Por eso la caminata hasta cerca del hielo impresiona tanto: escala, sonido del agua y ese azul turbio típico del hielo comprimido.</p>' +
-            '<p>No hace falta ser montañero, pero sí buen calzado, capa impermeable y tiempo. Respeta las balizas: el frente puede soltar bloques. Guarda batería —aquí las fotos se disparan solas.</p>',
+            '<p>Llegamos al valle de <strong>Briksdal</strong> tras subir por el idílico Oldedalen. Aquí <strong>dejamos el coche en la plataforma de aparcamiento</strong>: desde este punto ya no se sigue en vehículo.</p>',
           images: [
-            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_01.jpg',
-            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_02.jpg',
-            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_03.jpg',
-            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_04.jpg',
-            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_05.jpg',
+            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_01.png',
+            '/assets/norge/Dia02/02_briksdalsbreen/Dia02_02_briksdalsbreen_02.png',
           ],
-          longitude: 7.20976,
-          latitude: 61.67789,
+          longitude: 7.235306547336803,
+          latitude: 61.67197734554156,
           arriveBy: 'driving',
+        },
+        {
+          id: 'dia02-ruta-briksdalsbreen',
+          name: 'Ruta al Briksdalsbreen',
+          description:
+            '<p>El <strong>Briksdalsbreen</strong> es una lengua del <strong>Jostedalsbreen</strong>, el glaciar continental más grande de Europa continental: hielo que baja desde la meseta hasta el valle de Briksdal, con cascadas y roca pulida por milenios.</p>' +
+            '<p>Los glaciares de esta zona son restos de la última glaciación; hoy retroceden con el clima más cálido, así que lo que ves no es “paisaje eterno”, sino un frente vivo que cambia de año en año.</p>' +
+            '<p><strong>Ruta a pie de ~6 h</strong> (ida y vuelta) desde el aparcamiento hasta el frente del glaciar. No hace falta ser montañero, pero sí ir con tiempo y buen calzado.</p>' +
+            '<p>Un tramo se puede hacer en <strong>barca</strong> por la laguna, pero los tramos finales son siempre andando. Nosotros hicimos <strong>toda la ida a pie</strong> y, para la vuelta, <strong>tomamos la barca en la parte final</strong>.</p>' +
+            '<p>Recomendación: <strong>ropa ligera pero que abrigue</strong> —cerca del hielo refresca y suele haber humedad de las cascadas. Respeta las balizas: el frente puede soltar bloques.</p>',
+          images: [
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_01.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_02.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_03.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_04.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_05.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_06.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_07.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_08.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_09.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_10.jpg',
+            '/assets/norge/Dia02/03_ruta_briksdalsbreen/Dia02_03_ruta_briksdalsbreen_11.jpg',
+          ],
+          longitude: 7.1526,
+          latitude: 61.701,
+          arriveBy: 'ruta',
+          distanceKmOverride: 10,
+          durationMinOverride: 360,
         },
         {
           id: 'dia02-act03-stegastein',
           name: 'Stegastein',
           description:
+            '<p>De camino al mirador cruzamos el <strong>túnel de Lærdal</strong> (Lærdalstunnelen): con unos <strong>24,5 km</strong> es el <strong>túnel de carretera más largo del mundo</strong>. Tres “cavernas” iluminadas rompen la monotonía y ayudan a mantener la concentración bajo tierra.</p>' +
             '<p>El mirador de <strong>Stegastein</strong> se asoma al Aurlandsfjord con una pasarela de madera que parece flotar sobre el vacío. Es arquitectura y paisaje a la vez.</p>' +
             '<p>Desde aquí se lee la profundidad del fiordo: agua oscura, paredes verticales y granjas minúsculas pegadas a la ladera. Un cierre visual casi cinematográfico.</p>' +
             '<p>Bajamos hacia Flåm con la cabeza llena de azul y verde. Mañana toca agua otra vez… pero esta vez en barco por el Nærøyfjord.</p>',
           images: [
-            '/assets/norge/Dia02/03_stegastein/Dia02_03_stegastein_01.jpg',
-            '/assets/norge/Dia02/03_stegastein/Dia02_03_stegastein_02.jpg',
-            '/assets/norge/Dia02/03_stegastein/Dia02_03_stegastein_03.jpg',
-            '/assets/norge/Dia02/03_stegastein/Dia02_03_stegastein_04.jpg',
-            '/assets/norge/Dia02/03_stegastein/Dia02_03_stegastein_05.jpg',
+            '/assets/norge/Dia02/04_stegastein/Dia02_04_stegastein_01.jpg',
+            '/assets/norge/Dia02/04_stegastein/Dia02_04_stegastein_02.jpg',
+            '/assets/norge/Dia02/04_stegastein/Dia02_04_stegastein_03.jpg',
+            '/assets/norge/Dia02/04_stegastein/Dia02_04_stegastein_04.jpg',
+            '/assets/norge/Dia02/04_stegastein/Dia02_04_stegastein_05.jpg',
           ],
           longitude: 7.2119,
           latitude: 60.90864,
@@ -275,12 +315,16 @@ export const norgeRoute = {
         },
         {
           id: 'dia02-hotel-flam',
-          name: 'Brekke Gard Hostel',
+          name: 'Brekke Apartments',
           description:
-            '<p>Noche en <strong>Brekke Gard Hostel</strong> (Flåm, 17–18 jul 2022, ~100 €), a un paso del puerto y de la estación de la Flåmsbana.</p>' +
-            '<p>Después de Stegastein, el fiordo queda literalmente a los pies. Cena ligera, ducha y a cargar el cuerpo: el Día 03 es el de la gran navegación.</p>' +
+            '<p>Noche en <strong>Brekke Apartments</strong> (<a href="https://www.booking.com/hotel/no/brekke-apartments.es.html" target="_blank" rel="noopener">Booking</a>, Flåm, 17–18 jul 2022, ~100 €): apartamento sencillo y práctico, a un paso del puerto y de la estación de la Flåmsbana.</p>' +
+            '<p>Después de Stegastein, el fiordo queda literalmente a los pies. Ideal para cenar algo ligero, ducharse y cargar el cuerpo: el Día 03 es el de la gran navegación.</p>' +
             '<p>Dormir en Flåm es despertar ya dentro del escenario Unesco.</p>',
-          images: ['/assets/norge/Dia02/Dia02_portada.jpg'],
+          images: [
+            '/assets/norge/Dia02/05_flam/Dia02_05_flam_01.jpg',
+            '/assets/norge/Dia02/05_flam/Dia02_05_flam_02.jpg',
+            '/assets/norge/Dia02/05_flam/Dia02_05_flam_03.jpg',
+          ],
           longitude: 7.10523,
           latitude: 60.85709,
           arriveBy: 'lodging',
@@ -300,9 +344,9 @@ export const norgeRoute = {
       activities: [
         {
           id: 'dia03-start-flam',
-          name: 'Salida · Brekke Gard Hostel',
+          name: 'Salida · Brekke Apartments',
           description:
-            '<p>Salimos de <strong>Brekke Gard Hostel</strong>, donde cerró el Día 02. El circuito de Flåm empieza en la puerta del alojamiento.</p>' +
+            '<p>Salimos de <strong>Brekke Apartments</strong>, donde cerró el Día 02. El circuito de Flåm empieza en la puerta del alojamiento.</p>' +
             '<p>Hoy no se trata de “hacer kilómetros” a lo loco, sino de encadenar experiencias: embarque, fiordo Unesco, bus, tren y carretera a Bergen.</p>' +
             '<p>Conviene tener tickets a mano y algo de snack: entre tramos hay poco margen para improvisar.</p>',
           images: ['/assets/norge/Dia03/Dia03_portada.jpg'],
@@ -750,8 +794,8 @@ export const norgeRoute = {
     { id: 'fuel-sogndal', category: 'Transporte', label: 'Circle K Sogndal (17 jul)', amountHint: '€ 57,52' },
     { id: 'flytoget', category: 'Transporte', label: 'Flytoget aeropuerto (22 jul)', amountHint: '€ 21,36' },
     { id: 'stay-oslo1', category: 'Alojamiento', label: 'Citybox Oslo (15–16)', amountHint: '€ 82' },
-    { id: 'stay-sogndal', category: 'Alojamiento', label: 'Sogndal B&B (16–17)', amountHint: '€ 81' },
-    { id: 'stay-flam', category: 'Alojamiento', label: 'Brekke Gard Flåm (17–18)', amountHint: '€ 100' },
+    { id: 'stay-sogndal', category: 'Alojamiento', label: 'Sogndal B&B (16–17)', amountHint: '€ 81', url: 'https://www.booking.com/hotel/no/sogndal-vandrerhjem.es.html' },
+    { id: 'stay-flam', category: 'Alojamiento', label: 'Brekke Apartments Flåm (17–18)', amountHint: '€ 100', url: 'https://www.booking.com/hotel/no/brekke-apartments.es.html' },
     { id: 'stay-bergen', category: 'Alojamiento', label: 'Citybox Bergen (18–20, 2 noches)', amountHint: '€ 200' },
     { id: 'stay-geilo', category: 'Alojamiento', label: 'Øen Turistsenter Geilo (20–21)', amountHint: '€ 59' },
     { id: 'stay-anker', category: 'Alojamiento', label: 'Anker Hotel Oslo (21–22)', amountHint: '€ 106' },

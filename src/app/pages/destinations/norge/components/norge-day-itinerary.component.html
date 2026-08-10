@@ -6,18 +6,19 @@
         <mat-icon>chevron_left</mat-icon>
       </button>
       <div class="activity-header-main">
-        <h3><span class="header-day">{{ stopDayLabel }}</span><span class="header-sep"> — </span>{{ headerTitle }}</h3>
+        <h3 *ngIf="inboundLeg as leg; else plainHead" class="route-title">
+          <span class="header-origin">{{ prevActivityName }} →</span>
+          <strong>{{ headerTitle }}</strong>
+          <span class="header-leg" [attr.data-mode]="leg.mode"> | {{ transportLabel(leg.mode) }} · {{ leg.distanceKm }} km · {{ durationFormatter(leg.durationMin) }}</span>
+        </h3>
+        <ng-template #plainHead>
+          <h3><span class="header-day">{{ stopDayLabel }}</span><span class="header-sep"> — </span><strong>{{ headerTitle }}</strong></h3>
+        </ng-template>
       </div>
       <button type="button" class="nav-btn" (click)="changeActivity(1)" [disabled]="currentActivityIndex === displayActivities.length - 1" aria-label="Siguiente">
         <mat-icon>chevron_right</mat-icon>
       </button>
     </header>
-
-    <!-- Trayecto de llegada a esta subetapa (coche/barco/bus/tren) -->
-    <p class="activity-leg" *ngIf="inboundLeg as leg" [attr.data-mode]="leg.mode">
-      <mat-icon>{{ transportIcon(leg.mode) }}</mat-icon>
-      <span><strong>{{ transportLabel(leg.mode) }}</strong> · {{ leg.distanceKm }} km · {{ durationFormatter(leg.durationMin) }}</span>
-    </p>
 
     <!-- Descripción (protagonismo al texto, primero) -->
     <div class="activity-body" [innerHTML]="activity.description"></div>

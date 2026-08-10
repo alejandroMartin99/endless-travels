@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../../environments/environment';
 
-export type TravelMode = 'driving' | 'boat' | 'bus' | 'train' | 'lodging';
+export type TravelMode = 'driving' | 'boat' | 'bus' | 'train' | 'lodging' | 'ruta';
 
 export interface DriveLegStats {
   distanceMeters: number;
@@ -92,8 +92,11 @@ export class NorgeDirectionsService {
       if (customPath && customPath.length >= 2) {
         leg = this.makePathLeg(customPath, mode);
         nextAt = customPath[customPath.length - 1];
-      } else if (mode === 'boat' || mode === 'train') {
+      } else if (mode === 'boat' || mode === 'train' || mode === 'ruta') {
         leg = this.makeDirectLeg(at, to, mode);
+        if (mode === 'ruta') {
+          nextAt = at;
+        }
       } else if (token) {
         const roadMode: TravelMode = mode === 'bus' ? 'bus' : 'driving';
         leg = await this.fetchRoadLeg(at, to, token, roadMode);
@@ -142,7 +145,7 @@ export class NorgeDirectionsService {
     for (let i = 0; i < coordinates.length - 1; i++) {
       meters += this.haversineM(coordinates[i], coordinates[i + 1]);
     }
-    const speedMps = mode === 'boat' ? 5.5 : mode === 'train' ? 8 : 13;
+    const speedMps = mode === 'boat' ? 5.5 : mode === 'train' ? 8 : mode === 'ruta' ? 1.4 : 13;
     const durationSeconds = Math.round(meters / speedMps);
     const mid = coordinates[Math.floor(coordinates.length / 2)] ?? coordinates[0];
     return {
@@ -164,7 +167,7 @@ export class NorgeDirectionsService {
     const coordinates = this.interpolate(from, to, 12);
     const meters = this.haversineM(from, to);
     // barco/tren: velocidad estimada
-    const speedMps = mode === 'boat' ? 5.5 : mode === 'train' ? 8 : 13;
+    const speedMps = mode === 'boat' ? 5.5 : mode === 'train' ? 8 : mode === 'ruta' ? 1.4 : 13;
     const durationSeconds = Math.round(meters / speedMps);
     const mid = coordinates[Math.floor(coordinates.length / 2)] ?? from;
     return {
@@ -257,6 +260,8 @@ export class NorgeDirectionsService {
         return 'En bus';
       case 'train':
         return 'En tren';
+      case 'ruta':
+        return 'A pie';
       case 'lodging':
         return 'Alojamiento';
       default:

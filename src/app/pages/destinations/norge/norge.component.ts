@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, inject, PLATFORM_ID } from '@angular/core
 import { isPlatformBrowser } from '@angular/common';
 import { norgeRoute, NorgeStopLegView } from './data/norge-route';
 import { norgeDirectionsCache } from './data/norge-directions-cache';
-import { NorgeDrawerTab } from './components/norge-drawer.component';
+import { NorgeDrawerTab, NorgeDayBreakdown } from './components/norge-drawer.component';
 import { NorgeMapComponent } from './components/norge-map.component';
 import { NorgeMapDayPoint, NorgeMapLegLabel } from './components/norge-map.types';
 import { NorgeDirectionsService, DriveLegStats } from './services/norge-directions.service';
@@ -47,6 +47,7 @@ export class NorgeComponent implements OnInit {
   dayPoints: NorgeMapDayPoint[] = [];
   tripDayPoints: NorgeMapDayPoint[] = [];
   dayLegLabels: NorgeMapLegLabel[] = [];
+  dayBreakdowns: NorgeDayBreakdown[] = [];
   activeSegmentCoordinates: Array<[number, number]> = [];
   activeSegmentMode: string = 'driving';
   private pendingActivityIndex: number | null = null;
@@ -98,8 +99,54 @@ export class NorgeComponent implements OnInit {
     }
 
     this.rebuildTripRouteLegs();
+    this.buildDayBreakdowns();
     this.applySelectedDayFromCache();
     setTimeout(() => this.mapComp?.resize(), 80);
+  }
+
+  private buildDayBreakdowns(): void {
+    const modeLabel: Record<string, string> = {
+      driving: 'Coche',
+      boat: 'Barco',
+      bus: 'Bus',
+      train: 'Tren',
+      ruta: 'A pie',
+      walking: 'A pie',
+    };
+    const order = ['driving', 'boat', 'bus', 'train', 'ruta', 'walking'];
+
+    this.dayBreakdowns = this.route.stops.map((stop, i) => {
+      const legs = this.dayCache[stop.id]?.legs ?? [];
+      const agg = new Map<string, { km: number; min: number }>();
+      let totalKm = 0;
+      let totalMin = 0;
+      for (const leg of legs) {
+        const mode = leg.mode === 'lodging' ? 'driving' : leg.mode || 'driving';
+        const cur = agg.get(mode) ?? { km: 0, min: 0 };
+        cur.km += leg.distanceKm || 0;
+        cur.min += leg.durationMin || 0;
+        agg.set(mode, cur);
+        totalKm += leg.distanceKm || 0;
+        totalMin += leg.durationMin || 0;
+      }
+      const modes = order
+        .filter(m => agg.has(m))
+        .map(m => ({
+          mode: m,
+          label: modeLabel[m] ?? m,
+          km: Math.round((agg.get(m)!.km) * 10) / 10,
+          min: Math.round(agg.get(m)!.min),
+        }));
+      return {
+        stopId: stop.id,
+        index: i + 1,
+        dayLabel: stop.dayLabel,
+        name: stop.name,
+        modes,
+        totalKm: Math.round(totalKm * 10) / 10,
+        totalMin: Math.round(totalMin),
+      };
+    });
   }
 
   onStopSelected(id: string): void {

@@ -32,26 +32,26 @@
           <span *ngIf="totalDurationLabel"> · {{ totalDurationLabel }}</span>
         </p>
 
-        <div class="stop-strip" role="list" aria-label="Días del viaje">
-          <ng-container *ngFor="let stop of stops; let i = index; let last = last">
-            <button
-              type="button"
-              class="stop-chip"
-              role="listitem"
-              [class.active]="stop.id === selectedStopId"
-              (click)="selectStop(stop.id)">
-              <span class="stop-index">{{ i + 1 }}</span>
-              <span class="stop-chip-text">
-                <strong>{{ stop.name }}</strong>
-                <small>{{ stop.dayLabel }}</small>
+        <div class="day-list" role="list" aria-label="Días del viaje">
+          <button
+            type="button"
+            class="day-card"
+            role="listitem"
+            *ngFor="let d of dayBreakdowns"
+            [class.active]="d.stopId === selectedStopId"
+            (click)="selectStop(d.stopId)">
+            <span class="day-card-index">{{ d.index }}</span>
+            <span class="day-card-main">
+              <small class="day-card-kicker">{{ d.dayLabel }}</small>
+              <strong class="day-card-name">{{ d.name }}</strong>
+            </span>
+            <span class="day-card-modes" *ngIf="d.modes.length">
+              <span class="day-mode" *ngFor="let m of d.modes" [attr.data-mode]="m.mode">
+                <span class="day-mode-label">{{ m.label }}</span>
+                <span class="day-mode-val">{{ m.km }} km · {{ durationFormatter(m.min) }}</span>
               </span>
-            </button>
-            <div class="stop-leg" *ngIf="!last && legAfterStop(stop.id) as leg" [title]="leg.fromName + ' → ' + leg.toName">
-              <span class="stop-leg-mode">Coche</span>
-              <span>{{ leg.distanceKm }} km</span>
-              <span>{{ leg.durationLabel }}</span>
-            </div>
-          </ng-container>
+            </span>
+          </button>
         </div>
 
         <article class="stop-detail" *ngIf="selectedStop as stop">
@@ -177,7 +177,8 @@
           <ul class="cost-list">
             <li class="cost-list-row" *ngFor="let c of filteredCosts">
               <span class="cost-list-dot" [style.background]="categoryColor(c.category)"></span>
-              <span class="cost-list-name">{{ c.label }}</span>
+              <a *ngIf="c.url; else plainName" class="cost-list-name cost-list-link" [href]="c.url" target="_blank" rel="noopener">{{ c.label }} ↗</a>
+              <ng-template #plainName><span class="cost-list-name">{{ c.label }}</span></ng-template>
               <span class="cost-list-amt">{{ c.amountHint }}</span>
             </li>
           </ul>

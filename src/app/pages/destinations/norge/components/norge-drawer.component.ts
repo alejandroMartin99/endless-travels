@@ -24,6 +24,23 @@ export interface NorgeTopCost {
   color: string;
 }
 
+export interface NorgeDayModeStat {
+  mode: string;
+  label: string;
+  km: number;
+  min: number;
+}
+
+export interface NorgeDayBreakdown {
+  stopId: string;
+  index: number;
+  dayLabel: string;
+  name: string;
+  modes: NorgeDayModeStat[];
+  totalKm: number;
+  totalMin: number;
+}
+
 @Component({
   selector: 'norge-drawer',
   templateUrl: './norge-drawer.component.html',
@@ -40,6 +57,7 @@ export class NorgeDrawerComponent {
   @Input() collapsed = false;
 
   @Input() stopLegs: NorgeStopLegView[] = [];
+  @Input() dayBreakdowns: NorgeDayBreakdown[] = [];
   @Input() totalDistanceKm: number | null = null;
   @Input() totalDurationLabel = '';
   @Input() routeLoading = false;

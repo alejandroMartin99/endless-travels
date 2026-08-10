@@ -70,6 +70,8 @@ def parse_activities(route_text: str) -> list[dict]:
             mode_m = re.search(r"arriveBy:\s*'(\w+)'", chunk)
             path_m = re.search(r"pathCoordinates:\s*(\w+)", chunk)
             path_ref = path_m.group(1) if path_m else None
+            km_m = re.search(r"distanceKmOverride:\s*(-?\d+\.?\d*)", chunk)
+            min_m = re.search(r"durationMinOverride:\s*(-?\d+\.?\d*)", chunk)
             acts.append(
                 {
                     "id": aid,
@@ -78,6 +80,8 @@ def parse_activities(route_text: str) -> list[dict]:
                     "latitude": float(lat_m.group(1)),
                     "arriveBy": mode_m.group(1) if mode_m else None,
                     "pathCoordinates": paths.get(path_ref) if path_ref else None,
+                    "distanceKmOverride": float(km_m.group(1)) if km_m else None,
+                    "durationMinOverride": float(min_m.group(1)) if min_m else None,
                 }
             )
         # filter only activities inside this stop (heuristic: ids start with dia0N)
@@ -119,7 +123,7 @@ def make_path_leg(path: list[list[float]], mode: str) -> dict:
     meters = 0.0
     for i in range(len(path) - 1):
         meters += haversine_m(path[i], path[i + 1])
-    speed = 5.5 if mode == "boat" else 8 if mode == "train" else 13
+    speed = 5.5 if mode == "boat" else 8 if mode == "train" else 1.4 if mode == "ruta" else 13
     dur = meters / speed
     mid = path[len(path) // 2]
     return {
@@ -200,8 +204,11 @@ def chain(points: list[dict], token: str) -> dict | None:
         if custom and len(custom) >= 2:
             leg = make_path_leg(custom, mode)
             next_at = [custom[-1][0], custom[-1][1]]
-        elif mode in ("boat", "train"):
+        elif mode in ("boat", "train", "ruta"):
             leg = make_direct_leg(at, to, mode)
+            if mode == "ruta":
+                # Ruta a pie ida y vuelta: se regresa al punto de partida (coche).
+                next_at = at
         else:
             road_mode = "bus" if mode == "bus" else "driving"
             leg = fetch_road_leg(at, to, token, road_mode)
@@ -211,6 +218,14 @@ def chain(points: list[dict], token: str) -> dict | None:
         if not leg:
             leg = make_direct_leg(at, to, mode)
             next_at = to
+        km_ov = points[i + 1].get("distanceKmOverride")
+        min_ov = points[i + 1].get("durationMinOverride")
+        if km_ov is not None:
+            leg["distanceKm"] = km_ov
+            leg["distanceMeters"] = km_ov * 1000
+        if min_ov is not None:
+            leg["durationMin"] = round(min_ov)
+            leg["durationSeconds"] = round(min_ov * 60)
         at = next_at
         append_geom(all_c, leg["coordinates"])
         legs.append(leg)

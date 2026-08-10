@@ -4,7 +4,7 @@ export interface NorgeMapDayPoint {
   longitude: number;
   latitude: number;
   /** Cómo se llega a este punto desde el anterior. */
-  arriveBy?: 'driving' | 'boat' | 'bus' | 'train' | 'lodging';
+  arriveBy?: 'driving' | 'boat' | 'bus' | 'train' | 'lodging' | 'ruta';
   /** Día al que pertenece (para marcadores grises de otros días). */
   stopId?: string;
   /** false = día no seleccionado (gris). */
