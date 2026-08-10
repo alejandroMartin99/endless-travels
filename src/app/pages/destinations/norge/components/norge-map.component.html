@@ -1,1 +1,16 @@
-<div class="norge-map-root" #mapEl></div>
+<div class="norge-map-wrap">
+  <div class="norge-map-root" #mapEl></div>
+  <div class="norge-map-actions" *ngIf="readyForUi">
+    <button type="button" class="norge-map-btn" (click)="resetZoom()" title="Recentrar: ver todo el viaje">
+      Recentrar
+    </button>
+    <button
+      type="button"
+      class="norge-map-btn norge-map-btn--gmaps"
+      (click)="openGoogleMaps()"
+      [disabled]="!canExportDay"
+      title="Abrir la ruta del día seleccionado en Google Maps">
+      Google Maps
+    </button>
+  </div>
+</div>

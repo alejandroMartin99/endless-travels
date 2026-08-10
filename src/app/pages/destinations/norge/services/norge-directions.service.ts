@@ -30,6 +30,8 @@ export interface ActivityWaypoint {
   arriveBy?: TravelMode;
   /** Polilínea real (p. ej. barco por el fiordo). */
   pathCoordinates?: Array<[number, number]>;
+  /** Ida y vuelta a pie: el siguiente tramo arranca donde empezó esta ruta. */
+  roundTrip?: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -92,14 +94,22 @@ export class NorgeDirectionsService {
       if (customPath && customPath.length >= 2) {
         leg = this.makePathLeg(customPath, mode);
         nextAt = customPath[customPath.length - 1];
-      } else if (mode === 'boat' || mode === 'train' || mode === 'ruta') {
-        leg = this.makeDirectLeg(at, to, mode);
-        if (mode === 'ruta') {
+      } else if (mode === 'ruta' && token) {
+        leg = await this.fetchRoadLeg(at, to, token, 'ruta', 'walking');
+        if (!leg) {
+          leg = await this.fetchRoadLeg(at, to, token, 'ruta', 'driving');
+        }
+        if (!leg) {
+          leg = this.makeDirectLeg(at, to, mode);
+        }
+        if (points[i + 1].roundTrip) {
           nextAt = at;
         }
+      } else if (mode === 'boat' || mode === 'train') {
+        leg = this.makeDirectLeg(at, to, mode);
       } else if (token) {
         const roadMode: TravelMode = mode === 'bus' ? 'bus' : 'driving';
-        leg = await this.fetchRoadLeg(at, to, token, roadMode);
+        leg = await this.fetchRoadLeg(at, to, token, roadMode, 'driving');
         if (leg && mode === 'lodging') {
           leg = { ...leg, mode: 'lodging' };
         }
@@ -212,10 +222,11 @@ export class NorgeDirectionsService {
     to: [number, number],
     token: string,
     mode: TravelMode,
+    profile: 'driving' | 'walking' = 'driving',
   ): Promise<DriveLegStats | null> {
     const path = `${from[0]},${from[1]};${to[0]},${to[1]}`;
     const url =
-      `https://api.mapbox.com/directions/v5/mapbox/driving/${path}` +
+      `https://api.mapbox.com/directions/v5/mapbox/${profile}/${path}` +
       `?geometries=geojson&overview=full&steps=false&access_token=${encodeURIComponent(token)}`;
 
     const res = await fetch(url);

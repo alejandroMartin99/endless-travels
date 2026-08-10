@@ -57,7 +57,10 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
   private dayMarkers: mapboxgl.Marker[] = [];
   private legLabelMarkers: mapboxgl.Marker[] = [];
   private ready = false;
+  readyForUi = false;
   private didFitTrip = false;
+  /** Invalida listeners moveend pendientes al encadenar zooms. */
+  private fitGeneration = 0;
   /** Máximo alejamiento: road trip + poco mar al oeste. */
   private readonly tripMaxBounds: [[number, number], [number, number]] = [
     [3.6, 58.0],
@@ -95,12 +98,55 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     }
     if (changes['selectedStopId']) {
       this.refreshStopMarkerColors();
+      // Al cambiar de día: zoom que contiene todos los marcadores/ruta de ese día.
+      if (!changes['selectedStopId'].firstChange && this.selectedStopId) {
+        queueMicrotask(() => this.fitDay());
+      }
     }
     // Zoom estable: solo encuadre completo la primera vez que hay ruta de viaje
     if (changes['tripRouteLegs'] && this.tripRouteLegs.length > 0 && !this.didFitTrip) {
       this.didFitTrip = true;
       this.fitTrip();
     }
+  }
+
+  /** Recentrar: vuelve a contener todos los días del viaje. */
+  resetZoom(): void {
+    this.fitTrip(true);
+  }
+
+  get canExportDay(): boolean {
+    return this.selectedDayPoints().length >= 2;
+  }
+
+  /** Abre Google Maps con la ruta del día seleccionado. */
+  openGoogleMaps(): void {
+    const pts = this.selectedDayPoints();
+    if (pts.length < 1 || typeof window === 'undefined') return;
+
+    const origin = `${pts[0].latitude},${pts[0].longitude}`;
+    const destination = `${pts[pts.length - 1].latitude},${pts[pts.length - 1].longitude}`;
+    // Google Maps admite hasta ~8–10 waypoints intermedios.
+    const mids = pts.slice(1, -1).slice(0, 8).map(p => `${p.latitude},${p.longitude}`);
+    const modes = pts.map(p => p.arriveBy).filter(Boolean) as string[];
+    const travelmode =
+      modes.length > 0 && modes.every(m => m === 'ruta') ? 'walking' : 'driving';
+
+    let url =
+      `https://www.google.com/maps/dir/?api=1` +
+      `&origin=${encodeURIComponent(origin)}` +
+      `&destination=${encodeURIComponent(destination)}` +
+      `&travelmode=${travelmode}`;
+    if (mids.length) {
+      url += `&waypoints=${encodeURIComponent(mids.join('|'))}`;
+    }
+    window.open(url, '_blank', 'noopener');
+  }
+
+  private selectedDayPoints(): NorgeMapDayPoint[] {
+    if (this.dayPoints.length >= 1) return this.dayPoints;
+    if (!this.selectedStopId) return [];
+    return this.tripDayPoints.filter(p => p.stopId === this.selectedStopId);
   }
 
   ngOnDestroy(): void {
@@ -132,6 +178,7 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     this.map.on('load', () => {
       this.ready = true;
+      this.readyForUi = true;
       this.ensureRouteLayer();
       this.updateRouteLine();
       this.renderStopMarkers();
@@ -168,6 +215,8 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
         '#EF6C00',
         'lodging',
         '#2E7D32',
+        'ruta',
+        '#1565C0',
         '#4285F4',
       ],
     ];
@@ -194,12 +243,12 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
           'line-opacity': 0.95,
         },
       });
-      // Carretera / bus / lodging (sólido)
+      // Carretera / bus / lodging / a pie (sólido)
       this.map.addLayer({
         id: 'norge-route-road',
         type: 'line',
         source: 'norge-route',
-        filter: ['in', ['get', 'mode'], ['literal', ['driving', 'bus', 'lodging']]],
+        filter: ['in', ['get', 'mode'], ['literal', ['driving', 'bus', 'lodging', 'ruta']]],
         layout: { 'line-join': 'round', 'line-cap': 'round' },
         paint: {
           'line-color': activeColor as never,
@@ -235,6 +284,14 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
           'line-opacity': ['case', ['to-boolean', ['get', 'active']], 1, 0.75],
         },
       });
+    } else if (this.map.getLayer('norge-route-road')) {
+      // Hot-reload: incluir `ruta` y refrescar colores.
+      this.map.setFilter('norge-route-road', [
+        'in',
+        ['get', 'mode'],
+        ['literal', ['driving', 'bus', 'lodging', 'ruta']],
+      ]);
+      this.map.setPaintProperty('norge-route-road', 'line-color', activeColor as never);
     }
 
     if (!this.map.getSource('norge-segment')) {
@@ -264,6 +321,12 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
           'line-opacity': 1,
         },
       });
+    }
+
+    // Color del tramo activo: verde si es a pie, rojo en el resto.
+    if (this.map.getLayer('norge-segment-line')) {
+      const segColor = this.activeSegmentMode === 'ruta' ? '#2E7D32' : '#EA4335';
+      this.map.setPaintProperty('norge-segment-line', 'line-color', segColor);
     }
   }
 
@@ -478,60 +541,80 @@ export class NorgeMapComponent implements AfterViewInit, OnChanges, OnDestroy {
     });
   }
 
-  private fitTrip(): void {
-    if (!this.map || this.tripRouteLegs.length === 0) return;
-    const bounds = new mapboxgl.LngLatBounds();
-    this.tripRouteLegs.forEach(leg => leg.coordinates.forEach(c => bounds.extend(c)));
+  private fitTrip(force = false): void {
+    if (!this.map) return;
+    const bounds = this.buildTripBounds();
     if (bounds.isEmpty()) return;
+
+    // Evita que un minZoom residual (tras zoom de día) bloquee el alejamiento.
+    // No usar moveend tras stop(): puede dispararse aún al zoom del día y fijar
+    // minZoom ~12, dejando Recentrar sin efecto hasta varios clics.
+    this.map.stop();
+    this.fitGeneration++;
+    this.lockMinZoomToTripBounds(bounds);
+
     this.map.fitBounds(bounds, {
       padding: 64,
       maxZoom: 7.2,
       pitch: 0,
       bearing: 0,
-      duration: 900,
+      duration: force ? 700 : 900,
+      essential: true,
     });
-    this.map.once('moveend', () => this.lockMinZoomToTrip());
   }
 
-  /** Impide alejarse mucho más allá del encuadre de todos los marcadores. */
-  private lockMinZoomToTrip(): void {
+  private buildTripBounds(): mapboxgl.LngLatBounds {
+    const bounds = new mapboxgl.LngLatBounds();
+    this.tripRouteLegs.forEach(leg => leg.coordinates.forEach(c => bounds.extend(c)));
+    this.tripDayPoints.forEach(p => bounds.extend([p.longitude, p.latitude]));
+    if (bounds.isEmpty()) {
+      this.stops.forEach(s => bounds.extend([s.longitude, s.latitude]));
+    }
+    return bounds;
+  }
+
+  /** minZoom del viaje según el encuadre objetivo (no la cámara actual). */
+  private lockMinZoomToTripBounds(bounds: mapboxgl.LngLatBounds): void {
     if (!this.map) return;
-    const fitted = this.map.getZoom();
-    // Un pelín por debajo del fit para margen, pero sin ver media Europa.
+    const camera = this.map.cameraForBounds(bounds, {
+      padding: 64,
+      maxZoom: 7.2,
+    });
+    const fitted = camera?.zoom ?? 5.5;
     this.map.setMinZoom(Math.max(5.0, fitted - 0.35));
   }
 
   private fitDay(): void {
-    // Conservado por si se necesita; el zoom por día está desactivado a propósito.
-    if (!this.map) return;
+    if (!this.map || !this.selectedStopId) return;
     const bounds = new mapboxgl.LngLatBounds();
-    const line = this.dayRouteCoordinates.length >= 2 ? this.dayRouteCoordinates : null;
-    if (line) {
-      line.forEach(c => bounds.extend(c));
-    } else {
-      this.dayPoints.forEach(p => bounds.extend([p.longitude, p.latitude]));
+
+    this.tripRouteLegs
+      .filter(leg => leg.stopId === this.selectedStopId)
+      .forEach(leg => leg.coordinates.forEach(c => bounds.extend(c)));
+
+    const pts = this.selectedDayPoints();
+    pts.forEach(p => bounds.extend([p.longitude, p.latitude]));
+
+    if (bounds.isEmpty()) {
+      const stop = this.stops.find(s => s.id === this.selectedStopId);
+      if (stop) bounds.extend([stop.longitude, stop.latitude]);
     }
     if (bounds.isEmpty()) return;
-    this.map.fitBounds(bounds, { padding: 72, maxZoom: 12, pitch: 0, bearing: 0, duration: 900 });
-  }
 
-  private fitAll(): void {
-    if (!this.map || this.stops.length === 0) return;
-    const bounds = new mapboxgl.LngLatBounds();
-    const line = this.routeCoordinates.length >= 2 ? this.routeCoordinates : null;
-    if (line) {
-      line.forEach(c => bounds.extend(c));
-    } else {
-      this.stops.forEach(s => bounds.extend([s.longitude, s.latitude]));
-    }
+    this.map.stop();
+    this.fitGeneration++; // no aplicar lockMinZoom de un fitTrip a medias
     this.map.fitBounds(bounds, {
-      padding: 64,
-      maxZoom: 7,
+      padding: 72,
+      maxZoom: 13.5,
       pitch: 0,
       bearing: 0,
       duration: 900,
+      essential: true,
     });
-    this.map.once('moveend', () => this.lockMinZoomToTrip());
+  }
+
+  private fitAll(): void {
+    this.fitTrip();
   }
 
   resize(): void {

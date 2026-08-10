@@ -17,6 +17,8 @@ export interface NorgeActivity {
   /** Fuerza la distancia/tiempo del tramo (p. ej. rutas a pie medidas por sendero). */
   distanceKmOverride?: number;
   durationMinOverride?: number;
+  /** Si true, tras la ruta a pie se vuelve al punto de partida (ida y vuelta). */
+  roundTrip?: boolean;
 }
 
 export interface NorgeStop {
@@ -291,6 +293,7 @@ export const norgeRoute = {
           longitude: 7.1526,
           latitude: 61.701,
           arriveBy: 'ruta',
+          roundTrip: true,
           distanceKmOverride: 10,
           durationMinOverride: 360,
         },
@@ -348,7 +351,7 @@ export const norgeRoute = {
         '</ul>',
       images: [
         '/assets/norge/Dia03/02_crucero/Dia03_02_crucero_01.jpg',
-        '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_01.jpg',
+        '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_01.jpg',
       ],
       activities: [
         {
@@ -422,16 +425,14 @@ export const norgeRoute = {
             '<p>Subimos y bajamos el mismo día: el tren te deja otra vez en <strong>Flåm</strong> (donde está el 3.5). No es un tren “para llegar”: es el tren como experiencia.</p>' +
             '<p>Al bajar recuperamos el coche y, desde aquí, carretera hasta Bergen.</p>',
           images: [
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_01.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_02.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_03.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_04.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_05.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_06.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_07.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_08.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_09.jpg',
-            '/assets/norge/Dia03/04_flam-railway/Dia03_04_flam-railway_10.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_01.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_02.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_03.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_04.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_05.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_06.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_07.jpg',
+            '/assets/norge/Dia03/05_flam-railway/Dia03_05_flam-railway_08.jpg',
           ],
           longitude: 7.11318,
           latitude: 60.86295,
@@ -442,15 +443,14 @@ export const norgeRoute = {
           id: 'dia03-hotel-bergen',
           name: 'Citybox Bergen Danmarksplass',
           description:
-            '<p>Tras el tren, el coche toma el relevo: ruta hacia <strong>Bergen</strong> y primera noche en <strong>Citybox Danmarksplass</strong> (18–20 jul 2022, ~200 € — dos noches).</p>' +
-            '<p>Es el cierre perfecto de un día largo: del fiordo Unesco a la ciudad hanseática en pocas horas.</p>' +
-            '<p>Mañana no hay que hacer maletas. El Día 04 es 100 % Bergen, con el mismo hotel como base.</p>',
+            '<p>Tras el tren, el coche toma el relevo: ruta hacia <strong>Bergen</strong> y primera noche en <strong>Citybox Danmarksplass</strong> (<a href="https://www.booking.com/hotel/no/citybox-danmarksplass.es.html" target="_blank" rel="noopener">Booking</a>, 18–20 jul 2022, ~200 € — dos noches).</p>' +
+            '<p>En general, los <strong>Citybox</strong> nos parecieron geniales: hoteles baratos pero con buena calidad, perfectos para el tipo de viaje y el presupuesto que buscábamos. Funcionales, limpios y sin florituras innecesarias.</p>' +
+            '<p>Es el cierre perfecto de un día largo: del fiordo Unesco a la ciudad hanseática en pocas horas. Mañana no hay que hacer maletas —el Día 04 es 100 % Bergen, con el mismo hotel como base.</p>',
           images: [
-            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_01.jpg',
-            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_02.jpg',
-            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_03.jpg',
-            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_04.jpg',
-            '/assets/norge/Dia03/05_bergen/Dia03_05_bergen_05.jpg',
+            '/assets/norge/Dia03/06_bergen/Dia03_06_bergen_01.jpg',
+            '/assets/norge/Dia03/06_bergen/Dia03_06_bergen_02.jpg',
+            '/assets/norge/Dia03/06_bergen/Dia03_06_bergen_03.jpg',
+            '/assets/norge/Dia03/06_bergen/Dia03_06_bergen_04.jpg',
           ],
           longitude: 5.33776,
           latitude: 60.37584,
@@ -465,17 +465,19 @@ export const norgeRoute = {
       longitude: 5.3242,
       latitude: 60.3913,
       summary:
-        '<p>Día de ciudad: Bergen entre montañas y mar, con el puerto como hilo conductor. Sin cambio de hotel —seguimos en el Citybox— para pasear con calma. La ruta es:</p>' +
+        '<p>Día 100 % a pie por Bergen: la típica ruta turística del centro al mirador. Sin coche. La ruta es:</p>' +
         '<ul>' +
-        '<li>Salida desde el <strong>Citybox Danmarksplass</strong> (segunda noche en Bergen)</li>' +
-        '<li>Paseo por el centro: empedrado, cafés y ambiente portuario</li>' +
-        '<li><strong>Bryggen</strong>, el muelle hanseático Patrimonio de la Unesco</li>' +
-        '<li>Segunda pasada por Bryggen con otra luz y más detalle</li>' +
-        '<li>Cierre suave en el mismo Citybox, ya preparados para Hardanger</li>' +
+        '<li>Salida desde el <strong>Citybox Danmarksplass</strong></li>' +
+        '<li><strong>Byparken</strong>: parque, fuente grande y grafitis por el centro histórico</li>' +
+        '<li><strong>Johanneskirken</strong>, la iglesia roja del centro</li>' +
+        '<li>Puerto de Bergen (Vågen): casitas, ambiente y algo de comer</li>' +
+        '<li><strong>Bryggen</strong>, el barrio de madera Unesco</li>' +
+        '<li><strong>Rosenkrantztårnet</strong> y fortaleza de Bergenhus</li>' +
+        '<li>Mirador de la ciudad (Fløyen) para la vista de postal</li>' +
         '</ul>',
       images: [
-        '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_01.jpg',
-        '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_01.jpg',
+        '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_01.jpg',
+        '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_01.jpg',
       ],
       activities: [
         {
@@ -487,58 +489,91 @@ export const norgeRoute = {
           latitude: 60.37584,
         },
         {
-          id: 'dia04-act01-bergen-centro',
-          name: 'Bergen centro',
+          id: 'dia04-ruta-byparken',
+          name: 'Byparken y grafitis',
           description:
-            '<p><strong>Bergen</strong> se despliega entre montañas y fiordo: empedrado, ambiente portuario y esa luz húmeda tan típica de la costa oeste.</p>' +
-            '<p>El centro invita a perderse sin guion rígido —plazas, escaparates, olor a mar— y a dejar que la ciudad marque el ritmo.</p>' +
-            '<p>Es el contraste perfecto tras días de carretera: aquí el “paisaje” son personas, madera pintada y cielo cambiante.</p>',
+            '<p>Arrancamos en <strong>Byparken</strong>, el parque del centro: césped, ambiente local y la <strong>fuente grande</strong> que marca el corazón verde de Bergen.</p>' +
+            '<p>Por el centro histórico salen los <strong>murales y grafitis</strong> típicos —fachadas con arte urbano que contrastan con el empedrado y la madera antigua. Ideales para fotos.</p>' +
+            '<p>Todo a pie: hoy el coche se queda en el hotel.</p>',
           images: [
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_01.jpg',
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_02.jpg',
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_03.jpg',
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_04.jpg',
-            '/assets/norge/Dia04/01_bergen-centro/Dia04_01_bergen-centro_05.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_01.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_02.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_03.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_04.jpg',
+            '/assets/norge/Dia04/01_byparken_murales/Dia04_01_byparken_murales_05.jpg',
           ],
-          longitude: 5.32885,
-          latitude: 60.38991,
-          arriveBy: 'driving',
+          longitude: 5.3247,
+          latitude: 60.3906,
+          arriveBy: 'ruta',
         },
         {
-          id: 'dia04-act02-bergen-bryggen',
-          name: 'Bergen Bryggen',
+          id: 'dia04-ruta-johanneskirken',
+          name: 'Johanneskirken',
           description:
-            '<p><strong>Bryggen</strong>, el muelle hanseático, es el icono de Bergen: casas de madera de colores, callejones estrechos y siglos de comercio escritos en cada tablero.</p>' +
-            '<p>Es Patrimonio de la Unesco y, aún hoy, el corazón emocional de la ciudad. Conviene entrar en los pasajes interiores, no quedarse solo en la fachada del puerto.</p>' +
-            '<p>Si llueve —y en Bergen llueve— Bryggen gana atmósfera. Paraguas listo, cámara también.</p>',
+            '<p>Seguimos hasta <strong>Johanneskirken</strong>, la gran iglesia de ladrillo rojo que domina el skyline del centro.</p>' +
+            '<p>Es una de las postales clásicas de Bergen: torre alta, plazas alrededor y ese contraste con el verde de Byparken a dos pasos.</p>',
+          images: [],
+          longitude: 5.3194,
+          latitude: 60.3889,
+          arriveBy: 'ruta',
+        },
+        {
+          id: 'dia04-ruta-puerto',
+          name: 'Puerto de Bergen',
+          description:
+            '<p>Bajamos al <strong>puerto (Vågen)</strong>: agua, barcas y las casitas típicas asomadas al muelle.</p>' +
+            '<p>Aquí paramos a <strong>comer algo</strong> —ambiente turístico pero con la ciudad latindo de fondo. Buen momento para recargar antes del tramo Unesco.</p>',
           images: [
-            '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_01.jpg',
-            '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_02.jpg',
-            '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_03.jpg',
-            '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_04.jpg',
-            '/assets/norge/Dia04/02_bergen-bryggen/Dia04_02_bergen-bryggen_05.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_01.jpg',
+            '/assets/norge/Dia04/03_puerto/Dia04_03_puerto_02.jpg',
+          ],
+          longitude: 5.3245,
+          latitude: 60.3947,
+          arriveBy: 'ruta',
+        },
+        {
+          id: 'dia04-ruta-bryggen',
+          name: 'Bryggen',
+          description:
+            '<p><strong>Bryggen</strong> es la “ciudad de madera”: el muelle hanseático Patrimonio de la Unesco, muy turístico y con razón.</p>' +
+            '<p>Casas de colores, callejones estrechos y siglos de comercio en cada tablero. Conviene entrar en los pasajes interiores, no quedarse solo en la fachada frente al agua.</p>',
+          images: [
+            '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_01.jpg',
+            '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_02.jpg',
+            '/assets/norge/Dia04/04_bryggen/Dia04_04_bryggen_03.jpg',
           ],
           longitude: 5.32363,
           latitude: 60.39707,
-          arriveBy: 'driving',
+          arriveBy: 'ruta',
         },
         {
-          id: 'dia04-act03-bergen-bryggen',
-          name: 'Bryggen · segunda vuelta',
+          id: 'dia04-ruta-bergenhus',
+          name: 'Rosenkrantz / Bergenhus',
           description:
-            '<p>Volvemos sobre <strong>Bryggen</strong> con otra luz y otro ángulo. La segunda pasada no es repetición: es detalle —texturas, callejones, reflejos en el agua.</p>' +
-            '<p>Bergen se entiende mejor cuando dejas que el mismo lugar te cuente dos historias en el mismo día.</p>' +
-            '<p>Cierre suave del día urbano antes de recuperar el hotel y preparar la salida hacia Hardanger.</p>',
+            '<p>Seguimos a la fortaleza de <strong>Bergenhus</strong> y la <strong>Rosenkrantztårnet</strong> (Rosenkrantz Tower): castillo, murallas y vistas al puerto.</p>' +
+            '<p>Es el contrapunto histórico a Bryggen —piedra frente a madera— y cierra bien el arco medieval de la ciudad.</p>',
           images: [
-            '/assets/norge/Dia04/03_bergen-bryggen/Dia04_03_bergen-bryggen_01.jpg',
-            '/assets/norge/Dia04/03_bergen-bryggen/Dia04_03_bergen-bryggen_02.jpg',
-            '/assets/norge/Dia04/03_bergen-bryggen/Dia04_03_bergen-bryggen_03.jpg',
-            '/assets/norge/Dia04/03_bergen-bryggen/Dia04_03_bergen-bryggen_04.jpg',
-            '/assets/norge/Dia04/03_bergen-bryggen/Dia04_03_bergen-bryggen_05.jpg',
+            '/assets/norge/Dia04/05_bergenhus/Dia04_05_bergenhus_01.jpg',
+            '/assets/norge/Dia04/05_bergenhus/Dia04_05_bergenhus_02.jpg',
           ],
-          longitude: 5.33192,
-          latitude: 60.39666,
-          arriveBy: 'driving',
+          longitude: 5.3178,
+          latitude: 60.3995,
+          arriveBy: 'ruta',
+        },
+        {
+          id: 'dia04-ruta-mirador',
+          name: 'Mirador Fløyen',
+          description:
+            '<p>Por último <strong>subimos al mirador</strong> de la ciudad en <strong>Fløyen</strong>: la vista de postal con tejados, Bryggen y el fiordo a los pies.</p>' +
+            '<p>Cierre perfecto de la ruta a pie. Bajamos hacia el Citybox; mañana el coche vuelve a escena rumbo a Hardanger.</p>',
+          images: [
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_01.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_02.jpg',
+            '/assets/norge/Dia04/06_mirador/Dia04_06_mirador_03.jpg',
+          ],
+          longitude: 5.3428,
+          latitude: 60.3945,
+          arriveBy: 'ruta',
         },
       ],
     },
@@ -828,7 +863,7 @@ export const norgeRoute = {
     { id: 'stay-oslo1', category: 'Alojamiento', label: 'Citybox Oslo (15–16)', amountHint: '€ 82' },
     { id: 'stay-sogndal', category: 'Alojamiento', label: 'Sogndal B&B (16–17)', amountHint: '€ 81', url: 'https://www.booking.com/hotel/no/sogndal-vandrerhjem.es.html' },
     { id: 'stay-flam', category: 'Alojamiento', label: 'Brekke Apartments Flåm (17–18)', amountHint: '€ 100', url: 'https://www.booking.com/hotel/no/brekke-apartments.es.html' },
-    { id: 'stay-bergen', category: 'Alojamiento', label: 'Citybox Bergen (18–20, 2 noches)', amountHint: '€ 200' },
+    { id: 'stay-bergen', category: 'Alojamiento', label: 'Citybox Bergen (18–20, 2 noches)', amountHint: '€ 200', url: 'https://www.booking.com/hotel/no/citybox-danmarksplass.es.html' },
     { id: 'stay-geilo', category: 'Alojamiento', label: 'Øen Turistsenter Geilo (20–21)', amountHint: '€ 59' },
     { id: 'stay-anker', category: 'Alojamiento', label: 'Anker Hotel Oslo (21–22)', amountHint: '€ 106' },
     { id: 'food-super', category: 'Comida', label: 'Supermercado (comida viaje)', amountHint: '€ 50' },

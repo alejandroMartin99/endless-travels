@@ -72,6 +72,7 @@ def parse_activities(route_text: str) -> list[dict]:
             path_ref = path_m.group(1) if path_m else None
             km_m = re.search(r"distanceKmOverride:\s*(-?\d+\.?\d*)", chunk)
             min_m = re.search(r"durationMinOverride:\s*(-?\d+\.?\d*)", chunk)
+            rt_m = re.search(r"roundTrip:\s*true", chunk)
             acts.append(
                 {
                     "id": aid,
@@ -82,6 +83,7 @@ def parse_activities(route_text: str) -> list[dict]:
                     "pathCoordinates": paths.get(path_ref) if path_ref else None,
                     "distanceKmOverride": float(km_m.group(1)) if km_m else None,
                     "durationMinOverride": float(min_m.group(1)) if min_m else None,
+                    "roundTrip": bool(rt_m),
                 }
             )
         # filter only activities inside this stop (heuristic: ids start with dia0N)
@@ -146,10 +148,12 @@ def make_direct_leg(frm: list[float], to: list[float], mode: str) -> dict:
     return make_path_leg(coords, mode)
 
 
-def fetch_road_leg(frm: list[float], to: list[float], token: str, mode: str) -> dict | None:
+def fetch_road_leg(
+    frm: list[float], to: list[float], token: str, mode: str, profile: str = "driving"
+) -> dict | None:
     path = f"{frm[0]},{frm[1]};{to[0]},{to[1]}"
     url = (
-        f"https://api.mapbox.com/directions/v5/mapbox/driving/{path}"
+        f"https://api.mapbox.com/directions/v5/mapbox/{profile}/{path}"
         f"?geometries=geojson&overview=full&steps=false&access_token={urllib.parse.quote(token)}"
     )
     req = urllib.request.Request(url, headers={"User-Agent": "endless-travels-cache"})
@@ -204,14 +208,22 @@ def chain(points: list[dict], token: str) -> dict | None:
         if custom and len(custom) >= 2:
             leg = make_path_leg(custom, mode)
             next_at = [custom[-1][0], custom[-1][1]]
-        elif mode in ("boat", "train", "ruta"):
-            leg = make_direct_leg(at, to, mode)
-            if mode == "ruta":
-                # Ruta a pie ida y vuelta: se regresa al punto de partida (coche).
+        elif mode == "ruta":
+            # Trazado real a pie; si no hay walking, calles (driving); si no, recta.
+            leg = fetch_road_leg(at, to, token, "ruta", profile="walking")
+            time.sleep(0.25)
+            if not leg:
+                leg = fetch_road_leg(at, to, token, "ruta", profile="driving")
+                time.sleep(0.25)
+            if not leg:
+                leg = make_direct_leg(at, to, mode)
+            if points[i + 1].get("roundTrip"):
                 next_at = at
+        elif mode in ("boat", "train"):
+            leg = make_direct_leg(at, to, mode)
         else:
             road_mode = "bus" if mode == "bus" else "driving"
-            leg = fetch_road_leg(at, to, token, road_mode)
+            leg = fetch_road_leg(at, to, token, road_mode, profile="driving")
             time.sleep(0.25)
             if leg and mode == "lodging":
                 leg = {**leg, "mode": "lodging"}
