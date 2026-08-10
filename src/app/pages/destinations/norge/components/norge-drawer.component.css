@@ -4,10 +4,10 @@
 
 .norge-drawer {
   position: relative;
-  width: 40%;
-  max-width: 40%;
+  width: 45%;
+  max-width: 45%;
   min-width: 280px;
-  flex: 0 0 40%;
+  flex: 0 0 45%;
   height: 100%;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(10px);
@@ -124,7 +124,7 @@
 .day-list {
   flex: 0 0 auto;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 0.4rem;
   padding: 0.1rem 0 0.85rem;
   margin-bottom: 0.35rem;
