@@ -22,13 +22,6 @@
   font-weight: 700;
 }
 
-.japan-full-map-heading p {
-  margin: 4px 0 0;
-  font-size: 0.85rem;
-  color: #5c6478;
-  line-height: 1.35;
-}
-
 .japan-full-map-close {
   border: none;
   background: transparent;
@@ -107,10 +100,18 @@
 }
 
 .japan-full-map-tasks h3 {
-  margin: 0 6px 8px;
+  margin: 0 6px 4px;
   font-size: 0.8rem;
   font-weight: 700;
   color: #1a237e;
+}
+
+.japan-full-map-day-title {
+  margin: 0 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #5c6478;
 }
 
 .japan-full-map-tasks ul {

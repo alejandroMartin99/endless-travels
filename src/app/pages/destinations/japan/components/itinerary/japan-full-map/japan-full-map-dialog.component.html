@@ -2,7 +2,6 @@
   <header class="japan-full-map-header">
     <div class="japan-full-map-heading">
       <h2>Mapa completo del viaje</h2>
-      <p>{{ selectedDay?.title || 'Selecciona un día' }}</p>
     </div>
     <button type="button" class="japan-full-map-close" (click)="close()" aria-label="Cerrar">
       <mat-icon>close</mat-icon>
@@ -29,6 +28,7 @@
 
     <aside class="japan-full-map-tasks" *ngIf="selectedDay as day">
       <h3>Etapas · Día {{ day.dayNumber }}</h3>
+      <p class="japan-full-map-day-title">{{ day.title }}</p>
       <ul>
         <li *ngFor="let activity of day.activities; let i = index">
           <button

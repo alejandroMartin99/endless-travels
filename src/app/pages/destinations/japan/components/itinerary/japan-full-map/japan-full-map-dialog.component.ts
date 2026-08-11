@@ -272,12 +272,17 @@ export class JapanFullMapDialogComponent implements AfterViewInit, OnDestroy {
       return;
     }
     if (KYOTO_EXCURSION_DAYS.includes(n) || TOKYO_EXCURSION_DAYS.includes(n)) {
-      // Excursión: encuadre del día, sin zoom agresivo
-      this.fitDayNumbers([n], `day-${n}`, 10.5);
+      // Excursión: más zoom, puntos más ajustados
+      this.fitDayNumbers([n], `day-${n}`, 14.5, 48);
     }
   }
 
-  private fitDayNumbers(dayNumbers: number[], cacheKey: string, maxZoom: number): void {
+  private fitDayNumbers(
+    dayNumbers: number[],
+    cacheKey: string,
+    maxZoom: number,
+    padding = 80,
+  ): void {
     if (!this.map) return;
     let bounds = this.zoneBoundsCache.get(cacheKey);
     if (!bounds) {
@@ -296,6 +301,6 @@ export class JapanFullMapDialogComponent implements AfterViewInit, OnDestroy {
       if (!hasPoint) return;
       this.zoneBoundsCache.set(cacheKey, bounds);
     }
-    this.map.fitBounds(bounds, { padding: 80, maxZoom, duration: 650 });
+    this.map.fitBounds(bounds, { padding, maxZoom, duration: 650 });
   }
 }
