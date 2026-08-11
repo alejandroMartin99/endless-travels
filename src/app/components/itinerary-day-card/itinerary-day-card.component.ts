@@ -8,7 +8,11 @@ import {
   OnChanges,
   SimpleChanges,
   ChangeDetectorRef,
+  inject,
+  PLATFORM_ID,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 import mapboxgl from 'mapbox-gl';
 import { applyMapboxPublicToken } from '../../core/mapbox-token.util';
 import {
@@ -18,6 +22,9 @@ import {
   normalizeArriveBy,
 } from '../../core/mapbox-directions.util';
 import { ScrollService } from '../../services/scroll.service';
+import {
+  ItineraryActivityMobileDialogComponent,
+} from './itinerary-activity-mobile-dialog.component';
 
 interface Activity {
   name: string;
@@ -49,8 +56,6 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
   @Input() activeExpandId: string | null = null;
   @ViewChild('map', { static: false }) mapContainer!: ElementRef;
   @ViewChild('mobileMap', { static: false }) mobileMapContainer!: ElementRef;
-  @ViewChild('galleryContainer', { static: false }) galleryContainer!: ElementRef;
-  @ViewChild('mobileScrollContainer', { static: false }) mobileScrollContainer!: ElementRef;
 
   panelOpenState = false;
   currentActivityIndex = 0;
@@ -68,6 +73,8 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
   private static readonly ROUTE_SOURCE = 'itinerary-route';
   private static readonly ROUTE_CASING = 'itinerary-route-casing';
   private static readonly ROUTE_LINE = 'itinerary-route-line';
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly dialog = inject(MatDialog);
 
   constructor(
     private scrollService: ScrollService,
@@ -75,7 +82,6 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    // Resetear scroll cuando se inicializa el componente
     this.scrollService.resetContainerScroll('.mobile-scroll-container');
   }
 
@@ -287,6 +293,35 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
     });
   }
 
+  isMobileViewport(): boolean {
+    if (!isPlatformBrowser(this.platformId)) return false;
+    return window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  openMobileActivityDetail(index: number): void {
+    if (!this.isMobileViewport()) {
+      this.selectActivity(index);
+      return;
+    }
+    if (index < 0 || index >= this.day.activities.length) return;
+    this.selectActivity(index);
+    this.dialog.open(ItineraryActivityMobileDialogComponent, {
+      panelClass: 'activity-mobile-dialog-panel',
+      maxWidth: '96vw',
+      width: '480px',
+      autoFocus: false,
+      data: {
+        activities: this.day.activities.map(a => ({
+          name: a.name,
+          description: a.description,
+          images: a.images ?? [],
+        })),
+        activityIndex: index,
+        onActivityChange: (i: number) => this.selectActivity(i),
+      },
+    });
+  }
+
   private ensureRouteLayer(map: mapboxgl.Map): void {
     const src = ItineraryDayCardComponent.ROUTE_SOURCE;
     if (map.getSource(src)) return;
@@ -349,7 +384,11 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
     });
   }
 
-  private adjustBounds(map: mapboxgl.Map): void {
+  private adjustBounds(
+    map: mapboxgl.Map,
+    padding = 50,
+    maxZoom = 15,
+  ): void {
     if (this.day.activities.length === 0) return;
 
     const bounds = new mapboxgl.LngLatBounds();
@@ -358,8 +397,8 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
     });
 
     map.fitBounds(bounds, {
-      padding: 50,
-      maxZoom: 15
+      padding,
+      maxZoom,
     });
   }
 
@@ -422,16 +461,10 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
 
   private performMobileZoomAnimation(activity: Activity): void {
     if (!this.mobileMap) return;
-    
-    // Cancelar cualquier animación en curso
     this.mobileMap.stop();
-    
-    // Animación más simple y rápida para móvil
-    this.mobileMap.flyTo({
+    this.mobileMap.easeTo({
       center: [activity.longitude, activity.latitude],
-      zoom: 15,
-      duration: 800,
-      essential: true
+      duration: 500,
     });
   }
 
@@ -447,13 +480,7 @@ export class ItineraryDayCardComponent implements OnDestroy, OnInit, OnChanges {
   }
 
   private scrollToActivityTop(): void {
-    // Solo resetear scroll interno del contenedor móvil sin mover la página
-    if (window.innerWidth <= 768) {
-      // Resetear scroll del contenedor móvil sin hacer scroll en la página principal
-      if (this.mobileScrollContainer?.nativeElement) {
-        this.mobileScrollContainer.nativeElement.scrollTop = 0;
-      }
-    }
+    /* no-op en layout móvil map-first */
   }
 
   changeImage(delta: number): void {

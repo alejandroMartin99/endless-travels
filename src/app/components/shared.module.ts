@@ -6,6 +6,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { ItineraryDayCardComponent } from './itinerary-day-card/itinerary-day-card.component';
+import { ItineraryActivityMobileDialogComponent } from './itinerary-day-card/itinerary-activity-mobile-dialog.component';
 import { StyledButton } from './styledbutton/styled-button.component';
 import { CardServiceComponent } from './card-service/card-service.component';
 
@@ -17,6 +18,7 @@ import { CardServiceComponent } from './card-service/card-service.component';
     FooterComponent,
     ToolbarComponent,
     ItineraryDayCardComponent,
+    ItineraryActivityMobileDialogComponent,
     CardServiceComponent,
     StyledButton
     // Agrega aquí otros componentes que quieras agrupar

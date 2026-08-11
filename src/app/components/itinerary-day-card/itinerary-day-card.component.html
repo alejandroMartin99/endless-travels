@@ -87,90 +87,54 @@
 
   <!-- Mobile Layout -->
   <div class="mobile-layout">
-    <!-- Contenedor principal con scroll -->
-    <div class="mobile-scroll-container" #mobileScrollContainer>
-      
-      <!-- Navegación de actividades sticky -->
-      <div class="mobile-sticky-nav">
-        <div class="nav-content">
-          <div class="activity-counter">
-            Actividad {{ currentActivityIndex + 1 }} de {{ day.activities.length }}
-          </div>
-          <div class="mobile-activity-indicators">
-            <div
-              *ngFor="let activity of day.activities; let i = index"
-              class="mobile-activity-indicator"
-              [class.active]="i === currentActivityIndex"
-              (click)="selectActivity(i)">
-            </div>
-          </div>
-          <div class="nav-controls">
-            <button class="nav-btn prev-btn" (click)="changeActivity(-1)" [disabled]="currentActivityIndex === 0">
-              <mat-icon>chevron_left</mat-icon>
-            </button>
-            <button class="nav-btn next-btn" (click)="changeActivity(1)" 
-                    [disabled]="currentActivityIndex === day.activities.length - 1">
-              <mat-icon>chevron_right</mat-icon>
-            </button>
-          </div>
+    <div class="mobile-map-hero">
+      <div class="activity-map" #mobileMap></div>
+
+      <div class="mobile-stage-bar" aria-label="Etapa activa">
+        <button
+          type="button"
+          class="mobile-stage-nav"
+          (click)="changeActivity(-1)"
+          [disabled]="currentActivityIndex === 0"
+          aria-label="Etapa anterior"
+        >
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+
+        <div class="mobile-stage-current">
+          <span class="mobile-stage-num">{{ currentActivityIndex + 1 }}</span>
+          <span class="mobile-stage-name">{{ day.activities[currentActivityIndex].name }}</span>
         </div>
+
+        <button
+          type="button"
+          class="mobile-stage-nav"
+          (click)="changeActivity(1)"
+          [disabled]="currentActivityIndex === day.activities.length - 1"
+          aria-label="Etapa siguiente"
+        >
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+
+        <button
+          type="button"
+          class="mobile-stage-more"
+          (click)="openMobileActivityDetail(currentActivityIndex)"
+          aria-label="Ver descripción y fotos"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
 
-      <!-- Contenido de la actividad actual -->
-      <div class="mobile-activity-content">
-        
-        <!-- Título de la actividad -->
-        <div class="activity-title">
-          <h2>{{ day.activities[currentActivityIndex].name }}</h2>
-        </div>
-
-        <!-- Galería de imágenes horizontal -->
-        <div class="mobile-image-gallery">
-          <div class="gallery-scroll-container" 
-               #galleryContainer
-               (touchstart)="onGalleryTouchStart($event)"
-               (touchend)="onGalleryTouchEnd($event)">
-            <div class="gallery-track" [style.transform]="'translateX(-' + (currentImageIndex * 100) + '%)'">
-              <div 
-                *ngFor="let image of day.activities[currentActivityIndex].images" 
-                class="gallery-slide">
-                <img [src]="image" [alt]="day.activities[currentActivityIndex].name">
-              </div>
-            </div>
-          </div>
-          
-          <!-- Contador de imágenes: X / X, sobre la imagen en móvil -->
-          <div class="image-counter" *ngIf="day.activities[currentActivityIndex].images.length > 1">
-            {{ currentImageIndex + 1 }} / {{ day.activities[currentActivityIndex].images.length }}
-          </div>
-        </div>
-
-        <!-- Descripción de la actividad -->
-        <div class="mobile-activity-description">
-          <div class="description-content" [innerHTML]="day.activities[currentActivityIndex].description"></div>
-        </div>
-
-        <!-- Mapa móvil -->
-        <div class="mobile-map-section">
-          <div class="map-header">
-            <h3>Ubicación</h3>
-            <div class="map-header-actions">
-              <button class="map-rescale-btn" (click)="rescaleMap()">
-                <mat-icon>my_location</mat-icon>
-                <span>Centrar</span>
-              </button>
-              <button class="map-rescale-btn" (click)="openGoogleMapsRoute()">
-                <mat-icon>map</mat-icon>
-                <span>Ruta Google</span>
-              </button>
-            </div>
-          </div>
-          <div class="mobile-map-container">
-            <div class="activity-map" #mobileMap></div>
-          </div>
-        </div>
-
-
+      <div class="mobile-map-actions">
+        <button type="button" class="mobile-map-action" (click)="rescaleMap()">
+          <mat-icon>my_location</mat-icon>
+          <span>Centrar</span>
+        </button>
+        <button type="button" class="mobile-map-action" (click)="openGoogleMapsRoute()">
+          <mat-icon>map</mat-icon>
+          <span>Ruta</span>
+        </button>
       </div>
     </div>
   </div>

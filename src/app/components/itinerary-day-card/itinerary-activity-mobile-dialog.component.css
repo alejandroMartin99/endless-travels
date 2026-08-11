@@ -1,0 +1,140 @@
+.activity-mobile-dialog {
+  display: flex;
+  flex-direction: column;
+  max-height: min(88vh, 760px);
+  width: min(96vw, 480px);
+  background: #fff;
+  color: #1a237e;
+}
+
+.activity-mobile-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 10px 8px 8px;
+  border-bottom: 1px solid #e8eaf6;
+}
+
+.activity-mobile-dialog-nav {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #e8eaf6;
+  color: #1a237e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 2px;
+}
+
+.activity-mobile-dialog-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.activity-mobile-dialog-heading {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.activity-mobile-dialog-gallery.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  background: #f5f5f5;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.activity-mobile-dialog-meta {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #5c6bc0;
+  margin-bottom: 2px;
+}
+
+.activity-mobile-dialog-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.activity-mobile-dialog-close {
+  border: none;
+  background: transparent;
+  color: #1a237e;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.activity-mobile-dialog-gallery {
+  position: relative;
+  background: #111;
+  aspect-ratio: 4 / 3;
+  max-height: 42vh;
+  overflow: hidden;
+}
+
+.activity-mobile-dialog-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.activity-mobile-dialog-gallery-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 650;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.activity-mobile-dialog-gallery-controls button {
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.activity-mobile-dialog-gallery-controls button:disabled {
+  opacity: 0.35;
+}
+
+.activity-mobile-dialog-body {
+  padding: 12px 14px 18px;
+  overflow: auto;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #333;
+}
+
+.activity-mobile-dialog-panel .mat-mdc-dialog-container,
+.activity-mobile-dialog-panel .mdc-dialog__surface {
+  padding: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}

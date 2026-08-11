@@ -1,0 +1,61 @@
+<div class="activity-mobile-dialog">
+  <header class="activity-mobile-dialog-header">
+    <button
+      type="button"
+      class="activity-mobile-dialog-nav"
+      (click)="changeActivity(-1)"
+      [disabled]="activityIndex === 0"
+      aria-label="Actividad anterior"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <div class="activity-mobile-dialog-heading">
+      <span class="activity-mobile-dialog-meta">
+        {{ activityIndex + 1 }} / {{ total }}
+      </span>
+      <h2>{{ current.name }}</h2>
+    </div>
+
+    <button
+      type="button"
+      class="activity-mobile-dialog-nav"
+      (click)="changeActivity(1)"
+      [disabled]="activityIndex === total - 1"
+      aria-label="Actividad siguiente"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+
+    <button type="button" class="activity-mobile-dialog-close" (click)="close()" aria-label="Cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div
+    class="activity-mobile-dialog-gallery"
+    *ngIf="current.images?.length"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+  >
+    <img [src]="current.images[imageIndex]" [alt]="current.name" />
+    <div class="activity-mobile-dialog-gallery-controls" *ngIf="current.images.length > 1">
+      <button type="button" (click)="changeImage(-1)" [disabled]="imageIndex === 0">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <span>{{ imageIndex + 1 }} / {{ current.images.length }}</span>
+      <button
+        type="button"
+        (click)="changeImage(1)"
+        [disabled]="imageIndex === current.images.length - 1"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="activity-mobile-dialog-gallery empty" *ngIf="!current.images?.length">
+    <span>Sin imágenes</span>
+  </div>
+
+  <div class="activity-mobile-dialog-body" [innerHTML]="current.description"></div>
+</div>

@@ -1,5 +1,5 @@
-/* ============================================================================
-   ESTILOS BASE - PANEL DE EXPANSIÓN
+﻿/* ============================================================================
+   ESTILOS BASE - PANEL DE EXPANSIÃ“N
    ============================================================================ */
 
 /* Panel principal con borde lateral de color */
@@ -45,7 +45,7 @@ mat-expansion-panel {
   position: relative;
 }
 
-/* --- Sección de descripción --- */
+/* --- SecciÃ³n de descripciÃ³n --- */
 .activity-description {
   flex: 0 0 26%;
   padding: 5px;
@@ -63,7 +63,7 @@ mat-expansion-panel {
   margin: 0;
 }
 
-/* --- Galería: una imagen a la vez, más grande en desktop --- */
+/* --- GalerÃ­a: una imagen a la vez, mÃ¡s grande en desktop --- */
 .activity-image {
   flex: 1 1 48%;
   min-width: 0;
@@ -81,7 +81,7 @@ mat-expansion-panel {
   display: block;
 }
 
-/* Controles de navegación de galería (flechas laterales) */
+/* Controles de navegaciÃ³n de galerÃ­a (flechas laterales) */
 .gallery-controls {
   position: absolute;
   top: 50%;
@@ -118,7 +118,7 @@ mat-expansion-panel {
   cursor: not-allowed;
 }
 
-/* Contador de imágenes en desktop */
+/* Contador de imÃ¡genes en desktop */
 .desktop-image-counter {
   position: absolute;
   bottom: 12px;
@@ -135,7 +135,7 @@ mat-expansion-panel {
   z-index: 10;
 }
 
-/* --- Sección de mapa (40%) --- */
+/* --- SecciÃ³n de mapa (40%) --- */
 .activity-map {
   flex: 0 0 26%;
   height: 100%;
@@ -153,7 +153,7 @@ mat-expansion-panel {
   border-radius: 8px;
 }
 
-/* Marcadores DOM (Mapbox) — estilo Norge */
+/* Marcadores DOM (Mapbox) â€” estilo Norge */
 :host ::ng-deep .itinerary-marker {
   width: auto;
   min-width: 32px;
@@ -200,7 +200,7 @@ mat-expansion-panel {
   display: block;
 }
 
-/* --- Indicadores de navegación (puntos) --- */
+/* --- Indicadores de navegaciÃ³n (puntos) --- */
 .activity-navigation {
   display: flex;
   justify-content: flex-start;
@@ -278,495 +278,221 @@ mat-expansion-panel {
 
 
 /* ============================================================================
-   LAYOUT MOBILE
+   LAYOUT MOBILE (map-first)
    ============================================================================ */
 
 .mobile-layout {
   display: none;
 }
 
-/* --- Contenedor con scroll vertical --- */
-.mobile-scroll-container {
-  max-height: 60vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #1a237e transparent;
-}
-
-.mobile-scroll-container::-webkit-scrollbar {
-  width: 4px;
-}
-
-.mobile-scroll-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.mobile-scroll-container::-webkit-scrollbar-thumb {
-  background-color: #1a237e;
-  border-radius: 2px;
-}
-
-.mobile-scroll-container::-webkit-scrollbar-thumb:hover {
-  background-color: #3949ab;
-}
-
-/* --- Navegación sticky superior --- */
-.mobile-sticky-nav {
-  position: sticky;
-  top: 0;
-  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
-  color: white;
-  padding: 6px 12px;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.activity-counter {
-  font-size: 12px;
-  font-weight: 500;
-  opacity: 0.9;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.nav-controls {
-  display: flex;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.nav-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.nav-btn mat-icon {
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
-}
-
-.nav-btn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-.nav-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Indicadores de actividad en navegación */
-.mobile-activity-indicators {
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.mobile-activity-indicators::-webkit-scrollbar {
-  display: none;
-}
-
-.mobile-activity-indicator {
-  width: 5px;
-  height: 5px;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.mobile-activity-indicator.active {
-  background-color: white;
-  transform: scale(1.4);
-}
-
-.mobile-activity-indicator:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* --- Contenedor de actividad --- */
-.mobile-activity-content {
-  padding: 0;
-}
-
-/* --- Título de actividad --- */
-.activity-title {
-  padding: 16px 14px 12px;
-  background: white;
-}
-
-.activity-title h2 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1a237e;
-  line-height: 1.3;
-}
-
-/* --- Galería de imágenes mobile --- */
-.mobile-image-gallery {
+.mobile-map-hero {
   position: relative;
-  background: #f8f9fa;
-  padding: 0;
-}
-
-.gallery-scroll-container {
   width: 100%;
-  height: 250px;
+  height: 62vh;
+  min-height: 320px;
   overflow: hidden;
-  position: relative;
+  border-radius: 0 0 8px 8px;
+  background: #e8eaf6;
 }
 
-.gallery-track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.3s ease;
-}
-
-.gallery-slide {
-  flex: 0 0 100%;
-  height: 100%;
-}
-
-.gallery-slide img {
+.mobile-map-hero .activity-map {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  min-height: 0;
+  max-height: none;
+  flex: none;
+  border-radius: 0;
 }
 
-/* Contador de imágenes en galería mobile */
-.image-counter {
+.mobile-stage-bar {
   position: absolute;
-  bottom: 8px;
-  right: 16px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-/* Puntos indicadores de galería */
-.gallery-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 0;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
-  background-color: #1a237e;
-  transform: scale(1.2);
-}
-
-.dot:hover {
-  background-color: #1a237e;
-}
-
-/* --- Descripción de actividad mobile --- */
-.mobile-activity-description {
-  padding: 16px 0;
-  background: white;
-  max-height: 200px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: #1a237e transparent;
-}
-
-.mobile-activity-description::-webkit-scrollbar {
-  width: 4px;
-}
-
-.mobile-activity-description::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.mobile-activity-description::-webkit-scrollbar-thumb {
-  background-color: #1a237e;
-  border-radius: 2px;
-}
-
-.mobile-activity-description::-webkit-scrollbar-thumb:hover {
-  background-color: #3949ab;
-}
-
-.description-content {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #333;
-  white-space: pre-line;
-}
-
-/* --- Sección de mapa mobile --- */
-.mobile-map-section {
-  background: #f8f9fa;
-  padding: 14px 0;
-  margin-bottom: 12px;
-}
-
-.map-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.map-header h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #1a237e;
-}
-
-.map-header-actions {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 6px;
+  padding: 6px 6px 6px 4px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  pointer-events: auto;
 }
 
-.map-rescale-btn {
-  background: #1a237e;
-  color: white;
+.mobile-stage-nav,
+.mobile-stage-more {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
   border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 0;
+  color: #1a237e;
+  background: transparent;
+}
+
+.mobile-stage-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mobile-stage-nav mat-icon,
+.mobile-stage-more mat-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.mobile-stage-more {
+  background: transparent;
+  color: #1a237e;
+}
+
+.mobile-stage-current {
+  flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 7px;
+  color: #1a237e;
+}
+
+.mobile-stage-num {
+  flex-shrink: 0;
+  min-width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  color: #1a237e;
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-stage-name {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 650;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.map-rescale-btn:hover {
-  background: #3949ab;
-  transform: translateY(-1px);
+.mobile-map-actions {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
 }
 
-.map-rescale-btn mat-icon {
+.mobile-map-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(26, 35, 126, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-map-action mat-icon {
   font-size: 16px;
   width: 16px;
   height: 16px;
 }
 
-.map-route-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: 50%;
-  border: none;
-  background: #1a237e;
-  color: white;
-  cursor: pointer;
-}
-
-.map-route-btn mat-icon {
-  font-size: 18px;
-}
-
-.mobile-map-container {
-  height: 200px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-map-container .activity-map {
-  height: 100%;
-  border-radius: 8px;
-}
-
-
 /* ============================================================================
    MEDIA QUERIES - RESPONSIVE
    ============================================================================ */
 
-/* --- Tablets y móviles (max-width: 768px) --- */
+/* --- Tablets y mÃ³viles (max-width: 768px) --- */
 @media (max-width: 768px) {
-  /* Cambiar a layout mobile */
   .desktop-layout {
     display: none;
   }
-  
+
   .mobile-layout {
     display: block;
   }
-  
-  /* Optimizar panel de expansión */
+
   mat-expansion-panel {
     margin-bottom: 4px;
     border-radius: 8px;
   }
-  
+
   mat-expansion-panel-header {
     padding: 8px 12px;
     min-height: 40px;
   }
-  
+
   mat-expansion-panel-header mat-panel-title {
     font-size: 15px;
     font-weight: 600;
     line-height: 1.2;
   }
-  
-  /* Eliminar padding del contenido del panel */
+
   .mat-expansion-panel-body {
     padding: 0 !important;
   }
-  
-  /* Ajustar altura del scroll container */
-  .mobile-scroll-container {
-    max-height: 60vh;
-  }
-  
-  /* Reducir altura de galería */
-  .gallery-scroll-container {
-    height: 200px;
-  }
-  
-  /* Reducir altura del mapa */
-  .mobile-map-container {
-    height: 160px;
+
+  .mobile-map-hero {
+    height: 64vh;
+    min-height: 340px;
   }
 }
 
-/* --- Móviles pequeños (max-width: 480px) --- */
+/* --- MÃ³viles pequeÃ±os (max-width: 480px) --- */
 @media (max-width: 480px) {
-  /* Aumentar espacio de scroll */
-  .mobile-scroll-container {
-    max-height: 65vh;
+  mat-expansion-panel-header {
+    padding: 6px 10px;
+    min-height: 36px;
   }
-  
-  /* Navegación más compacta */
-  .mobile-sticky-nav {
-    padding: 5px 10px;
-  }
-  
-  .nav-content {
-    gap: 6px;
-  }
-  
-  .nav-btn {
-    width: 26px;
-    height: 26px;
-  }
-  
-  .nav-btn mat-icon {
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-  }
-  
-  .activity-counter {
-    font-size: 11px;
-  }
-  
-  /* Indicadores más pequeños */
-  .mobile-activity-indicators {
-    gap: 3px;
-  }
-  
-  .mobile-activity-indicator {
-    width: 5px;
-    height: 5px;
-  }
-  
-  /* Título más compacto */
-  .activity-title {
-    padding: 12px 0 8px;
-  }
-  
-  .activity-title h2 {
-    font-size: 16px;
-    line-height: 1.2;
-  }
-  
-  /* Galería más pequeña */
-  .gallery-scroll-container {
-    height: 160px;
-  }
-  
-  .mobile-image-gallery {
-    padding: 0;
-  }
-  
-  /* Descripción más compacta */
-  .mobile-activity-description {
-    padding: 12px 0;
-    max-height: 150px;
-  }
-  
-  .description-content {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-  
-  /* Mapa más pequeño */
-  .mobile-map-container {
-    height: 140px;
-  }
-  
-  .mobile-map-section {
-    padding: 8px 0;
-    margin-bottom: 8px;
-  }
-  
-  .map-header {
-    margin-bottom: 8px;
-  }
-  
-  .map-header h3 {
+
+  mat-expansion-panel-header mat-panel-title {
     font-size: 14px;
   }
-  
-  .map-rescale-btn {
-    padding: 4px 8px;
+
+  .mobile-map-hero {
+    height: 68vh;
+    min-height: 360px;
+  }
+
+  .mobile-stage-bar {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .mobile-stage-name {
     font-size: 11px;
   }
-}
 
+  .mobile-map-actions {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .mobile-map-action {
+    padding: 6px 9px;
+    font-size: 10.5px;
+  }
+}
 
 /* ============================================================================
    ANIMACIONES
