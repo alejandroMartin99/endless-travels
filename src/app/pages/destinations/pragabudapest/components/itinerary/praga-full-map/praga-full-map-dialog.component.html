@@ -1,0 +1,53 @@
+<div class="praga-full-map-dialog">
+  <header class="praga-full-map-header">
+    <div class="praga-full-map-heading">
+      <h2>Mapa completo del viaje</h2>
+    </div>
+    <button type="button" class="praga-full-map-close" (click)="close()" aria-label="Cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div class="praga-full-map-days" role="tablist" aria-label="Días del viaje">
+    <button
+      type="button"
+      class="praga-full-map-day-chip"
+      *ngFor="let day of days"
+      [class.is-selected]="day.dayNumber === selectedDayNumber"
+      [class.region-praga]="regionForDay(day.dayNumber) === 'praga'"
+      [class.region-bratislava]="regionForDay(day.dayNumber) === 'bratislava'"
+      [class.region-budapest]="regionForDay(day.dayNumber) === 'budapest'"
+      (click)="selectDay(day.dayNumber)"
+      [attr.aria-selected]="day.dayNumber === selectedDayNumber"
+    >
+      {{ day.shortLabel }}
+    </button>
+  </div>
+
+  <div class="praga-full-map-body">
+    <div class="praga-full-map-canvas" #mapEl></div>
+
+    <aside class="praga-full-map-tasks" *ngIf="selectedDay as day">
+      <h3>Etapas · Día {{ day.dayNumber }}</h3>
+      <p class="praga-full-map-day-title">{{ day.title }}</p>
+      <ul>
+        <li *ngFor="let activity of day.activities; let i = index">
+          <button
+            type="button"
+            class="praga-full-map-task"
+            [class.is-focus]="i === focusedActivityIndex"
+            (click)="focusActivity(i)"
+          >
+            <span class="praga-full-map-task-code">{{ markerCode(day.dayNumber, i) }}</span>
+            <span class="praga-full-map-task-name">{{ activity.name }}</span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+  <p class="praga-full-map-hint">
+    Marcadores <strong>día.actividad</strong> (ej. 2.01). Rutas de todos los días; el activo destaca.
+    Praga en púrpura, Bratislava en ámbar, Budapest en rojo.
+  </p>
+</div>

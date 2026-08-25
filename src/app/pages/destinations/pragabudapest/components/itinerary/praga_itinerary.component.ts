@@ -1,4 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, Input, OnChanges, PLATFORM_ID, SimpleChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PragaFullMapDialogComponent } from './praga-full-map/praga-full-map-dialog.component';
 import { day01Praga } from './days/Day01';
 import { day02Praga } from './days/Day02';
 import { day03Praga } from './days/Day03';
@@ -16,6 +19,19 @@ import { day09Budapest } from './days/Day09';
 export class PragaItineraryComponent  implements OnChanges{
 
   @Input() currentTab!: number;
+
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly dialog = inject(MatDialog);
+
+  openFullMap(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.dialog.open(PragaFullMapDialogComponent, {
+      panelClass: 'praga-full-map-panel',
+      maxWidth: '98vw',
+      width: '1360px',
+      autoFocus: false,
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     const currentTabChange = changes['currentTab'];

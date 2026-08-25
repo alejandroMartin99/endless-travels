@@ -22,6 +22,7 @@ import { InitJapanComponent } from './destinations/japan/components/inicio/init-
 import { JapanPriceComponent } from './destinations/japan/components/price/price.component';
 import { JapanCalendarComponent } from './destinations/japan/components/itinerary/JapanCalendar/JapanCalendar.component';
 import { JapanFullMapDialogComponent } from './destinations/japan/components/itinerary/japan-full-map/japan-full-map-dialog.component';
+import { PragaFullMapDialogComponent } from './destinations/pragabudapest/components/itinerary/praga-full-map/praga-full-map-dialog.component';
 import { PragaItineraryComponent } from './destinations/pragabudapest/components/itinerary/praga_itinerary.component';
 import { PragaBudapestCalendarComponent } from './destinations/pragabudapest/components/itinerary/calendar/PragaBudapestCalendar.component';
 import { PragaBudapestRecomendationsComponent } from './destinations/pragabudapest/components/recomendations/praga_recomendations.component';
@@ -72,6 +73,7 @@ import { NorgeDayItineraryComponent } from './destinations/norge/components/norg
     JapanPriceComponent,
     JapanCalendarComponent,
     JapanFullMapDialogComponent,
+    PragaFullMapDialogComponent,
     PragaItineraryComponent,
     PragaBudapestCalendarComponent,
     PragaBudapestRecomendationsComponent,

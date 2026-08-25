@@ -1,0 +1,281 @@
+.praga-full-map-dialog {
+  display: flex;
+  flex-direction: column;
+  height: min(92vh, 940px);
+  width: min(98vw, 1360px);
+  max-width: 100%;
+  background: #f7f8fc;
+  color: #1a237e;
+}
+
+.praga-full-map-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 8px;
+}
+
+.praga-full-map-heading h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.praga-full-map-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #1a237e;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.praga-full-map-close:hover {
+  background: rgba(26, 35, 126, 0.08);
+}
+
+.praga-full-map-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 10px;
+}
+
+.praga-full-map-day-chip {
+  border: 1px solid #e1bee7;
+  background: #fff;
+  color: #7B1FA2;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.praga-full-map-day-chip.region-bratislava {
+  border-color: #ffe082;
+  color: #F9A825;
+}
+
+.praga-full-map-day-chip.region-budapest {
+  border-color: #ffcdd2;
+  color: #C62828;
+}
+
+.praga-full-map-day-chip.region-praga.is-selected {
+  background: #6A1B9A;
+  border-color: #6A1B9A;
+  color: #fff;
+}
+
+.praga-full-map-day-chip.region-bratislava.is-selected {
+  background: #F9A825;
+  border-color: #F9A825;
+  color: #fff;
+}
+
+.praga-full-map-day-chip.region-budapest.is-selected {
+  background: #C62828;
+  border-color: #C62828;
+  color: #fff;
+}
+
+.praga-full-map-body {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-height: 360px;
+  padding: 0 12px;
+}
+
+.praga-full-map-canvas {
+  flex: 1;
+  min-width: 0;
+  min-height: 360px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d7dbea;
+}
+
+.praga-full-map-tasks {
+  width: 260px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #d7dbea;
+  border-radius: 10px;
+  padding: 10px 8px;
+  overflow: auto;
+  max-height: 100%;
+}
+
+.praga-full-map-tasks h3 {
+  margin: 0 6px 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+.praga-full-map-day-title {
+  margin: 0 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #5c6478;
+}
+
+.praga-full-map-tasks ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.praga-full-map-task {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  border: 1px solid transparent;
+  background: #f7f8fc;
+  border-radius: 8px;
+  padding: 7px 8px;
+  cursor: pointer;
+  color: #1a237e;
+}
+
+.praga-full-map-task:hover,
+.praga-full-map-task.is-focus {
+  border-color: #c5cae9;
+  background: #e8eaf6;
+}
+
+.praga-full-map-task-code {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #7B1FA2;
+  color: #fff;
+  border-radius: 6px;
+  padding: 2px 5px;
+  line-height: 1.2;
+}
+
+.praga-full-map-dialog:has(.praga-full-map-day-chip.region-bratislava.is-selected) .praga-full-map-task-code {
+  background: #F9A825;
+}
+
+.praga-full-map-dialog:has(.praga-full-map-day-chip.region-budapest.is-selected) .praga-full-map-task-code {
+  background: #C62828;
+}
+
+.praga-full-map-task-name {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  font-weight: 550;
+}
+
+.praga-full-map-hint {
+  margin: 8px 16px 12px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.praga-full-marker {
+  width: auto;
+  min-width: 34px;
+  height: 24px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  cursor: default;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+  padding: 0 6px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.praga-full-marker.region-praga.is-dimmed {
+  background: #CE93D8;
+  color: #4A148C;
+  min-width: 30px;
+  height: 20px;
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+.praga-full-marker.region-praga.is-active {
+  background: #7B1FA2;
+  z-index: 2;
+}
+
+.praga-full-marker.region-praga.is-active.is-focus {
+  background: #4A148C;
+  transform: scale(1.08);
+}
+
+.praga-full-marker.region-bratislava.is-dimmed {
+  background: #FFE082;
+  color: #F57F17;
+  min-width: 30px;
+  height: 20px;
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+.praga-full-marker.region-bratislava.is-active {
+  background: #F9A825;
+  z-index: 2;
+}
+
+.praga-full-marker.region-bratislava.is-active.is-focus {
+  background: #F57F17;
+  transform: scale(1.08);
+}
+
+.praga-full-marker.region-budapest.is-dimmed {
+  background: #EF9A9A;
+  color: #B71C1C;
+  min-width: 30px;
+  height: 20px;
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+.praga-full-marker.region-budapest.is-active {
+  background: #C62828;
+  z-index: 2;
+}
+
+.praga-full-marker.region-budapest.is-active.is-focus {
+  background: #B71C1C;
+  transform: scale(1.08);
+}
+
+@media (max-width: 800px) {
+  .praga-full-map-body {
+    flex-direction: column;
+  }
+
+  .praga-full-map-tasks {
+    width: 100%;
+    max-height: 160px;
+  }
+}
+
+.praga-full-map-panel .mat-mdc-dialog-container,
+.praga-full-map-panel .mdc-dialog__surface {
+  padding: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}

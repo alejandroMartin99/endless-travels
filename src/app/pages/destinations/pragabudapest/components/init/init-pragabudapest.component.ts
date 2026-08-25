@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, EventEmitter, inject, Output, PLATFORM_ID } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PragaFullMapDialogComponent } from '../itinerary/praga-full-map/praga-full-map-dialog.component';
 
 @Component({
   selector: 'init-pragabudapest-component',
@@ -10,6 +13,9 @@ export class InitPragabudapestComponent {
     number | { tab: number; anchor?: string }
   >();
 
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly dialog = inject(MatDialog);
+
   goToItineraryTab(tabIndex: number): void {
     this.goToItinerary.emit(tabIndex);
   }
@@ -17,6 +23,17 @@ export class InitPragabudapestComponent {
   /** Por ahora abre pestaña Itinerario; enlaces por ciudad cuando el día a día tenga anclas. */
   goToItinerarySection(): void {
     this.goToItinerary.emit({ tab: 2 });
+  }
+
+  openFullMap(event?: Event): void {
+    event?.stopPropagation();
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.dialog.open(PragaFullMapDialogComponent, {
+      panelClass: 'praga-full-map-panel',
+      maxWidth: '98vw',
+      width: '1360px',
+      autoFocus: false,
+    });
   }
 
   readonly viaje = {
