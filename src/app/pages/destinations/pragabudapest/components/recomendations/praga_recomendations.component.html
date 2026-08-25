@@ -1,52 +1,58 @@
-<div class="reco-lux">
-  <header class="reco-lux-hero">
-    <p class="reco-lux-eyebrow">Praga · Bratislava · Budapest</p>
-    <h1 class="reco-lux-title">Recomendaciones</h1>
-    <p class="reco-lux-lede">
-      Una guía sobria del viaje real: donde descansamos, cómo enlazamos ciudades y, al final,
-      algunas mesas memorables si quieres profundizar.
-    </p>
-    <nav class="reco-lux-nav" aria-label="Secciones">
-      <a class="reco-lux-nav-link" href="#reco-stays">Alojamientos</a>
-      <span class="reco-lux-nav-dot" aria-hidden="true"></span>
-      <a class="reco-lux-nav-link" href="#reco-mobility">Movilidad</a>
-      <span class="reco-lux-nav-dot" aria-hidden="true"></span>
-      <a class="reco-lux-nav-link reco-lux-nav-link--muted" href="#reco-dining">Mesas</a>
-    </nav>
-  </header>
+<div class="content-container">
+  <div class="user-guide">
+    <div class="guide-header">
+      <h2 class="guide-title">Guía Esencial · Praga, Bratislava y Budapest</h2>
+    </div>
 
-  <div class="reco-lux-sections">
-    <section id="reco-stays" class="reco-lux-section reco-lux-section--primary">
-      <div class="reco-lux-section-head">
-        <span class="reco-lux-index">01</span>
-        <h2 class="reco-lux-section-title">Alojamientos</h2>
-        <p class="reco-lux-section-sub">Estancias reservadas en ruta, con referencia de fechas y precio pagado.</p>
-      </div>
-      <div class="reco-lux-section-body">
-        <pragabudapest-accommodation-recomendations-component></pragabudapest-accommodation-recomendations-component>
-      </div>
-    </section>
+    <div class="summary-section">
+      <div class="reference-grid">
+        <div
+          class="reference-item"
+          [class.active]="activeTab === 'hotels'"
+          (click)="selectTab('hotels')"
+        >
+          <div class="reference-icon">🏨</div>
+          <h4>Alojamiento</h4>
+          <p>Tres bases: Praga, Bratislava y Budapest. Precios y fechas reales de octubre 2024.</p>
+        </div>
 
-    <section id="reco-mobility" class="reco-lux-section">
-      <div class="reco-lux-section-head">
-        <span class="reco-lux-index">02</span>
-        <h2 class="reco-lux-section-title">Movilidad</h2>
-        <p class="reco-lux-section-sub">Vuelos, tren y autobús tal como los usamos entre capitales.</p>
-      </div>
-      <div class="reco-lux-section-body">
-        <pragabudapest-transport-recomendations-component></pragabudapest-transport-recomendations-component>
-      </div>
-    </section>
+        <div
+          class="reference-item"
+          [class.active]="activeTab === 'transport'"
+          (click)="selectTab('transport')"
+        >
+          <div class="reference-icon">🚆</div>
+          <h4>Transporte</h4>
+          <p>Vuelos Ryanair + tren Praga–Bratislava + bus Bratislava–Budapest.</p>
+        </div>
 
-    <section id="reco-dining" class="reco-lux-section reco-lux-section--dining">
-      <div class="reco-lux-section-head">
-        <span class="reco-lux-index">03</span>
-        <h2 class="reco-lux-section-title">Mesas</h2>
-        <p class="reco-lux-section-sub">Selección gastronómica por ciudad — plegada por defecto para no saturar la lectura.</p>
+        <div
+          class="reference-item"
+          [class.active]="activeTab === 'restaurants'"
+          (click)="selectTab('restaurants')"
+        >
+          <div class="reference-icon">🍽️</div>
+          <h4>Comida</h4>
+          <p>Selección por ciudad con mapas y fotos de las mesas que probamos.</p>
+        </div>
       </div>
-      <div class="reco-lux-section-body">
-        <pragabudapest-restaurant-recomendations-component></pragabudapest-restaurant-recomendations-component>
-      </div>
-    </section>
+    </div>
+  </div>
+
+  <div class="content-sections">
+    <div class="content-section" [class.active]="activeTab === 'hotels'">
+      <pragabudapest-accommodation-recomendations-component></pragabudapest-accommodation-recomendations-component>
+    </div>
+
+    <div
+      class="content-section keep-maps"
+      [class.active]="activeTab === 'transport'"
+    >
+      <pragabudapest-transport-recomendations-component></pragabudapest-transport-recomendations-component>
+    </div>
+
+    <div class="content-section" [class.active]="activeTab === 'restaurants'">
+      <pragabudapest-restaurant-recomendations-component></pragabudapest-restaurant-recomendations-component>
+    </div>
   </div>
 </div>

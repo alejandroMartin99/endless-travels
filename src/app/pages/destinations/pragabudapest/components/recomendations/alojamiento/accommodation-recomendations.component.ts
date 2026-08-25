@@ -14,6 +14,8 @@ interface Accommodation {
   images: string[];
   longitude: number;
   latitude: number;
+  bookingUrl?: string;
+  bookingLabel?: string;
 }
 
 @Component({
@@ -52,6 +54,8 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
         '/assets/budapest/recomendations/Narodni_3.jpg',
         '/assets/budapest/recomendations/Narodni_4.jpg',
       ],
+      bookingUrl: 'https://www.booking.com/hotel/cz/narodni-stay.es.html',
+      bookingLabel: 'Ver en Booking',
       longitude: 14.4177,
       latitude: 50.0815
     },
@@ -75,6 +79,8 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
         '/assets/budapest/recomendations/BlueBell%20Hotel_2.jpg',
         '/assets/budapest/recomendations/BlueBell%20Hotel_3.jpg',
       ],
+      bookingUrl: 'https://www.booking.com/hotel/sk/bluebell-b-amp-b.es.html',
+      bookingLabel: 'Ver en Booking',
       longitude: 17.1077,
       latitude: 48.1486
     },
@@ -85,22 +91,24 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
       dates: '29 oct 2024 – 5 nov 2024',
       price: 'Precio total: ~350€',
       rating: 4.7,
-      description: 'Un apartamento moderno y acogedor ubicado en el corazón de Budapest, perfecto para una estancia prolongada. El apartamento ofrece todas las comodidades de un hogar, incluyendo cocina completamente equipada, espacio de trabajo y una ubicación excelente que permite explorar tanto Buda como Pest con facilidad. La experiencia de alojarse en un apartamento local añade autenticidad al viaje.',
+      description:
+        'Lo reservamos por Airbnb: estudio moderno y luminoso en Budapest, con cocina, espacio amplio y buena base para moverse entre Buda y Pest. Ideal para una estancia de varios días con comodidades de casa.',
       features: [
+        'Reservado en Airbnb',
         'Ubicación céntrica en Budapest',
         'Cocina completamente equipada',
         'Espacio amplio y cómodo',
-        'Experiencia local auténtica',
-        'Excelente relación precio-calidad'
+        'Excelente relación precio-calidad',
       ],
       images: [
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800',
-        'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800'
+        '/assets/budapest/recomendations/Airbnb_Budapest_01.png',
+        '/assets/budapest/recomendations/Airbnb_Budapest_02.png',
       ],
+      bookingUrl: 'https://www.airbnb.es/rooms/625755446887343313',
+      bookingLabel: 'Ver en Airbnb',
       longitude: 19.0402,
-      latitude: 47.4979
-    }
+      latitude: 47.4979,
+    },
   ];
 
   ngOnInit(): void {
@@ -155,7 +163,7 @@ export class AccommodationRecomendationsComponent implements OnInit, AfterViewIn
 
       map.on('load', () => {
         const marker = new mapboxgl.Marker({
-          color: '#6e5d43'
+          color: '#1a237e'
         })
           .setLngLat([accommodation.longitude, accommodation.latitude])
           .setPopup(new mapboxgl.Popup().setHTML(`<strong>${accommodation.name}</strong><br>${accommodation.location}`))

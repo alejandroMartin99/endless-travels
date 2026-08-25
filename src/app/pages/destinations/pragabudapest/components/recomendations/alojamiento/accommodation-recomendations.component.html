@@ -24,6 +24,16 @@
         <div class="accommodation-features">
           <span *ngFor="let feature of accommodation.features" class="feature-tag">{{ feature }}</span>
         </div>
+        <div class="booking-section" *ngIf="accommodation.bookingUrl">
+          <a
+            [href]="accommodation.bookingUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="booking-button"
+          >
+            {{ accommodation.bookingLabel || 'Ver reserva' }}
+          </a>
+        </div>
         <div class="accommodation-map-container">
           <div class="accommodation-map">
             <div *ngIf="accommodation.id === 'praga'" #mapPraga class="map"></div>

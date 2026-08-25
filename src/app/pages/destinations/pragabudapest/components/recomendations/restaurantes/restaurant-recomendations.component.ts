@@ -413,7 +413,7 @@ export class RestaurantRecomendationsComponent implements OnInit, AfterViewInit,
     restaurants.forEach((restaurant, index) => {
       const isActive = index === this.activeRestaurantIndex[cityId];
       const marker = new mapboxgl.Marker({
-        color: isActive ? '#6e5d43' : '#c4c1bc',
+        color: isActive ? '#1a237e' : '#90A4AE',
       })
         .setLngLat([restaurant.longitude, restaurant.latitude])
         .setPopup(new mapboxgl.Popup().setHTML(`<strong>${restaurant.name}</strong>`))

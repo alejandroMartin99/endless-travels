@@ -1,8 +1,8 @@
 :host {
-  --ink: #141211;
-  --muted: #5e5c59;
-  --line: rgba(20, 18, 17, 0.1);
-  --accent: #6e5d43;
+  --ink: #333;
+  --muted: #555;
+  --line: #e0e0e0;
+  --accent: #1a237e;
   --surface: #ffffff;
   display: block;
 }
@@ -18,13 +18,24 @@
 }
 
 .section-title {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--accent);
   margin: 0 0 0.5rem;
+  padding-left: 12px;
+  position: relative;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #1a237e;
+  border-radius: 2px;
 }
 
 .section-intro {
@@ -44,6 +55,9 @@
 .city-disclosure {
   border: 1px solid var(--line);
   background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .city-disclosure-summary {
@@ -54,9 +68,9 @@
   gap: 1rem;
   padding: 1rem 1.1rem;
   cursor: pointer;
-  font-family: Georgia, serif;
   font-size: 1.05rem;
-  color: var(--ink);
+  font-weight: 600;
+  color: var(--accent);
   user-select: none;
 }
 
@@ -143,6 +157,8 @@
   border: 1px solid var(--line);
   background: #fff;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .restaurant-image-gallery {
@@ -218,10 +234,9 @@
 
 .restaurant-header h4 {
   margin: 0;
-  font-family: Georgia, serif;
   font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--ink);
+  font-weight: 600;
+  color: var(--accent);
   line-height: 1.25;
 }
 

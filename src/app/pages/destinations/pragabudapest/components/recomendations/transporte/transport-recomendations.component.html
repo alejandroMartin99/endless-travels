@@ -57,20 +57,27 @@
     <div class="maps-container">
       <div class="map-item">
         <div class="transport-map-wrapper">
-          <a 
-            [href]="trainMapDirectionsUrl" 
-            target="_blank" 
+          <div class="map-loader" *ngIf="!mapLoaded.train" aria-hidden="true">
+            <div class="map-loader-spinner"></div>
+            <span>Cargando mapa…</span>
+          </div>
+          <a
+            [href]="trainMapDirectionsUrl"
+            target="_blank"
             rel="noopener noreferrer"
-            class="transport-map-link">
-            <iframe 
+            class="transport-map-link"
+          >
+            <iframe
               [src]="trainMapIframeUrl"
               class="transport-map-container"
+              [class.is-ready]="mapLoaded.train"
               frameborder="0"
               allowfullscreen
-              loading="lazy"
+              loading="eager"
               referrerpolicy="no-referrer-when-downgrade"
-              style="pointer-events: none;">
-            </iframe>
+              style="pointer-events: none;"
+              (load)="onMapLoad('train')"
+            ></iframe>
             <div class="map-overlay">
               <span class="map-overlay-text">Haz clic para ver en Google Maps</span>
             </div>
@@ -80,20 +87,27 @@
 
       <div class="map-item">
         <div class="transport-map-wrapper">
-          <a 
-            [href]="busMapDirectionsUrl" 
-            target="_blank" 
+          <div class="map-loader" *ngIf="!mapLoaded.bus" aria-hidden="true">
+            <div class="map-loader-spinner"></div>
+            <span>Cargando mapa…</span>
+          </div>
+          <a
+            [href]="busMapDirectionsUrl"
+            target="_blank"
             rel="noopener noreferrer"
-            class="transport-map-link">
-            <iframe 
+            class="transport-map-link"
+          >
+            <iframe
               [src]="busMapIframeUrl"
               class="transport-map-container"
+              [class.is-ready]="mapLoaded.bus"
               frameborder="0"
               allowfullscreen
-              loading="lazy"
+              loading="eager"
               referrerpolicy="no-referrer-when-downgrade"
-              style="pointer-events: none;">
-            </iframe>
+              style="pointer-events: none;"
+              (load)="onMapLoad('bus')"
+            ></iframe>
             <div class="map-overlay">
               <span class="map-overlay-text">Haz clic para ver en Google Maps</span>
             </div>
@@ -122,20 +136,27 @@
         </div>
         <div class="osario-map-wrapper">
           <div class="transport-map-wrapper">
-            <a 
-              [href]="osarioMapDirectionsUrl" 
-              target="_blank" 
+            <div class="map-loader" *ngIf="!mapLoaded.osario" aria-hidden="true">
+              <div class="map-loader-spinner"></div>
+              <span>Cargando mapa…</span>
+            </div>
+            <a
+              [href]="osarioMapDirectionsUrl"
+              target="_blank"
               rel="noopener noreferrer"
-              class="transport-map-link">
-              <iframe 
+              class="transport-map-link"
+            >
+              <iframe
                 [src]="osarioMapIframeUrl"
                 class="transport-map-container"
+                [class.is-ready]="mapLoaded.osario"
                 frameborder="0"
                 allowfullscreen
-                loading="lazy"
+                loading="eager"
                 referrerpolicy="no-referrer-when-downgrade"
-                style="pointer-events: none;">
-              </iframe>
+                style="pointer-events: none;"
+                (load)="onMapLoad('osario')"
+              ></iframe>
               <div class="map-overlay">
                 <span class="map-overlay-text">Haz clic para ver en Google Maps</span>
               </div>

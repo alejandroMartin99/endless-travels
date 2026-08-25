@@ -1,215 +1,190 @@
-.reco-lux {
-  --ink: #141211;
-  --muted: #5e5c59;
-  --line: rgba(20, 18, 17, 0.08);
-  --surface: #ffffff;
-  /* Subfondo de bloques de sección (gris muy claro / blanco roto) */
-  --section-tint: #f5f5f4;
-  --accent: #6e5d43;
-
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    sans-serif;
-  color: var(--ink);
-  background: var(--surface);
-  margin: 0 -1rem;
-  padding: 0 0 5rem;
-}
-
-.reco-lux-hero {
-  max-width: 52rem;
-  margin: 0 auto;
-  padding: 2.75rem 1.5rem 2.5rem;
+.guide-header {
   text-align: center;
-  border-bottom: 1px solid var(--line);
-  background: var(--surface);
+  margin-bottom: 10px;
 }
 
-.reco-lux-eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 1rem;
-  font-weight: 600;
+.guide-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #1a237e;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
 }
 
-.reco-lux-title {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  line-height: 1.12;
-  margin: 0 0 1rem;
-  letter-spacing: -0.02em;
+.summary-section {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.reco-lux-lede {
-  margin: 0 auto;
-  max-width: 38rem;
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--muted);
-  font-weight: 400;
-}
-
-.reco-lux-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem 0.75rem;
-  margin-top: 2rem;
-}
-
-.reco-lux-nav-link {
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.35rem 0;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.reco-lux-nav-link:hover,
-.reco-lux-nav-link:focus-visible {
-  border-bottom-color: var(--accent);
-  color: var(--accent);
-  outline: none;
-}
-
-.reco-lux-nav-link--muted {
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.reco-lux-nav-dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--line);
-  color: transparent;
-}
-
-.reco-lux-sections {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 3rem 1.25rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4.5rem;
-}
-
-.reco-lux-section {
-  scroll-margin-top: 6rem;
-}
-
-.reco-lux-section--primary {
-  padding-bottom: 0.5rem;
-}
-
-.reco-lux-section--dining {
-  opacity: 0.97;
-}
-
-.reco-lux-section-head {
+.reference-grid {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 1.25rem;
-  row-gap: 0.35rem;
-  align-items: baseline;
-  margin-bottom: 2rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-.reco-lux-index {
-  grid-row: 1 / span 2;
-  font-family: Georgia, serif;
-  font-size: 2.25rem;
-  color: var(--accent);
-  opacity: 0.45;
-  line-height: 1;
-  font-weight: 400;
+.reference-item {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.reco-lux-section-title {
-  grid-column: 2;
-  grid-row: 1;
+.reference-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.reference-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a237e;
+  margin: 0 0 8px 0;
+}
+
+.reference-item p {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
 }
 
-.reco-lux-section-sub {
-  grid-column: 2;
-  grid-row: 2;
+.reference-item.active {
+  background: #1a237e;
+  border-color: #1a237e;
+  color: #ffffff;
+}
+
+.reference-item.active .reference-icon,
+.reference-item.active h4,
+.reference-item.active p {
+  color: #ffffff;
+}
+
+.content-container {
+  padding: 0 200px;
+}
+
+.content-sections {
+  margin-top: 20px;
+  position: relative;
+}
+
+.content-section {
+  display: none;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1.25rem 1.5rem 1.75rem;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* Transporte: no usar display:none (los iframes de Maps se recargarían). */
+.content-section.keep-maps {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  padding: 0;
   margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.55;
-  max-width: 46rem;
+  border: 0;
+  box-shadow: none;
 }
 
-.reco-lux-section-body {
-  background: var(--section-tint);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  box-shadow: 0 1px 0 rgba(20, 18, 17, 0.04);
-  padding: 2rem 2rem 2.25rem;
+.content-section.keep-maps.active {
+  visibility: visible;
+  position: relative;
+  height: auto;
+  overflow: visible;
+  pointer-events: auto;
+  opacity: 1;
+  padding: 1.25rem 1.5rem 1.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.reco-lux-section--dining .reco-lux-section-body {
-  box-shadow: 0 1px 0 rgba(20, 18, 17, 0.03);
-  padding: 1.5rem 1.5rem 1.75rem;
-}
-
-@media (max-width: 900px) {
-  .reco-lux-section-body {
-    padding: 1.25rem 1rem 1.5rem;
+@media (max-width: 768px) {
+  .content-container {
+    padding: 20px 8px 0;
+    background: white;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
 
-  .reco-lux-sections {
-    gap: 3.5rem;
-    padding-top: 2.25rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .reco-lux {
-    margin: 0 -0.5rem;
+  .user-guide {
+    margin: 8px 0;
   }
 
-  .reco-lux-hero {
-    padding: 2rem 1rem 2rem;
+  .guide-title {
+    font-size: 1.6rem;
+    margin: 0 0 8px;
   }
 
-  .reco-lux-nav {
-    margin-top: 1.5rem;
+  .summary-section {
+    padding: 8px 4px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  .reco-lux-section-head {
+  .reference-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    gap: 6px;
   }
 
-  .reco-lux-index {
-    grid-row: auto;
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+  .reference-item {
+    padding: 14px 12px;
   }
 
-  .reco-lux-section-title,
-  .reco-lux-section-sub {
-    grid-column: 1;
-    grid-row: auto;
+  .reference-icon {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+
+  .reference-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .reference-item p {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .content-sections {
+    margin-top: 4px;
+  }
+
+  .content-section {
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 12px 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 0 2px;
+  }
+
+  .guide-title {
+    font-size: 1.4rem;
   }
 }
