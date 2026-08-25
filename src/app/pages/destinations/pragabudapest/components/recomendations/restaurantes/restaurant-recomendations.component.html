@@ -1,286 +1,132 @@
-<div class="restaurant-container">
-  <div class="section-header">
-    <h2 class="section-title">Por ciudad</h2>
-    <p class="section-intro">
-      Referencias tomadas durante el mismo circuito; despliega sólo donde te interese. Mapas cargan al abrir cada bloque.
+<div class="food-shell">
+  <header class="food-hero">
+    <p class="food-eyebrow">Mesas del viaje</p>
+    <h2 class="food-title">Dónde comimos</h2>
+    <p class="food-lede">
+      No una lista genérica: las mesas reales del circuito — Praga, Bratislava y Budapest —
+      con fotos, mapa y el enlace por si quieres repetir la experiencia.
     </p>
+  </header>
+
+  <nav class="food-tabs" role="tablist" aria-label="Comida por ciudad">
+    <button
+      type="button"
+      class="food-tab"
+      *ngFor="let tab of tabs"
+      [class.is-active]="activeTab === tab.id"
+      (click)="selectTab(tab.id)"
+    >
+      {{ tab.name }}
+    </button>
+  </nav>
+
+  <!-- Guía -->
+  <div class="food-panel" *ngIf="activeTab === 'guide'">
+    <div class="guide-grid">
+      <section class="guide-card guide-card--main">
+        <h3>Cómo se come en el circuito</h3>
+        <ul>
+          <li><strong>Precios</strong> — menú local ~12–25€; mira la carta antes de sentarte en terrazas turísticas.</li>
+          <li><strong>Horarios</strong> — comida 12–14h, cena desde las 18h; las cocinas cierran antes de lo que parece.</li>
+          <li><strong>Cerveza</strong> — en Chequia y Eslovaquia casi ritual; en Budapest, pub o un vino Tokaji.</li>
+          <li><strong>Pago</strong> — tarjeta casi siempre; coronas o forint de respaldo no estorban.</li>
+          <li><strong>Propina</strong> — ~10% si el servicio acompañó.</li>
+        </ul>
+      </section>
+
+      <section class="guide-card guide-card--tips">
+        <h3>Consejos rápidos</h3>
+        <ul>
+          <li>Reserva o llega pronto en Malá Strana, casco de Bratislava y Pest.</li>
+          <li>Praga: knedlíky, goulash, svíčková, rodilla.</li>
+          <li>Budapest: paprikás (nosotros en Lánchíd Söröző).</li>
+          <li>Mercados = picar bien al mediodía sin gastar de más.</li>
+        </ul>
+      </section>
+
+      <section class="guide-card guide-card--dishes">
+        <h3>Platos que merecen la pena</h3>
+        <div class="dish-chips">
+          <span>Goulash</span>
+          <span>Svíčková</span>
+          <span>Rodilla de cerdo</span>
+          <span>Trdelník</span>
+          <span>Halušky</span>
+          <span>Paprikás csirke</span>
+        </div>
+      </section>
+    </div>
   </div>
 
-  <div class="cities-wrapper">
-    <!-- Praga -->
-    <details class="city-disclosure" open (toggle)="onCityToggle($event, 'praga')">
-      <summary class="city-disclosure-summary">
-        <span class="city-disclosure-title">Praga</span>
-        <span class="city-disclosure-meta">{{ getRestaurantsForCity('praga').length }} direcciones</span>
-      </summary>
-      <div class="city-disclosure-body">
-        <div class="restaurant-layout">
-          <div class="restaurant-cards-section">
-            <div class="restaurant-navigation" *ngIf="getRestaurantsForCity('praga').length > 1">
-              <button
-                type="button"
-                class="text-nav-btn prev-text-btn"
-                (click)="prevRestaurant('praga')"
-                [disabled]="!canGoPrev('praga')">
-                Anterior
-              </button>
-              <div class="restaurant-counter-subtle">{{ getRestaurantCounter('praga') }}</div>
-              <button
-                type="button"
-                class="text-nav-btn next-text-btn"
-                (click)="nextRestaurant('praga')"
-                [disabled]="!canGoNext('praga')">
-                Siguiente
-              </button>
-            </div>
-            <div class="restaurant-cards-container">
-              <div class="restaurant-cards-wrapper">
-                <div
-                  *ngFor="let restaurant of getVisibleRestaurants('praga')"
-                  class="restaurant-card"
-                  [class.active]="isRestaurantActive(restaurant, 'praga')">
-                  <div class="restaurant-image-gallery">
-                    <img
-                      [src]="restaurant.images[getCurrentImageIndex(restaurant.id)]"
-                      [alt]="restaurant.name"
-                      class="restaurant-image"
-                      loading="lazy">
-                    <div class="image-counter" *ngIf="restaurant.images.length > 1">
-                      {{ getCurrentImageIndex(restaurant.id) + 1 }} / {{ restaurant.images.length }}
-                    </div>
-                    <div class="gallery-controls" *ngIf="restaurant.images.length > 1">
-                      <button
-                        type="button"
-                        class="gallery-btn prev"
-                        (click)="changeImage(restaurant.id, -1); $event.stopPropagation()"
-                        [disabled]="getCurrentImageIndex(restaurant.id) === 0">
-                        <mat-icon>chevron_left</mat-icon>
-                      </button>
-                      <button
-                        type="button"
-                        class="gallery-btn next"
-                        (click)="changeImage(restaurant.id, 1); $event.stopPropagation()"
-                        [disabled]="getCurrentImageIndex(restaurant.id) === restaurant.images.length - 1">
-                        <mat-icon>chevron_right</mat-icon>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="restaurant-info">
-                    <div class="restaurant-header">
-                      <h4>{{ restaurant.name }}</h4>
-                      <div class="restaurant-rating">{{ restaurant.rating }} / 5</div>
-                    </div>
-                    <p class="restaurant-type">{{ restaurant.type }}</p>
-                    <p class="restaurant-description">{{ restaurant.description }}</p>
-                    <div class="restaurant-details">
-                      <div *ngFor="let detail of restaurant.details" class="detail-item">{{ detail }}</div>
-                    </div>
-                    <a
-                      [href]="restaurant.googleMapsUrl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="google-maps-link">
-                      <mat-icon>place</mat-icon>
-                      <span>Google Maps</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <!-- Restaurantes -->
+  <div class="food-panel food-places" *ngIf="activeTab !== 'guide'">
+    <ng-container *ngIf="placesFor(activeTab).length; else emptyCity">
+      <article
+        class="meal-card"
+        *ngFor="let place of placesFor(activeTab); let i = index"
+        [style.--reveal-delay]="i * 70 + 'ms'"
+      >
+        <div class="meal-copy">
+          <p class="meal-kicker">{{ place.cityLabel }}</p>
+          <div class="meal-heading">
+            <h3>{{ place.name }}</h3>
+            <span class="meal-score">{{ place.rating }}</span>
           </div>
-          <div class="map-container">
-            <div #mapPragaContainer class="map"></div>
-            <button type="button" class="reset-zoom-button" (click)="fitAllMarkers('praga')" title="Reescalar mapa">
-              <span class="reset-zoom-text">Ajustar vista</span>
-              <mat-icon class="reset-zoom-icon">my_location</mat-icon>
-            </button>
+          <p class="meal-type">{{ place.type }}</p>
+          <p class="meal-desc">{{ place.description }}</p>
+          <ul class="meal-meta">
+            <li *ngFor="let d of place.details">{{ d }}</li>
+          </ul>
+          <div class="meal-actions">
+            <a
+              class="meal-btn meal-btn--primary"
+              [href]="place.googleMapsUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Abrir en Maps</a>
+            <a
+              *ngIf="place.websiteUrl"
+              class="meal-btn meal-btn--ghost"
+              [href]="place.websiteUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Web oficial</a>
           </div>
         </div>
-      </div>
-    </details>
 
-    <!-- Bratislava -->
-    <details class="city-disclosure" (toggle)="onCityToggle($event, 'bratislava')">
-      <summary class="city-disclosure-summary">
-        <span class="city-disclosure-title">Bratislava</span>
-        <span class="city-disclosure-meta">{{ getRestaurantsForCity('bratislava').length }} direcciones</span>
-      </summary>
-      <div class="city-disclosure-body">
-        <div class="restaurant-layout">
-          <div class="restaurant-cards-section">
-            <div class="restaurant-navigation" *ngIf="getRestaurantsForCity('bratislava').length > 1">
-              <button
-                type="button"
-                class="text-nav-btn prev-text-btn"
-                (click)="prevRestaurant('bratislava')"
-                [disabled]="!canGoPrev('bratislava')">
-                Anterior
-              </button>
-              <div class="restaurant-counter-subtle">{{ getRestaurantCounter('bratislava') }}</div>
-              <button
-                type="button"
-                class="text-nav-btn next-text-btn"
-                (click)="nextRestaurant('bratislava')"
-                [disabled]="!canGoNext('bratislava')">
-                Siguiente
-              </button>
-            </div>
-            <div class="restaurant-cards-container">
-              <div class="restaurant-cards-wrapper">
-                <div
-                  *ngFor="let restaurant of getVisibleRestaurants('bratislava')"
-                  class="restaurant-card"
-                  [class.active]="isRestaurantActive(restaurant, 'bratislava')">
-                  <div class="restaurant-image-gallery">
-                    <img
-                      [src]="restaurant.images[getCurrentImageIndex(restaurant.id)]"
-                      [alt]="restaurant.name"
-                      class="restaurant-image"
-                      loading="lazy">
-                    <div class="image-counter" *ngIf="restaurant.images.length > 1">
-                      {{ getCurrentImageIndex(restaurant.id) + 1 }} / {{ restaurant.images.length }}
-                    </div>
-                    <div class="gallery-controls" *ngIf="restaurant.images.length > 1">
-                      <button
-                        type="button"
-                        class="gallery-btn prev"
-                        (click)="changeImage(restaurant.id, -1); $event.stopPropagation()"
-                        [disabled]="getCurrentImageIndex(restaurant.id) === 0">
-                        <mat-icon>chevron_left</mat-icon>
-                      </button>
-                      <button
-                        type="button"
-                        class="gallery-btn next"
-                        (click)="changeImage(restaurant.id, 1); $event.stopPropagation()"
-                        [disabled]="getCurrentImageIndex(restaurant.id) === restaurant.images.length - 1">
-                        <mat-icon>chevron_right</mat-icon>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="restaurant-info">
-                    <div class="restaurant-header">
-                      <h4>{{ restaurant.name }}</h4>
-                      <div class="restaurant-rating">{{ restaurant.rating }} / 5</div>
-                    </div>
-                    <p class="restaurant-type">{{ restaurant.type }}</p>
-                    <p class="restaurant-description">{{ restaurant.description }}</p>
-                    <div class="restaurant-details">
-                      <div *ngFor="let detail of restaurant.details" class="detail-item">{{ detail }}</div>
-                    </div>
-                    <a
-                      [href]="restaurant.googleMapsUrl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="google-maps-link">
-                      <mat-icon>place</mat-icon>
-                      <span>Google Maps</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="meal-photo">
+          <img
+            [src]="currentImage(place).src"
+            [alt]="currentImage(place).caption"
+            loading="lazy"
+          />
+          <div class="meal-photo-nav" *ngIf="place.images.length > 1">
+            <button
+              type="button"
+              (click)="changeImage(place, -1)"
+              [disabled]="(imageIndex[place.id] || 0) === 0"
+              aria-label="Anterior"
+            >‹</button>
+            <span>{{ imageCounter(place) }}</span>
+            <button
+              type="button"
+              (click)="changeImage(place, 1)"
+              [disabled]="(imageIndex[place.id] || 0) >= place.images.length - 1"
+              aria-label="Siguiente"
+            >›</button>
           </div>
-          <div class="map-container">
-            <div #mapBratislavaContainer class="map"></div>
-            <button type="button" class="reset-zoom-button" (click)="fitAllMarkers('bratislava')" title="Reescalar mapa">
-              <span class="reset-zoom-text">Ajustar vista</span>
-              <mat-icon class="reset-zoom-icon">my_location</mat-icon>
-            </button>
-          </div>
+          <span class="meal-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
         </div>
-      </div>
-    </details>
 
-    <!-- Budapest -->
-    <details class="city-disclosure" (toggle)="onCityToggle($event, 'budapest')">
-      <summary class="city-disclosure-summary">
-        <span class="city-disclosure-title">Budapest</span>
-        <span class="city-disclosure-meta">{{ getRestaurantsForCity('budapest').length }} direcciones</span>
-      </summary>
-      <div class="city-disclosure-body">
-        <div class="restaurant-layout">
-          <div class="restaurant-cards-section">
-            <div class="restaurant-navigation" *ngIf="getRestaurantsForCity('budapest').length > 1">
-              <button
-                type="button"
-                class="text-nav-btn prev-text-btn"
-                (click)="prevRestaurant('budapest')"
-                [disabled]="!canGoPrev('budapest')">
-                Anterior
-              </button>
-              <div class="restaurant-counter-subtle">{{ getRestaurantCounter('budapest') }}</div>
-              <button
-                type="button"
-                class="text-nav-btn next-text-btn"
-                (click)="nextRestaurant('budapest')"
-                [disabled]="!canGoNext('budapest')">
-                Siguiente
-              </button>
-            </div>
-            <div class="restaurant-cards-container">
-              <div class="restaurant-cards-wrapper">
-                <div
-                  *ngFor="let restaurant of getVisibleRestaurants('budapest')"
-                  class="restaurant-card"
-                  [class.active]="isRestaurantActive(restaurant, 'budapest')">
-                  <div class="restaurant-image-gallery">
-                    <img
-                      [src]="restaurant.images[getCurrentImageIndex(restaurant.id)]"
-                      [alt]="restaurant.name"
-                      class="restaurant-image"
-                      loading="lazy">
-                    <div class="image-counter" *ngIf="restaurant.images.length > 1">
-                      {{ getCurrentImageIndex(restaurant.id) + 1 }} / {{ restaurant.images.length }}
-                    </div>
-                    <div class="gallery-controls" *ngIf="restaurant.images.length > 1">
-                      <button
-                        type="button"
-                        class="gallery-btn prev"
-                        (click)="changeImage(restaurant.id, -1); $event.stopPropagation()"
-                        [disabled]="getCurrentImageIndex(restaurant.id) === 0">
-                        <mat-icon>chevron_left</mat-icon>
-                      </button>
-                      <button
-                        type="button"
-                        class="gallery-btn next"
-                        (click)="changeImage(restaurant.id, 1); $event.stopPropagation()"
-                        [disabled]="getCurrentImageIndex(restaurant.id) === restaurant.images.length - 1">
-                        <mat-icon>chevron_right</mat-icon>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="restaurant-info">
-                    <div class="restaurant-header">
-                      <h4>{{ restaurant.name }}</h4>
-                      <div class="restaurant-rating">{{ restaurant.rating }} / 5</div>
-                    </div>
-                    <p class="restaurant-type">{{ restaurant.type }}</p>
-                    <p class="restaurant-description">{{ restaurant.description }}</p>
-                    <div class="restaurant-details">
-                      <div *ngFor="let detail of restaurant.details" class="detail-item">{{ detail }}</div>
-                    </div>
-                    <a
-                      [href]="restaurant.googleMapsUrl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="google-maps-link">
-                      <mat-icon>place</mat-icon>
-                      <span>Google Maps</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="map-container">
-            <div #mapBudapestContainer class="map"></div>
-            <button type="button" class="reset-zoom-button" (click)="fitAllMarkers('budapest')" title="Reescalar mapa">
-              <span class="reset-zoom-text">Ajustar vista</span>
-              <mat-icon class="reset-zoom-icon">my_location</mat-icon>
-            </button>
-          </div>
-        </div>
+        <div class="meal-map" #placeMap [attr.data-place-id]="place.id"></div>
+      </article>
+    </ng-container>
+
+    <ng-template #emptyCity>
+      <div class="empty-city">
+        <h3>Aún sin mesas aquí</h3>
+        <p>Cuando nos pases el restaurante, lo montamos con el mismo formato.</p>
       </div>
-    </details>
+    </ng-template>
   </div>
 </div>

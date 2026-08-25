@@ -68,7 +68,7 @@
 }
 
 .content-container {
-  padding: 0 200px;
+  padding: 0 24px;
 }
 
 .content-sections {
@@ -82,7 +82,7 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 1.25rem 1.5rem 1.75rem;
+  padding: 1rem 0.75rem 1.25rem;
 }
 
 .content-section.active {
@@ -112,7 +112,7 @@
   overflow: visible;
   pointer-events: auto;
   opacity: 1;
-  padding: 1.25rem 1.5rem 1.75rem;
+  padding: 1rem 0.75rem 1.25rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
